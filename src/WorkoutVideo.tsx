@@ -5,8 +5,10 @@ import {ExerciseScene} from './components/ExerciseScene';
 import {RestScreen} from './components/RestScreen';
 import {IntroScreen} from './components/IntroScreen';
 import {GreatJobScreen} from './components/GreatJobScreen';
+import {SafetyDisclaimerScreen} from './components/SafetyDisclaimerScreen';
 
 const OUTRO_SECONDS = 4;
+const DISCLAIMER_SECONDS = 5;
 
 export const workoutDurationInFrames = (workout: Workout) => {
   const fps = workout.fps ?? 30;
@@ -14,7 +16,7 @@ export const workoutDurationInFrames = (workout: Workout) => {
   const exerciseFrames = workout.exercises.reduce((total, exercise) => {
     return total + (exercise.duration + (exercise.restAfter ?? 0)) * fps;
   }, 0);
-  return intro + exerciseFrames + OUTRO_SECONDS * fps;
+  return intro + exerciseFrames + (OUTRO_SECONDS + DISCLAIMER_SECONDS) * fps;
 };
 
 export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
@@ -54,6 +56,10 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
 
       <Sequence from={cursor} durationInFrames={OUTRO_SECONDS * fps}>
         <GreatJobScreen subtitle="Workout complete!" />
+      </Sequence>
+
+      <Sequence from={cursor + OUTRO_SECONDS * fps} durationInFrames={DISCLAIMER_SECONDS * fps}>
+        <SafetyDisclaimerScreen />
       </Sequence>
     </AbsoluteFill>
   );
