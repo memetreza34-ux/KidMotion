@@ -53,28 +53,30 @@ Use the full 16:9 frame efficiently. Do not leave excessive dead space.
 
 Preferred composition:
 - character: large, centered, full body clearly visible
-- pose name: BOTTOM-LEFT, large and bold but NOT oversized
 - short execution instruction: TOP-LEFT, clearly readable and smaller than the pose name
-- TOP-RIGHT: keep clean for the Remotion circular 20-second timer
+- pose name: UPPER-RIGHT / MID-RIGHT, clearly readable but deliberately compact
+- TOP-RIGHT CORNER: keep a dedicated empty timer zone for the Remotion circular 20-second timer; the pose name must sit below or slightly left of that reserved timer zone
 - BOTTOM edge: keep enough safe space for Remotion progress UI
 
 The character may overlap the visual center, but must not block the text areas or future timer area.
 
 The standard KidMotion exercise layout is:
 
-`instruction top-left` + `character centered` + `timer top-right (Remotion)` + `pose name bottom-left` + `progress bottom (Remotion)`
+`instruction top-left` + `character centered` + `pose name upper-right/mid-right` + `timer top-right corner (Remotion)` + `progress bottom (Remotion)`
 
 The generated image itself must NOT contain the timer or progress bar.
 
 ## Text hierarchy — locked
 
 POSE NAME:
-- position: bottom-left
-- large, bold and highly readable
+- position: upper-right / mid-right
+- clearly visible and bold, but intentionally smaller than previous tests
 - use established KidMotion white lettering with dark navy outline/shadow and optional blue/lime accent shape
-- do NOT make it so large that it dominates the entire frame
-- target visual width: roughly 20–30% of the frame, depending on word length
-- keep comfortable margin from left and bottom edges
+- do NOT make it so large that it dominates the frame
+- target visual width: roughly 12–18% of the frame, depending on word length
+- keep it below or slightly left of the reserved timer corner
+- never overlap the timer area
+- keep comfortable margins from the right edge and from the character
 
 SHORT INSTRUCTION:
 - position: top-left
@@ -109,23 +111,24 @@ COMPOSITION:
 16:9 YouTube frame.
 Use the complete frame efficiently.
 Place the character large in the CENTER with the full pose visible from head to shoes.
-Reserve the BOTTOM-LEFT for the pose name.
 Reserve the TOP-LEFT for the short instruction.
-Keep the TOP-RIGHT clean because Remotion will add the circular 20-second countdown timer there.
+Place the pose name in the UPPER-RIGHT / MID-RIGHT area, but BELOW or slightly LEFT of the dedicated timer corner.
+Keep the extreme TOP-RIGHT corner clean because Remotion will add the circular 20-second countdown timer there.
 Keep a safe strip along the BOTTOM for the Remotion progress bar.
 Do not cover face, hands, feet or important joint positions with text.
 
 ON-IMAGE TEXT — REQUIRED FOR NORMAL EXERCISE SCENES:
-BOTTOM-LEFT — pose title: `[POSE NAME]`
 TOP-LEFT — short instruction: `[short execution instruction]`
+UPPER-RIGHT / MID-RIGHT — compact pose title: `[POSE NAME]`
 Optional keyword: `[only when useful]`
 
 POSE TITLE STYLE:
 - bold KidMotion athletic lettering
-- large, but not oversized
-- roughly 20–30% of frame width when possible
+- medium-small relative to the frame, not oversized
+- roughly 12–18% of frame width when possible
 - white letters with dark navy outline/shadow
 - optional subtle blue or lime accent shape
+- must remain visually secondary to the character
 
 INSTRUCTION STYLE:
 - clearly smaller than pose title
@@ -156,9 +159,10 @@ DO NOT GENERATE:
 - pose anatomically understandable
 - full body visible where necessary
 - character large and centered
-- pose name appears bottom-left and is not oversized
+- pose name appears upper-right / mid-right and is compact, not oversized
+- pose name does not overlap the reserved top-right timer corner
 - short instruction appears top-left and is smaller than pose name
-- top-right remains clear for Remotion timer
+- extreme top-right remains clear for Remotion timer
 - bottom safe area remains usable for Remotion progress bar
 - exact requested exercise / pose name is spelled correctly
 - short instruction is readable and technically matches the pose
