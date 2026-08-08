@@ -11,7 +11,7 @@ Jedes KidMotion-Video folgt standardmäßig dieser Reihenfolge:
 3. `02-start-cue` — kurze Startkarte wie `LET'S BEGIN!`
 4. erste Übung / Aktivität
 5. weitere Übungen mit Rest-/Übergangsscreens
-6. Outro / `GREAT JOB!`
+6. `outro` — Abschluss-/Belohnungsszene mit `GREAT JOB!`
 
 Diese Reihenfolge darf nur geändert werden, wenn der Nutzer es ausdrücklich verlangt.
 
@@ -152,6 +152,42 @@ Die Beschreibung soll kurz und praktisch sein. Sie erklärt die Ausführung, nic
 
 Name, Mini instruction und Caption dürfen nicht unnötig denselben Satz wiederholen.
 
+## HARTE REGEL — jedes Video endet mit einer positiven Abschluss-/Belohnungsszene
+Nach der letzten Übung kommt IMMER ein eigenes `outro`.
+
+Zweck:
+- dem Kind klar zeigen, dass das Workout beendet ist
+- positives Erfolgserlebnis erzeugen
+- KidMotion mit einem wiederkehrenden Abschlussritual versehen
+
+Standardinhalt:
+- große Hauptzeile: `GREAT JOB!`
+- kurze zweite Zeile passend zum Video, z. B.:
+  - `WORKOUT COMPLETE`
+  - `YOU DID ALL 5 MOVES!`
+  - `YOU DID IT!`
+  - `AMAZING WORK!`
+- dieselbe Hauptfigur oder beide KidMotion-Figuren in einer klaren Victory-/Celebration-Pose
+- freundlicher, sauberer KidMotion-Hintergrund
+- dezente Sterne, Konfetti oder Erfolgsformen erlaubt
+- KEIN Übungstimer
+- kein neuer Inhalt und keine weitere Übung
+
+Voice:
+- kurzer englischer Glückwunsch ist Standard
+- Beispiel: `Great job! You finished all five moves. Amazing work!`
+- Voice und sichtbarer Abschluss sollen zeitlich sauber zusammen enden
+
+Timing:
+- Standard: ca. 5 Sekunden
+- zulässiger Bereich: 3–8 Sekunden, wenn die Voice mehr oder weniger Zeit benötigt
+- kein leerer Nachlauf nach dem letzten gesprochenen Wort
+
+Remotion:
+- `GreatJobScreen` bzw. eine zentrale Outro-Komponente verwenden
+- leichte Celebration-Animationen dürfen aus Remotion kommen, z. B. Pop-in, Scale, Sterne oder Konfetti
+- Figur bleibt weiterhin ein statisches Bild; keine vollständige Charakteranimation erforderlich
+
 ## Standard-Timing
 Für das normale KidMotion-Follow-along-Format gilt:
 - Intro: typischerweise 8–18 s, abhängig vom Voice-Text
@@ -159,7 +195,7 @@ Für das normale KidMotion-Follow-along-Format gilt:
 - Start cue: optional 3…2…1…GO
 - Übung/Pose: EXAKT 20 s
 - Rest/transition: typischerweise 5–10 s
-- Outro/reward: 3–8 s
+- Outro/reward: Standard ca. 5 s, zulässig 3–8 s abhängig von Voice
 
 ## Remotion liefert
 - synchronisierte Intro-Text-Cues
@@ -175,13 +211,13 @@ Für das normale KidMotion-Follow-along-Format gilt:
 - transitions
 - image zoom/pan
 - rest screen
-- completion/reward screen
+- zentrale `GREAT JOB!`-Abschluss-/Belohnungsszene
 - optional SFX/music
 
 ## Statische Bilder
 Keine Szene darf davon abhängen, dass sich die Figur real animiert. Bei Bewegungen mit zwei wichtigen Zuständen können zwei statische Keyframes abwechselnd verwendet werden.
 
-Die Intro- und Startkarten-Figur bleibt ebenfalls ein Standbild. Bewegung entsteht durch dezente Remotion-Effekte wie langsamer Zoom, leichte Positionsverschiebung, Text-Einblendungen und Übergänge.
+Die Intro-, Startkarten- und Outro-Figur bleibt ebenfalls ein Standbild. Bewegung entsteht durch dezente Remotion-Effekte wie langsamer Zoom, leichte Positionsverschiebung, Text-Einblendungen, Sterne/Konfetti und Übergänge.
 
 ## Lesbarkeit
 - große, klare Schrift
