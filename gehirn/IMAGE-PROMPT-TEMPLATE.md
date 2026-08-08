@@ -53,38 +53,40 @@ Use the full 16:9 frame efficiently. Do not leave excessive dead space.
 
 Preferred composition:
 - character: large, centered, full body clearly visible
-- short execution instruction: TOP-LEFT, clearly readable and smaller than the pose name
-- pose name: UPPER-RIGHT / MID-RIGHT, clearly readable but deliberately compact
-- TOP-RIGHT CORNER: keep a dedicated empty timer zone for the Remotion circular 20-second timer; the pose name must sit below or slightly left of that reserved timer zone
+- pose name: BOTTOM-LEFT, bold but deliberately compact
+- short execution instruction: UPPER-RIGHT / MID-RIGHT, noticeably smaller and more polished than previous tests
+- EXTREME TOP-RIGHT CORNER: keep a dedicated empty timer zone for the Remotion circular 20-second timer
 - BOTTOM edge: keep enough safe space for Remotion progress UI
 
 The character may overlap the visual center, but must not block the text areas or future timer area.
 
 The standard KidMotion exercise layout is:
 
-`instruction top-left` + `character centered` + `pose name upper-right/mid-right` + `timer top-right corner (Remotion)` + `progress bottom (Remotion)`
+`character centered` + `pose name bottom-left` + `instruction upper-right/mid-right` + `timer extreme top-right corner (Remotion)` + `progress bottom (Remotion)`
 
 The generated image itself must NOT contain the timer or progress bar.
 
 ## Text hierarchy — locked
 
 POSE NAME:
-- position: upper-right / mid-right
+- position: bottom-left
 - clearly visible and bold, but intentionally smaller than previous tests
-- use established KidMotion white lettering with dark navy outline/shadow and optional blue/lime accent shape
-- do NOT make it so large that it dominates the frame
 - target visual width: roughly 12–18% of the frame, depending on word length
-- keep it below or slightly left of the reserved timer corner
-- never overlap the timer area
-- keep comfortable margins from the right edge and from the character
+- use established KidMotion white lettering with dark navy outline/shadow and optional restrained blue/lime accent shape
+- do NOT make it thumbnail-sized
+- keep comfortable margins from left and bottom edges
+- must remain visually secondary to the character
 
 SHORT INSTRUCTION:
-- position: top-left
-- smaller than the pose name
-- one short line whenever possible, maximum two short lines
-- simple clean dark navy or white text depending on contrast
+- position: upper-right / mid-right, BELOW or slightly LEFT of the reserved timer corner
+- noticeably smaller than the pose name
+- use a cleaner, more premium text treatment than the earlier chunky dark-blue test
+- preferred look: clean rounded sans-serif, semi-bold or bold, white or very light text with a subtle navy shadow/outline, or dark navy on a soft translucent/light panel when needed for contrast
+- avoid oversized letters and avoid heavy stacked 3–4-line blocks
+- target visual width: roughly 18–26% of the frame
+- one short line whenever possible; maximum two compact lines
 - should explain how to perform the pose, not its benefit
-- keep away from the timer zone in the top-right
+- must never overlap the timer zone
 
 ## Prompt structure
 ```text
@@ -111,29 +113,33 @@ COMPOSITION:
 16:9 YouTube frame.
 Use the complete frame efficiently.
 Place the character large in the CENTER with the full pose visible from head to shoes.
-Reserve the TOP-LEFT for the short instruction.
-Place the pose name in the UPPER-RIGHT / MID-RIGHT area, but BELOW or slightly LEFT of the dedicated timer corner.
+Place the pose name in the BOTTOM-LEFT.
+Place the short instruction in the UPPER-RIGHT / MID-RIGHT area, but BELOW or slightly LEFT of the dedicated timer corner.
 Keep the extreme TOP-RIGHT corner clean because Remotion will add the circular 20-second countdown timer there.
 Keep a safe strip along the BOTTOM for the Remotion progress bar.
 Do not cover face, hands, feet or important joint positions with text.
 
 ON-IMAGE TEXT — REQUIRED FOR NORMAL EXERCISE SCENES:
-TOP-LEFT — short instruction: `[short execution instruction]`
-UPPER-RIGHT / MID-RIGHT — compact pose title: `[POSE NAME]`
+BOTTOM-LEFT — compact pose title: `[POSE NAME]`
+UPPER-RIGHT / MID-RIGHT — short instruction: `[short execution instruction]`
 Optional keyword: `[only when useful]`
 
 POSE TITLE STYLE:
 - bold KidMotion athletic lettering
-- medium-small relative to the frame, not oversized
+- compact, not oversized
 - roughly 12–18% of frame width when possible
 - white letters with dark navy outline/shadow
-- optional subtle blue or lime accent shape
+- optional restrained blue or lime accent shape
 - must remain visually secondary to the character
 
 INSTRUCTION STYLE:
-- clearly smaller than pose title
-- concise and easy to read
-- one short line whenever possible
+- smaller than pose title
+- cleaner and more premium than the pose title
+- preferably clean rounded sans-serif
+- avoid very thick/chunky lettering
+- one short line whenever possible, maximum two compact lines
+- roughly 18–26% of frame width
+- subtle shadow/outline or soft panel for contrast
 
 Text must be:
 - English
@@ -159,9 +165,8 @@ DO NOT GENERATE:
 - pose anatomically understandable
 - full body visible where necessary
 - character large and centered
-- pose name appears upper-right / mid-right and is compact, not oversized
-- pose name does not overlap the reserved top-right timer corner
-- short instruction appears top-left and is smaller than pose name
+- pose name appears bottom-left and is compact, not oversized
+- short instruction appears upper-right / mid-right and is smaller, cleaner and more premium
 - extreme top-right remains clear for Remotion timer
 - bottom safe area remains usable for Remotion progress bar
 - exact requested exercise / pose name is spelled correctly
