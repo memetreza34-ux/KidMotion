@@ -9,10 +9,6 @@ Source of truth für die zwei wiederkehrenden Hauptfiguren. Für vollständige P
 - large expressive brown eyes
 - soft rounded facial features
 - slim, active, child-appropriate proportions
-- bright blue athletic T-shirt with subtle green accents
-- dark navy athletic shorts
-- white crew socks
-- blue-and-white sneakers
 - energetic, adventurous, sporty
 
 ## Girl
@@ -22,10 +18,6 @@ Source of truth für die zwei wiederkehrenden Hauptfiguren. Für vollständige P
 - large expressive brown eyes
 - soft rounded facial features
 - slim, active, child-appropriate proportions
-- turquoise athletic T-shirt with subtle purple accents
-- dark purple athletic leggings
-- white socks
-- turquoise-and-white sneakers
 - energetic, flexible, positive
 
 ## Locked identity rules
@@ -36,12 +28,47 @@ Nicht ohne ausdrückliche Freigabe ändern:
 - Haarfarbe
 - Frisur
 - Körperproportionen
-- Basis-Outfitfarben
 - Gesamt-3D-Stil
+
+## HARD RULE — Outfit ist NICHT immer gleich
+Die Identität der Figur bleibt gleich, aber Kleidung darf und soll passend zum Thema eines Videos gezielt wechseln.
+
+Beispiele:
+- Fußball-Workout → eigenes originales Fußball-Outfit + Fußballplatz / Trainingsfeld
+- Basketball-Workout → eigenes Basketball-Outfit + Basketballhalle
+- Tennis-Workout → eigenes Tennis-Outfit + Tennisplatz
+- Space-Workout → eigenes originales Space-/Astronauten-inspiriertes Sport-Outfit + Weltraumwelt
+- Superhelden-Workout → eigenes generisches Superhelden-inspiriertes Outfit + passende Fantasiewelt
+- Winter-Workout → Winter-/Sportkleidung + Winterwelt
+
+Die Outfit- und Themenwelt muss innerhalb EINER Episode konsistent bleiben, außer ein Szenenwechsel ist ausdrücklich Teil des Konzepts.
+
+## HARD RULE — keine fremden geschützten Charaktere oder Marken kopieren
+Themen dürfen von allgemeinen Genres inspiriert sein, aber KidMotion bleibt eine eigene Marke.
+
+Nicht verwenden / nicht 1:1 kopieren:
+- Spider-Man
+- Superman
+- Batman
+- Marvel-/DC-Figuren
+- Disney-/Pixar-Figuren
+- echte Vereinslogos / Markenlogos
+- geschützte Trikots oder eindeutig erkennbare Franchise-Designs
+
+Stattdessen immer eigene Varianten erstellen, z. B.:
+- `web hero workout` statt Spider-Man
+- `flying hero workout` statt Superman
+- `masked city hero workout`
+- eigener Fußballclub-Look ohne echtes Vereinslogo
 
 Erlaubt:
 - Pose
 - Gesichtsausdruck
 - Kamerawinkel
 - Hintergrund / Themenwelt
-- Aktivitätsbezogene Varianten, solange die Identität erhalten bleibt
+- komplett thematische Outfit-Varianten
+- sportartspezifische Kleidung
+- generische Fantasy-/Hero-/Adventure-Kostüme
+
+Kernprinzip:
+> SAME CHARACTER IDENTITY — DIFFERENT THEMED OUTFIT AND WORLD.
