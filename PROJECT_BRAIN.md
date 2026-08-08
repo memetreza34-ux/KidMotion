@@ -319,6 +319,82 @@ Visual motion can come from editing rather than character animation:
 - sound cues
 - scene transitions
 
+## Remotion production architecture — LOCKED DIRECTION
+
+KidMotion now uses **Remotion** as the primary video assembly/rendering system.
+
+Why Remotion:
+- static generated pose images can be turned into polished videos automatically
+- timers, countdowns, progress bars and labels are generated in code
+- video structure stays visually consistent across uploads
+- long-form and Shorts can share the same data-driven system
+- a workout can be changed by editing data instead of manually rebuilding the entire video
+
+Current Remotion foundation in the repository:
+- `package.json` with Remotion scripts and dependencies
+- `src/index.ts` Remotion entrypoint
+- `src/Root.tsx` compositions for 16:9 and 9:16
+- `src/WorkoutVideo.tsx` timeline builder
+- `src/types.ts` workout/exercise data model
+- `src/data/sample-workout.ts` example workout data
+- `src/components/Timer.tsx` countdown timer
+- `src/components/ProgressBar.tsx` exercise progress bar
+- `src/components/Countdown.tsx` pre-exercise 3-2-1-GO component
+- `src/components/ExerciseScene.tsx` standard exercise scene
+- `src/components/RestScreen.tsx` rest screen with next-exercise label
+- `public/poses/` for generated pose images
+
+Current render commands:
+
+```bash
+npm install
+npm run start
+npm run render
+npm run render:short
+```
+
+`npm run start` opens Remotion Studio for previewing.
+`npm run render` renders the 1920x1080 `KidMotionVideo` composition.
+`npm run render:short` renders the 1080x1920 `KidMotionShort` composition.
+
+### Current data-driven video flow
+
+```text
+workout data
+→ exercise title / instruction / duration / image
+→ Remotion timeline
+→ timer + progress bar + rest screen + static pose scene
+→ MP4 render
+```
+
+### Asset rule
+
+Generated exercise images go into `public/poses/` and are referenced from workout data using paths such as:
+
+```text
+poses/tree-pose.png
+```
+
+The sample workout currently references placeholder filenames. Real approved KidMotion pose images still need to be generated and added before the sample can render correctly.
+
+### Planned next Remotion upgrades
+
+- actual KidMotion brand colors and typography
+- circular/animated timer design
+- 3-2-1-GO sequence integrated into every exercise
+- next-exercise preview card
+- intro and outro templates
+- reward/completion screen
+- optional voiceover/audio support
+- SFX cues
+- background music support
+- slow zoom / pan / Ken Burns motion on static images
+- themed backgrounds
+- per-series visual themes
+- automatic thumbnail composition
+- JSON/TS workout input generator
+- reusable templates for yoga, quiz, adventure, education and Shorts
+
 ## Brand formula
 
 KidMotion should stay close to:
@@ -329,15 +405,15 @@ But always under the static-image production constraint.
 
 ## Production principle
 
-Current likely pipeline:
+Current production pipeline:
 
-idea → static-scene plan → exercise / learning plan → script / instructions → character references → pose image generation → background / themed scene generation → English voice → timer / labels / UI → editing motion effects → music / SFX → thumbnail → upload
+idea → static-scene plan → exercise / learning plan → script / instructions → character references → pose image generation → background / themed scene generation → workout data → Remotion → timer / labels / UI / transitions → English voice / music / SFX when available → MP4 → thumbnail → upload
 
 Character consistency is one of the highest-priority technical requirements.
 
 ## Current project phase
 
-PHASE 1 — Character definition and content system.
+PHASE 2 — Video system foundation.
 
 Approved so far:
 - project name: KidMotion
@@ -346,16 +422,21 @@ Approved so far:
 - current girl image
 - exact individual generation prompts
 - static-image-first production model
-- broad content system defined above
+- broad content system
+- Remotion selected as primary video-rendering architecture
+- first reusable Remotion components and sample workout added to the repository
 
 Next recommended work:
 1. give the characters names
 2. define voices and personalities
 3. define KidMotion brand colors / logo / typography
-4. define the exact static video template and timing system
-5. define 10–20 repeatable series formats
-6. create the first test episode
-7. build a repeatable production pipeline
+4. finalize exact timer, rest, intro, outro and progress UI
+5. generate real pose images for the first workout
+6. connect those images to the sample workout
+7. add audio/SFX support
+8. create the first full test episode
+9. define 10–20 repeatable series formats
+10. expand automation around workout-data generation
 
 ## Decision log
 
@@ -369,11 +450,15 @@ Next recommended work:
 - Preserved the original prompt direction because it produced the preferred look.
 - Clarified that the current KidMotion production model uses still images / static generated scenes rather than full character animation.
 - Reworked the content strategy so formats must be understandable through static poses, scene changes and editing overlays.
+- Selected Remotion as the primary automated video assembly/rendering system.
+- Added the first Remotion project scaffold, workout data model, timer, progress bar, countdown, rest screen and reusable exercise scene.
 
 ## Instruction to future agents
 
 Before changing character design, production format or core content assumptions, read this file and `characters/CHARACTER_BIBLE.md`.
 
-Do not assume full animation is available. The current default is STILL IMAGES / STATIC SCENES.
+Do not assume full animation is available. The current default is STILL IMAGES / STATIC SCENES assembled into video with Remotion.
+
+Do not replace Remotion with a manual-only editor unless the user explicitly changes direction.
 
 Do not overwrite established decisions merely because another generation looks different. Treat the approved reference images and prompts as the source of truth until the user explicitly approves a replacement.
