@@ -86,15 +86,56 @@ Timing:
 
 Remotion soll diese Startkarte als wiederverwendbare Komponente bauen, nicht als jedes Mal neu manuell gestaltete Szene.
 
+## HARTE REGEL — jede Übungsszene folgt demselben Grundlayout
+Nach der Startkarte folgen die eigentlichen Übungsszenen. Jede Übungsszene muss auf einen Blick verständlich sein, auch wenn die Figur selbst nur als statisches Bild vorliegt.
+
+Pflichtelemente jeder Übungsszene:
+1. eine klare statische Pose der gewählten KidMotion-Figur
+2. der englische Name der Übung / Position
+3. eine sehr kurze englische Beschreibung, wie die Übung gemacht wird
+4. ein sichtbarer Countdown-Timer
+5. ein Fortschrittsindikator für die laufende Übung
+6. optional kurze Voice-Captions bzw. gesprochene Anweisung
+
+### Standard-Layout der Übungsszene
+Bevorzugte Verteilung:
+- Figur groß im Zentrum oder leicht seitlich, vollständige Pose gut sichtbar
+- Exercise / Pose Name oben links oder in einem festen Header-Bereich
+- kurze Beschreibung direkt unter dem Namen
+- Timer deutlich oben rechts
+- Progress Bar unten
+- Voice-Captions im unteren sicheren Bereich, falls verwendet
+
+Beispiel:
+- Name: `SQUAT HOLD`
+- Beschreibung: `Sit low and keep your chest up.`
+- Timer: `20`
+
+Die Beschreibung soll kurz und praktisch sein. Sie erklärt die Ausführung, nicht den Nutzen. Keine langen Absätze.
+
+### Timer-Verhalten
+- Timer wird mit Remotion erzeugt, nicht in das KI-Bild eingebrannt
+- Countdown läuft sichtbar von der festgelegten Dauer auf 0
+- Kreis-/Ring-Timer ist der bevorzugte KidMotion-Standard
+- Timer bleibt während der gesamten Übung an derselben gut sichtbaren Position
+- bei 3, 2, 1 darf visuell stärker hervorgehoben werden
+
+### Pose-Bild-Regel
+- das KI-Bild enthält Figur + Umgebung, aber normalerweise KEINEN Text und KEINEN Timer
+- Remotion ergänzt alle editierbaren UI-Elemente
+- Pose muss anatomisch eindeutig und für Kinder leicht kopierbar sein
+- Hände, Füße und Gelenkstellung dürfen nicht durch UI verdeckt werden
+- bei dynamischen Bewegungen darf eine klare Key-Pose oder eine kleine Folge aus zwei statischen Zuständen verwendet werden
+
 ## Textebenen pro Übungsszene
 1. Exercise / Pose Name — groß, z. B. `TREE POSE`
-2. Keyword — sehr kurz, z. B. `BALANCE`
-3. Mini instruction — stichwortartig, z. B. `Lift one foot`
+2. Mini instruction — sehr kurz, z. B. `Lift one foot and stand tall.`
+3. optionales Keyword — nur wenn es echten Mehrwert hat, z. B. `BALANCE`
 4. Voice captions — gesprochener englischer Text
 5. Timer / countdown
 6. Progress indicator
 
-Diese Ebenen dürfen nicht unnötig denselben Satz wiederholen.
+Name, Mini instruction und Caption dürfen nicht unnötig denselben Satz wiederholen.
 
 ## Standard-Timing
 Je nach Format anpassen. Für Follow-along:
@@ -112,8 +153,8 @@ Je nach Format anpassen. Für Follow-along:
 - Countdown
 - Progress bar / exercise progress
 - Exercise title
-- keyword
-- mini instruction
+- Mini instruction
+- optionales Keyword
 - captions
 - transitions
 - image zoom/pan
