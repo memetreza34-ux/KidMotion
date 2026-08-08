@@ -18,14 +18,46 @@ Bei 20 Sekunden aktiver Übungszeit pro Übung plus kurzen Übergängen / Pausen
 
 Nicht automatisch auf exakt 5:00 kürzen. Lieber leicht über 5 Minuten liegen, wenn die Struktur natürlich bleibt.
 
+## HARTE REGEL — Startphase nur HOLD-POSES, keine Bewegungsübungen
+Für die erste Produktionsphase verwenden normale KidMotion-Fitness-/Pose-Videos ausschließlich statische Positionen, die ein Kind einnimmt und für die 20 Sekunden hält.
+
+Das bedeutet:
+- eine klare Körperposition einnehmen
+- diese Position halten
+- kein wiederholtes Springen
+- kein Laufen auf der Stelle
+- keine Jumping Jacks
+- keine High Knees
+- keine Burpees
+- keine wiederholten Squats oder Lunges
+- keine Übungen, bei denen der Zuschauer während der 20 Sekunden ständig zwischen zwei Bewegungszuständen wechseln muss
+
+Bevorzugte Startphasen-Übungen sind zum Beispiel:
+- squat hold
+- lunge hold
+- star hold
+- tree pose
+- flamingo balance
+- side stretch hold
+- standing forward bend
+- warrior-style stance
+- wide stance hold
+- arms-up stretch
+- one-knee balance
+- seated stretch, wenn das jeweilige Video dafür ausgelegt ist
+
+Jede Pose muss mit EINEM statischen KI-Bild vollständig verständlich sein.
+
+Erst wenn der gesamte Workflow sicher funktioniert und der Nutzer die Richtung ausdrücklich erweitert, dürfen dynamische Bewegungsübungen mit mehreren Keyframes oder Bewegungsschritten eingesetzt werden.
+
 ## FESTE VIDEO-REIHENFOLGE
 Jedes KidMotion-Video folgt standardmäßig dieser Reihenfolge:
 
 1. `00-cover` — Cover / Thumbnail mit sichtbarem englischem Text
 2. `01-intro` — gesprochenes Intro mit synchronisierten Textblöcken
 3. `02-start-cue` — kurze Startkarte wie `LET'S BEGIN!`
-4. erste Übung / Aktivität
-5. weitere Übungen mit Rest-/Übergangsscreens
+4. erste Hold-Pose
+5. weitere Hold-Posen mit Rest-/Übergangsscreens
 6. `outro` — Abschluss-/Belohnungsszene mit `GREAT JOB!`
 
 Diese Reihenfolge darf nur geändert werden, wenn der Nutzer es ausdrücklich verlangt.
@@ -45,17 +77,17 @@ Die Intro-Szene besteht aus:
 Die ersten Sekunden sollen dem Kind sofort erklären:
 1. Begrüßung / positive Ansprache
 2. was heute gemacht wird
-3. kurze motivierende Regel wie copy the moves / have fun / get ready
-4. direkter Übergang in die erste Übung
+3. kurze motivierende Regel wie copy the poses / hold steady / have fun / get ready
+4. direkter Übergang in die erste Pose
 
 ### Beispielstruktur
 Gesprochener Text:
-`Hi, KidMotion friends! Today we have an easy fitness workout. Follow along, do your best, and have fun. Get ready — let's move!`
+`Hi, KidMotion friends! Today we have an easy fitness pose workout. Follow the poses, hold steady, and have fun. Get ready — let's move!`
 
 Auf dem Bildschirm darf derselbe Inhalt in kurzen lesbaren Blöcken erscheinen, z. B.:
 - `HI, KIDMOTION FRIENDS!`
-- `EASY FITNESS WORKOUT TODAY`
-- `FOLLOW ALONG & HAVE FUN`
+- `EASY FITNESS POSES TODAY`
+- `COPY THE POSE & HOLD STEADY`
 - `GET READY — LET'S MOVE!`
 
 Nicht den kompletten Absatz dauerhaft gleichzeitig anzeigen. Die Textblöcke erscheinen nacheinander passend zum Voice-Timing.
@@ -79,7 +111,7 @@ Standard:
 - visuelles Grunddesign bleibt kanalweit wiedererkennbar, darf aber thematisch leicht variieren
 
 ## HARTE REGEL — nach dem Intro kommt eine kurze Startkarte
-Direkt nach `01-intro` kommt immer eine eigene kurze `02-start-cue`-Szene, bevor die erste Übung beginnt.
+Direkt nach `01-intro` kommt immer eine eigene kurze `02-start-cue`-Szene, bevor die erste Pose beginnt.
 
 Zweck:
 - klarer Übergang von Erklärung zu Aktivität
@@ -97,78 +129,67 @@ Standardinhalt:
 
 Timing:
 - typischerweise ca. 2–4 Sekunden
-- anschließend optional `3...2...1...GO` direkt vor der ersten Übung
+- anschließend optional `3...2...1...GO` direkt vor der ersten Pose
 
-Remotion soll diese Startkarte als wiederverwendbare Komponente bauen, nicht als jedes Mal neu manuell gestaltete Szene.
+Die Startkarte darf vollständig als fertiges KI-Bild mit eingebautem `LET'S BEGIN!`-Text erzeugt werden. Remotion muss diese Schrift nicht erneut darüberlegen.
 
-## HARTE REGEL — jede Übungsszene dauert 20 Sekunden
-Für normale KidMotion-Fitness-/Sport-/Pose-Videos dauert JEDE eigentliche Übungsszene standardmäßig EXAKT 20 Sekunden.
+## HARTE REGEL — jede Hold-Pose dauert 20 Sekunden
+Für normale KidMotion-Videos dauert JEDE eigentliche Hold-Pose standardmäßig EXAKT 20 Sekunden.
 
-Diese 20 Sekunden gehören nur zur aktiven Übung / Pose. Intro, Startkarte, Rest-Screens und Outro haben eigene Zeiten.
+Diese 20 Sekunden gehören nur zur aktiven Pose. Intro, Startkarte, Rest-Screens und Outro haben eigene Zeiten.
 
 Die 20-Sekunden-Regel darf nur geändert werden, wenn der Nutzer es für ein bestimmtes Format ausdrücklich verlangt.
 
 Timer-Verhalten:
-- jede normale Übung startet bei `20`
+- jede Pose startet bei `20`
 - der Timer zählt sichtbar bis `0`
 - Remotion steuert die Dauer exakt; Bild und UI enden gleichzeitig
 - 3, 2 und 1 dürfen visuell stärker hervorgehoben werden
-- keine Szene darf versehentlich 19, 21 oder unterschiedlich viele Sekunden lang sein, wenn das Standardformat verwendet wird
+- keine Pose darf versehentlich 19, 21 oder unterschiedlich viele Sekunden lang sein, wenn das Standardformat verwendet wird
 
-## HARTE REGEL — jede Übungsszene folgt demselben Grundlayout
-Nach der Startkarte folgen die eigentlichen Übungsszenen. Jede Übungsszene muss auf einen Blick verständlich sein, auch wenn die Figur selbst nur als statisches Bild vorliegt.
+## HARTE REGEL — jedes Pose-Bild enthält Name + kurze Anleitung direkt im Bild
+Nach der Startkarte folgen die eigentlichen Hold-Pose-Szenen. Jede Pose-Szene muss auf einen Blick verständlich sein, auch ohne zusätzliche Text-Overlays aus Remotion.
 
-Pflichtelemente jeder Übungsszene:
+Das KI-Bild selbst enthält bereits:
 1. eine klare statische Pose der gewählten KidMotion-Figur
-2. der englische Name der Übung / Position
-3. eine sehr kurze englische Beschreibung, wie die Übung gemacht wird
-4. ein sichtbarer Countdown-Timer
-5. ein Fortschrittsindikator für die laufende Übung
-6. optional kurze Voice-Captions bzw. gesprochene Anweisung
-
-### Standard-Layout der Übungsszene
-Bevorzugte Verteilung:
-- Figur groß im Zentrum oder leicht seitlich, vollständige Pose gut sichtbar
-- Exercise / Pose Name oben links oder in einem festen Header-Bereich
-- kurze Beschreibung direkt unter dem Namen
-- Timer deutlich oben rechts
-- Progress Bar unten
-- Voice-Captions im unteren sicheren Bereich, falls verwendet
+2. den englischen Namen der Pose / Position
+3. eine sehr kurze englische Beschreibung, wie die Position eingenommen bzw. gehalten wird
 
 Beispiel:
 - Name: `SQUAT HOLD`
 - Beschreibung: `Sit low and keep your chest up.`
-- Timer: `20`
 
-Die Beschreibung soll kurz und praktisch sein. Sie erklärt die Ausführung, nicht den Nutzen. Keine langen Absätze.
+Remotion fügt bei diesen Pose-Szenen NICHT denselben Namen oder dieselbe Anleitung erneut hinzu.
 
-### Timer-Verhalten
-- Timer wird mit Remotion erzeugt, nicht in das KI-Bild eingebrannt
-- Standarddauer pro Übung: exakt 20 Sekunden
-- Countdown läuft sichtbar von 20 auf 0
-- Kreis-/Ring-Timer ist der bevorzugte KidMotion-Standard
-- Timer bleibt während der gesamten Übung an derselben gut sichtbaren Position
-- bei 3, 2, 1 darf visuell stärker hervorgehoben werden
+Remotion ist dort zuständig für:
+- sichtbaren 20-Sekunden-Countdown-Timer
+- Kreis-/Ring-Timer als bevorzugten Standard
+- Fortschrittsindikator / Progress Bar
+- optionale Voice-Captions
+- leichte Zoom-/Pan-Bewegung
+- Übergänge
 
-### Pose-Bild-Regel
-- das KI-Bild enthält Figur + Umgebung, aber normalerweise KEINEN Text und KEINEN Timer
-- Remotion ergänzt alle editierbaren UI-Elemente
-- Pose muss anatomisch eindeutig und für Kinder leicht kopierbar sein
-- Hände, Füße und Gelenkstellung dürfen nicht durch UI verdeckt werden
-- bei dynamischen Bewegungen darf eine klare Key-Pose oder eine kleine Folge aus zwei statischen Zuständen verwendet werden
+### Standard-Layout des fertigen Pose-Bildes
+Bevorzugte Verteilung:
+- Figur groß im Zentrum oder leicht seitlich, vollständige Pose gut sichtbar
+- Pose-Name auf einer freien Seite
+- kurze Anleitung direkt darunter
+- TOP-RIGHT möglichst frei für den Remotion-Timer
+- BOTTOM-Bereich ausreichend frei für die Progress Bar
+- Hände, Füße und Gelenkstellung dürfen niemals durch Text oder UI verdeckt werden
 
-## Textebenen pro Übungsszene
-1. Exercise / Pose Name — groß, z. B. `TREE POSE`
-2. Mini instruction — sehr kurz, z. B. `Lift one foot and stand tall.`
-3. optionales Keyword — nur wenn es echten Mehrwert hat, z. B. `BALANCE`
-4. Voice captions — gesprochener englischer Text
-5. Timer / countdown
-6. Progress indicator
-
-Name, Mini instruction und Caption dürfen nicht unnötig denselben Satz wiederholen.
+### Bildprompt-Regel
+Jeder Pose-Prompt muss ausdrücklich verlangen:
+- nur eine HOLD-Pose, keine laufende Bewegungsaktion
+- Pose muss für 20 Sekunden statisch haltbar und visuell eindeutig sein
+- Name und Mini-Anleitung direkt ins KI-Bild
+- KEIN generierter Timer
+- KEINE generierte Progress Bar
+- keine weiteren UI-Elemente
+- keine fremden Logos oder Charaktere
 
 ## HARTE REGEL — jedes Video endet mit einer positiven Abschluss-/Belohnungsszene
-Nach der letzten Übung kommt IMMER ein eigenes `outro`.
+Nach der letzten Pose kommt IMMER ein eigenes `outro`.
 
 Zweck:
 - dem Kind klar zeigen, dass das Workout beendet ist
@@ -198,47 +219,38 @@ Timing:
 - zulässiger Bereich: 3–8 Sekunden, wenn die Voice mehr oder weniger Zeit benötigt
 - kein leerer Nachlauf nach dem letzten gesprochenen Wort
 
-Remotion:
-- `GreatJobScreen` bzw. eine zentrale Outro-Komponente verwenden
-- leichte Celebration-Animationen dürfen aus Remotion kommen, z. B. Pop-in, Scale, Sterne oder Konfetti
-- Figur bleibt weiterhin ein statisches Bild; keine vollständige Charakteranimation erforderlich
-
 ## Standard-Timing
 Für das normale KidMotion-Follow-along-Format gilt:
 - Gesamtvideo in der aktuellen Startphase: MINDESTENS ca. 5 Minuten
 - Intro: typischerweise 8–18 s, abhängig vom Voice-Text
 - Startkarte: typischerweise 2–4 s
 - Start cue: optional 3…2…1…GO
-- Übung/Pose: EXAKT 20 s
+- Hold-Pose: EXAKT 20 s
 - Rest/transition: typischerweise 5–10 s
 - Outro/reward: Standard ca. 5 s, zulässig 3–8 s abhängig von Voice
-- typische erste Longform-Episode: ca. 10–12 Übungen, je nach Restdauer und Intro-Länge
+- typische erste Longform-Episode: ca. 10–12 Hold-Posen, je nach Restdauer und Intro-Länge
 
 ## Remotion liefert
 - synchronisierte Intro-Text-Cues
-- wiederverwendbare `LET'S BEGIN!`-Startkarte
-- exakt 20-sekündige Standard-Übungsszenen
+- exakt 20-sekündige Hold-Pose-Szenen
 - Timer
 - Countdown
-- Progress bar / exercise progress
-- Exercise title
-- Mini instruction
-- optionales Keyword
-- captions
+- Progress Bar / exercise progress
+- optionale Voice-Captions
 - transitions
 - image zoom/pan
 - rest screen
-- zentrale `GREAT JOB!`-Abschluss-/Belohnungsszene
+- zentrale `GREAT JOB!`-Abschluss-/Belohnungsszene, sofern diese nicht als fertiges Bild verwendet wird
 - optional SFX/music
 
 ## Statische Bilder
-Keine Szene darf davon abhängen, dass sich die Figur real animiert. Bei Bewegungen mit zwei wichtigen Zuständen können zwei statische Keyframes abwechselnd verwendet werden.
+Die Startphase ist strikt statisch. Keine normale Pose-Szene darf davon abhängen, dass die Figur während der 20 Sekunden real animiert wird.
 
-Die Intro-, Startkarten- und Outro-Figur bleibt ebenfalls ein Standbild. Bewegung entsteht durch dezente Remotion-Effekte wie langsamer Zoom, leichte Positionsverschiebung, Text-Einblendungen, Sterne/Konfetti und Übergänge.
+Bewegung im fertigen Video entsteht nur durch dezente Remotion-Effekte wie langsamer Zoom, leichte Positionsverschiebung, Timer-Animation, Progress Bar und Übergänge.
 
 ## Lesbarkeit
 - große, klare Schrift
-- wenig Text pro eingeblendetem Block
+- wenig Text pro Pose-Bild
 - wichtige UI nicht über Gesicht/Hände/Füße legen
 - kindersicheres, ruhiges Layout
 - Timer jederzeit sofort erkennbar
