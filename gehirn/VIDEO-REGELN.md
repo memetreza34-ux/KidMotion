@@ -3,6 +3,18 @@
 ## Grundprinzip
 Eine Szene = eine klare Aufgabe, Pose, Frage oder Story-Etappe.
 
+## FESTE VIDEO-REIHENFOLGE
+Jedes KidMotion-Video folgt standardmäßig dieser Reihenfolge:
+
+1. `00-cover` — Cover / Thumbnail mit sichtbarem englischem Text
+2. `01-intro` — gesprochenes Intro mit synchronisierten Textblöcken
+3. `02-start-cue` — kurze Startkarte wie `LET'S BEGIN!`
+4. erste Übung / Aktivität
+5. weitere Übungen mit Rest-/Übergangsscreens
+6. Outro / `GREAT JOB!`
+
+Diese Reihenfolge darf nur geändert werden, wenn der Nutzer es ausdrücklich verlangt.
+
 ## HARTE REGEL — Szene 1 ist immer das gesprochene Intro
 JEDES KidMotion-Video beginnt nach dem Cover mit einer festen Intro-Szene im Stil eines freundlichen Kids-Fitness-Hosts.
 
@@ -51,6 +63,29 @@ Standard:
 - Figur zeigt eine freundliche Begrüßungs-/Ready-Pose passend zum Thema
 - visuelles Grunddesign bleibt kanalweit wiedererkennbar, darf aber thematisch leicht variieren
 
+## HARTE REGEL — nach dem Intro kommt eine kurze Startkarte
+Direkt nach `01-intro` kommt immer eine eigene kurze `02-start-cue`-Szene, bevor die erste Übung beginnt.
+
+Zweck:
+- klarer Übergang von Erklärung zu Aktivität
+- Kind erkennt sofort: jetzt beginnt das Mitmachen
+- wiederkehrendes Markenritual für KidMotion
+
+Standardinhalt:
+- großer englischer Starttext wie `LET'S BEGIN!`, `LET'S MOVE!` oder `READY? LET'S GO!`
+- bevorzugt `LET'S BEGIN!` als Standardformulierung
+- dieselbe KidMotion-Hauptfigur wie im Video
+- klare energetische Start-/Ready-Pose
+- einfacher, kontrastreicher Hintergrund im KidMotion-Stil
+- kein langer Voice-Text nötig; optional kurzer Voice-Cue wie `Let's begin!`
+- kein Übungstimer in dieser Karte
+
+Timing:
+- typischerweise ca. 2–4 Sekunden
+- anschließend optional `3...2...1...GO` direkt vor der ersten Übung
+
+Remotion soll diese Startkarte als wiederverwendbare Komponente bauen, nicht als jedes Mal neu manuell gestaltete Szene.
+
 ## Textebenen pro Übungsszene
 1. Exercise / Pose Name — groß, z. B. `TREE POSE`
 2. Keyword — sehr kurz, z. B. `BALANCE`
@@ -64,13 +99,15 @@ Diese Ebenen dürfen nicht unnötig denselben Satz wiederholen.
 ## Standard-Timing
 Je nach Format anpassen. Für Follow-along:
 - Intro: typischerweise 8–18 s, abhängig vom Voice-Text
-- Start cue: 3…2…1…GO
+- Startkarte: typischerweise 2–4 s
+- Start cue: optional 3…2…1…GO
 - Übung/Pose: typischerweise 15–30 s
 - Rest/transition: typischerweise 5–10 s
 - Outro/reward: 3–8 s
 
 ## Remotion liefert
 - synchronisierte Intro-Text-Cues
+- wiederverwendbare `LET'S BEGIN!`-Startkarte
 - Timer
 - Countdown
 - Progress bar / exercise progress
@@ -87,7 +124,7 @@ Je nach Format anpassen. Für Follow-along:
 ## Statische Bilder
 Keine Szene darf davon abhängen, dass sich die Figur real animiert. Bei Bewegungen mit zwei wichtigen Zuständen können zwei statische Keyframes abwechselnd verwendet werden.
 
-Die Intro-Figur bleibt ebenfalls ein Standbild. Bewegung entsteht durch dezente Remotion-Effekte wie langsamer Zoom, leichte Positionsverschiebung, Text-Einblendungen und Übergänge.
+Die Intro- und Startkarten-Figur bleibt ebenfalls ein Standbild. Bewegung entsteht durch dezente Remotion-Effekte wie langsamer Zoom, leichte Positionsverschiebung, Text-Einblendungen und Übergänge.
 
 ## Lesbarkeit
 - große, klare Schrift
