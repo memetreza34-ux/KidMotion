@@ -1,6 +1,7 @@
 export type Exercise = {
   id: string;
   title: string;
+  cue?: string;
   instruction?: string;
   image: string;
   duration: number;
