@@ -124,6 +124,101 @@ Do not casually redesign:
 - base outfit colors
 - overall rendering style
 
+# LOCKED AUTOMATION CONTRACT
+
+The goal is MAXIMUM practical automation.
+
+For every episode, the assistant / content agent must prepare the complete production package BEFORE the user generates assets manually.
+
+The package must include:
+- topic and concept
+- full episode structure
+- all exercise / pose choices
+- exact English voice script
+- exact per-scene voice text files
+- exact image prompt for EVERY generated image
+- cover prompt
+- intro character/background prompt if needed
+- exercise scene prompts
+- outro/background prompt if needed
+- exact text that must appear in generated exercise images
+- Remotion data for timings and dynamic UI
+- publishing title / caption / description / hashtags / keywords
+- all prompts collected in one file
+- all voice texts collected in one file
+
+The user's manual work should ideally be limited to:
+1. generate the requested images using the prepared prompts
+2. generate the requested voice/audio using the prepared texts
+3. place the resulting assets into the specified episode folders
+4. run / trigger the render
+
+Do NOT make the user manually invent scene text, timers, timings, captions, folder names or Remotion values if the system can prepare them.
+
+# RESPONSIBILITY SPLIT — IMAGE AI VS REMOTION
+
+This split is LOCKED unless the user explicitly changes it.
+
+## Image AI is responsible for
+
+### Cover
+- complete cover image
+- visible English cover text explaining the video
+- character pose and environment
+
+### Normal exercise / pose scenes
+The generated image itself MUST include:
+- KidMotion character in the exact exercise pose
+- large English exercise / pose name
+- one short English instruction explaining HOW to perform it
+- optional short keyword only if useful
+- environment / background
+
+Example generated image text:
+- `SQUAT HOLD`
+- `Sit low and keep your chest up.`
+
+The image AI must NOT generate:
+- timer
+- countdown ring
+- progress bar
+- full spoken captions
+- Remotion UI chrome
+
+## Remotion is responsible for
+
+### Intro scene (`01-intro`)
+- all visible intro text
+- phrase-by-phrase synchronization with the English voice
+- text highlights / fade / slide behavior
+- layout of static character next to synchronized text
+- NO exercise timer
+
+### Start cue
+- `LET'S BEGIN!` / equivalent
+- optional 3-2-1-GO
+- timing and transitions
+
+### Exercise scenes
+Remotion overlays only the dynamic elements:
+- 20-second circular countdown timer
+- progress indicator
+- optional spoken captions if used
+- transitions / subtle zoom / pan
+
+Do NOT duplicate the exercise name and short execution instruction in Remotion when they are already printed correctly inside the generated scene image.
+
+### Rest / transition scenes
+- rest countdown
+- `NEXT:` label if used
+- consistent KidMotion transition layout
+
+### Outro
+- `GREAT JOB!` / reward UI
+- completion text
+- optional celebration effects
+- synchronization to final voice
+
 # LOCKED VIDEO GRAMMAR
 
 ## Cover comes first as asset 00
@@ -177,44 +272,58 @@ Typical layout:
 - character may alternate left/right between episodes
 - maximum roughly 3–5 short text blocks
 
-Example voice:
-`Hi, KidMotion friends! Today we have five easy fitness moves. Follow along, do your best, and have fun. Get ready — let's move!`
+## Start cue
 
-Example synchronized text blocks:
-- `HI, KIDMOTION FRIENDS!`
-- `5 EASY FITNESS MOVES TODAY`
-- `FOLLOW ALONG & HAVE FUN`
-- `GET READY — LET'S MOVE!`
+After the intro comes a short reusable start scene:
+- default `LET'S BEGIN!`
+- about 2–4 seconds
+- optional `3…2…1…GO`
+- same KidMotion visual identity
 
-## Exercise scenes
+## Exercise scenes — HARD STANDARD
 
-Each exercise scene should communicate one clear movement or pose.
+For the current first production phase:
+- EVERY normal exercise / pose scene lasts EXACTLY 20 seconds
+- each starts with a visible 20-second countdown and ends at 0
+- Remotion controls this exact duration
+- scene image and dynamic UI must end together
 
-Standard text hierarchy:
-1. Exercise / Pose Name — large
-2. Keyword — very short, e.g. `BALANCE`, `ENERGY`, `POWER`
-3. Mini instruction — short, e.g. `Lift one foot`
-4. Voice captions — spoken English text
-5. Timer / countdown
-6. Progress indicator
+Every normal exercise image must already visually contain:
+1. exercise / pose name
+2. short execution instruction
+3. optional keyword only when useful
 
-Do not repeat the same sentence across all text levels.
+Remotion adds:
+- timer
+- progress
+- optional captions
 
-Typical follow-along timing:
-- spoken intro: about 8–18 s depending on voice
-- start cue: 3…2…1…GO
-- exercise: about 15–30 s
-- rest: about 5–10 s
-- outro/reward: about 3–8 s
+## Video length — FIRST PHASE
+
+Normal long-form KidMotion uploads should be at least about 5 minutes while the production workflow is being proven.
+
+Do NOT design these first videos as only five exercise scenes.
+
+Typical first-phase episode:
+- about 10–12 active 20-second exercises / poses
+- plus intro
+- start cue
+- short transitions / rests
+- outro
+
+Prefer slightly over 5 minutes rather than forcing exactly 5:00.
+
+Once the workflow is reliable, longer videos may be introduced.
 
 ## Outro
 
-The final scene is a positive completion/reward screen such as:
+The final scene is ALWAYS a positive completion/reward screen such as:
 - `GREAT JOB!`
 - `WORKOUT COMPLETE`
+- `YOU FINISHED THE WORKOUT!`
 - `YOU DID IT!`
 
-Keep it short and visually clear.
+Standard duration about 5 seconds, adjusted only as needed to finish the final voice cleanly.
 
 # CONTENT SYSTEM
 
@@ -245,9 +354,9 @@ But every format must remain compatible with the static-image production model.
 
 # IMAGE GENERATION RULES
 
-Normal scene images should generally NOT contain generated text, timers, captions or UI. Remotion adds those so design remains consistent and editable.
+For an episode, use the approved episode reference image to keep the same character, outfit, room/style and general rendering consistent across generated scenes.
 
-Every normal image prompt must specify:
+Every normal exercise image prompt must specify:
 - exact approved character
 - exact clothing
 - exact pose
@@ -256,27 +365,24 @@ Every normal image prompt must specify:
 - background / environment
 - facial expression
 - premium stylized 3D look
+- exact exercise title printed in image
+- exact short execution instruction printed in image
 - 16:9 composition for long-form unless another format is explicitly required
-- negative space for UI when useful
+- no timer / countdown / progress bar generated into image
 - no third-party logos
 - no copyrighted characters
 
-For an episode, use the approved reference image from that episode to keep the same character and room/style consistent across all generated scenes.
-
 # COVER IMAGE RULES
 
-Cover differs from normal scenes:
-- cover MUST contain visible English text in the final image
-- prompt should include the exact text
-- text must immediately explain the video
-- text must be large and mobile-readable
-- default structure: large main line + small explanatory line
+Cover MUST contain visible English text in the final image.
+
+Prompt must include the exact text and explain the video immediately.
 
 Example:
-`5 EASY FITNESS MOVES`
-`FOR KIDS`
+`5 MINUTE KIDS FITNESS`
+`EASY FULL BODY WORKOUT`
 
-If AI text is misspelled, regenerate or replace it cleanly before publishing. Never publish a cover with broken text.
+If AI text is misspelled, regenerate or replace it cleanly before publishing.
 
 # VOICE RULES
 
@@ -285,8 +391,9 @@ If AI text is misspelled, regenerate or replace it cleanly before publishing. Ne
 - positive and direct
 - no unnecessary long explanations
 - intro text and Scene 1 text cues must be designed together so Remotion can synchronize them
+- exercises may have a short spoken cue at the beginning / during the 20-second scene, but the still image itself provides the visible pose name and execution instruction
 
-Each scene must have its own voice text file and all voice texts must also be collected in one episode-level file.
+Each voice unit must have its own text file and all voice texts must also be collected in one episode-level file.
 
 # EPISODE FOLDER CONTRACT
 
@@ -301,8 +408,9 @@ episodes/KM-XXX-slug/
 ├── 03-scenes/
 │   ├── 00-cover/
 │   ├── 01-intro/
-│   ├── 02-scene/
-│   ├── 03-scene/
+│   ├── 02-start-cue/
+│   ├── 03-exercise-01/
+│   ├── 04-exercise-02/
 │   └── ...
 ├── 04-voice/
 │   └── ALL_VOICE_TEXTS.md
@@ -312,11 +420,11 @@ episodes/KM-XXX-slug/
 └── data.json
 ```
 
-Each normal scene folder must be able to contain:
+Each exercise scene folder must be able to contain:
 - `scene.md`
 - `image-prompt.txt`
 - `voice.txt`
-- `on-screen-text.txt`
+- `on-image-text.txt`
 - generated image
 - generated audio
 
@@ -325,7 +433,13 @@ The cover folder must contain:
 - exact cover text
 - generated cover image
 
-`ALL_IMAGE_PROMPTS.md` must contain the cover prompt and every scene prompt in generation order so the user can create all images in one session.
+The intro folder must contain:
+- character/background asset prompt if needed
+- voice text
+- Remotion cue/timing data
+- intro asset(s)
+
+`ALL_IMAGE_PROMPTS.md` must contain cover + intro asset prompt(s) + every exercise scene prompt in generation order so the user can create all images in one session.
 
 `ALL_VOICE_TEXTS.md` must contain all English spoken lines in order so the user can generate audio efficiently.
 
@@ -344,21 +458,20 @@ Remotion is the primary assembly/rendering system. Do not replace it with a manu
 
 Remotion is responsible for:
 - synchronized Scene 1 intro text cues
-- exercise titles
-- keyword
-- mini instructions
-- captions
-- timers
-- 3-2-1-GO countdowns
-- progress bars
+- start cue
+- optional 3-2-1-GO
+- exact 20-second exercise timing
+- circular exercise timer
+- progress indicator
+- optional voice captions
 - rest screens
 - transitions
 - image zoom/pan
-- intro/outro layouts
+- outro / `GREAT JOB!`
 - optional SFX/music
 - final MP4 rendering
 
-The video should be data-driven so new episodes can be created by changing episode data/assets rather than rebuilding layouts manually.
+The video must be data-driven so new episodes can be created by changing episode data/assets rather than rebuilding layouts manually.
 
 # QUALITY / CONSISTENCY RULES
 
@@ -366,12 +479,16 @@ Before an episode is considered render-ready, check:
 - all required scene folders exist
 - cover exists and has correct readable text
 - Scene 1 exists and is the synchronized spoken intro
-- all image prompts follow approved character/style rules
+- start cue exists
+- all exercise image prompts follow approved character/style rules
+- every exercise prompt includes exact on-image exercise title + short execution instruction
+- no timer/progress bar is accidentally baked into exercise images
 - all voice text is English
 - all scene images exist
 - all required audio exists
-- every exercise has title, keyword, mini instruction, duration
-- timer/rest values are valid
+- every exercise duration is exactly 20 seconds in the current standard format
+- timer values are valid
+- total video duration reaches the current ~5 minute minimum target
 - no duplicate or contradictory scene IDs
 - Remotion paths match real assets
 - no missing files
@@ -379,7 +496,7 @@ Before an episode is considered render-ready, check:
 - no unsafe or unclear exercise pose
 - no conflicting instructions between `PROJECT_BRAIN.md` and `gehirn/*`
 
-If a conflict is found, fix the documentation/data before rendering. Do not silently guess.
+If a conflict is found, fix documentation/data before rendering. Do not silently guess.
 
 # CURRENT PROJECT PHASE
 
@@ -395,8 +512,12 @@ Approved so far:
 - Remotion as primary renderer
 - standardized cover concept
 - Scene 1 as mandatory synchronized spoken intro
-- data-driven exercise scenes with title / keyword / instruction / timer / progress
+- image-AI-generated exercise title + execution instruction
+- Remotion-generated dynamic timer/progress/captions
+- exact 20-second exercise scenes
+- first-phase long-form target of at least about 5 minutes
 - episode folder workflow
+- maximum practical automation as the target
 
 # DECISION LOG
 
@@ -413,7 +534,12 @@ Approved so far:
 - Defined a recognizable but non-repetitive cover system.
 - Locked the rule that every final cover contains visible English text explaining the video.
 - Locked the rule that Scene 1 is always the spoken intro with synchronized phrase-level text next to a static KidMotion character.
-- Locked the rule that `PROJECT_BRAIN.md` is the top-level source of truth and must be updated whenever a core decision changes.
+- Locked the rule that normal exercise images themselves contain the exercise name and a short execution instruction.
+- Locked the rule that Remotion supplies dynamic timer/progress rather than duplicating that static text.
+- Locked exact 20-second exercise scenes for the current standard format.
+- Locked first-phase long-form videos at about 5 minutes minimum, using substantially more than five exercises.
+- Locked maximum practical automation: assistant prepares all prompts, voice texts, metadata, scene data and Remotion timing so the user primarily generates assets and renders.
+- Locked `PROJECT_BRAIN.md` as the top-level source of truth.
 
 # INSTRUCTION TO FUTURE AGENTS
 
