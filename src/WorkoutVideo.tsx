@@ -3,6 +3,10 @@ import {AbsoluteFill, Sequence} from 'remotion';
 import type {Workout} from './types';
 import {ExerciseScene} from './components/ExerciseScene';
 import {RestScreen} from './components/RestScreen';
+import {IntroScreen} from './components/IntroScreen';
+import {GreatJobScreen} from './components/GreatJobScreen';
+
+const OUTRO_SECONDS = 4;
 
 export const workoutDurationInFrames = (workout: Workout) => {
   const fps = workout.fps ?? 30;
@@ -10,7 +14,7 @@ export const workoutDurationInFrames = (workout: Workout) => {
   const exerciseFrames = workout.exercises.reduce((total, exercise) => {
     return total + (exercise.duration + (exercise.restAfter ?? 0)) * fps;
   }, 0);
-  return intro + exerciseFrames;
+  return intro + exerciseFrames + OUTRO_SECONDS * fps;
 };
 
 export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
@@ -21,10 +25,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
     <AbsoluteFill style={{background: '#eef8ff'}}>
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={(workout.introDuration ?? 0) * fps}>
-          <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', fontFamily: 'Arial, sans-serif'}}>
-            <div style={{fontSize: 88, fontWeight: 900, textAlign: 'center'}}>{workout.title}</div>
-            {workout.subtitle ? <div style={{fontSize: 36, fontWeight: 700, marginTop: 24}}>{workout.subtitle}</div> : null}
-          </AbsoluteFill>
+          <IntroScreen title={workout.title} subtitle={workout.subtitle} />
         </Sequence>
       ) : null}
 
@@ -50,6 +51,10 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
           </React.Fragment>
         );
       })}
+
+      <Sequence from={cursor} durationInFrames={OUTRO_SECONDS * fps}>
+        <GreatJobScreen subtitle="Workout complete!" />
+      </Sequence>
     </AbsoluteFill>
   );
 };
