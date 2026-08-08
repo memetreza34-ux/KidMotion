@@ -13,7 +13,7 @@
 For normal exercise / pose scenes, the image generator must create the scene WITH the visible exercise information already inside the image.
 
 The generated image must normally include:
-1. large English exercise / pose name
+1. English exercise / pose name
 2. one short English execution instruction describing how to do it
 3. optional short keyword only when it adds real value
 
@@ -53,18 +53,36 @@ Use the full 16:9 frame efficiently. Do not leave excessive dead space.
 
 Preferred composition:
 - character: large, centered, full body clearly visible
-- pose name: BOTTOM-LEFT
-- short execution instruction: TOP-LEFT or upper-left / upper-middle area
+- pose name: BOTTOM-LEFT, large and bold but NOT oversized
+- short execution instruction: TOP-LEFT, clearly readable and smaller than the pose name
 - TOP-RIGHT: keep clean for the Remotion circular 20-second timer
 - BOTTOM edge: keep enough safe space for Remotion progress UI
 
 The character may overlap the visual center, but must not block the text areas or future timer area.
 
-Do NOT place the pose name at the top by default. The standard KidMotion exercise layout is:
+The standard KidMotion exercise layout is:
 
-`instruction at upper-left` + `character centered` + `timer upper-right (Remotion)` + `pose name bottom-left` + `progress bottom (Remotion)`
+`instruction top-left` + `character centered` + `timer top-right (Remotion)` + `pose name bottom-left` + `progress bottom (Remotion)`
 
 The generated image itself must NOT contain the timer or progress bar.
+
+## Text hierarchy — locked
+
+POSE NAME:
+- position: bottom-left
+- large, bold and highly readable
+- use established KidMotion white lettering with dark navy outline/shadow and optional blue/lime accent shape
+- do NOT make it so large that it dominates the entire frame
+- target visual width: roughly 20–30% of the frame, depending on word length
+- keep comfortable margin from left and bottom edges
+
+SHORT INSTRUCTION:
+- position: top-left
+- smaller than the pose name
+- one short line whenever possible, maximum two short lines
+- simple clean dark navy or white text depending on contrast
+- should explain how to perform the pose, not its benefit
+- keep away from the timer zone in the top-right
 
 ## Prompt structure
 ```text
@@ -92,20 +110,32 @@ COMPOSITION:
 Use the complete frame efficiently.
 Place the character large in the CENTER with the full pose visible from head to shoes.
 Reserve the BOTTOM-LEFT for the pose name.
-Reserve the UPPER-LEFT / UPPER-MIDDLE for the short instruction.
+Reserve the TOP-LEFT for the short instruction.
 Keep the TOP-RIGHT clean because Remotion will add the circular 20-second countdown timer there.
 Keep a safe strip along the BOTTOM for the Remotion progress bar.
 Do not cover face, hands, feet or important joint positions with text.
 
 ON-IMAGE TEXT — REQUIRED FOR NORMAL EXERCISE SCENES:
-BOTTOM-LEFT — large pose title: `[POSE NAME]`
-UPPER-LEFT / UPPER-MIDDLE — short instruction: `[short execution instruction]`
+BOTTOM-LEFT — pose title: `[POSE NAME]`
+TOP-LEFT — short instruction: `[short execution instruction]`
 Optional keyword: `[only when useful]`
+
+POSE TITLE STYLE:
+- bold KidMotion athletic lettering
+- large, but not oversized
+- roughly 20–30% of frame width when possible
+- white letters with dark navy outline/shadow
+- optional subtle blue or lime accent shape
+
+INSTRUCTION STYLE:
+- clearly smaller than pose title
+- concise and easy to read
+- one short line whenever possible
 
 Text must be:
 - English
 - correctly spelled
-- large and highly readable
+- highly readable
 - consistent with KidMotion typography/color direction
 - visually separated from the character
 - concise
@@ -126,8 +156,8 @@ DO NOT GENERATE:
 - pose anatomically understandable
 - full body visible where necessary
 - character large and centered
-- pose name appears bottom-left
-- short instruction appears upper-left / upper-middle
+- pose name appears bottom-left and is not oversized
+- short instruction appears top-left and is smaller than pose name
 - top-right remains clear for Remotion timer
 - bottom safe area remains usable for Remotion progress bar
 - exact requested exercise / pose name is spelled correctly
