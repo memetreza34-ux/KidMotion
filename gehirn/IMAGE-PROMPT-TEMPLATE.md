@@ -17,10 +17,6 @@ The generated image must normally include:
 2. one short English execution instruction describing how to do it
 3. optional short keyword only when it adds real value
 
-Example:
-- `SQUAT HOLD`
-- `Sit low and keep your chest up.`
-
 The generated image must NOT include:
 - timer
 - progress bar
@@ -32,7 +28,43 @@ Those dynamic elements remain Remotion's responsibility.
 
 Exception:
 - `01-intro` is built with Remotion text synchronized to the voice and does NOT rely on generated intro text inside the character image.
-- system screens such as start cue, rest and outro are primarily Remotion layouts unless an episode explicitly defines a background asset.
+- system screens such as start cue, rest and outro may be full generated images when explicitly defined that way.
+
+# HARD RULE — FIRST WORKOUTS USE STATIC HOLD POSES, NOT REPETITIVE MOVEMENTS
+
+For the first KidMotion workout format, normal exercise scenes should prefer static poses / holds that children can copy and hold for the full 20-second timer.
+
+Examples:
+- squat hold
+- lunge hold
+- star hold
+- side stretch
+- balance pose
+- standing reach
+- wide stance
+
+Avoid using movements such as jumping jacks, running in place, burpees or repeated high knees as the default first-format scenes, because they require continuous motion to demonstrate properly.
+
+The pose should be immediately understandable from ONE still image.
+
+# HARD RULE — STANDARD EXERCISE IMAGE COMPOSITION
+
+Use the full 16:9 frame efficiently. Do not leave excessive dead space.
+
+Preferred composition:
+- character: large, centered, full body clearly visible
+- pose name: BOTTOM-LEFT
+- short execution instruction: TOP-LEFT or upper-left / upper-middle area
+- TOP-RIGHT: keep clean for the Remotion circular 20-second timer
+- BOTTOM edge: keep enough safe space for Remotion progress UI
+
+The character may overlap the visual center, but must not block the text areas or future timer area.
+
+Do NOT place the pose name at the top by default. The standard KidMotion exercise layout is:
+
+`instruction at upper-left` + `character centered` + `timer upper-right (Remotion)` + `pose name bottom-left` + `progress bottom (Remotion)`
+
+The generated image itself must NOT contain the timer or progress bar.
 
 ## Prompt structure
 ```text
@@ -42,23 +74,32 @@ CHARACTER:
 [approved boy / approved girl / both]
 
 POSE:
-[exact child-safe pose, body placement, feet, hands, torso, gaze]
+[exact static child-safe HOLD pose, body placement, feet, hands, torso, gaze]
+
+The pose must be understandable from one still image and suitable for a child to copy and hold for 20 seconds.
 
 EXPRESSION:
 [friendly / focused / energetic / calm]
 
 CAMERA:
-[full body, front-facing or slight 3/4, readable pose]
+Full-body, front-facing or slight 3/4 angle only when it makes the pose clearer. Keep the character large and centered.
 
 SCENE:
 [clear thematic environment]
 
 COMPOSITION:
-16:9 YouTube frame. Keep the character large and the pose anatomically readable. Reserve a clear text area that does not cover the face, hands, feet or important joint positions.
+16:9 YouTube frame.
+Use the complete frame efficiently.
+Place the character large in the CENTER with the full pose visible from head to shoes.
+Reserve the BOTTOM-LEFT for the pose name.
+Reserve the UPPER-LEFT / UPPER-MIDDLE for the short instruction.
+Keep the TOP-RIGHT clean because Remotion will add the circular 20-second countdown timer there.
+Keep a safe strip along the BOTTOM for the Remotion progress bar.
+Do not cover face, hands, feet or important joint positions with text.
 
 ON-IMAGE TEXT — REQUIRED FOR NORMAL EXERCISE SCENES:
-Large title: `[EXERCISE / POSE NAME]`
-Short instruction: `[short execution instruction]`
+BOTTOM-LEFT — large pose title: `[POSE NAME]`
+UPPER-LEFT / UPPER-MIDDLE — short instruction: `[short execution instruction]`
 Optional keyword: `[only when useful]`
 
 Text must be:
@@ -81,9 +122,15 @@ DO NOT GENERATE:
 
 ## Required QA
 - correct approved character identity
+- pose is a static hold when using the standard first-workout format
 - pose anatomically understandable
 - full body visible where necessary
-- exact requested exercise name is spelled correctly
+- character large and centered
+- pose name appears bottom-left
+- short instruction appears upper-left / upper-middle
+- top-right remains clear for Remotion timer
+- bottom safe area remains usable for Remotion progress bar
+- exact requested exercise / pose name is spelled correctly
 - short instruction is readable and technically matches the pose
 - no third-party logos
 - no accidental timer / countdown / captions in the image
