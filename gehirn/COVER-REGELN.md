@@ -21,6 +21,50 @@ Beispiele:
 - FULL BODY WORKOUT
   6 MOVES FOR KIDS
 
+## WIEDERERKENNUNGS-DESIGN — LOCKED DIRECTION
+
+KidMotion-Cover sollen auf den ersten Blick wie dieselbe Marke wirken, aber nicht wie immer dasselbe Thumbnail.
+
+### Immer gleich / wiederkehrend
+- gleiche Premium-3D-KidMotion-Figuren
+- gleiche Kernfarbwelt: Light Blue / Navy / White + Lime/Turquoise/Purple als Akzente
+- heller, sauberer Kids-Fitness-Hintergrund
+- Holz- oder heller Studio-Boden, wenn es zum Thema passt
+- große fette, abgerundete, sehr gut lesbare englische Headline
+- weißer Text mit dunklem Navy-Outline / Shadow als Grundlook
+- farbiger Akzent-Block oder Glow hinter einem wichtigen Wort
+- Figur und Text klar getrennt
+- starke 16:9-YouTube-Komposition
+- freundliche, aktive, sportliche Energie
+
+### Darf wechseln, damit es nicht langweilig wird
+- Pose der Figur
+- Junge / Mädchen / beide
+- Figur links oder rechts
+- Akzentfarbe hinter der Headline
+- kleine thematische Icons im Hintergrund
+- Kamerawinkel leicht variieren
+- Hintergrundthema je nach Sport / Workout / Challenge
+- Headline-Aufteilung in 2–3 Zeilen
+
+### Nicht wechseln
+- keine komplett neue Schriftästhetik pro Video
+- keine komplett neue Farbwelt pro Video
+- keine andere 3D-Stilrichtung
+- keine fremden Layout-Stile, die wie ein anderer Kanal wirken
+- kein Cover, das visuell nicht mehr als KidMotion erkennbar ist
+
+## Empfohlenes Standardlayout
+
+Default:
+- Textblock auf einer Seite (meist links)
+- Hauptfigur auf der gegenüberliegenden Seite (meist rechts)
+- große Headline über ca. 35–45 % der Bildbreite
+- Figur groß genug, dass Gesicht und Pose auf Mobile klar lesbar sind
+- Hintergrunddetails nur unterstützend, nicht dominant
+
+Variation ist erlaubt, aber die Markenlogik bleibt gleich.
+
 ## Pflichtbestandteile
 - eine oder beide KidMotion-Hauptfiguren
 - klare thematische Pose / Welt
