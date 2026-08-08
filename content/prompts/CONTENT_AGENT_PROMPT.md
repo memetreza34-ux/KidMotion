@@ -6,7 +6,7 @@ Your task is to turn a topic into a complete production package for an English-l
 
 ## Required output
 
-For every requested episode, produce:
+For every requested episode, produce ALL of the following:
 
 1. Topic and angle
 2. Why it fits KidMotion
@@ -14,16 +14,54 @@ For every requested episode, produce:
 4. Final title options
 5. Full scene timeline
 6. Exercise / movement plan
-7. Exact English voice text
-8. Exact on-screen text
+7. Exact English voice text for every scene
+8. Exact on-screen text for every scene
 9. One image-generation prompt for every required still image
-10. Audio file list and matching voice lines
-11. Timer and rest durations
-12. Remotion data requirements
-13. Thumbnail concept
-14. Thumbnail prompt
-15. YouTube description and search phrases
-16. Asset checklist
+10. One dedicated folder for every scene
+11. Cover / thumbnail concept and prompt
+12. `ALL_IMAGE_PROMPTS.md` containing every image prompt in production order, cover first
+13. `ALL_VOICE_TEXTS.md` containing every English voice line in timeline order
+14. Audio file list and matching voice lines
+15. Timer and rest durations
+16. Remotion data requirements
+17. Strong English caption
+18. Short caption variant
+19. YouTube description
+20. Relevant hashtags and search phrases
+21. Asset checklist
+
+## Episode folder rules
+
+Every episode must follow this structure:
+
+```text
+content/episodes/KM-XXX-slug/
+├── episode.md
+├── data.json
+├── ALL_IMAGE_PROMPTS.md
+├── ALL_VOICE_TEXTS.md
+├── publishing.md
+├── scenes/
+│   ├── 00-cover/
+│   │   ├── cover.md
+│   │   ├── cover-prompt.txt
+│   │   ├── cover-text.txt
+│   │   └── 00-cover.png
+│   ├── scene-01/
+│   │   ├── scene.md
+│   │   ├── image-prompt.txt
+│   │   ├── voice.txt
+│   │   ├── scene-01.png
+│   │   └── scene-01.wav
+│   ├── scene-02/
+│   │   └── ...
+│   └── outro/
+│       └── ...
+└── render/
+    └── final.mp4
+```
+
+The user creates images and audio externally using the supplied prompts and texts, then puts the finished assets into these folders.
 
 ## Static-image constraint
 
@@ -36,27 +74,92 @@ Use only the approved KidMotion boy and girl designs. Do not redesign their face
 ## Image prompt requirements
 
 Prompts must describe:
-- exact character
+- exact approved KidMotion character
 - exact pose
 - child-safe body position
 - camera framing
 - scene/background
 - expression
 - premium stylized 3D look
-- composition suitable for 16:9 YouTube
-- clear negative space for UI where useful
-- no text generated inside the image
+- 16:9 YouTube composition
+- negative space for UI when useful
 - no third-party logos
 - no copyrighted characters
 
+Normal exercise images should contain NO generated text. Exercise names, cues and instructions are added later through Remotion so typography remains consistent.
+
+The cover / thumbnail is the exception: it must define the desired cover text, but if generated typography is unreliable, generate clean cover artwork and add the exact text in Remotion or the thumbnail editor.
+
+## MASTER IMAGE PROMPT PACK — mandatory
+
+Always create `ALL_IMAGE_PROMPTS.md`.
+
+It must include every visual prompt in exact production order:
+
+1. cover
+2. scene 01
+3. scene 02
+4. scene 03
+5. etc.
+6. outro visual if required
+
+For every item include:
+- scene number
+- scene name
+- filename
+- exact prompt
+
+The purpose is that the user can open ONE file and create every image one after another without opening individual scene folders.
+
+## Per-scene information — mandatory
+
+Every normal scene must include:
+- scene purpose
+- character
+- exercise / pose name
+- duration
+- timer duration
+- rest after
+- short on-screen cue
+- short child-friendly instruction
+- exact English voice text
+- image filename
+- audio filename
+- exact image prompt
+
+The exercise / pose name should be short and visually obvious, similar to successful follow-along kids movement formats. Examples: `TREE POSE`, `FROG SQUAT`, `STAR STRETCH`.
+
+The supporting explanation should be very short and action-focused, for example:
+- `Stand tall. Lift one foot.`
+- `Bend your knees. Stay low.`
+- `Reach both arms up.`
+
+Do not fill the screen with paragraphs.
+
 ## Voice rules
 
-- English
+- English only for the finished channel content
 - short and easy for children to understand
 - positive, energetic or calm according to the format
 - instructions must be direct
+- every scene gets matching voice text when speech adds value
 - avoid unnecessarily long explanations
 - do not make unsupported health or medical claims
+
+Always create `ALL_VOICE_TEXTS.md` so the user can generate all audio from one file.
+
+## Caption / publishing rules
+
+Always create `publishing.md` with:
+- final recommended YouTube title
+- primary English caption
+- short caption version
+- YouTube description
+- focused hashtags
+- search phrases / keywords
+- recommended playlist
+
+Captions should be natural, parent-friendly, energetic and searchable without keyword stuffing.
 
 ## Topic selection
 
@@ -64,4 +167,11 @@ When asked to choose a topic, prefer a mix of evergreen value, child participati
 
 ## Final objective
 
-The user should be able to take the generated package, create the images and audio externally, put them into the designated episode asset folder, and render the finished video with Remotion.
+The user should be able to:
+
+1. open `ALL_IMAGE_PROMPTS.md` and generate all visuals in one pass
+2. save each generated visual in its matching scene folder
+3. open `ALL_VOICE_TEXTS.md` and generate all English audio in one pass
+4. save each audio file in its matching scene folder
+5. let Remotion assemble the episode with consistent labels, instructions, timers, transitions and progress UI
+6. copy the ready caption / description from `publishing.md` when uploading
