@@ -3,6 +3,21 @@
 ## Grundprinzip
 Eine Szene = eine klare Aufgabe, Pose, Frage oder Story-Etappe.
 
+## HARTE REGEL — erste Produktionsphase: Videos mindestens 5 Minuten
+In der aktuellen Startphase sollen normale KidMotion-Fitness-/Sport-/Pose-Videos NICHT nur aus fünf Übungen bestehen.
+
+Ziel für die ersten veröffentlichten Longform-Videos:
+- mindestens ca. 5 Minuten Gesamtlänge
+- mehrere Übungen / Posen pro Video
+- genug Wiederholungen und Abwechslung, damit das Video wie ein echtes Follow-along-Workout wirkt
+- erst wenn der Produktionsablauf, die Bildkonsistenz und Remotion-Timeline zuverlässig funktionieren, dürfen längere Formate schrittweise getestet werden
+
+Die 5 Minuten sind aktuell die MINDESTZIELLÄNGE für normale Longform-Videos, nicht die endgültige Obergrenze.
+
+Bei 20 Sekunden aktiver Übungszeit pro Übung plus kurzen Übergängen / Pausen ergibt sich typischerweise ein Video mit ungefähr 10–12 Übungen. Intro, Startkarte, Rest-/Übergänge und Outro zählen zusätzlich zur Gesamtlänge.
+
+Nicht automatisch auf exakt 5:00 kürzen. Lieber leicht über 5 Minuten liegen, wenn die Struktur natürlich bleibt.
+
 ## FESTE VIDEO-REIHENFOLGE
 Jedes KidMotion-Video folgt standardmäßig dieser Reihenfolge:
 
@@ -35,11 +50,11 @@ Die ersten Sekunden sollen dem Kind sofort erklären:
 
 ### Beispielstruktur
 Gesprochener Text:
-`Hi, KidMotion friends! Today we have five easy fitness moves. Follow along, do your best, and have fun. Get ready — let's move!`
+`Hi, KidMotion friends! Today we have an easy fitness workout. Follow along, do your best, and have fun. Get ready — let's move!`
 
 Auf dem Bildschirm darf derselbe Inhalt in kurzen lesbaren Blöcken erscheinen, z. B.:
 - `HI, KIDMOTION FRIENDS!`
-- `5 EASY FITNESS MOVES TODAY`
+- `EASY FITNESS WORKOUT TODAY`
 - `FOLLOW ALONG & HAVE FUN`
 - `GET READY — LET'S MOVE!`
 
@@ -164,7 +179,7 @@ Standardinhalt:
 - große Hauptzeile: `GREAT JOB!`
 - kurze zweite Zeile passend zum Video, z. B.:
   - `WORKOUT COMPLETE`
-  - `YOU DID ALL 5 MOVES!`
+  - `YOU FINISHED THE WORKOUT!`
   - `YOU DID IT!`
   - `AMAZING WORK!`
 - dieselbe Hauptfigur oder beide KidMotion-Figuren in einer klaren Victory-/Celebration-Pose
@@ -175,7 +190,7 @@ Standardinhalt:
 
 Voice:
 - kurzer englischer Glückwunsch ist Standard
-- Beispiel: `Great job! You finished all five moves. Amazing work!`
+- Beispiel: `Great job! You finished the workout. Amazing work!`
 - Voice und sichtbarer Abschluss sollen zeitlich sauber zusammen enden
 
 Timing:
@@ -190,12 +205,14 @@ Remotion:
 
 ## Standard-Timing
 Für das normale KidMotion-Follow-along-Format gilt:
+- Gesamtvideo in der aktuellen Startphase: MINDESTENS ca. 5 Minuten
 - Intro: typischerweise 8–18 s, abhängig vom Voice-Text
 - Startkarte: typischerweise 2–4 s
 - Start cue: optional 3…2…1…GO
 - Übung/Pose: EXAKT 20 s
 - Rest/transition: typischerweise 5–10 s
 - Outro/reward: Standard ca. 5 s, zulässig 3–8 s abhängig von Voice
+- typische erste Longform-Episode: ca. 10–12 Übungen, je nach Restdauer und Intro-Länge
 
 ## Remotion liefert
 - synchronisierte Intro-Text-Cues
