@@ -1,25 +1,28 @@
 import React from 'react';
-import {AbsoluteFill, Img, staticFile} from 'remotion';
+import {AbsoluteFill, Img, staticFile, useVideoConfig} from 'remotion';
 import type {Exercise} from '../types';
-import {Timer} from './Timer';
-import {ProgressBar} from './ProgressBar';
+import {ExerciseHeader} from './ExerciseHeader';
+import {CircularTimer} from './CircularTimer';
+import {KidProgressBar} from './KidProgressBar';
+import {brand} from '../brand';
 
 export const ExerciseScene: React.FC<{exercise: Exercise}> = ({exercise}) => {
+  const {fps} = useVideoConfig();
+  const durationInFrames = Math.max(1, Math.round(exercise.duration * fps));
+
   return (
-    <AbsoluteFill style={{background: 'linear-gradient(180deg,#6ad5ff 0%,#dff8ff 100%)', padding: 70, fontFamily: 'Arial, sans-serif'}}>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <div style={{fontSize: 64, fontWeight: 900}}>{exercise.title}</div>
-        <Timer durationInSeconds={exercise.duration} />
+    <AbsoluteFill style={{background: `linear-gradient(180deg, ${brand.colors.softBlue} 0%, ${brand.colors.cream} 100%)`, overflow: 'hidden'}}>
+      <ExerciseHeader title={exercise.title} cue={exercise.cue} instruction={exercise.instruction} />
+      <CircularTimer durationInFrames={durationInFrames} totalSeconds={exercise.duration} />
+
+      <div style={{position: 'absolute', left: 56, right: 56, top: 190, bottom: 90, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Img
+          src={staticFile(exercise.image)}
+          style={{maxHeight: '100%', maxWidth: '100%', objectFit: 'contain', filter: 'drop-shadow(0 22px 28px rgba(23,52,91,0.12))'}}
+        />
       </div>
 
-      <div style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <Img src={staticFile(exercise.image)} style={{maxHeight: '72%', maxWidth: '72%', objectFit: 'contain'}} />
-      </div>
-
-      <div style={{fontSize: 36, fontWeight: 700, textAlign: 'center', marginBottom: 28}}>
-        {exercise.instruction}
-      </div>
-      <ProgressBar durationInSeconds={exercise.duration} />
+      <KidProgressBar durationInFrames={durationInFrames} />
     </AbsoluteFill>
   );
 };
