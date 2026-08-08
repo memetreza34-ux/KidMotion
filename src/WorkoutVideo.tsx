@@ -16,20 +16,30 @@ export const workoutDurationInFrames = (workout: Workout) => {
   const exerciseFrames = workout.exercises.reduce((total, exercise) => {
     return total + (exercise.duration + (exercise.restAfter ?? 0)) * fps;
   }, 0);
-  return intro + exerciseFrames + (OUTRO_SECONDS + DISCLAIMER_SECONDS) * fps;
+  return intro + DISCLAIMER_SECONDS * fps + exerciseFrames + OUTRO_SECONDS * fps;
 };
 
 export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
   const fps = workout.fps ?? 30;
-  let cursor = (workout.introDuration ?? 0) * fps;
+  const introFrames = (workout.introDuration ?? 0) * fps;
+  let cursor = introFrames;
 
   return (
     <AbsoluteFill style={{background: '#eef8ff'}}>
       {(workout.introDuration ?? 0) > 0 ? (
-        <Sequence from={0} durationInFrames={(workout.introDuration ?? 0) * fps}>
+        <Sequence from={0} durationInFrames={introFrames}>
           <IntroScreen title={workout.title} subtitle={workout.subtitle} />
         </Sequence>
       ) : null}
+
+      <Sequence from={cursor} durationInFrames={DISCLAIMER_SECONDS * fps}>
+        <SafetyDisclaimerScreen />
+      </Sequence>
+
+      {(() => {
+        cursor += DISCLAIMER_SECONDS * fps;
+        return null;
+      })()}
 
       {workout.exercises.map((exercise, index) => {
         const exerciseStart = cursor;
@@ -56,10 +66,6 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
 
       <Sequence from={cursor} durationInFrames={OUTRO_SECONDS * fps}>
         <GreatJobScreen subtitle="Workout complete!" />
-      </Sequence>
-
-      <Sequence from={cursor + OUTRO_SECONDS * fps} durationInFrames={DISCLAIMER_SECONDS * fps}>
-        <SafetyDisclaimerScreen />
       </Sequence>
     </AbsoluteFill>
   );
