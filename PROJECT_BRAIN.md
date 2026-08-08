@@ -4,285 +4,37 @@ This file is the canonical memory for the KidMotion project. Any assistant, agen
 
 ## Mission
 
-Build an original English-language YouTube / YouTube Kids movement and fitness brand for children using recurring premium 3D animated characters.
+Build an original English-language YouTube / YouTube Kids movement, fitness and learning brand for children using recurring premium 3D animated-style characters presented primarily as STILL IMAGES / STATIC SCENES.
 
 The concept is inspired by successful kids movement formats where a character demonstrates an exercise and children copy the movement, but KidMotion must remain an original brand and must not copy copyrighted characters or franchise-specific designs.
 
-KidMotion is NOT just a yoga channel. The wider positioning is:
+## CRITICAL FORMAT CONSTRAINT — STATIC IMAGE CONTENT
 
-**Move + Play + Learn + Explore**
+KidMotion is NOT currently based on full character animation.
 
-The channel should keep physical movement as the core, but can combine it with education, imagination, games, stories, sports and healthy routines.
+Primary production format:
+- still images / static generated scenes
+- one or both recurring characters shown in exercise poses
+- visual progression created through changing images, camera framing, backgrounds, UI overlays and pose changes
+- optional editing effects such as zoom, pan, shake, transitions, countdowns, timers, arrows, highlights, text labels and sound effects
+- voiceover / spoken English instructions may be added
+- music / SFX may be added
+
+Do NOT design concepts that require complex continuous animation, lip-sync, running cycles, fight scenes, object interaction that only works with motion, or precise animated choreography unless the production method later changes.
+
+Every content idea should be evaluated with this question:
+
+> Can this be communicated clearly using a sequence of still images or static pose scenes?
+
+If not, redesign the concept.
 
 ## Current core concept
 
 - Language: English.
 - Audience: children.
-- Main format: animated movement / fitness videos children can follow along with.
+- Main format: static-image-based movement / fitness / learning videos children can follow along with.
 - The brand should not be limited to yoga.
-- The experience should be visually simple enough that children immediately understand what movement to copy.
-- Most videos should include active participation rather than passive watching.
-
-## CONTENT UNIVERSE — APPROVED DIRECTION
-
-KidMotion can produce content across the following pillars as long as movement remains naturally integrated.
-
-### PILLAR 1 — Kids Fitness & Workouts
-
-Core physical training content.
-
-Examples:
-- Full Body Workout
-- Cardio Workout
-- Beginner Workout
-- 5 Minute Energy Boost
-- 10 Minute Kids Workout
-- No Equipment Workout
-- Jumping Challenge
-- Core & Balance Workout
-- Morning Workout
-- After School Workout
-
-### PILLAR 2 — Yoga, Stretching & Mobility
-
-Calmer movement content.
-
-Examples:
-- Kids Yoga
-- Morning Yoga
-- Bedtime Stretch
-- Full Body Stretch
-- Flexibility Routine
-- Balance Yoga
-- Calm Down Yoga
-- Posture & Mobility
-
-### PILLAR 3 — Sports Training
-
-Child-friendly movement inspired by real sports.
-
-Examples:
-- Soccer Workout
-- Basketball Workout
-- Tennis Footwork
-- Running Drills
-- Boxing Fitness without contact
-- Athletics Challenge
-- Volleyball Movement
-- Martial-Arts-inspired coordination without fighting instruction
-
-The characters may both participate in every sport. Do not create gender-separated sports categories.
-
-### PILLAR 4 — Movement Games
-
-Highly interactive follow-along games.
-
-Examples:
-- Copy the Move
-- Freeze Dance / Freeze Workout
-- Red Light Green Light Movement Game
-- Simon Says Movement
-- Don't Touch the Floor
-- Floor Is Lava
-- Choose the Right Move
-- Fast vs Slow Challenge
-- Reaction Challenge
-- Left or Right Movement Game
-
-### PILLAR 5 — Adventure Workouts
-
-Movement combined with imaginative environments and mini stories.
-
-Examples:
-- Jungle Adventure
-- Space Mission
-- Pirate Treasure Hunt
-- Dinosaur Escape
-- Underwater Adventure
-- Volcano Escape
-- Arctic Adventure
-- Superhero Training using fully original hero themes
-- Robot Mission
-- Fantasy Castle Adventure
-
-The story should give the child a reason to perform each movement.
-
-Example:
-"Jump over the rocks" → jumping exercise.
-"Duck under the branches" → squats.
-"Cross the bridge" → balance exercise.
-
-### PILLAR 6 — Animal Movement
-
-Animal-inspired physical play.
-
-Examples:
-- Bear Walk
-- Frog Jumps
-- Flamingo Balance
-- Crab Walk
-- Monkey Movement
-- Bunny Hops
-- Safari Workout
-- Ocean Animal Workout
-
-Original or generic animals may appear as supporting characters.
-
-### PILLAR 7 — Dance & Rhythm Movement
-
-Simple movement to rhythm.
-
-Examples:
-- Dance Workout
-- Follow the Beat
-- Copy the Dance Move
-- Freeze Dance
-- Animal Dance
-- Morning Dance Party
-- Rhythm & Coordination Challenge
-
-Avoid relying on copyrighted songs unless properly licensed.
-
-### PILLAR 8 — Educational Movement
-
-Education should be combined with movement rather than becoming a normal classroom channel.
-
-Examples:
-- Learn Colors with Movement
-- Numbers Workout: count 1–20 while exercising
-- Alphabet Movement Challenge
-- Shapes Workout
-- Opposites: fast/slow, high/low, left/right
-- Simple English Vocabulary + Actions
-- Animal Names + Animal Movements
-- Weather Movement Game
-- Planet / Space Facts + movement missions
-- Basic body-part learning through movement
-
-Rule: the child should still be moving frequently. KidMotion should not turn into a passive educational lecture channel.
-
-### PILLAR 9 — Coordination, Balance & Motor Skills
-
-Especially useful for younger children.
-
-Examples:
-- Balance Challenge
-- Hand-Eye Coordination
-- Left & Right Challenge
-- Cross-Body Movements
-- Reaction Training
-- Follow the Pattern
-- One-Leg Balance
-- Simple agility drills
-
-### PILLAR 10 — Calm, Focus & Wind-Down
-
-Low-intensity physical content.
-
-Examples:
-- Bedtime Stretch
-- Calm Movement
-- Breathing + gentle movement
-- Slow Yoga
-- Relax After School
-- Focus Break
-- Gentle Morning Routine
-
-Do not make medical or therapeutic claims.
-
-### PILLAR 11 — Healthy Routine Content
-
-Simple healthy habits can appear when directly connected to movement and daily routines.
-
-Examples:
-- Wake Up & Move
-- Screen Break Workout
-- Homework Movement Break
-- Drink Water Reminder + mini movement
-- Posture Break
-- Before School Routine
-- After School Reset
-
-Avoid medical, weight-loss or body-image messaging for children.
-
-### PILLAR 12 — Seasonal & Event Content
-
-Useful for repeatable yearly content.
-
-Examples:
-- Christmas Workout
-- Halloween Movement Game
-- Summer Adventure Workout
-- Winter Workout
-- Back to School Movement Break
-- Easter Movement Game
-- New Year Energy Challenge
-
-Use original generic themes and avoid protected characters or franchises.
-
-### PILLAR 13 — Challenge / Progression Videos
-
-Content with levels or difficulty progression.
-
-Examples:
-- Easy / Medium / Hard Yoga Challenge
-- 3 Level Balance Challenge
-- Can You Finish All 10 Moves?
-- 7 Day Movement Challenge
-- 30 Day Kids Movement Calendar
-- Beginner to Champion
-- Beat Your Score
-
-Focus on fun, completion and skill rather than calories, weight or appearance.
-
-### PILLAR 14 — Shorts
-
-Short-form discovery content can support the main channel.
-
-Examples:
-- 20 Second Movement Challenge
-- Can You Copy This Move?
-- One Balance Challenge
-- Quick Morning Energy Move
-- Animal Move of the Day
-- Guess the Sport + perform the move
-
-Shorts should funnel viewers toward longer follow-along videos.
-
-## Recommended channel mix
-
-The strongest overall mix is:
-
-- 30% Adventure Workouts + Movement Games
-- 20% General Kids Fitness
-- 15% Yoga / Stretching / Balance
-- 10% Sports
-- 10% Educational Movement
-- 5% Dance / Rhythm
-- 5% Calm / Routine
-- 5% Seasonal / experimental formats
-
-This is a working mix, not a rigid publishing quota.
-
-## What KidMotion should NOT become
-
-Avoid drifting into unrelated content just because children may watch it.
-
-Do NOT make the channel primarily about:
-- passive cartoons with no movement purpose
-- toy unboxings
-- gaming videos
-- random nursery rhymes
-- generic school lessons without movement
-- prank content
-- frightening or violent content
-- weight-loss workouts for children
-- calorie-burning messaging
-- body-shaming or appearance-focused fitness
-- medical treatment claims
-- dangerous stunts
-- exercises requiring unsafe equipment or unsupervised risky setups
-- copied Disney / Marvel / Barbie / Pokémon / Miraculous / other franchise characters
+- The experience should be visually simple enough that children immediately understand what movement, pose or answer to copy / choose.
 
 ## Main characters — LOCKED DIRECTION
 
@@ -299,13 +51,13 @@ The two characters should be kept consistent across the entire brand. Do not gen
 
 ## Approved visual direction
 
-- Premium high-end stylized 3D animation.
+- Premium high-end stylized 3D animation look.
 - Polished family-entertainment quality.
 - Friendly expressive faces.
 - Slightly stylized larger eyes, but NOT oversized heads.
 - Child-appropriate proportions.
 - Slim and active, not muscular.
-- Proportions must remain readable for yoga, stretching, squats, jumping, running and sports exercises.
+- Proportions must remain readable for yoga, stretching, squats, jumping poses, running poses and sports poses.
 - Clean shapes, premium materials, soft skin shading, detailed hair.
 - Colorful but tasteful sportswear.
 - Original design only.
@@ -374,23 +126,218 @@ Allowed later variation:
 - themed settings
 - temporary activity-specific outfit variants, but only after a consistent core identity is established
 
-## Brand / format direction
+## CONTENT SYSTEM — MUST WORK WITH STILL IMAGES
 
-The stronger long-term direction is not merely “kids yoga.” KidMotion should combine movement with themes and adventures.
+KidMotion can cover many topics, but every format must be designed for static scenes.
 
-A future video can place the recurring characters into changing worlds while preserving character identity.
+### 1. Follow-the-Pose Fitness
+Best fit for static images.
+Examples:
+- squat hold
+- lunge pose
+- jumping-jack start/end positions
+- plank
+- wall sit
+- star pose
+- balance poses
+- stretching positions
+
+Format idea:
+character pose image + exercise name + timer + short instruction + next pose.
+
+### 2. Yoga / Stretching / Balance
+Excellent fit for still images.
+Examples:
+- cobra pose
+- tree pose
+- butterfly stretch
+- child's pose
+- side stretch
+- flamingo balance
+
+### 3. Sports Skill Poses
+Use preparation, stance and technique snapshots rather than continuous motion.
+Examples:
+- soccer ready stance
+- passing foot position
+- basketball defensive stance
+- tennis ready position
+- running start posture
+- throwing posture
+
+Avoid formats that require seeing the full movement trajectory unless several sequential stills can explain it.
+
+### 4. Copy-the-Pose Challenges
+Excellent fit.
+Examples:
+- “Can you copy this pose?”
+- easy / medium / hard
+- left vs right
+- 3-second pose challenge
+- balance challenge
+
+### 5. Freeze Games
+Very strong for still images.
+Examples:
+- freeze like a superhero
+- freeze like an animal
+- freeze in the correct sports pose
+- choose the matching pose
+
+### 6. Animal Movement / Animal Poses
+Good fit when each animal movement is represented by one clear pose image.
+Examples:
+- frog squat
+- bear stance
+- crab position
+- flamingo balance
+- bunny jump pose
+
+### 7. Adventure Workouts — STATIC VERSION
+Possible, but designed as illustrated scene progression instead of animated action.
+Examples:
+- Jungle Adventure: jump pose → balance pose → crawl pose → victory pose
+- Space Mission: moon jump pose → astronaut balance → rocket stretch
+- Pirate Quest: deck balance → treasure squat → lookout stretch
+
+Each “story beat” is a new static scene.
+
+### 8. Educational Movement
+Very strong differentiator and works well with still images.
+Examples:
+- alphabet + pose
+- numbers + repetitions
+- colors + movement choice
+- shapes + body poses
+- left / right learning
+- body parts
+- animal names
+- simple English vocabulary
+- planets / basic science facts + matching poses
+
+Core rule: learning should be combined with a visible movement, pose, choice or repetition.
+
+### 9. Spot-the-Correct-Move / Quiz Content
+Excellent for static visuals.
+Examples:
+- “Which pose is the tree pose?”
+- “Which foot should be forward?”
+- “Find the matching shadow.”
+- “Which character is balancing correctly?”
+- “Pick the healthy movement break.”
+
+### 10. Coordination / Brain Breaks
+Can work with still-image sequences.
+Examples:
+- touch left knee / right hand
+- point up / down / left / right
+- mirror the character
+- clap-count routines represented step-by-step
+- school brain breaks
+
+### 11. Calm / Focus / Wind-Down
+Very good fit.
+Examples:
+- bedtime stretch sequence
+- calm breathing pose
+- gentle mobility poses
+- focus-and-hold balance
+
+### 12. Healthy Routine Education
+Possible when kept simple, visual and age-appropriate.
+Examples:
+- screen break movement
+- posture break
+- morning wake-up stretch
+- after-school movement break
+- hydration reminder paired with movement
+
+Do not turn the channel into general health lectures; keep the KidMotion identity centered on movement and participation.
+
+### 13. Seasonal / Event Content
+Examples:
+- Christmas pose challenge
+- Halloween movement game
+- summer sports challenge
+- winter balance adventure
+- back-to-school brain break
+
+### 14. Shorts
+Excellent use case for static scenes.
+Examples:
+- 3 poses in 30 seconds
+- copy this pose
+- easy / medium / hard
+- animal pose of the day
+- left-or-right challenge
+- 5-rep mini workout
+
+## Content pillars — recommended priority
+
+1. Follow-the-Pose Fitness
+2. Yoga / Stretching / Balance
+3. Copy-the-Pose / Freeze Challenges
+4. Educational Movement
+5. Static Adventure Workouts
+6. Sports Skill Poses
+7. Brain Breaks / Coordination
+8. Shorts
+
+## What to AVOID in the current production model
+
+Avoid concepts that depend on:
+- full continuous character animation
+- realistic running across a scene
+- complex dance choreography
+- lip-synced character conversations
+- moving vehicles / chase scenes
+- characters physically fighting or interacting in complex ways
+- ball trajectories that must be animated precisely
+- multi-step movements that cannot be understood from static poses
+
+If such an idea is valuable, convert it into a sequence of clear static keyframes.
+
+## Recommended static-video grammar
+
+A typical KidMotion video can be built like this:
+
+1. Title / challenge image
+2. character in starting pose
+3. short English instruction
+4. timer / countdown
+5. same or alternate pose image
+6. completion / reward screen
+7. next exercise
+
+Visual motion can come from editing rather than character animation:
+- slow zoom
+- pan
+- parallax if available
+- text pop-ins
+- countdown circles
+- progress bars
+- sound cues
+- scene transitions
+
+## Brand formula
+
+KidMotion should stay close to:
+
+> MOVE + PLAY + LEARN + EXPLORE
+
+But always under the static-image production constraint.
 
 ## Production principle
 
-The likely pipeline is:
+Current likely pipeline:
 
-idea → exercise plan → script / instructions → character references → scene generation / animation → English voice → music / SFX → exercise labels / timer / UI → thumbnail → upload
+idea → static-scene plan → exercise / learning plan → script / instructions → character references → pose image generation → background / themed scene generation → English voice → timer / labels / UI → editing motion effects → music / SFX → thumbnail → upload
 
 Character consistency is one of the highest-priority technical requirements.
 
 ## Current project phase
 
-PHASE 2 — Content universe definition.
+PHASE 1 — Character definition and content system.
 
 Approved so far:
 - project name: KidMotion
@@ -398,19 +345,17 @@ Approved so far:
 - current boy image
 - current girl image
 - exact individual generation prompts
-- broad KidMotion content universe and content pillars
+- static-image-first production model
+- broad content system defined above
 
 Next recommended work:
-1. finalize character names
-2. define exact target age range
-3. define video types and standard durations
-4. define exercise safety/content rules per age range
-5. define recurring UI: timer, exercise name, progress indicators, rest screens
-6. define voices and personalities
-7. define brand colors / logo / typography
-8. design first 10 video concepts
-9. create first test episode
-10. build repeatable production pipeline
+1. give the characters names
+2. define voices and personalities
+3. define KidMotion brand colors / logo / typography
+4. define the exact static video template and timing system
+5. define 10–20 repeatable series formats
+6. create the first test episode
+7. build a repeatable production pipeline
 
 ## Decision log
 
@@ -422,11 +367,13 @@ Next recommended work:
 - Rejected later generations that made the characters younger / more cartoonish.
 - Approved the current individual boy and girl images as the best references so far.
 - Preserved the original prompt direction because it produced the preferred look.
-- Expanded KidMotion from a simple kids-yoga concept into a broader movement brand: fitness, sports, games, adventure, educational movement, dance, coordination, calm routines and seasonal content.
-- Kept physical movement as the central requirement across the brand.
+- Clarified that the current KidMotion production model uses still images / static generated scenes rather than full character animation.
+- Reworked the content strategy so formats must be understandable through static poses, scene changes and editing overlays.
 
 ## Instruction to future agents
 
-Before changing character design, content pillars or core format assumptions, read this file and `characters/CHARACTER_BIBLE.md`.
+Before changing character design, production format or core content assumptions, read this file and `characters/CHARACTER_BIBLE.md`.
 
-Do not overwrite established decisions merely because another generation looks different. Treat approved reference images, approved prompts and this content universe as the source of truth until the user explicitly approves a replacement.
+Do not assume full animation is available. The current default is STILL IMAGES / STATIC SCENES.
+
+Do not overwrite established decisions merely because another generation looks different. Treat the approved reference images and prompts as the source of truth until the user explicitly approves a replacement.
