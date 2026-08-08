@@ -86,6 +86,20 @@ Timing:
 
 Remotion soll diese Startkarte als wiederverwendbare Komponente bauen, nicht als jedes Mal neu manuell gestaltete Szene.
 
+## HARTE REGEL — jede Übungsszene dauert 20 Sekunden
+Für normale KidMotion-Fitness-/Sport-/Pose-Videos dauert JEDE eigentliche Übungsszene standardmäßig EXAKT 20 Sekunden.
+
+Diese 20 Sekunden gehören nur zur aktiven Übung / Pose. Intro, Startkarte, Rest-Screens und Outro haben eigene Zeiten.
+
+Die 20-Sekunden-Regel darf nur geändert werden, wenn der Nutzer es für ein bestimmtes Format ausdrücklich verlangt.
+
+Timer-Verhalten:
+- jede normale Übung startet bei `20`
+- der Timer zählt sichtbar bis `0`
+- Remotion steuert die Dauer exakt; Bild und UI enden gleichzeitig
+- 3, 2 und 1 dürfen visuell stärker hervorgehoben werden
+- keine Szene darf versehentlich 19, 21 oder unterschiedlich viele Sekunden lang sein, wenn das Standardformat verwendet wird
+
 ## HARTE REGEL — jede Übungsszene folgt demselben Grundlayout
 Nach der Startkarte folgen die eigentlichen Übungsszenen. Jede Übungsszene muss auf einen Blick verständlich sein, auch wenn die Figur selbst nur als statisches Bild vorliegt.
 
@@ -115,7 +129,8 @@ Die Beschreibung soll kurz und praktisch sein. Sie erklärt die Ausführung, nic
 
 ### Timer-Verhalten
 - Timer wird mit Remotion erzeugt, nicht in das KI-Bild eingebrannt
-- Countdown läuft sichtbar von der festgelegten Dauer auf 0
+- Standarddauer pro Übung: exakt 20 Sekunden
+- Countdown läuft sichtbar von 20 auf 0
 - Kreis-/Ring-Timer ist der bevorzugte KidMotion-Standard
 - Timer bleibt während der gesamten Übung an derselben gut sichtbaren Position
 - bei 3, 2, 1 darf visuell stärker hervorgehoben werden
@@ -138,17 +153,18 @@ Die Beschreibung soll kurz und praktisch sein. Sie erklärt die Ausführung, nic
 Name, Mini instruction und Caption dürfen nicht unnötig denselben Satz wiederholen.
 
 ## Standard-Timing
-Je nach Format anpassen. Für Follow-along:
+Für das normale KidMotion-Follow-along-Format gilt:
 - Intro: typischerweise 8–18 s, abhängig vom Voice-Text
 - Startkarte: typischerweise 2–4 s
 - Start cue: optional 3…2…1…GO
-- Übung/Pose: typischerweise 15–30 s
+- Übung/Pose: EXAKT 20 s
 - Rest/transition: typischerweise 5–10 s
 - Outro/reward: 3–8 s
 
 ## Remotion liefert
 - synchronisierte Intro-Text-Cues
 - wiederverwendbare `LET'S BEGIN!`-Startkarte
+- exakt 20-sekündige Standard-Übungsszenen
 - Timer
 - Countdown
 - Progress bar / exercise progress
