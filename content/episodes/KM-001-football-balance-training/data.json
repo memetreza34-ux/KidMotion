@@ -1,0 +1,40 @@
+{
+  "id": "KM-001",
+  "slug": "football-balance-training",
+  "format": "youtube-longform",
+  "aspectRatio": "16:9",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "theme": "football",
+  "mainCharacter": "boy",
+  "introDuration": 12,
+  "safetyDuration": 5,
+  "letsBeginDuration": 3,
+  "outroDuration": 5,
+  "exerciseDuration": 20,
+  "defaultRestAfter": 5,
+  "exercises": [
+    {"id":"04","title":"FOOTBALL READY HOLD","image":"04-football-ready-hold.png","duration":20,"restAfter":5},
+    {"id":"05","title":"GOALKEEPER READY","image":"05-goalkeeper-ready.png","duration":20,"restAfter":5},
+    {"id":"06","title":"KICK PREP HOLD","image":"06-kick-prep-hold.png","duration":20,"restAfter":5},
+    {"id":"07","title":"DEFENDER HOLD","image":"07-defender-hold.png","duration":20,"restAfter":5},
+    {"id":"08","title":"BALL BALANCE","image":"08-ball-balance.png","duration":20,"restAfter":5},
+    {"id":"09","title":"SIDE LUNGE HOLD","image":"09-side-lunge-hold.png","duration":20,"restAfter":5},
+    {"id":"10","title":"FORWARD LUNGE","image":"10-forward-lunge.png","duration":20,"restAfter":5},
+    {"id":"11","title":"TOE-TAP BALANCE","image":"11-toe-tap-balance.png","duration":20,"restAfter":5},
+    {"id":"12","title":"WIDE BASE HOLD","image":"12-wide-base-hold.png","duration":20,"restAfter":5},
+    {"id":"13","title":"PASS PREP HOLD","image":"13-pass-prep-hold.png","duration":20,"restAfter":5},
+    {"id":"14","title":"SPRINT START","image":"14-sprint-start.png","duration":20,"restAfter":5},
+    {"id":"15","title":"VICTORY BALANCE","image":"15-victory-balance.png","duration":20,"restAfter":0}
+  ],
+  "remotion": {
+    "introTextSource": "Remotion",
+    "safetyScreen": true,
+    "letsBeginScreen": true,
+    "exerciseTimer": "circular-20-second",
+    "progressBar": true,
+    "exerciseNameSource": "baked-into-image",
+    "exerciseInstructionSource": "baked-into-image"
+  }
+}
