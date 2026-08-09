@@ -40,8 +40,15 @@ Example:
 
 So if a scene has no generated image, skip that prompt entirely but keep the scene number reserved. Never compress or renumber later images.
 
+CRITICAL PER-PROMPT RULE:
+Every single image prompt below explicitly starts with the IMAGE NUMBER + SCENE NAME and ends with the FINAL FILE NAME. The AI must use these exact identifiers for that image before moving to the next prompt.
+
 ## 00 COVER — Bild 00
 ```text
+IMAGE NUMBER: Bild 00
+SCENE: COVER / YOUTUBE THUMBNAIL
+FINAL FILE NAME: Bild 00.png
+
 Use the approved KidMotion boy reference exactly.
 Create a 16:9 YouTube thumbnail for a kids football workout.
 Dress him in the KM-001 original blue/green football kit from REFERENCE_GUIDE.md and place him on the same bright premium football training pitch.
@@ -52,18 +59,22 @@ Add large readable cover text on the left:
 Use bold white KidMotion lettering with dark navy outline and blue/lime accents.
 No real club or brand logos.
 
-FINAL FILE NAME: Bild 00.png
+After generation, immediately rename this image to: Bild 00.png
 ```
 
 ## 01 INTRO ASSET — Bild 01
 ```text
+IMAGE NUMBER: Bild 01
+SCENE: SCENE 01 — INTRO
+FINAL FILE NAME: Bild 01.png
+
 Use the approved KidMotion boy reference exactly.
 Create a 16:9 scene in the KM-001 football training world.
 Boy in the blue/green football kit, friendly ready pose, full body on the right side.
 Leave the left 60% clean for Remotion intro text.
 No text in the image. No timer. No progress bar.
 
-FINAL FILE NAME: Bild 01.png
+After generation, immediately rename this image to: Bild 01.png
 ```
 
 ## 02 SAFETY — no generated image
@@ -71,6 +82,10 @@ Scene 02 is created in Remotion. Do NOT create an image. Keep number 02 reserved
 
 ## 03 LET'S BEGIN — Bild 03
 ```text
+IMAGE NUMBER: Bild 03
+SCENE: SCENE 03 — LET'S BEGIN
+FINAL FILE NAME: Bild 03.png
+
 Use the approved KM-001 football boy reference exactly.
 Create a 16:9 football training scene in the same pitch and outfit.
 Boy in an energetic ready stance, large and centered-right.
@@ -78,11 +93,15 @@ Add large text: “LET'S BEGIN!”
 Use bold white KidMotion athletic lettering with dark navy outline and blue/lime accents.
 No timer or progress bar.
 
-FINAL FILE NAME: Bild 03.png
+After generation, immediately rename this image to: Bild 03.png
 ```
 
 ## 04 FOOTBALL READY HOLD — Bild 04
 ```text
+IMAGE NUMBER: Bild 04
+SCENE: SCENE 04 — FOOTBALL READY HOLD
+FINAL FILE NAME: Bild 04.png
+
 Use the approved KM-001 football boy reference exactly.
 Same 16:9 football pitch, outfit and 3D style.
 POSE: FOOTBALL READY HOLD.
@@ -91,11 +110,15 @@ BOTTOM-LEFT: “FOOTBALL READY HOLD” in bold white KidMotion lettering with na
 UPPER-RIGHT: white cloud with dark navy text: “Bend your knees and stay ready.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 04.png
+After generation, immediately rename this image to: Bild 04.png
 ```
 
 ## 05 GOALKEEPER READY HOLD — Bild 05
 ```text
+IMAGE NUMBER: Bild 05
+SCENE: SCENE 05 — GOALKEEPER READY HOLD
+FINAL FILE NAME: Bild 05.png
+
 Use the approved KM-001 football boy reference exactly.
 Same 16:9 football pitch, outfit and 3D style.
 POSE: GOALKEEPER READY HOLD.
@@ -104,11 +127,15 @@ BOTTOM-LEFT: “GOALKEEPER READY” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Stay low with your hands ready.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 05.png
+After generation, immediately rename this image to: Bild 05.png
 ```
 
 ## 06 KICK PREP HOLD — Bild 06
 ```text
+IMAGE NUMBER: Bild 06
+SCENE: SCENE 06 — KICK PREP HOLD
+FINAL FILE NAME: Bild 06.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: KICK PREP HOLD.
@@ -117,11 +144,15 @@ BOTTOM-LEFT: “KICK PREP HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Balance on one leg and stay tall.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 06.png
+After generation, immediately rename this image to: Bild 06.png
 ```
 
 ## 07 DEFENDER HOLD — Bild 07
 ```text
+IMAGE NUMBER: Bild 07
+SCENE: SCENE 07 — DEFENDER HOLD
+FINAL FILE NAME: Bild 07.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: DEFENDER HOLD.
@@ -130,11 +161,15 @@ BOTTOM-LEFT: “DEFENDER HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Stay low with a strong wide stance.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 07.png
+After generation, immediately rename this image to: Bild 07.png
 ```
 
 ## 08 SINGLE-LEG BALL BALANCE — Bild 08
 ```text
+IMAGE NUMBER: Bild 08
+SCENE: SCENE 08 — SINGLE-LEG BALL BALANCE
+FINAL FILE NAME: Bild 08.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: SINGLE-LEG BALL BALANCE.
@@ -143,11 +178,15 @@ BOTTOM-LEFT: “BALL BALANCE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Keep one foot on the ball and stand tall.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 08.png
+After generation, immediately rename this image to: Bild 08.png
 ```
 
 ## 09 SIDE LUNGE HOLD — Bild 09
 ```text
+IMAGE NUMBER: Bild 09
+SCENE: SCENE 09 — SIDE LUNGE HOLD
+FINAL FILE NAME: Bild 09.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: SIDE LUNGE HOLD.
@@ -156,11 +195,15 @@ BOTTOM-LEFT: “SIDE LUNGE HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Bend one knee and keep the other leg long.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 09.png
+After generation, immediately rename this image to: Bild 09.png
 ```
 
 ## 10 FORWARD LUNGE HOLD — Bild 10
 ```text
+IMAGE NUMBER: Bild 10
+SCENE: SCENE 10 — FORWARD LUNGE HOLD
+FINAL FILE NAME: Bild 10.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: FORWARD LUNGE HOLD.
@@ -169,11 +212,15 @@ BOTTOM-LEFT: “FORWARD LUNGE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Step forward and keep your body tall.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 10.png
+After generation, immediately rename this image to: Bild 10.png
 ```
 
 ## 11 TOE-TAP BALANCE HOLD — Bild 11
 ```text
+IMAGE NUMBER: Bild 11
+SCENE: SCENE 11 — TOE-TAP BALANCE HOLD
+FINAL FILE NAME: Bild 11.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: TOE-TAP BALANCE HOLD.
@@ -182,11 +229,15 @@ BOTTOM-LEFT: “TOE-TAP BALANCE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Touch the ball lightly and keep your balance.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 11.png
+After generation, immediately rename this image to: Bild 11.png
 ```
 
 ## 12 WIDE BASE HOLD — Bild 12
 ```text
+IMAGE NUMBER: Bild 12
+SCENE: SCENE 12 — WIDE BASE HOLD
+FINAL FILE NAME: Bild 12.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: WIDE BASE HOLD.
@@ -195,11 +246,15 @@ BOTTOM-LEFT: “WIDE BASE HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Stand wide and keep your knees soft.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 12.png
+After generation, immediately rename this image to: Bild 12.png
 ```
 
 ## 13 PASS PREP HOLD — Bild 13
 ```text
+IMAGE NUMBER: Bild 13
+SCENE: SCENE 13 — PASS PREP HOLD
+FINAL FILE NAME: Bild 13.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: PASS PREP HOLD.
@@ -208,11 +263,15 @@ BOTTOM-LEFT: “PASS PREP HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Plant one foot beside the ball and stay balanced.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 13.png
+After generation, immediately rename this image to: Bild 13.png
 ```
 
 ## 14 SPRINT START HOLD — Bild 14
 ```text
+IMAGE NUMBER: Bild 14
+SCENE: SCENE 14 — SPRINT START HOLD
+FINAL FILE NAME: Bild 14.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: SPRINT START HOLD.
@@ -221,11 +280,15 @@ BOTTOM-LEFT: “SPRINT START” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Lean forward and stay ready to go.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 14.png
+After generation, immediately rename this image to: Bild 14.png
 ```
 
 ## 15 VICTORY BALANCE HOLD — Bild 15
 ```text
+IMAGE NUMBER: Bild 15
+SCENE: SCENE 15 — VICTORY BALANCE HOLD
+FINAL FILE NAME: Bild 15.png
+
 Use the approved KM-001 football boy reference exactly.
 Same football pitch and outfit.
 POSE: VICTORY BALANCE HOLD.
@@ -234,18 +297,22 @@ BOTTOM-LEFT: “VICTORY BALANCE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Lift one knee and hold your balance.”
 No timer. No progress bar.
 
-FINAL FILE NAME: Bild 15.png
+After generation, immediately rename this image to: Bild 15.png
 ```
 
 ## 16 OUTRO BACKGROUND — Bild 16
 ```text
+IMAGE NUMBER: Bild 16
+SCENE: SCENE 16 — OUTRO / GREAT JOB
+FINAL FILE NAME: Bild 16.png
+
 Use the approved KM-001 football boy reference exactly.
 Same 16:9 football pitch and outfit.
 Boy centered in a proud victory pose with both arms raised, happy confident smile.
 Leave clean space for Remotion GREAT JOB text.
 No generated text. No timer. No progress bar.
 
-FINAL FILE NAME: Bild 16.png
+After generation, immediately rename this image to: Bild 16.png
 ```
 
 # GOOGLE FLOW SINGLE-IMAGE ORDER FOR THIS EPISODE
