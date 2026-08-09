@@ -1,33 +1,46 @@
 # KM-001 — All Image Prompts
 
-Use the approved KidMotion boy reference image for every prompt. If Antigravity supports image reference, attach it. After the first approved football scene, use that scene as the visual reference for all later scenes.
+Use the approved KidMotion boy reference image for every prompt. If Google Flow / Antigravity supports image reference, attach it. After the first approved football scene, use that scene as the visual reference for all later scenes.
 
-## HARD RULE — IMAGE NUMBERING MUST FOLLOW SCENE NUMBERS
+# HARD RULE — GOOGLE FLOW KI-AGENT WORKFLOW
 
-All generated images will later be placed together in one asset folder. Therefore every image MUST be renamed according to its SCENE NUMBER, not according to the number of generated images.
+This workflow is mandatory for every episode image-generation pass.
 
-Naming format:
-- Cover = `Bild 00`
-- Scene 01 image = `Bild 01`
-- Scene 02 image = `Bild 02`
-- Scene 03 image = `Bild 03`
-- and so on until the final scene.
+1. Generate AT MOST 3 images at the same time.
+2. First 3-image step:
+   - `Bild 00` = Cover
+   - `Bild 01` = Scene 01
+   - `Bild 02` = Scene 02
+3. As soon as those images are finished, rename them immediately and correctly.
+4. Only after renaming, generate the next step:
+   - `Bild 03`
+   - `Bild 04`
+   - `Bild 05`
+5. Continue in this exact pattern:
+   - generate up to 3 images
+   - rename immediately
+   - then generate the next up to 3 images
+6. Continue until ALL required images have been generated and correctly renamed.
+7. The final step may contain only 1 or 2 images.
+8. After generation, verify the complete numbering:
+   - no required number missing
+   - no number duplicated
+   - no images swapped
+   - every image matches the correct chronological scene
+9. ONLY AFTER the numbering check is complete, place all finished images together in:
+   `00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+10. Do NOT distribute the generated images into individual scene folders.
 
-CRITICAL:
-The number always belongs to the chronological scene position.
-Do NOT close numbering gaps when a scene does not need a generated image.
+IMPORTANT SCENE RULE:
+The image number always follows the chronological scene number. If a scene is Remotion-only and needs no generated image, that number remains reserved and is not reused for another scene.
 
 Example:
 - Cover = `Bild 00`
-- Scene 01 has an image = `Bild 01`
-- Scene 02 is Remotion-only / animation-only and has NO generated image = there is NO `Bild 02`
-- Scene 03 has an image = `Bild 03`
+- Scene 01 image = `Bild 01`
+- Scene 02 Remotion-only = no generated `Bild 02`
+- Scene 03 image = `Bild 03`
 
-So Scene 03 must NEVER be renamed `Bild 02` just because Scene 02 had no image.
-
-The image number must always match the real scene number in the final video timeline.
-
-After generating the images, rename every generated image exactly according to these scene numbers before handing the assets to the production pipeline.
+For the Google Flow batch workflow, simply SKIP scene numbers that do not require generated images and continue with the real scene number. Never compress the numbering.
 
 ## 00 COVER — Bild 00
 ```text
@@ -40,6 +53,8 @@ Add large readable cover text on the left:
 “FOR KIDS”
 Use bold white KidMotion lettering with dark navy outline and blue/lime accents.
 No real club or brand logos.
+
+FINAL FILE NAME: Bild 00
 ```
 
 ## 01 INTRO ASSET — Bild 01
@@ -49,6 +64,8 @@ Create a 16:9 scene in the KM-001 football training world.
 Boy in the blue/green football kit, friendly ready pose, full body on the right side.
 Leave the left 60% clean for Remotion intro text.
 No text in the image. No timer. No progress bar.
+
+FINAL FILE NAME: Bild 01
 ```
 
 ## 02 SAFETY — no generated image
@@ -62,6 +79,8 @@ Boy in an energetic ready stance, large and centered-right.
 Add large text: “LET'S BEGIN!”
 Use bold white KidMotion athletic lettering with dark navy outline and blue/lime accents.
 No timer or progress bar.
+
+FINAL FILE NAME: Bild 03
 ```
 
 ## 04 FOOTBALL READY HOLD — Bild 04
@@ -73,6 +92,8 @@ Feet shoulder-width apart, knees slightly bent, torso upright, hands relaxed in 
 BOTTOM-LEFT: “FOOTBALL READY HOLD” in bold white KidMotion lettering with navy outline and blue/lime accents, compact.
 UPPER-RIGHT: white cloud with dark navy text: “Bend your knees and stay ready.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 04
 ```
 
 ## 05 GOALKEEPER READY HOLD — Bild 05
@@ -84,6 +105,8 @@ Feet wide, knees bent, torso slightly forward, arms open with hands ready, full 
 BOTTOM-LEFT: “GOALKEEPER READY” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Stay low with your hands ready.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 05
 ```
 
 ## 06 KICK PREP HOLD — Bild 06
@@ -95,6 +118,8 @@ Stand on left leg, right leg slightly back ready to kick, arms naturally out for
 BOTTOM-LEFT: “KICK PREP HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Balance on one leg and stay tall.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 06
 ```
 
 ## 07 DEFENDER HOLD — Bild 07
@@ -106,6 +131,8 @@ Feet wide, knees bent, hips slightly back, chest up, arms slightly out, full bod
 BOTTOM-LEFT: “DEFENDER HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Stay low with a strong wide stance.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 07
 ```
 
 ## 08 SINGLE-LEG BALL BALANCE — Bild 08
@@ -117,6 +144,8 @@ Stand on left leg, right foot resting lightly on top of a football, torso uprigh
 BOTTOM-LEFT: “BALL BALANCE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Keep one foot on the ball and stand tall.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 08
 ```
 
 ## 09 SIDE LUNGE HOLD — Bild 09
@@ -128,6 +157,8 @@ Step wide to the right, bend right knee, left leg straighter, chest up, hands in
 BOTTOM-LEFT: “SIDE LUNGE HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Bend one knee and keep the other leg long.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 09
 ```
 
 ## 10 FORWARD LUNGE HOLD — Bild 10
@@ -139,6 +170,8 @@ Right foot forward, knees bent comfortably, torso upright, hands on hips, static
 BOTTOM-LEFT: “FORWARD LUNGE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Step forward and keep your body tall.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 10
 ```
 
 ## 11 TOE-TAP BALANCE HOLD — Bild 11
@@ -150,6 +183,8 @@ Stand tall with one foot planted and the other toes lightly touching a football 
 BOTTOM-LEFT: “TOE-TAP BALANCE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Touch the ball lightly and keep your balance.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 11
 ```
 
 ## 12 WIDE BASE HOLD — Bild 12
@@ -161,6 +196,8 @@ Feet wider than shoulders, knees softly bent, chest up, hands relaxed, static ho
 BOTTOM-LEFT: “WIDE BASE HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Stand wide and keep your knees soft.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 12
 ```
 
 ## 13 PASS PREP HOLD — Bild 13
@@ -172,6 +209,8 @@ Left foot planted beside a football, right foot turned slightly outward ready to
 BOTTOM-LEFT: “PASS PREP HOLD” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Plant one foot beside the ball and stay balanced.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 13
 ```
 
 ## 14 SPRINT START HOLD — Bild 14
@@ -183,6 +222,8 @@ One foot forward, one foot back, knees bent, torso leaning slightly forward, arm
 BOTTOM-LEFT: “SPRINT START” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Lean forward and stay ready to go.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 14
 ```
 
 ## 15 VICTORY BALANCE HOLD — Bild 15
@@ -194,6 +235,8 @@ Stand on one leg, other knee lifted comfortably, both arms raised in a V, proud 
 BOTTOM-LEFT: “VICTORY BALANCE” in KidMotion title style.
 UPPER-RIGHT: white cloud: “Lift one knee and hold your balance.”
 No timer. No progress bar.
+
+FINAL FILE NAME: Bild 15
 ```
 
 ## 16 OUTRO BACKGROUND — Bild 16
@@ -203,23 +246,60 @@ Same 16:9 football pitch and outfit.
 Boy centered in a proud victory pose with both arms raised, happy confident smile.
 Leave clean space for Remotion GREAT JOB text.
 No generated text. No timer. No progress bar.
+
+FINAL FILE NAME: Bild 16
 ```
 
-# FINAL ANTIGRAVITY HANDOFF INSTRUCTION
+# GOOGLE FLOW BATCH ORDER FOR THIS EPISODE
 
-After ALL images have been generated:
+Because Scene 02 is Remotion-only, there is no generated `Bild 02`.
 
-1. Rename every image according to the real chronological scene number.
-2. Cover must be named `Bild 00`.
-3. Scene 01 image must be named `Bild 01`.
-4. Scene 02 has no generated image, so there is NO `Bild 02`.
-5. Scene 03 must still be named `Bild 03`, never `Bild 02`.
-6. Continue this exact rule through the final scene.
-7. Never renumber images just to remove gaps.
-8. The image number must always equal the scene number.
+Generate in these batches:
 
-For this episode the final generated-image sequence is:
+### Batch 1
+- Bild 00
+- Bild 01
+- Bild 03
 
+Rename immediately.
+
+### Batch 2
+- Bild 04
+- Bild 05
+- Bild 06
+
+Rename immediately.
+
+### Batch 3
+- Bild 07
+- Bild 08
+- Bild 09
+
+Rename immediately.
+
+### Batch 4
+- Bild 10
+- Bild 11
+- Bild 12
+
+Rename immediately.
+
+### Batch 5
+- Bild 13
+- Bild 14
+- Bild 15
+
+Rename immediately.
+
+### Batch 6
+- Bild 16
+
+Rename immediately.
+
+Then verify the final sequence:
 `Bild 00, Bild 01, Bild 03, Bild 04, Bild 05, Bild 06, Bild 07, Bild 08, Bild 09, Bild 10, Bild 11, Bild 12, Bild 13, Bild 14, Bild 15, Bild 16`
 
-There is intentionally no `Bild 02` because Scene 02 is Remotion-only.
+Finally move ALL finished images together into:
+`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+
+Do NOT distribute them into individual scene folders.
