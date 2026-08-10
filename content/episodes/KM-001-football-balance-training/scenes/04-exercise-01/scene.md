@@ -1,8 +1,11 @@
-# 04 — Football Ready Hold
-Reference: approved KM-001 football boy.
-Image prompt: see `../../ALL_IMAGE_PROMPTS.md` → 04 FOOTBALL READY HOLD.
-Voice: see `../../ALL_VOICE_TEXTS.md` → 04 FOOTBALL READY HOLD.
-Duration: 20s.
-Rest after: 5s.
-Remotion: circular timer + progress bar only.
-Expected image: `04-football-ready-hold.png`.
+# 04 — FOOTBALL READY HOLD
+- Image: `Bild 04.png`
+- Duration: 20s
+- Rest after: 5s
+- Character: EXACTLY ONE — same approved KM-001 boy
+- No girl / second child / other people
+- Reference: `../../REFERENCE_GUIDE.md`
+- Prompt: `../../ALL_IMAGE_PROMPTS.md` → SCENE 04
+- Voice: `../../ALL_VOICE_TEXTS.md` → 04
+- Static hold only
+- Remotion: circular 20s timer + progress bar only
