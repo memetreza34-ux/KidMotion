@@ -3,11 +3,10 @@
 ## Final YouTube title
 5 Minute Football Training for Kids | Balance & Control Workout
 
-## Primary caption
-Train like a football player with KidMotion! ⚽ Follow 12 easy static football poses for balance, control and strong ready positions. Each pose is held for 20 seconds.
+## ONE CROSS-PLATFORM CAPTION
+Ready to train like a football player? ⚽ Follow all 12 poses, hold strong for 20 seconds each and see if you can finish the full KidMotion football challenge! #KidsWorkout #FootballForKids #FootballTraining #KidsFitness #KidMotion
 
-## Short caption
-5 minutes of football balance training for kids. Follow the poses and hold strong! ⚽
+Use this EXACT same caption for YouTube, TikTok, Instagram, Facebook and other social platforms unless a platform technically prevents it.
 
 ## YouTube description
 Train like a football player with KidMotion in this easy 5-minute kids workout.
@@ -17,9 +16,6 @@ This follow-along session uses simple static football training poses designed to
 Safety first: make sure there is enough clear space to move, stop if anything hurts or feels uncomfortable, and ask an adult for help when needed.
 
 KidMotion provides general movement and entertainment content and is not medical advice.
-
-## Hashtags
-#KidsWorkout #FootballForKids #KidsFitness #FootballTraining #KidMotion
 
 ## Keywords / search phrases
 - football workout for kids
