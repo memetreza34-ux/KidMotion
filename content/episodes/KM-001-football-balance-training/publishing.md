@@ -4,7 +4,7 @@
 5 Minute Football Training for Kids | Balance & Control Workout
 
 ## ONE CROSS-PLATFORM CAPTION
-Ready to train like a football player? ⚽ Follow all 12 poses, hold strong for 20 seconds each and see if you can finish the full KidMotion football challenge! #KidsWorkout #FootballForKids #FootballTraining #KidsFitness #KidMotion
+Can you finish all 12 football poses? ⚽ Hold each one for 20 seconds, stay balanced and complete the full KidMotion football challenge! #KidsWorkout #FootballForKids #KidsFitness #FootballTraining #KidMotion
 
 Use this EXACT same caption for YouTube, TikTok, Instagram, Facebook and other social platforms unless a platform technically prevents it.
 
