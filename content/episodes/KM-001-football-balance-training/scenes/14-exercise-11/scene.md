@@ -1,8 +1,11 @@
-# 14 — Sprint Start Hold
-Reference: approved KM-001 football boy.
-Image prompt: see `../../ALL_IMAGE_PROMPTS.md` → 14 SPRINT START HOLD.
-Voice: see `../../ALL_VOICE_TEXTS.md` → 14 SPRINT START.
-Duration: 20s.
-Rest after: 5s.
-Remotion: circular timer + progress bar only.
-Expected image: `14-sprint-start.png`.
+# 14 — SPRINT START HOLD
+- Image: `Bild 14.png`
+- Duration: 20s
+- Rest after: 5s
+- Character: EXACTLY ONE — same approved KM-001 boy
+- No girl / second child / other people
+- Reference: `../../REFERENCE_GUIDE.md`
+- Prompt: `../../ALL_IMAGE_PROMPTS.md` → SCENE 14
+- Voice: `../../ALL_VOICE_TEXTS.md` → 14
+- Static frozen hold only; no running animation
+- Remotion: circular 20s timer + progress bar only
