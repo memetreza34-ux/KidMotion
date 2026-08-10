@@ -1,43 +1,97 @@
-# KM-001 Reference Guide — Antigravity
+# KM-001 Reference Guide — Antigravity / Google Flow
 
-## How to use references
-For every image generation in this episode, attach the approved KidMotion boy master image if Antigravity supports image references. If not, use the full identity block below.
+# HARD RULE — ONE CHARACTER FOR THE ENTIRE VIDEO
 
-If a generated football version is approved, use that approved football image as the PRIMARY reference for all later KM-001 scenes so face, outfit and stadium remain consistent.
+KM-001 uses EXACTLY ONE visible main character from Cover through Outro:
 
-## Approved KidMotion boy identity
-Friendly athletic boy around 10 years old, medium warm skin, short slightly textured dark brown hair, large expressive brown eyes, soft rounded facial features, confident friendly smile, slim active child-appropriate proportions, premium high-end stylized 3D family-entertainment rendering, detailed hair, soft skin shading, slightly stylized eyes but not oversized head.
+**THE APPROVED KIDMOTION BOY**
 
-Do not change face, age appearance, hair, skin tone, body proportions or overall 3D rendering style.
+Do not switch to the girl.
+Do not introduce another child.
+Do not alternate characters between scenes.
+Do not generate teammates, coaches, spectators or background people.
 
-## KM-001 football outfit
-Original KidMotion football kit:
+The SAME boy must appear in every generated scene that contains a character.
+Only his POSE may change.
+His football outfit and football world stay consistent for the complete episode.
+
+## Reference workflow
+
+For `Bild 00.png`, use the approved KidMotion boy master reference.
+
+After the first approved football version of this boy has been generated, use that approved football image as the PRIMARY visual reference for every later image in KM-001.
+
+Reference priority:
+1. approved KM-001 football-boy reference image
+2. approved KidMotion boy master image
+3. written identity below
+
+Never use a random substitute.
+
+## Locked boy identity
+
+Friendly athletic boy around 10 years old, medium warm skin, short slightly textured dark brown hair, large expressive brown eyes, soft rounded facial features, confident friendly smile, slim active child-appropriate proportions, premium high-end stylized 3D family-entertainment rendering, detailed hair, soft skin shading, slightly stylized eyes, no oversized head.
+
+Never change:
+- face
+- age appearance
+- skin tone
+- hairstyle / hair color
+- body proportions
+- eye style
+- overall 3D rendering style
+
+## Locked KM-001 football outfit
+
+Use the SAME outfit in Cover, Intro, LET'S BEGIN, every exercise and Outro:
 - bright royal-blue football jersey
-- small lime-green shoulder and side accents
-- simple original KidMotion-style abstract chest mark, no words and no real logo
+- lime-green shoulder and side accents
+- small original abstract KidMotion-style chest mark only
 - dark navy football shorts
 - long royal-blue football socks with one thin lime accent
-- clean blue-and-white football boots
+- blue-and-white football boots
 - no real club badge
 - no sponsor
-- no Nike/Adidas/Puma or other branding
+- no Nike / Adidas / Puma / other brand logos
 
-## KM-001 world
-Bright premium youth football training pitch, vivid green grass, soft blue sky, modern stadium/training-ground background slightly out of focus, white goal visible when composition allows, a few blue/lime training cones, polished cheerful KidMotion look, uncluttered enough for readable pose text.
+## Locked KM-001 world
 
-## Exercise-image layout reference
-- 16:9 YouTube landscape, not TikTok vertical
-- boy large and centered, full body visible
+Use the same visual world across the episode:
+- bright premium youth football training pitch
+- vivid green grass
+- soft blue sky
+- modern training-ground / stadium background softly out of focus
+- white goal when composition allows
+- a few blue/lime training cones when useful
+- clean daylight
+- polished KidMotion 3D look
+- NO other people visible
+
+## Exercise image layout
+
+- YouTube long-form: 16:9 landscape, 1920x1080 target
+- exactly ONE boy visible
+- full body clearly visible
+- character large and centered
+- static hold pose only
 - pose name bottom-left
-- pose name: bold white athletic lettering, dark navy outline, soft shadow, small blue/lime accent shapes, noticeable but not oversized
-- instruction: upper-right inside a playful soft white cloud shape with turquoise/blue outline and subtle shadow, dark navy rounded text
-- do not generate timer
-- do not generate progress bar
-- keep composition clean enough for Remotion timer/progress overlays
+- bold white athletic title, dark navy outline/shadow, small blue/lime accents
+- instruction upper-right inside approved soft white cloud with blue/turquoise outline
+- dark navy rounded instruction text
+- no timer baked into image
+- no progress bar baked into image
+- leave enough clean space for Remotion timer/progress overlays
 
-## Reference priority
-1. Approved KM-001 football reference image, once generated
-2. Approved KidMotion boy master image
-3. Identity text above
+## Final consistency test
 
-Never use a random child as a substitute.
+Before accepting each generated image, verify:
+- same boy as previous scene
+- same face
+- same hair
+- same age appearance
+- same football outfit
+- same 3D style
+- same football world
+- exactly one character visible
+
+If any of these fail, regenerate the image before continuing to the next prompt.
