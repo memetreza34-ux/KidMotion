@@ -20,6 +20,31 @@ Source of truth für die zwei wiederkehrenden Hauptfiguren. Für vollständige P
 - slim, active, child-appropriate proportions
 - energetic, flexible, positive
 
+## HARD RULE — GENAU EIN HAUPTCHARAKTER PRO VIDEO
+Für jedes KidMotion-Video wird VOR der Produktion genau EIN Hauptcharakter ausgewählt: entweder BOY oder GIRL.
+
+Dieser ausgewählte Charakter bleibt über das GESAMTE Video hinweg derselbe:
+- Cover
+- Intro
+- LET'S BEGIN
+- alle Übungen / Posen
+- Rest-/Übergangsvisuals, falls ein Charakter gezeigt wird
+- Outro
+
+NICHT erlaubt:
+- zwischen Boy und Girl von Szene zu Szene wechseln
+- im selben Workout abwechselnd verschiedene Hauptcharaktere verwenden
+- für einzelne Übungen plötzlich den anderen Charakter einsetzen
+- einen zufälligen neuen Charakter erzeugen
+
+Beispiel:
+Wenn ein Fußballvideo mit dem BOY beginnt, dann verwendet das komplette Fußballvideo nur denselben BOY. Die GIRL erscheint in diesem Video nicht als wechselnde Übungsfigur.
+
+Der andere KidMotion-Charakter kann stattdessen Hauptfigur eines anderen Videos sein.
+
+Kernprinzip:
+> ONE VIDEO = ONE LOCKED MAIN CHARACTER FROM COVER TO OUTRO.
+
 ## Locked identity rules
 Nicht ohne ausdrückliche Freigabe ändern:
 - Gesicht
