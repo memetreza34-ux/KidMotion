@@ -1,9 +1,10 @@
-# 02 Safety
-Remotion-only scene.
-Voice: use 02 SAFETY from `../../ALL_VOICE_TEXTS.md`.
-On-screen text:
-SAFETY FIRST
-Make sure you have enough space to move.
-Stop if anything hurts or feels uncomfortable.
-Ask an adult for help if needed.
-Duration: 5 seconds.
+# 02 — SAFETY FIRST
+
+- Generated image: NONE
+- Reserved image number: `Bild 02.png` does NOT exist
+- Duration: 5s
+- Type: Remotion-only
+- Must appear AFTER Intro and BEFORE LET'S BEGIN
+- Headline: `SAFETY FIRST`
+- Voice/Text: see `../../ALL_VOICE_TEXTS.md` → 02 SAFETY
+- Do not reuse scene number 02 for another image
