@@ -1,8 +1,11 @@
-# 06 — Kick Prep Hold
-Reference: approved KM-001 football boy.
-Image prompt: see `../../ALL_IMAGE_PROMPTS.md` → 06 KICK PREP HOLD.
-Voice: see `../../ALL_VOICE_TEXTS.md` → 06 KICK PREP HOLD.
-Duration: 20s.
-Rest after: 5s.
-Remotion: circular timer + progress bar only.
-Expected image: `06-kick-prep-hold.png`.
+# 06 — KICK PREP HOLD
+- Image: `Bild 06.png`
+- Duration: 20s
+- Rest after: 5s
+- Character: EXACTLY ONE — same approved KM-001 boy
+- No girl / second child / other people
+- Reference: `../../REFERENCE_GUIDE.md`
+- Prompt: `../../ALL_IMAGE_PROMPTS.md` → SCENE 06
+- Voice: `../../ALL_VOICE_TEXTS.md` → 06
+- Static hold only
+- Remotion: circular 20s timer + progress bar only
