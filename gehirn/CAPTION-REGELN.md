@@ -3,32 +3,51 @@
 ## Ziel
 Jede Episode erhält fertige englische Publishing-Texte, die direkt kopiert werden können.
 
+## HARD RULE — genau EINE Caption für alle Plattformen
+Für jede Episode wird genau EINE Haupt-Caption erstellt.
+
+Diese gleiche Caption wird unverändert verwendet für:
+- YouTube
+- TikTok
+- Instagram
+- Facebook
+- weitere Social-Plattformen, sofern kein technischer Plattformgrund dagegen spricht
+
+Keine separate TikTok-Caption, Instagram-Caption oder YouTube-Caption erstellen.
+
+Die Caption soll:
+- Englisch sein
+- kurz und leicht verständlich sein
+- das Thema sofort nennen
+- aktiv und neugierig machen
+- eine einfache Mitmach-Aufforderung enthalten
+- kind-/elternfreundlich bleiben
+- keine falschen oder übertriebenen Versprechen enthalten
+- auf breite Reichweite optimiert sein, ohne garantierte Viralitätsversprechen
+
+## HARD RULE — exakt 5 Hashtags
+Jede Caption endet mit genau 5 passenden Hashtags.
+
+Nicht 3, nicht 6, nicht mehr.
+
+Hashtag-Mix:
+1. ein großer allgemeiner Themen-Hashtag
+2. ein zielgruppenspezifischer Hashtag
+3. ein genauer Aktivitäts-/Nischen-Hashtag
+4. ein weiterer relevanter Such-Hashtag
+5. immer `#KidMotion`
+
 ## Pflichtausgabe pro Episode
 - Final YouTube title
-- Short caption
-- Full description
-- 3–5 hashtags
+- ONE CROSS-PLATFORM CAPTION including exactly 5 hashtags
+- YouTube description
 - Search phrases / keywords
 - Playlist recommendation
+- Thumbnail text / concept
 
-## Stil
-- Englisch
-- klar und kind-/elternfreundlich
-- keine übertriebenen Gesundheitsversprechen
-- Thema und Aktivität sofort verständlich
-- keine Clickbait-Versprechen, die das Video nicht erfüllt
-
-## Beispiel-Struktur
-Title: `5 Minute Jungle Workout for Kids | Fun Movement Break`
-
-Short caption:
-`Jump, balance and stretch through a fun jungle movement challenge for kids.`
-
-Description:
-Kurz erklären, was Kinder im Video machen und für welche Situation es passt, z. B. movement break, morning activity oder classroom brain break.
-
-Hashtags:
-`#KidsWorkout #MovementForKids #BrainBreak #KidsFitness #KidMotion`
+## Beispiel
+Caption:
+`Ready to train like a football player? ⚽ Follow the poses, hold strong and see if you can finish the full KidMotion challenge! #KidsWorkout #FootballForKids #FootballTraining #KidsFitness #KidMotion`
 
 ## Regel
-Publishing-Texte liegen pro Episode gesammelt in `05-publishing/publishing.md` und werden zusätzlich im Haupt-Episode-Dokument referenziert.
+Publishing-Texte liegen pro Episode gesammelt in `publishing.md`. Die eine Cross-Platform-Caption wird auf allen Plattformen wiederverwendet.
