@@ -2,6 +2,16 @@
 
 Antigravity / Codex / Remotion must pass every item before the final MP4 is accepted.
 
+## Automated gate
+- [ ] final KM-001 images are staged in `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+- [ ] final KM-001 voice clips are staged in `public/00-audio/`
+- [ ] staging folders contain only KM-001 assets, not files from another episode
+- [ ] `npm run typecheck` passes
+- [ ] `npm run preflight` passes
+- [ ] final render is performed with `npm run render:safe`
+
+Do not bypass a failed automated check.
+
 ## Timeline
 - [ ] `Bild 00.png` is NOT played inside the video; it is thumbnail only
 - [ ] Intro is exactly 12s
