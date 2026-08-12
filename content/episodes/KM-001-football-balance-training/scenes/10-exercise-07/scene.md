@@ -1,11 +1,10 @@
-# 10 — FORWARD LUNGE
-- Image: `Bild 10.png`
-- Duration: 20s
+# 10 — CALF RAISE HOLD
+- Image: `Bild 10.png` — CLEAN Google Flow image, no text/UI
+- Duration: exactly 20s
 - Rest after: 5s
-- Character: EXACTLY ONE — same approved KM-001 boy
-- No girl / second child / other people
-- Reference: `../../REFERENCE_GUIDE.md`
-- Prompt: `../../ALL_IMAGE_PROMPTS.md` → SCENE 10
-- Voice: `../../ALL_VOICE_TEXTS.md` → 10
-- Static hold only
-- Remotion: circular 20s timer + progress bar only
+- Character: same single approved KM-001 boy
+- Pose: feet hip-width, heels lifted, body tall, arms relaxed or slightly out for balance
+- Remotion title: `CALF RAISE HOLD`
+- Remotion cloud: `Lift your heels and stay tall.`
+- Remotion: title + instruction cloud + 20s circular timer + progress bar
+- Voice: short cue at start only; remaining hold is silent
