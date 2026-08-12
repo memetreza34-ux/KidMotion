@@ -1,56 +1,25 @@
-# KidMotion — Episode Folder Standard
+# DEPRECATED — do not create KidMotion episodes here
 
-Jede neue Episode bekommt exakt diese Produktionsstruktur:
+This root-level `episodes/` folder is an old structure and is no longer the active production location.
 
-```text
-episodes/KM-XXX-slug/
-├── 01-plan/
-│   ├── episode.md
-│   └── scene-plan.json
-├── 02-all-prompts/
-│   ├── ALL_IMAGE_PROMPTS.md
-│   └── ALL_VOICE_TEXTS.md
-├── 03-scenes/
-│   ├── 00-cover/
-│   │   ├── scene.md
-│   │   ├── image-prompt.txt
-│   │   ├── cover-text.txt
-│   │   └── 00-cover.png
-│   ├── 01-scene/
-│   │   ├── scene.md
-│   │   ├── image-prompt.txt
-│   │   ├── voice.txt
-│   │   ├── scene-01.png
-│   │   └── scene-01.wav
-│   └── ...
-├── 04-voice/
-│   └── voice-manifest.md
-├── 05-publishing/
-│   └── publishing.md
-├── 06-render/
-│   └── final.mp4
-└── data.json
-```
+# CANONICAL EPISODE LOCATION
+Use:
+`content/episodes/KM-XXX-slug/`
 
-## Pflichtinhalt jeder normalen Szene
-- Exercise / Pose Name
-- Keyword
-- Mini instruction
-- exact English voice text
-- exact image prompt
-- duration
-- timer/rest behavior
-- character
-- filename mapping
+Current episode rules and structure are documented in:
+- `PROJECT_BRAIN.md`
+- `content/episodes/README.md`
+- `content/templates/EPISODE_TEMPLATE.md`
+- `content/prompts/CONTENT_AGENT_PROMPT.md`
 
-## Pflichtinhalt 00-cover
-- Cover concept
-- exact cover text
-- exact cover image prompt
-- final cover image
+Do NOT create new episode assets or scene folders under root `episodes/`.
+Do NOT place generated images/audio here.
 
-## Sammeldateien
-`ALL_IMAGE_PROMPTS.md` enthält Cover + alle Szenenprompts in Produktionsreihenfolge.
-`ALL_VOICE_TEXTS.md` enthält alle Voice-Texte in Produktionsreihenfolge.
+Current external asset staging:
+- images: `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+- audio: `public/00-audio/`
 
-Der Nutzer kann dadurch alle Bilder und danach alle Audios am Stück extern erzeugen und anschließend in die jeweiligen Szenenordner legen.
+These public folders are for ONE active episode at a time.
+
+The current reference episode is:
+`content/episodes/KM-001-football-balance-training/`
