@@ -1,22 +1,22 @@
 import React from 'react';
 import {Composition} from 'remotion';
 import {WorkoutVideo, workoutDurationInFrames} from './WorkoutVideo';
-import {sampleWorkout} from './data/sample-workout';
+import {activeWorkout} from './data/active-workout';
 
 export const RemotionRoot: React.FC = () => {
-  const fps = sampleWorkout.fps ?? 30;
-  const width = sampleWorkout.width ?? 1920;
-  const height = sampleWorkout.height ?? 1080;
+  const fps = activeWorkout.fps ?? 30;
+  const width = activeWorkout.width ?? 1920;
+  const height = activeWorkout.height ?? 1080;
 
   return (
     <Composition
       id="KidMotionVideo"
       component={WorkoutVideo}
-      durationInFrames={workoutDurationInFrames(sampleWorkout)}
+      durationInFrames={workoutDurationInFrames(activeWorkout)}
       fps={fps}
       width={width}
       height={height}
-      defaultProps={{workout: sampleWorkout}}
+      defaultProps={{workout: activeWorkout}}
     />
   );
 };
