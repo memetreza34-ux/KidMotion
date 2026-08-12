@@ -20,9 +20,13 @@ Locked throughout the episode:
 Only pose, facial expression and framing may change.
 
 ## Reference workflow
-1. For `Bild 00.png`, use the approved KidMotion boy master reference.
-2. After the first approved KM-001 football version is generated, use that approved football image as the PRIMARY reference for all later images.
-3. If a scene drifts in face/outfit/style, regenerate it before continuing.
+1. Generate `Bild 00.png` from the approved KidMotion boy master reference. This is the Cover and contains thumbnail text.
+2. Generate the CLEAN intro asset `Bild 01.png` from the approved KidMotion boy master reference using the exact KM-001 football outfit/world.
+3. After `Bild 01.png` is approved, use **Bild 01 as the PRIMARY visual reference for every later KM-001 image (`Bild 03`–`Bild 16`)**.
+4. Do not use the text-heavy Cover as the primary later-scene reference when the clean `Bild 01.png` reference is available.
+5. If any later scene drifts in face, outfit, body proportions or style, regenerate it before continuing.
+
+This reference order reduces character drift and also prevents Cover typography from leaking into normal scene generations.
 
 ## Locked boy identity
 Friendly athletic boy around 10 years old, medium warm skin, short slightly textured dark brown hair, large expressive brown eyes, soft rounded facial features, confident friendly smile, slim active child-appropriate proportions, premium stylized 3D family-entertainment rendering.
