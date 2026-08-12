@@ -1,49 +1,85 @@
 # KidMotion — Content-Formate
 
-Alle Formate müssen mit statischen Bildern funktionieren.
+# AKTUELLER STATUS
+Aktiv ist derzeit nur die SPORT / FITNESS Produktionsphase mit statischen HOLD-Posen.
 
-## 1. Follow-the-Pose Fitness
-Beispiele: squat hold, lunge, plank, star pose, jumping-jack keyframes.
+Jede aktuelle normale Longform-Episode muss mit einzelnen Standbildern funktionieren und darf keine kontinuierliche Bewegung voraussetzen.
 
-## 2. Yoga / Stretching / Balance
-Beispiele: tree pose, cobra pose, butterfly stretch, side stretch, flamingo balance.
+## AKTIV
 
-## 3. Copy-the-Pose / Freeze
-Beispiele: copy this pose, easy/medium/hard, freeze like an animal, left/right challenge.
+### 1. Follow-the-Pose Fitness
+Beispiele:
+- squat hold
+- lunge hold
+- star hold
+- reach-up hold
+- standing stretch
 
-## 4. Educational Movement
-Beispiele: Alphabet + Pose, Zahlen + Wiederholungen, Farben + Bewegung, Formen, Body Parts, Tiere, Planeten, einfache englische Wörter.
+### 2. Stretching / Balance Holds
+Beispiele:
+- knee-up balance
+- single-leg balance
+- side leg hold
+- standing side stretch
+- calf raise hold
 
-## 5. Static Adventure Workouts
-Beispiele: Jungle Adventure, Space Mission, Pirate Quest, Dinosaur Adventure. Jede Story-Etappe ist ein neues Standbild.
+### 3. Copy-the-Pose / Freeze Holds
+Beispiele:
+- copy this pose
+- freeze and hold
+- easy / medium / hard static pose challenge
 
-## 6. Sports Skill Poses
-Beispiele: soccer ready stance, basketball defense stance, tennis ready position, running start, throwing posture.
+### 4. Sports Hold Workouts
+Beispiele:
+- football ready hold
+- goalkeeper squat hold
+- basketball defense hold
+- tennis ready hold
+- sport-specific balance poses
 
-## 7. Brain Breaks / Coordination
-Beispiele: touch left knee with right hand, point left/right/up/down, mirror the character, school break.
+### 5. Simple Static Coordination
+Nur wenn eine einzige Körperposition aus EINEM Bild sofort verständlich ist.
+Beispiele:
+- opposite hand to knee hold
+- left/right balance pose
+- simple cross-body hold
 
-## 8. Calm / Focus / Wind-down
-Beispiele: bedtime stretch, breathing pose, gentle mobility, focus balance.
+# AKTUELL NICHT VERWENDEN
+Bis der Nutzer die Produktionsphase ausdrücklich erweitert:
+- jumping jacks
+- running in place
+- burpees
+- repetitive squats / lunges
+- high knees
+- komplexe Bewegungsfolgen
+- kontinuierliche Ballbewegungen
+- mehrere notwendige Keyframes pro Übung
+- dynamische Adventure-Sequenzen
 
-## 9. Seasonal
-Christmas, Halloween, Summer, Winter, Back to School.
+# GEPA RKT / SPÄTER
+Folgende Ideen bleiben langfristig Teil von KidMotion, sind aber aktuell INAKTIV:
+- Educational Movement
+- ABC / Wörter / Zahlen / Farben
+- Static Adventure Workouts
+- Brain Breaks mit komplexeren Bewegungen
+- Shorts mit dynamischen Bewegungen
+- saisonale Lernformate
 
-## 10. Shorts
-3 poses in 30 seconds, pose of the day, mini challenge, easy/medium/hard.
+Sie dürfen nicht automatisch in aktuelle Sportepisoden eingebaut werden.
 
-## Priorität
-1. Follow-the-Pose
-2. Yoga / Stretching / Balance
-3. Copy / Freeze
-4. Educational Movement
-5. Adventure Workouts
-6. Sports Skill Poses
-7. Brain Breaks
-8. Shorts
+# AKTUELLER STANDARD PRO LONGFORM-VIDEO
+- genau ein Hauptcharakter für das komplette Video
+- ca. 10–12 statische Hold-Posen
+- jede aktive Pose exakt 20 Sekunden
+- ca. 5 Sekunden Rest zwischen Übungen, wenn vorgesehen
+- mindestens ca. 5 Minuten Gesamtlänge in der Startphase
+- Voice nur kurz bei Bedarf
+- keine Untertitel / Voice-Captions
+- normale Google-Flow-Szenenbilder ohne eingebrannten Video-Text/UI
+- Remotion setzt Titel, Anleitung, Timer und Progress über das Bild
 
 ## Format-Check
-Vor jeder Idee beantworten:
-> Kann das Kind die Aufgabe durch ein Standbild plus kurze englische Anweisung klar verstehen?
+Vor jeder aktuellen Idee beantworten:
+> Kann das Kind diese Übung aus EINEM statischen Bild sofort verstehen und die Position 20 Sekunden halten?
 
-Wenn nein: Konzept in klare statische Keyframes umbauen.
+Wenn nein, ist die Übung für die aktuelle Produktionsphase ungeeignet und muss vereinfacht oder geparkt werden.
