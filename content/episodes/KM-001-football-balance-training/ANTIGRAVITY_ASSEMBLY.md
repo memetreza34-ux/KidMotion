@@ -5,9 +5,10 @@ Use this only AFTER the Google Flow images and voice audio are ready.
 Read first:
 1. `PROJECT_BRAIN.md`
 2. this episode's `episode.md`
-3. `data.json`
-4. `ALL_VOICE_TEXTS.md`
-5. `RENDER_QA.md`
+3. `REFERENCE_GUIDE.md`
+4. `data.json`
+5. `ALL_VOICE_TEXTS.md`
+6. `RENDER_QA.md`
 
 # Inputs
 
@@ -20,17 +21,20 @@ Required:
 
 There is intentionally no `Bild 02.png`.
 
+`Bild 00.png` is thumbnail only and must never be inserted into the MP4.
+
 ## Audio
-Preferred folder:
+Expected/preferred folder:
 `public/00-audio/`
 
 Preferred filenames:
-`Voice 01.mp3` through `Voice 16.mp3` for scenes that need voice.
-There is no requirement for rest-screen voice.
+`Voice 01.mp3` through `Voice 16.mp3` for the spoken scene cues.
+There are NO rest-screen voice files for KM-001.
 
 If the user supplies ONE master audio file instead of separate clips:
-- inspect/split the spoken sections according to `ALL_VOICE_TEXTS.md`
-- place each spoken cue at its intended scene start
+- identify the real spoken cue boundaries from `ALL_VOICE_TEXTS.md`
+- split/extract or position each spoken cue at its intended scene start
+- do not divide the master file into equal chunks blindly
 - keep the silent waiting time in the video
 - do NOT stretch the audio
 - do NOT shorten the video to the audio length
@@ -44,6 +48,7 @@ DO NOT put it in the MP4 timeline.
 ## Character
 The complete video uses the same approved KM-001 boy.
 Do not add or switch characters.
+`Bild 01.png` is the clean continuity reference for the later episode images.
 
 ## No subtitles
 DO NOT generate:
@@ -51,30 +56,42 @@ DO NOT generate:
 - word-for-word subtitles
 - transcript boxes
 - karaoke text
+- centered subtitle-style copies of the voice
 
-Intentional Remotion UI is allowed.
+Intentional Remotion scene UI is allowed and required.
 
 ## Exercise text/UI
 Google Flow exercise images are clean.
 Remotion must place directly ON TOP of the image:
-- exercise name bottom-left
-- short instruction upper-right in white KidMotion cloud/info bubble
+- exercise name bottom-left in KidMotion outlined athletic style
+- short instruction upper-right in the KidMotion white cloud/info bubble
 - circular 20-second timer top-left
 - progress bar along bottom
 
-## Timing
-- Intro: 12s
-- Safety: 5s
-- LET'S BEGIN: 3s
+Do not duplicate any generated text because normal Google Flow scene images must contain none.
+
+## Timing — DO NOT INFER FROM AUDIO
+Use the Remotion/workout data timeline:
+- Intro: exactly 12s
+- Safety: exactly 5s
+- LET'S BEGIN: exactly 3s
 - each of 12 exercises: EXACTLY 20s
 - rest after Scenes 04–14: exactly 5s
 - no rest after Scene 15
-- Outro: 5s
-- target total: 320s / 5:20
+- Outro: exactly 5s
+- final target: 320s / 5:20
 
 Audio length must never alter these scene durations.
 
-# Exercise order
+## Intro graphic cue timing
+The intentional intro text blocks are NOT subtitles.
+Use these cue windows:
+- 0.0–2.3s → `HI, KIDMOTION FRIENDS!`
+- 2.3–5.4s → `FOOTBALL TRAINING TODAY`
+- 5.4–8.6s → `BALANCE • CONTROL • STRONG POSITIONS`
+- 8.6–12.0s → `FIND SOME SPACE & FOLLOW ALONG`
+
+## Exercise order
 1. Football Ready Hold
 2. Goalkeeper Squat Hold
 3. Knee-Up Balance
@@ -89,21 +106,31 @@ Audio length must never alter these scene durations.
 12. Victory Balance
 
 # Voice behavior
-For exercises, voice is short and only at the beginning.
-After the cue ends, leave the rest of the 20-second hold silent.
-
+For exercises, voice is short and only at the beginning, normally roughly 3–4 seconds or less.
+After the cue ends, leave the remainder of the 20-second hold silent.
+All 5-second rest screens in KM-001 are silent.
 Do not add filler narration.
 
 # Remotion implementation
 Use the repository's `KidMotionVideo` composition.
 Do not use the vertical `KidMotionShort` composition for this YouTube long-form episode.
 
-The final render should use:
+The final render must use:
 - 1920x1080
 - 30fps
 - 16:9
 
-Before final rendering, confirm all referenced image and voice files exist.
+Before rendering, confirm all required image and voice files referenced by `src/data/sample-workout.ts` exist.
+
+# Final technical checks
+Before accepting the MP4:
+- verify final duration is 320 seconds / about 5:20
+- verify every exercise scene lasts exactly 20 seconds
+- verify timer starts at 20 and reaches 0 on the final frame
+- verify progress reaches 100% on the final frame
+- verify no subtitle track or automatic subtitle graphics exist
+- verify the Cover is absent from the MP4 timeline
+- verify audio stops naturally after each short cue while the scene continues
 
 # Final QA
 Run every item in `RENDER_QA.md`.
