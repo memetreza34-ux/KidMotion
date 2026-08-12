@@ -40,10 +40,15 @@ Keine Jumping Jacks, Burpees, Running in Place oder andere wiederholte Bewegunge
 Die aktive Pose dauert exakt 20 Sekunden.
 Die Länge des Voice-Clips ändert diese 20 Sekunden NICHT.
 
-Beispiel:
-- Voice 0–3 s
-- danach 17 s ohne Sprache
-- Bild, Timer und Progress Bar laufen trotzdem bis Sekunde 20 weiter
+Typisches Beispiel:
+- erste ca. 3–4 s kurzer Voice-Cue
+- danach bis Sekunde 20 ohne Sprache
+- Bild, Timer und Progress Bar laufen trotzdem bis zum Ende weiter
+
+Final-Frame-Regel:
+- Timer startet bei `20`
+- Timer erreicht auf dem letzten Übungsframe sichtbar `0`
+- Progress Bar erreicht auf dem letzten Übungsframe 100%
 
 ## 6. HARTE REGEL — Google Flow erzeugt saubere Bilder OHNE Video-Text
 Normale Szenenbilder aus Google Flow / Antigravity enthalten:
@@ -78,8 +83,9 @@ Standard-Layout:
 - Figur groß und klar sichtbar
 - Übungsname unten links
 - kurze Anweisung oben rechts in der KidMotion-Cloud
-- Timer so positionieren, dass Cloud und Figur nicht verdeckt werden
+- Timer oben links
 - Progress Bar unten
+- keine dieser UI-Flächen darf Gesicht, Hände, Füße oder wichtige Gelenkpositionen verdecken
 
 ## 8. HARTE REGEL — KEINE UNTERTITEL
 Im gesamten KidMotion-Video gibt es keine automatischen Untertitel und keine Voice-Captions.
@@ -89,6 +95,7 @@ Nicht verwenden:
 - Subtitle-Box unten/mittig
 - automatisch transkribierte Voice
 - dauerhaft mitlaufenden gesprochenen Text
+- Karaoke-Transkription
 
 Sichtbar sind nur bewusst gestaltete UI-Texte der Szene.
 
@@ -100,18 +107,20 @@ Voice ist sinnvoll für:
 - Safety
 - optional kurzer Start-Cue
 - kurzer Übungs-Cue am Anfang einer Pose
-- optional kurzer Rest-Hinweis
 - Outro
 
+Rest-Screens sind standardmäßig still und bekommen nur dann Voice, wenn ein konkreter Hinweis echten Mehrwert bringt.
 Während des größten Teils eines 20-Sekunden-Holds bleibt es ruhig.
 Keine künstlichen Füllsätze.
 
 ## 10. Audio und Videolänge sind unabhängig
 Remotion steuert die komplette Timeline.
-Ein 3-Sekunden-Voice-Clip kann am Anfang einer 20-Sekunden-Szene liegen; danach läuft die Szene 17 Sekunden ohne Sprache weiter.
+Ein 3-Sekunden-Voice-Clip kann am Anfang einer 20-Sekunden-Szene liegen; danach läuft die Szene ohne Sprache weiter.
 
 Eine kurze Audio-Gesamtdauer darf deshalb nicht dazu führen, dass das Video verkürzt wird.
 Voice darf auch nicht künstlich auf die Szenenlänge gestreckt werden.
+
+Wenn eine einzige Master-Audiodatei genutzt wird, müssen echte Cue-Grenzen bestimmt und die gesprochenen Abschnitte passend positioniert werden. Niemals blind in gleich große Stücke teilen.
 
 ## 11. Standard-Timeline
 1. `00-cover` — Thumbnail only, nicht Teil des Videos
@@ -126,6 +135,8 @@ Voice darf auch nicht künstlich auf die Szenenlänge gestreckt werden.
 Intro nutzt dasselbe Hauptcharakter-Bild und Remotion-Textblöcke.
 Keine Untertitel.
 Text erscheint nur als bewusst gestaltete Intro-Grafik, nicht als Transkript.
+
+Für reale Episoden sollen Intro-Phrasen konkrete Start-/Endzeiten bekommen, damit die Grafiken sauber zur Voice passen.
 
 ## 13. Safety
 Safety ist eine eigene kurze Szene vor `LET'S BEGIN!`.
@@ -142,7 +153,7 @@ Optional anzeigen:
 - `REST`
 - `NEXT: [POSE]`
 
-Voice nur wenn sinnvoll.
+Standard: keine Voice.
 
 ## 16. Outro
 Nach der letzten Übung:
@@ -156,7 +167,7 @@ Nach der letzten Übung:
 ## 17. Remotion ist zuständig für
 - Timeline
 - Szenendauer
-- Intro-Texte
+- Intro-Texte + Cue-Timing
 - Safety-Screen
 - LET'S BEGIN-Text
 - Übungsname
@@ -184,10 +195,11 @@ Prüfen:
 - ein einziger Hauptcharakter
 - keine Untertitel
 - alle Übungstexte von Remotion
-- Google-Flow-Szenenbilder ohne eingebrannten Übungstext
+- Google-Flow-Szenenbilder ohne eingebrannten Übungstext/UI
 - jede Pose exakt 20 s
-- Timer sichtbar
-- Progress Bar sichtbar
+- Timer startet bei 20 und erreicht 0
+- Progress Bar erreicht 100%
 - Voice nur kurz bei Bedarf
+- Rest standardmäßig still
 - Silent-Gaps bleiben erhalten
 - Video bleibt mindestens ca. 5 Minuten, auch wenn die Voice deutlich kürzer ist
