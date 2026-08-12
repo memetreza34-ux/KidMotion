@@ -62,6 +62,39 @@ Generate episode images one by one:
 Image number = chronological scene number.
 Remotion-only scene numbers stay reserved.
 
+## Active episode workflow
+The Remotion project renders exactly one active episode at a time.
+The pointer is stored in:
+`content/ACTIVE_EPISODE.json`
+
+To wire a completed episode package into Remotion:
+
+```bash
+npm run kidmotion:activate -- --episode=KM-XXX-slug
+```
+
+This regenerates `src/data/active-workout.ts` from that episode's `data.json` and updates the active-episode pointer.
+
+Then stage only that episode's files in:
+- images: `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+- audio: `public/00-audio/`
+
+Never mix assets from two episodes because chronological filenames are reused.
+
+## Safe render
+After the active episode's final images/audio are staged:
+
+```bash
+npm run render:safe
+```
+
+This runs:
+1. TypeScript typecheck
+2. active-episode preflight validation
+3. final `KidMotionVideo` Remotion render
+
+Preflight checks required assets, active-episode consistency, reserved scene numbers, 20-second exercise timing, subtitle settings, mixed staging files and total runtime before rendering.
+
 ## Canonical project memory
 Read [`PROJECT_BRAIN.md`](PROJECT_BRAIN.md) first.
 It is the source of truth for all current production decisions.
