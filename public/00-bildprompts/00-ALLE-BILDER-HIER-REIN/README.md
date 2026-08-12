@@ -1,10 +1,23 @@
-# KM-001 — Final Image Drop Folder
+# KidMotion — Final Image Drop / ACTIVE EPISODE STAGING
 
-Put the finished generated episode images together in this folder only AFTER all required images have been generated one by one, immediately renamed and validated.
+This folder is the Remotion image staging area for ONE active episode at a time.
 
-Required KM-001 files:
+## HARD RULE — NEVER MIX EPISODES
+Because every episode uses chronological names such as `Bild 00.png`, `Bild 01.png`, `Bild 04.png`, etc., files from different episodes would overwrite/collide.
+
+Before loading a different episode:
+1. archive/download the current episode assets if needed
+2. remove the previous episode's generated images from this staging folder
+3. place only the new active episode's validated images here
+4. verify every filename matches the new episode data before rendering
+
+Do not mix KM-001 images with KM-002 or any later episode.
+
+# KM-001 required files
+Put the finished generated KM-001 images together in this folder only AFTER all required images have been generated one by one, immediately renamed and validated.
+
 - `Bild 00.png` — Cover / thumbnail only
-- `Bild 01.png` — Intro
+- `Bild 01.png` — Intro / clean continuity reference
 - no `Bild 02.png` — Safety is Remotion-only
 - `Bild 03.png` — LET'S BEGIN background
 - `Bild 04.png` — Football Ready Hold
