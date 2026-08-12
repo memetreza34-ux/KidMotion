@@ -1,62 +1,84 @@
 # KidMotion — Kanal
 
 ## Mission
-KidMotion ist ein englischsprachiger YouTube-/YouTube-Kids-Kanal für Bewegung, Sport und später auch spielerisches Lernen mit zwei festen wiederkehrenden 3D-Hauptfiguren.
+KidMotion ist ein englischsprachiger YouTube-/YouTube-Kids-Kanal für einfache, visuell klare Follow-along-Bewegungs- und Sportvideos mit zwei wiederkehrenden Premium-3D-Figuren im selben Markenuniversum.
 
-## Aktuelle Produktionsphase
-AKTIV: SPORT / FITNESS / HOLD-POSES.
+Langfristige Kernformel:
+`MOVE + PLAY + LEARN + EXPLORE`
 
-Bildungsformate wie ABC, Wörter, Tiere, Farben, Zahlen usw. sind für später dokumentiert, aber aktuell NICHT Teil der laufenden Produktion.
+# AKTUELL AKTIVE PHASE — SPORT / FITNESS ONLY
+Die aktuelle Produktionsphase konzentriert sich ausschließlich auf SPORT / FITNESS / POSE-Workouts.
 
-## Kernformel
-MOVE + PLAY + LEARN + EXPLORE
-
-Aktuell liegt der operative Fokus auf `MOVE + PLAY` durch Sport-/Fitness-Videos.
+Bildungs- und Lernformate sind für später dokumentiert, werden aktuell aber NICHT in normale Episode-Planung gemischt.
 
 ## Produktionsrealität
-KidMotion arbeitet primär mit statischen KI-Bildern / Pose-Szenen.
-Bewegung im fertigen Video entsteht durch Szenenwechsel, Timer, UI, Zoom/Pan, Übergänge, kurze Voice-Cues und Remotion.
+KidMotion arbeitet aktuell primär mit statischen KI-Bildern / Pose-Szenen.
+Bewegung im fertigen Video entsteht durch:
+- Szenenwechsel
+- Remotion-Text/UI
+- Timer
+- Progress Bar
+- Rest-Screens
+- dezente Zoom/Pan-Effekte
+- Voice nur bei Bedarf
+- Übergänge
+
+Keine normale aktuelle Episode darf kontinuierliche Charakteranimation oder Lip-Sync voraussetzen.
 
 ## Zielgruppe
-Kinder, primär ca. 5–11 Jahre. Inhalte müssen leicht verständlich, freundlich, sicher und visuell eindeutig sein.
+Kinder, primär ca. 5–11 Jahre.
+Inhalte müssen:
+- leicht verständlich
+- freundlich
+- sicher
+- visuell eindeutig
+- altersgerecht
+sein.
 
 ## Sprache
 Alle Zuschauertexte und Voice-Texte sind auf Englisch.
 
 ## Hauptfiguren
-KidMotion besitzt zwei wiederkehrende Figuren: einen Jungen und ein Mädchen.
-Beide dürfen grundsätzlich alle geeigneten Sportarten/Activities machen.
+KidMotion besitzt kanalweit zwei feste Figuren: einen Jungen und ein Mädchen.
 
-HARD RULE PRO EPISODE:
-> EIN VIDEO = GENAU EIN AUSGEWÄHLTER HAUPTCHARAKTER VON COVER BIS OUTRO.
+HARTE EPISODENREGEL:
+**Ein einzelnes Video verwendet genau EINEN dieser beiden Charaktere von Cover bis Outro.**
 
-Nicht innerhalb eines Videos zwischen Boy und Girl wechseln.
+Beide Figuren dürfen kanalweit alle geeigneten Sportarten übernehmen.
+Nicht in derselben normalen Episode zwischen ihnen wechseln.
 
 ## Aktive Content-Pfeiler
 1. Follow-the-Pose Fitness
-2. Balance / Stretch / Hold Workouts
-3. Sports Skill Poses
-4. Copy-the-Pose / Freeze Challenges
-5. einfache Brain-Break-/Koordinationsformate, sofern sie als statische Pose funktionieren
+2. Stretching / Balance Holds
+3. Copy-the-Pose / Freeze Holds
+4. Sports Hold Workouts
+5. einfache statische Brain-Break-/Coordination-Posen, wenn sie aus einem Standbild klar funktionieren
 
-Später möglich:
+## Aktuell geparkt / später
 - Educational Movement
-- Adventure Workouts
-- Shorts
-- Lernformate
+- ABC / Wörter / Zahlen / Farben
+- komplexere Adventure-Workouts
+- dynamische Wiederholungsübungen
+- Formate mit mehreren Keyframes oder kontinuierlicher Bewegung
+
+Diese dürfen erst wieder aktiviert werden, wenn der Nutzer die Produktionsphase ausdrücklich erweitert.
+
+## Aktueller Übungsstandard
+Normale Longform-Sportvideos:
+- ca. 10–12 statische HOLD-Posen
+- jede aktive Pose exakt 20 Sekunden
+- kurze Rest-Screens
+- mindestens ca. 5 Minuten in der aktuellen Startphase
+- Voice nur kurz, wenn sie Mehrwert bringt
+- keine Untertitel / Voice-Captions
 
 ## Kanalregeln
-- ein Hauptcharakter pro Video
-- keine zufälligen neuen Hauptfiguren
-- keine bekannten Franchise-Figuren oder Markenlogos
-- kein Vollanimations-Konzept voraussetzen
-- aktuelle Übungen müssen mit einem statischen Standbild verständlich sein
-- normale Hold-Pose standardmäßig exakt 20 Sekunden
-- keine Untertitel / Voice-Captions
-- Google Flow erzeugt normale Video-Szenen clean ohne eingebrannten Übungstext/UI
-- Remotion setzt Übungsname, Anleitung, Timer und Progress Bar auf das Bild
-- Voice nur kurz, wenn sie einen Zweck erfüllt
-- Videolänge ist unabhängig von der Audio-Länge
-- Übungen altersgerecht und nicht riskant
-- keine medizinischen oder übertriebenen Gesundheitsversprechen
-- wiedererkennbare UI und klare Text-Hierarchie in jedem Video
+- Keine zufälligen neuen Hauptfiguren pro Video.
+- Ein Video = ein Hauptcharakter.
+- Keine bekannten Franchise-Figuren oder Markenlogos.
+- Kein Vollanimations-Konzept voraussetzen.
+- Jede aktuelle Übung muss aus einem Standbild verständlich sein.
+- Übungen altersgerecht und nicht riskant.
+- Keine medizinischen oder übertriebenen Gesundheitsversprechen.
+- Wiedererkennbare Remotion-UI und klare Text-Hierarchie.
+- Normale Google-Flow-Szenenbilder bleiben text-/UI-frei; Remotion setzt Video-Text darüber.
