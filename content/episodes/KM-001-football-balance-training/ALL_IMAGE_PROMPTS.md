@@ -5,6 +5,9 @@
 - No girl, no second child, no coach, no spectators, no background people.
 - Same face, hair, age, proportions, football outfit and football world throughout.
 - Use `REFERENCE_GUIDE.md` for every image.
+- Generate `Bild 00` from the approved boy master reference.
+- Generate the clean `Bild 01` intro asset from the approved boy master reference.
+- After `Bild 01` is approved, use **Bild 01 as the PRIMARY visual reference for every later image (`Bild 03`–`Bild 16`)**.
 - Except for Cover, Google Flow / Antigravity generates CLEAN images with NO video text or UI.
 - Remotion adds exercise name, instruction cloud, timer, progress bar, LET'S BEGIN and outro text.
 - 16:9 YouTube landscape, 1920x1080 target.
@@ -24,7 +27,7 @@ IMAGE NUMBER: Bild 00
 SCENE: COVER / YOUTUBE THUMBNAIL
 FINAL FILE NAME: Bild 00.png
 
-Use the approved KidMotion boy reference exactly. Show exactly ONE character.
+Use the approved KidMotion boy master reference exactly. Show exactly ONE character.
 Create a 16:9 YouTube thumbnail on the locked KM-001 football training pitch.
 Same royal-blue/lime football outfit.
 Boy on the right in a strong football-ready stance.
@@ -45,14 +48,17 @@ IMAGE NUMBER: Bild 01
 SCENE: SCENE 01 — INTRO
 FINAL FILE NAME: Bild 01.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
-16:9 football training scene, same outfit and world.
+Use the approved KidMotion boy master reference exactly. Exactly one character.
+16:9 football training scene, same locked football outfit and world.
 Boy full-body on the right in a friendly ready pose.
 Leave the left 60% clean for Remotion intro graphics.
 NO text. NO subtitles. NO timer. NO progress bar. NO UI.
 
 After generation immediately rename to: Bild 01.png
 ```
+
+IMPORTANT AFTER BILD 01:
+Validate `Bild 01.png` carefully. Once approved, attach/use **Bild 01.png as the main visual reference for every remaining generated image** so the same boy, outfit and world stay stable.
 
 ## SCENE 02 — SAFETY — NO IMAGE
 Remotion-only. Do not generate `Bild 02.png`. Keep number 02 reserved.
@@ -63,7 +69,7 @@ IMAGE NUMBER: Bild 03
 SCENE: SCENE 03 — LET'S BEGIN
 FINAL FILE NAME: Bild 03.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Same football outfit, pitch and 3D style.
 Boy in an energetic static ready stance, full body visible.
 Leave clear central space for Remotion LET'S BEGIN text.
@@ -78,7 +84,7 @@ IMAGE NUMBER: Bild 04
 SCENE: SCENE 04 — FOOTBALL READY HOLD
 FINAL FILE NAME: Bild 04.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing hold: feet shoulder-width apart, knees slightly bent, torso upright, hands relaxed in front.
 Full body clearly visible. Same outfit and football world.
 Keep top-left, top-right, bottom-left and bottom edge reasonably clear for Remotion overlays.
@@ -93,7 +99,7 @@ IMAGE NUMBER: Bild 05
 SCENE: SCENE 05 — GOALKEEPER SQUAT HOLD
 FINAL FILE NAME: Bild 05.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing squat hold: feet wide, knees bent comfortably, hips back slightly, chest up, arms ready like a goalkeeper.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -108,7 +114,7 @@ IMAGE NUMBER: Bild 06
 SCENE: SCENE 06 — KNEE-UP BALANCE
 FINAL FILE NAME: Bild 06.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static balance pose: stand tall on one leg, lift the other knee comfortably in front, arms slightly out for balance.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -123,7 +129,7 @@ IMAGE NUMBER: Bild 07
 SCENE: SCENE 07 — SINGLE-LEG BALANCE
 FINAL FILE NAME: Bild 07.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static balance pose: stand on one leg, other foot lifted slightly behind, torso tall, arms gently out.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -138,7 +144,7 @@ IMAGE NUMBER: Bild 08
 SCENE: SCENE 08 — SIDE LEG HOLD
 FINAL FILE NAME: Bild 08.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing pose: stand tall on one leg, lift the other leg gently to the side, arms out for balance.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -153,7 +159,7 @@ IMAGE NUMBER: Bild 09
 SCENE: SCENE 09 — STANDING SIDE STRETCH
 FINAL FILE NAME: Bild 09.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing stretch: feet wide, one arm reaching overhead, torso leaning gently to the side.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -168,7 +174,7 @@ IMAGE NUMBER: Bild 10
 SCENE: SCENE 10 — CALF RAISE HOLD
 FINAL FILE NAME: Bild 10.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing pose: feet hip-width, heels lifted, body tall, arms relaxed or slightly out for balance.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -183,7 +189,7 @@ IMAGE NUMBER: Bild 11
 SCENE: SCENE 11 — WIDE SQUAT HOLD
 FINAL FILE NAME: Bild 11.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static wide squat hold: feet wider than shoulders, knees bent, hips lowered comfortably, chest up.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -198,7 +204,7 @@ IMAGE NUMBER: Bild 12
 SCENE: SCENE 12 — SIDE LUNGE HOLD
 FINAL FILE NAME: Bild 12.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing side lunge: step wide, bend one knee comfortably, keep the other leg longer, chest up.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -213,7 +219,7 @@ IMAGE NUMBER: Bild 13
 SCENE: SCENE 13 — FORWARD LUNGE HOLD
 FINAL FILE NAME: Bild 13.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing lunge: one foot forward, both knees comfortably bent, torso upright.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -228,7 +234,7 @@ IMAGE NUMBER: Bild 14
 SCENE: SCENE 14 — REACH-UP HOLD
 FINAL FILE NAME: Bild 14.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static standing pose: feet stable, body tall, both arms reaching straight overhead.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -243,7 +249,7 @@ IMAGE NUMBER: Bild 15
 SCENE: SCENE 15 — VICTORY BALANCE
 FINAL FILE NAME: Bild 15.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Static balance pose: stand on one leg, other knee lifted comfortably, both arms raised in a V, proud happy smile.
 Full body visible. Same outfit and football world.
 Leave overlay-safe space.
@@ -258,7 +264,7 @@ IMAGE NUMBER: Bild 16
 SCENE: SCENE 16 — OUTRO / GREAT JOB
 FINAL FILE NAME: Bild 16.png
 
-Use the SAME approved KM-001 boy. Exactly one character.
+Use approved `Bild 01.png` as the PRIMARY visual reference. Exactly one character: the SAME KM-001 boy.
 Same football outfit and world.
 Boy in a proud static victory pose with a happy smile.
 Leave the left side reasonably clean for Remotion GREAT JOB / WORKOUT COMPLETE text.
