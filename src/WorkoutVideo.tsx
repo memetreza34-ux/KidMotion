@@ -32,7 +32,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
     <AbsoluteFill style={{background: '#eef8ff'}}>
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
-          <IntroScreen image={workout.introImage} lines={workout.introLines} />
+          <IntroScreen image={workout.introImage} cues={workout.introCues} />
           <Voice src={workout.introVoice} />
         </Sequence>
       ) : null}
