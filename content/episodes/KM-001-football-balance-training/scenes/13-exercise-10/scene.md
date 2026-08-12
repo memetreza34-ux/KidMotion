@@ -1,11 +1,10 @@
-# 13 — PASS PREP HOLD
-- Image: `Bild 13.png`
-- Duration: 20s
+# 13 — FORWARD LUNGE HOLD
+- Image: `Bild 13.png` — CLEAN Google Flow image, no text/UI
+- Duration: exactly 20s
 - Rest after: 5s
-- Character: EXACTLY ONE — same approved KM-001 boy
-- No girl / second child / other people
-- Reference: `../../REFERENCE_GUIDE.md`
-- Prompt: `../../ALL_IMAGE_PROMPTS.md` → SCENE 13
-- Voice: `../../ALL_VOICE_TEXTS.md` → 13
-- Static hold only
-- Remotion: circular 20s timer + progress bar only
+- Character: same single approved KM-001 boy
+- Pose: one foot forward, both knees comfortably bent, torso upright
+- Remotion title: `FORWARD LUNGE HOLD`
+- Remotion cloud: `Step forward and keep your body tall.`
+- Remotion: title + instruction cloud + 20s circular timer + progress bar
+- Voice: short cue at start only; remaining hold is silent
