@@ -8,24 +8,26 @@ import {GreatJobScreen} from './components/GreatJobScreen';
 import {SafetyDisclaimerScreen} from './components/SafetyDisclaimerScreen';
 import {LetsBeginScreen} from './components/LetsBeginScreen';
 
-const OUTRO_SECONDS = 5;
-const DISCLAIMER_SECONDS = 5;
-const LETS_BEGIN_SECONDS = 3;
-
 const Voice: React.FC<{src?: string}> = ({src}) => (src ? <Audio src={staticFile(src)} /> : null);
 
 export const workoutDurationInFrames = (workout: Workout) => {
   const fps = workout.fps ?? 30;
   const intro = (workout.introDuration ?? 0) * fps;
+  const safety = (workout.safetyDuration ?? 5) * fps;
+  const letsBegin = (workout.letsBeginDuration ?? 3) * fps;
+  const outro = (workout.outroDuration ?? 5) * fps;
   const exerciseFrames = workout.exercises.reduce((total, exercise) => {
     return total + (exercise.duration + (exercise.restAfter ?? 0)) * fps;
   }, 0);
-  return intro + (DISCLAIMER_SECONDS + LETS_BEGIN_SECONDS) * fps + exerciseFrames + OUTRO_SECONDS * fps;
+  return intro + safety + letsBegin + exerciseFrames + outro;
 };
 
 export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
   const fps = workout.fps ?? 30;
   const introFrames = (workout.introDuration ?? 0) * fps;
+  const safetyFrames = (workout.safetyDuration ?? 5) * fps;
+  const letsBeginFrames = (workout.letsBeginDuration ?? 3) * fps;
+  const outroFrames = (workout.outroDuration ?? 5) * fps;
   let cursor = introFrames;
 
   return (
@@ -37,23 +39,23 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
         </Sequence>
       ) : null}
 
-      <Sequence from={cursor} durationInFrames={DISCLAIMER_SECONDS * fps}>
+      <Sequence from={cursor} durationInFrames={safetyFrames}>
         <SafetyDisclaimerScreen />
         <Voice src={workout.safetyVoice} />
       </Sequence>
 
       {(() => {
-        cursor += DISCLAIMER_SECONDS * fps;
+        cursor += safetyFrames;
         return null;
       })()}
 
-      <Sequence from={cursor} durationInFrames={LETS_BEGIN_SECONDS * fps}>
+      <Sequence from={cursor} durationInFrames={letsBeginFrames}>
         <LetsBeginScreen image={workout.letsBeginImage} />
         <Voice src={workout.letsBeginVoice} />
       </Sequence>
 
       {(() => {
-        cursor += LETS_BEGIN_SECONDS * fps;
+        cursor += letsBeginFrames;
         return null;
       })()}
 
@@ -81,7 +83,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
         );
       })}
 
-      <Sequence from={cursor} durationInFrames={OUTRO_SECONDS * fps}>
+      <Sequence from={cursor} durationInFrames={outroFrames}>
         <GreatJobScreen image={workout.outroImage} subtitle="WORKOUT COMPLETE" />
         <Voice src={workout.outroVoice} />
       </Sequence>
