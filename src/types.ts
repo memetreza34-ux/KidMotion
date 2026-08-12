@@ -23,6 +23,9 @@ export type Workout = {
   width?: number;
   height?: number;
   introDuration?: number;
+  safetyDuration?: number;
+  letsBeginDuration?: number;
+  outroDuration?: number;
   introImage?: string;
   introCues?: IntroCue[];
   introVoice?: string;
