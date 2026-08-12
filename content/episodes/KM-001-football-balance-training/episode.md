@@ -20,13 +20,16 @@ FINAL REBUILT VERSION
 5. No subtitles or voice captions anywhere.
 6. Voice is used only when needed. A short voice clip does not shorten a 20-second exercise.
 7. The full video may be 5:20 while total spoken audio is only around 45–75 seconds.
+8. Rest screens in KM-001 are intentionally silent.
+9. The circular exercise timer must reach `0` on the final exercise frame and the progress bar must reach 100%.
+10. After clean `Bild 01.png` is approved, it is the PRIMARY visual reference for `Bild 03`–`Bild 16`.
 
 # FINAL TIMELINE
 
 | # | Scene | Image | Duration | Remotion |
 |---|---|---|---:|---|
 | 00 | YouTube Cover | Bild 00.png | thumbnail only | not in video |
-| 01 | Intro | Bild 01.png | 12s | intro text blocks |
+| 01 | Intro | Bild 01.png | 12s | timed intro text blocks |
 | 02 | Safety First | no image | 5s | full Remotion screen |
 | 03 | LET'S BEGIN | Bild 03.png | 3s | LET'S BEGIN text |
 | 04 | Football Ready Hold | Bild 04.png | 20s | title + cloud + timer + progress |
@@ -43,13 +46,19 @@ FINAL REBUILT VERSION
 | 15 | Victory Balance | Bild 15.png | 20s | title + cloud + timer + progress |
 | 16 | GREAT JOB Outro | Bild 16.png | 5s | outro text |
 
-Rest: 5 seconds after Scenes 04–14. No rest after Scene 15.
+Rest: exactly 5 seconds after Scenes 04–14. No rest after Scene 15.
+All KM-001 rest screens: NO VOICE.
 Approx runtime: 12 + 5 + 3 + 240 + 55 + 5 = 320 seconds = 5:20.
 
-# CHARACTER LOCK
+# CHARACTER / REFERENCE LOCK
 The same approved KidMotion boy is used in Cover, Intro, Start, every exercise and Outro.
 Never switch to the girl. Never add another child/person.
 Locked: face, hair, age, skin tone, body proportions, football outfit, 3D style and football-world family.
+
+Reference workflow:
+1. `Bild 00` from approved KidMotion boy master reference.
+2. `Bild 01` from approved KidMotion boy master reference, clean and text-free.
+3. Once `Bild 01` is approved, use it as the primary visual reference for every remaining generated image.
 
 # SCENE DETAILS
 
@@ -64,20 +73,29 @@ Locked: face, hair, age, skin tone, body proportions, football outfit, 3D style 
 `Bild 01.png`, 12s
 - clean image, boy on right
 - left side clear
-- Remotion text blocks:
-  - `HI, KIDMOTION FRIENDS!`
-  - `FOOTBALL TRAINING TODAY`
-  - `BALANCE • CONTROL • STRONG POSITIONS`
-  - `FIND SOME SPACE & FOLLOW ALONG`
 - no subtitles
 
 Voice:
 `Hi, KidMotion friends! Today we're training balance and strong football positions. Find some space, follow the poses, and have fun!`
 
+Intentional Remotion intro graphics, synchronized by explicit cue times:
+- 0.0–2.3s → `HI, KIDMOTION FRIENDS!`
+- 2.3–5.4s → `FOOTBALL TRAINING TODAY`
+- 5.4–8.6s → `BALANCE • CONTROL • STRONG POSITIONS`
+- 8.6–12.0s → `FIND SOME SPACE & FOLLOW ALONG`
+
+These are designed intro graphics, NOT subtitles or transcript captions.
+
 ## 02 — Safety
 5s, Remotion-only.
 Headline: `SAFETY FIRST`
-Text: `Make sure you have enough space to move. Stop if anything hurts or feels uncomfortable.`
+Text:
+- `Make sure you have enough space to move.`
+- `Stop if anything hurts or feels uncomfortable.`
+
+Voice:
+`Safety first! Clear some space, and stop if anything hurts.`
+
 No overlap with Scene 03.
 
 ## 03 — LET'S BEGIN
@@ -86,6 +104,9 @@ No overlap with Scene 03.
 - Remotion adds `LET'S BEGIN!`
 - no timer
 - no subtitles
+
+Voice:
+`Let's begin!`
 
 # EXERCISES — SCENES 04–15
 Every exercise:
@@ -98,56 +119,70 @@ Every exercise:
 - Remotion instruction cloud top-right
 - Remotion circular timer top-left
 - Remotion progress bar along bottom
-- short voice cue only at the beginning when useful
+- short voice cue only at the beginning
 - remaining hold time stays intentionally silent
+- timer reaches 0 on the final frame
+- progress reaches 100% on the final frame
 
 ### 04 — Football Ready Hold
 Instruction: `Bend your knees and stay ready.`
 Pose: feet shoulder-width apart, knees slightly bent, torso upright, hands relaxed in front.
+Voice: `Football ready. Bend your knees and stay ready.`
 
 ### 05 — Goalkeeper Squat Hold
 Instruction: `Stay low and keep your chest up.`
 Pose: feet wide, knees bent comfortably, hips slightly back, chest up, arms ready.
+Voice: `Goalkeeper squat. Stay low and keep your chest up.`
 
 ### 06 — Knee-Up Balance
 Instruction: `Lift one knee and stand tall.`
 Pose: stand on one leg and lift the other knee comfortably in front.
+Voice: `Knee-up balance. Lift one knee and stand tall.`
 
 ### 07 — Single-Leg Balance
 Instruction: `Stand on one leg and stay steady.`
 Pose: stand on one leg, other foot lifted slightly behind, arms gently out.
+Voice: `Single-leg balance. Stand tall and stay steady.`
 
 ### 08 — Side Leg Hold
 Instruction: `Lift one leg gently to the side.`
 Pose: stand tall on one leg and lift the other leg gently sideways.
+Voice: `Side leg hold. Lift one leg gently sideways.`
 
 ### 09 — Standing Side Stretch
 Instruction: `Reach up and lean gently to the side.`
 Pose: feet wide, one arm overhead, gentle side lean.
+Voice: `Side stretch. Reach up and lean gently.`
 
 ### 10 — Calf Raise Hold
 Instruction: `Lift your heels and stay tall.`
 Pose: feet hip-width, heels lifted, body tall.
+Voice: `Calf raise. Lift your heels and stay tall.`
 
 ### 11 — Wide Squat Hold
 Instruction: `Sit low and keep your chest up.`
 Pose: feet wide, knees bent, hips lowered comfortably, chest up.
+Voice: `Wide squat. Sit low and keep your chest up.`
 
 ### 12 — Side Lunge Hold
 Instruction: `Bend one knee and keep the other leg long.`
 Pose: wide stance, one knee bent, other leg longer, chest up.
+Voice: `Side lunge. Bend one knee and stay tall.`
 
 ### 13 — Forward Lunge Hold
 Instruction: `Step forward and keep your body tall.`
 Pose: one foot forward, both knees comfortably bent, torso upright.
+Voice: `Forward lunge. Step forward and keep tall.`
 
 ### 14 — Reach-Up Hold
 Instruction: `Stretch both arms high and stand tall.`
 Pose: stable standing position with both arms reaching overhead.
+Voice: `Reach up. Stretch both arms high.`
 
 ### 15 — Victory Balance
 Instruction: `Lift one knee and hold strong.`
 Pose: stand on one leg, other knee lifted, both arms raised in a V.
+Voice: `Victory balance. Lift one knee and hold strong.`
 
 ## 16 — Outro
 `Bild 16.png`, 5s
@@ -160,10 +195,10 @@ Voice:
 
 # VOICE RULE
 Audio does NOT control scene duration.
-Example for a 20-second exercise:
-- 0–3s: short cue
-- 3–20s: silence
-- image/timer/progress continue until full 20s are complete
+Typical 20-second exercise:
+- first ~3–4s: short cue
+- remaining time: silence
+- image/timer/progress continue until the full 20 seconds are complete
 
 # GOOGLE FLOW ORDER
 Generate exactly one image at a time and immediately rename it before continuing:
