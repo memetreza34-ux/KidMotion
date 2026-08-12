@@ -7,7 +7,7 @@ export const SafetyDisclaimerScreen: React.FC = () => {
       style={{
         position: 'absolute',
         inset: 0,
-        background: brand.colors.cream,
+        background: `linear-gradient(180deg, ${brand.colors.cream} 0%, ${brand.colors.softBlue} 100%)`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -17,13 +17,11 @@ export const SafetyDisclaimerScreen: React.FC = () => {
       }}
     >
       <div style={{maxWidth: 1320}}>
-        <div style={{fontSize: 62, fontWeight: 900, color: brand.colors.navy}}>SAFETY FIRST</div>
-        <div style={{marginTop: 28, fontSize: 32, lineHeight: 1.45, fontWeight: 700, color: brand.colors.dark}}>
-          Move in a safe, clear space and stop if anything hurts or feels uncomfortable.
-          Children should have appropriate adult supervision when needed.
-        </div>
-        <div style={{marginTop: 28, fontSize: 24, lineHeight: 1.45, fontWeight: 600, color: brand.colors.navy, opacity: 0.78}}>
-          KidMotion provides general movement and entertainment content and is not medical advice.
+        <div style={{fontSize: 68, fontWeight: 950, color: brand.colors.navy}}>SAFETY FIRST</div>
+        <div style={{marginTop: 30, fontSize: 38, lineHeight: 1.35, fontWeight: 800, color: brand.colors.dark}}>
+          Make sure you have enough space to move.
+          <br />
+          Stop if anything hurts or feels uncomfortable.
         </div>
       </div>
     </div>
