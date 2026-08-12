@@ -17,11 +17,12 @@ Current active focus: SPORT / FITNESS.
 9. create `ALL_VOICE_TEXTS.md`
 10. create `data.json`
 11. create one cross-platform caption + publishing metadata
-12. Google Flow / Antigravity generates images one at a time
-13. every image is renamed immediately to its chronological `Bild XX.png`
-14. after all images are checked, move them together into the final image asset folder
-15. user generates only required audio
-16. Antigravity / Codex / Remotion assembles and renders the final video
+12. create `RENDER_QA.md`
+13. Google Flow / Antigravity generates images one at a time
+14. every image is renamed immediately to its chronological `Bild XX.png`
+15. after all images are checked, move them together into the active public image staging folder
+16. user generates only required audio
+17. Antigravity / Codex / Remotion assembles and renders the final video
 
 # Character rule
 One episode = one main character from Cover to Outro.
@@ -58,19 +59,24 @@ Cover is not played in the rendered video.
 # Remotion responsibility
 Remotion handles:
 - full scene timing
-- intro text blocks
+- intro text blocks + explicit cue timing
 - Safety screen
 - LET'S BEGIN text
 - exercise title bottom-left
 - short instruction cloud upper-right
 - circular 20-second timer top-left
 - bottom progress bar
-- 5-second rest screens
+- 5-second rest screens where defined
 - transitions / subtle zoom or pan
 - outro text
 - short voice placement
 - intentional silent gaps
 - final render
+
+Final-frame rule for every 20-second exercise:
+- timer starts at 20
+- timer reaches 0 on final frame
+- progress reaches 100% on final frame
 
 # No subtitles
 No automatic subtitles, transcript boxes, word-for-word captions or karaoke text.
@@ -84,6 +90,7 @@ Typical exercise:
 - remaining hold: silence
 - visual scene still continues until exact 20 seconds
 
+Rest screens are normally silent.
 Audio duration never shortens video duration.
 Preferred: individual short voice clips for scenes that need speech.
 A single master audio is allowed only if it has correct gaps or is split/positioned during assembly.
@@ -105,7 +112,12 @@ Mandatory:
 Never batch episode images.
 
 After ALL required images are generated and validated, move them together into:
-`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+`public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+
+Audio for the active episode goes into:
+`public/00-audio/`
+
+These public folders are ACTIVE-EPISODE staging only. Never mix assets from multiple episodes.
 
 # Publishing
 Each episode gets exactly ONE English cross-platform caption, reused where technically possible.
