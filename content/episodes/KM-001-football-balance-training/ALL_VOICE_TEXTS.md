@@ -1,49 +1,97 @@
 # KM-001 — All Voice Texts
 
+# HARD RULE
+Voice is used only when it adds value.
+The video stays about 5:20 even though total spoken audio can be around 45–75 seconds.
+Every exercise still lasts exactly 20 seconds.
+After the short cue, the rest of the hold is SILENT.
+No subtitles or voice captions.
+
 ## 01 INTRO
-Hi, KidMotion friends! Today we're training like football players. We'll work on balance, control and strong ready positions. Find some space, follow the poses, and have fun!
+Voice:
+`Hi, KidMotion friends! Today we're training balance and strong football positions. Find some space, follow the poses, and have fun!`
+
+Then: silence until the intro scene ends if needed.
 
 ## 02 SAFETY
-Safety first! Make sure you have enough space to move. Stop if anything hurts or feels uncomfortable. Ask an adult for help if needed.
+Voice:
+`Safety first! Make sure you have enough space to move. Stop if anything hurts or feels uncomfortable.`
 
 ## 03 LET'S BEGIN
-Let's begin!
+Voice:
+`Let's begin!`
 
 ## 04 FOOTBALL READY HOLD
-Football ready hold. Bend your knees and stay ready. Hold it steady until the timer reaches zero.
+0–3s voice:
+`Football ready hold. Bend your knees and stay ready.`
+3–20s: SILENCE / NO VOICE.
 
-## 05 GOALKEEPER READY HOLD
-Goalkeeper ready hold. Stay low with your hands ready. Keep your body strong and balanced.
+## 05 GOALKEEPER SQUAT HOLD
+0–3s voice:
+`Goalkeeper squat hold. Stay low and keep your chest up.`
+3–20s: SILENCE / NO VOICE.
 
-## 06 KICK PREP HOLD
-Kick prep hold. Balance on one leg and stay tall. Keep your arms out if you need help balancing.
+## 06 KNEE-UP BALANCE
+0–3s voice:
+`Knee-up balance. Lift one knee and stand tall.`
+3–20s: SILENCE / NO VOICE.
 
-## 07 DEFENDER HOLD
-Defender hold. Stay low with a strong wide stance. Keep your chest up and hold the position.
+## 07 SINGLE-LEG BALANCE
+0–3s voice:
+`Single-leg balance. Stand on one leg and stay steady.`
+3–20s: SILENCE / NO VOICE.
 
-## 08 BALL BALANCE
-Ball balance. Keep one foot on the ball and stand tall. Hold still and control your balance.
+## 08 SIDE LEG HOLD
+0–3s voice:
+`Side leg hold. Lift one leg gently to the side.`
+3–20s: SILENCE / NO VOICE.
 
-## 09 SIDE LUNGE HOLD
-Side lunge hold. Bend one knee and keep the other leg long. Stay tall and hold it steady.
+## 09 STANDING SIDE STRETCH
+0–3s voice:
+`Side stretch. Reach up and lean gently to the side.`
+3–20s: SILENCE / NO VOICE.
 
-## 10 FORWARD LUNGE
-Forward lunge. Step forward and keep your body tall. Hold your balance until the timer ends.
+## 10 CALF RAISE HOLD
+0–3s voice:
+`Calf raise hold. Lift your heels and stay tall.`
+3–20s: SILENCE / NO VOICE.
 
-## 11 TOE-TAP BALANCE
-Toe-tap balance. Touch the ball lightly and keep your balance. Stay relaxed and steady.
+## 11 WIDE SQUAT HOLD
+0–3s voice:
+`Wide squat hold. Sit low and keep your chest up.`
+3–20s: SILENCE / NO VOICE.
 
-## 12 WIDE BASE HOLD
-Wide base hold. Stand wide and keep your knees soft. Hold the strong football stance.
+## 12 SIDE LUNGE HOLD
+0–3s voice:
+`Side lunge hold. Bend one knee and keep the other leg long.`
+3–20s: SILENCE / NO VOICE.
 
-## 13 PASS PREP HOLD
-Pass prep hold. Plant one foot beside the ball and stay balanced. Keep your body tall and steady.
+## 13 FORWARD LUNGE HOLD
+0–3s voice:
+`Forward lunge hold. Step forward and keep your body tall.`
+3–20s: SILENCE / NO VOICE.
 
-## 14 SPRINT START
-Sprint start. Lean forward and stay ready to go. Freeze in the position and hold strong.
+## 14 REACH-UP HOLD
+0–3s voice:
+`Reach-up hold. Stretch both arms high and stand tall.`
+3–20s: SILENCE / NO VOICE.
 
 ## 15 VICTORY BALANCE
-Victory balance. Lift one knee and hold your balance. Finish strong and keep that victory pose!
+0–3s voice:
+`Victory balance. Lift one knee and hold strong.`
+3–20s: SILENCE / NO VOICE.
+
+## REST SCREENS
+Default: NO VOICE.
+Optional only when useful: a very short cue such as `Rest. Get ready for the next pose.`
+Do not speak during every rest automatically.
 
 ## 16 OUTRO
-Great job! You finished the football training workout. Amazing work!
+Voice:
+`Great job! You finished the football workout!`
+
+# REMOTION AUDIO RULE
+Each short voice cue is placed at the correct scene start.
+The scene continues after the clip ends.
+Never shorten a 20-second exercise to match the voice duration.
+Never stretch the voice to fill the scene.
