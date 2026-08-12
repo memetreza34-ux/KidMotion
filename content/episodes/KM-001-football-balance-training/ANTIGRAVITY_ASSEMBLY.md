@@ -112,15 +112,36 @@ All 5-second rest screens in KM-001 are silent.
 Do not add filler narration.
 
 # Remotion implementation
-Use the repository's `KidMotionVideo` composition.
-Do not use the vertical `KidMotionShort` composition for this YouTube long-form episode.
+Use only the repository's active `KidMotionVideo` composition.
+The old short/vertical composition has been removed from the active Remotion root to avoid accidental wrong-format rendering.
 
 The final render must use:
 - 1920x1080
 - 30fps
 - 16:9
 
-Before rendering, confirm all required image and voice files referenced by `src/data/sample-workout.ts` exist.
+# REQUIRED PRE-RENDER COMMAND
+After staging the final images and audio, run:
+
+```bash
+npm run render:safe
+```
+
+This runs, in order:
+1. TypeScript typecheck
+2. `scripts/preflight.mjs`
+3. the `KidMotionVideo` Remotion render
+
+Do NOT bypass a failed typecheck or preflight.
+
+The preflight verifies, among other things:
+- required images/audio exist
+- no accidental `Bild 02.png`
+- no mixed-episode image/audio files are in staging
+- exercise durations are 20s
+- Cover is marked out of the video timeline
+- subtitle/voice-caption settings are disabled
+- KM-001 computes to 320 seconds
 
 # Final technical checks
 Before accepting the MP4:
