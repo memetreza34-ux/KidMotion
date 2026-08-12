@@ -4,22 +4,23 @@ Antigravity / Codex / Remotion must pass every item before the final MP4 is acce
 
 ## Timeline
 - [ ] `Bild 00.png` is NOT played inside the video; it is thumbnail only
-- [ ] Intro is 12s
-- [ ] Safety is its own 5s scene
-- [ ] LET'S BEGIN is its own 3s scene
+- [ ] Intro is exactly 12s
+- [ ] Safety is its own exactly 5s scene
+- [ ] LET'S BEGIN is its own exactly 3s scene
 - [ ] all 12 exercises are exactly 20s each
 - [ ] rests after Scenes 04–14 are exactly 5s
 - [ ] no rest after Scene 15
-- [ ] Outro is 5s
-- [ ] final runtime is about 5:20
+- [ ] Outro is exactly 5s
+- [ ] final runtime is 320s / about 5:20
 
-## Character
+## Character / reference consistency
 - [ ] exactly one recurring character appears: approved KM-001 boy
 - [ ] no girl appears
 - [ ] no second child / coach / spectator appears
 - [ ] same face, hair, age appearance and proportions throughout
 - [ ] same football outfit throughout
 - [ ] same football-world visual family throughout
+- [ ] `Bild 01.png` is the approved clean primary continuity reference for `Bild 03`–`Bild 16`
 
 ## Exercise plan
 - [ ] 04 Football Ready Hold
@@ -49,26 +50,32 @@ Antigravity / Codex / Remotion must pass every item before the final MP4 is acce
 
 ## Remotion exercise UI
 - [ ] clean generated image fills the scene
-- [ ] exercise title is bottom-left
+- [ ] exercise title is bottom-left, not centered like a subtitle
+- [ ] exercise title uses the KidMotion outlined athletic look
 - [ ] instruction is upper-right in KidMotion white cloud/info bubble
 - [ ] circular 20-second timer is top-left
 - [ ] progress bar is along the bottom
 - [ ] UI does not cover face, hands, feet or important joints
-- [ ] timer starts at 20 and scene lasts full 20s
+- [ ] timer starts at 20
+- [ ] timer visibly reaches 0 on the final exercise frame
+- [ ] progress bar reaches 100% on the final exercise frame
 
 ## Voice / audio
 - [ ] voice is used only where needed
 - [ ] no continuous narration just to fill time
-- [ ] each exercise cue is short at the beginning
+- [ ] each exercise cue is short at the beginning, roughly 3–4s or less where natural
 - [ ] remaining hold time is silent
+- [ ] all 5-second KM-001 rest screens are silent
 - [ ] short audio clips do NOT shorten exercise scenes
+- [ ] no audio clip is stretched to fill a scene
 - [ ] one master audio file, if used, is split/positioned correctly rather than stretched
 - [ ] no automatic subtitles
 - [ ] no voice captions
 
 ## Intro / start / outro
 - [ ] Intro uses `Bild 01.png` with intentional Remotion text blocks
-- [ ] Intro text is scene UI, not transcript subtitles
+- [ ] Intro uses explicit cue timings: 0–2.3 / 2.3–5.4 / 5.4–8.6 / 8.6–12.0
+- [ ] Intro text is designed scene UI, not transcript subtitles
 - [ ] Safety does not overlap LET'S BEGIN
 - [ ] `Bild 03.png` is clean and Remotion adds `LET'S BEGIN!`
 - [ ] `Bild 16.png` is clean and Remotion adds `GREAT JOB!` / `WORKOUT COMPLETE`
