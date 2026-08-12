@@ -1,123 +1,90 @@
 # KidMotion — Cover / Thumbnail Regeln
 
 ## Ziel
-Das Cover muss das Thema in weniger als einer Sekunde verständlich machen und klar erklären, worum es in diesem Video geht.
+Das Cover muss das Thema in weniger als einer Sekunde verständlich machen und klar erklären, worum es im Video geht.
 
-## Harte Regel
-JEDES Cover enthält sichtbaren englischen Text. Der Cover-Text ist kein optionales Extra.
-
-Der Text muss dem Zuschauer sofort sagen:
-- welches Thema / welche Aktivität das Video hat
-- was das Kind ungefähr machen wird
-- falls sinnvoll: Anzahl, Dauer oder Challenge-Typ
+# HARTE REGEL — SICHTBARER ENGLISCHER TEXT
+Jedes Cover enthält sichtbaren englischen Text.
+Der Text erklärt sofort Thema, Aktivität und falls sinnvoll Dauer / Challenge-Typ.
 
 Beispiele:
-- 5 EASY FITNESS MOVES
-  FOR KIDS
-- 5 MINUTE MORNING WORKOUT
-  MOVE & WAKE UP
-- KIDS BALANCE CHALLENGE
-  5 EASY POSES
-- FULL BODY WORKOUT
-  6 MOVES FOR KIDS
+- `5 EASY FITNESS MOVES` / `FOR KIDS`
+- `5 MIN FOOTBALL TRAINING` / `FOR KIDS`
+- `KIDS BALANCE CHALLENGE` / `12 EASY POSES`
 
-## WIEDERERKENNUNGS-DESIGN — LOCKED DIRECTION
+# HARTE REGEL — COVER = BILD 00, NICHT VIDEOSZENE
+- Cover-Datei: `Bild 00.png`
+- Cover gehört zum Produktionspaket, wird aber NICHT in der Video-Timeline abgespielt.
+- Szene 01 ist das eigentliche Video-Intro.
 
-KidMotion-Cover sollen auf den ersten Blick wie dieselbe Marke wirken, aber nicht wie immer dasselbe Thumbnail.
+# HARTE REGEL — GLEICHER EPISODEN-CHARAKTER
+Das Cover verwendet genau denselben EINEN Hauptcharakter wie das komplette Video.
 
-### Immer gleich / wiederkehrend
-- gleiche Premium-3D-KidMotion-Figuren
-- gleiche Kernfarbwelt: Light Blue / Navy / White + Lime/Turquoise/Purple als Akzente
-- heller, sauberer Kids-Fitness-Hintergrund
-- Holz- oder heller Studio-Boden, wenn es zum Thema passt
-- große fette, abgerundete, sehr gut lesbare englische Headline
-- weißer Text mit dunklem Navy-Outline / Shadow als Grundlook
-- farbiger Akzent-Block oder Glow hinter einem wichtigen Wort
+Wenn die Episode den Boy nutzt, zeigt das Cover nur diesen Boy.
+Wenn die Episode das Girl nutzt, zeigt das Cover nur dieses Girl.
+
+Nicht innerhalb einer Episode:
+- Boy + Girl gemeinsam
+- anderer Ersatzcharakter
+- zweites Kind / Coach / Zuschauer
+
+Gesicht, Haare, Alterswirkung, Proportionen, Episode-Outfit und 3D-Stil müssen zum restlichen Video passen.
+
+## Wiedererkennungsdesign
+Immer wiederkehrend:
+- Premium-3D-KidMotion-Stil
+- Light Blue / Navy / White + passende Akzentfarbe
+- große fette englische Headline
+- weißer Text mit dunklem Navy-Outline / Shadow
 - Figur und Text klar getrennt
 - starke 16:9-YouTube-Komposition
-- freundliche, aktive, sportliche Energie
+- freundliche sportliche Energie
 
-### Darf wechseln, damit es nicht langweilig wird
-- Pose der Figur
-- Junge / Mädchen / beide
+Darf pro Episode variieren:
+- Pose
 - Figur links oder rechts
-- Akzentfarbe hinter der Headline
-- kleine thematische Icons im Hintergrund
-- Kamerawinkel leicht variieren
-- Hintergrundthema je nach Sport / Workout / Challenge
-- Headline-Aufteilung in 2–3 Zeilen
+- thematisches Outfit
+- Sport-/Themenwelt
+- Akzentfarbe
+- Kamerawinkel leicht
+- Headline-Aufteilung
 
-### Nicht wechseln
-- keine komplett neue Schriftästhetik pro Video
-- keine komplett neue Farbwelt pro Video
-- keine andere 3D-Stilrichtung
-- keine fremden Layout-Stile, die wie ein anderer Kanal wirken
-- kein Cover, das visuell nicht mehr als KidMotion erkennbar ist
-
-## Empfohlenes Standardlayout
-
-Default:
-- Textblock auf einer Seite (meist links)
-- Hauptfigur auf der gegenüberliegenden Seite (meist rechts)
-- große Headline über ca. 35–45 % der Bildbreite
-- Figur groß genug, dass Gesicht und Pose auf Mobile klar lesbar sind
-- Hintergrunddetails nur unterstützend, nicht dominant
-
-Variation ist erlaubt, aber die Markenlogik bleibt gleich.
-
-## Pflichtbestandteile
-- eine oder beide KidMotion-Hauptfiguren
-- klare thematische Pose / Welt
-- sichtbarer englischer Cover-Text, der den Videoinhalt erklärt
-- starke Trennung zwischen Figur und Hintergrund
-- sehr gute Lesbarkeit auf Smartphone und TV
-- keine überladene Szene
-
-## Texthierarchie
-Bevorzugt zwei Ebenen:
-
-1. GROSSE HAUPTZEILE
-   - ca. 2–5 Wörter
-   - erklärt das Hauptthema
-   - Beispiel: `5 EASY FITNESS MOVES`
-
-2. KLEINE ERKLÄRZEILE
-   - ca. 2–5 Wörter
-   - erklärt Zielgruppe, Nutzen oder Format
-   - Beispiel: `FOR KIDS`
-
-Wenn eine einzige starke Zeile bereits alles erklärt, darf die zweite Zeile entfallen. Das Cover darf aber niemals komplett ohne Text sein.
-
-## Generierung
-Cover gehört zum normalen Asset-System und liegt als `00-cover` vor Szene 01.
-
-Cover-Prompt kommt:
-1. separat in den Cover-Ordner
-2. zusätzlich in `ALL_IMAGE_PROMPTS.md`
-
-Der Cover-Prompt soll die gewünschte Schrift IM BILD ausdrücklich beschreiben und den exakten englischen Wortlaut enthalten.
-
-Da KI-generierter Text Fehler machen kann, gilt:
-- zuerst darf die Bild-KI das Cover inklusive Text erzeugen
-- Text danach visuell prüfen
-- bei Rechtschreibfehlern, falschen Buchstaben oder schlechter Lesbarkeit: Cover erneut generieren oder Text sauber mit Remotion/Design ersetzen
-- das finale veröffentlichte Cover MUSS den korrekten sichtbaren Text enthalten
+## Standardlayout
+Bevorzugt:
+- Textblock auf einer Seite
+- Hauptfigur auf der anderen Seite
+- Figur groß und auf Mobile klar lesbar
+- Hintergrund unterstützt das Thema, bleibt aber sauber
 
 ## Textgestaltung
-- groß
-- fett
-- einfach
+- große Hauptzeile: ca. 2–5 Wörter
+- optionale zweite Zeile: ca. 2–5 Wörter
 - hoher Kontrast
-- möglichst kurze Wörter
 - keine langen Sätze
 - nicht über Gesicht oder wichtige Körperteile legen
-- genug Abstand zum Rand
+
+## Google Flow / Antigravity
+Das Cover ist die Standard-Ausnahme zur Clean-Image-Regel:
+`Bild 00.png` DARF und SOLL den finalen Thumbnail-Text bereits enthalten.
+
+Der Cover-Prompt steht:
+1. direkt in `ALL_IMAGE_PROMPTS.md`
+2. mit `IMAGE NUMBER`, `SCENE`, `FINAL FILE NAME`
+3. mit dem exakten englischen Cover-Text
+
+Nach Generierung sofort umbenennen zu `Bild 00.png`.
+
+Wenn KI-Text fehlerhaft ist:
+- erneut generieren oder
+- Text sauber nachträglich ersetzen
+
+Das final veröffentlichte Cover muss korrekt lesbaren Text enthalten.
 
 ## Nicht tun
-- Cover ohne Schrift
-- nur einen vagen Begriff ohne Erklärung verwenden
-- zu viel Text
-- kleine unlesbare Untertitel
-- fremde Marken/Charaktere
-- unklare Pose
-- mehrere konkurrierende Hauptmotive
+- Cover ohne Text
+- Cover im fertigen Video als erste Szene abspielen
+- zwei Hauptcharaktere auf einem Cover, wenn das Video nur einen nutzt
+- fremde Vereins-/Markenlogos
+- geschützte Franchise-Charaktere
+- lange Textabsätze
+- kleine unlesbare Schrift
