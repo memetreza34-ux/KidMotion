@@ -8,9 +8,27 @@ const getArg = (name, fallback = '') => {
   return found ? found.slice(prefix.length) : fallback;
 };
 
-const episodeFolder = getArg('episode', 'KM-001-football-balance-training');
 const root = process.cwd();
+const explicitEpisode = getArg('episode');
+const activePointerPath = path.join(root, 'content', 'ACTIVE_EPISODE.json');
+let episodeFolder = explicitEpisode;
+
+if (!episodeFolder) {
+  if (!fs.existsSync(activePointerPath)) {
+    console.error('PRE-FLIGHT FAILED: missing content/ACTIVE_EPISODE.json and no --episode was supplied.');
+    process.exit(1);
+  }
+  const activePointer = JSON.parse(fs.readFileSync(activePointerPath, 'utf8'));
+  episodeFolder = activePointer.episodeFolder;
+}
+
+if (!episodeFolder) {
+  console.error('PRE-FLIGHT FAILED: active episode folder is empty.');
+  process.exit(1);
+}
+
 const dataPath = path.join(root, 'content', 'episodes', episodeFolder, 'data.json');
+const activeWorkoutPath = path.join(root, 'src', 'data', 'active-workout.ts');
 const failures = [];
 const warnings = [];
 
@@ -20,6 +38,16 @@ const warn = (message) => warnings.push(message);
 if (!fs.existsSync(dataPath)) {
   console.error(`PRE-FLIGHT FAILED: missing ${dataPath}`);
   process.exit(1);
+}
+
+if (!fs.existsSync(activeWorkoutPath)) {
+  console.error('PRE-FLIGHT FAILED: missing src/data/active-workout.ts. Run kidmotion:activate first.');
+  process.exit(1);
+}
+
+const activeWorkoutSource = fs.readFileSync(activeWorkoutPath, 'utf8');
+if (!activeWorkoutSource.includes(episodeFolder)) {
+  fail(`src/data/active-workout.ts does not appear to match active episode ${episodeFolder}. Run: npm run kidmotion:activate -- --episode=${episodeFolder}`);
 }
 
 const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -46,8 +74,8 @@ const exerciseScenes = scenes.filter((scene) => scene.type === 'exercise');
 if (exerciseScenes.length < 10) warn(`Only ${exerciseScenes.length} exercise scenes found; current long-form target is about 10–12.`);
 for (const scene of exerciseScenes) {
   if (Number(scene.duration) !== 20) fail(`Scene ${scene.scene} must be exactly 20s, found ${scene.duration}.`);
-  if (!scene.title) fail(`Scene ${scene.scene} is missing exercise title.`);
-  if (!scene.instruction) fail(`Scene ${scene.scene} is missing short instruction.`);
+  if (!scene.title || /TBD/i.test(scene.title)) fail(`Scene ${scene.scene} has an unfinished exercise title.`);
+  if (!scene.instruction || /TBD/i.test(scene.instruction)) fail(`Scene ${scene.scene} has an unfinished instruction.`);
 }
 
 const sceneIds = new Set();
@@ -115,6 +143,7 @@ if (data.remotion?.progressBarMustReach100Percent !== true) fail('progressBarMus
 if (timelineSeconds < 300) fail(`Computed video runtime is ${timelineSeconds}s; current long-form target is at least ~300s.`);
 if (data.id === 'KM-001' && timelineSeconds !== 320) fail(`KM-001 must be exactly 320s, computed ${timelineSeconds}s.`);
 
+console.log(`Active episode folder: ${episodeFolder}`);
 console.log(`Episode: ${data.id || episodeFolder}`);
 console.log(`Computed video runtime: ${timelineSeconds}s (${Math.floor(timelineSeconds / 60)}:${String(timelineSeconds % 60).padStart(2, '0')})`);
 console.log(`Exercise scenes: ${exerciseScenes.length}`);
@@ -129,4 +158,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('\nPRE-FLIGHT PASSED — assets and timeline data are ready for typecheck/render QA.');
+console.log('\nPRE-FLIGHT PASSED — active episode assets and timeline data are ready for render QA.');
