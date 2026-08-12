@@ -8,7 +8,7 @@ import {GreatJobScreen} from './components/GreatJobScreen';
 import {SafetyDisclaimerScreen} from './components/SafetyDisclaimerScreen';
 import {LetsBeginScreen} from './components/LetsBeginScreen';
 
-const OUTRO_SECONDS = 4;
+const OUTRO_SECONDS = 5;
 const DISCLAIMER_SECONDS = 5;
 const LETS_BEGIN_SECONDS = 3;
 
@@ -30,7 +30,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
     <AbsoluteFill style={{background: '#eef8ff'}}>
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
-          <IntroScreen title={workout.title} subtitle={workout.subtitle} />
+          <IntroScreen image={workout.introImage} lines={workout.introLines} />
         </Sequence>
       ) : null}
 
@@ -44,7 +44,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
       })()}
 
       <Sequence from={cursor} durationInFrames={LETS_BEGIN_SECONDS * fps}>
-        <LetsBeginScreen />
+        <LetsBeginScreen image={workout.letsBeginImage} />
       </Sequence>
 
       {(() => {
@@ -76,7 +76,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
       })}
 
       <Sequence from={cursor} durationInFrames={OUTRO_SECONDS * fps}>
-        <GreatJobScreen subtitle="Workout complete!" />
+        <GreatJobScreen image={workout.outroImage} subtitle="WORKOUT COMPLETE" />
       </Sequence>
     </AbsoluteFill>
   );
