@@ -11,6 +11,9 @@ export const sampleWorkout: Workout = {
   width: 1920,
   height: 1080,
   introDuration: 12,
+  safetyDuration: 5,
+  letsBeginDuration: 3,
+  outroDuration: 5,
   introImage: imageAsset('Bild 01.png'),
   introVoice: voiceAsset('Voice 01.mp3'),
   introCues: [
