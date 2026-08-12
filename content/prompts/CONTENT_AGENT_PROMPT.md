@@ -11,6 +11,13 @@ Choose exactly ONE approved KidMotion character for the complete episode: boy OR
 Use that same character from Cover through Outro.
 Do not switch characters and do not add a second visible child/person.
 
+## Episode reference workflow
+1. Use the approved KidMotion master reference to create Cover `Bild 00`.
+2. Use the approved master reference to create the clean Intro `Bild 01` with the episode outfit/world.
+3. Once `Bild 01` is approved, use it as the PRIMARY continuity reference for all later generated episode images.
+
+Do not use a text-heavy Cover as the main later-scene reference when the clean Intro reference exists.
+
 ## Current exercise format
 Use static standing HOLD poses only for the current production phase.
 Every normal exercise must be understandable from one still image and held for exactly 20 seconds.
@@ -41,16 +48,23 @@ Normal video-scene images must NOT contain:
 Remotion adds those later.
 
 ## Remotion exercise layout
-- exercise title: bottom-left
+- exercise title: bottom-left in KidMotion outlined athletic style
 - short instruction: upper-right inside KidMotion white cloud / info bubble
 - circular 20-second timer: top-left
 - progress bar: bottom
+- UI must not cover face, hands, feet or important joints
+
+Final-frame rule:
+- timer starts at 20
+- timer reaches 0 on final exercise frame
+- progress reaches 100% on final exercise frame
 
 ## Voice only when needed
 Voice does not run continuously.
 A 5-minute video may have only roughly 45–75 seconds of spoken audio.
 A short exercise cue may last about 2–4 seconds and the rest of the 20-second hold remains silent.
 Never shorten a scene to match audio length and never stretch voice to fill the scene.
+Rest screens are silent by default.
 
 # REQUIRED EPISODE OUTPUT
 For every episode create:
@@ -69,7 +83,8 @@ For every episode create:
 13. `data.json`
 14. `publishing.md`
 15. scene documentation
-16. render-ready QA checklist
+16. `RENDER_QA.md`
+17. `ANTIGRAVITY_ASSEMBLY.md` or equivalent assembly instructions
 
 # VIDEO ORDER
 Standard long-form order:
@@ -118,9 +133,10 @@ Never batch several episode images.
 Never delay renaming.
 
 After ALL required images are finished and checked, move them together into:
-`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+`public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 
 Do not distribute finished image binaries into individual scene folders.
+The public image/audio folders are ACTIVE-EPISODE staging only. Never mix assets from two episodes.
 
 # IMAGE PROMPT REQUIREMENTS
 Each prompt must specify:
@@ -141,9 +157,9 @@ Each prompt must specify:
 
 Typical exercise entry:
 ```text
-0–3s voice:
+First ~2–4s voice:
 Exercise name + one short instruction.
-3–20s: SILENCE / NO VOICE.
+Then until 20s: SILENCE / NO VOICE.
 ```
 
 Rest scenes are normally silent.
@@ -173,8 +189,10 @@ The user should be able to:
 1. open `ALL_IMAGE_PROMPTS.md`
 2. generate one image at a time in Google Flow / Antigravity
 3. immediately rename each image to `Bild XX.png`
-4. after all are complete, place them together in the final image asset folder
+4. after all are complete, place them together in the active public image staging folder
 5. generate only the needed voice audio
-6. give images + audio to Antigravity/Codex/Remotion
-7. render a full ~5+ minute video whose 20-second holds continue even when the voice is silent
-8. upload using the one prepared caption
+6. place audio in the active public audio staging folder
+7. give images + audio to Antigravity/Codex/Remotion
+8. render a full ~5+ minute video whose 20-second holds continue even when the voice is silent
+9. run typecheck + `RENDER_QA.md`
+10. upload using the one prepared caption
