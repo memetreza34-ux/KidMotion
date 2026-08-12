@@ -1,7 +1,6 @@
 export type Exercise = {
   id: string;
   title: string;
-  cue?: string;
   instruction?: string;
   image: string;
   duration: number;
@@ -17,5 +16,9 @@ export type Workout = {
   width?: number;
   height?: number;
   introDuration?: number;
+  introImage?: string;
+  introLines?: string[];
+  letsBeginImage?: string;
+  outroImage?: string;
   exercises: Exercise[];
 };
