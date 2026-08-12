@@ -1,235 +1,173 @@
 # KM-001 — Football Balance Training for Kids
 
-REBUILT FROM SCRATCH — SINGLE-CHARACTER VERSION
+FINAL REBUILT VERSION
 
 ## Episode identity
-- Platform: YouTube long-form
-- Format: 16:9 landscape
-- Resolution target: 1920x1080
-- Runtime target: about 5:20
-- Theme: original KidMotion football training world
-- Main character: approved KidMotion BOY
-- Character count for the whole episode: EXACTLY ONE recurring character
-- Exercise format: static hold poses only
-- Exercise duration: exactly 20 seconds each
+- YouTube long-form 16:9
+- 1920x1080
+- target runtime: about 5:20
+- main character: approved KidMotion boy
+- exactly ONE recurring character for the entire episode
+- same football outfit and world throughout
+- 12 static standing hold exercises
+- every exercise lasts exactly 20 seconds
 
-# HARD CHARACTER RULE
-
-This complete video uses the SAME approved KidMotion boy from Cover to Outro.
-
-Never switch to the girl.
-Never replace him with another boy.
-Never introduce teammates, coaches, spectators or background children.
-Every generated scene containing a person must show exactly ONE character: the same KM-001 boy.
-
-Allowed changes between scenes:
-- pose
-- facial expression
-- framing
-
-Locked throughout the episode:
-- face
-- age appearance
-- hair
-- skin tone
-- body proportions
-- football outfit
-- overall 3D style
-- football environment family
-
-Use `REFERENCE_GUIDE.md` for every generated image.
-
-# IMAGE NUMBERING RULE
-
-The scene number controls the image filename.
-
-- Cover = `Bild 00.png`
-- Scene 01 = `Bild 01.png`
-- Scene 02 = no image because Safety is Remotion-only
-- Scene 03 = `Bild 03.png`
-- etc.
-
-Never close numbering gaps.
-There is intentionally no `Bild 02.png`.
-
-After all images are created and checked, place them together in:
-`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+# CORE PRODUCTION RULES
+1. `Bild 00.png` is thumbnail only and is NOT played in the video.
+2. Scene number = image number. Scene 02 is Remotion-only, so there is no `Bild 02.png`.
+3. Google Flow / Antigravity creates CLEAN video-scene images with no exercise text, no cloud, no subtitles, no timer, no progress bar and no UI.
+4. Remotion places all visible video text and dynamic UI on top of those clean images.
+5. No subtitles or voice captions anywhere.
+6. Voice is used only when needed. A short voice clip does not shorten a 20-second exercise.
+7. The full video may be 5:20 while total spoken audio is only around 45–75 seconds.
 
 # FINAL TIMELINE
 
-| # | Scene | Image | Duration | Character |
+| # | Scene | Image | Duration | Remotion |
 |---|---|---|---:|---|
-| 00 | YouTube Cover | Bild 00.png | thumbnail only | same boy |
-| 01 | Intro | Bild 01.png | 12s | same boy |
-| 02 | Safety First | no image | 5s | Remotion-only |
-| 03 | LET'S BEGIN! | Bild 03.png | 3s | same boy |
-| 04 | Football Ready Hold | Bild 04.png | 20s | same boy |
-| 05 | Goalkeeper Ready Hold | Bild 05.png | 20s | same boy |
-| 06 | Kick Prep Hold | Bild 06.png | 20s | same boy |
-| 07 | Defender Hold | Bild 07.png | 20s | same boy |
-| 08 | Ball Balance | Bild 08.png | 20s | same boy |
-| 09 | Side Lunge Hold | Bild 09.png | 20s | same boy |
-| 10 | Forward Lunge | Bild 10.png | 20s | same boy |
-| 11 | Toe-Tap Balance | Bild 11.png | 20s | same boy |
-| 12 | Wide Base Hold | Bild 12.png | 20s | same boy |
-| 13 | Pass Prep Hold | Bild 13.png | 20s | same boy |
-| 14 | Sprint Start Hold | Bild 14.png | 20s | same boy |
-| 15 | Victory Balance | Bild 15.png | 20s | same boy |
-| 16 | GREAT JOB Outro | Bild 16.png | 5s | same boy |
+| 00 | YouTube Cover | Bild 00.png | thumbnail only | not in video |
+| 01 | Intro | Bild 01.png | 12s | intro text blocks |
+| 02 | Safety First | no image | 5s | full Remotion screen |
+| 03 | LET'S BEGIN | Bild 03.png | 3s | LET'S BEGIN text |
+| 04 | Football Ready Hold | Bild 04.png | 20s | title + cloud + timer + progress |
+| 05 | Goalkeeper Squat Hold | Bild 05.png | 20s | title + cloud + timer + progress |
+| 06 | Knee-Up Balance | Bild 06.png | 20s | title + cloud + timer + progress |
+| 07 | Single-Leg Balance | Bild 07.png | 20s | title + cloud + timer + progress |
+| 08 | Side Leg Hold | Bild 08.png | 20s | title + cloud + timer + progress |
+| 09 | Standing Side Stretch | Bild 09.png | 20s | title + cloud + timer + progress |
+| 10 | Calf Raise Hold | Bild 10.png | 20s | title + cloud + timer + progress |
+| 11 | Wide Squat Hold | Bild 11.png | 20s | title + cloud + timer + progress |
+| 12 | Side Lunge Hold | Bild 12.png | 20s | title + cloud + timer + progress |
+| 13 | Forward Lunge Hold | Bild 13.png | 20s | title + cloud + timer + progress |
+| 14 | Reach-Up Hold | Bild 14.png | 20s | title + cloud + timer + progress |
+| 15 | Victory Balance | Bild 15.png | 20s | title + cloud + timer + progress |
+| 16 | GREAT JOB Outro | Bild 16.png | 5s | outro text |
 
-Rest: 5 seconds after Scenes 04–14.
-No rest after Scene 15.
-Approximate runtime: 320 seconds = 5:20.
+Rest: 5 seconds after Scenes 04–14. No rest after Scene 15.
+Approx runtime: 12 + 5 + 3 + 240 + 55 + 5 = 320 seconds = 5:20.
 
-# SCENE RULES
+# CHARACTER LOCK
+The same approved KidMotion boy is used in Cover, Intro, Start, every exercise and Outro.
+Never switch to the girl. Never add another child/person.
+Locked: face, hair, age, skin tone, body proportions, football outfit, 3D style and football-world family.
+
+# SCENE DETAILS
 
 ## 00 — Cover
-- one boy only
-- same KM-001 football outfit
-- football pitch
+`Bild 00.png`
+- thumbnail only
 - boy on right
-- large YouTube thumbnail text on left:
-  - `5 MIN FOOTBALL TRAINING`
-  - `FOR KIDS`
+- text on left: `5 MIN FOOTBALL TRAINING` / `FOR KIDS`
+- this is the ONLY generated asset allowed to contain its final publishing text
 
 ## 01 — Intro
-- same boy only
-- boy full-body on right
-- left side clean for Remotion text
-- no baked-in intro text
-- no timer / progress bar
+`Bild 01.png`, 12s
+- clean image, boy on right
+- left side clear
+- Remotion text blocks:
+  - `HI, KIDMOTION FRIENDS!`
+  - `FOOTBALL TRAINING TODAY`
+  - `BALANCE • CONTROL • STRONG POSITIONS`
+  - `FIND SOME SPACE & FOLLOW ALONG`
+- no subtitles
 
 Voice:
-`Hi, KidMotion friends! Today we're training like football players. We'll work on balance, control and strong ready positions. Find some space, follow the poses, and have fun!`
+`Hi, KidMotion friends! Today we're training balance and strong football positions. Find some space, follow the poses, and have fun!`
 
-Remotion intro text:
-- `HI, KIDMOTION FRIENDS!`
-- `FOOTBALL TRAINING TODAY`
-- `BALANCE • CONTROL • STRONG POSITIONS`
-- `FIND SOME SPACE & FOLLOW ALONG`
+## 02 — Safety
+5s, Remotion-only.
+Headline: `SAFETY FIRST`
+Text: `Make sure you have enough space to move. Stop if anything hurts or feels uncomfortable.`
+No overlap with Scene 03.
 
-## 02 — Safety First
-Remotion-only. No generated image.
+## 03 — LET'S BEGIN
+`Bild 03.png`, 3s
+- clean image with same boy in ready pose
+- Remotion adds `LET'S BEGIN!`
+- no timer
+- no subtitles
 
-Headline:
-`SAFETY FIRST`
-
-Text / voice:
-`Safety first! Make sure you have enough space to move. Stop if anything hurts or feels uncomfortable. Ask an adult for help if needed.`
-
-## 03 — LET'S BEGIN!
-- same boy only
-- energetic ready stance
-- same outfit and pitch
-- generated image contains `LET'S BEGIN!`
-- no timer / progress bar
-
-# EXERCISE STANDARD — SCENES 04–15
-
-Every exercise image:
-- exactly ONE visible boy
-- same approved boy
-- same football outfit
-- same football world
-- 16:9 YouTube landscape
+# EXERCISES — SCENES 04–15
+Every exercise:
+- same boy
+- clean Google Flow image
+- standing static hold
 - full body visible
-- clear static hold pose
-- pose name bottom-left
-- short execution instruction upper-right in white cloud
-- no timer baked in
-- no progress bar baked in
+- exact duration: 20s
+- Remotion title bottom-left
+- Remotion instruction cloud top-right
+- Remotion circular timer top-left
+- Remotion progress bar along bottom
+- short voice cue only at the beginning when useful
+- remaining hold time stays intentionally silent
 
-Remotion adds the circular 20-second timer and bottom progress bar.
-
-## 04 Football Ready Hold
+### 04 — Football Ready Hold
+Instruction: `Bend your knees and stay ready.`
 Pose: feet shoulder-width apart, knees slightly bent, torso upright, hands relaxed in front.
-Title: `FOOTBALL READY HOLD`
-Cloud: `Bend your knees and stay ready.`
 
-## 05 Goalkeeper Ready Hold
-Pose: feet wide, knees bent, torso slightly forward, arms open, hands ready.
-Title: `GOALKEEPER READY`
-Cloud: `Stay low with your hands ready.`
+### 05 — Goalkeeper Squat Hold
+Instruction: `Stay low and keep your chest up.`
+Pose: feet wide, knees bent comfortably, hips slightly back, chest up, arms ready.
 
-## 06 Kick Prep Hold
-Pose: stand on left leg, right leg slightly back, arms out for balance.
-Title: `KICK PREP HOLD`
-Cloud: `Balance on one leg and stay tall.`
+### 06 — Knee-Up Balance
+Instruction: `Lift one knee and stand tall.`
+Pose: stand on one leg and lift the other knee comfortably in front.
 
-## 07 Defender Hold
-Pose: feet wide, knees bent, hips slightly back, chest up, arms slightly out.
-Title: `DEFENDER HOLD`
-Cloud: `Stay low with a strong wide stance.`
+### 07 — Single-Leg Balance
+Instruction: `Stand on one leg and stay steady.`
+Pose: stand on one leg, other foot lifted slightly behind, arms gently out.
 
-## 08 Ball Balance
-Pose: stand on left leg, right foot lightly resting on top of football, torso upright, arms out.
-Title: `BALL BALANCE`
-Cloud: `Keep one foot on the ball and stand tall.`
+### 08 — Side Leg Hold
+Instruction: `Lift one leg gently to the side.`
+Pose: stand tall on one leg and lift the other leg gently sideways.
 
-## 09 Side Lunge Hold
-Pose: step wide right, right knee bent, left leg straighter, chest up.
-Title: `SIDE LUNGE HOLD`
-Cloud: `Bend one knee and keep the other leg long.`
+### 09 — Standing Side Stretch
+Instruction: `Reach up and lean gently to the side.`
+Pose: feet wide, one arm overhead, gentle side lean.
 
-## 10 Forward Lunge
-Pose: right foot forward, knees comfortably bent, torso upright.
-Title: `FORWARD LUNGE`
-Cloud: `Step forward and keep your body tall.`
+### 10 — Calf Raise Hold
+Instruction: `Lift your heels and stay tall.`
+Pose: feet hip-width, heels lifted, body tall.
 
-## 11 Toe-Tap Balance
-Pose: one foot planted, other toes lightly touch the football in front, arms slightly out.
-Title: `TOE-TAP BALANCE`
-Cloud: `Touch the ball lightly and keep your balance.`
+### 11 — Wide Squat Hold
+Instruction: `Sit low and keep your chest up.`
+Pose: feet wide, knees bent, hips lowered comfortably, chest up.
 
-## 12 Wide Base Hold
-Pose: feet wider than shoulders, knees softly bent, chest up.
-Title: `WIDE BASE HOLD`
-Cloud: `Stand wide and keep your knees soft.`
+### 12 — Side Lunge Hold
+Instruction: `Bend one knee and keep the other leg long.`
+Pose: wide stance, one knee bent, other leg longer, chest up.
 
-## 13 Pass Prep Hold
-Pose: left foot beside ball, right foot turned slightly outward, torso upright.
-Title: `PASS PREP HOLD`
-Cloud: `Plant one foot beside the ball and stay balanced.`
+### 13 — Forward Lunge Hold
+Instruction: `Step forward and keep your body tall.`
+Pose: one foot forward, both knees comfortably bent, torso upright.
 
-## 14 Sprint Start Hold
-Pose: one foot forward, one back, knees bent, torso leaning slightly forward, running-ready arms frozen still.
-Title: `SPRINT START`
-Cloud: `Lean forward and stay ready to go.`
+### 14 — Reach-Up Hold
+Instruction: `Stretch both arms high and stand tall.`
+Pose: stable standing position with both arms reaching overhead.
 
-## 15 Victory Balance
+### 15 — Victory Balance
+Instruction: `Lift one knee and hold strong.`
 Pose: stand on one leg, other knee lifted, both arms raised in a V.
-Title: `VICTORY BALANCE`
-Cloud: `Lift one knee and hold your balance.`
 
 ## 16 — Outro
-- same boy only
-- same football outfit and environment
-- victory pose
-- clean area for Remotion text
+`Bild 16.png`, 5s
+- same boy in victory pose
+- Remotion adds `GREAT JOB!` and `WORKOUT COMPLETE`
+- no subtitles
 
 Voice:
-`Great job! You finished the football training workout. Amazing work!`
+`Great job! You finished the football workout!`
 
-Remotion text:
-- `GREAT JOB!`
-- `WORKOUT COMPLETE`
+# VOICE RULE
+Audio does NOT control scene duration.
+Example for a 20-second exercise:
+- 0–3s: short cue
+- 3–20s: silence
+- image/timer/progress continue until full 20s are complete
 
-# GOOGLE FLOW / ANTIGRAVITY IMAGE WORKFLOW
-
-Mandatory loop:
-
-`PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN DAS NÄCHSTE BILD`
-
-Generate exactly one image at a time.
-Immediately rename it before reading the next prompt.
-
-Required image order:
+# GOOGLE FLOW ORDER
+Generate exactly one image at a time and immediately rename it before continuing:
 `Bild 00.png, Bild 01.png, Bild 03.png, Bild 04.png, Bild 05.png, Bild 06.png, Bild 07.png, Bild 08.png, Bild 09.png, Bild 10.png, Bild 11.png, Bild 12.png, Bild 13.png, Bild 14.png, Bild 15.png, Bild 16.png`
 
-After all images are finished:
-1. verify filenames
-2. verify scene assignment
-3. verify the SAME boy appears throughout
-4. verify no second character appears
-5. verify outfit/world consistency
-6. only then move all images together into `00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+After all images are complete, validate numbering and consistency, then place them together in:
+`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
