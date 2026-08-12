@@ -1,108 +1,89 @@
-# KidMotion Series Catalog
+# KidMotion Series Catalog — Current Phase
 
-This file lists repeatable content families. Every series must work with static generated images.
+All current formats must work with static generated images.
+Current active focus: **SPORT / FITNESS static HOLD videos.**
+
+# ACTIVE SERIES
 
 ## 1. Follow the Pose
-Character demonstrates one clear pose while the child copies it. Timer and progress are added in Remotion.
+Character demonstrates one clear static hold while the child copies it.
+Remotion adds title, instruction cloud, 20-second timer and progress.
 
 Examples:
-- 10 Minute Full Body Pose Workout
+- 5 Minute Full Body Hold Workout
 - Morning Move & Hold
-- Easy Kids Fitness
+- Easy Kids Fitness Holds
 
-## 2. Yoga & Stretch
-Static yoga and stretching positions with calm timing.
-
-Examples:
-- Morning Yoga for Kids
-- Bedtime Stretch
-- Balance & Flexibility
-
-## 3. Copy Me Challenge
-The child copies increasingly difficult poses.
+## 2. Stretch & Balance Holds
+Static standing stretching and balance positions.
 
 Examples:
-- Easy / Medium / Hard
+- Standing Stretch for Kids
+- Balance Challenge
+- Easy Flexibility Holds
+
+## 3. Copy Me / Freeze Holds
+The child copies a clear static pose and holds it.
+
+Examples:
+- Easy / Medium / Hard Holds
 - Can You Copy This Pose?
-- Left or Right Challenge
+- Sports Freeze Challenge
 
-## 4. Freeze Game
-The character displays a pose and the child must freeze in the same position.
-
-Examples:
-- Animal Freeze
-- Sports Freeze
-- Silly Pose Freeze
-
-## 5. Animal Moves
-Movement poses inspired by animals.
+## 4. Sports Hold Workouts
+Sport-themed ready positions, balance poses and safe static training holds.
 
 Examples:
-- Frog Squat
-- Bear Stance
-- Flamingo Balance
-- Crab Position
+- Football Balance Training
+- Basketball Defense Holds
+- Tennis Ready & Balance Holds
 
-## 6. Adventure Workout
-Illustrated progression through a themed world using still scenes.
-
-Examples:
-- Jungle Adventure
-- Space Mission
-- Pirate Quest
-- Dinosaur Escape
-
-## 7. Educational Movement
-Learning combined with movement.
+## 5. Simple Static Coordination
+Only when one still image completely explains the body position.
 
 Examples:
-- ABC Movement
-- Count and Move
-- Learn Colors with Exercise
-- Shapes and Poses
-- Left and Right Game
-- Planets Movement Mission
+- Cross-body hold
+- Opposite hand-to-knee hold
+- Left/right balance hold
 
-## 8. Sports Basics
-Static technique snapshots and ready positions.
+# CURRENT FORMAT RULES
+Normal current long-form episodes:
+- exactly one main character from Cover to Outro
+- about 10–12 static holds
+- each exercise exactly 20 seconds
+- current target at least about 5 minutes
+- short voice only when useful
+- rests normally silent
+- no subtitles / voice captions
+- Google Flow normal scene images are clean with no exercise text/UI
+- Remotion adds exercise title, instruction cloud, timer and progress
 
-Examples:
-- Soccer Basics for Kids
-- Basketball Defense Poses
-- Tennis Ready Position
-- Running Start Basics
+# PARKED / LATER
+These remain possible future KidMotion series but are NOT active in the current production phase:
 
-## 9. Brain Break
-Short school / homework movement breaks.
+## Yoga / floor-based formats
+May return later when pose selection and layouts are intentionally expanded.
 
-Examples:
-- 5 Minute School Brain Break
-- Cross-Body Challenge
-- Mirror Me
-- Direction Game
+## Animal Moves
+May return later; avoid dynamic animal-motion exercises until the workflow supports them cleanly.
 
-## 10. Calm & Focus
-Gentle movement and hold-based content.
+## Adventure Workouts
+Jungle, Space, Pirate, Dinosaur etc. are parked until the user explicitly reactivates story/adventure production.
 
-Examples:
-- Calm Down Stretch
-- Focus Balance
-- After School Reset
+## Educational Movement
+ABC, numbers, colors, shapes, vocabulary and learning formats are documented for later and currently inactive.
 
-## 11. Seasonal
-Seasonal themes combined with movement.
+## Complex Brain Breaks
+Parked if they require repeated movement or multiple keyframes.
 
-Examples:
-- Christmas Workout
-- Halloween Freeze Game
-- Summer Sports Challenge
-- Back to School Brain Break
+## Seasonal formats
+May be activated later when they fit the active static-hold workflow.
 
-## 12. Shorts
-Fast static-image formats.
+## Shorts
+Parked as a separate production format while the current focus is YouTube long-form.
 
-Examples:
-- 3 Poses in 30 Seconds
-- Pose of the Day
-- One-Minute Balance Challenge
-- Easy / Medium / Hard Short
+# FORMAT CHECK
+Before approving a current episode idea ask:
+> Can the child understand the exercise from ONE static image and safely hold the position for 20 seconds?
+
+If not, simplify it or park it for a later production phase.
