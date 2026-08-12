@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Sequence} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import type {Workout} from './types';
 import {ExerciseScene} from './components/ExerciseScene';
 import {RestScreen} from './components/RestScreen';
@@ -11,6 +11,8 @@ import {LetsBeginScreen} from './components/LetsBeginScreen';
 const OUTRO_SECONDS = 5;
 const DISCLAIMER_SECONDS = 5;
 const LETS_BEGIN_SECONDS = 3;
+
+const Voice: React.FC<{src?: string}> = ({src}) => (src ? <Audio src={staticFile(src)} /> : null);
 
 export const workoutDurationInFrames = (workout: Workout) => {
   const fps = workout.fps ?? 30;
@@ -31,11 +33,13 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
           <IntroScreen image={workout.introImage} lines={workout.introLines} />
+          <Voice src={workout.introVoice} />
         </Sequence>
       ) : null}
 
       <Sequence from={cursor} durationInFrames={DISCLAIMER_SECONDS * fps}>
         <SafetyDisclaimerScreen />
+        <Voice src={workout.safetyVoice} />
       </Sequence>
 
       {(() => {
@@ -45,6 +49,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
 
       <Sequence from={cursor} durationInFrames={LETS_BEGIN_SECONDS * fps}>
         <LetsBeginScreen image={workout.letsBeginImage} />
+        <Voice src={workout.letsBeginVoice} />
       </Sequence>
 
       {(() => {
@@ -65,6 +70,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
           <React.Fragment key={exercise.id}>
             <Sequence from={exerciseStart} durationInFrames={exerciseFrames}>
               <ExerciseScene exercise={exercise} />
+              <Voice src={exercise.voice} />
             </Sequence>
             {restSeconds > 0 ? (
               <Sequence from={restStart} durationInFrames={restFrames}>
@@ -77,6 +83,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
 
       <Sequence from={cursor} durationInFrames={OUTRO_SECONDS * fps}>
         <GreatJobScreen image={workout.outroImage} subtitle="WORKOUT COMPLETE" />
+        <Voice src={workout.outroVoice} />
       </Sequence>
     </AbsoluteFill>
   );
