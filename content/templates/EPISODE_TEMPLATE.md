@@ -1,320 +1,199 @@
-# KidMotion Episode Template
+# KidMotion Episode Template — Current Standard
 
 ## 1. Episode identity
-
 - Episode ID:
-- Working title:
+- Topic:
 - Final YouTube title:
-- Content pillar:
-- Main character: boy / girl / both
+- Main character: boy OR girl — exactly one for the complete episode
 - Target age:
-- Target duration:
-- Format: long-form / short
+- Target runtime: at least about 5 minutes for current long-form phase
+- Format: 16:9 / 1920x1080
 - Theme / world:
-
-## 2. Topic research
-
-### Why this topic
-
-Write the reason this topic is useful, attractive and appropriate for KidMotion.
-
-### Search / trend notes
-
-Add any relevant search terms, trend signals, competitor observations or evergreen reasoning.
-
-### Differentiation
-
-Explain what makes the KidMotion version original.
-
-## 3. Episode concept
-
-Short summary of what the child does from beginning to end.
-
-## 4. Safety / suitability check
-
-- age-appropriate movements:
-- no dangerous exercise instructions:
-- static-image format works:
-- no copyrighted character dependency:
-- no misleading health claims:
-
-## 5. Master timeline
-
-| # | Section | Duration | Character | Visual | Voice | UI |
-|---|---|---:|---|---|---|---|
-| 0 | Cover / Intro |  |  |  |  |  |
-| 1 | Scene 01 |  |  |  |  |  |
-| 2 | Scene 02 |  |  |  |  |  |
-| 3 | Scene 03 |  |  |  |  |  |
-| 4 | Scene 04 |  |  |  |  |  |
-| 5 | Outro |  |  |  |  |  |
-
-## 6. Full English voice script
-
-All spoken language is English.
-
-### Cover / Intro
-
-...
-
-### Scene 01
-
-...
-
-### Scene 02
-
-...
-
-### Scene 03
-
-...
-
-### Scene 04
-
-...
-
-### Outro
-
-...
-
-## 7. Per-scene production cards
-
-Every visual scene gets its own folder and its own production card.
-
-Required folder pattern:
-
-`scenes/scene-01/`
-
-Each scene folder contains:
-
-- `scene.md` — all information for this scene
-- `image-prompt.txt` — only the exact image prompt
-- `voice.txt` — only the exact English voice line(s)
-- generated image file(s)
-- generated audio file(s), if scene-specific
-
-### Scene 01 card
-
-- Scene ID: scene-01
-- Scene purpose:
-- Character:
-- Exercise / pose name:
-- Duration:
-- Timer duration:
-- Rest after:
-- Short on-screen cue:
-- Short instruction text:
-- Exact English voice text:
-- Background / world:
-- Image filename:
-- Audio filename:
-- Image prompt:
-
-Repeat for every scene.
-
-## 8. On-screen text system
-
-Every movement image should have simple child-readable UI added by Remotion, NOT generated inside the source image.
-
-Preferred text hierarchy:
-
-1. Exercise / pose name — e.g. `TREE POSE`
-2. Short cue / keyword — e.g. `BALANCE`
-3. One very short instruction — e.g. `Stand tall. Lift one foot.`
-4. Timer / countdown
-
-Keep instructions short, visual and easy to read.
-
-## 9. Cover / thumbnail scene
-
-The cover belongs with the normal episode visual assets and is treated as scene `00-cover`.
-
-Required folder:
-
-`scenes/00-cover/`
-
-The cover is different from normal scene images because the FINAL cover may contain text.
-
-Store:
-
-- `cover.md`
-- `cover-prompt.txt`
-- `cover-text.txt`
-- final generated cover image
-
-### Cover concept
-
-...
-
-### Cover text
-
-Use very short, strong text. Prefer 2–5 words.
-
-...
-
-### Cover image prompt
-
-...
-
-If the image model handles typography poorly, generate the artwork without text and let Remotion or the thumbnail editor add the exact text afterward.
-
-## 10. Image generation list
-
-For every required image:
-
-- filename
-- scene ID
-- character
-- exercise / pose
-- background
-- expression
-- image prompt
-
-Source exercise images should normally contain NO generated text. Exercise labels and instructions are added in Remotion for consistency.
-
-## 11. MASTER IMAGE PROMPT PACK
-
-Create one file for batch production:
-
-`ALL_IMAGE_PROMPTS.md`
-
-It must contain ALL prompts in exact production order, including the cover first.
-
-Required structure:
-
-### 00 — COVER
-Filename: `00-cover.png`
-Prompt:
+- Episode outfit:
+
+## 2. Locked episode rules
+- one main character from Cover to Outro
+- no second visible child/person
+- same face, hair, age, proportions, outfit and world throughout
+- static standing hold poses in current phase
+- every exercise exactly 20 seconds
+- no subtitles / voice captions
+- voice only when useful
+- audio duration never controls video duration
+
+## 3. Numbering
+Scene number = image number.
+
+Example:
+- Cover = `Bild 00.png`
+- Scene 01 = `Bild 01.png`
+- Scene 02 Remotion-only = no `Bild 02.png`
+- Scene 03 = `Bild 03.png`
+
+Never compress numbering gaps.
+
+## 4. Standard timeline
+| Scene | Purpose | Image | Duration | Voice | Remotion |
+|---|---|---|---:|---|---|
+| 00 | Cover / thumbnail | Bild 00.png | thumbnail only | none | not in video |
+| 01 | Intro | Bild 01.png | 8–15s | short | intro text blocks |
+| 02 | Safety | no image | 4–5s | short optional | safety screen |
+| 03 | LET'S BEGIN | Bild 03.png | 2–3s | optional | start text |
+| 04+ | Exercises | matching Bild XX.png | exactly 20s each | short cue only | title + cloud + timer + progress |
+| final | Outro | matching Bild XX.png | 4–6s | short | GREAT JOB text |
+
+Rest between exercises: typically 5s.
+
+## 5. Exercise plan
+Use about 10–12 clear static holds for current long-form phase.
+
+For every exercise define:
+- Scene number
+- Exercise name
+- Static body position
+- Short instruction
+- Duration: 20s
+- Rest after
+- Voice cue at start, if useful
+
+## 6. Image-generation rule
+Except for Cover, Google Flow / Antigravity creates CLEAN images only.
+
+Normal video-scene image contains:
+- same episode character
+- correct static pose
+- same episode outfit
+- same world
+- 16:9 composition
+
+Normal video-scene image contains NO:
+- exercise title
+- instruction text
+- cloud / bubble
+- subtitles
+- timer
+- progress bar
+- countdown
+- UI
+
+Remotion adds those elements later.
+
+## 7. Remotion overlay layout
+Exercise scene:
+- exercise title bottom-left
+- short instruction upper-right in KidMotion white cloud / info bubble
+- circular 20-second timer top-left
+- progress bar along bottom
+
+Keep face, hands, feet and important joints unobstructed.
+
+## 8. Voice
+English only.
+Speak only when needed.
+
+Typical exercise:
+- 0–3s: short cue
+- 3–20s: silence
+
+Never fill the entire 20 seconds with narration just because the scene lasts 20 seconds.
+No subtitles or voice captions.
+
+## 9. Cover
+`Bild 00.png` is thumbnail only and is not played in the video.
+Cover must contain clear English text explaining the video.
+
+## 10. Image prompt pack
+Create `ALL_IMAGE_PROMPTS.md` in chronological order.
+
+Every individual generated-image prompt MUST directly state:
 ```text
-...
+IMAGE NUMBER: Bild XX
+SCENE: SCENE XX — NAME
+FINAL FILE NAME: Bild XX.png
 ```
 
-### 01 — SCENE 01 — [POSE NAME]
-Filename: `scene-01.png`
-Prompt:
+And end with:
 ```text
-...
+After generation immediately rename to: Bild XX.png
 ```
 
-### 02 — SCENE 02 — [POSE NAME]
-Filename: `scene-02.png`
-Prompt:
-```text
-...
-```
+For a Remotion-only scene, explicitly document that no image is generated and its number stays reserved.
 
-Continue until every visual has a prompt.
+## 11. Google Flow agent workflow
+Mandatory loop:
 
-This file exists so the user can open ONE document and generate every required image one after another without searching through scene files.
+`PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
 
-## 12. Audio generation list
+Never generate multiple episode images at once.
 
-Create one exact English voice line or voice block for each scene that needs speech.
+Only after ALL images are generated, renamed and checked, move all finished images together into:
+`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 
-| File | Scene | Voice text | Notes |
-|---|---|---|---|
-| intro.wav | cover |  |  |
-| scene-01.wav | scene-01 |  |  |
-| scene-02.wav | scene-02 |  |  |
-| outro.wav | outro |  |  |
+Do not distribute finished image binaries into individual scene folders.
 
-Also create:
+## 12. Voice package
+Create `ALL_VOICE_TEXTS.md` with only the voice actually needed.
+Mark long silent parts as `SILENCE / NO VOICE` when useful.
 
-`ALL_VOICE_TEXTS.md`
+Preferred production: separate short clips per needed cue.
+A single master audio file is allowed only if it already contains correct silence/gaps or is split/positioned by the assembly agent.
 
-with all English voice texts in timeline order for fast external audio generation.
+## 13. Publishing
+Create exactly ONE cross-platform caption for YouTube, TikTok, Instagram, Facebook and other platforms when technically possible.
 
-## 13. Caption / publishing copy
+Caption requirements:
+- English
+- concise and engaging
+- exactly 5 hashtags
+- one hashtag is `#KidMotion`
 
-Create a strong English caption suitable for the target platform.
+Also include:
+- final YouTube title
+- YouTube description
+- keywords/search phrases
+- playlist recommendation
+- thumbnail text/concept
 
-### Primary caption
+Do NOT create separate platform captions or a second short-caption variant.
 
-...
-
-### Short caption version
-
-...
-
-### YouTube description
-
-...
-
-### Hashtags
-
-Use a focused set of relevant hashtags. Avoid spammy hashtag walls.
-
-### Keywords / search phrases
-
-...
-
-### Suggested playlist
-
-...
-
-## 14. Remotion data
-
-Specify:
-
-- image filenames
-- audio filenames
-- exercise durations
-- rest durations
-- exercise / pose names
-- short cue text
-- short instruction text
-- timer mode
-- progress behavior
-- music / SFX cues
-- cover text
-
-## 15. Recommended final episode folder
-
+## 14. Recommended episode folder
 ```text
 content/episodes/KM-XXX-slug/
 ├── episode.md
-├── data.json
+├── REFERENCE_GUIDE.md
 ├── ALL_IMAGE_PROMPTS.md
 ├── ALL_VOICE_TEXTS.md
 ├── publishing.md
-├── scenes/
-│   ├── 00-cover/
-│   │   ├── cover.md
-│   │   ├── cover-prompt.txt
-│   │   ├── cover-text.txt
-│   │   └── 00-cover.png
-│   ├── scene-01/
-│   │   ├── scene.md
-│   │   ├── image-prompt.txt
-│   │   ├── voice.txt
-│   │   ├── scene-01.png
-│   │   └── scene-01.wav
-│   ├── scene-02/
-│   │   └── ...
-│   └── outro/
-│       └── ...
-└── render/
-    └── final.mp4
+├── data.json
+└── scenes/
+    ├── 00-cover/
+    ├── 01-intro/
+    ├── 02-safety/
+    ├── 03-lets-begin/
+    ├── 04-exercise-01/
+    ├── ...
+    └── final-outro/
 ```
 
-## 16. Asset completion checklist
+Finished generated images are ultimately stored together in the public asset folder used by Remotion:
+`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 
-- [ ] topic approved
-- [ ] script approved
-- [ ] cover prompt ready
-- [ ] every scene has its own folder
-- [ ] every scene has an image prompt
-- [ ] `ALL_IMAGE_PROMPTS.md` completed
-- [ ] all images generated
-- [ ] all images approved
-- [ ] all English voice texts completed
-- [ ] `ALL_VOICE_TEXTS.md` completed
-- [ ] all audio generated
-- [ ] all audio approved
-- [ ] on-screen pose names completed
-- [ ] short instructions completed
-- [ ] caption completed
-- [ ] YouTube description completed
-- [ ] Remotion data completed
-- [ ] render checked
-- [ ] cover / thumbnail completed
+## 15. Render-ready checklist
+- [ ] exactly one main character across episode
+- [ ] Cover not played inside video
+- [ ] scene/image numbering correct
+- [ ] Remotion-only numbers stay reserved
+- [ ] all exercise images clean with no baked-in video text/UI
+- [ ] all exercises are static holds
+- [ ] every exercise is exactly 20s
+- [ ] Remotion exercise title visible bottom-left
+- [ ] Remotion instruction cloud visible upper-right
+- [ ] 20s timer visible
+- [ ] progress bar visible
+- [ ] no subtitles / voice captions
+- [ ] voice only where useful
+- [ ] silent gaps preserved
+- [ ] short audio never shortens a scene
+- [ ] total long-form runtime reaches current ~5-minute minimum
+- [ ] one cross-platform caption with exactly 5 hashtags
+- [ ] no third-party logos / copyrighted characters
