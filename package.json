@@ -6,7 +6,6 @@
     "start": "remotion studio src/index.ts",
     "typecheck": "tsc --noEmit",
     "render": "remotion render src/index.ts KidMotionVideo out/kidmotion.mp4",
-    "render:short": "remotion render src/index.ts KidMotionShort out/kidmotion-short.mp4",
     "kidmotion:new": "node scripts/new-episode.mjs"
   },
   "dependencies": {
