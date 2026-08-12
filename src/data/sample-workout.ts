@@ -13,11 +13,11 @@ export const sampleWorkout: Workout = {
   introDuration: 12,
   introImage: imageAsset('Bild 01.png'),
   introVoice: voiceAsset('Voice 01.mp3'),
-  introLines: [
-    'HI, KIDMOTION FRIENDS!',
-    'FOOTBALL TRAINING TODAY',
-    'BALANCE • CONTROL • STRONG POSITIONS',
-    'FIND SOME SPACE & FOLLOW ALONG',
+  introCues: [
+    {text: 'HI, KIDMOTION FRIENDS!', start: 0, end: 2.3},
+    {text: 'FOOTBALL TRAINING TODAY', start: 2.3, end: 5.4},
+    {text: 'BALANCE • CONTROL • STRONG POSITIONS', start: 5.4, end: 8.6},
+    {text: 'FIND SOME SPACE & FOLLOW ALONG', start: 8.6, end: 12},
   ],
   safetyVoice: voiceAsset('Voice 02.mp3'),
   letsBeginImage: imageAsset('Bild 03.png'),
