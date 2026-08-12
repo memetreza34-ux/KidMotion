@@ -8,7 +8,8 @@
     "preflight": "node scripts/preflight.mjs",
     "render": "remotion render src/index.ts KidMotionVideo out/kidmotion.mp4",
     "render:safe": "npm run typecheck && npm run preflight && npm run render",
-    "kidmotion:new": "node scripts/new-episode.mjs"
+    "kidmotion:new": "node scripts/new-episode.mjs",
+    "kidmotion:activate": "node scripts/activate-episode.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
