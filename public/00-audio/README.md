@@ -1,9 +1,20 @@
-# KidMotion — Audio Drop Workflow
+# KidMotion — Audio Drop / ACTIVE EPISODE STAGING
+
+This folder is the Remotion voice staging area for ONE active episode at a time.
+
+## HARD RULE — NEVER MIX EPISODES
+Episode voice files reuse names such as `Voice 01.mp3`, `Voice 04.mp3`, etc.
+
+Before loading a different episode:
+1. archive the current episode audio if needed
+2. remove the previous episode voice files from this staging folder
+3. place only the new active episode's voice files here
+4. verify all filenames against that episode's `ALL_VOICE_TEXTS.md` / data before rendering
 
 Voice does NOT control video duration.
 A roughly 1-minute total narration can be used inside a 5+ minute workout because the 20-second hold scenes continue silently after each short cue.
 
-## Preferred workflow
+## Preferred KM-001 workflow
 Create short scene/cue clips only where speech is needed.
 
 Recommended KM-001 names:
