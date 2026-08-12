@@ -1,126 +1,122 @@
-# KidMotion Content Pipeline
+# KidMotion Content Pipeline — Current Standard
 
-This document defines how KidMotion episodes are created from idea to final Remotion render.
+## Core model
+KidMotion uses static generated 16:9 scene images, Google Flow / Antigravity for image creation and Remotion for timing, overlays, voice placement, transitions and final rendering.
 
-## Core production model
-
-KidMotion uses static generated images as the primary visual source. The user creates the images and audio manually using the prompts and scripts stored in the repository. Remotion then assembles the final video with timers, progress bars, labels, transitions, voiceover, sound effects and music.
+Current active focus: SPORT / FITNESS.
 
 ## End-to-end workflow
+1. choose topic
+2. choose exactly ONE recurring KidMotion main character for the episode
+3. lock episode outfit and world
+4. build 10–12 static standing hold exercises
+5. build exact timeline
+6. write short English voice cues only where useful
+7. create `REFERENCE_GUIDE.md`
+8. create `ALL_IMAGE_PROMPTS.md`
+9. create `ALL_VOICE_TEXTS.md`
+10. create `data.json`
+11. create one cross-platform caption + publishing metadata
+12. Google Flow / Antigravity generates images one at a time
+13. every image is renamed immediately to its chronological `Bild XX.png`
+14. after all images are checked, move them together into the final image asset folder
+15. user generates only required audio
+16. Antigravity / Codex / Remotion assembles and renders the final video
 
-1. Topic research
-2. Topic selection
-3. Episode concept
-4. Exercise / learning structure
-5. English script and voice text
-6. Scene list
-7. Image prompts for every required still image
-8. Thumbnail concept and thumbnail prompt
-9. User generates images externally
-10. User generates voice/audio externally
-11. Assets are placed into the episode folder
-12. Episode data is added to Remotion
-13. Remotion renders the final video
-14. YouTube metadata is prepared
+# Character rule
+One episode = one main character from Cover to Outro.
+No boy/girl switching inside one episode.
+No second visible child/person in the current standard format.
 
-## Topic research rules
+# Current exercise rule
+Use static standing HOLD poses that work from one still image.
+Every exercise lasts exactly 20 seconds.
 
-A KidMotion topic should satisfy as many of these as possible:
+Do not default to repetitive movements such as jumping jacks, burpees or running in place.
 
-- understandable for children
-- useful to parents
-- works visually with still images
-- strong participation element
-- suitable for English-language audiences
-- easy to repeat as a series
-- safe and age-appropriate
-- not dependent on copyrighted characters
-- not dependent on continuous animation
+# Image generation responsibility
+Except for Cover, normal Google Flow / Antigravity images contain only:
+- same episode character
+- correct static pose
+- same outfit
+- same world
+- clean 16:9 scene
 
-Possible topic sources:
+They contain NO:
+- exercise name
+- instruction text
+- cloud/bubble
+- subtitles
+- timer
+- progress bar
+- countdown
+- video UI
 
-- evergreen kids fitness themes
-- yoga / stretching themes
-- school brain breaks
-- seasonal topics
-- sports basics
-- educational movement
-- animal movement
-- adventure themes
-- challenge formats
-- search/trend research when available
+Cover `Bild 00.png` is the exception and contains the final thumbnail text.
+Cover is not played in the rendered video.
 
-## Script outputs required for every episode
-
-Every episode package should contain:
-
-- title
-- concept summary
-- target age
-- estimated duration
-- hook / intro voice text
-- exercise-by-exercise voice text
-- rest / transition voice text if needed
-- outro voice text
-- exact on-screen text
-- timer lengths
-- scene order
-
-## Image prompt outputs required
-
-Every required still image needs its own prompt.
-
-Each prompt should specify:
-
-- approved KidMotion character identity
-- exact exercise / pose
-- camera framing
-- background / setting
-- expression
-- lighting
-- composition
-- where UI-safe empty space should remain
-- no text inside generated image unless explicitly required
-- no external logos
-- no copyrighted characters
-
-The approved character references and CHARACTER_BIBLE.md are mandatory inputs for prompt creation.
-
-## Audio workflow
-
-The repository provides the exact English voice text. The user generates the voice externally.
-
-Recommended file naming:
-
-- intro.wav
-- exercise-01.wav
-- exercise-02.wav
-- rest-01.wav
-- outro.wav
-
-One combined narration file may also be used if timing is already fixed.
-
-## Remotion responsibility
-
-Remotion should handle:
-
-- image placement
-- scene timing
-- countdown timers
-- 3-2-1-GO sequences
-- progress bars
-- exercise labels
-- instruction labels
-- rest screens
-- transitions
-- zoom / pan motion on still images
-- voiceover placement
-- SFX placement
-- music placement
+# Remotion responsibility
+Remotion handles:
+- full scene timing
+- intro text blocks
+- Safety screen
+- LET'S BEGIN text
+- exercise title bottom-left
+- short instruction cloud upper-right
+- circular 20-second timer top-left
+- bottom progress bar
+- 5-second rest screens
+- transitions / subtle zoom or pan
+- outro text
+- short voice placement
+- intentional silent gaps
 - final render
 
+# No subtitles
+No automatic subtitles, transcript boxes, word-for-word captions or karaoke text.
+Intentional exercise/scene UI is not a subtitle.
+
+# Voice workflow
+A 5+ minute video does not require 5+ minutes of voice.
+
+Typical exercise:
+- first 2–4 seconds: short cue
+- remaining hold: silence
+- visual scene still continues until exact 20 seconds
+
+Audio duration never shortens video duration.
+Preferred: individual short voice clips for scenes that need speech.
+A single master audio is allowed only if it has correct gaps or is split/positioned during assembly.
+
+# Image numbering
+Image number equals chronological scene number.
+Remotion-only scenes keep their number reserved.
+
+Example:
+- `Bild 00.png` Cover
+- `Bild 01.png` Intro
+- Scene 02 Safety = no image
+- `Bild 03.png` LET'S BEGIN
+
+# Google Flow / Antigravity generation loop
+Mandatory:
+`PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
+
+Never batch episode images.
+
+After ALL required images are generated and validated, move them together into:
+`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+
+# Publishing
+Each episode gets exactly ONE English cross-platform caption, reused where technically possible.
+The caption ends with exactly 5 hashtags and includes `#KidMotion`.
+
+Also prepare:
+- final YouTube title
+- description
+- search phrases / keywords
+- playlist
+- thumbnail text/concept
+
 ## Principle
-
-The repo should function as a production brain and factory specification.
-
-The user should be able to open one episode folder and find everything needed to manually generate the images and audio, then place those assets back into the project for automated final assembly.
+The repository is the production brain. The user should only need to generate the prepared images/audio, place them correctly, then trigger assembly/rendering.
