@@ -56,7 +56,7 @@ Bis der Nutzer die Produktionsphase ausdrücklich erweitert:
 - mehrere notwendige Keyframes pro Übung
 - dynamische Adventure-Sequenzen
 
-# GEPA RKT / SPÄTER
+# GEPARKT / SPÄTER
 Folgende Ideen bleiben langfristig Teil von KidMotion, sind aber aktuell INAKTIV:
 - Educational Movement
 - ABC / Wörter / Zahlen / Farben
