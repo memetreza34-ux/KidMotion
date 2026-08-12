@@ -9,7 +9,7 @@ Create short scene/cue clips only where speech is needed.
 Recommended KM-001 names:
 - `Voice 01.mp3` — Intro
 - `Voice 02.mp3` — Safety
-- `Voice 03.mp3` — LET'S BEGIN optional
+- `Voice 03.mp3` — LET'S BEGIN
 - `Voice 04.mp3` — Football Ready Hold cue
 - `Voice 05.mp3` — Goalkeeper Squat Hold cue
 - `Voice 06.mp3` — Knee-Up Balance cue
@@ -24,18 +24,25 @@ Recommended KM-001 names:
 - `Voice 15.mp3` — Victory Balance cue
 - `Voice 16.mp3` — Outro
 
-Rest screens normally have no voice.
+KM-001 rest screens have NO voice.
+
+## Exercise audio rule
+Typical exercise:
+- first ~3–4 seconds: short spoken cue
+- remaining time until second 20: silence
+- pose image, timer and progress bar continue for the complete 20 seconds
+
+Do NOT create filler narration for the waiting time.
+Do NOT stretch a short cue.
+Do NOT shorten the exercise to the audio length.
 
 ## If the user provides ONE master audio file
 Do NOT stretch it across the full video.
 Do NOT shorten the video to match it.
 
 Antigravity / Codex must split or position the spoken sections according to `ALL_VOICE_TEXTS.md` and the scene timeline.
-
-Example exercise:
-- seconds 0–3 of the exercise: short voice cue
-- seconds 3–20: silence
-- the pose image, timer and progress bar keep running until the full 20 seconds end
+The final timeline still contains the full silent waiting periods.
 
 ## No subtitles
 Never convert the voice into automatic subtitles or word-for-word captions.
+Intentional Remotion scene UI is separate from subtitles.
