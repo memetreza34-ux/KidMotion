@@ -1,150 +1,97 @@
 # KidMotion — Image Prompt Template
 
-## Scene identity
-- Episode:
-- Scene number:
-- Final file name:
-- Main character: boy / girl
-- Pose:
-- Background / world:
+## Current image rule
+Every actual video section uses an image with the same chosen episode character.
 
-# HARTE REGEL — NORMALE VIDEO-SZENEN OHNE EINGEBRANNTEN TEXT
-Google Flow / Antigravity erzeugt für normale KidMotion-Videos saubere Szenenbilder.
+Standard:
+- `Bild 00.png` Cover — thumbnail only
+- `Bild 01.png` Intro
+- `Bild 02.png` Safety
+- `Bild 03.png` LET'S BEGIN
+- exercise scenes = matching `Bild XX.png`
+- Outro = final matching image
 
-Das erzeugte Bild enthält:
-- exakt denselben Hauptcharakter wie im restlichen Video
-- richtige statische Pose
-- passendes Episode-Outfit
-- passende Themenwelt
-- 16:9 YouTube landscape
+Rest reuses the NEXT exercise image and does not use a blank card.
 
-Das erzeugte Bild enthält NICHT:
-- Übungsname
-- Ausführungsanweisung
-- Cloud / Speech Bubble
-- Untertitel
-- Voice-Captions
-- Timer
-- Progress Bar
-- Countdown
-- sonstige Video-UI
+## Character continuity
+One episode uses exactly one main character.
+Create clean `Bild 01.png`, approve it, then use `Bild 01` as the primary visual reference for every later generated image.
 
-Remotion setzt diese Elemente später direkt AUF das Bild.
+Keep the same face, hair, age appearance, proportions, outfit, world and 3D style.
 
-## Ausnahme Cover
-`Bild 00.png` ist das separate YouTube-Thumbnail und darf den geplanten Thumbnail-Text direkt enthalten.
-Das Cover ist nicht Teil der Video-Timeline.
+## Clean image rule
+Except for Cover, generated images contain only:
+- same character
+- required pose
+- same outfit
+- same world
+- clean 16:9 scene
 
-# HARTE REGEL — STATISCHE HOLD-POSE
-Die Startphase verwendet klare statische Übungen, die mit einem einzigen Bild verstanden werden und 20 Sekunden gehalten werden können.
+Do not generate:
+- exercise title
+- instruction text
+- subtitles
+- transcript bars
+- timer
+- progress bar
+- video UI
 
-Bevorzugt stehende Übungen wie:
-- squat hold
-- lunge hold
-- knee-up balance
-- single-leg balance
-- side stretch hold
-- calf raise hold
-- wide stance hold
-- reach-up hold
+Remotion adds intentional scene graphics later.
 
-Keine repetitive Bewegungsaktion im Bild.
+## Numbering
+Current standard uses continuous chronological image numbering with no Safety gap.
 
-# CHARAKTER-KONSISTENZ
-Ein Video verwendet genau einen Hauptcharakter.
-Jeder Prompt derselben Episode muss denselben Referenzcharakter verwenden.
+Every prompt begins with:
+```text
+IMAGE NUMBER: Bild XX
+SCENE: SCENE XX — NAME
+FINAL FILE NAME: Bild XX.png
+```
 
-Nicht verändern:
-- Gesicht
-- Haarfarbe / Frisur
-- Alterswirkung
-- Hautfarbe
-- Körperproportionen
-- Outfit innerhalb der Episode
-- 3D-Stil
+and ends with:
+```text
+After generation immediately rename to: Bild XX.png
+```
 
-# DATEINUMMERIERUNG
-Jeder Prompt nennt direkt:
-- `IMAGE NUMBER`
-- `SCENE`
-- `FINAL FILE NAME`
-
-Die Bildnummer entspricht immer der chronologischen Szenennummer.
-Remotion-only Szenen reservieren ihre Nummer und erzeugen kein Bild.
-
-Beispiel:
-- Cover → `Bild 00.png`
-- Scene 01 → `Bild 01.png`
-- Scene 02 Remotion-only → kein `Bild 02.png`
-- Scene 03 → `Bild 03.png`
-
-# GOOGLE FLOW AGENT WORKFLOW
-Immer einzeln:
-
+## Google Flow workflow
 `PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
 
-Nie mehrere Episode-Bilder gleichzeitig erzeugen.
+Never batch episode images.
 
-Erst nachdem ALLE Bilder korrekt benannt und geprüft wurden, gemeinsam verschieben nach:
-`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
-
-Nicht vorher.
-Nicht auf einzelne Szenenordner verteilen.
-
-# SHORT PROMPT STYLE
-Prompts bleiben kurz und direkt.
-
-Standard für eine Übung:
-
+## Exercise prompt
 ```text
 IMAGE NUMBER: Bild XX
 SCENE: SCENE XX — [POSE NAME]
 FINAL FILE NAME: Bild XX.png
 
-Use the approved KidMotion [boy/girl] episode reference exactly.
-Create a clean 16:9 YouTube landscape scene in the same episode world and outfit.
+Use approved Bild 01 as the PRIMARY visual reference.
+Show exactly the same KidMotion episode character, outfit and world.
 
-POSE: [POSE NAME]
+POSE:
 [short exact body-position description]
-Full body clearly visible. Static standing hold pose.
 
-IMPORTANT:
-Generate ONLY the character, pose and background.
-NO exercise title.
-NO instruction text.
-NO cloud or speech bubble.
-NO subtitles.
-NO timer.
-NO progress bar.
-NO UI.
+Full body clearly visible.
+Static hold pose.
+Keep top-left, top-right, bottom-left and bottom edge clear enough for Remotion UI.
 
-Keep the exact same character identity, outfit, proportions and world as all other scenes in this episode.
+Generate only character, pose and environment.
+No title, instruction, subtitles, transcript text, timer, progress bar or UI.
 
-After generation, immediately rename this image to: Bild XX.png
+After generation immediately rename to: Bild XX.png
 ```
 
-# REMOTION OVERLAY RULE
-Remotion fügt später auf das saubere Bild:
-- Übungsname unten links
-- kurze Anleitung oben rechts in der KidMotion-Cloud
-- 20-Sekunden-Timer
-- Progress Bar
+## Intro / Safety / Start / Outro
+These scenes also show the same character. Leave useful negative space for the Remotion graphic. The generated image remains text-free except Cover.
 
-Keine Untertitel.
-Keine Voice-Captions.
+## Remotion adds
+- fixed Intro title graphic, independent from narration
+- Safety panel
+- LET'S BEGIN graphic
+- exercise title bottom-left
+- short instruction upper-right
+- timer top-left
+- progress bar bottom
+- Rest / Next over next exercise image
+- Outro graphic
 
-## Required QA
-- richtige Bild-/Szenennummer
-- genau ein Hauptcharakter
-- gleicher Referenzcharakter wie in der ganzen Episode
-- korrekte statische Pose
-- 16:9
-- vollständige Pose klar sichtbar
-- genug freie Fläche für Remotion-Overlay
-- kein eingebrannter Übungsname
-- keine eingebrannte Anleitung
-- keine Cloud
-- keine Untertitel
-- kein Timer
-- keine Progress Bar
-- keine Markenlogos / fremden Charaktere
+No subtitles or Voice transcription.
