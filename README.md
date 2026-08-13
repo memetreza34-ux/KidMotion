@@ -3,120 +3,101 @@
 KidMotion is an original English-language kids movement and fitness brand built around two recurring premium 3D character identities: one boy and one girl.
 
 ## Current active phase
-Current production focus: **SPORT / FITNESS long-form videos using static HOLD poses.**
+SPORT / FITNESS long-form videos using static HOLD poses.
 
-Education and more complex movement formats are documented for later but are currently inactive.
-
-## Core production model
+## Core model
 - YouTube long-form first
 - 16:9 / 1920x1080
 - static AI-generated scene images
 - Google Flow / Antigravity for image production
-- Remotion for timeline, text/UI, timers, progress, rests, audio placement and final rendering
-- current long-form target: at least about 5 minutes
-- typical current episode: about 10–12 exercises
-- every normal hold exercise: exactly 20 seconds
+- Remotion for timing, intentional scene UI, rests, audio placement and final rendering
+- current target: at least about 5 minutes
+- typical episode: about 10–12 exercises
+- every hold exercise: exactly 20 seconds
 
-## Character rule
-KidMotion has two recurring characters overall, but a normal episode selects exactly ONE of them.
+## One video = one main character
+A normal episode selects exactly ONE KidMotion character.
+Do not switch boy/girl and do not add a second visible person.
+Lock face, age, hair, skin tone, body proportions, episode outfit and world.
 
-**ONE VIDEO = ONE MAIN CHARACTER FROM COVER TO OUTRO.**
+## Every actual video section uses that character image
+Current standard:
+- `Bild 00.png` Cover — thumbnail only, not in MP4
+- `Bild 01.png` Intro
+- `Bild 02.png` Safety
+- `Bild 03.png` LET'S BEGIN
+- exercise scenes = matching chronological images
+- Rest = reuse the NEXT exercise image
+- Outro = matching final image
 
-Within an episode:
-- do not switch boy/girl
-- do not add another child/person
-- lock face, age, hair, skin tone, body proportions and 3D style
-- lock the episode-specific outfit and world
+No blank/plain/text-only scene replaces the character.
 
-The other recurring KidMotion character can lead another episode.
+## No subtitles
+Never add automatic captions, transcript bars, word-for-word Voice text, karaoke text or centered narration sentences.
 
-## Image / Remotion split
-Except for the Cover, normal Google Flow video-scene images are CLEAN and contain no exercise text/UI.
+The Intro uses a fixed branded title graphic independent from narration. It must not reveal Voice text phrase-by-phrase.
 
-Google Flow / Antigravity provides:
-- selected episode character
-- correct static pose
-- episode outfit/world
-- clean 16:9 image
-
-Remotion adds directly on top of the image:
+Allowed Remotion UI includes:
+- fixed Intro title / descriptor
+- Safety panel
+- LET'S BEGIN
 - exercise title bottom-left
-- short instruction upper-right in the KidMotion white cloud/info bubble
-- circular 20-second timer top-left
-- progress bar along the bottom
+- short instruction upper-right
+- timer top-left
+- progress bar bottom
+- REST / NEXT
+- GREAT JOB
 
-No automatic subtitles or voice captions.
+## Google Flow
+Except for Cover, generated scene images are clean and contain only the selected character, pose and episode world.
 
-## Voice rule
-Voice is used only when useful.
-A 5+ minute workout may contain only roughly 45–75 seconds of spoken audio.
-Short exercise cues play near the start; the rest of the 20-second hold stays silent while the visual timeline continues.
+Reference workflow:
+1. create Cover `Bild 00`
+2. create clean Intro `Bild 01`
+3. approve `Bild 01`
+4. use `Bild 01` as the primary visual reference for later scene images
 
-Audio length never controls video length.
-
-## Google Flow generation rule
-Generate episode images one by one:
-
+Generate images one by one:
 `PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
 
-Image number = chronological scene number.
-Remotion-only scene numbers stay reserved.
+## Voice
+Voice is used only when useful.
+A short cue at the start of a 20-second exercise does not shorten the scene. The remaining hold time stays silent.
+Audio length never controls video length.
 
 ## Active episode workflow
-The Remotion project renders exactly one active episode at a time.
-The pointer is stored in:
+Active episode pointer:
 `content/ACTIVE_EPISODE.json`
 
-To wire a completed episode package into Remotion:
-
+Activate an episode:
 ```bash
 npm run kidmotion:activate -- --episode=KM-XXX-slug
 ```
 
-This regenerates `src/data/active-workout.ts` from that episode's `data.json` and updates the active-episode pointer.
-
-Then stage only that episode's files in:
+Stage only that episode's assets in:
 - images: `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 - audio: `public/00-audio/`
 
-Never mix assets from two episodes because chronological filenames are reused.
+Never mix two episodes in these staging folders.
 
 ## Safe render
-After the active episode's final images/audio are staged:
-
 ```bash
 npm run render:safe
 ```
 
-This runs:
-1. TypeScript typecheck
-2. active-episode preflight validation
-3. final `KidMotionVideo` Remotion render
+This runs typecheck, preflight and final `KidMotionVideo` render.
 
-Preflight checks required assets, active-episode consistency, reserved scene numbers, 20-second exercise timing, subtitle settings, mixed staging files and total runtime before rendering.
-
-## Canonical project memory
-Read [`PROJECT_BRAIN.md`](PROJECT_BRAIN.md) first.
-It is the source of truth for all current production decisions.
-
-Important supporting files:
-- [`gehirn/CHARACTERS.md`](gehirn/CHARACTERS.md)
-- [`characters/CHARACTER_BIBLE.md`](characters/CHARACTER_BIBLE.md)
-- [`gehirn/VIDEO-REGELN.md`](gehirn/VIDEO-REGELN.md)
-- [`gehirn/IMAGE-PROMPT-TEMPLATE.md`](gehirn/IMAGE-PROMPT-TEMPLATE.md)
-- [`gehirn/VOICE-REGELN.md`](gehirn/VOICE-REGELN.md)
-- [`gehirn/CAPTION-REGELN.md`](gehirn/CAPTION-REGELN.md)
+## Canonical memory
+Read `PROJECT_BRAIN.md` first.
 
 ## Current reference episode
 `KM-001-football-balance-training`
 
-Current corrected reference workflow:
-- one KidMotion boy for the whole episode
-- 12 standing hold exercises × 20 seconds
-- Cover is thumbnail only
-- Safety is Remotion-only
-- clean Google Flow scene images
-- all exercise text/UI from Remotion
-- no subtitles
-- short voice cues + intentional silence
-- approximately 5:20 total runtime
+Reference rules:
+- same KidMotion boy in every video image from `Bild 01` through `Bild 16`
+- Safety uses `Bild 02`
+- Rest reuses the next exercise image
+- no subtitles / transcript bars
+- fixed Intro graphic, not narration captions
+- 12 exercises × 20 seconds
+- total 5:20
