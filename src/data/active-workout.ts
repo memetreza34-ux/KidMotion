@@ -24,6 +24,7 @@ export const activeWorkout: Workout = {
     {text: 'BALANCE • CONTROL • STRONG POSITIONS', start: 5.4, end: 8.6},
     {text: 'FIND SOME SPACE & FOLLOW ALONG', start: 8.6, end: 12},
   ],
+  safetyImage: imageAsset('Bild 02.png'),
   safetyVoice: voiceAsset('Voice 02.mp3'),
   letsBeginImage: imageAsset('Bild 03.png'),
   letsBeginVoice: voiceAsset('Voice 03.mp3'),
