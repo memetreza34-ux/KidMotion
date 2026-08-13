@@ -9,6 +9,12 @@ export type Exercise = {
   side?: 'left' | 'right' | 'both';
 };
 
+export type IntroCue = {
+  text: string;
+  start: number;
+  end: number;
+};
+
 export type Workout = {
   id: string;
   title: string;
@@ -24,6 +30,7 @@ export type Workout = {
   introTitle?: string;
   introSubtitle?: string;
   introBadge?: string;
+  introCues?: IntroCue[];
   introVoice?: string;
   safetyImage?: string;
   safetyVoice?: string;
