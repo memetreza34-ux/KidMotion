@@ -1,15 +1,15 @@
 # KidMotion Content Pipeline — Current Standard
 
 ## Core model
-KidMotion uses static generated 16:9 scene images, Google Flow / Antigravity for image creation and Remotion for timing, overlays, voice placement, transitions and final rendering.
+KidMotion uses static 16:9 generated scene images, Google Flow / Antigravity for image creation and Remotion for timing, overlays, audio placement and final rendering.
 
 Current active focus: SPORT / FITNESS.
 
 ## End-to-end workflow
 1. choose topic
-2. choose exactly ONE recurring KidMotion main character for the episode
-3. lock episode outfit and world
-4. build 10–12 static standing hold exercises
+2. choose exactly ONE KidMotion main character
+3. lock episode outfit/world
+4. build 10–12 static hold exercises
 5. build exact timeline
 6. write short English voice cues only where useful
 7. create `REFERENCE_GUIDE.md`
@@ -18,117 +18,118 @@ Current active focus: SPORT / FITNESS.
 10. create `data.json`
 11. create one cross-platform caption + publishing metadata
 12. create `RENDER_QA.md`
-13. Google Flow / Antigravity generates images one at a time
-14. every image is renamed immediately to its chronological `Bild XX.png`
-15. after all images are checked, move them together into the active public image staging folder
-16. user generates only required audio
-17. Antigravity / Codex / Remotion assembles and renders the final video
+13. Google Flow generates images one at a time
+14. rename every image immediately
+15. validate character consistency and numbering
+16. stage images/audio for the active episode
+17. activate the episode
+18. run safe Remotion render
 
-# Character rule
-One episode = one main character from Cover to Outro.
-No boy/girl switching inside one episode.
-No second visible child/person in the current standard format.
+## Character rule
+One episode = one main character.
+No boy/girl switching and no second visible person.
 
-# Current exercise rule
-Use static standing HOLD poses that work from one still image.
-Every exercise lasts exactly 20 seconds.
+## Every visible video section uses a character image
+- Cover = `Bild 00`, thumbnail only
+- Intro = `Bild 01`
+- Safety = `Bild 02`
+- LET'S BEGIN = `Bild 03`
+- exercise = matching image
+- Rest = reuse NEXT exercise image
+- Outro = matching final image
 
-Do not default to repetitive movements such as jumping jacks, burpees or running in place.
+No blank/plain/text-only scene replaces the character.
 
-# Image generation responsibility
-Except for Cover, normal Google Flow / Antigravity images contain only:
-- same episode character
-- correct static pose
+## Reference workflow
+Create clean `Bild 01` from the approved master character, approve it, then use it as the primary visual continuity reference for all later scene images.
+
+## Exercise rule
+Current phase uses static standing HOLD poses. Every exercise lasts exactly 20 seconds.
+
+## Google Flow responsibility
+Except for Cover, generated images contain only:
+- same character
+- correct pose
 - same outfit
 - same world
 - clean 16:9 scene
 
-They contain NO:
-- exercise name
-- instruction text
-- cloud/bubble
+No generated:
+- exercise title
+- instruction
 - subtitles
+- transcript bars
 - timer
 - progress bar
-- countdown
 - video UI
 
-Cover `Bild 00.png` is the exception and contains the final thumbnail text.
-Cover is not played in the rendered video.
-
-# Remotion responsibility
+## Remotion responsibility
 Remotion handles:
-- full scene timing
-- intro text blocks + explicit cue timing
-- Safety screen
-- LET'S BEGIN text
+- full timeline
+- fixed Intro title graphic
+- Safety panel over `Bild 02`
+- LET'S BEGIN graphic over `Bild 03`
 - exercise title bottom-left
-- short instruction cloud upper-right
+- short instruction upper-right
 - circular 20-second timer top-left
 - bottom progress bar
-- 5-second rest screens where defined
-- transitions / subtle zoom or pan
-- outro text
+- Rest UI over the next exercise image
+- outro title over final image
 - short voice placement
-- intentional silent gaps
+- silent gaps
 - final render
 
-Final-frame rule for every 20-second exercise:
-- timer starts at 20
-- timer reaches 0 on final frame
-- progress reaches 100% on final frame
+Final exercise frame:
+- timer reaches 0
+- progress reaches 100%
 
-# No subtitles
-No automatic subtitles, transcript boxes, word-for-word captions or karaoke text.
-Intentional exercise/scene UI is not a subtitle.
+## No subtitles
+Never create:
+- automatic subtitles
+- transcript boxes
+- word-for-word narration text
+- centered sentence copies of voice
+- karaoke text
+- Intro text that appears phrase-by-phrase with narration
 
-# Voice workflow
-A 5+ minute video does not require 5+ minutes of voice.
+Fixed scene UI is not a subtitle.
 
+## Voice workflow
+A 5+ minute video does not require 5+ minutes of narration.
 Typical exercise:
 - first 2–4 seconds: short cue
 - remaining hold: silence
-- visual scene still continues until exact 20 seconds
 
-Rest screens are normally silent.
-Audio duration never shortens video duration.
-Preferred: individual short voice clips for scenes that need speech.
-A single master audio is allowed only if it has correct gaps or is split/positioned during assembly.
+Rest is normally silent.
+Audio length never shortens video duration.
 
-# Image numbering
-Image number equals chronological scene number.
-Remotion-only scenes keep their number reserved.
+## Image numbering
+Current normal episodes use continuous chronological image numbers:
+`Bild 00.png`, `Bild 01.png`, `Bild 02.png`, `Bild 03.png`, etc.
 
-Example:
-- `Bild 00.png` Cover
-- `Bild 01.png` Intro
-- Scene 02 Safety = no image
-- `Bild 03.png` LET'S BEGIN
-
-# Google Flow / Antigravity generation loop
-Mandatory:
+## Google Flow loop
 `PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
 
 Never batch episode images.
 
-After ALL required images are generated and validated, move them together into:
+## Active staging
+Images:
 `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 
-Audio for the active episode goes into:
+Audio:
 `public/00-audio/`
 
-These public folders are ACTIVE-EPISODE staging only. Never mix assets from multiple episodes.
+Only one episode's assets may be staged at a time.
 
-# Publishing
-Each episode gets exactly ONE English cross-platform caption, reused where technically possible.
-The caption ends with exactly 5 hashtags and includes `#KidMotion`.
+## Publishing
+Each episode gets exactly ONE English cross-platform caption with exactly 5 hashtags including `#KidMotion`.
 
 Also prepare:
-- final YouTube title
+- YouTube title
 - description
-- search phrases / keywords
+- keywords/search phrases
 - playlist
 - thumbnail text/concept
 
 ## Principle
-The repository is the production brain. The user should only need to generate the prepared images/audio, place them correctly, then trigger assembly/rendering.
+The repository is the production brain. The user should only need to generate the prepared images/audio, stage them, then run the safe render pipeline.
