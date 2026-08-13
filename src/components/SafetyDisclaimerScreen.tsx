@@ -1,29 +1,22 @@
 import React from 'react';
+import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {brand} from '../brand';
 
-export const SafetyDisclaimerScreen: React.FC = () => {
+export const SafetyDisclaimerScreen: React.FC<{image?: string}> = ({image}) => {
   return (
-    <div
-      style={{
-        position: 'absolute',
-        inset: 0,
-        background: `linear-gradient(180deg, ${brand.colors.cream} 0%, ${brand.colors.softBlue} 100%)`,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '90px 150px',
-        fontFamily: brand.typography.fontFamily,
-        textAlign: 'center',
-      }}
-    >
-      <div style={{maxWidth: 1320}}>
-        <div style={{fontSize: 68, fontWeight: 950, color: brand.colors.navy}}>SAFETY FIRST</div>
-        <div style={{marginTop: 30, fontSize: 38, lineHeight: 1.35, fontWeight: 800, color: brand.colors.dark}}>
-          Make sure you have enough space to move.
-          <br />
-          Stop if anything hurts or feels uncomfortable.
+    <AbsoluteFill style={{overflow: 'hidden', background: brand.colors.softBlue, fontFamily: brand.typography.fontFamily}}>
+      {image ? (
+        <Img src={staticFile(image)} style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover'}} />
+      ) : null}
+
+      <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(23,52,91,0.72) 0%, rgba(23,52,91,0.42) 42%, rgba(23,52,91,0.06) 68%, rgba(23,52,91,0) 100%)'}} />
+
+      <div style={{position: 'absolute', left: 82, top: 0, bottom: 0, width: 760, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start'}}>
+        <div style={{fontSize: 68, fontWeight: 950, color: brand.colors.white, textShadow: '0 7px 18px rgba(0,0,0,0.28)'}}>SAFETY FIRST</div>
+        <div style={{marginTop: 26, maxWidth: 720, padding: '20px 26px', borderRadius: 24, background: 'rgba(255,255,255,0.96)', fontSize: 32, lineHeight: 1.28, fontWeight: 850, color: brand.colors.navy}}>
+          Make sure you have enough space to move.<br />Stop if anything hurts or feels uncomfortable.
         </div>
       </div>
-    </div>
+    </AbsoluteFill>
   );
 };
