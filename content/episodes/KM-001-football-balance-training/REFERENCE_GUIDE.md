@@ -1,102 +1,64 @@
-# KM-001 Reference Guide — Antigravity / Google Flow
+# KM-001 Reference Guide
 
-# HARD RULE — ONE CHARACTER FOR THE ENTIRE VIDEO
-KM-001 uses exactly ONE visible recurring character from Cover through Outro:
-**the approved KidMotion boy.**
+## One character for the complete video
+Use exactly ONE visible recurring character: the approved KM-001 boy.
 
-Never switch to the girl. Never add teammates, coaches, spectators or background people.
-The same boy must appear in every generated scene that contains a person.
+The same boy must remain visually consistent through:
+- Cover
+- Intro
+- Safety
+- LET'S BEGIN
+- every exercise
+- every Rest background
+- Outro
 
-Locked throughout the episode:
+Never switch to the girl or another person.
+
+Locked for the episode:
 - face
 - age appearance
 - skin tone
-- hairstyle / hair color
+- hair
 - body proportions
-- overall premium 3D style
+- premium 3D style
 - football outfit
 - football world
 
-Only pose, facial expression and framing may change.
-
 ## Reference workflow
-1. Generate `Bild 00.png` from the approved KidMotion boy master reference. This is the Cover and contains thumbnail text.
-2. Generate the CLEAN intro asset `Bild 01.png` from the approved KidMotion boy master reference using the exact KM-001 football outfit/world.
-3. After `Bild 01.png` is approved, use **Bild 01 as the PRIMARY visual reference for every later KM-001 image (`Bild 03`–`Bild 16`)**.
-4. Do not use the text-heavy Cover as the primary later-scene reference when the clean `Bild 01.png` reference is available.
-5. If any later scene drifts in face, outfit, body proportions or style, regenerate it before continuing.
+1. `Bild 00.png`: create Cover from approved boy master reference.
+2. `Bild 01.png`: create clean Intro image from approved boy master reference.
+3. After `Bild 01.png` is approved, use it as the PRIMARY visual reference for every later generated image `Bild 02.png`–`Bild 16.png`.
+4. Regenerate any scene that changes the face, outfit, proportions or 3D style.
 
-This reference order reduces character drift and also prevents Cover typography from leaking into normal scene generations.
-
-## Locked boy identity
-Friendly athletic boy around 10 years old, medium warm skin, short slightly textured dark brown hair, large expressive brown eyes, soft rounded facial features, confident friendly smile, slim active child-appropriate proportions, premium stylized 3D family-entertainment rendering.
-
-## Locked KM-001 football outfit
-- bright royal-blue football jersey
-- lime-green shoulder and side accents
-- small original abstract KidMotion-style chest mark only
+## KM-001 football outfit
+- royal-blue football jersey
+- lime-green accents
 - dark navy football shorts
-- long royal-blue football socks with one thin lime accent
+- long royal-blue socks
 - blue-and-white football boots
-- no real club badge
-- no sponsor
-- no Nike / Adidas / Puma / brand logos
+- no real club/sponsor/brand logos
 
-## Locked KM-001 world
-- bright premium youth football training pitch
-- vivid green grass
-- soft blue sky
-- modern stadium / training-ground background softly out of focus
-- white goal when useful
-- a few blue/lime cones when useful
-- clean daylight
+## KM-001 world
+- bright football training pitch
+- green grass
+- blue sky
+- softly blurred training-ground/stadium background
 - no other people
 
-# HARD RULE — CLEAN VIDEO IMAGES
-Except for the separate Cover, generated video-scene images contain ONLY:
-- the same boy
-- the correct static pose
-- the football outfit
-- the football world
+## Clean image rule
+Except for Cover, generated scene images contain only the same boy, pose and football environment.
+Do not generate video subtitles, transcript bars, exercise title, instruction bubble, timer, progress bar or other UI into the source image.
+Remotion adds the intentional video UI later.
 
-Do NOT generate into normal video-scene images:
-- exercise title
-- instruction text
-- cloud / speech bubble
-- subtitles
-- voice captions
-- timer
-- progress bar
-- countdown
-- UI
+## Scene-specific composition
+- `Bild 01`: boy on right, left side open for Intro graphics
+- `Bild 02`: boy on right in calm pose, left side open for Safety graphics
+- `Bild 03`: boy in ready pose, center open for LET'S BEGIN
+- `Bild 04`–`Bild 15`: full body, overlay-safe space around corners
+- `Bild 16`: victory pose, left side open for GREAT JOB
 
-Remotion places all video text and dynamic UI on top of the clean image.
+## Rest rule
+Do not use blank Rest screens. Remotion reuses the NEXT exercise image as the full-screen Rest background. The same boy therefore remains visible during every Rest.
 
-## Composition for exercise scenes
-- 16:9 YouTube landscape, 1920x1080 target
-- exactly one boy visible
-- full body clearly visible
-- static standing hold pose
-- character large and near center
-- keep TOP-LEFT reasonably clear for the 20-second timer
-- keep TOP-RIGHT reasonably clear for Remotion instruction cloud
-- keep BOTTOM-LEFT reasonably clear for Remotion exercise title
-- keep bottom edge clear for progress bar
-
-## Cover exception
-`Bild 00.png` is the YouTube thumbnail only and may contain:
-- `5 MIN FOOTBALL TRAINING`
-- `FOR KIDS`
-
-The Cover is not played inside the video.
-
-## Final consistency test
-Before accepting each generated image verify:
-- same boy
-- same face/hair/age
-- same outfit
-- same 3D style
-- same football world
-- no second character
-- correct scene number
-- no unwanted text/UI in normal video scenes
+## Final consistency check
+Every generated image must show the same approved boy with the same episode outfit and world. No second person. No unwanted source-image UI.
