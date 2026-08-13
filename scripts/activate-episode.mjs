@@ -30,10 +30,10 @@ const outro = scenes.find((scene) => scene.type === 'outro');
 const exercises = scenes.filter((scene) => scene.type === 'exercise');
 
 const errors = [];
-if (!intro) errors.push('Missing intro scene.');
-if (!safety) errors.push('Missing safety scene.');
-if (!letsBegin) errors.push('Missing lets-begin scene.');
-if (!outro) errors.push('Missing outro scene.');
+if (!intro?.image) errors.push('Missing intro image.');
+if (!safety?.image) errors.push('Missing safety image. Every video section must keep the episode character visible.');
+if (!letsBegin?.image) errors.push('Missing lets-begin image.');
+if (!outro?.image) errors.push('Missing outro image.');
 if (!exercises.length) errors.push('No exercise scenes found.');
 if (data.singleCharacterWholeEpisode !== true) errors.push('singleCharacterWholeEpisode must be true.');
 if (data.allowCharacterSwitch !== false) errors.push('allowCharacterSwitch must be false.');
@@ -66,7 +66,7 @@ const exerciseLines = exercises.map((scene) => {
   return `    {id:${q(String(scene.scene))}, title:${q(scene.title)}, instruction:${q(scene.instruction)}, image:${imageExpr(scene.image)}, voice:${voiceExpr(scene.voice)}, duration:${Number(scene.duration)}, restAfter:${Number(scene.restAfter || 0)}},`;
 }).join('\n');
 
-const activeSource = `import type {Workout} from '../types';\n\nconst imageAsset = (name: string) => \`${imageFolder}/\${name}\`;\nconst voiceAsset = (name: string) => \`${audioFolder}/\${name}\`;\n\n// AUTO-GENERATED ACTIVE EPISODE: ${episodeFolder}\n// Source: content/episodes/${episodeFolder}/data.json\n// Regenerate with: npm run kidmotion:activate -- --episode=${episodeFolder}\nexport const activeWorkout: Workout = {\n  id: ${q(data.slug ? `${data.id}-${data.slug}` : (data.id || episodeFolder))},\n  title: ${q(title)},\n  subtitle: ${q(subtitle)},\n  fps: ${Number(data.fps || 30)},\n  width: ${Number(data.width || 1920)},\n  height: ${Number(data.height || 1080)},\n  introDuration: ${Number(intro?.duration ?? data.introDuration ?? 12)},\n  safetyDuration: ${Number(safety?.duration ?? data.safetyDuration ?? 5)},\n  letsBeginDuration: ${Number(letsBegin?.duration ?? data.letsBeginDuration ?? 3)},\n  outroDuration: ${Number(outro?.duration ?? data.outroDuration ?? 5)},\n  introImage: ${imageExpr(intro?.image)},\n  introVoice: ${voiceExpr(intro?.voice)},\n  introCues: ${JSON.stringify(introCues, null, 4)},\n  safetyVoice: ${voiceExpr(safety?.voice)},\n  letsBeginImage: ${imageExpr(letsBegin?.image)},\n  letsBeginVoice: ${voiceExpr(letsBegin?.voice)},\n  outroImage: ${imageExpr(outro?.image)},\n  outroVoice: ${voiceExpr(outro?.voice)},\n  exercises: [\n${exerciseLines}\n  ],\n};\n`;
+const activeSource = `import type {Workout} from '../types';\n\nconst imageAsset = (name: string) => \`${imageFolder}/\${name}\`;\nconst voiceAsset = (name: string) => \`${audioFolder}/\${name}\`;\n\n// AUTO-GENERATED ACTIVE EPISODE: ${episodeFolder}\n// Source: content/episodes/${episodeFolder}/data.json\nexport const activeWorkout: Workout = {\n  id: ${q(data.slug ? `${data.id}-${data.slug}` : (data.id || episodeFolder))},\n  title: ${q(title)},\n  subtitle: ${q(subtitle)},\n  fps: ${Number(data.fps || 30)},\n  width: ${Number(data.width || 1920)},\n  height: ${Number(data.height || 1080)},\n  introDuration: ${Number(intro?.duration ?? data.introDuration ?? 12)},\n  safetyDuration: ${Number(safety?.duration ?? data.safetyDuration ?? 5)},\n  letsBeginDuration: ${Number(letsBegin?.duration ?? data.letsBeginDuration ?? 3)},\n  outroDuration: ${Number(outro?.duration ?? data.outroDuration ?? 5)},\n  introImage: ${imageExpr(intro?.image)},\n  introVoice: ${voiceExpr(intro?.voice)},\n  introCues: ${JSON.stringify(introCues, null, 4)},\n  safetyImage: ${imageExpr(safety?.image)},\n  safetyVoice: ${voiceExpr(safety?.voice)},\n  letsBeginImage: ${imageExpr(letsBegin?.image)},\n  letsBeginVoice: ${voiceExpr(letsBegin?.voice)},\n  outroImage: ${imageExpr(outro?.image)},\n  outroVoice: ${voiceExpr(outro?.voice)},\n  exercises: [\n${exerciseLines}\n  ],\n};\n`;
 
 const activeWorkoutPath = path.join(root, 'src', 'data', 'active-workout.ts');
 fs.mkdirSync(path.dirname(activeWorkoutPath), {recursive: true});
