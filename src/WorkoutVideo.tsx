@@ -40,7 +40,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
       ) : null}
 
       <Sequence from={cursor} durationInFrames={safetyFrames}>
-        <SafetyDisclaimerScreen />
+        <SafetyDisclaimerScreen image={workout.safetyImage} />
         <Voice src={workout.safetyVoice} />
       </Sequence>
 
@@ -67,6 +67,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
         const restStart = cursor;
         const restFrames = restSeconds * fps;
         cursor += restFrames;
+        const nextExercise = workout.exercises[index + 1];
 
         return (
           <React.Fragment key={exercise.id}>
@@ -76,7 +77,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
             </Sequence>
             {restSeconds > 0 ? (
               <Sequence from={restStart} durationInFrames={restFrames}>
-                <RestScreen durationInSeconds={restSeconds} nextTitle={workout.exercises[index + 1]?.title} />
+                <RestScreen durationInSeconds={restSeconds} nextTitle={nextExercise?.title} image={nextExercise?.image ?? exercise.image} />
               </Sequence>
             ) : null}
           </React.Fragment>
