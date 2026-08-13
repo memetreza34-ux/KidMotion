@@ -25,8 +25,11 @@ Verboten:
 - graue/schwarze Transcript-Balken
 - Karaoke-Text
 - mittige oder untere Subtitle-Boxen
+- Intro-Sätze, die Phrase für Phrase synchron zur Voice erscheinen
 
-Erlaubt sind nur bewusst gestaltete Remotion-Grafiken wie Intro-Text, Safety, LET'S BEGIN, Übungsname, kurze Übungsanweisung, Timer, Progress, Rest/Next und Outro.
+Das Intro benutzt stattdessen eine feste Marken-Grafik, z. B. Videotitel + kurze Beschreibung. Diese Grafik ist unabhängig vom gesprochenen Satz.
+
+Erlaubt sind nur bewusst gestaltete Remotion-Grafiken wie fester Intro-Titel, Safety, LET'S BEGIN, Übungsname, kurze Übungsanweisung, Timer, Progress, Rest/Next und Outro.
 
 ## 4. Google Flow erzeugt saubere Bilder
 Außer Cover enthalten die generierten Bilder keine Video-UI.
@@ -76,7 +79,7 @@ Der gleiche Episoden-Charakter bleibt dadurch sichtbar.
 
 ## 9. Standard-Reihenfolge
 1. Cover — Thumbnail only
-2. Intro — Bild + Remotion-Grafik
+2. Intro — Bild + feste Remotion-Titelgrafik
 3. Safety — Bild + Remotion-Grafik
 4. LET'S BEGIN — Bild + Remotion-Grafik
 5. Übungen — jeweils Bild + Remotion-UI
@@ -86,6 +89,7 @@ Der gleiche Episoden-Charakter bleibt dadurch sichtbar.
 ## 10. QA
 Ein Render ist nicht akzeptabel, wenn:
 - Untertitel/Transcript-Balken auftauchen
+- Introtext wie Untertitel der Voice mitläuft
 - eine blanke Szene den Charakter ersetzt
 - der Charakter wechselt
 - alte Bilder mit eingebranntem Übungstext verwendet werden
