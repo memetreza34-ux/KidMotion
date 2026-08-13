@@ -44,8 +44,7 @@ Allowed intentional Remotion UI:
 - GREAT JOB / WORKOUT COMPLETE
 
 ## Intro
-Use `Bild 01.png` full-screen.
-Keep the boy visible.
+Use `Bild 01.png` full-screen and keep the boy visible.
 Show one fixed branded Intro graphic independent from narration:
 - `KIDMOTION FOOTBALL`
 - `5 MIN FOOTBALL TRAINING`
@@ -91,11 +90,17 @@ Audio duration never controls scene duration.
 11. Reach-Up Hold
 12. Victory Balance
 
-## Render
-Use only `KidMotionVideo`, 1920x1080, 30fps, 16:9.
-Run:
+## Required build sequence
+After all final images/audio are staged, first regenerate the active Remotion data from the episode package:
+```bash
+npm run kidmotion:activate -- --episode=KM-001-football-balance-training
+```
+
+Then render with:
 ```bash
 npm run render:safe
 ```
+
+Use only `KidMotionVideo`, 1920x1080, 30fps, 16:9.
 
 Reject the MP4 if subtitles appear, Intro behaves like captions, a blank screen replaces the boy, the character changes, old exercise image text returns, an exercise is not 20s, or the Cover appears inside the video.
