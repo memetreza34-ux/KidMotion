@@ -19,9 +19,17 @@ if (!fs.existsSync(dataPath)) {
 const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const imageRoot = path.join(root, 'public', data.assetFolder);
 const audioRoot = path.join(root, 'public', data.audioFolder);
+const activeWorkoutPath = path.join(root, 'src', 'data', 'active-workout.ts');
 const failures = [];
 const fail = (message) => failures.push(message);
 let runtime = 0;
+
+if (!fs.existsSync(activeWorkoutPath)) {
+  fail('src/data/active-workout.ts is missing. Run kidmotion:activate first.');
+}
+
+const activeSource = fs.existsSync(activeWorkoutPath) ? fs.readFileSync(activeWorkoutPath, 'utf8') : '';
+if (activeSource && !activeSource.includes(episodeFolder)) fail(`active-workout.ts is not wired to ${episodeFolder}. Run kidmotion:activate first.`);
 
 if (data.singleCharacterWholeEpisode !== true) fail('singleCharacterWholeEpisode must be true.');
 if (data.allowCharacterSwitch !== false) fail('allowCharacterSwitch must be false.');
@@ -45,16 +53,21 @@ for (const scene of scenes) {
   const expectedImage = `Bild ${sceneNumber}.png`;
 
   if (scene.type !== 'cover') runtime += Number(scene.duration || 0) + Number(scene.restAfter || 0);
-
   if (scene.type !== 'cover' && !scene.image) fail(`Scene ${sceneNumber} needs its character image.`);
   if (scene.image && scene.image !== expectedImage) fail(`Scene ${sceneNumber} must use ${expectedImage}, found ${scene.image}.`);
   if (scene.type === 'exercise' && Number(scene.duration) !== 20) fail(`Scene ${sceneNumber} must last exactly 20s.`);
 
   if (scene.image && !fs.existsSync(path.join(imageRoot, scene.image))) fail(`Missing image: ${scene.image}`);
   if (scene.voice && !fs.existsSync(path.join(audioRoot, scene.voice))) fail(`Missing voice: ${scene.voice}`);
+
+  if (activeSource && scene.type === 'exercise') {
+    if (!activeSource.includes(scene.title)) fail(`active-workout.ts is stale: missing title ${scene.title}. Run kidmotion:activate first.`);
+    if (!activeSource.includes(scene.image)) fail(`active-workout.ts is stale: missing image ${scene.image}. Run kidmotion:activate first.`);
+  }
 }
 
 if (!scenes.find((scene) => scene.scene === '02' && scene.image === 'Bild 02.png')) fail('Safety must use Bild 02.png with the episode character.');
+if (activeSource && data.introTitle && !activeSource.includes(data.introTitle)) fail('active-workout.ts is stale: Intro title does not match data.json. Run kidmotion:activate first.');
 
 if (data.id === 'KM-001') {
   for (let number = 0; number <= 16; number += 1) {
