@@ -11,12 +11,13 @@
   "singleCharacterWholeEpisode": true,
   "allowCharacterSwitch": false,
   "allowSecondVisibleCharacter": false,
+  "allVideoSectionsUseCharacterImage": true,
   "characterReference": "approved KidMotion boy / clean KM-001 Bild 01 reference",
   "outfitLockedForEpisode": true,
   "worldLockedForEpisode": true,
   "assetFolder": "00-bildprompts/00-ALLE-BILDER-HIER-REIN",
   "audioFolder": "00-audio",
-  "imageNumberingRule": "Bild number must equal chronological scene number; Remotion-only scene numbers stay reserved",
+  "imageNumberingRule": "Bild number equals chronological scene number",
   "introDuration": 12,
   "introCues": [
     {"text":"HI, KIDMOTION FRIENDS!","start":0,"end":2.3},
@@ -34,6 +35,7 @@
     "continuousNarration": false,
     "subtitles": false,
     "voiceCaptions": false,
+    "subtitleTranscriptBoxesForbidden": true,
     "exerciseCueSecondsApprox": "3-4",
     "restVoice": false,
     "exerciseSceneKeepsRunningAfterVoice": true,
@@ -43,7 +45,7 @@
   "scenes": [
     {"scene":"00","type":"cover","image":"Bild 00.png","duration":0,"character":"boy","inVideo":false},
     {"scene":"01","type":"intro","image":"Bild 01.png","voice":"Voice 01.mp3","duration":12,"character":"boy"},
-    {"scene":"02","type":"safety","image":null,"voice":"Voice 02.mp3","duration":5,"remotionOnly":true},
+    {"scene":"02","type":"safety","image":"Bild 02.png","voice":"Voice 02.mp3","duration":5,"character":"boy"},
     {"scene":"03","type":"lets-begin","image":"Bild 03.png","voice":"Voice 03.mp3","duration":3,"character":"boy"},
     {"scene":"04","type":"exercise","title":"FOOTBALL READY HOLD","instruction":"Bend your knees and stay ready.","image":"Bild 04.png","voice":"Voice 04.mp3","duration":20,"voiceAtStart":true,"restAfter":5,"character":"boy"},
     {"scene":"05","type":"exercise","title":"GOALKEEPER SQUAT HOLD","instruction":"Stay low and keep your chest up.","image":"Bild 05.png","voice":"Voice 05.mp3","duration":20,"voiceAtStart":true,"restAfter":5,"character":"boy"},
@@ -59,11 +61,18 @@
     {"scene":"15","type":"exercise","title":"VICTORY BALANCE","instruction":"Lift one knee and hold strong.","image":"Bild 15.png","voice":"Voice 15.mp3","duration":20,"voiceAtStart":true,"restAfter":0,"character":"boy"},
     {"scene":"16","type":"outro","image":"Bild 16.png","voice":"Voice 16.mp3","duration":5,"character":"boy"}
   ],
+  "restVisualPolicy": {
+    "blankScreenForbidden": true,
+    "reuseNextExerciseImage": true,
+    "characterMustRemainVisible": true,
+    "restTextSource": "Remotion"
+  },
   "remotion": {
     "introTextSource": "Remotion",
     "introTextSync": "explicit-cue-timings",
     "safetyScreen": true,
     "safetyScene": "02",
+    "safetyImage": "Bild 02.png",
     "letsBeginTextSource": "Remotion",
     "letsBeginScene": "03",
     "exerciseTimer": "circular-20-second",
@@ -78,6 +87,7 @@
     "instructionPosition": "upper-right",
     "subtitles": false,
     "voiceCaptions": false,
+    "subtitleTranscriptBoxesForbidden": true,
     "outroTextSource": "Remotion"
   }
 }
