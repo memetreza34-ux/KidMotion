@@ -6,52 +6,60 @@ Read `PROJECT_BRAIN.md`, `episode.md`, `REFERENCE_GUIDE.md`, `data.json`, `ALL_V
 Use `Bild 00.png` through `Bild 16.png` with no gap.
 
 `Bild 00.png` is thumbnail only and is NOT played in the video.
-`Bild 01.png` is the visual continuity reference for the same KM-001 boy.
+`Bild 01.png` is the clean visual continuity reference for the same KM-001 boy in every later image.
 
-## HARD RULE — SAME BOY VISIBLE THROUGHOUT
-Every visible video section uses an image containing the same approved KM-001 boy:
+## SAME BOY VISIBLE THROUGHOUT
+Every actual video section uses an image containing the same approved KM-001 boy:
 - Intro → `Bild 01.png`
 - Safety → `Bild 02.png`
 - LET'S BEGIN → `Bild 03.png`
-- exercises → matching `Bild 04.png`–`Bild 15.png`
-- rests → reuse the NEXT exercise image as full-screen background
+- exercises → `Bild 04.png`–`Bild 15.png`
+- rests → reuse the NEXT exercise image full-screen
 - Outro → `Bild 16.png`
 
-Never replace these sections with plain blank/color screens.
-Never switch to the girl or another person.
+Never replace these with blank, plain-color or text-only screens.
+Never switch character.
 
-## HARD RULE — NO SUBTITLES
-Do not create any subtitle system.
+## NO SUBTITLES
+Do not create any subtitle/caption system.
 Forbidden:
 - automatic captions
-- word-for-word voice text
-- gray/black transcript bars
+- word-for-word Voice text
+- transcript bars
 - karaoke text
-- centered subtitle boxes
-- speech copied onto screen as captions
+- centered narration sentences
+- phrase-by-phrase Intro text that follows the Voice
 
-If any subtitle/transcript bar appears anywhere, the render FAILS.
+If any of these appear, the render FAILS.
 
-Intentional Remotion UI is allowed:
-- Intro headline blocks
-- `SAFETY FIRST`
-- `LET'S BEGIN!`
+Allowed intentional Remotion UI:
+- fixed Intro badge/title/descriptor
+- SAFETY FIRST panel
+- LET'S BEGIN graphic
 - exercise title bottom-left
-- instruction cloud upper-right
+- short instruction upper-right
 - timer top-left
 - progress bar bottom
-- Rest / Next UI
-- `GREAT JOB!`
+- REST / NEXT
+- GREAT JOB / WORKOUT COMPLETE
 
-These are scene graphics, not subtitles.
+## Intro
+Use `Bild 01.png` full-screen.
+Keep the boy visible.
+Show one fixed branded Intro graphic independent from narration:
+- `KIDMOTION FOOTBALL`
+- `5 MIN FOOTBALL TRAINING`
+- `BALANCE • CONTROL • STRONG POSITIONS`
+
+Do NOT reveal Intro text phrase-by-phrase in sync with speech.
 
 ## Exercise images
-Google Flow exercise images must be clean. Do not use old images that already contain the exercise title or instruction bubble.
-Remotion places the title and instruction directly over the clean full-screen image.
+Use clean Google Flow images. Do not use old images with exercise title/instruction already baked in.
+Remotion places the intentional exercise UI directly over the image.
 
-## Rest screens
+## Rest
 No blank Rest screen.
-For each 5-second rest, reuse the NEXT exercise image full-screen, lightly dim it, keep the boy visible, then overlay only:
+For each 5-second Rest, reuse the NEXT exercise image full-screen, lightly dim it, keep the boy clearly visible, and overlay only:
 - `REST`
 - rest countdown
 - `NEXT: [exercise]`
@@ -67,7 +75,7 @@ Rest is silent.
 - Outro 5s
 - total 320s / 5:20
 
-Audio duration never controls scene duration. A short voice cue ends, then the image/timer continues silently.
+Audio duration never controls scene duration.
 
 ## Exercise order
 1. Football Ready Hold
@@ -90,4 +98,4 @@ Run:
 npm run render:safe
 ```
 
-Reject the MP4 if subtitles appear, a blank screen replaces the boy, the character changes, old exercise images/text return, an exercise is not 20s, or the Cover appears in the video.
+Reject the MP4 if subtitles appear, Intro behaves like captions, a blank screen replaces the boy, the character changes, old exercise image text returns, an exercise is not 20s, or the Cover appears inside the video.
