@@ -1,205 +1,94 @@
 # KidMotion — Video-Regeln
 
-# SOURCE OF TRUTH — AKTUELLE PRODUKTIONSSTRUKTUR
-
 ## 1. Ein Video = ein Hauptcharakter
-Von Cover bis Outro wird innerhalb einer Episode derselbe KidMotion-Hauptcharakter verwendet.
-Kein Wechsel zwischen Boy und Girl innerhalb desselben Videos.
-Gesicht, Haare, Alter, Hautfarbe, Körperproportionen, Outfit und Themenwelt bleiben innerhalb der Episode konsistent.
+Pro Episode wird genau EIN KidMotion-Hauptcharakter gewählt. Derselbe Charakter bleibt von Intro bis Outro sichtbar. Kein Wechsel zwischen Boy und Girl. Gesicht, Haare, Alter, Proportionen, Outfit und Themenwelt bleiben innerhalb der Episode konsistent.
 
-## 2. YouTube Longform
-- 16:9
-- 1920x1080
-- Startphase: mindestens ca. 5 Minuten
-- ca. 10–12 Übungen pro Video
+## 2. HARTE REGEL — jede sichtbare Videosektion nutzt ein Charakterbild
+Keine leeren/plain Remotion-Flächen als eigentliche Szene.
 
-## 3. Cover
-`Bild 00.png` ist ausschließlich das YouTube-Thumbnail.
-Das Cover wird NICHT als erste Videoszene abgespielt.
+Standard:
+- Intro → eigenes Bild mit dem Episoden-Charakter
+- Safety → eigenes Bild mit dem Episoden-Charakter
+- LET'S BEGIN → eigenes Bild mit dem Episoden-Charakter
+- Übungen → eigenes Bild mit dem Episoden-Charakter
+- Rest → Bild der nächsten Übung als Fullscreen-Hintergrund wiederverwenden
+- Outro → eigenes Bild mit dem Episoden-Charakter
 
-## 4. Startphase = statische stehende Hold-Übungen
-Aktuell bevorzugt KidMotion Übungen, die aus dem Stand mit EINEM statischen Bild eindeutig verstanden und für 20 Sekunden gehalten werden können.
+Cover `Bild 00.png` bleibt nur Thumbnail und wird nicht im Video abgespielt.
 
-Beispiele:
-- football ready hold
-- goalkeeper squat hold
-- knee-up balance
-- single-leg balance
-- side leg hold
-- standing side stretch
-- calf raise hold
-- wide squat hold
-- side lunge hold
-- forward lunge hold
-- reach-up hold
-- victory balance
+## 3. Keine Untertitel
+Im gesamten Video gibt es KEIN Untertitel-System.
 
-Keine Jumping Jacks, Burpees, Running in Place oder andere wiederholte Bewegungen im aktuellen Standardformat.
+Verboten:
+- automatische Captions
+- Wort-für-Wort-Text der Voice
+- graue/schwarze Transcript-Balken
+- Karaoke-Text
+- mittige oder untere Subtitle-Boxen
 
-## 5. Jede Übung exakt 20 Sekunden
-Die aktive Pose dauert exakt 20 Sekunden.
-Die Länge des Voice-Clips ändert diese 20 Sekunden NICHT.
+Erlaubt sind nur bewusst gestaltete Remotion-Grafiken wie Intro-Text, Safety, LET'S BEGIN, Übungsname, kurze Übungsanweisung, Timer, Progress, Rest/Next und Outro.
 
-Typisches Beispiel:
-- erste ca. 3–4 s kurzer Voice-Cue
-- danach bis Sekunde 20 ohne Sprache
-- Bild, Timer und Progress Bar laufen trotzdem bis zum Ende weiter
+## 4. Google Flow erzeugt saubere Bilder
+Außer Cover enthalten die generierten Bilder keine Video-UI.
 
-Final-Frame-Regel:
-- Timer startet bei `20`
-- Timer erreicht auf dem letzten Übungsframe sichtbar `0`
-- Progress Bar erreicht auf dem letzten Übungsframe 100%
-
-## 6. HARTE REGEL — Google Flow erzeugt saubere Bilder OHNE Video-Text
-Normale Szenenbilder aus Google Flow / Antigravity enthalten:
-- denselben Hauptcharakter
-- korrekte Pose
-- passenden Hintergrund / Themenwelt
-- vollständige Figur, wenn für die Pose nötig
-
-Sie enthalten NICHT:
+Nicht ins Bild generieren:
 - Übungsname
 - Anweisung
-- Cloud/Textbubble
+- Cloud
 - Untertitel
 - Timer
 - Progress Bar
-- Countdown
-- sonstige Video-UI
+- sonstige UI
 
-Ausnahme: Das separate Cover `Bild 00.png` darf den Thumbnail-Text enthalten.
+Remotion legt diese Elemente später direkt auf das Bild.
 
-## 7. HARTE REGEL — Remotion setzt den sichtbaren Text AUF das Bild
-Bei jeder Übung legt Remotion die Informationen über das Google-Flow-Bild:
-- Übungsname
-- kurze Ausführungsanweisung
-- weiße Cloud / Info-Bubble für die Anweisung
-- 20-Sekunden-Timer
-- Progress Bar
-
-Dadurch bleiben Schriftart, Größe, Position und Design über alle Szenen exakt konsistent.
-
-Standard-Layout:
-- Figur groß und klar sichtbar
+## 5. Übungs-Layout
+- Bild fullscreen
 - Übungsname unten links
-- kurze Anweisung oben rechts in der KidMotion-Cloud
-- Timer oben links
+- kurze Anweisung oben rechts in KidMotion-Cloud
+- 20-Sekunden-Timer oben links
 - Progress Bar unten
-- keine dieser UI-Flächen darf Gesicht, Hände, Füße oder wichtige Gelenkpositionen verdecken
+- Figur bleibt vollständig und gut erkennbar
 
-## 8. HARTE REGEL — KEINE UNTERTITEL
-Im gesamten KidMotion-Video gibt es keine automatischen Untertitel und keine Voice-Captions.
+## 6. Timing
+Aktuelles Standardformat:
+- ca. 10–12 statische Hold-Übungen
+- jede Übung exakt 20 Sekunden
+- Rest typischerweise 5 Sekunden
+- Video mindestens ca. 5 Minuten
 
-Nicht verwenden:
-- Wort-für-Wort-Captions
-- Subtitle-Box unten/mittig
-- automatisch transkribierte Voice
-- dauerhaft mitlaufenden gesprochenen Text
-- Karaoke-Transkription
+Timer startet bei 20 und erreicht 0. Progress Bar erreicht 100%.
 
-Sichtbar sind nur bewusst gestaltete UI-Texte der Szene.
+## 7. Voice
+Voice nur wenn sinnvoll.
+Ein kurzer Voice-Cue am Anfang einer 20-Sekunden-Übung verkürzt die Szene nicht. Danach bleibt die restliche Hold-Zeit still.
 
-## 9. Voice nur bei Bedarf
-Ein 5-Minuten-Video darf nur etwa 45–75 Sekunden tatsächliche Sprache enthalten.
+Ein 5-Minuten-Video kann deutlich weniger als 5 Minuten gesprochene Voice enthalten.
 
-Voice ist sinnvoll für:
-- Intro
-- Safety
-- optional kurzer Start-Cue
-- kurzer Übungs-Cue am Anfang einer Pose
-- Outro
+## 8. Rest-Screens
+Rest ist keine leere Karte.
+Remotion verwendet das Bild der NÄCHSTEN Übung als Fullscreen-Hintergrund, dimmt es leicht und zeigt nur:
+- REST
+- Rest-Timer
+- NEXT: [Übung]
 
-Rest-Screens sind standardmäßig still und bekommen nur dann Voice, wenn ein konkreter Hinweis echten Mehrwert bringt.
-Während des größten Teils eines 20-Sekunden-Holds bleibt es ruhig.
-Keine künstlichen Füllsätze.
+Der gleiche Episoden-Charakter bleibt dadurch sichtbar.
 
-## 10. Audio und Videolänge sind unabhängig
-Remotion steuert die komplette Timeline.
-Ein 3-Sekunden-Voice-Clip kann am Anfang einer 20-Sekunden-Szene liegen; danach läuft die Szene ohne Sprache weiter.
+## 9. Standard-Reihenfolge
+1. Cover — Thumbnail only
+2. Intro — Bild + Remotion-Grafik
+3. Safety — Bild + Remotion-Grafik
+4. LET'S BEGIN — Bild + Remotion-Grafik
+5. Übungen — jeweils Bild + Remotion-UI
+6. Rest — nächstes Übungsbild + Rest-UI
+7. Outro — Bild + GREAT JOB
 
-Eine kurze Audio-Gesamtdauer darf deshalb nicht dazu führen, dass das Video verkürzt wird.
-Voice darf auch nicht künstlich auf die Szenenlänge gestreckt werden.
-
-Wenn eine einzige Master-Audiodatei genutzt wird, müssen echte Cue-Grenzen bestimmt und die gesprochenen Abschnitte passend positioniert werden. Niemals blind in gleich große Stücke teilen.
-
-## 11. Standard-Timeline
-1. `00-cover` — Thumbnail only, nicht Teil des Videos
-2. `01-intro` — ca. 8–15 s, Bild + Remotion-Text + kurze Voice
-3. `02-safety` — ca. 4–5 s, Remotion
-4. `03-lets-begin` — ca. 2–3 s, Bild + Remotion-Text, optional kurzer Voice-Cue
-5. Übungen — jeweils exakt 20 s
-6. Rest/Transition — typischerweise 5 s zwischen Übungen
-7. Outro — ca. 4–6 s, `GREAT JOB!`
-
-## 12. Intro
-Intro nutzt dasselbe Hauptcharakter-Bild und Remotion-Textblöcke.
-Keine Untertitel.
-Text erscheint nur als bewusst gestaltete Intro-Grafik, nicht als Transkript.
-
-Für reale Episoden sollen Intro-Phrasen konkrete Start-/Endzeiten bekommen, damit die Grafiken sauber zur Voice passen.
-
-## 13. Safety
-Safety ist eine eigene kurze Szene vor `LET'S BEGIN!`.
-Sie darf nicht über die Startkarte oder erste Übung gelegt werden.
-
-## 14. LET'S BEGIN
-`LET'S BEGIN!` wird als Remotion-Text auf das saubere Szenenbild gelegt.
-Kein Timer.
-Keine Untertitel.
-
-## 15. Rest-Screens
-Kurze Rest-Szene zwischen Übungen.
-Optional anzeigen:
-- `REST`
-- `NEXT: [POSE]`
-
-Standard: keine Voice.
-
-## 16. Outro
-Nach der letzten Übung:
-- derselbe Hauptcharakter
-- Victory-Pose
-- Remotion-Text `GREAT JOB!`
-- optional `WORKOUT COMPLETE`
-- kurzer Glückwunsch als Voice
-- keine Untertitel
-
-## 17. Remotion ist zuständig für
-- Timeline
-- Szenendauer
-- Intro-Texte + Cue-Timing
-- Safety-Screen
-- LET'S BEGIN-Text
-- Übungsname
-- Übungsanweisung / Cloud
-- 20-Sekunden-Timer
-- Progress Bar
-- Rest-Screens
-- Outro-Texte
-- Voice-Platzierung mit bewussten Silent-Gaps
-- Übergänge / dezente Zooms
-
-## 18. Google Flow / Antigravity ist zuständig für
-- saubere 16:9 Szenenbilder
-- exakt denselben Charakter innerhalb der Episode
-- richtige statische Pose
-- konsistentes Outfit
-- konsistente Themenwelt
-- Cover mit Thumbnail-Text
-
-Nicht für Video-Untertitel oder dynamische UI.
-
-## 19. QA vor finalem Render
-Prüfen:
-- Cover nicht im Video
-- ein einziger Hauptcharakter
-- keine Untertitel
-- alle Übungstexte von Remotion
-- Google-Flow-Szenenbilder ohne eingebrannten Übungstext/UI
-- jede Pose exakt 20 s
-- Timer startet bei 20 und erreicht 0
-- Progress Bar erreicht 100%
-- Voice nur kurz bei Bedarf
-- Rest standardmäßig still
-- Silent-Gaps bleiben erhalten
-- Video bleibt mindestens ca. 5 Minuten, auch wenn die Voice deutlich kürzer ist
+## 10. QA
+Ein Render ist nicht akzeptabel, wenn:
+- Untertitel/Transcript-Balken auftauchen
+- eine blanke Szene den Charakter ersetzt
+- der Charakter wechselt
+- alte Bilder mit eingebranntem Übungstext verwendet werden
+- eine Übung nicht exakt 20 Sekunden dauert
+- Timer/Progress falsch enden
+- Cover im MP4 abgespielt wird
