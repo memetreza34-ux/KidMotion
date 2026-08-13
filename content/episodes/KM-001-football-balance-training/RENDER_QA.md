@@ -1,36 +1,38 @@
 # KM-001 — Render QA
 
-## Must fail if present
+## Automatic fail
 - subtitles or automatic captions
-- transcript bars or word-for-word voice text
-- blank/plain screens instead of the episode image
-- a different character
-- old exercise images with text already inside them
+- transcript bars or word-for-word Voice text
+- centered narration sentences
+- Intro text appearing phrase-by-phrase with narration
+- blank/plain screen replacing the character image
+- character change or second person
+- old exercise image with baked-in title/instruction
+- Cover shown inside the MP4
 
-## Correct scene visuals
+## Required visuals
 - Intro: `Bild 01.png`
 - Safety: `Bild 02.png`
 - LET'S BEGIN: `Bild 03.png`
 - Exercises: `Bild 04.png`–`Bild 15.png`
-- Rest: reuse the NEXT exercise image as full-screen background
+- Rest: NEXT exercise image full-screen
 - Outro: `Bild 16.png`
-- Cover `Bild 00.png`: thumbnail only, never inside the MP4
+- Cover: `Bild 00.png`, thumbnail only
 
-The same approved KM-001 boy must remain visible throughout the video. Same face, hair, proportions, football outfit and football world.
+The same approved KM-001 boy must remain consistent in every actual video image.
 
-## Allowed Remotion text
-Only intentional UI:
-- Intro graphic blocks
-- SAFETY FIRST
-- LET'S BEGIN
+## Allowed Remotion UI
+- fixed Intro badge/title/descriptor
+- SAFETY FIRST panel
+- LET'S BEGIN graphic
 - exercise title bottom-left
-- short instruction cloud upper-right
+- short instruction upper-right
 - timer top-left
 - progress bar bottom
 - REST / NEXT
-- GREAT JOB
+- GREAT JOB / WORKOUT COMPLETE
 
-This UI is not a subtitle system.
+The Intro graphic is independent from Voice and must not act like captions.
 
 ## Timing
 - Intro 12s
@@ -42,12 +44,17 @@ This UI is not a subtitle system.
 - total 320s / 5:20
 
 ## Voice
-Voice is short and only where useful. Exercise continues after voice ends. Rests are silent. Never stretch audio to fill the video.
+- short only where useful
+- exercise continues after cue ends
+- Rest is silent
+- audio is not stretched to fill the video
+- audio length never shortens a scene
 
 ## Final checks
 - timer reaches 0
 - progress reaches 100%
-- clean Google Flow exercise images have no baked-in video text/UI
+- normal Google Flow images contain no baked-in video UI
+- every actual scene has a character image
 - no second person appears
 - `npm run typecheck` passes
 - `npm run preflight` passes
