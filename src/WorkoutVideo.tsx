@@ -16,9 +16,7 @@ export const workoutDurationInFrames = (workout: Workout) => {
   const safety = (workout.safetyDuration ?? 5) * fps;
   const letsBegin = (workout.letsBeginDuration ?? 3) * fps;
   const outro = (workout.outroDuration ?? 5) * fps;
-  const exerciseFrames = workout.exercises.reduce((total, exercise) => {
-    return total + (exercise.duration + (exercise.restAfter ?? 0)) * fps;
-  }, 0);
+  const exerciseFrames = workout.exercises.reduce((total, exercise) => total + (exercise.duration + (exercise.restAfter ?? 0)) * fps, 0);
   return intro + safety + letsBegin + exerciseFrames + outro;
 };
 
@@ -34,7 +32,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
     <AbsoluteFill style={{background: '#eef8ff'}}>
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
-          <IntroScreen image={workout.introImage} cues={workout.introCues} />
+          <IntroScreen image={workout.introImage} title={workout.introTitle ?? workout.title} subtitle={workout.introSubtitle ?? workout.subtitle} badge={workout.introBadge ?? 'KIDMOTION'} />
           <Voice src={workout.introVoice} />
         </Sequence>
       ) : null}
@@ -43,21 +41,13 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
         <SafetyDisclaimerScreen image={workout.safetyImage} />
         <Voice src={workout.safetyVoice} />
       </Sequence>
-
-      {(() => {
-        cursor += safetyFrames;
-        return null;
-      })()}
+      {(() => { cursor += safetyFrames; return null; })()}
 
       <Sequence from={cursor} durationInFrames={letsBeginFrames}>
         <LetsBeginScreen image={workout.letsBeginImage} />
         <Voice src={workout.letsBeginVoice} />
       </Sequence>
-
-      {(() => {
-        cursor += letsBeginFrames;
-        return null;
-      })()}
+      {(() => { cursor += letsBeginFrames; return null; })()}
 
       {workout.exercises.map((exercise, index) => {
         const exerciseStart = cursor;
