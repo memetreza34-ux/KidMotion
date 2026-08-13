@@ -29,6 +29,7 @@ export type Workout = {
   introImage?: string;
   introCues?: IntroCue[];
   introVoice?: string;
+  safetyImage?: string;
   safetyVoice?: string;
   letsBeginImage?: string;
   letsBeginVoice?: string;
