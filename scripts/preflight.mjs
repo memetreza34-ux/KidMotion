@@ -24,10 +24,7 @@ const failures = [];
 const fail = (message) => failures.push(message);
 let runtime = 0;
 
-if (!fs.existsSync(activeWorkoutPath)) {
-  fail('src/data/active-workout.ts is missing. Run kidmotion:activate first.');
-}
-
+if (!fs.existsSync(activeWorkoutPath)) fail('src/data/active-workout.ts is missing. Run kidmotion:activate first.');
 const activeSource = fs.existsSync(activeWorkoutPath) ? fs.readFileSync(activeWorkoutPath, 'utf8') : '';
 if (activeSource && !activeSource.includes(episodeFolder)) fail(`active-workout.ts is not wired to ${episodeFolder}. Run kidmotion:activate first.`);
 
@@ -40,9 +37,20 @@ if (data.voicePolicy?.voiceCaptions !== false) fail('Voice captions must be disa
 if (data.remotion?.subtitles !== false) fail('Remotion subtitles must be disabled.');
 if (data.remotion?.voiceCaptions !== false) fail('Remotion voice captions must be disabled.');
 if (data.remotion?.transcriptBars !== false) fail('Transcript bars must be disabled.');
-if (data.remotion?.introTextMustNotTrackNarration !== true) fail('Intro text must be a fixed graphic, not narration-tracking text.');
+if (data.remotion?.introTextMustNotTrackNarration !== true) fail('Intro must use fixed branded information, not narration-tracking text.');
+
+if (data.exerciseVisualPolicy?.exerciseNameSource !== 'GoogleFlowImage') fail('Exercise names must come from Google Flow images.');
+if (data.exerciseVisualPolicy?.exerciseInstructionSource !== 'GoogleFlowImage') fail('Exercise instructions must come from Google Flow images.');
+if (data.exerciseVisualPolicy?.instructionBubbleSource !== 'GoogleFlowImage') fail('Exercise instruction cloud must come from Google Flow images.');
+if (data.exerciseVisualPolicy?.remotionExerciseNameForbidden !== true) fail('Remotion exercise-name overlays must be forbidden.');
+if (data.exerciseVisualPolicy?.remotionExerciseInstructionForbidden !== true) fail('Remotion exercise-instruction overlays must be forbidden.');
+if (data.remotion?.exerciseTextOverlay !== false) fail('Remotion exerciseTextOverlay must be false.');
+if (data.remotion?.exerciseNameSource !== 'GoogleFlowImage') fail('remotion.exerciseNameSource must be GoogleFlowImage.');
+if (data.remotion?.exerciseInstructionSource !== 'GoogleFlowImage') fail('remotion.exerciseInstructionSource must be GoogleFlowImage.');
+
 if (data.restVisualPolicy?.blankScreenForbidden !== true) fail('Blank Rest screens are forbidden.');
 if (data.restVisualPolicy?.reuseNextExerciseImage !== true) fail('Rest must reuse the next exercise image.');
+if (data.restVisualPolicy?.remotionNextPoseNameForbidden !== true) fail('Remotion must not add NEXT pose names during Rest.');
 
 const scenes = Array.isArray(data.scenes) ? data.scenes : [];
 const cover = scenes.find((scene) => scene.type === 'cover');
@@ -56,9 +64,14 @@ for (const scene of scenes) {
   if (scene.type !== 'cover' && !scene.image) fail(`Scene ${sceneNumber} needs its character image.`);
   if (scene.image && scene.image !== expectedImage) fail(`Scene ${sceneNumber} must use ${expectedImage}, found ${scene.image}.`);
   if (scene.type === 'exercise' && Number(scene.duration) !== 20) fail(`Scene ${sceneNumber} must last exactly 20s.`);
+  if (scene.type === 'exercise' && (!scene.title || !scene.instruction)) fail(`Scene ${sceneNumber} needs title + instruction for Google Flow.`);
 
   if (scene.image && !fs.existsSync(path.join(imageRoot, scene.image))) fail(`Missing image: ${scene.image}`);
-  if (scene.voice && !fs.existsSync(path.join(audioRoot, scene.voice))) fail(`Missing voice: ${scene.voice}`);
+
+  // Audio is intentionally non-blocking during the current visual correction phase.
+  if (scene.voice && (!fs.existsSync(audioRoot) || !fs.existsSync(path.join(audioRoot, scene.voice)))) {
+    console.warn(`WARNING: missing voice for visual-QA phase: ${scene.voice}`);
+  }
 
   if (activeSource && scene.type === 'exercise') {
     if (!activeSource.includes(scene.title)) fail(`active-workout.ts is stale: missing title ${scene.title}. Run kidmotion:activate first.`);
@@ -72,8 +85,7 @@ if (activeSource && data.introTitle && !activeSource.includes(data.introTitle)) 
 if (data.id === 'KM-001') {
   for (let number = 0; number <= 16; number += 1) {
     const filename = `Bild ${String(number).padStart(2, '0')}.png`;
-    const referenced = scenes.some((scene) => scene.image === filename);
-    if (!referenced) fail(`KM-001 is missing image mapping: ${filename}`);
+    if (!scenes.some((scene) => scene.image === filename)) fail(`KM-001 is missing image mapping: ${filename}`);
   }
   if (runtime !== 320) fail(`KM-001 runtime must be 320s, found ${runtime}s.`);
 }
@@ -85,3 +97,4 @@ if (failures.length) {
 }
 
 console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${runtime}s`);
+console.log('Visual contract: Google Flow owns exercise title/instruction; Remotion owns timer/progress only.');
