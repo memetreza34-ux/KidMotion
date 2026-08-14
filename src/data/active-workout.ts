@@ -3,21 +3,22 @@ import type {Workout} from '../types';
 const imageAsset = (name: string) => `00-bildprompts/00-ALLE-BILDER-HIER-REIN/${name}`;
 
 // ACTIVE REMOTION EPISODE: KM-001
-// Visual-first pass: audio is intentionally optional for now.
+// Visual-first pass: only the Intro may later receive Voice 01.mp3.
+// Every scene after Intro is intentionally silent.
 export const activeWorkout: Workout = {
   id: 'KM-001-football-balance-training',
   title: '5 MIN FOOTBALL TRAINING',
-  subtitle: 'BALANCE • CONTROL • STRONG POSITIONS',
+  subtitle: '12 POSES • 20 SEC EACH',
   fps: 30,
   width: 1920,
   height: 1080,
-  introDuration: 12,
-  safetyDuration: 5,
-  letsBeginDuration: 3,
-  outroDuration: 5,
+  introDuration: 8,
+  safetyDuration: 4,
+  letsBeginDuration: 2,
+  outroDuration: 4,
   introImage: imageAsset('Bild 01.png'),
   introTitle: '5 MIN FOOTBALL TRAINING',
-  introSubtitle: 'BALANCE • CONTROL • STRONG POSITIONS',
+  introSubtitle: '12 POSES • 20 SEC EACH',
   introBadge: 'KIDMOTION FOOTBALL',
   safetyImage: imageAsset('Bild 02.png'),
   letsBeginImage: imageAsset('Bild 03.png'),
