@@ -1,10 +1,12 @@
 # 15 — VICTORY BALANCE
-- Image: `Bild 15.png` — CLEAN Google Flow image, no text/UI
+- Image: `Bild 15.png`
 - Duration: exactly 20s
 - Rest after: 0s
-- Character: same single approved KM-001 boy
-- Pose: stand on one leg, other knee lifted comfortably, both arms raised in a V, proud happy smile
-- Remotion title: `VICTORY BALANCE`
-- Remotion cloud: `Lift one knee and hold strong.`
-- Remotion: title + instruction cloud + 20s circular timer + progress bar
-- Voice: short cue at start only; remaining hold is silent
+- Character: same approved KM-001 boy
+- Pose: stand on one leg, other knee lifted comfortably, both arms raised in a V, happy confident expression
+- Google Flow image contains title bottom-left: `VICTORY BALANCE`
+- Google Flow image contains instruction cloud top-right: `Lift one knee and hold strong.`
+- Remotion adds ONLY the 20s circular timer top-left + progress bar bottom
+- No Remotion pose name or description
+- No subtitles / transcript bars
+- Audio optional for current visual QA
