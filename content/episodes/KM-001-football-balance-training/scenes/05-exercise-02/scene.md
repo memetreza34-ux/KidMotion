@@ -2,11 +2,8 @@
 - Image: `Bild 05.png`
 - Duration: exactly 20s
 - Rest after: 5s
-- Character: same approved KM-001 boy
-- Pose: feet wide, knees comfortably bent, hips slightly back, chest up, goalkeeper-ready arms
-- Google Flow image contains title bottom-left: `GOALKEEPER SQUAT HOLD`
-- Google Flow image contains instruction cloud top-right: `Stay low and keep your chest up.`
-- Remotion adds ONLY the 20s circular timer top-left + progress bar bottom
-- No Remotion pose name or description
-- No subtitles / transcript bars
-- Audio optional for current visual QA
+- Same approved KM-001 boy
+- Google Flow image contains title `GOALKEEPER SQUAT HOLD` bottom-left
+- Google Flow image contains cloud `Stay low and keep your chest up.` top-right
+- Remotion adds ONLY timer + progress bar
+- SILENT for all 20 seconds — no Voice / no Audio component
