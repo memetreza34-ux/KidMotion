@@ -11,6 +11,8 @@
 - duplicate exercise title
 - duplicate instruction cloud
 - missing Google Flow exercise title/instruction
+- Google Flow title/instruction does not exactly match the current KM-001 plan
+- old exercise image from a previous version is reused
 - Cover shown inside the MP4
 
 ## Required visuals
@@ -38,10 +40,29 @@ Use `Bild 01.png` plus fixed branded opening information:
 
 The Intro graphic is independent from Voice and must not act like captions.
 
+## Exact Google Flow exercise text
+The source images must contain exactly these final pairs:
+- 04 `FOOTBALL READY HOLD` — `Bend your knees and stay ready.`
+- 05 `GOALKEEPER SQUAT HOLD` — `Stay low and keep your chest up.`
+- 06 `KNEE-UP BALANCE` — `Lift one knee and stand tall.`
+- 07 `SINGLE-LEG BALANCE` — `Stand on one leg and stay steady.`
+- 08 `SIDE LEG HOLD` — `Lift one leg gently to the side.`
+- 09 `STANDING SIDE STRETCH` — `Reach up and lean gently to the side.`
+- 10 `CALF RAISE HOLD` — `Lift your heels and stay tall.`
+- 11 `WIDE SQUAT HOLD` — `Sit low and keep your chest up.`
+- 12 `SIDE LUNGE HOLD` — `Bend one knee and keep the other leg long.`
+- 13 `FORWARD LUNGE HOLD` — `Step forward and keep your body tall.`
+- 14 `REACH-UP HOLD` — `Stretch both arms high and stand tall.`
+- 15 `VICTORY BALANCE` — `Lift one knee and hold strong.`
+
+If an old image says something different such as an older pose name/instruction, regenerate it. Do not compensate with a Remotion text overlay.
+
 ## Exercise source-image contract
 Every Google Flow exercise image `Bild 04`–`Bild 15` must already contain:
 - exactly ONE exercise title at bottom-left
 - exactly ONE short instruction at top-right in the KidMotion white cloud/info bubble
+
+The title/cloud must be compact and must not dominate the frame or cover the boy.
 
 The generated exercise image must NOT contain:
 - subtitles
@@ -87,6 +108,7 @@ Audio length must never shorten a 20-second exercise.
 - every actual scene has the correct character image
 - no second person appears
 - no exercise text duplication
+- source-image title/instruction exactly match the current plan
 - `npm run typecheck` passes
 - `npm run preflight` passes
 - final visual render uses `npm run render:safe`
