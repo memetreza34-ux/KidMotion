@@ -10,8 +10,8 @@ export const IntroScreen: React.FC<{
 }> = ({
   image,
   title = '5 MIN FOOTBALL TRAINING',
-  subtitle = '12 EASY HOLD POSES',
-  badge = 'KIDMOTION',
+  subtitle = 'BALANCE • CONTROL • STRONG POSITIONS',
+  badge = 'KIDMOTION FOOTBALL',
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -30,72 +30,35 @@ export const IntroScreen: React.FC<{
         <Img src={staticFile(image)} style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover'}} />
       ) : null}
 
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(90deg, rgba(23,52,91,0.78) 0%, rgba(23,52,91,0.54) 38%, rgba(23,52,91,0.10) 63%, rgba(23,52,91,0) 78%)',
-        }}
-      />
+      <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(23,52,91,0.82) 0%, rgba(23,52,91,0.60) 38%, rgba(23,52,91,0.10) 64%, rgba(23,52,91,0) 80%)'}} />
 
-      <div
-        style={{
-          position: 'absolute',
-          left: 82,
-          top: 0,
-          bottom: 0,
-          width: 760,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'flex-start',
-          opacity,
-          transform: `translateX(${slide}px)`,
-        }}
-      >
-        <div
-          style={{
-            padding: '10px 20px',
-            borderRadius: 999,
-            background: brand.colors.lime,
-            color: brand.colors.navy,
-            fontSize: 28,
-            fontWeight: 950,
-            letterSpacing: 1.4,
-          }}
-        >
+      <div style={{position: 'absolute', left: 82, top: 0, bottom: 0, width: 790, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', opacity, transform: `translateX(${slide}px)`}}>
+        <div style={{fontSize: 30, fontWeight: 950, color: brand.colors.white, letterSpacing: 1.2, marginBottom: 14}}>
+          WELCOME TO
+        </div>
+
+        <div style={{padding: '10px 20px', borderRadius: 999, background: brand.colors.lime, color: brand.colors.navy, fontSize: 27, fontWeight: 950, letterSpacing: 1.2}}>
           {badge}
         </div>
 
-        <div
-          style={{
-            marginTop: 24,
-            maxWidth: 720,
-            color: brand.colors.white,
-            fontSize: 78,
-            lineHeight: 0.98,
-            fontWeight: 950,
-            letterSpacing: 0.4,
-            textShadow: '0 8px 22px rgba(0,0,0,0.28)',
-          }}
-        >
+        <div style={{marginTop: 22, maxWidth: 740, color: brand.colors.white, fontSize: 76, lineHeight: 0.98, fontWeight: 950, letterSpacing: 0.3, textShadow: '0 8px 22px rgba(0,0,0,0.28)'}}>
           {title}
         </div>
 
-        <div
-          style={{
-            marginTop: 24,
-            padding: '14px 22px',
-            borderRadius: 20,
-            background: 'rgba(255,255,255,0.95)',
-            color: brand.colors.navy,
-            fontSize: 34,
-            lineHeight: 1.08,
-            fontWeight: 900,
-            boxShadow: '0 12px 30px rgba(23,52,91,0.18)',
-          }}
-        >
+        <div style={{marginTop: 22, padding: '13px 20px', borderRadius: 18, background: 'rgba(255,255,255,0.96)', color: brand.colors.navy, fontSize: 30, lineHeight: 1.08, fontWeight: 900, boxShadow: '0 12px 30px rgba(23,52,91,0.18)'}}>
           {subtitle}
+        </div>
+
+        <div style={{display: 'flex', gap: 14, marginTop: 22, flexWrap: 'wrap'}}>
+          {['12 POSES', '20 SEC EACH', 'FOLLOW ALONG'].map((label) => (
+            <div key={label} style={{padding: '11px 17px', borderRadius: 999, background: 'rgba(255,255,255,0.18)', border: '2px solid rgba(255,255,255,0.72)', color: brand.colors.white, fontSize: 24, fontWeight: 900, letterSpacing: 0.5}}>
+              {label}
+            </div>
+          ))}
+        </div>
+
+        <div style={{marginTop: 20, color: brand.colors.white, fontSize: 29, fontWeight: 850}}>
+          COPY • HOLD • HAVE FUN
         </div>
       </div>
     </AbsoluteFill>
