@@ -2,11 +2,8 @@
 - Image: `Bild 11.png`
 - Duration: exactly 20s
 - Rest after: 5s
-- Character: same approved KM-001 boy
-- Pose: feet wider than shoulders, knees bent, hips lowered comfortably, chest up
-- Google Flow image contains title bottom-left: `WIDE SQUAT HOLD`
-- Google Flow image contains instruction cloud top-right: `Sit low and keep your chest up.`
-- Remotion adds ONLY the 20s circular timer top-left + progress bar bottom
-- No Remotion pose name or description
-- No subtitles / transcript bars
-- Audio optional for current visual QA
+- Same approved KM-001 boy
+- Google Flow image contains title `WIDE SQUAT HOLD` bottom-left
+- Google Flow image contains cloud `Sit low and keep your chest up.` top-right
+- Remotion adds ONLY timer + progress bar
+- SILENT for all 20 seconds — no Voice / no Audio component
