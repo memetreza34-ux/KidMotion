@@ -1,7 +1,8 @@
-# 02 — SAFETY FIRST
+# 02 — SAFETY
 
 - Image: `Bild 02.png`
-- Duration: 5s
-- Same KM-001 character and football setting as the other scenes
-- Remotion adds the Safety UI over the image
-- No automatic captions
+- Duration: exactly 4s
+- Same approved KM-001 boy
+- Remotion adds the short Safety panel over the image
+- SILENT — no Voice / no Audio component
+- no subtitles / transcript bars
