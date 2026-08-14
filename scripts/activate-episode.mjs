@@ -36,6 +36,8 @@ if (!outro?.image) errors.push('Missing Outro image.');
 if (!exercises.length) errors.push('No exercises found.');
 if (data.singleCharacterWholeEpisode !== true) errors.push('singleCharacterWholeEpisode must be true.');
 if (data.allVideoSectionsUseCharacterImage !== true) errors.push('allVideoSectionsUseCharacterImage must be true.');
+if (data.exerciseVisualPolicy?.exerciseNameSource !== 'GoogleFlowImage') errors.push('Exercise names must come from Google Flow images.');
+if (data.exerciseVisualPolicy?.exerciseInstructionSource !== 'GoogleFlowImage') errors.push('Exercise instructions must come from Google Flow images.');
 
 for (const scene of exercises) {
   if (!scene.title || !scene.instruction || !scene.image) errors.push(`Scene ${scene.scene} is incomplete.`);
@@ -52,7 +54,12 @@ const q = JSON.stringify;
 const imageFolder = data.assetFolder || '00-bildprompts/00-ALLE-BILDER-HIER-REIN';
 const audioFolder = data.audioFolder || '00-audio';
 const image = (name) => name ? `imageAsset(${q(name)})` : 'undefined';
-const voice = (name) => name ? `voiceAsset(${q(name)})` : 'undefined';
+const voice = (name) => {
+  if (!name) return 'undefined';
+  const absolute = path.join(root, 'public', audioFolder, name);
+  return fs.existsSync(absolute) ? `voiceAsset(${q(name)})` : 'undefined';
+};
+
 const exerciseRows = exercises.map((scene) =>
   `    {id:${q(String(scene.scene))}, title:${q(scene.title)}, instruction:${q(scene.instruction)}, image:${image(scene.image)}, voice:${voice(scene.voice)}, duration:${Number(scene.duration)}, restAfter:${Number(scene.restAfter || 0)}},`
 ).join('\n');
@@ -62,3 +69,4 @@ const source = `import type {Workout} from '../types';\n\nconst imageAsset = (na
 fs.writeFileSync(path.join(root, 'src', 'data', 'active-workout.ts'), source, 'utf8');
 fs.writeFileSync(path.join(root, 'content', 'ACTIVE_EPISODE.json'), `${JSON.stringify({episodeFolder}, null, 2)}\n`, 'utf8');
 console.log(`Activated episode: ${episodeFolder}`);
+console.log('Missing audio files are treated as optional during the visual-first pass. Re-run activation after audio is added.');
