@@ -22,9 +22,19 @@ KM-001 files:
 - Bild 16.png — Outro
 
 Current standard has no image-number gap.
+Use Bild 01 as the visual continuity reference for Bild 02 through Bild 16. The same approved episode character must remain consistent.
 
-Use Bild 01 as the clean visual continuity reference for Bild 02 through Bild 16. The same approved episode character must remain consistent.
+## Exercise image rule
+`Bild 04.png` through `Bild 15.png` already contain their final Google Flow exercise information:
+- exactly one exercise title bottom-left
+- exactly one short instruction top-right in the KidMotion white cloud/info bubble
 
-Except for Cover, generated images contain no video text, subtitles, transcript bars, timer, progress bar or other UI. Remotion adds intentional scene graphics later.
+They must NOT contain:
+- subtitles
+- transcript bars
+- timer
+- progress bar
+
+Remotion adds only timer + progress during exercise scenes and must not duplicate title/instruction.
 
 Generate one image at a time and rename it immediately before continuing.
