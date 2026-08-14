@@ -28,33 +28,22 @@ Forbidden:
 - grey/black transcript bars
 - karaoke text
 - centered narration sentences
-- phrase-by-phrase Intro text synchronized to Voice
-
-## Intentional Remotion UI
-Allowed:
-- fixed Intro badge/title/descriptor
-- SAFETY FIRST panel
-- LET'S BEGIN graphic
-- exercise title bottom-left
-- short instruction upper-right
-- 20s timer top-left
-- progress bar bottom
-- REST / NEXT
-- GREAT JOB / WORKOUT COMPLETE
-
-These are scene graphics, not subtitles.
 
 ## Intro — 12s
 Visual: `Bild 01.png`, same boy on the right.
-Fixed Remotion graphic on the left:
+The opening must feel complete and immediately explain the workout.
+
+Fixed Remotion opening information:
+- `WELCOME TO`
 - `KIDMOTION FOOTBALL`
 - `5 MIN FOOTBALL TRAINING`
 - `BALANCE • CONTROL • STRONG POSITIONS`
+- `12 POSES`
+- `20 SEC EACH`
+- `FOLLOW ALONG`
+- `COPY • HOLD • HAVE FUN`
 
-The Intro graphic stays independent from the spoken sentence. It does not reveal words in sync with narration.
-
-Voice:
-`Hi, KidMotion friends! Today we're training balance and strong football positions. Find some space, follow the poses, and have fun!`
+These are branded opening graphics, NOT subtitles and NOT word-for-word Voice text.
 
 ## Safety — 5s
 Visual: `Bild 02.png`, same boy.
@@ -63,13 +52,9 @@ Remotion panel:
 - `Make sure you have enough space to move.`
 - `Stop if anything hurts or feels uncomfortable.`
 
-Voice:
-`Safety first! Clear some space, and stop if anything hurts.`
-
 ## LET'S BEGIN — 3s
 Visual: `Bild 03.png`, same boy.
-Remotion adds only the start graphic.
-Voice: `Let's begin!`
+Remotion adds only the `LET'S BEGIN!` start graphic.
 
 ## Exercises
 | Scene | Exercise | Image | Duration | Rest after |
@@ -87,28 +72,37 @@ Voice: `Let's begin!`
 | 14 | Reach-Up Hold | Bild 14.png | 20s | 5s |
 | 15 | Victory Balance | Bild 15.png | 20s | 0s |
 
-Every exercise uses:
-- clean full-screen character image
-- title bottom-left
-- short instruction upper-right
-- circular timer top-left
-- progress bar bottom
-- short voice cue at start
-- silence after the cue until the 20s hold is complete
+## Exercise visual responsibility — HARD RULE
+Each Google Flow exercise image `Bild 04.png`–`Bild 15.png` already contains:
+- exercise title bottom-left
+- short instruction top-right inside the KidMotion white cloud/info bubble
+
+Remotion MUST NOT create those again.
+
+During exercise scenes Remotion adds only:
+- circular 20-second timer top-left
+- progress bar along bottom
+- exact 20-second timing
+- optional audio placement later
+
+If title or instruction appears twice, the render is wrong.
 
 ## Rest
 Every 5s Rest uses the NEXT exercise image full-screen. The same boy stays visible.
-Remotion adds only:
+Because that image already contains the next exercise title/instruction, Remotion adds only:
 - `REST`
-- Rest timer
-- `NEXT: [exercise]`
+- Rest countdown
 
+No `NEXT: [exercise]` text from Remotion.
 Rest is silent.
 
 ## Outro — 5s
 Visual: `Bild 16.png`, same boy in victory pose.
 Remotion adds `GREAT JOB!` and `WORKOUT COMPLETE`.
-Voice: `Great job! You finished the football workout!`
+
+## Audio
+Audio is currently secondary. The visual system must be correct first.
+Later, short Voice cues may be added without changing scene durations.
 
 ## Runtime
 12 + 5 + 3 + 240 + 55 + 5 = 320 seconds = 5:20.
