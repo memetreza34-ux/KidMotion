@@ -8,14 +8,14 @@ import {GreatJobScreen} from './components/GreatJobScreen';
 import {SafetyDisclaimerScreen} from './components/SafetyDisclaimerScreen';
 import {LetsBeginScreen} from './components/LetsBeginScreen';
 
-const Voice: React.FC<{src?: string}> = ({src}) => (src ? <Audio src={staticFile(src)} /> : null);
+const IntroVoice: React.FC<{src?: string}> = ({src}) => (src ? <Audio src={staticFile(src)} /> : null);
 
 export const workoutDurationInFrames = (workout: Workout) => {
   const fps = workout.fps ?? 30;
   const intro = (workout.introDuration ?? 0) * fps;
-  const safety = (workout.safetyDuration ?? 5) * fps;
-  const letsBegin = (workout.letsBeginDuration ?? 3) * fps;
-  const outro = (workout.outroDuration ?? 5) * fps;
+  const safety = (workout.safetyDuration ?? 4) * fps;
+  const letsBegin = (workout.letsBeginDuration ?? 2) * fps;
+  const outro = (workout.outroDuration ?? 4) * fps;
   const exerciseFrames = workout.exercises.reduce((total, exercise) => total + (exercise.duration + (exercise.restAfter ?? 0)) * fps, 0);
   return intro + safety + letsBegin + exerciseFrames + outro;
 };
@@ -23,9 +23,9 @@ export const workoutDurationInFrames = (workout: Workout) => {
 export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
   const fps = workout.fps ?? 30;
   const introFrames = (workout.introDuration ?? 0) * fps;
-  const safetyFrames = (workout.safetyDuration ?? 5) * fps;
-  const letsBeginFrames = (workout.letsBeginDuration ?? 3) * fps;
-  const outroFrames = (workout.outroDuration ?? 5) * fps;
+  const safetyFrames = (workout.safetyDuration ?? 4) * fps;
+  const letsBeginFrames = (workout.letsBeginDuration ?? 2) * fps;
+  const outroFrames = (workout.outroDuration ?? 4) * fps;
   let cursor = introFrames;
 
   return (
@@ -33,19 +33,17 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
           <IntroScreen image={workout.introImage} title={workout.introTitle ?? workout.title} subtitle={workout.introSubtitle ?? workout.subtitle} badge={workout.introBadge ?? 'KIDMOTION'} />
-          <Voice src={workout.introVoice} />
+          <IntroVoice src={workout.introVoice} />
         </Sequence>
       ) : null}
 
       <Sequence from={cursor} durationInFrames={safetyFrames}>
         <SafetyDisclaimerScreen image={workout.safetyImage} />
-        <Voice src={workout.safetyVoice} />
       </Sequence>
       {(() => { cursor += safetyFrames; return null; })()}
 
       <Sequence from={cursor} durationInFrames={letsBeginFrames}>
         <LetsBeginScreen image={workout.letsBeginImage} />
-        <Voice src={workout.letsBeginVoice} />
       </Sequence>
       {(() => { cursor += letsBeginFrames; return null; })()}
 
@@ -63,7 +61,6 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
           <React.Fragment key={exercise.id}>
             <Sequence from={exerciseStart} durationInFrames={exerciseFrames}>
               <ExerciseScene exercise={exercise} />
-              <Voice src={exercise.voice} />
             </Sequence>
             {restSeconds > 0 ? (
               <Sequence from={restStart} durationInFrames={restFrames}>
@@ -76,7 +73,6 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
 
       <Sequence from={cursor} durationInFrames={outroFrames}>
         <GreatJobScreen image={workout.outroImage} subtitle="WORKOUT COMPLETE" />
-        <Voice src={workout.outroVoice} />
       </Sequence>
     </AbsoluteFill>
   );
