@@ -10,7 +10,7 @@ SPORT / FITNESS long-form videos using static HOLD poses.
 - 16:9 / 1920x1080
 - static AI-generated scene images
 - Google Flow / Antigravity for image production
-- Remotion for timing, limited scene UI, rests, audio placement and final rendering
+- Remotion for timing, timer/progress, rests, opening/safety graphics and final rendering
 - current target: at least about 5 minutes
 - typical episode: about 10–12 exercises
 - every hold exercise: exactly 20 seconds
@@ -31,55 +31,55 @@ Lock face, age, hair, skin tone, body proportions, episode outfit and world.
 
 No blank/plain/text-only scene replaces the character.
 
+## Short opening
+Current default opening:
+- Intro about 8s
+- Safety about 4s
+- LET'S BEGIN about 2s
+
+The Intro should use only the necessary fixed information and stay visually clean.
+
+## Voice — Intro only
+Current hard rule:
+**Only the Intro may contain spoken Voice.**
+
+After Intro the whole video is silent:
+- Safety
+- LET'S BEGIN
+- Exercises
+- Rest
+- Outro
+
+A 5+ minute KidMotion video may therefore contain only about 6–8 seconds of spoken audio.
+Do not announce pose names or read exercise instructions aloud.
+
 ## No subtitles
 Never add automatic captions, transcript bars, word-for-word Voice text, karaoke text or centered narration sentences.
 
-The Intro uses fixed branded information independent from narration.
-
-## Beginning
-The opening must immediately explain the workout while the episode character remains visible.
-For KM-001 the Intro contains:
-- WELCOME TO
-- KIDMOTION FOOTBALL
-- 5 MIN FOOTBALL TRAINING
-- BALANCE • CONTROL • STRONG POSITIONS
-- 12 POSES
-- 20 SEC EACH
-- FOLLOW ALONG
-- COPY • HOLD • HAVE FUN
-
-## Google Flow exercise rule
-For exercise images Google Flow itself creates the final:
-- exercise title bottom-left
-- short instruction top-right in a KidMotion white cloud/info bubble
-
-Exercise source images must NOT contain subtitles, transcript bars, timer or progress bar.
-
+## Google Flow
 Reference workflow:
 1. create Cover `Bild 00`
 2. create Intro `Bild 01`
 3. approve `Bild 01`
 4. use `Bild 01` as the primary visual reference for later scene images
 
+For exercise images, Google Flow itself creates:
+- exercise title bottom-left
+- short instruction top-right in the KidMotion cloud
+
+Google Flow does not create timer or progress bar.
+
 Generate images one by one:
 `PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
 
-## Remotion exercise rule
-During exercise scenes Remotion adds ONLY:
+## Remotion
+During exercises Remotion adds only:
 - circular 20-second timer top-left
 - progress bar bottom
-- exact scene timing
-- optional audio placement
 
-Remotion must NOT create or duplicate exercise names or descriptions.
+Remotion must not duplicate the exercise title or instruction already inside the Google Flow image.
 
-During Rest, Remotion reuses the next exercise image and adds only REST + countdown. No Remotion `NEXT: [pose name]` text.
-
-## Voice
-Voice is used only when useful.
-A short cue at the start of a 20-second exercise does not shorten the scene. The remaining hold time stays silent.
-Audio length never controls video length.
-Audio is currently secondary to visual QA.
+Rest uses the next exercise image and adds only REST + countdown.
 
 ## Active episode workflow
 Active episode pointer:
@@ -94,10 +94,14 @@ Stage only that episode's assets in:
 - images: `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 - audio: `public/00-audio/`
 
+Current audio standard normally requires only `Voice 01.mp3`.
+
 ## Safe render
 ```bash
 npm run render:safe
 ```
+
+This runs typecheck, preflight and final `KidMotionVideo` render.
 
 ## Canonical memory
 Read `PROJECT_BRAIN.md` first.
@@ -108,10 +112,10 @@ Read `PROJECT_BRAIN.md` first.
 Reference rules:
 - same KidMotion boy in every video image from `Bild 01` through `Bild 16`
 - Safety uses `Bild 02`
-- exercise images 04–15 already contain title + instruction from Google Flow
-- Remotion adds no exercise title/instruction
-- Rest reuses next exercise image and adds only REST/countdown
-- no subtitles / transcript bars
-- complete fixed Intro graphic
+- Rest reuses the next exercise image
+- exercise title/instruction come from Google Flow image
+- Remotion exercise overlay = timer + progress only
+- Voice only in Intro
+- Intro 8s / Safety 4s / LET'S BEGIN 2s / Outro 4s
 - 12 exercises × 20 seconds
-- total 5:20
+- total 5:13
