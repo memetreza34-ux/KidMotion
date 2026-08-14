@@ -67,7 +67,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
             </Sequence>
             {restSeconds > 0 ? (
               <Sequence from={restStart} durationInFrames={restFrames}>
-                <RestScreen durationInSeconds={restSeconds} nextTitle={nextExercise?.title} image={nextExercise?.image ?? exercise.image} />
+                <RestScreen durationInSeconds={restSeconds} image={nextExercise?.image ?? exercise.image} />
               </Sequence>
             ) : null}
           </React.Fragment>
