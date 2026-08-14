@@ -23,9 +23,30 @@ Every actual video section uses an image with the same chosen episode character.
 
 Rest reuses the NEXT exercise image full-screen so the character remains visible.
 
+## Short opening
+Current default:
+- Intro about 8s
+- Safety about 4s
+- LET'S BEGIN about 2s
+
+Keep Intro minimal: theme/channel label, workout title, pose count + 20 SEC EACH, FOLLOW ALONG.
+
+## Voice — current hard rule
+Only Intro may contain spoken Voice.
+Target about 6–8 seconds.
+
+Everything after Intro is silent:
+- Safety
+- LET'S BEGIN
+- Exercises
+- Rest
+- Outro
+
+Do not announce exercise names or read instructions aloud.
+
 ## No subtitles
 Never add automatic captions, transcript bars, word-for-word Voice text or narration subtitles.
-Intro uses complete fixed branded information independent from Voice.
+Intro graphics are fixed branded information independent from Voice.
 
 ## Exercise text responsibility
 Google Flow exercise images themselves contain:
@@ -36,7 +57,7 @@ Remotion does NOT add or duplicate those.
 During an exercise Remotion adds only:
 - 20-second timer top-left
 - progress bar bottom
-- timing / optional audio placement
+- exact timing
 
 During Rest, because the next exercise image already contains its title/instruction, Remotion adds only REST + countdown.
 
@@ -48,6 +69,7 @@ Audio:
 `public/00-audio/`
 
 Only one episode may be staged there at a time.
+Current standard normally needs only `Voice 01.mp3`.
 
 ## Current exercise standard
 - one main character per episode
@@ -56,6 +78,6 @@ Only one episode may be staged there at a time.
 - Remotion owns timer/progress
 - timer reaches 0
 - progress reaches 100%
-- Rest normally silent
-- audio is optional during current visual QA
+- only Intro has Voice
+- everything after Intro silent
 - one cross-platform caption with exactly 5 hashtags
