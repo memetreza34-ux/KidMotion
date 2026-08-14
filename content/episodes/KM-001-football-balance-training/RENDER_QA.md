@@ -4,10 +4,13 @@
 - subtitles or automatic captions
 - transcript bars or word-for-word Voice text
 - centered narration sentences
-- Intro text appearing phrase-by-phrase with narration
 - blank/plain screen replacing the character image
 - character change or second person
-- old exercise image with baked-in title/instruction
+- Remotion-generated exercise name
+- Remotion-generated exercise instruction
+- duplicate exercise title
+- duplicate instruction cloud
+- missing Google Flow exercise title/instruction
 - Cover shown inside the MP4
 
 ## Required visuals
@@ -21,18 +24,49 @@
 
 The same approved KM-001 boy must remain consistent in every actual video image.
 
-## Allowed Remotion UI
-- fixed Intro badge/title/descriptor
-- SAFETY FIRST panel
-- LET'S BEGIN graphic
-- exercise title bottom-left
-- short instruction upper-right
-- timer top-left
-- progress bar bottom
-- REST / NEXT
-- GREAT JOB / WORKOUT COMPLETE
+## Beginning / Intro
+The first 12 seconds must feel complete, not like an empty title card.
+Use `Bild 01.png` plus fixed branded opening information:
+- WELCOME TO
+- KIDMOTION FOOTBALL
+- 5 MIN FOOTBALL TRAINING
+- BALANCE • CONTROL • STRONG POSITIONS
+- 12 POSES
+- 20 SEC EACH
+- FOLLOW ALONG
+- COPY • HOLD • HAVE FUN
 
 The Intro graphic is independent from Voice and must not act like captions.
+
+## Exercise source-image contract
+Every Google Flow exercise image `Bild 04`–`Bild 15` must already contain:
+- exactly ONE exercise title at bottom-left
+- exactly ONE short instruction at top-right in the KidMotion white cloud/info bubble
+
+The generated exercise image must NOT contain:
+- subtitles
+- transcript bars
+- timer
+- progress bar
+
+## Remotion exercise contract
+During exercise scenes Remotion adds ONLY:
+- circular 20-second timer top-left
+- progress bar bottom
+- exact timing
+- optional audio placement
+
+Remotion must NOT add:
+- exercise title
+- exercise description
+- instruction cloud
+
+## Rest
+Rest uses the NEXT exercise image full-screen. Because that image already contains the Google Flow exercise name/instruction, Remotion adds only:
+- REST
+- rest countdown
+
+No `NEXT: [pose name]` overlay from Remotion.
 
 ## Timing
 - Intro 12s
@@ -43,19 +77,16 @@ The Intro graphic is independent from Voice and must not act like captions.
 - Outro 5s
 - total 320s / 5:20
 
-## Voice
-- short only where useful
-- exercise continues after cue ends
-- Rest is silent
-- audio is not stretched to fill the video
-- audio length never shortens a scene
+## Audio
+Audio is currently not a blocking requirement for visual QA. Missing/silent voice can be corrected after the image/UI system is right.
+Audio length must never shorten a 20-second exercise.
 
 ## Final checks
 - timer reaches 0
 - progress reaches 100%
-- normal Google Flow images contain no baked-in video UI
-- every actual scene has a character image
+- every actual scene has the correct character image
 - no second person appears
+- no exercise text duplication
 - `npm run typecheck` passes
 - `npm run preflight` passes
-- final render uses `npm run render:safe`
+- final visual render uses `npm run render:safe`
