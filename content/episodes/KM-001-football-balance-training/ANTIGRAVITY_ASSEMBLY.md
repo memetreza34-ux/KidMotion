@@ -1,12 +1,21 @@
 # KM-001 — Antigravity / Codex Assembly Rules
 
-Read `PROJECT_BRAIN.md`, `episode.md`, `REFERENCE_GUIDE.md`, `data.json`, `ALL_IMAGE_PROMPTS.md` and `RENDER_QA.md` first.
+Read `PROJECT_BRAIN.md`, `episode.md`, `REFERENCE_GUIDE.md`, `data.json`, `ALL_VOICE_TEXTS.md` and `RENDER_QA.md` first.
+
+# PRIMARY RULES
+- exactly the same KM-001 boy throughout
+- no subtitles or transcript system
+- Google Flow owns exercise title + instruction
+- Remotion owns timer + progress only during exercises
+- spoken Voice exists ONLY in the Intro
+- after Intro, the complete video is silent
+- opening must be short, necessary and visually clean
 
 ## Required images
 Use `Bild 00.png` through `Bild 16.png` with no gap.
 
 `Bild 00.png` is thumbnail only and is NOT played in the video.
-`Bild 01.png` is the visual continuity reference for the same KM-001 boy in every later image.
+`Bild 01.png` is the main visual continuity reference for the same KM-001 boy in every later image.
 
 ## SAME BOY VISIBLE THROUGHOUT
 Every actual video section uses an image containing the same approved KM-001 boy:
@@ -29,57 +38,76 @@ Forbidden:
 - karaoke text
 - centered narration sentences
 
-## Beginning / Intro
-Use `Bild 01.png` full-screen and keep the boy visible.
-The opening must contain enough information to explain the workout, but it must be fixed branded UI, not captions.
+## SHORT CLEAN OPENING
+Do not make the beginning long.
 
-Required opening information:
-- `WELCOME TO`
+Exact KM-001 opening timing:
+- Intro: 8s
+- Safety: 4s
+- LET'S BEGIN: 2s
+
+Intro uses `Bild 01.png` full-screen and only these fixed branded elements:
 - `KIDMOTION FOOTBALL`
 - `5 MIN FOOTBALL TRAINING`
-- `BALANCE • CONTROL • STRONG POSITIONS`
-- `12 POSES`
-- `20 SEC EACH`
+- `12 POSES • 20 SEC EACH`
 - `FOLLOW ALONG`
-- `COPY • HOLD • HAVE FUN`
 
-Then show Safety on `Bild 02.png`, followed by LET'S BEGIN on `Bild 03.png`.
+Do not add `WELCOME TO`, extra slogans, repeated descriptions or many separate text blocks.
+Keep the boy clearly visible and keep the composition clean.
 
-## HARD RULE — EXERCISE TEXT COMES FROM GOOGLE FLOW
-For `Bild 04.png` through `Bild 15.png`, the image itself already contains:
-- exercise title bottom-left
-- short instruction top-right inside the KidMotion white cloud/info bubble
+## AUDIO — HARD RULE
+Only Scene 01 Intro may contain Audio.
 
-Do NOT add either of these again in Remotion.
-Do NOT use `ExerciseHeader` or another equivalent title/instruction overlay.
+Allowed file:
+- `Voice 01.mp3`
 
-During each exercise Remotion adds only:
-- circular 20-second timer at top-left
-- progress bar along bottom
-- scene timing
-- optional audio placement
+Intro Voice:
+`Hi, KidMotion friends! Twelve football poses, twenty seconds each. Find some space and follow along!`
 
-If an exercise title or instruction appears twice, the render FAILS.
+All later sections MUST be silent:
+- Safety: no Audio component
+- LET'S BEGIN: no Audio component
+- exercises: no Audio component
+- rests: no Audio component
+- Outro: no Audio component
+
+Even if old `Voice 02.mp3`–`Voice 16.mp3` files exist somewhere, DO NOT use them.
+
+## Exercise images
+Google Flow images `Bild 04.png`–`Bild 15.png` already contain:
+- exercise name bottom-left
+- short instruction top-right in the KidMotion cloud
+
+Remotion MUST NOT add another exercise title or another instruction.
+Remotion adds only:
+- 20-second timer top-left
+- progress bar bottom
+
+Every exercise lasts exactly 20s and is silent.
 
 ## Rest
 No blank Rest screen.
-For each 5-second Rest, reuse the NEXT exercise image full-screen and lightly dim it. Because the next image already contains its Google Flow title/instruction, Remotion overlays only:
+For each 5-second Rest, reuse the NEXT exercise image full-screen.
+Remotion adds only:
 - `REST`
 - rest countdown
 
-Do NOT add `NEXT: [exercise]` or another pose description from Remotion.
+Do not add `NEXT: [pose name]` because the next image already contains its Google Flow title/instruction.
+Rest is silent.
 
-## Timing
-- Intro 12s
-- Safety 5s
-- LET'S BEGIN 3s
-- 12 exercises × 20s
-- 11 rests × 5s
-- Outro 5s
-- total 320s / 5:20
+## Outro
+Use `Bild 16.png` for 4 seconds.
+Show the visual completion graphic only.
+NO VOICE.
 
-Audio duration never controls scene duration.
-Audio is not a blocking issue during the current visual correction phase.
+## Exact timing
+- Intro 8s
+- Safety 4s
+- LET'S BEGIN 2s
+- 12 exercises × 20s = 240s
+- 11 rests × 5s = 55s
+- Outro 4s
+- total = 313s / 5:13
 
 ## Exercise order
 1. Football Ready Hold
@@ -96,16 +124,24 @@ Audio is not a blocking issue during the current visual correction phase.
 12. Victory Balance
 
 ## Required build sequence
-After all final images are staged, regenerate active Remotion data:
+After all final images are staged:
 ```bash
 npm run kidmotion:activate -- --episode=KM-001-football-balance-training
 ```
 
-Then run:
+Then render with:
 ```bash
 npm run render:safe
 ```
 
 Use only `KidMotionVideo`, 1920x1080, 30fps, 16:9.
 
-Reject the MP4 if subtitles appear, a blank screen replaces the boy, the character changes, Remotion duplicates an exercise title/instruction, an exercise image lacks its Google Flow title/instruction, an exercise is not 20s, or the Cover appears inside the video.
+Reject the render if:
+- any Voice is heard after the Intro
+- opening is longer/cluttered beyond the defined structure
+- subtitles appear
+- a blank screen replaces the boy
+- the character changes
+- exercise title/instruction is duplicated by Remotion
+- an exercise is not exactly 20s
+- Cover appears inside the MP4
