@@ -32,19 +32,37 @@ Forbidden:
 
 The Intro must not behave like a transcript. Intro graphics are fixed branded information, independent from narration.
 
-## Beginning / Intro must feel complete
-The opening must immediately explain what the child is about to do while the same episode character remains visible.
-KM-001 Intro uses the character image plus fixed branded information such as:
-- `WELCOME TO`
+## Opening — short, necessary, clean
+The beginning must explain the workout quickly and then move on.
+
+Current timing target:
+- Intro about 8s
+- Safety about 4s
+- LET'S BEGIN about 2s
+
+KM-001 Intro shows only the necessary fixed information:
 - `KIDMOTION FOOTBALL`
 - `5 MIN FOOTBALL TRAINING`
-- `BALANCE • CONTROL • STRONG POSITIONS`
-- `12 POSES`
-- `20 SEC EACH`
+- `12 POSES • 20 SEC EACH`
 - `FOLLOW ALONG`
-- `COPY • HOLD • HAVE FUN`
 
-These are opening graphics, not subtitles and not timed word-for-word to audio.
+Do not add extra slogans, repeated information or many text blocks.
+
+## Voice — ONLY in the Intro
+HARTE REGEL:
+The only spoken voice in the current KidMotion format is the short Intro voice.
+
+After Intro ends, the rest of the entire video is silent:
+- Safety: no voice
+- LET'S BEGIN: no voice
+- Exercises: no voice
+- Rest: no voice
+- Outro: no voice
+
+A 5+ minute video may therefore contain only about 6–8 seconds of speech.
+
+KM-001 example Intro voice:
+`Hi, KidMotion friends! Twelve football poses, twenty seconds each. Find some space and follow along!`
 
 ## Google Flow responsibility
 Google Flow creates the actual episode scene images and preserves the same chosen character, outfit, world and 3D identity.
@@ -75,10 +93,9 @@ Remotion adds only:
 - 20-second timer at top-left
 - progress bar along bottom
 - scene timing
-- optional short voice placement
 
 For other sections Remotion may add intentional UI:
-- Intro branded information
+- minimal Intro branded information
 - Safety panel
 - LET'S BEGIN graphic
 - REST + rest countdown
@@ -88,11 +105,6 @@ During Rest, the NEXT exercise image is shown full-screen. Because that image al
 
 ## Exercise timing
 Current format uses static hold poses. Every exercise lasts exactly 20 seconds. Typical Rest = 5 seconds. Timer reaches 0 and progress reaches 100%.
-
-## Voice
-Voice only when useful. A short voice cue does not shorten a 20-second scene. The remaining hold time can stay silent. Audio length never controls video length. Rest is normally silent.
-
-Audio is currently secondary to getting the visual system correct.
 
 ## Google Flow generation workflow
 Generate exactly one image at a time and rename it immediately before continuing:
@@ -107,7 +119,8 @@ Exactly one cross-platform English caption per episode with exactly 5 hashtags i
 - exercise images `Bild 04`–`Bild 15` contain their own Google Flow title + instruction cloud
 - Remotion does not duplicate pose names/descriptions
 - Rest reuses the next exercise image and adds only REST + countdown
-- no subtitles or transcript-style intro text
+- only Intro has Voice; everything after Intro is silent
+- Intro 8s, Safety 4s, LET'S BEGIN 2s, Outro 4s
 - 12 exercises × 20s
 - 11 rests × 5s
-- total 320s / 5:20
+- total 313s / 5:13
