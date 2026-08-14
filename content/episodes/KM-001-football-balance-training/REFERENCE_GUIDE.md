@@ -19,9 +19,20 @@ Keep the same face, age appearance, skin tone, hair, body proportions, premium 3
 - green grass and blue sky
 - no other people
 
-## Non-exercise source images
-Intro, Safety, LET'S BEGIN and Outro keep useful negative space for their intentional Remotion graphics.
-They must not contain subtitles, transcript bars, timer or progress bar.
+## Opening composition — keep it clean
+The opening is intentionally short and minimal.
+
+- Bild 01 Intro: boy on RIGHT, LEFT side available for only the essential Intro graphic
+- Bild 02 Safety: boy on RIGHT, LEFT side available for short Safety panel
+- Bild 03 Let's Begin: boy visible, space for one simple start graphic
+
+Do not design large empty areas for many text blocks. The Intro only needs:
+- KIDMOTION FOOTBALL
+- 5 MIN FOOTBALL TRAINING
+- 12 POSES • 20 SEC EACH
+- FOLLOW ALONG
+
+Non-exercise images must not contain subtitles, transcript bars, timer or progress bar.
 
 ## Exercise source images — HARD RULE
 `Bild 04.png` through `Bild 15.png` contain:
@@ -41,15 +52,12 @@ Exercise images must NOT contain:
 
 Keep top-left clear for Remotion timer and bottom edge clear for Remotion progress.
 
-## Composition
-- Bild 01 Intro: boy on RIGHT, LEFT side available for full opening information
-- Bild 02 Safety: boy on RIGHT, LEFT side available for Safety panel
-- Bild 03 Let's Begin: boy visible, space for start graphic
-- Bild 04–15 exercises: full body visible; title bottom-left; instruction cloud top-right; top-left timer-safe; bottom progress-safe
-- Bild 16 Outro: boy on RIGHT, LEFT side available for completion graphic
-
 ## Rest
 Rest reuses the NEXT exercise image full-screen. That image already contains its exercise title and instruction.
 Remotion adds only REST + countdown. Never add another pose name from Remotion.
+
+## Outro
+Bild 16 uses the same boy in victory pose and keeps enough space for one simple completion graphic.
+The Outro is silent.
 
 Regenerate any scene that changes the boy, outfit or world, misses the required exercise text, duplicates text, or places text over important body parts.
