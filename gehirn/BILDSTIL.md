@@ -5,7 +5,6 @@ Premium high-end stylized 3D animation look, polished family-entertainment quali
 
 ## Figuren
 Nur die freigegebenen KidMotion-Hauptfiguren verwenden.
-
 Pro Episode wird genau EIN Hauptcharakter ausgewählt.
 Innerhalb derselben Episode nicht zwischen Boy und Girl wechseln und keinen zweiten sichtbaren Charakter hinzufügen.
 
@@ -24,35 +23,45 @@ Outfit und Welt dürfen zwischen Episoden thematisch wechseln, bleiben aber inne
 - Ganzkörper sichtbar, wenn die Pose sonst nicht eindeutig ist
 - statische Hold-Pose muss auf einen Blick erkennbar sein
 - Hintergrund unterstützt das Thema und lenkt nicht ab
-- genügend negative Fläche für Remotion-UI lassen
-- TOP-LEFT möglichst frei für Timer
-- TOP-RIGHT möglichst frei für Instruction Cloud
-- BOTTOM-LEFT möglichst frei für Exercise Name
-- unterer Rand frei genug für Progress Bar
-- keine wichtigen Körperteile hinter UI-Zonen platzieren
+- TOP-LEFT frei für Remotion-Timer
+- unterer Rand frei für Remotion-Progress-Bar
+- keine wichtigen Körperteile hinter Text/UI platzieren
 
-# HARTE REGEL — NORMALE VIDEO-SZENEN SIND CLEAN
-Normale Google-Flow-/Antigravity-Szenenbilder enthalten KEINEN eingebrannten Video-Text und keine UI.
+## HARTE REGEL — ÜBUNGSBILDER HABEN FINALEN GOOGLE-FLOW-TEXT
+Bei Übungsbildern erzeugt Google Flow direkt im Bild:
+- Exercise Name unten links
+- kurze Instruction oben rechts in weißer KidMotion-Cloud / Info-Bubble
 
-Nicht ins normale Szenenbild generieren:
-- Exercise Name
-- Instruction
-- Cloud / Bubble
-- Untertitel
-- Voice-Captions
+Title-Stil:
+- fett, weiß, sportlich
+- dunkle Navy-Kontur/Schatten
+- kompakt und gut lesbar
+
+Instruction-Stil:
+- weiße spielerische Cloud/Info-Bubble
+- Türkis/Aqua-Kontur
+- dunkler Navy-Text
+- maximal 2–3 Zeilen
+
+Google Flow erzeugt bei Übungen NICHT:
+- Untertitel / Transcript-Balken
 - Timer
 - Progress Bar
-- Countdown
-- sonstige UI
+- doppelten Titel
+- doppelte Instruction
 
-Remotion setzt später direkt auf das Bild:
-- Exercise Name unten links
-- kurze Instruction oben rechts in KidMotion Cloud
+Remotion erzeugt bei Übungen NUR:
 - 20-Sekunden-Timer oben links
 - Progress Bar unten
+- Timing / optional Audio
+
+Remotion erzeugt KEINEN Exercise Name und KEINE Instruction.
+
+## Intro / Safety / Start / Outro
+Diese Bilder zeigen ebenfalls denselben Episoden-Charakter und lassen passende freie Fläche für die jeweiligen bewusst gestalteten Remotion-Grafiken.
 
 ## Cover-Ausnahme
-`Bild 00.png` ist das separate Thumbnail und darf/soll den finalen Cover-Text enthalten.
+`Bild 00.png` ist das separate Thumbnail und enthält den finalen Cover-Text.
 Das Cover wird nicht als Videoszene abgespielt.
 
 ## Nicht verwenden
@@ -64,4 +73,5 @@ Das Cover wird nicht als Videoszene abgespielt.
 - Franchise-Look
 - Markenlogos
 - unklare oder anatomisch falsche Posen
-- zweite sichtbare Figur im aktuellen Standardformat
+- zweite sichtbare Figur
+- Untertitel / Transcript-Balken
