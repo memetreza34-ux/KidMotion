@@ -3,7 +3,7 @@
 ## 1. Ein Video = ein Hauptcharakter
 Pro Episode wird genau EIN KidMotion-Hauptcharakter gewählt. Derselbe Charakter bleibt von Intro bis Outro sichtbar. Kein Wechsel zwischen Boy und Girl. Gesicht, Haare, Alter, Proportionen, Outfit und Themenwelt bleiben innerhalb der Episode konsistent.
 
-## 2. HARTE REGEL — jede sichtbare Videosektion nutzt ein Charakterbild
+## 2. Jede sichtbare Videosektion nutzt ein Charakterbild
 Keine leeren/plain Remotion-Flächen als eigentliche Szene.
 
 Standard:
@@ -25,35 +25,56 @@ Verboten:
 - graue/schwarze Transcript-Balken
 - Karaoke-Text
 - mittige oder untere Subtitle-Boxen
-- Intro-Sätze, die Phrase für Phrase synchron zur Voice erscheinen
 
-Das Intro benutzt stattdessen eine feste Marken-Grafik, z. B. Videotitel + kurze Beschreibung. Diese Grafik ist unabhängig vom gesprochenen Satz.
+Intro-Grafiken sind feste Markeninformationen und kein Voice-Transkript.
 
-Erlaubt sind nur bewusst gestaltete Remotion-Grafiken wie fester Intro-Titel, Safety, LET'S BEGIN, Übungsname, kurze Übungsanweisung, Timer, Progress, Rest/Next und Outro.
+## 4. Anfang muss vollständig wirken
+Intro bleibt auf `Bild 01` mit demselben Charakter und enthält feste, gebrandete Informationen.
 
-## 4. Google Flow erzeugt saubere Bilder
-Außer Cover enthalten die generierten Bilder keine Video-UI.
+Für KM-001:
+- WELCOME TO
+- KIDMOTION FOOTBALL
+- 5 MIN FOOTBALL TRAINING
+- BALANCE • CONTROL • STRONG POSITIONS
+- 12 POSES
+- 20 SEC EACH
+- FOLLOW ALONG
+- COPY • HOLD • HAVE FUN
 
-Nicht ins Bild generieren:
-- Übungsname
-- Anweisung
-- Cloud
+Danach folgen eine eigene Safety-Szene und eine eigene LET'S-BEGIN-Szene.
+
+## 5. Google Flow macht Übungsname + Beschreibung direkt ins Bild
+HARTE REGEL für Übungsbilder:
+- Übungsname unten links wird von Google Flow direkt in `Bild XX.png` erzeugt
+- kurze Ausführungsanweisung oben rechts in weißer KidMotion-Cloud wird ebenfalls von Google Flow direkt erzeugt
+- genau ein Titel und genau eine kurze Anleitung
+
+Google Flow erzeugt bei Übungen NICHT:
 - Untertitel
+- Transcript-Balken
 - Timer
 - Progress Bar
-- sonstige UI
 
-Remotion legt diese Elemente später direkt auf das Bild.
-
-## 5. Übungs-Layout
-- Bild fullscreen
-- Übungsname unten links
-- kurze Anweisung oben rechts in KidMotion-Cloud
+## 6. Remotion macht KEINEN Übungsnamen und KEINE Übungsbeschreibung
+Bei Übungsszenen ist Remotion nur zuständig für:
 - 20-Sekunden-Timer oben links
 - Progress Bar unten
-- Figur bleibt vollständig und gut erkennbar
+- exakte 20-Sekunden-Szenendauer
+- Voice-Platzierung, wenn Audio vorhanden ist
 
-## 6. Timing
+Remotion darf den bereits im Bild vorhandenen Übungsnamen oder die Anleitung NICHT duplizieren.
+
+## 7. Rest-Screens
+Rest ist keine leere Karte.
+Remotion zeigt das Bild der NÄCHSTEN Übung fullscreen. Dieses Bild enthält bereits den Google-Flow-Übungsnamen und die Anleitung.
+
+Remotion legt deshalb beim Rest nur darüber:
+- REST
+- Rest-Timer
+
+Kein `NEXT: [POSE NAME]` aus Remotion und keine zusätzliche Beschreibung.
+
+## 8. Timing
 Aktuelles Standardformat:
 - ca. 10–12 statische Hold-Übungen
 - jede Übung exakt 20 Sekunden
@@ -62,37 +83,28 @@ Aktuelles Standardformat:
 
 Timer startet bei 20 und erreicht 0. Progress Bar erreicht 100%.
 
-## 7. Voice
+## 9. Voice
 Voice nur wenn sinnvoll.
 Ein kurzer Voice-Cue am Anfang einer 20-Sekunden-Übung verkürzt die Szene nicht. Danach bleibt die restliche Hold-Zeit still.
+Audio ist für die aktuelle visuelle Korrektur zweitrangig.
 
-Ein 5-Minuten-Video kann deutlich weniger als 5 Minuten gesprochene Voice enthalten.
-
-## 8. Rest-Screens
-Rest ist keine leere Karte.
-Remotion verwendet das Bild der NÄCHSTEN Übung als Fullscreen-Hintergrund, dimmt es leicht und zeigt nur:
-- REST
-- Rest-Timer
-- NEXT: [Übung]
-
-Der gleiche Episoden-Charakter bleibt dadurch sichtbar.
-
-## 9. Standard-Reihenfolge
+## 10. Standard-Reihenfolge
 1. Cover — Thumbnail only
-2. Intro — Bild + feste Remotion-Titelgrafik
-3. Safety — Bild + Remotion-Grafik
-4. LET'S BEGIN — Bild + Remotion-Grafik
-5. Übungen — jeweils Bild + Remotion-UI
-6. Rest — nächstes Übungsbild + Rest-UI
+2. Intro — Bild + vollständige Opening-Grafik
+3. Safety — Bild + Safety-Grafik
+4. LET'S BEGIN — Bild + Start-Grafik
+5. Übungen — Google-Flow-Bild mit Titel + Anleitung, Remotion nur Timer + Progress
+6. Rest — nächstes Übungsbild + REST + Countdown
 7. Outro — Bild + GREAT JOB
 
-## 10. QA
+## 11. QA
 Ein Render ist nicht akzeptabel, wenn:
 - Untertitel/Transcript-Balken auftauchen
-- Introtext wie Untertitel der Voice mitläuft
 - eine blanke Szene den Charakter ersetzt
 - der Charakter wechselt
-- alte Bilder mit eingebranntem Übungstext verwendet werden
+- Remotion Übungsname oder Übungsbeschreibung zusätzlich einblendet
+- Google Flow bei einer Übung Titel oder Anleitung vergessen hat
+- Titel/Anleitung doppelt erscheinen
 - eine Übung nicht exakt 20 Sekunden dauert
 - Timer/Progress falsch enden
 - Cover im MP4 abgespielt wird
