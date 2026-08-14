@@ -3,90 +3,64 @@
 ## Sprache
 Alle gesprochenen Texte sind auf Englisch.
 
-# HARTE REGEL — NUR SPRECHEN, WENN ES EINEN GRUND GIBT
-Voice läuft NICHT durch das ganze Video.
+# HARTE REGEL — VOICE NUR AM ANFANG
+Der aktuelle KidMotion-Standard verwendet Voice NUR in der kurzen Intro-/Einführungs-Szene.
 
-Ein KidMotion-Video darf z. B. 5:20 Minuten lang sein, obwohl insgesamt nur ungefähr 45–75 Sekunden gesprochen werden.
+Nach dem Intro bleibt das komplette Video ohne gesprochene Stimme.
 
-Die Videolänge wird durch Szenen, 20-Sekunden-Holds, Pausen und Remotion-Timeline bestimmt — NICHT durch die Länge der Voice.
+Das bedeutet:
+- Intro: kurze, saubere Einführung mit Voice
+- Safety: KEINE Voice
+- LET'S BEGIN: KEINE Voice
+- Übungen: KEINE Voice
+- Rest: KEINE Voice
+- Outro: KEINE Voice
 
-## Standard
-- Intro: kurze Voice ist sinnvoll.
-- Safety: kurze Voice ist sinnvoll.
-- LET'S BEGIN: optional 1 kurzer Cue.
-- Übung: am Anfang nur Name + wichtigste Anweisung, wenn nötig.
-- Übungs-Cue bevorzugt ungefähr 2–4 Sekunden; nicht künstlich auf eine feste Länge strecken.
-- Danach während des 20-Sekunden-Holds bewusst Ruhe lassen.
-- Rest: standardmäßig still; nur sprechen, wenn ein Hinweis echten Mehrwert hat.
-- Outro: kurzer Glückwunsch.
+Es gibt keine Übungs-Cues und keine Motivationssätze während der Holds.
 
-## Beispiel für eine 20-Sekunden-Pose
-Erste ca. 3–4 s:
-`Football ready. Bend your knees and stay ready.`
+# INTRO MUSS KURZ SEIN
+Das Intro soll nur erklären, was das Kind gleich macht.
+Keine lange Begrüßung, keine Wiederholungen, kein unnötiger Text.
 
-Danach bis Sekunde 20:
-`SILENCE / NO VOICE`
+Ziel: ungefähr 6–8 Sekunden Voice.
 
-Kind hält die Position, während Timer + Remotion-Text + Progress weiterlaufen.
+Beispiel KM-001:
+`Hi, KidMotion friends! Twelve football poses, twenty seconds each. Find some space and follow along!`
 
-Nicht die 20 Sekunden mit künstlichen Motivationssätzen füllen.
+Danach: komplette Stille für den Rest des Videos.
 
-# HARTE REGEL — AUDIO BESTIMMT NICHT DIE SZENENLÄNGE
-Wenn ein Voice-Clip nur 3 Sekunden lang ist, bleibt die Übung trotzdem exakt 20 Sekunden sichtbar.
+# AUDIO BESTIMMT NICHT DIE VIDEOLÄNGE
+Die Videolänge wird durch Remotion-Timeline, Übungen und Pausen bestimmt — nicht durch Audio.
 
-Remotion platziert den kurzen Voice-Clip an der richtigen Stelle und lässt den Rest der Szene ohne Sprache weiterlaufen.
+Ein Video kann über 5 Minuten lang sein, obwohl nur ungefähr 6–8 Sekunden gesprochen werden.
 
-Ein 5-Minuten-Video benötigt deshalb KEINE 5 Minuten Voice-Audio.
+## Audio-Dateien
+Aktueller Standard:
+- nur `Voice 01.mp3` für das Intro
+- keine `Voice 02.mp3` bis zum Outro erforderlich
 
-## Audio-Workflow
-Bevorzugt einzelne Voice-Clips nur für Szenen/Cues erzeugen, die tatsächlich Sprache brauchen.
+Wenn kein Intro-Audio vorhanden ist, darf ein visueller Test trotzdem gerendert werden.
 
-Beispiel:
-- `Voice 01` Intro
-- `Voice 02` Safety
-- `Voice 03` Let's Begin optional
-- `Voice 04` kurzer Übungs-Cue
-- usw.
+# KEINE UNTERTITEL
+Gesprochene Voice wird niemals als Untertitel eingeblendet.
 
-Eine Szene ohne benötigte Sprache bekommt KEINE künstliche Voice-Datei.
+Verboten:
+- automatische Captions
+- Wort-für-Wort-Untertitel
+- Transcript-Balken
+- Karaoke-Text
+- mittige Voice-Sätze
 
-Falls stattdessen eine einzige Master-Audiodatei verwendet wird:
-- echte gesprochenen Cue-Grenzen ermitteln
-- die Cues korrekt splitten/positionieren oder passende Stille im Master behalten
-- nicht in gleich große Stücke schneiden
-- nicht über das gesamte Video strecken
-- Video niemals auf Audio-Länge kürzen
+Die Intro-Grafik ist feste Markeninformation und kein Transkript der Voice.
 
-## Stil
+## Stil der Intro-Voice
 - kurz
-- klar
 - freundlich
-- aktivierend
+- klar
 - altersgerecht
-- einfache Wörter
-- keine unnötigen Wiederholungen
-
-## Vermeiden
-- Dauerkommentar
-- Voice während der gesamten 20 Sekunden
-- Countdown komplett vorsprechen
-- lange Erklärungen
-- Füllsätze nur damit Audio läuft
-- komplizierte Fachbegriffe
-- medizinische Versprechen
-- aggressives Coaching
-
-# HARTE REGEL — KEINE UNTERTITEL
-Gesprochene Voice wird NICHT als Untertitel eingeblendet.
-
-Keine automatischen Captions.
-Keine Wort-für-Wort-Untertitel.
-Keine mittigen Subtitle-Boxen.
-Keine Karaoke-Transkription.
-
-Nur bewusst gestaltete Remotion-Szeneninformationen dürfen sichtbar sein.
+- nur notwendige Information
+- keine Füllsätze
+- keine Wiederholungen
 
 ## ALL_VOICE_TEXTS.md
-Pro Episode wird `ALL_VOICE_TEXTS.md` erzeugt.
-Dort stehen nur die tatsächlich benötigten gesprochenen Cues in Timeline-Reihenfolge.
-Stille Abschnitte werden als `SILENCE / NO VOICE` markiert, wenn das für die Produktion hilfreich ist.
+Pro Episode enthält `ALL_VOICE_TEXTS.md` im aktuellen Standard nur den Intro-Voice-Text und die klare Regel, dass alle späteren Szenen stumm sind.
