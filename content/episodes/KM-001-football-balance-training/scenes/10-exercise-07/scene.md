@@ -1,10 +1,12 @@
 # 10 — CALF RAISE HOLD
-- Image: `Bild 10.png` — CLEAN Google Flow image, no text/UI
+- Image: `Bild 10.png`
 - Duration: exactly 20s
 - Rest after: 5s
-- Character: same single approved KM-001 boy
+- Character: same approved KM-001 boy
 - Pose: feet hip-width, heels lifted, body tall, arms relaxed or slightly out for balance
-- Remotion title: `CALF RAISE HOLD`
-- Remotion cloud: `Lift your heels and stay tall.`
-- Remotion: title + instruction cloud + 20s circular timer + progress bar
-- Voice: short cue at start only; remaining hold is silent
+- Google Flow image contains title bottom-left: `CALF RAISE HOLD`
+- Google Flow image contains instruction cloud top-right: `Lift your heels and stay tall.`
+- Remotion adds ONLY the 20s circular timer top-left + progress bar bottom
+- No Remotion pose name or description
+- No subtitles / transcript bars
+- Audio optional for current visual QA
