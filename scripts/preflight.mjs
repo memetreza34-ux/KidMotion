@@ -32,6 +32,12 @@ if (data.singleCharacterWholeEpisode !== true) fail('singleCharacterWholeEpisode
 if (data.allowCharacterSwitch !== false) fail('allowCharacterSwitch must be false.');
 if (data.allowSecondVisibleCharacter !== false) fail('allowSecondVisibleCharacter must be false.');
 if (data.allVideoSectionsUseCharacterImage !== true) fail('allVideoSectionsUseCharacterImage must be true.');
+if (data.voicePolicy?.voiceOnlyInIntro !== true) fail('Current standard requires Voice only in Intro.');
+if (data.voicePolicy?.safetyVoice !== false) fail('Safety Voice must be disabled.');
+if (data.voicePolicy?.letsBeginVoice !== false) fail('LET\'S BEGIN Voice must be disabled.');
+if (data.voicePolicy?.exerciseVoice !== false) fail('Exercise Voice must be disabled.');
+if (data.voicePolicy?.restVoice !== false) fail('Rest Voice must be disabled.');
+if (data.voicePolicy?.outroVoice !== false) fail('Outro Voice must be disabled.');
 if (data.voicePolicy?.subtitles !== false) fail('Voice subtitles must be disabled.');
 if (data.voicePolicy?.voiceCaptions !== false) fail('Voice captions must be disabled.');
 if (data.remotion?.subtitles !== false) fail('Remotion subtitles must be disabled.');
@@ -45,8 +51,6 @@ if (data.exerciseVisualPolicy?.instructionBubbleSource !== 'GoogleFlowImage') fa
 if (data.exerciseVisualPolicy?.remotionExerciseNameForbidden !== true) fail('Remotion exercise-name overlays must be forbidden.');
 if (data.exerciseVisualPolicy?.remotionExerciseInstructionForbidden !== true) fail('Remotion exercise-instruction overlays must be forbidden.');
 if (data.remotion?.exerciseTextOverlay !== false) fail('Remotion exerciseTextOverlay must be false.');
-if (data.remotion?.exerciseNameSource !== 'GoogleFlowImage') fail('remotion.exerciseNameSource must be GoogleFlowImage.');
-if (data.remotion?.exerciseInstructionSource !== 'GoogleFlowImage') fail('remotion.exerciseInstructionSource must be GoogleFlowImage.');
 
 if (data.restVisualPolicy?.blankScreenForbidden !== true) fail('Blank Rest screens are forbidden.');
 if (data.restVisualPolicy?.reuseNextExerciseImage !== true) fail('Rest must reuse the next exercise image.');
@@ -54,7 +58,9 @@ if (data.restVisualPolicy?.remotionNextPoseNameForbidden !== true) fail('Remotio
 
 const scenes = Array.isArray(data.scenes) ? data.scenes : [];
 const cover = scenes.find((scene) => scene.type === 'cover');
+const intro = scenes.find((scene) => scene.type === 'intro');
 if (!cover || cover.image !== 'Bild 00.png' || cover.inVideo !== false) fail('Cover must be Bild 00.png and stay outside the MP4.');
+if (!intro?.voice) console.warn('WARNING: Intro Voice 01 is not mapped; visual QA may still continue silently.');
 
 for (const scene of scenes) {
   const sceneNumber = String(scene.scene).padStart(2, '0');
@@ -66,11 +72,12 @@ for (const scene of scenes) {
   if (scene.type === 'exercise' && Number(scene.duration) !== 20) fail(`Scene ${sceneNumber} must last exactly 20s.`);
   if (scene.type === 'exercise' && (!scene.title || !scene.instruction)) fail(`Scene ${sceneNumber} needs title + instruction for Google Flow.`);
 
+  if (scene.type !== 'intro' && scene.voice) fail(`Scene ${sceneNumber} must be silent and must not map ${scene.voice}.`);
+
   if (scene.image && !fs.existsSync(path.join(imageRoot, scene.image))) fail(`Missing image: ${scene.image}`);
 
-  // Audio is intentionally non-blocking during the current visual correction phase.
-  if (scene.voice && (!fs.existsSync(audioRoot) || !fs.existsSync(path.join(audioRoot, scene.voice)))) {
-    console.warn(`WARNING: missing voice for visual-QA phase: ${scene.voice}`);
+  if (scene.type === 'intro' && scene.voice && (!fs.existsSync(audioRoot) || !fs.existsSync(path.join(audioRoot, scene.voice)))) {
+    console.warn(`WARNING: missing Intro voice for visual-QA phase: ${scene.voice}`);
   }
 
   if (activeSource && scene.type === 'exercise') {
@@ -87,7 +94,11 @@ if (data.id === 'KM-001') {
     const filename = `Bild ${String(number).padStart(2, '0')}.png`;
     if (!scenes.some((scene) => scene.image === filename)) fail(`KM-001 is missing image mapping: ${filename}`);
   }
-  if (runtime !== 320) fail(`KM-001 runtime must be 320s, found ${runtime}s.`);
+  if (Number(data.introDuration) !== 8) fail(`KM-001 Intro must be 8s, found ${data.introDuration}s.`);
+  if (Number(data.safetyDuration) !== 4) fail(`KM-001 Safety must be 4s, found ${data.safetyDuration}s.`);
+  if (Number(data.letsBeginDuration) !== 2) fail(`KM-001 LET'S BEGIN must be 2s, found ${data.letsBeginDuration}s.`);
+  if (Number(data.outroDuration) !== 4) fail(`KM-001 Outro must be 4s, found ${data.outroDuration}s.`);
+  if (runtime !== 313) fail(`KM-001 runtime must be 313s / 5:13, found ${runtime}s.`);
 }
 
 if (failures.length) {
@@ -97,4 +108,5 @@ if (failures.length) {
 }
 
 console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${runtime}s`);
+console.log('Audio contract: Intro Voice only; every later scene is silent.');
 console.log('Visual contract: Google Flow owns exercise title/instruction; Remotion owns timer/progress only.');
