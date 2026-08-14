@@ -38,6 +38,7 @@ if (data.singleCharacterWholeEpisode !== true) errors.push('singleCharacterWhole
 if (data.allVideoSectionsUseCharacterImage !== true) errors.push('allVideoSectionsUseCharacterImage must be true.');
 if (data.exerciseVisualPolicy?.exerciseNameSource !== 'GoogleFlowImage') errors.push('Exercise names must come from Google Flow images.');
 if (data.exerciseVisualPolicy?.exerciseInstructionSource !== 'GoogleFlowImage') errors.push('Exercise instructions must come from Google Flow images.');
+if (data.voicePolicy?.voiceOnlyInIntro !== true) errors.push('Current standard requires voiceOnlyInIntro=true.');
 
 for (const scene of exercises) {
   if (!scene.title || !scene.instruction || !scene.image) errors.push(`Scene ${scene.scene} is incomplete.`);
@@ -54,19 +55,20 @@ const q = JSON.stringify;
 const imageFolder = data.assetFolder || '00-bildprompts/00-ALLE-BILDER-HIER-REIN';
 const audioFolder = data.audioFolder || '00-audio';
 const image = (name) => name ? `imageAsset(${q(name)})` : 'undefined';
-const voice = (name) => {
+const introVoice = (name) => {
   if (!name) return 'undefined';
   const absolute = path.join(root, 'public', audioFolder, name);
   return fs.existsSync(absolute) ? `voiceAsset(${q(name)})` : 'undefined';
 };
 
 const exerciseRows = exercises.map((scene) =>
-  `    {id:${q(String(scene.scene))}, title:${q(scene.title)}, instruction:${q(scene.instruction)}, image:${image(scene.image)}, voice:${voice(scene.voice)}, duration:${Number(scene.duration)}, restAfter:${Number(scene.restAfter || 0)}},`
+  `    {id:${q(String(scene.scene))}, title:${q(scene.title)}, instruction:${q(scene.instruction)}, image:${image(scene.image)}, duration:${Number(scene.duration)}, restAfter:${Number(scene.restAfter || 0)}},`
 ).join('\n');
 
-const source = `import type {Workout} from '../types';\n\nconst imageAsset = (name: string) => \`${imageFolder}/\${name}\`;\nconst voiceAsset = (name: string) => \`${audioFolder}/\${name}\`;\n\n// AUTO-GENERATED ACTIVE EPISODE: ${episodeFolder}\nexport const activeWorkout: Workout = {\n  id: ${q(data.slug ? `${data.id}-${data.slug}` : (data.id || episodeFolder))},\n  title: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  subtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  fps: ${Number(data.fps || 30)},\n  width: ${Number(data.width || 1920)},\n  height: ${Number(data.height || 1080)},\n  introDuration: ${Number(intro.duration || data.introDuration || 12)},\n  safetyDuration: ${Number(safety.duration || data.safetyDuration || 5)},\n  letsBeginDuration: ${Number(start.duration || data.letsBeginDuration || 3)},\n  outroDuration: ${Number(outro.duration || data.outroDuration || 5)},\n  introImage: ${image(intro.image)},\n  introTitle: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  introSubtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  introBadge: ${q(data.introBadge || 'KIDMOTION')},\n  introVoice: ${voice(intro.voice)},\n  safetyImage: ${image(safety.image)},\n  safetyVoice: ${voice(safety.voice)},\n  letsBeginImage: ${image(start.image)},\n  letsBeginVoice: ${voice(start.voice)},\n  outroImage: ${image(outro.image)},\n  outroVoice: ${voice(outro.voice)},\n  exercises: [\n${exerciseRows}\n  ],\n};\n`;
+const source = `import type {Workout} from '../types';\n\nconst imageAsset = (name: string) => \`${imageFolder}/\${name}\`;\nconst voiceAsset = (name: string) => \`${audioFolder}/\${name}\`;\n\n// AUTO-GENERATED ACTIVE EPISODE: ${episodeFolder}\n// Current KidMotion audio policy: only Intro may contain Voice.\nexport const activeWorkout: Workout = {\n  id: ${q(data.slug ? `${data.id}-${data.slug}` : (data.id || episodeFolder))},\n  title: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  subtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  fps: ${Number(data.fps || 30)},\n  width: ${Number(data.width || 1920)},\n  height: ${Number(data.height || 1080)},\n  introDuration: ${Number(intro.duration || data.introDuration || 8)},\n  safetyDuration: ${Number(safety.duration || data.safetyDuration || 4)},\n  letsBeginDuration: ${Number(start.duration || data.letsBeginDuration || 2)},\n  outroDuration: ${Number(outro.duration || data.outroDuration || 4)},\n  introImage: ${image(intro.image)},\n  introTitle: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  introSubtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  introBadge: ${q(data.introBadge || 'KIDMOTION')},\n  introVoice: ${introVoice(intro.voice)},\n  safetyImage: ${image(safety.image)},\n  letsBeginImage: ${image(start.image)},\n  outroImage: ${image(outro.image)},\n  exercises: [\n${exerciseRows}\n  ],\n};\n`;
 
 fs.writeFileSync(path.join(root, 'src', 'data', 'active-workout.ts'), source, 'utf8');
 fs.writeFileSync(path.join(root, 'content', 'ACTIVE_EPISODE.json'), `${JSON.stringify({episodeFolder}, null, 2)}\n`, 'utf8');
 console.log(`Activated episode: ${episodeFolder}`);
-console.log('Missing audio files are treated as optional during the visual-first pass. Re-run activation after audio is added.');
+console.log('Audio policy: Intro Voice only. Safety, Start, Exercises, Rest and Outro are forced silent.');
+console.log('If Voice 01.mp3 is missing, activation keeps Intro silent for visual QA.');
