@@ -19,68 +19,77 @@ Use that exact character throughout the video. Never switch characters and never
 - Rest — reuse the NEXT exercise image
 - Outro — matching final image
 
-Do not create blank/plain/text-only scenes for Intro, Safety, Start, Rest or Outro.
+Do not create blank/plain/text-only scenes.
 
-## Reference workflow
-1. Use the approved master character to create Cover `Bild 00`.
-2. Use the approved master character to create Intro `Bild 01` with the episode outfit/world.
-3. Approve `Bild 01`.
-4. Use `Bild 01` as the PRIMARY visual continuity reference for every later generated image.
+## Short clean opening
+The opening must be brief and immediately understandable.
+
+Default current timing:
+- Intro about 8s
+- Safety about 4s
+- LET'S BEGIN about 2s
+
+Intro should contain only necessary fixed information:
+- KidMotion/theme label
+- workout title
+- number of poses + 20 SEC EACH
+- FOLLOW ALONG
+
+Do not add many slogans, repeated descriptions or narration-style text blocks.
+
+## VOICE — INTRO ONLY
+Current hard rule:
+ONLY Scene 01 Intro may contain spoken Voice.
+Target roughly 6–8 seconds.
+
+After Intro, everything is silent:
+- Safety silent
+- LET'S BEGIN silent
+- Exercises silent
+- Rest silent
+- Outro silent
+
+Do not announce exercise names.
+Do not read the instruction cloud aloud.
+Do not add motivational filler during holds.
 
 ## No subtitles
-Never create automatic captions, word-for-word voice text, transcript bars, subtitle boxes, karaoke text or centered narration sentences.
+Never create automatic captions, word-for-word Voice text, transcript bars, subtitle boxes, karaoke text or centered narration sentences.
 
-## Beginning must explain the workout
-The Intro uses fixed branded information independent from narration. Include enough information for the child to understand the video immediately, for example:
-- welcome / KidMotion brand
-- workout title
-- short focus
-- number of poses
-- hold duration
-- follow-along cue
+## Reference workflow
+1. Use approved master character to create Cover `Bild 00`.
+2. Create Intro `Bild 01` with the episode outfit/world.
+3. Approve `Bild 01`.
+4. Use `Bild 01` as PRIMARY visual continuity reference for every later generated image.
 
 ## Current exercise format
 Use static standing HOLD poses only in the current phase.
 Every exercise must be understandable from one still image and last exactly 20 seconds.
 
-## HARD RULE — Google Flow creates exercise title + instruction inside the image
-For every exercise prompt, Google Flow must directly create:
+## Google Flow exercise responsibility
+Every exercise image must already contain:
 - exercise title bottom-left
-- short instruction top-right in the KidMotion white cloud/info bubble
+- short instruction top-right in KidMotion white cloud/info bubble
 
-The prompt must contain the exact final exercise title and exact final short instruction.
-
-Google Flow exercise images must NOT contain:
+Do NOT bake into exercise images:
 - subtitles
-- transcript text
+- transcript bars
 - timer
 - progress bar
-- duplicate title/instruction
 
-Keep top-left free for timer and bottom edge free for progress.
-
-## HARD RULE — Remotion does NOT create exercise title or instruction
-During exercise scenes Remotion adds only:
-- circular 20-second timer top-left
+## Remotion exercise responsibility
+Remotion adds ONLY:
+- 20-second timer top-left
 - progress bar bottom
-- exact timing
-- optional audio placement
+- exact scene timing
 
-Do not create or call any Remotion exercise-title / exercise-instruction overlay component.
+Remotion must not duplicate the title or instruction already generated inside the exercise image.
 
 ## Rest
-Rest reuses the NEXT exercise image full-screen. That image already contains its Google Flow title/instruction.
-Remotion adds only:
-- REST
-- rest countdown
-
-Do not add `NEXT: [pose name]` from Remotion.
-
-## Voice only when needed
-Voice does not run continuously.
-Typical exercise: short cue at start, then silence until 20s.
-Audio duration never controls scene duration.
-Audio may be completed after visual QA.
+Use next exercise image full-screen.
+Remotion adds only REST + countdown.
+No NEXT pose-name overlay.
+Rest is silent.
 
 # REQUIRED EPISODE OUTPUT
 Create:
@@ -90,8 +99,8 @@ Create:
 4. locked outfit/world
 5. full timeline
 6. 10–12 static hold exercises
-7. exact exercise title + short instruction for each
-8. exact English voice cues only where useful
+7. short instruction for each exercise
+8. ONE short Intro Voice text only
 9. `ALL_IMAGE_PROMPTS.md`
 10. `REFERENCE_GUIDE.md`
 11. `ALL_VOICE_TEXTS.md`
@@ -104,18 +113,18 @@ Create:
 
 # STANDARD VIDEO ORDER
 1. Cover — `Bild 00`, thumbnail only
-2. Intro — `Bild 01` + complete fixed branded opening
-3. Safety — `Bild 02` + Safety panel
-4. LET'S BEGIN — `Bild 03` + start graphic
-5. Exercises — Google Flow image with title/instruction + Remotion timer/progress
-6. Rest — next exercise image + REST/countdown only
-7. Outro — final image + GREAT JOB
+2. Intro — `Bild 01` + minimal fixed Remotion opening + ONLY Voice
+3. Safety — `Bild 02` + Safety panel, silent
+4. LET'S BEGIN — `Bild 03` + start graphic, silent
+5. Exercises — matching images, 20s each, silent
+6. Rest — next exercise image + REST/countdown, silent
+7. Outro — final image + GREAT JOB, silent
 
 # IMAGE NUMBERING
 Image number equals chronological scene number.
 
 # PER-PROMPT METADATA
-Every generated-image prompt begins with:
+Every individual generated-image prompt begins with:
 ```text
 IMAGE NUMBER: Bild XX
 SCENE: SCENE XX — NAME
@@ -127,22 +136,35 @@ and ends with:
 After generation immediately rename to: Bild XX.png
 ```
 
-Exercise prompts additionally contain:
-```text
-BOTTOM-LEFT TITLE:
-[EXACT EXERCISE NAME]
-
-TOP-RIGHT CLOUD:
-[EXACT SHORT INSTRUCTION]
-```
-
 # GOOGLE FLOW WORKFLOW
 `PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
 
-Never batch images and never delay renaming.
+Never batch several episode images and never delay renaming.
 
 After all images are finished and validated, place them together in:
 `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 
+Audio goes in:
+`public/00-audio/`
+
+Current standard normally needs only `Voice 01.mp3`.
+
 # PUBLISHING
 Create exactly ONE English cross-platform caption with exactly 5 hashtags including `#KidMotion`.
+
+Also create:
+- YouTube title
+- description
+- keywords/search phrases
+- playlist recommendation
+- thumbnail text/concept
+
+# FINAL OBJECTIVE
+The user should only need to:
+1. generate the prepared images one by one
+2. rename each immediately
+3. stage the images
+4. optionally add the one Intro Voice file
+5. activate the episode
+6. run the safe Remotion render
+7. upload using the prepared publishing package
