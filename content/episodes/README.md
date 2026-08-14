@@ -21,13 +21,24 @@ Every actual video section uses an image with the same chosen episode character.
 - following scene images = exercises
 - final scene image = Outro
 
-Current normal episodes do not leave a Safety image gap.
-
 Rest reuses the NEXT exercise image full-screen so the character remains visible.
 
 ## No subtitles
-Never add automatic captions, transcript bars, word-for-word Voice text or phrase-by-phrase Intro narration text.
-Intro uses a fixed branded title graphic independent from Voice.
+Never add automatic captions, transcript bars, word-for-word Voice text or narration subtitles.
+Intro uses complete fixed branded information independent from Voice.
+
+## Exercise text responsibility
+Google Flow exercise images themselves contain:
+- exercise title bottom-left
+- short instruction top-right in the KidMotion white cloud/info bubble
+
+Remotion does NOT add or duplicate those.
+During an exercise Remotion adds only:
+- 20-second timer top-left
+- progress bar bottom
+- timing / optional audio placement
+
+During Rest, because the next exercise image already contains its title/instruction, Remotion adds only REST + countdown.
 
 ## Asset staging
 Images:
@@ -40,11 +51,11 @@ Only one episode may be staged there at a time.
 
 ## Current exercise standard
 - one main character per episode
-- clean Google Flow scene images
-- Remotion adds intentional UI
 - every hold exercise exactly 20s
+- Google Flow owns exercise title/instruction
+- Remotion owns timer/progress
 - timer reaches 0
 - progress reaches 100%
 - Rest normally silent
-- short Voice never shortens a scene
+- audio is optional during current visual QA
 - one cross-platform caption with exactly 5 hashtags
