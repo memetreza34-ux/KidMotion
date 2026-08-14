@@ -62,7 +62,9 @@ Nur wenn eine einzige Körperposition aus EINEM Bild sofort verständlich ist.
 - jede aktive Pose exakt 20 Sekunden
 - ca. 5 Sekunden Rest zwischen Übungen, wenn vorgesehen
 - mindestens ca. 5 Minuten Gesamtlänge
-- Voice nur kurz bei Bedarf
+- kurzer Anfang: Intro ~8s, Safety ~4s, LET'S BEGIN ~2s
+- Voice ausschließlich im Intro
+- nach dem Intro komplette Stille
 - keine Untertitel / Voice-Captions / Transcript-Balken
 - jede sichtbare Videosektion verwendet ein Bild mit demselben Episoden-Charakter
 
@@ -78,9 +80,8 @@ Remotion erzeugt bei Übungen NUR:
 - Timer oben links
 - Progress Bar unten
 - exakte Szenendauer
-- optional Audio-Platzierung
 
-Remotion erzeugt KEINEN Pose-Namen und KEINE Beschreibung.
+Remotion erzeugt KEINEN Pose-Namen, KEINE Beschreibung und KEINE Voice während der Übungen.
 
 ## Format-Check
 Vor jeder aktuellen Idee beantworten:
