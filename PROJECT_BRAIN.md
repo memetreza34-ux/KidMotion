@@ -30,31 +30,61 @@ Forbidden:
 - karaoke text
 - centered sentence copies of the voice
 
-The Intro must NOT reveal phrase-by-phrase text synchronized to narration. Use a fixed branded title graphic instead.
+The Intro must not behave like a transcript. Intro graphics are fixed branded information, independent from narration.
 
-Allowed intentional Remotion UI only:
-- fixed Intro title / short descriptor
-- SAFETY FIRST panel
-- LET'S BEGIN graphic
-- exercise title bottom-left
-- short exercise instruction upper-right
-- timer top-left
-- progress bar bottom
-- REST / NEXT
-- GREAT JOB / completion graphic
+## Beginning / Intro must feel complete
+The opening must immediately explain what the child is about to do while the same episode character remains visible.
+KM-001 Intro uses the character image plus fixed branded information such as:
+- `WELCOME TO`
+- `KIDMOTION FOOTBALL`
+- `5 MIN FOOTBALL TRAINING`
+- `BALANCE • CONTROL • STRONG POSITIONS`
+- `12 POSES`
+- `20 SEC EACH`
+- `FOLLOW ALONG`
+- `COPY • HOLD • HAVE FUN`
 
-## Google Flow
-Except for Cover, source images are clean. Generate only the chosen character + pose + environment. Do not bake video text, subtitles, transcript bars, timer, progress or other UI into normal images.
+These are opening graphics, not subtitles and not timed word-for-word to audio.
+
+## Google Flow responsibility
+Google Flow creates the actual episode scene images and preserves the same chosen character, outfit, world and 3D identity.
 
 Reference workflow:
 1. create Cover `Bild 00` from the approved master character
-2. create clean Intro `Bild 01` from the approved master character
+2. create Intro `Bild 01` from the approved master character
 3. approve `Bild 01`
 4. use `Bild 01` as the primary visual continuity reference for `Bild 02` through the final image
 
-Keep face, hair, age appearance, proportions, outfit, world and 3D style consistent.
+### Exercise images — HARD RULE
+For every normal exercise image, Google Flow itself places:
+- exercise name at BOTTOM-LEFT
+- one short execution instruction at TOP-RIGHT inside the KidMotion white cloud/info bubble
 
-Generate exactly one image at a time and rename it immediately before continuing.
+The source image therefore already contains the final exercise title and instruction.
+
+Exercise images must NOT contain:
+- subtitles or transcript bars
+- timer
+- progress bar
+- duplicate exercise title
+- duplicate instruction
+
+## Remotion responsibility
+For exercise scenes, Remotion must NOT generate the exercise name or exercise description.
+Remotion adds only:
+- 20-second timer at top-left
+- progress bar along bottom
+- scene timing
+- optional short voice placement
+
+For other sections Remotion may add intentional UI:
+- Intro branded information
+- Safety panel
+- LET'S BEGIN graphic
+- REST + rest countdown
+- GREAT JOB / completion graphic
+
+During Rest, the NEXT exercise image is shown full-screen. Because that image already contains its Google Flow title/instruction, Remotion must not add `NEXT: [pose name]` or another pose description.
 
 ## Exercise timing
 Current format uses static hold poses. Every exercise lasts exactly 20 seconds. Typical Rest = 5 seconds. Timer reaches 0 and progress reaches 100%.
@@ -62,8 +92,11 @@ Current format uses static hold poses. Every exercise lasts exactly 20 seconds. 
 ## Voice
 Voice only when useful. A short voice cue does not shorten a 20-second scene. The remaining hold time can stay silent. Audio length never controls video length. Rest is normally silent.
 
-## Remotion
-Remotion controls the full timeline and adds only the intentional UI defined above over the character images.
+Audio is currently secondary to getting the visual system correct.
+
+## Google Flow generation workflow
+Generate exactly one image at a time and rename it immediately before continuing:
+`PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
 
 ## Publishing
 Exactly one cross-platform English caption per episode with exactly 5 hashtags including `#KidMotion`.
@@ -71,7 +104,9 @@ Exactly one cross-platform English caption per episode with exactly 5 hashtags i
 ## KM-001 reference
 - same approved boy in every video image from `Bild 01` through `Bild 16`
 - `Bild 02` is the Safety image
-- Rest reuses the next exercise image
+- exercise images `Bild 04`–`Bild 15` contain their own Google Flow title + instruction cloud
+- Remotion does not duplicate pose names/descriptions
+- Rest reuses the next exercise image and adds only REST + countdown
 - no subtitles or transcript-style intro text
 - 12 exercises × 20s
 - 11 rests × 5s
