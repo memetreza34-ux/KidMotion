@@ -1,12 +1,12 @@
 # KM-001 — Antigravity / Codex Assembly Rules
 
-Read `PROJECT_BRAIN.md`, `episode.md`, `REFERENCE_GUIDE.md`, `data.json`, `ALL_VOICE_TEXTS.md` and `RENDER_QA.md` first.
+Read `PROJECT_BRAIN.md`, `episode.md`, `REFERENCE_GUIDE.md`, `data.json`, `ALL_IMAGE_PROMPTS.md` and `RENDER_QA.md` first.
 
 ## Required images
 Use `Bild 00.png` through `Bild 16.png` with no gap.
 
 `Bild 00.png` is thumbnail only and is NOT played in the video.
-`Bild 01.png` is the clean visual continuity reference for the same KM-001 boy in every later image.
+`Bild 01.png` is the visual continuity reference for the same KM-001 boy in every later image.
 
 ## SAME BOY VISIBLE THROUGHOUT
 Every actual video section uses an image containing the same approved KM-001 boy:
@@ -28,42 +28,46 @@ Forbidden:
 - transcript bars
 - karaoke text
 - centered narration sentences
-- phrase-by-phrase Intro text that follows the Voice
 
-If any of these appear, the render FAILS.
-
-Allowed intentional Remotion UI:
-- fixed Intro badge/title/descriptor
-- SAFETY FIRST panel
-- LET'S BEGIN graphic
-- exercise title bottom-left
-- short instruction upper-right
-- timer top-left
-- progress bar bottom
-- REST / NEXT
-- GREAT JOB / WORKOUT COMPLETE
-
-## Intro
+## Beginning / Intro
 Use `Bild 01.png` full-screen and keep the boy visible.
-Show one fixed branded Intro graphic independent from narration:
+The opening must contain enough information to explain the workout, but it must be fixed branded UI, not captions.
+
+Required opening information:
+- `WELCOME TO`
 - `KIDMOTION FOOTBALL`
 - `5 MIN FOOTBALL TRAINING`
 - `BALANCE • CONTROL • STRONG POSITIONS`
+- `12 POSES`
+- `20 SEC EACH`
+- `FOLLOW ALONG`
+- `COPY • HOLD • HAVE FUN`
 
-Do NOT reveal Intro text phrase-by-phrase in sync with speech.
+Then show Safety on `Bild 02.png`, followed by LET'S BEGIN on `Bild 03.png`.
 
-## Exercise images
-Use clean Google Flow images. Do not use old images with exercise title/instruction already baked in.
-Remotion places the intentional exercise UI directly over the image.
+## HARD RULE — EXERCISE TEXT COMES FROM GOOGLE FLOW
+For `Bild 04.png` through `Bild 15.png`, the image itself already contains:
+- exercise title bottom-left
+- short instruction top-right inside the KidMotion white cloud/info bubble
+
+Do NOT add either of these again in Remotion.
+Do NOT use `ExerciseHeader` or another equivalent title/instruction overlay.
+
+During each exercise Remotion adds only:
+- circular 20-second timer at top-left
+- progress bar along bottom
+- scene timing
+- optional audio placement
+
+If an exercise title or instruction appears twice, the render FAILS.
 
 ## Rest
 No blank Rest screen.
-For each 5-second Rest, reuse the NEXT exercise image full-screen, lightly dim it, keep the boy clearly visible, and overlay only:
+For each 5-second Rest, reuse the NEXT exercise image full-screen and lightly dim it. Because the next image already contains its Google Flow title/instruction, Remotion overlays only:
 - `REST`
 - rest countdown
-- `NEXT: [exercise]`
 
-Rest is silent.
+Do NOT add `NEXT: [exercise]` or another pose description from Remotion.
 
 ## Timing
 - Intro 12s
@@ -75,6 +79,7 @@ Rest is silent.
 - total 320s / 5:20
 
 Audio duration never controls scene duration.
+Audio is not a blocking issue during the current visual correction phase.
 
 ## Exercise order
 1. Football Ready Hold
@@ -91,16 +96,16 @@ Audio duration never controls scene duration.
 12. Victory Balance
 
 ## Required build sequence
-After all final images/audio are staged, first regenerate the active Remotion data from the episode package:
+After all final images are staged, regenerate active Remotion data:
 ```bash
 npm run kidmotion:activate -- --episode=KM-001-football-balance-training
 ```
 
-Then render with:
+Then run:
 ```bash
 npm run render:safe
 ```
 
 Use only `KidMotionVideo`, 1920x1080, 30fps, 16:9.
 
-Reject the MP4 if subtitles appear, Intro behaves like captions, a blank screen replaces the boy, the character changes, old exercise image text returns, an exercise is not 20s, or the Cover appears inside the video.
+Reject the MP4 if subtitles appear, a blank screen replaces the boy, the character changes, Remotion duplicates an exercise title/instruction, an exercise image lacks its Google Flow title/instruction, an exercise is not 20s, or the Cover appears inside the video.
