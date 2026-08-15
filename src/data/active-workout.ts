@@ -37,4 +37,5 @@ export const activeWorkout: Workout = {
     {id:'14', title:'REACH-UP HOLD', instruction:'Stretch both arms high and stand tall.', image:imageAsset('Bild 14.png'), duration:20, restAfter:5},
     {id:'15', title:'VICTORY BALANCE', instruction:'Lift one knee and hold strong.', image:imageAsset('Bild 15.png'), duration:20, restAfter:0},
   ],
+  bgMusic: '00-audio/bg-music.mp3',
 };

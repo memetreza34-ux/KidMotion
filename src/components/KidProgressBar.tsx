@@ -11,8 +11,8 @@ export const KidProgressBar: React.FC<{durationInFrames: number}> = ({durationIn
   });
 
   return (
-    <div style={{position: 'absolute', left: 56, right: 56, bottom: 42, height: 24, borderRadius: brand.radius.pill, background: '#DCE9F4', overflow: 'hidden', boxShadow: '0 6px 18px rgba(23,52,91,0.14)'}}>
-      <div style={{width: `${width}%`, height: '100%', borderRadius: brand.radius.pill, background: brand.colors.lime}} />
+    <div style={{position: 'absolute', left: 56, right: 56, bottom: 42, height: 12, borderRadius: brand.radius.pill, background: 'rgba(255,255,255,0.35)', overflow: 'hidden'}}>
+      <div style={{width: `${width}%`, height: '100%', borderRadius: brand.radius.pill, background: 'rgba(255,255,255,0.85)'}} />
     </div>
   );
 };

@@ -9,14 +9,25 @@ export const RemotionRoot: React.FC = () => {
   const height = activeWorkout.height ?? 1080;
 
   return (
-    <Composition
-      id="KidMotionVideo"
-      component={WorkoutVideo}
-      durationInFrames={workoutDurationInFrames(activeWorkout)}
-      fps={fps}
-      width={width}
-      height={height}
-      defaultProps={{workout: activeWorkout}}
-    />
+    <>
+      <Composition
+        id="KidMotionVideo"
+        component={WorkoutVideo}
+        durationInFrames={workoutDurationInFrames(activeWorkout)}
+        fps={fps}
+        width={width}
+        height={height}
+        defaultProps={{workout: activeWorkout}}
+      />
+      <Composition
+        id="KidMotionShort"
+        component={WorkoutVideo}
+        durationInFrames={workoutDurationInFrames({...activeWorkout, width: 1080, height: 1920})}
+        fps={fps}
+        width={1080}
+        height={1920}
+        defaultProps={{workout: {...activeWorkout, width: 1080, height: 1920}}}
+      />
+    </>
   );
 };

@@ -11,15 +11,19 @@ export const CircularTimer: React.FC<{durationInFrames: number; totalSeconds: nu
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const circumference = 2 * Math.PI * 48;
+  const r = 62;
+  const circumference = 2 * Math.PI * r;
   const dash = circumference * progress;
   const finalSeconds = remaining <= 3;
 
   return (
-    <div style={{position: 'absolute', top: 38, left: 48, width: 136, height: 136}}>
-      <svg width="136" height="136" viewBox="0 0 136 136" style={{transform: 'rotate(-90deg)', filter: 'drop-shadow(0 8px 18px rgba(23,52,91,0.2))'}}>
-        <circle cx="68" cy="68" r="48" fill={brand.colors.white} stroke="#DCE9F4" strokeWidth="12" />
-        <circle cx="68" cy="68" r="48" fill="none" stroke={brand.colors.sky} strokeWidth="12" strokeLinecap="round" strokeDasharray={`${dash} ${circumference}`} />
+    <div style={{position: 'absolute', top: 32, left: 48, width: 160, height: 160}}>
+      <svg width="160" height="160" viewBox="0 0 160 160" style={{transform: 'rotate(-90deg)', filter: 'drop-shadow(0 6px 20px rgba(0,0,0,0.18))'}}>
+        {/* Background track */}
+        <circle cx="80" cy="80" r={r} fill="rgba(255,255,255,0.88)" stroke="rgba(255,255,255,0.3)" strokeWidth="10" />
+        {/* Progress arc */}
+        <circle cx="80" cy="80" r={r} fill="none" stroke={brand.colors.sky} strokeWidth="10" strokeLinecap="round"
+          strokeDasharray={`${dash} ${circumference}`} />
       </svg>
       <div
         style={{
@@ -29,8 +33,8 @@ export const CircularTimer: React.FC<{durationInFrames: number; totalSeconds: nu
           alignItems: 'center',
           justifyContent: 'center',
           fontFamily: brand.typography.fontFamily,
-          fontSize: finalSeconds ? 44 : 38,
-          fontWeight: 950,
+          fontSize: finalSeconds ? 58 : 50,
+          fontWeight: 800,
           color: brand.colors.navy,
         }}
       >

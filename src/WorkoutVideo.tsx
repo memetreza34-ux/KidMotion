@@ -30,6 +30,8 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
 
   return (
     <AbsoluteFill style={{background: '#eef8ff'}}>
+      {workout.bgMusic ? <Audio src={staticFile(workout.bgMusic)} volume={0.15} /> : null}
+      
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
           <IntroScreen image={workout.introImage} title={workout.introTitle ?? workout.title} subtitle={workout.introSubtitle ?? workout.subtitle} badge={workout.introBadge ?? 'KIDMOTION'} />
