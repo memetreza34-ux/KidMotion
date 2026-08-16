@@ -1,126 +1,109 @@
 # KidMotion — Project Brain
 
-Canonical current rules for KidMotion.
+`GEHIRN.md` is the highest-priority source of truth. This file mirrors the current production rules.
 
 ## Current focus
 English SPORT / FITNESS long-form videos using static Google Flow images and Remotion.
 
 ## One video = one character
-KidMotion has a boy and girl overall, but each episode chooses exactly ONE main character. That exact character stays consistent through the complete episode. No switching and no second visible person.
+Each episode uses exactly ONE KidMotion main character from Intro through Outro. No switching and no second visible person.
+
+## ONE-STILL POSE CLARITY — HARD RULE
+Only use exercises that are understandable from exactly ONE static image.
+
+A child should be able to copy the body position from the picture before reading the title or instruction.
+
+Required:
+- full decisive pose visible in one frame
+- full body visible
+- important joints visible
+- arms and legs clearly separated
+- clear silhouette
+- static end-position
+- no motion direction, speed or before/after phase needed
+- no subtle micro-position as the main exercise
+- no complex limb overlap
+
+If a pose as a black silhouette would still be obvious, it is usually suitable.
+
+If Google Flow cannot make a pose clear after two serious attempts, replace the pose. Do not rescue an unclear pose with more text.
+
+Visual clarity is more important than making every pose extremely football-specific.
+
+KM-001 change: `CALF RAISE HOLD` is retired because the heel lift is too subtle in a full-body still. Scene 10 is now `POWER STAR HOLD` and `Bild 10.png` must be regenerated before the next final render.
 
 ## Every visible video section uses the character image
-Current standard:
 - Cover `Bild 00` = thumbnail only, not in MP4
 - Intro `Bild 01`
 - Safety `Bild 02`
 - LET'S BEGIN `Bild 03`
-- exercises = matching `Bild XX`
+- Exercises = matching `Bild XX`
 - Rest = reuse the NEXT exercise image full-screen
-- Outro = matching final image
+- Outro = final character image
 
-Do not use blank, plain, text-only or gradient-only screens for Intro, Safety, Rest, Start or Outro.
+No blank, text-only or gradient-only screens may replace the character.
 
-## No subtitles — hard rule
-Never display spoken audio as text.
-Forbidden:
-- automatic captions
-- word-for-word voice transcription
-- subtitle bars
-- transcript boxes
-- karaoke text
-- centered sentence copies of the voice
+## No subtitles
+Never display spoken audio as text. No automatic captions, transcript bars, karaoke text or word-for-word Voice text.
 
-The Intro must not behave like a transcript. Intro graphics are fixed branded information, independent from narration.
+## Opening — short and clean
+KM-001:
+- Intro 8s
+- Safety 4s
+- LET'S BEGIN 2s
 
-## Opening — short, necessary, clean
-The beginning must explain the workout quickly and then move on.
-
-Current timing target:
-- Intro about 8s
-- Safety about 4s
-- LET'S BEGIN about 2s
-
-KM-001 Intro shows only the necessary fixed information:
+Intro shows only necessary fixed information:
 - `KIDMOTION FOOTBALL`
 - `5 MIN FOOTBALL TRAINING`
 - `12 POSES • 20 SEC EACH`
 - `FOLLOW ALONG`
 
-Do not add extra slogans, repeated information or many text blocks.
+## Voice — Intro only
+The only spoken Voice is the short Intro Voice.
 
-## Voice — ONLY in the Intro
-HARTE REGEL:
-The only spoken voice in the current KidMotion format is the short Intro voice.
+Final KM-001 text:
+`Hi, KidMotion friends! Get ready for twelve football poses. Hold each one for twenty seconds. Find some space and follow along!`
 
-After Intro ends, the rest of the entire video is silent:
-- Safety: no voice
-- LET'S BEGIN: no voice
-- Exercises: no voice
-- Rest: no voice
-- Outro: no voice
+After Intro ends:
+- Safety silent
+- LET'S BEGIN silent
+- Exercises silent
+- Rest silent
+- Outro silent
 
-A 5+ minute video may therefore contain only about 6–8 seconds of speech.
-
-KM-001 example Intro voice:
-`Hi, KidMotion friends! Twelve football poses, twenty seconds each. Find some space and follow along!`
+Background music may continue quietly through the full video.
 
 ## Google Flow responsibility
-Google Flow creates the actual episode scene images and preserves the same chosen character, outfit, world and 3D identity.
+Google Flow creates the scene images and preserves the same character, outfit, world and 3D identity.
 
-Reference workflow:
-1. create Cover `Bild 00` from the approved master character
-2. create Intro `Bild 01` from the approved master character
-3. approve `Bild 01`
-4. use `Bild 01` as the primary visual continuity reference for `Bild 02` through the final image
+Use approved `Bild 01.png` as primary continuity reference for `Bild 02.png` through `Bild 16.png`.
 
-### Exercise images — HARD RULE
-For every normal exercise image, Google Flow itself places:
-- exercise name at BOTTOM-LEFT
-- one short execution instruction at TOP-RIGHT inside the KidMotion white cloud/info bubble
+For exercise images Google Flow creates directly inside the image:
+- exercise name bottom-left
+- short instruction top-right in KidMotion cloud
 
-The source image therefore already contains the final exercise title and instruction.
+The pose itself must already be understandable without relying on that text.
 
-Exercise images must NOT contain:
-- subtitles or transcript bars
-- timer
-- progress bar
-- duplicate exercise title
-- duplicate instruction
+Google Flow must NOT generate timer, progress bar, subtitles or transcript bars.
 
 ## Remotion responsibility
-For exercise scenes, Remotion must NOT generate the exercise name or exercise description.
-Remotion adds only:
-- 20-second timer at top-left
-- progress bar along bottom
-- scene timing
+During exercises Remotion adds only:
+- 20-second timer top-left
+- progress bar
+- exact timing
 
-For other sections Remotion may add intentional UI:
-- minimal Intro branded information
-- Safety panel
-- LET'S BEGIN graphic
-- REST + rest countdown
-- GREAT JOB / completion graphic
+Remotion must NOT duplicate the exercise name or instruction.
 
-During Rest, the NEXT exercise image is shown full-screen. Because that image already contains its Google Flow title/instruction, Remotion must not add `NEXT: [pose name]` or another pose description.
+Rest uses the next exercise image and adds only `REST` + countdown.
 
-## Exercise timing
-Current format uses static hold poses. Every exercise lasts exactly 20 seconds. Typical Rest = 5 seconds. Timer reaches 0 and progress reaches 100%.
-
-## Google Flow generation workflow
-Generate exactly one image at a time and rename it immediately before continuing:
-`PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
-
-## Publishing
-Exactly one cross-platform English caption per episode with exactly 5 hashtags including `#KidMotion`.
-
-## KM-001 reference
-- same approved boy in every video image from `Bild 01` through `Bild 16`
-- `Bild 02` is the Safety image
-- exercise images `Bild 04`–`Bild 15` contain their own Google Flow title + instruction cloud
-- Remotion does not duplicate pose names/descriptions
-- Rest reuses the next exercise image and adds only REST + countdown
-- only Intro has Voice; everything after Intro is silent
-- Intro 8s, Safety 4s, LET'S BEGIN 2s, Outro 4s
+## Timing
 - 12 exercises × 20s
 - 11 rests × 5s
-- total 313s / 5:13
+- Intro 8s
+- Safety 4s
+- LET'S BEGIN 2s
+- Outro 4s
+- KM-001 total = 313s / 5:13
+
+## Google Flow workflow
+`PROMPT LESEN → GENAU EIN BILD ERZEUGEN → EIN-BILD-KLARHEIT PRÜFEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
