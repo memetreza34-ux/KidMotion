@@ -8,7 +8,7 @@ import {GreatJobScreen} from './components/GreatJobScreen';
 import {SafetyDisclaimerScreen} from './components/SafetyDisclaimerScreen';
 import {LetsBeginScreen} from './components/LetsBeginScreen';
 
-const Voice: React.FC<{src?: string}> = ({src}) => (src ? <Audio src={staticFile(src)} /> : null);
+const IntroVoice: React.FC<{src?: string}> = ({src}) => (src ? <Audio src={staticFile(src)} /> : null);
 
 export const workoutDurationInFrames = (workout: Workout) => {
   const fps = workout.fps ?? 30;
@@ -31,23 +31,21 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
   return (
     <AbsoluteFill style={{background: '#eef8ff'}}>
       {workout.bgMusic ? <Audio src={staticFile(workout.bgMusic)} volume={0.15} /> : null}
-      
+
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
           <IntroScreen image={workout.introImage} title={workout.introTitle ?? workout.title} subtitle={workout.introSubtitle ?? workout.subtitle} badge={workout.introBadge ?? 'KIDMOTION'} />
-          <Voice src={workout.introVoice} />
+          <IntroVoice src={workout.introVoice} />
         </Sequence>
       ) : null}
 
       <Sequence from={cursor} durationInFrames={safetyFrames}>
         <SafetyDisclaimerScreen image={workout.safetyImage} />
-        <Voice src={workout.safetyVoice} />
       </Sequence>
       {(() => { cursor += safetyFrames; return null; })()}
 
       <Sequence from={cursor} durationInFrames={letsBeginFrames}>
         <LetsBeginScreen image={workout.letsBeginImage} />
-        <Voice src={workout.letsBeginVoice} />
       </Sequence>
       {(() => { cursor += letsBeginFrames; return null; })()}
 
