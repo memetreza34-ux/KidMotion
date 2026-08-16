@@ -2,31 +2,43 @@
 
 ## Neue Episode produzieren
 
-1. Bilder mit Google Flow erstellen → alle in `episodes/KM-001-football/03-bilder/` ablegen
-2. Voice aufnehmen (eine Datei, drei Teile mit Pausen) → als `master.mp3` in `episodes/KM-001-football/02-audio/` ablegen
-3. Audio automatisch aufteilen: `node scripts/split-master-audio.mjs`
-4. Video rendern: `npm run render:safe`
-5. Fertiges Video liegt in: `out/kidmotion.mp4`
+1. Nur Übungen auswählen, die aus EINEM Standbild sofort verständlich sind.
+2. Bilder mit Google Flow erstellen → alle in den jeweiligen `episodes/KM-XXX-.../03-bilder/` Ordner legen.
+3. Für jede Übung vor Freigabe prüfen: klare Ganzkörperpose, eindeutige Silhouette, keine Bewegung nötig.
+4. Nur die kurze Intro-Voice aufnehmen → als `Voice 01.mp3` ablegen oder als `master.mp3` und anschließend vorbereiten.
+5. Hintergrundmusik als `bg-music.mp3` ablegen.
+6. Video prüfen und rendern.
 
-## Audio-Fließtext für Aufnahme (KM-001)
+## KM-001 Audio
 
-**Teil 1 — Intro** (ca. 8 Sek.):
-> "Welcome to KidMotion Football! Get ready to train your balance and control. We've got 12 poses, 20 seconds each."
+Es gibt nur EINE gesprochene Datei:
 
-*... kurze Pause (ca. 1 Sek.) ...*
+`Voice 01.mp3` — Intro, ca. 6–8 Sekunden.
 
-**Teil 2 — Safety** (ca. 4 Sek.):
-> "Safety first! Make sure you have enough space to move, and stop if anything hurts."
+Finaler Text:
+> "Hi, KidMotion friends! Get ready for twelve football poses. Hold each one for twenty seconds. Find some space and follow along!"
 
-*... kurze Pause (ca. 1 Sek.) ...*
+Danach ist das gesamte Video ohne Sprache:
+- Safety stumm
+- Let's Begin stumm
+- alle Übungen stumm
+- Rest stumm
+- Outro stumm
 
-**Teil 3 — Let's Begin** (ca. 2 Sek.):
-> "Are you ready? Let's begin!"
+Hintergrundmusik darf leise durch das gesamte Video laufen.
 
-## Studio starten (Preview)
-```
+## EIN-BILD-KLARHEITSTEST
+
+Eine Übung ist nur erlaubt, wenn ein Kind sie aus genau einem Standbild erkennen und kopieren kann.
+
+Nicht verwenden, wenn die Übung Bewegung, Richtung, Geschwindigkeit, mehrere Phasen oder nur eine sehr kleine schwer sichtbare Körperänderung benötigt.
+
+Wenn die Pose als Silhouette nicht eindeutig wäre, wird sie ersetzt.
+
+## Studio starten
+```bash
 npm run start
 ```
 
 ## Alle Regeln
-Siehe `GEHIRN.md`
+Siehe `GEHIRN.md` — diese Datei hat bei Widersprüchen höchste Priorität.
