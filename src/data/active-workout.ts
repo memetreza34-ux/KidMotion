@@ -1,6 +1,7 @@
 import type {Workout} from '../types';
 
-const imageAsset = (name: string) => `00-bildprompts/00-ALLE-BILDER-HIER-REIN/${name}`;
+const imageAsset = (name: string) => `episodes/KM-001-bilder/${name}`;
+const audioAsset = (name: string) => `episodes/KM-001-audio/${name}`;
 
 // ACTIVE REMOTION EPISODE: KM-001
 // Visual-first pass: only the Intro may later receive Voice 01.mp3.
@@ -17,11 +18,14 @@ export const activeWorkout: Workout = {
   letsBeginDuration: 2,
   outroDuration: 4,
   introImage: imageAsset('Bild 01.png'),
+  introVoice: audioAsset('Voice 01.mp3'),
   introTitle: '5 MIN FOOTBALL TRAINING',
   introSubtitle: '12 POSES • 20 SEC EACH',
   introBadge: 'KIDMOTION FOOTBALL',
   safetyImage: imageAsset('Bild 02.png'),
+  safetyVoice: audioAsset('Voice 02.mp3'),
   letsBeginImage: imageAsset('Bild 03.png'),
+  letsBeginVoice: audioAsset('Voice 03.mp3'),
   outroImage: imageAsset('Bild 16.png'),
   exercises: [
     {id:'04', title:'FOOTBALL READY HOLD', instruction:'Bend your knees and stay ready.', image:imageAsset('Bild 04.png'), duration:20, restAfter:5},
@@ -37,5 +41,5 @@ export const activeWorkout: Workout = {
     {id:'14', title:'REACH-UP HOLD', instruction:'Stretch both arms high and stand tall.', image:imageAsset('Bild 14.png'), duration:20, restAfter:5},
     {id:'15', title:'VICTORY BALANCE', instruction:'Lift one knee and hold strong.', image:imageAsset('Bild 15.png'), duration:20, restAfter:0},
   ],
-  bgMusic: '00-audio/bg-music.mp3',
+  bgMusic: audioAsset('bg-music.mp3'),
 };
