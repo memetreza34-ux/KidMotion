@@ -1,54 +1,29 @@
-# KM-001 — All Voice Texts
+# KM-001 — Voice Text
 
-# HARD RULE — INTRO ONLY
+## HARD RULE — ONE VOICE FILE ONLY
 KM-001 uses spoken Voice ONLY during Scene 01 Intro.
 
-After Scene 01 ends, the entire video is silent.
+After Scene 01 ends, the entire video is silent except for background music.
 
-No Voice in:
-- Scene 02 Safety
-- Scene 03 LET'S BEGIN
-- Scenes 04–15 Exercises
-- all Rest sections
-- Scene 16 Outro
-
+No Voice in Safety, Let's Begin, Exercises, Rest or Outro.
 No subtitles or Voice captions anywhere.
 
-## 01 INTRO — ONLY AUDIO FILE
+## Voice 01 — Intro
 Target duration: about 6–8 seconds.
 
-Voice:
-`Hi, KidMotion friends! Twelve football poses, twenty seconds each. Find some space and follow along!`
+Final text:
+`Hi, KidMotion friends! Get ready for twelve football poses. Hold each one for twenty seconds. Find some space and follow along!`
 
-Use only:
+Required file:
 `Voice 01.mp3`
 
-The Intro scene lasts 8 seconds. If the Voice finishes slightly early, leave the remaining time silent.
+If the Voice finishes slightly before the 8-second Intro ends, leave the remaining Intro time without speech.
 
-## 02 SAFETY
-SILENCE / NO VOICE / NO AUDIO FILE.
-
-## 03 LET'S BEGIN
-SILENCE / NO VOICE / NO AUDIO FILE.
-
-## 04–15 EXERCISES
-SILENCE / NO VOICE / NO AUDIO FILES.
+## All later sections
+`SILENCE / NO VOICE`
 
 Do not announce exercise names.
-Do not read the instruction cloud.
+Do not read the Google Flow instruction cloud aloud.
+Do not speak countdowns.
 Do not add motivational filler.
-Do not speak the countdown.
-
-The child reads the Google Flow title/instruction and follows the visible timer.
-
-## REST
-SILENCE / NO VOICE.
-
-## 16 OUTRO
-SILENCE / NO VOICE / NO AUDIO FILE.
-
-The visual `GREAT JOB!` ending is enough.
-
-# REMOTION AUDIO RULE
-Only Scene 01 may mount an Audio component for KM-001.
-Every later scene must remain silent even if old Voice 02–16 files accidentally exist in a folder.
+Do not add an Outro voice.
