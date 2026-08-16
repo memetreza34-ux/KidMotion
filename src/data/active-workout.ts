@@ -4,8 +4,8 @@ const imageAsset = (name: string) => `episodes/KM-001-bilder/${name}`;
 const audioAsset = (name: string) => `episodes/KM-001-audio/${name}`;
 
 // ACTIVE REMOTION EPISODE: KM-001
-// Visual-first pass: only the Intro may later receive Voice 01.mp3.
-// Every scene after Intro is intentionally silent.
+// HARD RULE: Voice only in Intro. Every later scene is intentionally silent.
+// HARD RULE: Every exercise must be understandable from one static image.
 export const activeWorkout: Workout = {
   id: 'KM-001-football-balance-training',
   title: '5 MIN FOOTBALL TRAINING',
@@ -23,9 +23,7 @@ export const activeWorkout: Workout = {
   introSubtitle: '12 POSES • 20 SEC EACH',
   introBadge: 'KIDMOTION FOOTBALL',
   safetyImage: imageAsset('Bild 02.png'),
-  safetyVoice: audioAsset('Voice 02.mp3'),
   letsBeginImage: imageAsset('Bild 03.png'),
-  letsBeginVoice: audioAsset('Voice 03.mp3'),
   outroImage: imageAsset('Bild 16.png'),
   exercises: [
     {id:'04', title:'FOOTBALL READY HOLD', instruction:'Bend your knees and stay ready.', image:imageAsset('Bild 04.png'), duration:20, restAfter:5},
@@ -34,7 +32,7 @@ export const activeWorkout: Workout = {
     {id:'07', title:'SINGLE-LEG BALANCE', instruction:'Stand on one leg and stay steady.', image:imageAsset('Bild 07.png'), duration:20, restAfter:5},
     {id:'08', title:'SIDE LEG HOLD', instruction:'Lift one leg gently to the side.', image:imageAsset('Bild 08.png'), duration:20, restAfter:5},
     {id:'09', title:'STANDING SIDE STRETCH', instruction:'Reach up and lean gently to the side.', image:imageAsset('Bild 09.png'), duration:20, restAfter:5},
-    {id:'10', title:'CALF RAISE HOLD', instruction:'Lift your heels and stay tall.', image:imageAsset('Bild 10.png'), duration:20, restAfter:5},
+    {id:'10', title:'POWER STAR HOLD', instruction:'Stand wide and stretch your arms high.', image:imageAsset('Bild 10.png'), duration:20, restAfter:5},
     {id:'11', title:'WIDE SQUAT HOLD', instruction:'Sit low and keep your chest up.', image:imageAsset('Bild 11.png'), duration:20, restAfter:5},
     {id:'12', title:'SIDE LUNGE HOLD', instruction:'Bend one knee and keep the other leg long.', image:imageAsset('Bild 12.png'), duration:20, restAfter:5},
     {id:'13', title:'FORWARD LUNGE HOLD', instruction:'Step forward and keep your body tall.', image:imageAsset('Bild 13.png'), duration:20, restAfter:5},
