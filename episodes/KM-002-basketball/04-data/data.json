@@ -58,7 +58,7 @@
     {"scene":"12","type":"exercise","title":"SIDE LEG BALANCE","instruction":"Lift one leg to the side and stay steady.","image":"Bild 12.png","duration":20,"restAfter":5,"character":"girl"},
     {"scene":"13","type":"exercise","title":"BALL SIDE STRETCH","instruction":"Reach the ball high and lean to one side.","image":"Bild 13.png","duration":20,"restAfter":5,"character":"girl"},
     {"scene":"14","type":"exercise","title":"KNEE HUG HOLD","instruction":"Lift one knee and hold it close.","image":"Bild 14.png","duration":20,"restAfter":5,"character":"girl"},
-    {"scene":"15","type":"exercise","title":"VICTORY BALL HOLD","instruction":"Stand wide and hold the ball high.","image":"Bild 15.png","duration":20,"restAfter":0,"character":"girl"},
+    {"scene":"15","type":"exercise","title":"BALL FRONT HOLD","instruction":"Hold the ball straight in front.","image":"Bild 15.png","duration":20,"restAfter":0,"character":"girl"},
     {"scene":"16","type":"outro","image":"Bild 16.png","duration":4,"character":"girl"}
   ],
   "exerciseVisualPolicy": {
