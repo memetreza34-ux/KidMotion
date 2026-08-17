@@ -78,7 +78,7 @@ Background music may continue quietly through the full video.
 | 12 | Side Leg Balance | one leg clearly lifted sideways | 20s | 5s |
 | 13 | Ball Side Stretch | ball overhead + obvious side lean | 20s | 5s |
 | 14 | Knee Hug Hold | raised knee held with both hands | 20s | 5s |
-| 15 | Victory Ball Hold | wide stance + one arm high with ball | 20s | 0s |
+| 15 | Ball Front Hold | wide stance + both straight arms holding ball forward | 20s | 0s |
 
 ## Google Flow / Remotion split
 Google Flow creates directly inside each exercise image:
