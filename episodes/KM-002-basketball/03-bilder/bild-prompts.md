@@ -365,21 +365,21 @@ NO subtitles. NO transcript bar. NO timer. NO progress bar. No other people.
 After generation immediately rename to: Bild 14.png
 ```
 
-## Bild 15 — Victory Ball Hold
+## Bild 15 — Ball Front Hold
 ```text
 IMAGE NUMBER: Bild 15
-SCENE: VICTORY BALL HOLD
+SCENE: BALL FRONT HOLD
 FINAL FILE NAME: Bild 15.png
 
 Use approved Bild 01.png as PRIMARY reference. Exactly the SAME girl, outfit and basketball gym. Include ONE plain orange basketball.
 
-STATIC POSE: feet wide and stable, torso tall, RIGHT arm fully extended straight overhead holding the basketball in one hand with a secure natural grip, LEFT arm extended diagonally outward, confident happy expression. Full body and ball visible. No jumping.
+STATIC POSE: feet clearly wider than hips in a stable stance, torso tall, BOTH arms extended straight forward at shoulder height, both hands holding the basketball securely in front of the body. Keep elbows mostly straight, ball centered, full body and ball fully visible. This is a stationary hold, not a pass.
 
 BOTTOM-LEFT TITLE:
-VICTORY BALL HOLD
+BALL FRONT HOLD
 
 TOP-RIGHT CLOUD:
-Stand wide and hold the ball high.
+Hold the ball straight in front.
 
 Create title and instruction directly inside the image. Keep top-left clear for timer and bottom edge clear for progress.
 
