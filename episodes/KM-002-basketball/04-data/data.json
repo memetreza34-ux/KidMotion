@@ -26,7 +26,7 @@
   "introSubtitle": "12 POSES • 20 SEC EACH",
   "introBadge": "KIDMOTION BASKETBALL",
   "introExtraInfo": ["FOLLOW ALONG"],
-  "introVoiceText": "Hi, KidMotion friends! It’s basketball time! Twelve easy poses, twenty seconds each. Find some space, get ready, and follow along!",
+  "introVoiceText": "Hi, KidMotion friends! It’s basketball time! Today we have twelve easy poses, twenty seconds each. Find some space, make sure you can move safely, and stop if anything hurts. Get ready, stay strong, and let’s begin!",
   "voiceScriptFormat": "one continuous copy-ready paragraph",
   "safetyDuration": 4,
   "letsBeginDuration": 2,
@@ -36,6 +36,8 @@
   "voicePolicy": {
     "voiceOnlyInIntro": true,
     "introVoice": true,
+    "voiceMayContinueAcrossOpeningSlides": true,
+    "voiceMustEndBeforeFirstExercise": true,
     "safetyVoice": false,
     "letsBeginVoice": false,
     "exerciseVoice": false,
@@ -43,7 +45,7 @@
     "outroVoice": false,
     "subtitles": false,
     "voiceCaptions": false,
-    "introVoiceTargetSeconds": "6-8"
+    "introVoiceTargetSeconds": "11-14"
   },
   "scenes": [
     {"scene":"00","type":"cover","image":"Bild 00.png","duration":0,"character":"girl","inVideo":false},
