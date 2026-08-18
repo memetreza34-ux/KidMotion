@@ -1,6 +1,6 @@
 # KM-002 — Basketball Hold Workout for Kids
 
-Date: 2026-08-17
+Date: 2026-08-18 — Tuesday
 
 ## Video title
 **5 Minute Basketball Workout for Kids | 12 Easy Hold Poses**
@@ -55,10 +55,10 @@ Locked episode outfit/world:
 Total: **313 seconds / 5:13**.
 
 ## Voice
-Only the Intro has spoken Voice.
+Only the Intro has spoken Voice. The script is always stored as one copy-ready continuous paragraph.
 
 Final Intro text:
-`Hi, KidMotion friends! Twelve basketball poses, twenty seconds each. Find some space and follow along!`
+`Hi, KidMotion friends! It’s basketball time! Twelve easy poses, twenty seconds each. Find some space, get ready, and follow along!`
 
 After Intro: NO spoken Voice for Safety, Let's Begin, exercises, rests or Outro.
 
