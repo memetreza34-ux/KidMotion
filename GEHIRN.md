@@ -79,13 +79,27 @@ Hintergrundmusik darf leise durch das gesamte Video laufen. Sie ist instrumental
 
 Voice darf niemals als Untertitel, Caption oder Transkript eingeblendet werden.
 
+### SCRIPT-FORMAT — HARTE REGEL
+
+Jeder Voice-Text wird für den Nutzer immer als **ein einziger kopierfertiger Fließtext** geschrieben.
+
+Das bedeutet:
+- keine Aufteilung in Teil 1 / Teil 2 / Teil 3
+- keine Stichpunkte innerhalb des eigentlichen Scripts
+- keine Regieanweisungen zwischen den gesprochenen Sätzen
+- keine Zeitangaben mitten im Script
+- keine zusätzlichen Erklärungen innerhalb des Copy-Texts
+- genau ein zusammenhängender Absatz, den der Nutzer direkt markieren und kopieren kann
+
+Metadaten oder Regeln dürfen außerhalb des Scripts stehen. Der eigentliche gesprochene Text selbst bleibt immer ein einziger Fließtext.
+
 ---
 
 ## 4. Bild-Regeln
 
 Alle finalen Szenenbilder werden mit Google Flow erstellt. Antigravity/Remotion erstellt keine Ersatzbilder für fehlende finale Assets.
 
-Nummerierung KM-001:
+Nummerierung:
 - `Bild 00.png` = Cover/Thumbnail, nicht im MP4
 - `Bild 01.png` = Intro
 - `Bild 02.png` = Safety
@@ -123,7 +137,7 @@ Nicht verwenden:
 
 **Google-Flow-Test:** Wenn eine Pose nach maximal zwei sauberen Generierungsversuchen immer noch anatomisch oder visuell unklar ist, wird die Pose ersetzt — nicht mit mehr Text erklärt.
 
-**Priorität:** Bildklarheit ist wichtiger als perfekte Sport-Spezifik. Lieber eine sehr klare allgemeine Hold-Pose in einer Fußballwelt als eine football-spezifische Bewegung, die in einem Standbild unklar ist.
+**Priorität:** Bildklarheit ist wichtiger als perfekte Sport-Spezifik. Lieber eine sehr klare allgemeine Hold-Pose in der Themenwelt als eine sportspezifische Bewegung, die in einem Standbild unklar ist.
 
 ### Übungsbild-Text
 Für `Bild 04`–`Bild 15` erzeugt Google Flow direkt im Bild:
@@ -159,7 +173,7 @@ Remotion erzeugt KEINEN zweiten Übungsnamen und KEINE zweite Beschreibung.
 
 ---
 
-## 6. Remotion-Szenenreihenfolge KM-001
+## 6. Remotion-Szenenreihenfolge
 
 ```text
 Intro 8s → Safety 4s → Let's Begin 2s →
@@ -167,7 +181,7 @@ Intro 8s → Safety 4s → Let's Begin 2s →
 Übung 12 20s → Outro 4s
 ```
 
-Gesamtlänge KM-001: **313 Sekunden / 5:13**.
+Standard-Gesamtlänge: **313 Sekunden / 5:13**.
 
 ---
 
