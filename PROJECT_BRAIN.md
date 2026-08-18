@@ -28,9 +28,7 @@ If a pose as a black silhouette would still be obvious, it is usually suitable.
 
 If Google Flow cannot make a pose clear after two serious attempts, replace the pose. Do not rescue an unclear pose with more text.
 
-Visual clarity is more important than making every pose extremely football-specific.
-
-KM-001 change: `CALF RAISE HOLD` is retired because the heel lift is too subtle in a full-body still. Scene 10 is now `POWER STAR HOLD` and `Bild 10.png` must be regenerated before the next final render.
+Visual clarity is more important than making every pose extremely sport-specific.
 
 ## Every visible video section uses the character image
 - Cover `Bild 00` = thumbnail only, not in MP4
@@ -47,36 +45,31 @@ No blank, text-only or gradient-only screens may replace the character.
 Never display spoken audio as text. No automatic captions, transcript bars, karaoke text or word-for-word Voice text.
 
 ## Opening — short and clean
-KM-001:
+Standard opening:
 - Intro 8s
 - Safety 4s
 - LET'S BEGIN 2s
 
-Intro shows only necessary fixed information:
-- `KIDMOTION FOOTBALL`
-- `5 MIN FOOTBALL TRAINING`
-- `12 POSES • 20 SEC EACH`
-- `FOLLOW ALONG`
+## Voice — ONE continuous opening Voice
+Use exactly one spoken file: `Voice 01.mp3`.
 
-## Voice — Intro only
-The only spoken Voice is the short Intro Voice.
+It starts in the Intro and may continue naturally while the Safety and LET'S BEGIN opening slides appear. Target length is roughly 11–14 seconds. It must finish before the first exercise begins.
 
-Final KM-001 text:
-`Hi, KidMotion friends! Get ready for twelve football poses. Hold each one for twenty seconds. Find some space and follow along!`
+There are no separate Safety or LET'S BEGIN Voice files.
 
-After Intro ends:
-- Safety silent
-- LET'S BEGIN silent
+After the opening:
 - Exercises silent
 - Rest silent
 - Outro silent
 
 Background music may continue quietly through the full video.
 
+Every user-facing Voice script is written as one copy-ready continuous paragraph.
+
 ## Google Flow responsibility
 Google Flow creates the scene images and preserves the same character, outfit, world and 3D identity.
 
-Use approved `Bild 01.png` as primary continuity reference for `Bild 02.png` through `Bild 16.png`.
+Use approved `Bild 01.png` as primary continuity reference for all later images.
 
 For exercise images Google Flow creates directly inside the image:
 - exercise name bottom-left
@@ -103,7 +96,7 @@ Rest uses the next exercise image and adds only `REST` + countdown.
 - Safety 4s
 - LET'S BEGIN 2s
 - Outro 4s
-- KM-001 total = 313s / 5:13
+- standard total = 313s / 5:13
 
 ## Google Flow workflow
 `PROMPT LESEN → GENAU EIN BILD ERZEUGEN → EIN-BILD-KLARHEIT PRÜFEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
