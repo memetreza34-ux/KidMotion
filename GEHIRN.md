@@ -18,7 +18,7 @@ KidMotion/
 ├── START-HIER.md                    ← Schnellstart-Anleitung
 ├── episodes/
 │   └── KM-001-football/
-│       ├── 01-skript/               ← Intro-Voice-Text
+│       ├── 01-skript/               ← Opening-Voice-Text
 │       ├── 02-audio/                ← Voice 01.mp3 + bg-music.mp3
 │       ├── 03-bilder/               ← Bild 00–16 + bild-prompts.md
 │       ├── 04-data/                 ← data.json
@@ -42,18 +42,18 @@ KidMotion/
 
 ### Phase 1 — Vorbereitung
 - KI plant ausschließlich statische Posen, die aus genau EINEM Bild sofort verständlich sind.
-- KI schreibt den kurzen Intro-Voice-Text.
+- KI schreibt den kurzen Opening-Voice-Text als einen einzigen Fließtext.
 - KI erstellt alle Google-Flow-Bildprompts.
 - KI aktualisiert Episodendaten und `src/data/active-workout.ts`.
 
 ### Phase 2 — Materialerstellung
-- Nutzer erstellt `Voice 01.mp3` oder nimmt eine kurze `master.mp3` nur für das Intro auf.
+- Nutzer erstellt genau eine gesprochene Datei `Voice 01.mp3` oder nimmt eine kurze `master.mp3` für die komplette Opening-Sequenz auf.
 - Nutzer erstellt alle Bilder mit Google Flow.
 - Alle Bilder werden direkt korrekt benannt: `Bild 00.png`, `Bild 01.png` usw.
 - Für jede Übung wird vor Freigabe der EIN-BILD-KLARHEITSTEST durchgeführt.
 
 ### Phase 3 — Produktion
-- Intro-Audio vorbereiten, falls eine `master.mp3` verwendet wurde.
+- Opening-Audio vorbereiten, falls eine `master.mp3` verwendet wurde.
 - TypeScript prüfen.
 - Preflight prüfen.
 - Video rendern.
@@ -63,17 +63,21 @@ KidMotion/
 
 ## 3. Audio-Regeln — HARTE REGEL
 
-**Gesprochene Voice gibt es nur im Intro.**
+**Es gibt genau EINE gesprochene Voice-Datei: `Voice 01.mp3`.**
 
-Aktueller Standard:
-- Intro: `Voice 01.mp3`, ca. 6–8 Sekunden
-- Safety: KEINE Voice
-- Let's Begin: KEINE Voice
+Diese Voice startet im Intro und darf natürlich über die komplette kurze Opening-Sequenz weiterlaufen:
+- Intro: ca. 8 Sekunden
+- Safety: ca. 4 Sekunden
+- LET'S BEGIN: ca. 2 Sekunden
+
+Die Voice darf also ungefähr 11–14 Sekunden lang sein. Sie muss spätestens vor der ersten Übung vollständig beendet sein.
+
+Ab der ersten Übung gibt es KEINE gesprochene Voice mehr:
 - Übungen: KEINE Voice
 - Rest: KEINE Voice
 - Outro: KEINE Voice
 
-Nach Ende des Intros bleibt das gesamte restliche Video sprachlich still.
+Es gibt keine separaten Voice-Dateien für Safety oder LET'S BEGIN. Die eine Opening-Voice läuft einfach weiter, während diese Folien erscheinen.
 
 Hintergrundmusik darf leise durch das gesamte Video laufen. Sie ist instrumental, freundlich, sportlich-verspielt und enthält keinen Gesang oder gesprochenen Text.
 
@@ -183,6 +187,8 @@ Intro 8s → Safety 4s → Let's Begin 2s →
 
 Standard-Gesamtlänge: **313 Sekunden / 5:13**.
 
+Die eine Opening-Voice darf über Intro + Safety + LET'S BEGIN laufen, endet aber vor Übung 1.
+
 ---
 
 ## 7. Mediengrenze
@@ -201,7 +207,7 @@ Stoppen bei echten Blockern, insbesondere wenn:
 - ein Pflichtbild fehlt
 - eine Pose den EIN-BILD-KLARHEITSTEST nicht besteht
 - der Charakter sichtbar driftet
-- Intro-Audio fehlt, obwohl es für den finalen Render vorgesehen ist
+- Opening-Audio fehlt, obwohl es für den finalen Render vorgesehen ist
 - ein technischer Fehler nicht automatisch behebbar ist
 
 Dann: `BLOCKED` + exakter Grund + genau eine notwendige Aktion.
@@ -214,7 +220,7 @@ Dann: `BLOCKED` + exakter Grund + genau eine notwendige Aktion.
 - alle Bilder vorhanden und korrekt nummeriert sind
 - jede Übung den EIN-BILD-KLARHEITSTEST besteht
 - derselbe Charakter durchgehend konsistent ist
-- nur Intro-Voice verwendet wird
+- nur eine Opening-Voice verwendet wird und sie vor Übung 1 endet
 - Hintergrundmusik korrekt gemischt ist
 - TypeScript fehlerfrei ist
 - Preflight fehlerfrei ist
