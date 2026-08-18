@@ -1,7 +1,8 @@
 {
   "id": "KM-002",
   "slug": "basketball-hold-workout",
-  "date": "2026-08-17",
+  "date": "2026-08-18",
+  "day": "Tuesday",
   "format": "youtube-longform",
   "aspectRatio": "16:9",
   "fps": 30,
@@ -25,6 +26,8 @@
   "introSubtitle": "12 POSES • 20 SEC EACH",
   "introBadge": "KIDMOTION BASKETBALL",
   "introExtraInfo": ["FOLLOW ALONG"],
+  "introVoiceText": "Hi, KidMotion friends! It’s basketball time! Twelve easy poses, twenty seconds each. Find some space, get ready, and follow along!",
+  "voiceScriptFormat": "one continuous copy-ready paragraph",
   "safetyDuration": 4,
   "letsBeginDuration": 2,
   "outroDuration": 4,
