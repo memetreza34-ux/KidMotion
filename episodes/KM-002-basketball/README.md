@@ -46,8 +46,8 @@ Locked episode outfit/world:
 ## Structure
 - Cover: `Bild 00.png` — thumbnail only, not in MP4
 - Intro: `Bild 01.png` — 8s
-- Safety: `Bild 02.png` — 4s, silent
-- Let's Begin: `Bild 03.png` — 2s, silent
+- Safety: `Bild 02.png` — 4s
+- Let's Begin: `Bild 03.png` — 2s
 - Exercises: `Bild 04.png`–`Bild 15.png` — 12 × 20s
 - Rest: 11 × 5s, reuse next exercise image
 - Outro: `Bild 16.png` — 4s, silent
@@ -55,12 +55,16 @@ Locked episode outfit/world:
 Total: **313 seconds / 5:13**.
 
 ## Voice
-Only the Intro has spoken Voice. The script is always stored as one copy-ready continuous paragraph.
+There is exactly ONE spoken file: `Voice 01.mp3`.
 
-Final Intro text:
-`Hi, KidMotion friends! It’s basketball time! Twelve easy poses, twenty seconds each. Find some space, get ready, and follow along!`
+It starts in the Intro and may continue naturally through the Safety and LET'S BEGIN opening slides. The opening Voice must finish before Scene 04 / the first exercise begins. Target: about 11–14 seconds.
 
-After Intro: NO spoken Voice for Safety, Let's Begin, exercises, rests or Outro.
+The script is always stored as one copy-ready continuous paragraph.
+
+Final opening Voice:
+`Hi, KidMotion friends! It’s basketball time! Today we have twelve easy poses, twenty seconds each. Find some space, make sure you can move safely, and stop if anything hurts. Get ready, stay strong, and let’s begin!`
+
+After LET'S BEGIN: NO spoken Voice during exercises, rests or Outro.
 
 Background music may continue quietly through the full video.
 
