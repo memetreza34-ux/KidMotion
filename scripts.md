@@ -6,63 +6,121 @@
 Startet Remotion Studio für Preview und visuelle QA.
 
 ## npm run kidmotion:activate -- --episode=KM-XXX-name
-Aktiviert die gewünschte Episode.
-
-Aktueller kanonischer Pfad:
+Aktiviert die gewünschte kanonische Episode unter:
 `episodes/<episode>/04-data/data.json`
 
 Das Script:
 - liest die Episodendaten
 - erstellt/aktualisiert öffentliche Episode-Aliase für Bilder und Audio
 - erzeugt `src/data/active-workout.ts`
-- mappt `Voice 01.mp3`, falls vorhanden
-- mappt `bg-music.mp3`, falls vorhanden
-- schreibt den ACTIVE_EPISODE Pointer
+- mappt die eine Opening-Voice
+- mappt `bg-music.mp3`
+- schreibt `episodes/ACTIVE_EPISODE.json`
 
-Die eine Voice darf über Intro + Safety + LET'S BEGIN laufen und muss vor Exercise 1 enden.
+## VISUAL_REVIEW.json — Pflicht vor Asset-Freigabe
+Jede neue Episode besitzt `04-data/VISUAL_REVIEW.json`.
+
+Alle Flags beginnen mit `false` und dürfen nur nach tatsächlicher visueller Prüfung der finalen Bilddateien auf `true` gesetzt werden.
+
+Geprüft werden u. a.:
+- gleicher Charakter
+- Ein-Bild-Klarheit jeder Pose
+- konsistenter Exercise-Titel/Cloud-Stil
+- freie Timer-/Progress-Safe-Zones
+- korrekte Ball-/Prop-Anzahl
+- textfreie Bild 01/02/03/Outro
+- keine zweite Person
+- keine Anatomie-/Cropping-Fehler
+
+## npm run assets:approve -- --episode=KM-XXX-name
+Wird erst nach bestandener visueller Prüfung ausgeführt.
+
+Das Script:
+- verlangt alle Visual-Review-Flags = true
+- prüft Bilddateien technisch
+- prüft 16:9 und Mindestauflösung
+- erkennt identische doppelte Source-Bilder
+- prüft Voice-Dauer
+- verlangt Hintergrundmusik, wenn final Pflicht
+- verbietet alte Voice 02–16
+- erzeugt `04-data/ASSET_APPROVAL.json`
+- sperrt jedes freigegebene Bild/Audio per SHA-256
+
+Wird danach eine Datei verändert, ist die Freigabe ungültig.
+
+## npm run project:doctor
+Schützt den Repo-/Code-Aufbau vor Rückfällen, z. B.:
+- Raw-/Short-Render wieder aktiviert
+- Exercise-/Rest-Zoom oder Full-image-Fade wieder eingebaut
+- überladenes Intro kommt zurück
+- LET'S BEGIN verschwindet
+- Musik loopt nicht mehr
+- spätere Voice-Dateien werden wieder abgespielt
+- alte Episodenpfade werden wieder benutzt
+- neue Episode erzeugt keine Visual-Review-Sperre
 
 ## npm run preflight
-Prüft vor dem Render unter anderem:
+Prüft Episodendaten und Timeline-Regeln vor dem Render, u. a.:
 - aktive Episode korrekt gemappt
 - 12 Übungen
 - jede Übung exakt 20s
-- Gesamtzeit 313s beim Standardformat
+- Standard-Gesamtzeit 313s
 - Bild 00–16 vorhanden
 - Cover nicht im MP4
 - nur eine Opening-Voice
-- keine Voice in Übungen/Rest/Outro
-- KM-002 Voice nicht wieder nur ~8s kurz
-- Hintergrundmusik vorhanden, wenn Episode sie als Pflicht markiert
-- Exercise title/instruction kommen von Google Flow
-- kein Full-scene Fade/Zoom in Exercise/Rest-Code
-- Rest-UI-Regeln
+- keine Voice in Exercises/Rest/Outro
+- Voice endet vor Exercise 1
+- Hintergrundmusik vorhanden, wenn Pflicht
+- Google Flow/Remotion-Verantwortung stimmt
+- keine Full-scene Fades/Zooms in Exercise/Rest
+- Rest-UI-Regeln stimmen
 
-Die inhaltliche EIN-BILD-KLARHEIT und korrekte Google-Flow-Schrift müssen zusätzlich visuell geprüft werden.
+## npm run asset:gate
+Prüft unmittelbar vor dem Render:
+- ASSET_APPROVAL existiert
+- Revision stimmt
+- jedes aktuell verwendete Bild/Audio war freigegeben
+- SHA-256 jedes Assets stimmt noch exakt
 
-## npm run render
-Rendert nur die Longform-Komposition `KidMotionVideo` nach:
-`out/kidmotion.mp4`
+Schon eine nachträgliche Änderung an einem Bild oder Audio blockiert den Render.
 
-## npm run postrender:qa
-Prüft das bereits gerenderte MP4 automatisch auf:
-- exakte Laufzeit
-- hörbares Audio/Musik nach dem Opening, wenn Musik Pflicht ist
-- schwarze Flash-Segmente
-- near-black/near-white blank-looking Frames an Szenengrenzen
+## npm run render / npm run render:safe
+Beide Befehle laufen über denselben geschützten Renderer:
+`scripts/render-guarded.mjs`
 
-Das ersetzt nicht die manuelle visuelle QA, fängt aber genau die Fehlerklasse ab, die im abgelehnten KM-002-Test aufgetreten ist.
-
-## npm run render:safe
-Finaler Standardbefehl:
-
-```bash
-npm run typecheck && npm run preflight && npm run render && npm run postrender:qa
+Reihenfolge:
+```text
+TypeScript
+→ project:doctor
+→ preflight
+→ asset:gate
+→ Remotion KidMotionVideo render
+→ postrender:qa
 ```
 
-Nur wenn alle Schritte bestehen und das MP4 danach visuell geprüft wurde, darf `PRODUCTION COMPLETE` gesagt werden.
+Es gibt absichtlich keinen normalen npm-Raw-Render mehr.
+
+## npm run postrender:qa
+Prüft die tatsächlich gerenderte MP4 automatisch auf:
+- exakte Laufzeit
+- korrekte Auflösung
+- korrekte FPS
+- hörbare Musik nach dem Opening
+- schwarze Flash-Segmente
+- near-black/near-white/pastellige Blank-Frames an Szenengrenzen
+- verdächtig identische Exercise-Szenen
+
+Das ersetzt die visuelle Endkontrolle nicht, fängt aber technische Fehler bereits automatisch ab.
 
 ## node scripts/split-master-audio.mjs
-Historischer Hilfsname. Aktuell gibt es nur eine Opening-Voice. Eine vorhandene `master.mp3` darf zu `Voice 01.mp3` vorbereitet werden; es werden keine Exercise-Voice-Dateien erstellt.
+Historischer Hilfsname. Es gibt nur eine Opening-Voice. Eine vorhandene `master.mp3` darf zu `Voice 01.mp3` vorbereitet werden; es werden keine Exercise-Voice-Dateien erstellt.
 
-## node scripts/new-episode.mjs
-Erstellt neue Episoden-Grundlagen. Jede geplante Übung muss den EIN-BILD-KLARHEITSTEST bestehen und die aktuellen Google-Flow/Remotion-Grenzen aus `GEHIRN.md` übernehmen.
+## npm run kidmotion:new
+Erstellt neue Episoden direkt mit:
+- kanonischer `episodes/`-Struktur
+- Generation-Revision
+- VISUAL_REVIEW.json mit allen Flags `false`
+- aktueller Audio-/Bild-/Remotion-Regel
+- RENDER_QA und Antigravity-Anweisung
+
+Damit ist die Sicherheitskette bei jeder neuen Episode automatisch vorhanden.
