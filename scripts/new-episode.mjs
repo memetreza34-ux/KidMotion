@@ -39,6 +39,7 @@ const episodeId = /^KM-\d{3}$/.test(requestedId) ? requestedId : `KM-${autoNumbe
 const slug = slugify(topic) || `episode-${episodeId.slice(3)}`;
 const episodeFolder = `${episodeId}-${slug}`;
 const episodeRoot = path.join(episodesRoot, episodeFolder);
+const revision = `${episodeId.replace('-', '')}-R1`;
 
 if (fs.existsSync(episodeRoot)) {
   console.error(`Episode already exists: ${episodeRoot}`);
@@ -199,6 +200,21 @@ const data = {
 };
 
 write('04-data/data.json', `${JSON.stringify(data, null, 2)}\n`);
+write('GENERATION-REVISION.txt', `${revision}\n`);
+write('04-data/VISUAL_REVIEW.json', `${JSON.stringify({
+  episodeFolder,
+  revision,
+  sameCharacterEveryScene: false,
+  allExercisePosesClearFromOneStill: false,
+  allExerciseTextReadableAndConsistent: false,
+  allExerciseSafeZonesClear: false,
+  propBallCountsCorrect: false,
+  nonExerciseImagesContainNoGeneratedText: false,
+  noExtraPeople: false,
+  noAnatomyErrors: false,
+  noCroppingOfImportantLimbs: false,
+  notes: 'All flags remain false until the FINAL generated image set has been visually inspected image by image.'
+}, null, 2)}\n`);
 
 write('01-skript/voice-text.md', `# ${episodeId} — Voice\n\nUse exactly ONE spoken file: \`Voice 01.mp3\`.\n\nThe Voice starts at 0s and may continue naturally across Intro → Safety → LET'S BEGIN. Target: about 11–14 seconds. It MUST end before the first exercise starts.\n\nAfter the opening: no spoken Voice in exercises, rests or Outro. No subtitles/captions.\n\n## COPY-READY SCRIPT\n\nTBD\n`);
 
@@ -227,15 +243,16 @@ addPrompt(outroScene, 'OUTRO / CLEAN IMAGE ONLY', `Use approved Bild 01 as PRIMA
 
 write('03-bilder/bild-prompts.md', `# ${episodeId} — Google Flow Image Prompts\n\n## HARD WORKFLOW\n\`PROMPT LESEN → EIN BILD ERZEUGEN → EIN-BILD-KLARHEIT PRÜFEN → TEXT/UI + PROP COUNT PRÜFEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD\`\n\n## REFERENCES\n- Bild 01 = PRIMARY character/world reference\n- Bild 04 = SECONDARY exercise title/cloud UI reference after approval\n\n## SAFE ZONES\n- top-left 220x220 px free for timer\n- lowest ~90 px free for progress\n- instruction cloud top-right with safe margin\n\n## NON-EXERCISE TEXT\nBild 01, 02, 03 and final Outro image contain ZERO generated text.\n\n## PROP RULE\nEvery prompt must explicitly say ZERO or EXACTLY ONE relevant prop/ball. No stray background duplicates.\n\n${promptSections.join('\n\n')}\n\n## REST\nDo not generate Rest cards. Remotion reuses the NEXT exercise image and adds compact REST + countdown TOP-LEFT only.\n`);
 
-write('03-bilder/README.md', `# ${episodeId} — Bilder\n\nRequired: Bild 00 through Bild ${pad(outroScene)} with no gaps.\n\nBild 01 = PRIMARY character reference.\nBild 04 = SECONDARY Exercise UI reference.\n\nReject an exercise image if the pose is unclear, anatomy is wrong, text is clipped/inconsistent, thought-bubble dots appear, safe zones are occupied, the character drifts, or prop/ball count is wrong.\n\nBild 01/02/03/Outro must contain ZERO Google Flow text.\n`);
+write('03-bilder/README.md', `# ${episodeId} — Bilder\n\nRequired: Bild 00 through Bild ${pad(outroScene)} with no gaps.\n\nBild 01 = PRIMARY character reference.\nBild 04 = SECONDARY Exercise UI reference.\n\nReject an exercise image if the pose is unclear, anatomy is wrong, text is clipped/inconsistent, thought-bubble dots appear, safe zones are occupied, the character drifts, or prop/ball count is wrong.\n\nBild 01/02/03/Outro must contain ZERO Google Flow text.\n\nAfter the FINAL image set exists, inspect every image and update \`04-data/VISUAL_REVIEW.json\`. Do not approve from prompts or filenames alone.\n`);
 
-write('README.md', `# ${episodeId} — ${topic}\n\n## Status\nPLANNED — fill all TBD fields before generating final assets.\n\n## Structure\n- Intro 8s\n- Safety 4s\n- LET'S BEGIN 2s\n- ${exerciseCount} static exercises × 20s\n- ${Math.max(0, exerciseCount - 1)} rests × 5s\n- Outro 4s\n- total ${runtimeSeconds}s\n\n## Hard rules\n- exactly one recurring ${character}\n- every exercise must be understandable from one still\n- one continuous opening Voice only, target 11–14s, ends before exercise 1\n- looping background music required final\n- Google Flow owns exercise title + instruction\n- Remotion owns timer + progress during exercises\n- no whole-image fade from black/white\n- no Ken Burns on exercise/rest images\n- Rest UI top-left only\n- non-exercise source images text-free\n`);
+write('README.md', `# ${episodeId} — ${topic}\n\n## Status\nPLANNED — fill all TBD fields before generating final assets.\n\n## Structure\n- Intro 8s\n- Safety 4s\n- LET'S BEGIN 2s\n- ${exerciseCount} static exercises × 20s\n- ${Math.max(0, exerciseCount - 1)} rests × 5s\n- Outro 4s\n- total ${runtimeSeconds}s\n\n## Hard rules\n- exactly one recurring ${character}\n- every exercise must be understandable from one still\n- one continuous opening Voice only, target 11–14s, ends before exercise 1\n- looping background music required final\n- Google Flow owns exercise title + instruction\n- Remotion owns timer + progress during exercises\n- no whole-image fade from black/white\n- no Ken Burns on exercise/rest images\n- Rest UI top-left only\n- non-exercise source images text-free\n- final assets require visual review + SHA-256 approval lock before render\n`);
 
-write('ANTIGRAVITY.md', `# ${episodeId} — Antigravity\n\nRead \`GEHIRN.md\` first, then this episode's README, voice, image prompts and data.json.\n\nDo not render final until all TBD fields are resolved and final assets exist.\n\nHard rules:\n- one character throughout\n- one-still static poses only\n- one Voice 01 may span the 14s opening and ends before exercise 1\n- bg-music.mp3 required and loops throughout\n- no subtitles\n- no full-scene fade from zero\n- no Ken Burns on exercise/rest images\n- Google Flow owns exercise title/cloud\n- Remotion owns timer/progress only during exercises\n- Rest uses next image + REST/countdown top-left only\n- Bild 01/02/03/Outro generated text-free\n\nFinal workflow:\n\`npm run kidmotion:activate -- --episode=${episodeFolder}\`\nthen \`npm run render:safe\`.\n`);
+write('ANTIGRAVITY.md', `# ${episodeId} — Antigravity\n\nRead \`GEHIRN.md\` first, then this episode's README, voice, image prompts and data.json.\n\nDo not render final until all TBD fields are resolved and final assets exist.\n\nHard rules:\n- one character throughout\n- one-still static poses only\n- one Voice 01 may span the 14s opening and ends before exercise 1\n- bg-music.mp3 required and loops throughout\n- no subtitles\n- no full-scene fade from zero\n- no Ken Burns on exercise/rest images\n- Google Flow owns exercise title/cloud\n- Remotion owns timer/progress only during exercises\n- Rest uses next image + REST/countdown top-left only\n- Bild 01/02/03/Outro generated text-free\n\nMANDATORY GATE:\n1. Visually inspect EVERY final image.\n2. Set every required flag in \`04-data/VISUAL_REVIEW.json\` true only after actual inspection.\n3. Run \`npm run assets:approve -- --episode=${episodeFolder}\`.\n4. This creates a SHA-256 lock. Any later asset change invalidates approval.\n5. Activate episode, then run \`npm run render:safe\`.\n\nNever bypass the visual review or asset lock.\n`);
 
-write('RENDER_QA.md', `# ${episodeId} — Render QA\n\n- [ ] all TBD values resolved\n- [ ] one character throughout\n- [ ] all poses pass one-still clarity\n- [ ] all required images exist\n- [ ] Bild 01/02/03/Outro are generated text-free\n- [ ] Bild 04–exercise end use consistent title/cloud UI\n- [ ] correct prop/ball count per scene\n- [ ] Voice 01 about 11–14s and ends before exercise 1\n- [ ] bg-music loops through whole video\n- [ ] no subtitles\n- [ ] no black/white boundary flashes\n- [ ] no Exercise/Rest Ken Burns cropping\n- [ ] Rest countdown top-left only\n- [ ] exactly one GREAT JOB completion graphic\n- [ ] typecheck passes\n- [ ] preflight passes\n- [ ] render passes\n- [ ] postrender QA passes\n- [ ] final MP4 visually inspected\n`);
+write('RENDER_QA.md', `# ${episodeId} — Render QA\n\n- [ ] all TBD values resolved\n- [ ] one character throughout\n- [ ] all poses pass one-still clarity\n- [ ] all required images exist\n- [ ] Bild 01/02/03/Outro are generated text-free\n- [ ] Bild 04–exercise end use consistent title/cloud UI\n- [ ] correct prop/ball count per scene\n- [ ] Voice 01 about 11–14s and ends before exercise 1\n- [ ] bg-music loops through whole video\n- [ ] no subtitles\n- [ ] no black/white boundary flashes\n- [ ] no Exercise/Rest Ken Burns cropping\n- [ ] Rest countdown top-left only\n- [ ] exactly one GREAT JOB completion graphic\n- [ ] VISUAL_REVIEW.json completed from actual image inspection\n- [ ] assets:approve passes and creates ASSET_APPROVAL.json\n- [ ] typecheck passes\n- [ ] project:doctor passes\n- [ ] preflight passes\n- [ ] asset:gate passes\n- [ ] render passes\n- [ ] postrender QA passes\n- [ ] final MP4 visually inspected\n`);
 
 write('publishing.md', `# ${episodeId} — Publishing\n\nYouTube title: TBD\n\nONE cross-platform caption:\nTBD #Tag1 #Tag2 #Tag3 #Tag4 #KidMotion\n\nExactly five hashtags; final hashtag #KidMotion.\n`);
 
 console.log(`Created canonical episode: ${episodeRoot}`);
-console.log('Next: resolve every TBD before Google Flow generation or activation.');
+console.log(`Revision: ${revision}`);
+console.log('Final render is blocked until VISUAL_REVIEW + assets:approve are completed.');
