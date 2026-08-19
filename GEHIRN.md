@@ -1,227 +1,279 @@
 # KidMotion — Projekt-Gehirn
 
-> Diese Datei ist die einzige verbindliche Quelle für Strategie, Produktion und Regeln des KidMotion-Projekts. Bei Widersprüchen gilt immer diese Datei.
+> Diese Datei ist die höchste verbindliche Regelquelle für KidMotion. Bei Widersprüchen gilt immer diese Datei.
 
 ---
 
-## 0. Was ist KidMotion?
+## 0. Format
+KidMotion produziert englische YouTube-Longform-Workout-Videos für Kinder mit statischen, klar erkennbaren Hold-Posen.
 
-KidMotion produziert YouTube-Longform-Workout-Videos für Kinder (ca. 5–10 Minuten). Jede Episode ist ein strukturiertes Follow-along-Video mit statischen, klar erkennbaren Hold-Posen, Pausen, Timer und Hintergrundmusik. Das Format ist 16:9, 1920×1080, 30 fps. Kein TikTok, keine Reels.
-
----
-
-## 1. Repository-Struktur
-
-```text
-KidMotion/
-├── GEHIRN.md                        ← höchste Regelquelle
-├── START-HIER.md                    ← Schnellstart-Anleitung
-├── episodes/
-│   └── KM-001-football/
-│       ├── 01-skript/               ← Opening-Voice-Text
-│       ├── 02-audio/                ← Voice 01.mp3 + bg-music.mp3
-│       ├── 03-bilder/               ← Bild 00–16 + bild-prompts.md
-│       ├── 04-data/                 ← data.json
-│       └── README.md
-├── src/
-│   ├── components/
-│   ├── data/active-workout.ts
-│   └── WorkoutVideo.tsx
-├── public/
-│   └── episodes/
-│       ├── KM-001-bilder → ../../episodes/KM-001-football/03-bilder
-│       └── KM-001-audio  → ../../episodes/KM-001-football/02-audio
-├── scripts.md
-├── package.json
-└── out/
-```
+Standard:
+- 16:9
+- 1920×1080
+- 30 fps
+- ca. 5–10 Minuten
+- kein TikTok/Reel-Format
+- genau EIN Hauptcharakter pro Video
 
 ---
 
-## 2. Episoden-Produktionsablauf
+## 1. Episodenstruktur
+Jede Episode liegt unter:
+`episodes/KM-XXX-.../`
 
-### Phase 1 — Vorbereitung
-- KI plant ausschließlich statische Posen, die aus genau EINEM Bild sofort verständlich sind.
-- KI schreibt den kurzen Opening-Voice-Text als einen einzigen Fließtext.
-- KI erstellt alle Google-Flow-Bildprompts.
-- KI aktualisiert Episodendaten und `src/data/active-workout.ts`.
+Standard-Unterordner:
+- `01-skript/` — ein copy-ready Opening-Voice-Fließtext
+- `02-audio/` — `Voice 01.mp3` + `bg-music.mp3`
+- `03-bilder/` — `Bild 00.png` bis `Bild 16.png` + Google-Flow-Prompts
+- `04-data/` — `data.json`
 
-### Phase 2 — Materialerstellung
-- Nutzer erstellt genau eine gesprochene Datei `Voice 01.mp3` oder nimmt eine kurze `master.mp3` für die komplette Opening-Sequenz auf.
-- Nutzer erstellt alle Bilder mit Google Flow.
-- Alle Bilder werden direkt korrekt benannt: `Bild 00.png`, `Bild 01.png` usw.
-- Für jede Übung wird vor Freigabe der EIN-BILD-KLARHEITSTEST durchgeführt.
-
-### Phase 3 — Produktion
-- Opening-Audio vorbereiten, falls eine `master.mp3` verwendet wurde.
-- TypeScript prüfen.
-- Preflight prüfen.
-- Video rendern.
-- Finale MP4 visuell und akustisch prüfen.
+`Bild 00.png` ist nur Cover/Thumbnail und kommt niemals in das MP4.
 
 ---
 
-## 3. Audio-Regeln — HARTE REGEL
+## 2. Produktionsablauf
+### Phase A — Planung
+- nur statische Posen auswählen, die aus EINEM Standbild verständlich sind
+- Opening-Voice als EINEN Fließtext schreiben
+- Bildprompts erstellen
+- Episodendaten aktualisieren
 
-**Es gibt genau EINE gesprochene Voice-Datei: `Voice 01.mp3`.**
+### Phase B — Assets
+- genau eine Opening-Voice-Datei `Voice 01.mp3`
+- eine lizenzierte `bg-music.mp3`
+- Google Flow erzeugt `Bild 00`–`Bild 16`
+- jedes Bild sofort prüfen und umbenennen
 
-Diese Voice startet im Intro und darf natürlich über die komplette kurze Opening-Sequenz weiterlaufen:
-- Intro: ca. 8 Sekunden
-- Safety: ca. 4 Sekunden
-- LET'S BEGIN: ca. 2 Sekunden
-
-Die Voice darf also ungefähr 11–14 Sekunden lang sein. Sie muss spätestens vor der ersten Übung vollständig beendet sein.
-
-Ab der ersten Übung gibt es KEINE gesprochene Voice mehr:
-- Übungen: KEINE Voice
-- Rest: KEINE Voice
-- Outro: KEINE Voice
-
-Es gibt keine separaten Voice-Dateien für Safety oder LET'S BEGIN. Die eine Opening-Voice läuft einfach weiter, während diese Folien erscheinen.
-
-Hintergrundmusik darf leise durch das gesamte Video laufen. Sie ist instrumental, freundlich, sportlich-verspielt und enthält keinen Gesang oder gesprochenen Text.
-
-Voice darf niemals als Untertitel, Caption oder Transkript eingeblendet werden.
-
-### SCRIPT-FORMAT — HARTE REGEL
-
-Jeder Voice-Text wird für den Nutzer immer als **ein einziger kopierfertiger Fließtext** geschrieben.
-
-Das bedeutet:
-- keine Aufteilung in Teil 1 / Teil 2 / Teil 3
-- keine Stichpunkte innerhalb des eigentlichen Scripts
-- keine Regieanweisungen zwischen den gesprochenen Sätzen
-- keine Zeitangaben mitten im Script
-- keine zusätzlichen Erklärungen innerhalb des Copy-Texts
-- genau ein zusammenhängender Absatz, den der Nutzer direkt markieren und kopieren kann
-
-Metadaten oder Regeln dürfen außerhalb des Scripts stehen. Der eigentliche gesprochene Text selbst bleibt immer ein einziger Fließtext.
+### Phase C — Produktion
+- aktive Episode sauber mappen
+- TypeScript
+- Preflight
+- Render
+- Postrender-QA
+- visuelle Prüfung aller Szenengrenzen
 
 ---
 
-## 4. Bild-Regeln
+## 3. Audio — HARTE REGEL
+### Eine einzige gesprochene Datei
+Es gibt genau EINE gesprochene Datei:
+`Voice 01.mp3`
 
-Alle finalen Szenenbilder werden mit Google Flow erstellt. Antigravity/Remotion erstellt keine Ersatzbilder für fehlende finale Assets.
+Sie startet im Intro und darf natürlich über die komplette kurze Opening-Sequenz laufen:
+- Intro ca. 8s
+- Safety ca. 4s
+- LET'S BEGIN ca. 2s
 
-Nummerierung:
-- `Bild 00.png` = Cover/Thumbnail, nicht im MP4
-- `Bild 01.png` = Intro
-- `Bild 02.png` = Safety
-- `Bild 03.png` = Let's Begin
-- `Bild 04.png` bis `Bild 15.png` = 12 Übungen
-- `Bild 16.png` = Outro
+Ziel: ungefähr 11–14 Sekunden.
+Sie MUSS vor der ersten Übung komplett beendet sein.
 
-### EIN-BILD-KLARHEITSTEST — HÖCHSTE ÜBUNGSREGEL
+Danach:
+- Übungen: keine Voice
+- Rest: keine Voice
+- Outro: keine Voice
 
-Eine Übung ist nur erlaubt, wenn ein Kind die Pose aus **einem einzigen Standbild** sofort erkennen und nachmachen kann.
+Keine separaten Voice-Dateien für Safety/LET'S BEGIN.
+Keine Übungsansagen.
+Keine Countdown-Stimme.
+Keine Motivations-Füllsätze.
+Keine Untertitel, Captions oder Transkripte.
 
-Die Pose muss auch ohne Animation und möglichst sogar ohne Text verständlich sein.
+### Script-Format
+Der gesprochene Text wird für den Nutzer immer als genau EIN kopierfertiger Fließtext geschrieben.
+Keine Teil-1/Teil-2-Aufteilung, keine Regiehinweise im Copy-Text.
 
-Eine Pose ist geeignet, wenn:
-- die komplette entscheidende Körperhaltung in genau einem Frame sichtbar ist
-- Ganzkörper und wichtige Gelenke sichtbar sind
-- Arme und Beine klar voneinander getrennt erkennbar sind
-- die Silhouette eindeutig ist
-- die Pose einen klaren statischen Endzustand hat
-- keine Bewegungsrichtung, Geschwindigkeit oder vorherige/nachfolgende Phase benötigt wird
-- keine kleine, schwer erkennbare Detailänderung die Hauptübung ausmacht
-- Google Flow sie anatomisch sauber und konsistent darstellen kann
+### Hintergrundmusik — FINAL REQUIRED
+Für einen finalen Render ist `bg-music.mp3` Pflicht.
+
+Musik:
+- instrumental
+- kinderfreundlich
+- sportlich/spielerisch
+- keine Lyrics
+- keine gesprochenen Samples
+- während Opening-Voice leiser
+- danach etwas lauter
+- durch das komplette Video geloopt
+
+Ein finaler Render darf nach dem Opening nicht digital still werden.
+
+---
+
+## 4. EIN-BILD-KLARHEIT — HÖCHSTE ÜBUNGSREGEL
+Eine Übung ist nur erlaubt, wenn ein Kind die Pose aus genau EINEM Standbild sofort erkennen und nachmachen kann.
+
+Pflicht:
+- Ganzkörper sichtbar
+- wichtige Gelenke sichtbar
+- Arme/Beine klar getrennt
+- eindeutige Silhouette
+- klarer statischer Endzustand
+- keine Bewegungsrichtung nötig
+- keine Geschwindigkeit nötig
+- kein Vorher/Nachher nötig
+- keine kleinen Mikrodetails als Hauptmerkmal
+- natürliche Anatomie
 
 Nicht verwenden:
-- Übungen, die erst durch Bewegung verständlich werden
-- Kick-, Lauf-, Sprung- oder Ballbewegungen, bei denen Richtung/Timing entscheidend ist
-- Vorher/Nachher-Bewegungen
+- Kick-/Lauf-/Sprungbewegungen, wenn Bewegung entscheidend ist
+- Dribbling/Pass/Shooting als Bewegungsablauf
 - repetitive Übungen
-- Posen, deren Hauptmerkmal nur eine sehr kleine Fuß-/Hand-/Gelenkänderung ist
-- Posen mit verdeckten Gliedmaßen oder unklarer Perspektive
-- komplexe Verschlingungen von Armen/Beinen
-- Posen, die nur durch langen Erklärungstext verständlich werden
+- komplex verschränkte Gliedmaßen
+- verdeckte Füße/Hände bei relevanten Posen
 
-**Silhouetten-Test:** Wenn die Pose als schwarze Silhouette immer noch deutlich erkennbar wäre, ist sie in der Regel geeignet.
+Silhouetten-Test: Wenn die Pose als schwarze Silhouette nicht klar wäre, ist sie ungeeignet.
 
-**Google-Flow-Test:** Wenn eine Pose nach maximal zwei sauberen Generierungsversuchen immer noch anatomisch oder visuell unklar ist, wird die Pose ersetzt — nicht mit mehr Text erklärt.
+Google-Flow-Test: Nach maximal zwei ernsthaften Fehlversuchen wird die Pose ersetzt, nicht mit mehr Text gerettet.
 
-**Priorität:** Bildklarheit ist wichtiger als perfekte Sport-Spezifik. Lieber eine sehr klare allgemeine Hold-Pose in der Themenwelt als eine sportspezifische Bewegung, die in einem Standbild unklar ist.
-
-### Übungsbild-Text
-Für `Bild 04`–`Bild 15` erzeugt Google Flow direkt im Bild:
-- Exercise Name unten links
-- kurze Instruction oben rechts in der KidMotion-Cloud
-
-Diese Texte unterstützen die Pose, dürfen aber niemals eine visuell unklare Pose retten müssen.
-
-Google Flow erzeugt bei Übungen NICHT:
-- Timer
-- Progress Bar
-- Untertitel
-- Transcript-Balken
+Bildklarheit ist wichtiger als perfekte Sportspezifik.
 
 ---
 
-## 5. Video-Regeln
+## 5. Google Flow — Bildverantwortung
+### Charakterkontinuität
+- pro Video genau ein Charakter
+- `Bild 01.png` wird nach Freigabe PRIMARY character/world reference für alle späteren Bilder
+- gleiche Identität, Haare, Proportionen, Outfit und Welt
+- keine zweite Person
 
-- Format: 16:9, 1920×1080, 30 fps
-- genau ein Hauptcharakter pro Video
-- derselbe Charakter bleibt in jeder sichtbaren Szene erhalten
-- keine Untertitel oder Captions
-- Ken-Burns-Effekt nur dezent
-- kurze saubere Übergänge
-- Rest zeigt das Bild der nächsten Übung
+### Exercise UI direkt im Bild
+Für `Bild 04`–`Bild 15` erzeugt Google Flow direkt:
+- ONE exercise title bottom-left
+- ONE short instruction cloud top-right
 
-Bei Übungen fügt Remotion ausschließlich hinzu:
-- 20-Sekunden-Timer oben links
-- Progress Bar
-- exakte Szenendauer
+`Bild 04` wird nach Freigabe zusätzlich als SECONDARY UI/LAYOUT reference für `Bild 05`–`Bild 15` benutzt.
 
-Remotion erzeugt KEINEN zweiten Übungsnamen und KEINE zweite Beschreibung.
+Damit müssen über alle Übungen gleich bleiben:
+- Titelstil
+- Titelgröße
+- Titelposition
+- Cloudform
+- Cloud-Rand
+- Textstil
+- Abstände
+
+Verboten:
+- Thought-bubble dots
+- zufällige Bubble-Formen
+- wechselnde Fonts/Farben
+- Text am Rand abgeschnitten
+- doppelte Titel/Instructions
+
+### Safe Zones
+Bei Exercise-Bildern:
+- TOP-LEFT ca. 220×220 px frei für Remotion-Timer
+- unterste ca. 90 px frei für Progress Bar
+- Titel oberhalb dieses unteren Safe-Bereichs
+- Cloud oben rechts mit sicherem Rand
+
+### Ball-/Prop-Regel
+Wenn eine Pose keinen Ball braucht: ZERO Bälle im gesamten Bild.
+Wenn eine Pose einen Ball braucht: EXACTLY ONE Ball.
+Keine losen/background duplicate Bälle.
+
+### Textfreie Nicht-Übungsbilder
+`Bild 01`, `Bild 02`, `Bild 03` und `Bild 16` enthalten ZERO Google-Flow-Text.
+Remotion besitzt Intro-, Safety-, LET'S-BEGIN- und Outro-Grafiken.
+
+`Bild 16` darf insbesondere KEIN `GREAT JOB` enthalten.
 
 ---
 
-## 6. Remotion-Szenenreihenfolge
+## 6. Remotion — HARTE VIDEOREGELN
+### Kein Blank-Flash
+Jedes Szenenbild muss im allerersten Frame vollständig sichtbar sein.
 
+Verboten:
+- Full-scene fade von opacity 0
+- schwarze 0.3s-Blitze
+- weiße/pastellige 0.3s-Blitze
+- blanke Übergangsframes
+
+### Kein Ken Burns auf Exercise/Rest
+Exercise- und Rest-Bilder enthalten eingebrannten Google-Flow-Text.
+Darum:
+- kein Zoom
+- kein Scale 1.00→1.06
+- kein Pan
+- keine Bewegung, die Titel/Cloud croppt
+
+Exercise- und Rest-Source-Images bleiben statisch bei 1:1 framing.
+
+### Übungen
+Remotion fügt bei Übungen NUR hinzu:
+- 20s circular timer top-left
+- progress bar
+- exakte 20s Szenendauer
+
+Kein zweiter Übungsname.
+Keine zweite Beschreibung.
+
+### Rest
+Rest zeigt das NÄCHSTE Exercise-Bild full-screen.
+Remotion fügt nur einen kompakten `REST + countdown` Block TOP-LEFT hinzu.
+
+TOP-RIGHT Rest-Countdown ist verboten, weil dort die Google-Flow-Instruction-Cloud liegt.
+Kein `NEXT: pose`.
+
+### Intro
+Sauber und kurz.
+Nur:
+- KIDMOTION + Theme
+- 5 MIN ... WORKOUT
+- 12 POSES • 20 SEC EACH
+- FOLLOW ALONG
+
+Kein `WELCOME TO`.
+Keine doppelten Chips.
+Kein `COPY • HOLD • HAVE FUN`.
+Keine unnötigen Slogans.
+
+### Safety
+`Bild 02` bleibt ab Frame 1 sichtbar.
+Nur kurze Safety-Grafik.
+
+### LET'S BEGIN
+`Bild 03` bleibt ab Frame 1 sichtbar.
+Remotion zeigt EIN klares `LET'S BEGIN!`.
+
+### Outro
+`Bild 16` ist komplett textfrei.
+Remotion zeigt genau EINMAL:
+- GREAT JOB!
+- WORKOUT COMPLETE
+
+Keine doppelte Completion-Grafik.
+
+---
+
+## 7. Standard-Timing
 ```text
-Intro 8s → Safety 4s → Let's Begin 2s →
-[Übung 20s → Rest 5s] × 11 →
-Übung 12 20s → Outro 4s
+Intro 8s → Safety 4s → LET'S BEGIN 2s →
+[Exercise 20s → Rest 5s] × 11 →
+Exercise 12 20s → Outro 4s
 ```
 
-Standard-Gesamtlänge: **313 Sekunden / 5:13**.
-
-Die eine Opening-Voice darf über Intro + Safety + LET'S BEGIN laufen, endet aber vor Übung 1.
+Standard: 313s / 5:13.
 
 ---
 
-## 7. Mediengrenze
-
-Pflichtbilder und Audio kommen ausschließlich aus der aktiven Episode. Verboten als Ersatz:
-- Bilder aus anderen Episoden
-- Desktop/Downloads-Fremdmaterial
-- alte Exporte
-- Platzhalter im finalen Render
-
----
-
-## 8. Wann gestoppt wird
-
-Stoppen bei echten Blockern, insbesondere wenn:
-- ein Pflichtbild fehlt
-- eine Pose den EIN-BILD-KLARHEITSTEST nicht besteht
-- der Charakter sichtbar driftet
-- Opening-Audio fehlt, obwohl es für den finalen Render vorgesehen ist
-- ein technischer Fehler nicht automatisch behebbar ist
-
-Dann: `BLOCKED` + exakter Grund + genau eine notwendige Aktion.
-
----
-
-## 9. Fertig-Definition
-
-**PRODUCTION COMPLETE** erst wenn:
-- alle Bilder vorhanden und korrekt nummeriert sind
-- jede Übung den EIN-BILD-KLARHEITSTEST besteht
-- derselbe Charakter durchgehend konsistent ist
-- nur eine Opening-Voice verwendet wird und sie vor Übung 1 endet
-- Hintergrundmusik korrekt gemischt ist
-- TypeScript fehlerfrei ist
-- Preflight fehlerfrei ist
-- MP4 vollständig gerendert und geprüft wurde
+## 8. Final-QA
+PRODUCTION COMPLETE erst wenn:
+- alle Pflichtbilder vorhanden
+- jede Pose besteht EIN-BILD-KLARHEIT
+- Charakter konsistent
+- kein zweiter Mensch
+- UI-Stil der Exercise-Bilder konsistent
+- Ballanzahl korrekt
+- keine schwarzen/weißen Boundary-Flashes
+- keine Exercise/Rest-Zoom-Crops
+- Rest-UI kollidiert nicht mit Instruction-Cloud
+- LET'S BEGIN sichtbar
+- Outro nicht doppelt beschriftet
+- Voice 01 läuft nur im Opening und endet vor Übung 1
+- Hintergrundmusik läuft durch das gesamte Video
+- keine Untertitel
+- TypeScript passt
+- Preflight passt
+- Postrender-QA passt
+- MP4 visuell geprüft
