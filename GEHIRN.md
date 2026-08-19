@@ -18,16 +18,19 @@ Standard:
 ---
 
 ## 1. Episodenstruktur
-Jede Episode liegt unter:
+Jede Episode liegt ausschließlich unter:
 `episodes/KM-XXX-.../`
 
 Standard-Unterordner:
 - `01-skript/` — ein copy-ready Opening-Voice-Fließtext
 - `02-audio/` — `Voice 01.mp3` + `bg-music.mp3`
 - `03-bilder/` — `Bild 00.png` bis `Bild 16.png` + Google-Flow-Prompts
-- `04-data/` — `data.json`
+- `04-data/` — `data.json`, `VISUAL_REVIEW.json`, später `ASSET_APPROVAL.json`
+- `GENERATION-REVISION.txt` — aktuelle Asset-Revision
 
 `Bild 00.png` ist nur Cover/Thumbnail und kommt niemals in das MP4.
+
+Legacy-Ordner `content/episodes` dürfen nicht mehr als aktive Produktionsquelle benutzt werden.
 
 ---
 
@@ -44,13 +47,41 @@ Standard-Unterordner:
 - Google Flow erzeugt `Bild 00`–`Bild 16`
 - jedes Bild sofort prüfen und umbenennen
 
-### Phase C — Produktion
+### Phase C — Visuelle Freigabe — PFLICHT
+Bevor gerendert werden darf, müssen die tatsächlichen finalen Assets visuell geprüft werden.
+
+`04-data/VISUAL_REVIEW.json` bleibt standardmäßig auf `false`.
+Ein Flag darf erst auf `true` gesetzt werden, wenn die finalen Bilddateien wirklich angesehen und geprüft wurden.
+
+Pflichtprüfung:
+- gleicher Charakter in jeder Szene
+- jede Pose aus einem Standbild klar
+- Titel/Cloud über alle Übungen konsistent und lesbar
+- Timer-/Progress-Safe-Zones frei
+- Ball-/Prop-Anzahl korrekt
+- Bild 01/02/03/16 ohne Google-Flow-Text
+- keine zweite Person
+- keine Anatomiefehler
+- keine wichtigen Gliedmaßen abgeschnitten
+
+Erst danach:
+```bash
+npm run assets:approve -- --episode=KM-XXX-slug
+```
+
+`assets:approve` erstellt `ASSET_APPROVAL.json` und sperrt alle freigegebenen Bild-/Audiodateien per SHA-256.
+
+**Nach der Freigabe gilt:** Wird auch nur eine Bild- oder Audiodatei verändert/ersetzt, ist die Freigabe automatisch ungültig und der Render wird blockiert.
+
+### Phase D — Produktion
 - aktive Episode sauber mappen
 - TypeScript
+- Project Doctor
 - Preflight
+- Asset Gate
 - Render
 - Postrender-QA
-- visuelle Prüfung aller Szenengrenzen
+- finale MP4 visuell prüfen
 
 ---
 
@@ -257,7 +288,46 @@ Standard: 313s / 5:13.
 
 ---
 
-## 8. Final-QA
+## 8. Automatische Regression-Sperren
+Ein finaler Render darf ausschließlich mit `npm run render:safe` erzeugt werden.
+
+`render:safe` führt aus:
+```text
+TypeScript
+→ project:doctor
+→ preflight
+→ asset:gate
+→ render
+→ postrender:qa
+```
+
+### project:doctor blockiert u. a.
+- Rückkehr eines Short-Formats
+- Exercise-/Rest-Zoom oder Full-image-Fade
+- überladenes Intro
+- fehlendes LET'S BEGIN
+- nicht geloopte Musik
+- spätere separate Voice-Wiedergabe
+- falsche/alte Episodenstruktur
+
+### asset:gate blockiert
+- fehlende visuelle Freigabe
+- fehlendes ASSET_APPROVAL
+- falsche Revision
+- nicht freigegebene Assets
+- jede nachträgliche Änderung an Bild/Voice/Musik nach Freigabe
+
+### postrender:qa prüft die echte MP4
+- exakte Laufzeit
+- laufende Musik im Workout
+- schwarze Segmente
+- blank/helle Szenengrenzen
+
+**Wichtig:** Automatische Checks ersetzen nicht die visuelle Bildprüfung. Semantische Fehler wie falsche Pose, falscher Charakter, falsche Ballanzahl oder schlechte Textplatzierung müssen vor `assets:approve` direkt am Bild geprüft werden.
+
+---
+
+## 9. Final-QA
 PRODUCTION COMPLETE erst wenn:
 - alle Pflichtbilder vorhanden
 - jede Pose besteht EIN-BILD-KLARHEIT
@@ -273,7 +343,11 @@ PRODUCTION COMPLETE erst wenn:
 - Voice 01 läuft nur im Opening und endet vor Übung 1
 - Hintergrundmusik läuft durch das gesamte Video
 - keine Untertitel
+- VISUAL_REVIEW vollständig wahrheitsgemäß abgeschlossen
+- ASSET_APPROVAL erzeugt und unverändert gültig
 - TypeScript passt
+- Project Doctor passt
 - Preflight passt
+- Asset Gate passt
 - Postrender-QA passt
 - MP4 visuell geprüft
