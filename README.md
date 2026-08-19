@@ -1,121 +1,153 @@
 # KidMotion
 
-KidMotion is an original English-language kids movement and fitness brand built around two recurring premium 3D character identities: one boy and one girl.
+KidMotion is an original English-language kids fitness YouTube project using premium stylized 3D characters, static one-frame HOLD poses, Google Flow images and Remotion assembly.
 
-## Current active phase
-SPORT / FITNESS long-form videos using static HOLD poses.
+> `GEHIRN.md` is the highest-priority source of truth.
 
-## Core model
-- YouTube long-form first
-- 16:9 / 1920x1080
-- static AI-generated scene images
-- Google Flow / Antigravity for image production
-- Remotion for timing, timer/progress, rests, opening/safety graphics and final rendering
-- current target: at least about 5 minutes
-- typical episode: about 10–12 exercises
-- every hold exercise: exactly 20 seconds
+## Current format
+- YouTube long-form only
+- 16:9 / 1920×1080 / 30fps
+- exactly ONE main character per episode
+- static poses that are immediately understandable from one still image
+- typical episode: 12 exercises
+- every exercise: exactly 20s
+- typical Rest: 5s
+- standard runtime: 313s / 5:13
 
-## One video = one main character
-A normal episode selects exactly ONE KidMotion character.
-Do not switch boy/girl and do not add a second visible person.
-Lock face, age, hair, skin tone, body proportions, episode outfit and world.
+## Canonical episode structure
+Episodes live under:
+`episodes/KM-XXX-name/`
 
-## Every actual video section uses that character image
-- `Bild 00.png` Cover — thumbnail only, not in MP4
-- `Bild 01.png` Intro
-- `Bild 02.png` Safety
-- `Bild 03.png` LET'S BEGIN
-- exercise scenes = matching chronological images
-- Rest = reuse the NEXT exercise image
-- Outro = matching final image
+Each episode contains:
+- `01-skript/` — one copy-ready Opening Voice paragraph
+- `02-audio/` — `Voice 01.mp3` + `bg-music.mp3`
+- `03-bilder/` — Google Flow images/prompts
+- `04-data/` — `data.json`
+- episode README + Antigravity + QA instructions
 
-No blank/plain/text-only scene replaces the character.
+Do NOT create new episodes in legacy `content/episodes/`.
 
-## Short opening
-Current default opening:
-- Intro about 8s
-- Safety about 4s
-- LET'S BEGIN about 2s
+## Character rule
+One video = exactly one recurring character.
 
-The Intro should use only the necessary fixed information and stay visually clean.
+The same character stays consistent through Intro, Safety, LET'S BEGIN, exercises, Rest backgrounds and Outro.
+No second visible person.
 
-## Voice — Intro only
-Current hard rule:
-**Only the Intro may contain spoken Voice.**
+## One-still clarity
+Every exercise must work from exactly ONE still image.
 
-After Intro the whole video is silent:
-- Safety
-- LET'S BEGIN
-- Exercises
-- Rest
-- Outro
+Reject/replace a pose if:
+- motion is required to understand it
+- silhouette is unclear
+- limbs overlap/hide important joints
+- only a subtle micro-position makes the exercise different
+- Google Flow still cannot depict it clearly after two serious attempts
 
-A 5+ minute KidMotion video may therefore contain only about 6–8 seconds of spoken audio.
-Do not announce pose names or read exercise instructions aloud.
+## Image numbering
+- `Bild 00.png` = Cover only; NEVER inside MP4
+- `Bild 01.png` = Intro + PRIMARY character/world reference
+- `Bild 02.png` = Safety
+- `Bild 03.png` = LET'S BEGIN
+- `Bild 04.png`–`Bild 15.png` = 12 exercise images
+- `Bild 16.png` = Outro
 
-## No subtitles
-Never add automatic captions, transcript bars, word-for-word Voice text, karaoke text or centered narration sentences.
+## Google Flow responsibilities
+### Exercise images
+Google Flow creates directly in `Bild 04`–`Bild 15`:
+- exercise name bottom-left
+- one short instruction cloud top-right
 
-## Google Flow
-Reference workflow:
-1. create Cover `Bild 00`
-2. create Intro `Bild 01`
-3. approve `Bild 01`
-4. use `Bild 01` as the primary visual reference for later scene images
+After `Bild 04` is approved, use it as SECONDARY UI/LAYOUT reference for `Bild 05`–`Bild 15` so title/cloud styling stays consistent.
 
-For exercise images, Google Flow itself creates:
-- exercise title bottom-left
-- short instruction top-right in the KidMotion cloud
+Exercise safe zones:
+- top-left ~220×220 px clear for Remotion timer
+- lowest ~90 px clear for Remotion progress
 
-Google Flow does not create timer or progress bar.
+No thought-bubble dots, clipped titles, duplicate text, timer or progress baked into the images.
 
-Generate images one by one:
-`PROMPT LESEN → GENAU EIN BILD ERZEUGEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD`
+### Non-exercise images
+`Bild 01`, `Bild 02`, `Bild 03`, `Bild 16` contain ZERO Google Flow text.
+Remotion owns Intro/Safety/LET'S BEGIN/Outro graphics.
 
-## Remotion
-During exercises Remotion adds only:
-- circular 20-second timer top-left
-- progress bar bottom
+`Bild 16` must not contain GREAT JOB text.
 
-Remotion must not duplicate the exercise title or instruction already inside the Google Flow image.
+### Prop rule
+If a scene says no ball/prop: ZERO of that prop anywhere in frame.
+If a scene uses one: EXACTLY ONE.
+No stray background duplicates.
 
-Rest uses the next exercise image and adds only REST + countdown.
+## Opening Voice
+Exactly one spoken file:
+`Voice 01.mp3`
 
-## Active episode workflow
-Active episode pointer:
-`content/ACTIVE_EPISODE.json`
+It starts at 0s and may continue across the complete 14s opening:
+- Intro 8s
+- Safety 4s
+- LET'S BEGIN 2s
 
-Activate an episode:
+Target: about 11–14s.
+It must end before exercise 1 starts.
+
+After that:
+- no exercise Voice
+- no Rest Voice
+- no Outro Voice
+- no spoken countdown
+- no subtitles/captions/transcripts
+
+Every user-facing script is one continuous copy-ready paragraph.
+
+## Background music
+Final renders require `bg-music.mp3`:
+- instrumental
+- child-friendly / sporty-playful
+- no lyrics or speech
+- low under Opening Voice
+- slightly louder afterward
+- loop through the complete workout
+
+## Remotion responsibilities
+During exercises Remotion adds ONLY:
+- circular 20s timer top-left
+- progress bar
+- exact timing
+
+Exercise and Rest source images stay static at 1:1 framing.
+No Ken Burns/zoom/pan on images containing baked Google Flow text.
+
+Every scene image is visible from its first frame.
+No full-scene opacity fade from zero, black flash, white flash or blank transition frame.
+
+Rest:
+- reuse NEXT exercise image
+- compact `REST + countdown` top-left only
+- no NEXT pose overlay
+- never place Rest countdown top-right over the instruction cloud
+
+## Current episode
+Current production target:
+`KM-002-basketball`
+
+The previous KM-002 test render is rejected. Its known failures and fixes are documented in:
+- `episodes/KM-002-basketball/README.md`
+- `episodes/KM-002-basketball/ANTIGRAVITY.md`
+- `episodes/KM-002-basketball/RENDER_QA.md`
+
+## Production commands
+Activate:
 ```bash
-npm run kidmotion:activate -- --episode=KM-XXX-slug
+npm run kidmotion:activate -- --episode=KM-002-basketball
 ```
 
-Stage only that episode's assets in:
-- images: `public/00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
-- audio: `public/00-audio/`
-
-Current audio standard normally requires only `Voice 01.mp3`.
-
-## Safe render
+Final safe render:
 ```bash
 npm run render:safe
 ```
 
-This runs typecheck, preflight and final `KidMotionVideo` render.
+`render:safe` runs:
+1. TypeScript
+2. Preflight
+3. Longform render
+4. Postrender QA
 
-## Canonical memory
-Read `PROJECT_BRAIN.md` first.
-
-## Current reference episode
-`KM-001-football-balance-training`
-
-Reference rules:
-- same KidMotion boy in every video image from `Bild 01` through `Bild 16`
-- Safety uses `Bild 02`
-- Rest reuses the next exercise image
-- exercise title/instruction come from Google Flow image
-- Remotion exercise overlay = timer + progress only
-- Voice only in Intro
-- Intro 8s / Safety 4s / LET'S BEGIN 2s / Outro 4s
-- 12 exercises × 20 seconds
-- total 5:13
+Do not call an episode PRODUCTION COMPLETE until the new MP4 also passes manual visual QA at every scene boundary.
