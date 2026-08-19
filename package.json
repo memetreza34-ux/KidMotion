@@ -7,8 +7,8 @@
     "typecheck": "tsc --noEmit",
     "preflight": "node scripts/preflight.mjs",
     "render": "remotion render src/index.ts KidMotionVideo out/kidmotion.mp4 --crf 28 --preset faster",
-    "render:short": "npm run typecheck && npm run preflight && remotion render src/index.ts KidMotionShort out/kidmotion-short.mp4",
-    "render:safe": "npm run typecheck && npm run preflight && npm run render",
+    "postrender:qa": "node scripts/postrender-qa.mjs",
+    "render:safe": "npm run typecheck && npm run preflight && npm run render && npm run postrender:qa",
     "kidmotion:new": "node scripts/new-episode.mjs",
     "kidmotion:activate": "node scripts/activate-episode.mjs"
   },
