@@ -34,33 +34,14 @@ Every visible MP4 section uses the episode character image. No blank/text-only r
 
 ## Opening Voice
 Use exactly ONE spoken file: `Voice 01.mp3`.
+It begins at 0s and may continue naturally across Intro 8s + Safety 4s + LET'S BEGIN 2s.
+Target roughly 11–14s and it must end before exercise 1.
 
-It begins at 0s and may continue naturally across:
-- Intro 8s
-- Safety 4s
-- LET'S BEGIN 2s
-
-Target roughly 11–14s. It must end before exercise 1 starts.
-
-After the 14s opening:
-- no exercise Voice
-- no Rest Voice
-- no Outro Voice
-- no spoken countdowns
-- no subtitles/captions/transcript
-
+After the 14s opening: no spoken Voice, no spoken countdowns, no subtitles/captions/transcript.
 Voice script is always one copy-ready continuous paragraph.
 
 ## Background music
-Final render requires `bg-music.mp3`.
-- instrumental
-- child-friendly / sporty-playful
-- no lyrics/speech
-- low under opening Voice
-- slightly louder afterward
-- loop through complete video
-
-A final MP4 must not become digitally silent after the opening.
+Final render requires `bg-music.mp3`, instrumental, child-friendly, no lyrics/speech, low under opening Voice and looped through the complete video.
 
 ## Google Flow responsibility
 ### Character continuity
@@ -71,65 +52,67 @@ Google Flow directly creates on `Bild 04`–`Bild 15`:
 - ONE exercise name bottom-left
 - ONE short instruction cloud top-right
 
-After `Bild 04` is approved, it becomes SECONDARY UI/LAYOUT reference for `Bild 05`–`Bild 15`.
-
-All exercise images must keep the same title/cloud design. No thought-bubble dots, random fonts, random cloud styles or clipped text.
+Approved `Bild 04` becomes SECONDARY UI/LAYOUT reference for `Bild 05`–`Bild 15`.
+All exercise images keep the same title/cloud design. No thought-bubble dots, random fonts/clouds or clipped text.
 
 ### Safe zones
-- top-left ~220×220 px clear for Remotion timer
-- lowest ~90 px clear for Remotion progress bar
-- title safely above bottom zone
+- top-left ~220×220 px clear for timer
+- lowest ~90 px clear for progress
+- title above bottom zone
 - cloud safely inside top-right
 
 ### Prop count
-If a scene says no ball: ZERO balls anywhere.
-If a scene uses a ball: EXACTLY ONE ball.
+No-ball scene = ZERO balls anywhere. Ball scene = EXACTLY ONE ball.
 
 ### Text-free non-exercise images
-Bild 01, 02, 03 and 16 contain ZERO Google Flow text.
-Remotion owns Intro/Safety/LET'S BEGIN/Outro graphics.
-Bild 16 must NOT contain GREAT JOB.
+Bild 01, 02, 03 and 16 contain ZERO Google Flow text. Bild 16 must NOT contain GREAT JOB.
 
 ## Remotion responsibility
-### No scene flashes
-Every scene image is fully visible from its first frame.
-Forbidden:
-- whole-image opacity fade from 0
-- black transition flashes
-- white/pastel transition flashes
-- blank frames
+Every scene image is fully visible from its first frame. No whole-image opacity fade from zero, black/white/pastel flash or blank boundary frame.
 
-### No Ken Burns on exercise/rest
-Exercise and Rest images contain baked Google Flow text, so keep them static at 1:1 framing. No zoom/pan that crops title/cloud.
+Exercise and Rest images remain static at 1:1 framing. No Ken Burns/zoom/pan.
 
-### Exercises
-Remotion adds ONLY:
-- 20-second timer top-left
-- progress bar
-- timing
+Exercises: Remotion adds ONLY 20s timer + progress + timing.
+Rest: NEXT exercise image + compact `REST + countdown` TOP-LEFT only. No NEXT pose name.
+Intro: only theme badge, title, `12 POSES • 20 SEC EACH`, `FOLLOW ALONG`.
+LET'S BEGIN: exactly one visible `LET'S BEGIN!`.
+Outro: Bild 16 text-free; Remotion adds exactly one GREAT JOB / WORKOUT COMPLETE graphic.
 
-### Rest
-Show NEXT exercise image full-screen.
-Add one compact `REST + countdown` block TOP-LEFT only.
-Do not place Rest countdown top-right because the instruction cloud is there.
-Do not add NEXT pose name.
+## Mandatory visual review + asset lock
+Before final render, inspect the ACTUAL final images one by one.
 
-### Intro
-Keep only:
-- KIDMOTION + theme
-- 5 MIN ... WORKOUT
-- 12 POSES • 20 SEC EACH
-- FOLLOW ALONG
+`04-data/VISUAL_REVIEW.json` starts with all required flags false. Set a flag true only after direct inspection of the final files.
 
-No WELCOME TO, duplicate chips or filler slogan.
+Required facts include:
+- same character every scene
+- all poses pass one-still clarity
+- title/cloud consistent and readable
+- safe zones clear
+- prop counts correct
+- non-exercise images text-free
+- no extra people
+- no anatomy/cropping errors
 
-### LET'S BEGIN
-Remotion must visibly show one clear `LET'S BEGIN!` graphic on Bild 03.
+After visual review:
+```bash
+npm run assets:approve -- --episode=KM-XXX-name
+```
 
-### Outro
-Bild 16 is text-free. Remotion adds the ONE completion graphic:
-- GREAT JOB!
-- WORKOUT COMPLETE
+This writes `ASSET_APPROVAL.json` with SHA-256 hashes. If any approved image/audio changes afterward, `asset:gate` blocks rendering until review/approval is repeated.
+
+## Guarded render only
+Both `npm run render` and `npm run render:safe` use the same guarded renderer:
+
+```text
+TypeScript
+→ project:doctor
+→ preflight
+→ asset:gate
+→ KidMotionVideo render
+→ postrender:qa
+```
+
+`project:doctor` blocks code regressions; `asset:gate` blocks unreviewed/changed assets; `postrender:qa` checks the actual MP4 for runtime, resolution/FPS, ongoing music, boundary flashes and suspicious repeated exercise scenes.
 
 ## Timing
 Standard total:
@@ -137,6 +120,8 @@ Standard total:
 
 ## Final QA
 Reject if any of these occur:
+- visual review incomplete
+- asset approval missing/stale
 - black/white scene-boundary flashes
 - cropped exercise title/cloud
 - Rest countdown overlaps cloud
@@ -146,3 +131,4 @@ Reject if any of these occur:
 - Voice continues into exercise 1
 - background music missing after opening
 - subtitles appear
+- project doctor/preflight/asset gate/postrender QA fail
