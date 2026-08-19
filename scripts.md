@@ -1,57 +1,68 @@
 # KidMotion — Scripts Dokumentation
 
-Alle ausführbaren Skripte liegen in `scripts/`. `GEHIRN.md` bleibt die höchste Regelquelle.
-
----
-
-## npm run render:safe
-
-Hauptbefehl für die Videoproduktion. TypeScript prüfen → Preflight → Render. Ausgabe: `out/kidmotion.mp4`.
-
----
+`GEHIRN.md` bleibt die höchste Regelquelle.
 
 ## npm run start
-
 Startet Remotion Studio für Preview und visuelle QA.
 
----
+## npm run kidmotion:activate -- --episode=KM-XXX-name
+Aktiviert die gewünschte Episode.
 
-## node scripts/split-master-audio.mjs
+Aktueller kanonischer Pfad:
+`episodes/<episode>/04-data/data.json`
 
-Der Name ist historisch. Im aktuellen KidMotion-Standard gibt es nur noch EINE Voice-Datei.
+Das Script:
+- liest die Episodendaten
+- erstellt/aktualisiert öffentliche Episode-Aliase für Bilder und Audio
+- erzeugt `src/data/active-workout.ts`
+- mappt `Voice 01.mp3`, falls vorhanden
+- mappt `bg-music.mp3`, falls vorhanden
+- schreibt den ACTIVE_EPISODE Pointer
 
-Der Nutzer nimmt ausschließlich die kurze Intro-Voice auf und speichert sie als:
-`episodes/<aktive-episode>/02-audio/master.mp3`
+Die eine Voice darf über Intro + Safety + LET'S BEGIN laufen und muss vor Exercise 1 enden.
 
-Das Skript kopiert diese Datei zu:
-`Voice 01.mp3`
+## npm run preflight
+Prüft vor dem Render unter anderem:
+- aktive Episode korrekt gemappt
+- 12 Übungen
+- jede Übung exakt 20s
+- Gesamtzeit 313s beim Standardformat
+- Bild 00–16 vorhanden
+- Cover nicht im MP4
+- nur eine Opening-Voice
+- keine Voice in Übungen/Rest/Outro
+- KM-002 Voice nicht wieder nur ~8s kurz
+- Hintergrundmusik vorhanden, wenn Episode sie als Pflicht markiert
+- Exercise title/instruction kommen von Google Flow
+- kein Full-scene Fade/Zoom in Exercise/Rest-Code
+- Rest-UI-Regeln
 
-Zusätzlich entfernt es alte `Voice 02.mp3` bis `Voice 16.mp3`, falls sie aus einer früheren Version noch existieren.
+Die inhaltliche EIN-BILD-KLARHEIT und korrekte Google-Flow-Schrift müssen zusätzlich visuell geprüft werden.
 
-Es wird NICHT mehr in Intro/Safety/Let's Begin aufgeteilt.
-Safety, Let's Begin, Übungen, Rest und Outro bleiben ohne Sprache.
+## npm run render
+Rendert nur die Longform-Komposition `KidMotionVideo` nach:
+`out/kidmotion.mp4`
 
-Beispiel:
+## npm run postrender:qa
+Prüft das bereits gerenderte MP4 automatisch auf:
+- exakte Laufzeit
+- hörbares Audio/Musik nach dem Opening, wenn Musik Pflicht ist
+- schwarze Flash-Segmente
+- near-black/near-white blank-looking Frames an Szenengrenzen
+
+Das ersetzt nicht die manuelle visuelle QA, fängt aber genau die Fehlerklasse ab, die im abgelehnten KM-002-Test aufgetreten ist.
+
+## npm run render:safe
+Finaler Standardbefehl:
+
 ```bash
-node scripts/split-master-audio.mjs --episode=KM-001-football
+npm run typecheck && npm run preflight && npm run render && npm run postrender:qa
 ```
 
----
+Nur wenn alle Schritte bestehen und das MP4 danach visuell geprüft wurde, darf `PRODUCTION COMPLETE` gesagt werden.
 
-## node scripts/preflight.mjs
-
-Prüft vor dem Rendering Pflichtdaten und Produktionsregeln. Der aktuelle Standard verlangt unter anderem Intro-only Voice, keine späteren Voice-Mappings und exakt 20 Sekunden pro Übung.
-
-Zusätzliche visuelle Pflichtregel aus `GEHIRN.md`: Jede Übung muss aus einem einzelnen Standbild klar verständlich sein. Diese inhaltliche Bildprüfung muss vor dem finalen Render visuell durchgeführt werden; ein Dateicheck allein kann das nicht zuverlässig bewerten.
-
----
+## node scripts/split-master-audio.mjs
+Historischer Hilfsname. Aktuell gibt es nur eine Opening-Voice. Eine vorhandene `master.mp3` darf zu `Voice 01.mp3` vorbereitet werden; es werden keine Exercise-Voice-Dateien erstellt.
 
 ## node scripts/new-episode.mjs
-
-Erstellt eine neue Episode. Jede neue Übung muss bereits bei der Planung den EIN-BILD-KLARHEITSTEST bestehen: klare statische Endpose, eindeutige Silhouette, kein Bewegungsablauf nötig.
-
----
-
-## node scripts/activate-episode.mjs
-
-Wechselt die aktive Episode und aktualisiert die Remotion-Datenpfade.
+Erstellt neue Episoden-Grundlagen. Jede geplante Übung muss den EIN-BILD-KLARHEITSTEST bestehen und die aktuellen Google-Flow/Remotion-Grenzen aus `GEHIRN.md` übernehmen.
