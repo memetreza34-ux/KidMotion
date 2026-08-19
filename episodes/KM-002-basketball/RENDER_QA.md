@@ -2,6 +2,17 @@
 
 The uploaded test `KM-002-basketball.mp4` is REJECTED. Do not use it as the target reference.
 
+## 0. Asset approval gate — MUST PASS BEFORE RENDER
+- [ ] current revision in `GENERATION-REVISION.txt` matches `VISUAL_REVIEW.json`
+- [ ] every final `Bild 00.png`–`Bild 16.png` has been directly visually inspected
+- [ ] every required flag in `04-data/VISUAL_REVIEW.json` is true for the ACTUAL final files
+- [ ] no flag was approved from prompts/filenames alone
+- [ ] `npm run assets:approve -- --episode=KM-002-basketball` passes
+- [ ] `04-data/ASSET_APPROVAL.json` exists
+- [ ] no image/audio file is changed after asset approval
+
+If any source asset changes after approval, re-review and re-run `assets:approve`.
+
 ## 1. Opening 0–14s
 - [ ] Bild 01 visible immediately at 0.00s
 - [ ] Intro is clean: badge + title + `12 POSES • 20 SEC EACH` + `FOLLOW ALONG` only
@@ -63,15 +74,30 @@ The uploaded test `KM-002-basketball.mp4` is REJECTED. Do not use it as the targ
 - [ ] music audible near end
 - [ ] no lyrics/spoken samples
 
-## 6. Technical
+## 6. Technical / automated
 - [ ] 1920×1080
 - [ ] 30 fps
 - [ ] duration 313s / 5:13
 - [ ] Cover Bild 00 not inside MP4
 - [ ] `npm run typecheck` passes
+- [ ] `npm run project:doctor` passes
 - [ ] `npm run preflight` passes
-- [ ] `npm run render` passes
+- [ ] `npm run asset:gate` passes
+- [ ] guarded render passes
 - [ ] `npm run postrender:qa` passes
+- [ ] postrender QA finds no black/white/pale boundary flashes
+- [ ] postrender QA finds no effectively duplicated exercise scene
 
 ## Final rule
+Final rendering must use only:
+```bash
+npm run render
+```
+or
+```bash
+npm run render:safe
+```
+
+Both commands are now guarded and run the full production gate. Do not invoke raw Remotion render for final delivery.
+
 Do not mark PRODUCTION COMPLETE until this checklist is satisfied and the new MP4 has been visually reviewed at every scene boundary.
