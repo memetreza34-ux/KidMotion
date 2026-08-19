@@ -5,10 +5,13 @@
   "scripts": {
     "start": "remotion studio src/index.ts",
     "typecheck": "tsc --noEmit",
+    "project:doctor": "node scripts/project-doctor.mjs",
     "preflight": "node scripts/preflight.mjs",
+    "assets:approve": "node scripts/approve-assets.mjs",
+    "asset:gate": "node scripts/asset-gate.mjs",
     "render": "remotion render src/index.ts KidMotionVideo out/kidmotion.mp4 --crf 28 --preset faster",
     "postrender:qa": "node scripts/postrender-qa.mjs",
-    "render:safe": "npm run typecheck && npm run preflight && npm run render && npm run postrender:qa",
+    "render:safe": "npm run typecheck && npm run project:doctor && npm run preflight && npm run asset:gate && npm run render && npm run postrender:qa",
     "kidmotion:new": "node scripts/new-episode.mjs",
     "kidmotion:activate": "node scripts/activate-episode.mjs"
   },
