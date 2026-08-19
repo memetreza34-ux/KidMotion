@@ -1,167 +1,193 @@
 # KM-002 — Antigravity Production Instructions
 
-Read in this order BEFORE changing or rendering anything:
+Read in this exact order before changing, activating or rendering anything:
 1. `GEHIRN.md`
 2. `episodes/KM-002-basketball/README.md`
 3. `episodes/KM-002-basketball/01-skript/voice-text.md`
 4. `episodes/KM-002-basketball/03-bilder/bild-prompts.md`
 5. `episodes/KM-002-basketball/04-data/data.json`
-6. `episodes/KM-002-basketball/RENDER_QA.md`
+6. `episodes/KM-002-basketball/04-data/VISUAL_REVIEW.json`
+7. `episodes/KM-002-basketball/RENDER_QA.md`
 
-The previously rendered `KM-002-basketball.mp4` is REJECTED and must NOT be treated as the target visual reference.
+The previously rendered `KM-002-basketball.mp4` is REJECTED. Never use it as the visual target.
 
-## OLD IMAGE SET IS ALSO NOT FINAL
-The current generation marker is intentionally:
-`KM002-R1-REJECTED`
+## 1. GENERATION REVISION
+Current revision file:
+`episodes/KM-002-basketball/GENERATION-REVISION.txt`
 
-Before any final render, you MUST regenerate and visually approve:
-- `Bild 04.png` through `Bild 15.png`
-- `Bild 16.png`
+Current revision: `KM002-R2`.
 
-Why:
-- Exercise title/cloud styles were inconsistent
-- some text was too close to/cropped by edges
-- thought-bubble styles varied
-- a stray basketball appeared in a no-ball scene
-- current Bild 16 produced duplicate completion text in the MP4
+If ANY final source asset is regenerated after approval, the previous approval is invalid. Re-run visual review and `assets:approve`. The SHA-256 asset gate will block a changed file automatically.
 
-`Bild 01`, `Bild 02` and `Bild 03` may be reused ONLY if they still show the exact same approved girl/world and contain ZERO generated text.
-
-After the new `Bild 04`–`Bild 15` and clean `Bild 16` pass visual QA, change ONLY the first line of:
-`episodes/KM-002-basketball/03-bilder/GENERATION-REVISION.txt`
-
-to exactly:
-`KM002-R2-APPROVED`
-
-Do not write that approval marker early. Preflight intentionally blocks the render until it is present.
-
-## REQUIRED FINAL ASSETS
-Do not produce a final render until these exist inside the KM-002 episode:
+## 2. REQUIRED FINAL ASSETS
+Final production requires:
 - `Bild 00.png` through `Bild 16.png`
 - `Voice 01.mp3`
 - `bg-music.mp3`
-- image-generation marker `KM002-R2-APPROVED`
+- completed `04-data/VISUAL_REVIEW.json`
+- generated `04-data/ASSET_APPROVAL.json`
 
-Background music is NOT optional for final production.
+No final render without all of them.
 
-## OPENING — EXACT STRUCTURE
+## 3. MANDATORY VISUAL REVIEW — DO NOT SKIP
+Before asset approval, visually inspect the ACTUAL final images one by one. Do not infer approval from prompts, filenames or previous generations.
+
+Only set a VISUAL_REVIEW flag to true after directly checking the corresponding final images.
+
+Required review facts:
+- exact same girl in every scene
+- every exercise is understandable from one still
+- title/cloud readable and consistent across all exercises
+- top-left timer safe zone is clear
+- bottom progress safe zone is clear
+- ballCount is correct in every exercise
+- Bild 01/02/03/16 contain no generated text
+- no extra people
+- no anatomy errors
+- no important limbs cropped
+
+If even one required flag remains false, STOP. Do not render.
+
+After the actual visual review passes:
+```bash
+npm run assets:approve -- --episode=KM-002-basketball
+```
+
+That command performs technical checks and creates `ASSET_APPROVAL.json` with SHA-256 hashes of every approved source asset.
+
+After approval, DO NOT modify or replace any image/audio file. `render:safe` will block if a single byte changes.
+
+## 4. OPENING — EXACT STRUCTURE
 Opening total = 14 seconds:
 - Intro `Bild 01` = 8s
 - Safety `Bild 02` = 4s
 - LET'S BEGIN `Bild 03` = 2s
 
-One single `Voice 01.mp3` starts at 0s and may continue naturally across all three opening slides. It must finish BEFORE Scene 04 starts.
+Exactly one spoken file: `Voice 01.mp3`.
+It starts at 0s and may continue naturally across Intro + Safety + LET'S BEGIN. It must finish before Scene 04 starts.
 
-Final copy-ready Voice text:
+Final opening Voice:
 `Hi, KidMotion friends! It’s basketball time! Today we have twelve easy poses, twenty seconds each. Find some space, make sure you can move safely, and stop if anything hurts. Get ready, stay strong, and let’s begin!`
 
-Target Voice length: about 11–14 seconds.
+Target: about 11–14 seconds.
 
 After 14s:
-- exercises: NO spoken Voice
-- rests: NO spoken Voice
+- Exercises: NO spoken Voice
+- Rest: NO spoken Voice
 - Outro: NO spoken Voice
 
 Never create subtitles, captions or transcript bars.
 
-## BACKGROUND MUSIC — REQUIRED
-Use `bg-music.mp3` as quiet instrumental child-friendly sports music.
+## 5. BACKGROUND MUSIC — REQUIRED
+Use `bg-music.mp3`:
+- instrumental
+- child-friendly
+- sporty/playful
 - no lyrics
 - no spoken samples
-- low volume under opening Voice
-- increase slightly after the opening
+- low under opening Voice
+- slightly louder after opening
 - LOOP through the complete 5:13 video
-- verify music is still audible in the middle and near the end
 
-Do not accept a render that becomes digitally silent after the opening.
+Final render must still have music around 20s, the middle of the video and near the end.
 
-## SAME CHARACTER
+## 6. SAME CHARACTER
 Use exactly the same approved KM-002 girl throughout.
 - `Bild 01.png` = PRIMARY character/world reference
-- same face, ponytail, body proportions, purple/aqua outfit, shoes and gym
+- same face
+- same ponytail
+- same age appearance
+- same body proportions
+- same purple/aqua outfit
+- same shoes
+- same basketball gym
 - exactly one visible person
-- jersey: simple number 12 only, no fake brand/team text
+- no fake brand/team names
 
-## GOOGLE FLOW EXERCISE UI LOCK
-Every exercise image `Bild 04`–`Bild 15` contains:
-- pose
-- exercise title bottom-left
-- instruction cloud top-right
+## 7. GOOGLE FLOW EXERCISE UI LOCK
+For `Bild 04`–`Bild 15`, Google Flow creates:
+- the pose
+- one exercise title bottom-left
+- one instruction cloud top-right
 
-Workflow:
-1. REGENERATE `Bild 04` first
-2. approve its character, pose, title, cloud and safe zones
-3. use approved `Bild 04` as SECONDARY UI/LAYOUT reference for `Bild 05`–`Bild 15`
-4. use `Bild 01` as PRIMARY character/world reference throughout
+Reference system:
+- `Bild 01` = PRIMARY character/world reference
+- approved `Bild 04` = SECONDARY exercise UI/layout reference for `Bild 05`–`Bild 15`
 
-All exercise images must use the SAME:
+All exercises must keep the same:
 - title font feel
 - white title + navy outline style
-- title size and safe placement
+- title size
+- title placement
 - white/turquoise rounded cloud style
 - cloud font/size
+- margins
 
 Forbidden:
 - thought-bubble dots
 - random bubble shapes
-- random title colors/fonts
-- text touching frame edges
-- title inside bottom progress safe zone
-- timer/progress baked into image
+- random title styles
+- text touching/crossing frame edges
+- title entering bottom progress safe zone
+- instruction entering top-left timer zone
+- timer/progress baked into the image
 
-## BALL COUNT
+## 8. BALL COUNT
 Respect `ballCount` in `data.json` exactly.
-If scene says 0: ZERO basketballs anywhere, including floor/background.
-If scene says 1: EXACTLY ONE basketball used by the girl.
-No loose or duplicate balls.
+- `0` = ZERO basketballs anywhere in the image
+- `1` = EXACTLY ONE basketball used by the girl
 
-## REMOTION — CRITICAL FIXES
-### NEVER fade the entire scene image from opacity 0
-The rejected render showed black/white flashes for ~0.3s at many boundaries.
-At the FIRST FRAME of every scene, the character image must already be fully visible.
+No loose background balls. No duplicates.
 
-### NO Ken Burns on exercise/rest images
-Google Flow text is baked into exercise images. Zooming those images cropped/moved the title and cloud in the rejected render.
-Exercise and Rest source images stay static at 1:1 framing.
+## 9. REMOTION — PROTECTED RULES
+### No full-image fade from blank
+The first frame of every scene must already show the source image fully.
+
+Forbidden:
+- opacity 0 → 1 on the full scene image
+- black flashes
+- white/pastel flashes
+- blank transition frames
+
+### No Ken Burns on Exercise/Rest
+Exercise and Rest source images stay completely static at 1:1 framing.
+No zoom, scale or pan because Google Flow text is baked into these images.
 
 ### Exercises
 Remotion adds ONLY:
 - 20-second circular timer top-left
 - progress bar
-- exact 20s timing
+- exact 20-second timing
 
-Do not add pose title or instruction again.
+Never add a second title or instruction.
 
 ### Rest
 Use the NEXT exercise image full-screen.
-Remotion adds one compact `REST + countdown` unit in TOP-LEFT only.
-Do NOT place the Rest countdown top-right because the Google Flow instruction cloud is already there.
-Do NOT add `NEXT: [pose]`.
+Add one compact `REST + countdown` unit TOP-LEFT only.
+No top-right countdown. No `NEXT: pose`.
 
 ### Intro
-Keep clean. Show only:
+Show only:
 - `KIDMOTION BASKETBALL`
 - `5 MIN BASKETBALL WORKOUT`
 - `12 POSES • 20 SEC EACH`
 - `FOLLOW ALONG`
 
-Do NOT add WELCOME TO, duplicate chips, COPY • HOLD • HAVE FUN or extra slogans.
+No `WELCOME TO`, duplicate chips, `COPY • HOLD • HAVE FUN`, or extra slogans.
 
 ### Safety
-Use `Bild 02`, image visible from frame 1.
-Remotion shows only the short Safety panel.
+Use `Bild 02`, visible from frame 1. Add only the short Safety panel.
 
 ### LET'S BEGIN
-Use `Bild 03`, image visible from frame 1.
-Remotion MUST show one clear `LET'S BEGIN!` graphic.
+Use `Bild 03`, visible from frame 1. Remotion must visibly show exactly one `LET'S BEGIN!` graphic.
 
 ### Outro
-Use newly regenerated CLEAN `Bild 16` with ZERO generated text/graphics.
-Remotion adds the ONE and ONLY:
+`Bild 16` must contain ZERO generated text/graphics.
+Remotion adds exactly one completion graphic:
 - `GREAT JOB!`
 - `WORKOUT COMPLETE`
 
-## EXACT TIMING
+## 10. EXACT TIMING
 - Intro 8s
 - Safety 4s
 - LET'S BEGIN 2s
@@ -170,7 +196,7 @@ Remotion adds the ONE and ONLY:
 - Outro 4s
 - total = 313s / 5:13
 
-## EXERCISE ORDER
+## 11. EXERCISE ORDER
 1. Court Ready Hold
 2. Defense Wings Hold
 3. Ball Overhead Hold
@@ -184,31 +210,44 @@ Remotion adds the ONE and ONLY:
 11. Knee Hug Hold
 12. Ball Front Hold
 
-Every pose must pass the one-still clarity test.
+Every exercise must pass the one-still clarity test.
 
-## REJECTED RENDER — KNOWN FAILURES TO VERIFY ARE GONE
-Before accepting the next render confirm ALL of these are fixed:
-- no black exercise-start flash
-- no pale/white Rest-start flash
-- no Safety/Outro blank flash
-- no title/cloud cropping caused by zoom
-- no Rest countdown overlapping instruction cloud
-- no cluttered Intro
-- LET'S BEGIN visibly appears
-- exercise title/cloud styling consistent
-- no stray basketballs in no-ball scenes
-- no duplicate GREAT JOB at Outro
-- new longer opening Voice runs approximately 11–14s
-- background music is audible after 20s, around the middle, and near the end
-- no spoken Voice after first exercise begins
+## 12. AUTOMATED REGRESSION PROTECTION
+`render:safe` now runs:
 
-## FINAL BUILD
-Only after assets and revision marker are approved:
+```text
+TypeScript
+→ project:doctor
+→ preflight
+→ asset:gate
+→ render
+→ postrender:qa
+```
+
+`project:doctor` blocks code regressions such as:
+- Short composition returning
+- Exercise/Rest zoom or full-image fade returning
+- Intro clutter returning
+- LET'S BEGIN disappearing
+- background music no longer looping
+- separate later Voice playback returning
+- wrong canonical episode path
+
+`asset:gate` blocks:
+- missing approval
+- wrong revision
+- unapproved files
+- any image/audio changed after approval
+
+`postrender:qa` checks the actual MP4 for runtime, ongoing music and blank/black boundary problems.
+
+## 13. FINAL BUILD
+Only after VISUAL_REVIEW is complete and `assets:approve` passed:
+
 ```bash
 npm run kidmotion:activate -- --episode=KM-002-basketball
 npm run render:safe
 ```
 
-`render:safe` runs typecheck → preflight → render → postrender QA.
-
-Do NOT call the video PRODUCTION COMPLETE unless all automated checks pass and the resulting MP4 has been visually checked at every scene boundary.
+Never bypass `render:safe` for a final delivery.
+Never call the video PRODUCTION COMPLETE unless all automated gates pass AND the final MP4 has been visually checked.
