@@ -1,44 +1,65 @@
 # KidMotion — Schnellstart
 
 ## Neue Episode produzieren
-
 1. Nur Übungen auswählen, die aus EINEM Standbild sofort verständlich sind.
-2. Bilder mit Google Flow erstellen → alle in den jeweiligen `episodes/KM-XXX-.../03-bilder/` Ordner legen.
-3. Für jede Übung vor Freigabe prüfen: klare Ganzkörperpose, eindeutige Silhouette, keine Bewegung nötig.
-4. Nur die kurze Intro-Voice aufnehmen → als `Voice 01.mp3` ablegen oder als `master.mp3` und anschließend vorbereiten.
-5. Hintergrundmusik als `bg-music.mp3` ablegen.
-6. Video prüfen und rendern.
+2. `Bild 01` als Charakterreferenz festlegen.
+3. `Bild 04` als Exercise-UI-Referenz festlegen.
+4. Bilder mit Google Flow einzeln erzeugen und sofort prüfen/umbenennen.
+5. Eine einzige Opening-Voice `Voice 01.mp3` aufnehmen.
+6. `bg-music.mp3` in den Audio-Ordner legen.
+7. Episode aktivieren.
+8. `npm run render:safe` ausführen.
+9. MP4 zusätzlich visuell prüfen.
 
-## KM-001 Audio
+## Aktuelle Voice-Regel
+Es gibt genau EINE gesprochene Datei:
+`Voice 01.mp3`
 
-Es gibt nur EINE gesprochene Datei:
+Sie startet im Intro und darf über Safety + LET'S BEGIN weiterlaufen.
+Standard-Opening: 8s + 4s + 2s = 14s.
+Voice-Ziel: ungefähr 11–14s und vollständig beendet vor Exercise 1.
 
-`Voice 01.mp3` — Intro, ca. 6–8 Sekunden.
+Danach keine gesprochene Voice mehr.
 
-Finaler Text:
-> "Hi, KidMotion friends! Get ready for twelve football poses. Hold each one for twenty seconds. Find some space and follow along!"
+## Hintergrundmusik
+Finale Videos benötigen `bg-music.mp3`:
+- instrumental
+- kinderfreundlich
+- keine Lyrics/Sprache
+- leiser unter Voice
+- danach etwas lauter
+- durch komplettes Video loopen
 
-Danach ist das gesamte Video ohne Sprache:
-- Safety stumm
-- Let's Begin stumm
-- alle Übungen stumm
-- Rest stumm
-- Outro stumm
+## Bildregeln
+### Übungen
+Google Flow erzeugt direkt:
+- Pose
+- Exercise Name bottom-left
+- Instruction Cloud top-right
 
-Hintergrundmusik darf leise durch das gesamte Video laufen.
+Remotion erzeugt nur Timer + Progress.
+
+Exercise-Bilder bleiben statisch. Kein Ken Burns, kein Fade-in von schwarzem Frame.
+
+### Rest
+Nächstes Exercise-Bild bleibt sichtbar.
+`REST + Countdown` nur top-left, damit die Instruction Cloud top-right frei bleibt.
+
+### Nicht-Übungsbilder
+Bild 01, 02, 03 und 16: ZERO Google-Flow-Text.
+Remotion besitzt Intro/Safety/LET'S BEGIN/Outro-Grafiken.
 
 ## EIN-BILD-KLARHEITSTEST
+Wenn die Pose als Standbild/Silhouette nicht sofort klar ist, wird sie ersetzt.
 
-Eine Übung ist nur erlaubt, wenn ein Kind sie aus genau einem Standbild erkennen und kopieren kann.
+## Aktuelle KM-002 Opening-Voice
+Hi, KidMotion friends! It’s basketball time! Today we have twelve easy poses, twenty seconds each. Find some space, make sure you can move safely, and stop if anything hurts. Get ready, stay strong, and let’s begin!
 
-Nicht verwenden, wenn die Übung Bewegung, Richtung, Geschwindigkeit, mehrere Phasen oder nur eine sehr kleine schwer sichtbare Körperänderung benötigt.
-
-Wenn die Pose als Silhouette nicht eindeutig wäre, wird sie ersetzt.
-
-## Studio starten
+## Befehle
 ```bash
-npm run start
+npm run kidmotion:activate -- --episode=KM-002-basketball
+npm run render:safe
 ```
 
 ## Alle Regeln
-Siehe `GEHIRN.md` — diese Datei hat bei Widersprüchen höchste Priorität.
+Siehe `GEHIRN.md` — bei Widersprüchen gilt diese Datei.
