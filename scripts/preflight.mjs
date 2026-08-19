@@ -62,6 +62,14 @@ if (data.allowCharacterSwitch !== false) fail('allowCharacterSwitch must be fals
 if (data.allowSecondVisibleCharacter !== false) fail('allowSecondVisibleCharacter must be false.');
 if (data.allVideoSectionsUseCharacterImage !== true) fail('allVideoSectionsUseCharacterImage must be true.');
 
+if (data.imageGenerationRevisionRequired) {
+  const revisionPath = path.join(imageRoot, 'GENERATION-REVISION.txt');
+  const currentRevision = fs.existsSync(revisionPath) ? fs.readFileSync(revisionPath, 'utf8').trim().split(/\r?\n/)[0] : '';
+  if (currentRevision !== data.imageGenerationRevisionRequired) {
+    fail(`Image generation revision is not approved. Required ${data.imageGenerationRevisionRequired}, found ${currentRevision || 'MISSING'}. Regenerate/approve the images listed in regenerationRequired before rendering.`);
+  }
+}
+
 const openingVoicePolicyOk =
   data.voicePolicy?.openingSequenceVoiceOnly === true ||
   data.voicePolicy?.voiceOnlyInIntro === true;
@@ -176,4 +184,4 @@ if (failures.length) {
 console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${runtime}s`);
 console.log('Opening Voice: one file only, must end before exercise 1.');
 console.log('Music: required/looped for final production when episode policy requires it.');
-console.log('Visual: no blank scene fades; exercise/rest images remain static; Google Flow owns title/instruction.');
+console.log('Visual: approved image-generation revision required; no blank fades; exercise/rest images static; Google Flow owns title/instruction.');
