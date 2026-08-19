@@ -101,21 +101,33 @@ for (const scene of scenes) {
 const sampleFrameStats = (time) => {
   const result = spawnSync('ffmpeg', [
     '-loglevel', 'error', '-ss', String(time), '-i', videoPath,
-    '-frames:v', '1', '-vf', 'scale=64:36,format=gray',
+    '-frames:v', '1', '-vf', 'scale=96:54,format=gray',
     '-f', 'rawvideo', '-pix_fmt', 'gray', '-',
   ], {encoding: null, maxBuffer: 1024 * 1024});
   const buf = result.stdout;
   if (!buf || !buf.length) return null;
+
   let sum = 0;
+  let sumSquares = 0;
   let dark = 0;
   let light = 0;
+  let min = 255;
+  let max = 0;
   for (const value of buf) {
     sum += value;
+    sumSquares += value * value;
     if (value < 24) dark += 1;
     if (value > 238) light += 1;
+    if (value < min) min = value;
+    if (value > max) max = value;
   }
+  const mean = sum / buf.length;
+  const variance = Math.max(0, sumSquares / buf.length - mean * mean);
   return {
-    mean: sum / buf.length,
+    mean,
+    stdDev: Math.sqrt(variance),
+    min,
+    max,
     darkRatio: dark / buf.length,
     lightRatio: light / buf.length,
   };
@@ -123,18 +135,26 @@ const sampleFrameStats = (time) => {
 
 if (data.transitionPolicy?.blankFramesForbidden === true) {
   for (const boundary of boundaryTimes) {
-    for (const offset of [0, 0.05]) {
+    for (const offset of [0, 0.05, 0.15]) {
       const t = Math.min(expectedDuration - 0.05, boundary + offset);
       const stats = sampleFrameStats(t);
       if (!stats) {
         fail(`Could not inspect boundary frame around ${t.toFixed(2)}s.`);
         continue;
       }
+
       if (stats.darkRatio > 0.90) {
         fail(`Near-black blank frame detected around ${t.toFixed(2)}s (${(stats.darkRatio * 100).toFixed(0)}% dark pixels).`);
       }
       if (stats.lightRatio > 0.90) {
         fail(`Near-white blank frame detected around ${t.toFixed(2)}s (${(stats.lightRatio * 100).toFixed(0)}% light pixels).`);
+      }
+
+      // The rejected KM-002 Rest frames were not pure white: they were a pale blue/gray
+      // full-screen fade plate around mean 227 with very little image detail. Detect that too.
+      const paleUniformBlank = stats.mean > 205 && stats.stdDev < 20 && stats.min > 145;
+      if (paleUniformBlank) {
+        fail(`Pale/uniform blank-looking transition frame detected around ${t.toFixed(2)}s (mean ${stats.mean.toFixed(1)}, std ${stats.stdDev.toFixed(1)}).`);
       }
     }
   }
@@ -148,4 +168,4 @@ if (failures.length) {
 
 console.log(`POSTRENDER QA PASSED — ${episodeFolder}`);
 if (Number.isFinite(actualDuration)) console.log(`Duration: ${actualDuration.toFixed(3)}s`);
-console.log('Checked: runtime, ongoing music, black segments, and blank-looking scene-boundary frames.');
+console.log('Checked: runtime, ongoing music, black segments, and black/white/pale blank-looking scene-boundary frames.');
