@@ -6,14 +6,41 @@ Read in this order BEFORE changing or rendering anything:
 3. `episodes/KM-002-basketball/01-skript/voice-text.md`
 4. `episodes/KM-002-basketball/03-bilder/bild-prompts.md`
 5. `episodes/KM-002-basketball/04-data/data.json`
+6. `episodes/KM-002-basketball/RENDER_QA.md`
 
 The previously rendered `KM-002-basketball.mp4` is REJECTED and must NOT be treated as the target visual reference.
+
+## OLD IMAGE SET IS ALSO NOT FINAL
+The current generation marker is intentionally:
+`KM002-R1-REJECTED`
+
+Before any final render, you MUST regenerate and visually approve:
+- `Bild 04.png` through `Bild 15.png`
+- `Bild 16.png`
+
+Why:
+- Exercise title/cloud styles were inconsistent
+- some text was too close to/cropped by edges
+- thought-bubble styles varied
+- a stray basketball appeared in a no-ball scene
+- current Bild 16 produced duplicate completion text in the MP4
+
+`Bild 01`, `Bild 02` and `Bild 03` may be reused ONLY if they still show the exact same approved girl/world and contain ZERO generated text.
+
+After the new `Bild 04`–`Bild 15` and clean `Bild 16` pass visual QA, change ONLY the first line of:
+`episodes/KM-002-basketball/03-bilder/GENERATION-REVISION.txt`
+
+to exactly:
+`KM002-R2-APPROVED`
+
+Do not write that approval marker early. Preflight intentionally blocks the render until it is present.
 
 ## REQUIRED FINAL ASSETS
 Do not produce a final render until these exist inside the KM-002 episode:
 - `Bild 00.png` through `Bild 16.png`
 - `Voice 01.mp3`
 - `bg-music.mp3`
+- image-generation marker `KM002-R2-APPROVED`
 
 Background music is NOT optional for final production.
 
@@ -56,21 +83,22 @@ Use exactly the same approved KM-002 girl throughout.
 - jersey: simple number 12 only, no fake brand/team text
 
 ## GOOGLE FLOW EXERCISE UI LOCK
-Every exercise image `Bild 04`–`Bild 15` already contains:
+Every exercise image `Bild 04`–`Bild 15` contains:
 - pose
 - exercise title bottom-left
 - instruction cloud top-right
 
 Workflow:
-1. generate/approve `Bild 04`
-2. use `Bild 04` as SECONDARY UI/LAYOUT reference for `Bild 05`–`Bild 15`
-3. use `Bild 01` as PRIMARY character/world reference
+1. REGENERATE `Bild 04` first
+2. approve its character, pose, title, cloud and safe zones
+3. use approved `Bild 04` as SECONDARY UI/LAYOUT reference for `Bild 05`–`Bild 15`
+4. use `Bild 01` as PRIMARY character/world reference throughout
 
 All exercise images must use the SAME:
 - title font feel
-- title white/navy outline style
-- title safe placement
-- white/turquoise cloud style
+- white title + navy outline style
+- title size and safe placement
+- white/turquoise rounded cloud style
 - cloud font/size
 
 Forbidden:
@@ -90,13 +118,11 @@ No loose or duplicate balls.
 ## REMOTION — CRITICAL FIXES
 ### NEVER fade the entire scene image from opacity 0
 The rejected render showed black/white flashes for ~0.3s at many boundaries.
-This is forbidden.
-
 At the FIRST FRAME of every scene, the character image must already be fully visible.
 
 ### NO Ken Burns on exercise/rest images
 Google Flow text is baked into exercise images. Zooming those images cropped/moved the title and cloud in the rejected render.
-Exercise and Rest source images must stay at static 1:1 framing.
+Exercise and Rest source images stay static at 1:1 framing.
 
 ### Exercises
 Remotion adds ONLY:
@@ -119,11 +145,7 @@ Keep clean. Show only:
 - `12 POSES • 20 SEC EACH`
 - `FOLLOW ALONG`
 
-Do NOT add:
-- `WELCOME TO`
-- duplicate 12-pose/20-second chips
-- `COPY • HOLD • HAVE FUN`
-- extra slogans
+Do NOT add WELCOME TO, duplicate chips, COPY • HOLD • HAVE FUN or extra slogans.
 
 ### Safety
 Use `Bild 02`, image visible from frame 1.
@@ -134,12 +156,10 @@ Use `Bild 03`, image visible from frame 1.
 Remotion MUST show one clear `LET'S BEGIN!` graphic.
 
 ### Outro
-Use CLEAN `Bild 16` with ZERO generated text/graphics.
+Use newly regenerated CLEAN `Bild 16` with ZERO generated text/graphics.
 Remotion adds the ONE and ONLY:
 - `GREAT JOB!`
 - `WORKOUT COMPLETE`
-
-If Bild 16 already contains GREAT JOB text, REJECT/REGENERATE Bild 16. Do not stack two completion graphics.
 
 ## EXACT TIMING
 - Intro 8s
@@ -183,12 +203,12 @@ Before accepting the next render confirm ALL of these are fixed:
 - no spoken Voice after first exercise begins
 
 ## FINAL BUILD
-Activate KM-002 using the canonical episode activation script, then:
+Only after assets and revision marker are approved:
 ```bash
-npm run typecheck
-npm run preflight
-npm run render
-npm run postrender:qa
+npm run kidmotion:activate -- --episode=KM-002-basketball
+npm run render:safe
 ```
 
-Do NOT call the video production-complete unless all four steps pass and the resulting MP4 has been visually checked at every scene boundary.
+`render:safe` runs typecheck → preflight → render → postrender QA.
+
+Do NOT call the video PRODUCTION COMPLETE unless all automated checks pass and the resulting MP4 has been visually checked at every scene boundary.
