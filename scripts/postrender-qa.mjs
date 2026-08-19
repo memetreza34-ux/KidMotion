@@ -14,23 +14,17 @@ if (!fs.existsSync(videoPath)) {
   process.exit(1);
 }
 
-const pointerCandidates = [
-  path.join(root, 'episodes', 'ACTIVE_EPISODE.json'),
-  path.join(root, 'content', 'ACTIVE_EPISODE.json'),
-];
-const pointerPath = pointerCandidates.find((candidate) => fs.existsSync(candidate));
-if (!pointerPath) {
-  console.error('POSTRENDER QA FAILED: no ACTIVE_EPISODE pointer found.');
+const pointerPath = path.join(root, 'episodes', 'ACTIVE_EPISODE.json');
+if (!fs.existsSync(pointerPath)) {
+  console.error('POSTRENDER QA FAILED: episodes/ACTIVE_EPISODE.json is missing.');
   process.exit(1);
 }
 
 const pointer = JSON.parse(fs.readFileSync(pointerPath, 'utf8'));
 const episodeFolder = pointer.episodeFolder;
-const canonicalDataPath = path.join(root, 'episodes', episodeFolder, '04-data', 'data.json');
-const legacyDataPath = path.join(root, 'content', 'episodes', episodeFolder, 'data.json');
-const dataPath = fs.existsSync(canonicalDataPath) ? canonicalDataPath : legacyDataPath;
+const dataPath = path.join(root, 'episodes', episodeFolder, '04-data', 'data.json');
 if (!fs.existsSync(dataPath)) {
-  console.error(`POSTRENDER QA FAILED: missing data for ${episodeFolder}`);
+  console.error(`POSTRENDER QA FAILED: missing canonical data for ${episodeFolder}`);
   process.exit(1);
 }
 const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -48,6 +42,31 @@ if (!Number.isFinite(actualDuration)) {
   fail('Could not read MP4 duration with ffprobe.');
 } else if (Math.abs(actualDuration - expectedDuration) > 0.15) {
   fail(`MP4 duration is ${actualDuration.toFixed(3)}s; expected ${expectedDuration}s.`);
+}
+
+const streamProbe = runText('ffprobe', [
+  '-v', 'error',
+  '-select_streams', 'v:0',
+  '-show_entries', 'stream=width,height,r_frame_rate',
+  '-of', 'json',
+  videoPath,
+]);
+try {
+  const stream = JSON.parse(streamProbe.stdout || '{}').streams?.[0];
+  if (!stream) {
+    fail('MP4 has no readable video stream.');
+  } else {
+    if (Number(stream.width) !== Number(data.width || 1920) || Number(stream.height) !== Number(data.height || 1080)) {
+      fail(`Wrong render size: ${stream.width}x${stream.height}; expected ${data.width || 1920}x${data.height || 1080}.`);
+    }
+    const [num, den] = String(stream.r_frame_rate || '').split('/').map(Number);
+    const fps = den ? num / den : Number(stream.r_frame_rate);
+    if (!Number.isFinite(fps) || Math.abs(fps - Number(data.fps || 30)) > 0.05) {
+      fail(`Wrong frame rate: ${Number.isFinite(fps) ? fps.toFixed(3) : 'unknown'}; expected ${data.fps || 30}.`);
+    }
+  }
+} catch {
+  fail('Could not parse video stream metadata.');
 }
 
 const getMeanVolume = (start, duration = 2) => {
@@ -87,26 +106,31 @@ if (blackSegments.length) {
 
 const scenes = Array.isArray(data.scenes) ? data.scenes : [];
 const boundaryTimes = [];
+const exerciseCenters = [];
 let cursor = 0;
 for (const scene of scenes) {
   if (scene.type === 'cover') continue;
   if (cursor > 0) boundaryTimes.push(cursor);
-  cursor += Number(scene.duration || 0);
+  const sceneDuration = Number(scene.duration || 0);
+  if (scene.type === 'exercise') exerciseCenters.push({scene: scene.scene, time: cursor + sceneDuration / 2});
+  cursor += sceneDuration;
   if (Number(scene.restAfter || 0) > 0) {
     boundaryTimes.push(cursor);
     cursor += Number(scene.restAfter || 0);
   }
 }
 
-const sampleFrameStats = (time) => {
+const sampleGrayFrame = (time) => {
   const result = spawnSync('ffmpeg', [
     '-loglevel', 'error', '-ss', String(time), '-i', videoPath,
     '-frames:v', '1', '-vf', 'scale=96:54,format=gray',
     '-f', 'rawvideo', '-pix_fmt', 'gray', '-',
   ], {encoding: null, maxBuffer: 1024 * 1024});
-  const buf = result.stdout;
-  if (!buf || !buf.length) return null;
+  return result.stdout && result.stdout.length ? result.stdout : null;
+};
 
+const frameStats = (buf) => {
+  if (!buf?.length) return null;
   let sum = 0;
   let sumSquares = 0;
   let dark = 0;
@@ -137,25 +161,39 @@ if (data.transitionPolicy?.blankFramesForbidden === true) {
   for (const boundary of boundaryTimes) {
     for (const offset of [0, 0.05, 0.15]) {
       const t = Math.min(expectedDuration - 0.05, boundary + offset);
-      const stats = sampleFrameStats(t);
+      const buf = sampleGrayFrame(t);
+      const stats = frameStats(buf);
       if (!stats) {
         fail(`Could not inspect boundary frame around ${t.toFixed(2)}s.`);
         continue;
       }
-
       if (stats.darkRatio > 0.90) {
         fail(`Near-black blank frame detected around ${t.toFixed(2)}s (${(stats.darkRatio * 100).toFixed(0)}% dark pixels).`);
       }
       if (stats.lightRatio > 0.90) {
         fail(`Near-white blank frame detected around ${t.toFixed(2)}s (${(stats.lightRatio * 100).toFixed(0)}% light pixels).`);
       }
-
-      // The rejected KM-002 Rest frames were not pure white: they were a pale blue/gray
-      // full-screen fade plate around mean 227 with very little image detail. Detect that too.
       const paleUniformBlank = stats.mean > 205 && stats.stdDev < 20 && stats.min > 145;
       if (paleUniformBlank) {
         fail(`Pale/uniform blank-looking transition frame detected around ${t.toFixed(2)}s (mean ${stats.mean.toFixed(1)}, std ${stats.stdDev.toFixed(1)}).`);
       }
+    }
+  }
+}
+
+// Catch accidental repeated exercise visuals in the actual rendered MP4.
+const centerFrames = exerciseCenters.map(({scene, time}) => ({scene, time, buf: sampleGrayFrame(time)}));
+const meanAbsDiff = (a, b) => {
+  if (!a || !b || a.length !== b.length) return null;
+  let total = 0;
+  for (let i = 0; i < a.length; i += 1) total += Math.abs(a[i] - b[i]);
+  return total / a.length;
+};
+for (let i = 0; i < centerFrames.length; i += 1) {
+  for (let j = i + 1; j < centerFrames.length; j += 1) {
+    const diff = meanAbsDiff(centerFrames[i].buf, centerFrames[j].buf);
+    if (diff !== null && diff < 0.5) {
+      fail(`Rendered exercise scenes ${centerFrames[i].scene} and ${centerFrames[j].scene} look effectively identical at their center frames (mean pixel diff ${diff.toFixed(3)}). Possible reused/wrong image.`);
     }
   }
 }
@@ -168,4 +206,4 @@ if (failures.length) {
 
 console.log(`POSTRENDER QA PASSED — ${episodeFolder}`);
 if (Number.isFinite(actualDuration)) console.log(`Duration: ${actualDuration.toFixed(3)}s`);
-console.log('Checked: runtime, ongoing music, black segments, and black/white/pale blank-looking scene-boundary frames.');
+console.log('Checked: runtime, resolution/FPS, ongoing music, black segments, black/white/pale scene-boundary frames, and repeated-looking exercise scenes.');
