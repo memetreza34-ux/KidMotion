@@ -1,0 +1,14 @@
+{
+  "episodeFolder": "KM-002-basketball",
+  "revision": "KM002-R2",
+  "sameCharacterEveryScene": false,
+  "allExercisePosesClearFromOneStill": false,
+  "allExerciseTextReadableAndConsistent": false,
+  "allExerciseSafeZonesClear": false,
+  "propBallCountsCorrect": false,
+  "nonExerciseImagesContainNoGeneratedText": false,
+  "noExtraPeople": false,
+  "noAnatomyErrors": false,
+  "noCroppingOfImportantLimbs": false,
+  "notes": "BLOCKED until Antigravity visually inspects every final Bild 00–16 and changes every required flag to true. Do not mark true from filenames or prompts alone."
+}
