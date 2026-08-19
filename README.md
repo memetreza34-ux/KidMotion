@@ -8,40 +8,32 @@ KidMotion is an original English-language kids fitness YouTube project using pre
 - YouTube long-form only
 - 16:9 / 1920×1080 / 30fps
 - exactly ONE main character per episode
-- static poses that are immediately understandable from one still image
+- static poses understandable from one still image
 - typical episode: 12 exercises
 - every exercise: exactly 20s
 - typical Rest: 5s
 - standard runtime: 313s / 5:13
 
 ## Canonical episode structure
-Episodes live under:
+Episodes live only under:
 `episodes/KM-XXX-name/`
 
 Each episode contains:
 - `01-skript/` — one copy-ready Opening Voice paragraph
 - `02-audio/` — `Voice 01.mp3` + `bg-music.mp3`
 - `03-bilder/` — Google Flow images/prompts
-- `04-data/` — `data.json`
+- `04-data/data.json`
+- `04-data/VISUAL_REVIEW.json`
+- `04-data/ASSET_APPROVAL.json` after approval
+- `GENERATION-REVISION.txt`
 - episode README + Antigravity + QA instructions
 
-Do NOT create new episodes in legacy `content/episodes/`.
+Legacy `content/episodes/` is not a production source.
 
-## Character rule
-One video = exactly one recurring character.
+## Character / pose rules
+One video = exactly one recurring character. No second visible person.
 
-The same character stays consistent through Intro, Safety, LET'S BEGIN, exercises, Rest backgrounds and Outro.
-No second visible person.
-
-## One-still clarity
-Every exercise must work from exactly ONE still image.
-
-Reject/replace a pose if:
-- motion is required to understand it
-- silhouette is unclear
-- limbs overlap/hide important joints
-- only a subtle micro-position makes the exercise different
-- Google Flow still cannot depict it clearly after two serious attempts
+Every exercise must work from exactly ONE still image. Reject/replace a pose if motion is needed, silhouette is unclear, anatomy is bad, important limbs overlap/crop, or Google Flow cannot depict it clearly after two serious attempts.
 
 ## Image numbering
 - `Bild 00.png` = Cover only; NEVER inside MP4
@@ -52,102 +44,81 @@ Reject/replace a pose if:
 - `Bild 16.png` = Outro
 
 ## Google Flow responsibilities
-### Exercise images
-Google Flow creates directly in `Bild 04`–`Bild 15`:
+Exercise images contain directly:
 - exercise name bottom-left
 - one short instruction cloud top-right
 
-After `Bild 04` is approved, use it as SECONDARY UI/LAYOUT reference for `Bild 05`–`Bild 15` so title/cloud styling stays consistent.
+Approved `Bild 04` becomes SECONDARY UI/LAYOUT reference for later exercise images.
 
-Exercise safe zones:
+Safe zones:
 - top-left ~220×220 px clear for Remotion timer
 - lowest ~90 px clear for Remotion progress
 
-No thought-bubble dots, clipped titles, duplicate text, timer or progress baked into the images.
-
-### Non-exercise images
 `Bild 01`, `Bild 02`, `Bild 03`, `Bild 16` contain ZERO Google Flow text.
-Remotion owns Intro/Safety/LET'S BEGIN/Outro graphics.
 
-`Bild 16` must not contain GREAT JOB text.
-
-### Prop rule
-If a scene says no ball/prop: ZERO of that prop anywhere in frame.
-If a scene uses one: EXACTLY ONE.
-No stray background duplicates.
+Prop rule: ZERO props when scene says zero; EXACTLY ONE when scene says one. No stray duplicates.
 
 ## Opening Voice
-Exactly one spoken file:
-`Voice 01.mp3`
+Exactly one spoken file: `Voice 01.mp3`.
 
-It starts at 0s and may continue across the complete 14s opening:
+It may span the complete 14s opening:
 - Intro 8s
 - Safety 4s
 - LET'S BEGIN 2s
 
-Target: about 11–14s.
-It must end before exercise 1 starts.
-
-After that:
-- no exercise Voice
-- no Rest Voice
-- no Outro Voice
-- no spoken countdown
-- no subtitles/captions/transcripts
-
-Every user-facing script is one continuous copy-ready paragraph.
+Target about 11–14s and it must end before exercise 1.
+After that: no spoken Voice, no spoken countdown, no subtitles/captions/transcripts.
 
 ## Background music
-Final renders require `bg-music.mp3`:
-- instrumental
-- child-friendly / sporty-playful
-- no lyrics or speech
-- low under Opening Voice
-- slightly louder afterward
-- loop through the complete workout
+Final renders require `bg-music.mp3`, instrumental and child-friendly, low under Opening Voice and looped through the full workout.
 
 ## Remotion responsibilities
-During exercises Remotion adds ONLY:
-- circular 20s timer top-left
-- progress bar
-- exact timing
+During exercises Remotion adds ONLY timer + progress + timing.
+Exercise and Rest source images stay static. No Ken Burns/zoom/pan. No full-image fade from blank.
 
-Exercise and Rest source images stay static at 1:1 framing.
-No Ken Burns/zoom/pan on images containing baked Google Flow text.
+Rest reuses the NEXT exercise image and adds compact `REST + countdown` top-left only.
 
-Every scene image is visible from its first frame.
-No full-scene opacity fade from zero, black flash, white flash or blank transition frame.
+## Mandatory asset review lock
+A final render is blocked until the actual final source files are visually reviewed.
 
-Rest:
-- reuse NEXT exercise image
-- compact `REST + countdown` top-left only
-- no NEXT pose overlay
-- never place Rest countdown top-right over the instruction cloud
-
-## Current episode
-Current production target:
-`KM-002-basketball`
-
-The previous KM-002 test render is rejected. Its known failures and fixes are documented in:
-- `episodes/KM-002-basketball/README.md`
-- `episodes/KM-002-basketball/ANTIGRAVITY.md`
-- `episodes/KM-002-basketball/RENDER_QA.md`
-
-## Production commands
-Activate:
+1. Inspect every final image directly.
+2. Set every required flag in `04-data/VISUAL_REVIEW.json` to true only after real inspection.
+3. Run:
 ```bash
-npm run kidmotion:activate -- --episode=KM-002-basketball
+npm run assets:approve -- --episode=KM-XXX-name
 ```
+4. This creates `ASSET_APPROVAL.json` with SHA-256 hashes.
+5. If any approved image/audio changes afterward, rendering is blocked until re-review/re-approval.
 
-Final safe render:
+## Guarded rendering
+Both:
+```bash
+npm run render
+```
+and:
 ```bash
 npm run render:safe
 ```
+run the same guarded pipeline:
 
-`render:safe` runs:
-1. TypeScript
-2. Preflight
-3. Longform render
-4. Postrender QA
+```text
+TypeScript
+→ project:doctor
+→ preflight
+→ asset:gate
+→ KidMotionVideo render
+→ postrender:qa
+```
 
-Do not call an episode PRODUCTION COMPLETE until the new MP4 also passes manual visual QA at every scene boundary.
+There is intentionally no normal npm raw-render path.
+
+Postrender QA checks runtime, resolution/FPS, ongoing music, black/white/pale boundary flashes and suspicious repeated exercise scenes.
+
+## Current target
+`KM-002-basketball`
+
+The previous KM-002 test render is rejected. Fix/acceptance rules are in:
+- `episodes/KM-002-basketball/ANTIGRAVITY.md`
+- `episodes/KM-002-basketball/RENDER_QA.md`
+
+Do not call an episode PRODUCTION COMPLETE until all automated gates pass and the resulting MP4 is visually checked.
