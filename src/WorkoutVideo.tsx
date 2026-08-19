@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, interpolate, staticFile} from 'remotion';
 import type {Workout} from './types';
 import {ExerciseScene} from './components/ExerciseScene';
 import {RestScreen} from './components/RestScreen';
@@ -27,11 +27,34 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
   const letsBeginFrames = (workout.letsBeginDuration ?? 2) * fps;
   const openingFrames = introFrames + safetyFrames + letsBeginFrames;
   const outroFrames = (workout.outroDuration ?? 4) * fps;
+  const totalFrames = workoutDurationInFrames(workout);
   let cursor = introFrames;
 
   return (
     <AbsoluteFill style={{background: '#eef8ff'}}>
-      {workout.bgMusic ? <Audio src={staticFile(workout.bgMusic)} volume={0.15} /> : null}
+      {workout.bgMusic ? (
+        <Audio
+          src={staticFile(workout.bgMusic)}
+          loop
+          loopVolumeCurveBehavior="extend"
+          volume={(f) => {
+            const afterOpening = interpolate(
+              f,
+              [openingFrames, openingFrames + Math.round(fps * 1.2)],
+              [0.08, 0.16],
+              {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+            );
+            const outroFade = interpolate(
+              f,
+              [Math.max(0, totalFrames - Math.round(fps * 2)), totalFrames - 1],
+              [1, 0.55],
+              {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+            );
+            const base = f < openingFrames ? 0.08 : afterOpening;
+            return base * outroFade;
+          }}
+        />
+      ) : null}
 
       {workout.introVoice ? (
         <Sequence from={0} durationInFrames={openingFrames}>
