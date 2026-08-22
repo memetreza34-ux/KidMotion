@@ -11,6 +11,8 @@ Vor jeder KidMotion-Arbeit lesen:
 
 Bei Widerspruch gilt immer `GEHIRN.md`.
 
+**Legacy-Hinweis:** Falls eine ältere Episode oder ein älterer Generator noch `11–14s` als Voice-Ziel nennt, ist dieser Wert veraltet. Für das Standard-Opening gilt ab jetzt die Continuous-Voice-Regel unten mit ungefähr `13.65–14.00s`. Antigravity darf den alten Wert nicht als Freigabe für mehrere Sekunden Music-only-Opening verwenden.
+
 ---
 
 ## 1. CONTINUOUS OPENING VOICE — NICHT VERHANDELBAR
