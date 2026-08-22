@@ -17,13 +17,23 @@ npm run assets:approve -- --episode=KM-XXX-name
 11. `npm run render` oder `npm run render:safe` ausführen. Beide sind geschützt.
 12. Neue MP4 zusätzlich visuell prüfen.
 
-## Aktuelle Voice-Regel
+## Aktuelle Voice-Regel — HARD RULE
 Es gibt genau EINE gesprochene Datei:
 `Voice 01.mp3`
 
-Sie startet im Intro und darf über Safety + LET'S BEGIN weiterlaufen.
-Standard-Opening: 8s + 4s + 2s = 14s.
-Voice-Ziel: ungefähr 11–14s und vollständig beendet vor Exercise 1.
+Sie beginnt direkt bei Frame 0 und MUSS die komplette Opening-Sequenz sprachlich tragen:
+- Intro 8s
+- Safety 4s
+- LET'S BEGIN 2s
+- danach startet Exercise 1
+
+Standard-Opening: 14s.
+
+**Wichtig:** Musik allein zählt NICHT als Opening-Abdeckung. Vom ersten Frame bis unmittelbar vor Exercise 1 soll der Sprecher praktisch durchgehend zu hören sein. Natürliche kurze Atem-/Satzpausen sind okay, aber keine längeren leeren Abschnitte und insbesondere kein Safety- oder LET'S-BEGIN-Teil nur mit Musik.
+
+Die Voice-Datei muss deshalb für ein 14s-Opening nahezu die komplette Länge ausfüllen. Technisches Ziel: ungefähr 13,65–14,00s und vollständig beendet vor Exercise 1.
+
+Der Scripttext wird NICHT nach einer festen Wortzahl gekürzt. Er muss lang genug für das tatsächliche TTS-Sprechtempo sein. Wenn die erzeugte Voice deutlich früher endet und am Ende des Openings nur Musik übrig bleibt, wird der Text verlängert bzw. die Voice neu erzeugt.
 
 Danach keine gesprochene Voice mehr.
 
@@ -79,4 +89,4 @@ npm run render:safe
 ```
 
 ## Alle Regeln
-Siehe `GEHIRN.md` — bei Widersprüchen gilt diese Datei.
+Siehe `GEHIRN.md` — bei Widersprüchen gilt `GEHIRN.md` als höchste Regelquelle.
