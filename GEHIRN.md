@@ -90,13 +90,29 @@ npm run assets:approve -- --episode=KM-XXX-slug
 Es gibt genau EINE gesprochene Datei:
 `Voice 01.mp3`
 
-Sie startet im Intro und darf natürlich über die komplette kurze Opening-Sequenz laufen:
+Sie startet direkt bei Frame 0 und MUSS die komplette kurze Opening-Sequenz sprachlich tragen:
 - Intro ca. 8s
 - Safety ca. 4s
 - LET'S BEGIN ca. 2s
+- danach beginnt Exercise 1
 
-Ziel: ungefähr 11–14 Sekunden.
-Sie MUSS vor der ersten Übung komplett beendet sein.
+Standard-Opening: 14 Sekunden.
+
+### CONTINUOUS OPENING VOICE — HARTE REGEL
+Vom ersten Frame bis unmittelbar vor Exercise 1 soll der Sprecher praktisch durchgehend zu hören sein.
+
+Das bedeutet:
+- Voice beginnt sofort bei 0s; kein Musik-only-Intro vor dem ersten gesprochenen Wort
+- Intro, Safety und LET'S BEGIN sind Teil EINES zusammenhängenden Sprechertexts
+- Safety darf nicht nur Musik + Textkarte sein
+- LET'S BEGIN darf nicht nur Musik + Textkarte sein
+- natürliche kurze Atem-/Satzpausen sind erlaubt
+- längere leere Voice-Abschnitte im Opening sind verboten
+- Hintergrundmusik zählt NICHT als Ersatz für Voiceover
+- der Text muss lang genug für das tatsächliche TTS-Sprechtempo sein
+- niemals den Text künstlich kürzen, nur um eine Ziel-Wortzahl einzuhalten
+
+Für ein 14s-Opening soll die tatsächlich erzeugte Voice ungefähr 13,65–14,00s lang sein und vollständig vor Exercise 1 enden. Wenn die Voice deutlich früher endet und mehrere Sekunden nur Musik übrig bleiben, ist das Opening NICHT freigegeben: Script verlängern oder Voice neu erzeugen.
 
 Danach:
 - Übungen: keine Voice
@@ -106,12 +122,14 @@ Danach:
 Keine separaten Voice-Dateien für Safety/LET'S BEGIN.
 Keine Übungsansagen.
 Keine Countdown-Stimme.
-Keine Motivations-Füllsätze.
+Keine Motivations-Füllsätze nach dem Opening.
 Keine Untertitel, Captions oder Transkripte.
 
 ### Script-Format
 Der gesprochene Text wird für den Nutzer immer als genau EIN kopierfertiger Fließtext geschrieben.
 Keine Teil-1/Teil-2-Aufteilung, keine Regiehinweise im Copy-Text.
+
+Bei der Script-Erstellung zuerst die tatsächliche Opening-Dauer und das geplante TTS-Sprechtempo berücksichtigen. Das Ziel ist keine feste Wortzahl, sondern eine natürlich klingende, nahezu lückenlose Voice-Abdeckung bis Exercise 1.
 
 ### Hintergrundmusik — FINAL REQUIRED
 Für einen finalen Render ist `bg-music.mp3` Pflicht.
@@ -262,10 +280,12 @@ Keine unnötigen Slogans.
 ### Safety
 `Bild 02` bleibt ab Frame 1 sichtbar.
 Nur kurze Safety-Grafik.
+Opening-Voice läuft hier weiter; Safety ist kein Voice-Loch.
 
 ### LET'S BEGIN
 `Bild 03` bleibt ab Frame 1 sichtbar.
 Remotion zeigt EIN klares `LET'S BEGIN!`.
+Opening-Voice läuft hier weiter und endet erst unmittelbar vor Exercise 1.
 
 ### Outro
 `Bild 16` ist komplett textfrei.
@@ -285,6 +305,8 @@ Exercise 12 20s → Outro 4s
 ```
 
 Standard: 313s / 5:13.
+
+Opening-Voice-Coverage: nahezu die vollen ersten 14s, danach keine Voice.
 
 ---
 
@@ -309,6 +331,11 @@ TypeScript
 - nicht geloopte Musik
 - spätere separate Voice-Wiedergabe
 - falsche/alte Episodenstruktur
+
+### preflight blockiert u. a.
+- fehlende Opening-Voice
+- Voice, die über Exercise 1 hinausläuft
+- eine Opening-Voice, die die 14s-Opening-Sequenz deutlich zu früh verlässt und Voice-Dead-Air erzeugt
 
 ### asset:gate blockiert
 - fehlende visuelle Freigabe
@@ -340,7 +367,10 @@ PRODUCTION COMPLETE erst wenn:
 - Rest-UI kollidiert nicht mit Instruction-Cloud
 - LET'S BEGIN sichtbar
 - Outro nicht doppelt beschriftet
-- Voice 01 läuft nur im Opening und endet vor Übung 1
+- Voice 01 startet sofort bei Frame 0
+- Voice 01 trägt Intro + Safety + LET'S BEGIN nahezu lückenlos
+- kein längerer Musik-only-Abschnitt vor Exercise 1
+- Voice 01 endet unmittelbar vor Exercise 1 und läuft niemals in die Übung hinein
 - Hintergrundmusik läuft durch das gesamte Video
 - keine Untertitel
 - VISUAL_REVIEW vollständig wahrheitsgemäß abgeschlossen
