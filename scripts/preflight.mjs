@@ -146,8 +146,11 @@ if (!fs.existsSync(voicePath)) {
   const duration = Number.parseFloat(result.stdout || '');
   if (Number.isFinite(duration)) {
     const openingDuration = Number(data.openingDuration || (Number(data.introDuration) + Number(data.safetyDuration) + Number(data.letsBeginDuration)));
+    const minimumContinuousCoverage = Math.max(0, openingDuration - 0.35);
     if (duration > openingDuration + 0.05) fail(`Opening Voice is ${duration.toFixed(2)}s and runs past the ${openingDuration}s opening.`);
-    if (data.id === 'KM-002' && duration < 10.5) fail(`KM-002 opening Voice is too short (${duration.toFixed(2)}s). Use the current 11–14s script.`);
+    if (duration < minimumContinuousCoverage) {
+      fail(`Opening Voice is too short (${duration.toFixed(2)}s). It must cover the opening from frame 0 through Safety + LET'S BEGIN and reach at least ${minimumContinuousCoverage.toFixed(2)}s of the ${openingDuration.toFixed(2)}s opening. Music-only dead air before Exercise 1 is forbidden.`);
+    }
   } else {
     warn('Could not determine Voice 01 duration with ffprobe.');
   }
@@ -182,6 +185,6 @@ if (failures.length) {
 }
 
 console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${runtime}s`);
-console.log('Opening Voice: one file only, must end before exercise 1.');
+console.log("Opening Voice: frame 0 through Safety + LET'S BEGIN, near-full opening coverage, and must end before Exercise 1.");
 console.log('Music: required/looped for final production when episode policy requires it.');
 console.log('Visual: approved image-generation revision required; no blank fades; exercise/rest images static; Google Flow owns title/instruction.');
