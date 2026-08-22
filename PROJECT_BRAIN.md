@@ -32,10 +32,18 @@ If the silhouette is unclear or Google Flow cannot make the pose clean after two
 
 Every visible MP4 section uses the episode character image. No blank/text-only replacement screens.
 
-## Opening Voice
+## Opening Voice — HARD RULE
 Use exactly ONE spoken file: `Voice 01.mp3`.
-It begins at 0s and may continue naturally across Intro 8s + Safety 4s + LET'S BEGIN 2s.
-Target roughly 11–14s and it must end before exercise 1.
+
+It begins immediately at frame 0 and must carry the full opening sequence continuously:
+- Intro 8s
+- Safety 4s
+- LET'S BEGIN 2s
+- Exercise 1 begins after 14s
+
+The speaker should be heard practically throughout those first 14 seconds. Background music does not count as narration coverage. Natural micro-pauses are fine, but there must be no multi-second music-only gap before Exercise 1 and neither Safety nor LET'S BEGIN may become voice-empty sections.
+
+For a standard 14s opening, the generated Voice should be roughly 13.65–14.00s and must end before Exercise 1. The script length is chosen for the real TTS speaking speed, not for a fixed word count. If the generated Voice ends too early, extend the script or regenerate the Voice.
 
 After the 14s opening: no spoken Voice, no spoken countdowns, no subtitles/captions/transcript.
 Voice script is always one copy-ready continuous paragraph.
@@ -75,7 +83,8 @@ Exercise and Rest images remain static at 1:1 framing. No Ken Burns/zoom/pan.
 Exercises: Remotion adds ONLY 20s timer + progress + timing.
 Rest: NEXT exercise image + compact `REST + countdown` TOP-LEFT only. No NEXT pose name.
 Intro: only theme badge, title, `12 POSES • 20 SEC EACH`, `FOLLOW ALONG`.
-LET'S BEGIN: exactly one visible `LET'S BEGIN!`.
+Safety: opening Voice continues; no voice-empty safety card.
+LET'S BEGIN: exactly one visible `LET'S BEGIN!`; opening Voice continues and ends immediately before Exercise 1.
 Outro: Bild 16 text-free; Remotion adds exactly one GREAT JOB / WORKOUT COMPLETE graphic.
 
 ## Mandatory visual review + asset lock
@@ -112,7 +121,7 @@ TypeScript
 → postrender:qa
 ```
 
-`project:doctor` blocks code regressions; `asset:gate` blocks unreviewed/changed assets; `postrender:qa` checks the actual MP4 for runtime, resolution/FPS, ongoing music, boundary flashes and suspicious repeated exercise scenes.
+`project:doctor` blocks code regressions; `preflight` also rejects a too-short Opening Voice that would create dead air; `asset:gate` blocks unreviewed/changed assets; `postrender:qa` checks the actual MP4 for runtime, resolution/FPS, ongoing music, boundary flashes and suspicious repeated exercise scenes.
 
 ## Timing
 Standard total:
@@ -128,7 +137,9 @@ Reject if any of these occur:
 - inconsistent title/cloud style
 - stray/duplicate basketballs
 - duplicate GREAT JOB
-- Voice continues into exercise 1
+- Voice does not start at frame 0
+- Voice ends noticeably before LET'S BEGIN finishes, leaving a music-only gap
+- Voice continues into Exercise 1
 - background music missing after opening
 - subtitles appear
 - project doctor/preflight/asset gate/postrender QA fail
