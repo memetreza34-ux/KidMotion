@@ -1,0 +1,14 @@
+{
+  "episodeFolder": "KM-003-full-body-workout",
+  "revision": "KM003-R1",
+  "sameCharacterEveryScene": false,
+  "allExercisePosesClearFromOneStill": false,
+  "allExerciseTextReadableAndConsistent": false,
+  "allExerciseSafeZonesClear": false,
+  "propBallCountsCorrect": false,
+  "allNonTimerTextGeneratedAndReadable": false,
+  "noExtraPeople": false,
+  "noAnatomyErrors": false,
+  "noCroppingOfImportantLimbs": false,
+  "notes": "Keep every flag false until the final images are actually inspected. Verify all non-timer visible text is already baked into the Google Flow images."
+}
