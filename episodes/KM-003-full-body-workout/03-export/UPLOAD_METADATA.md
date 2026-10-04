@@ -1,19 +1,19 @@
 # KM-003 — YouTube Upload Metadata
 
 ## TITLE
-5 Minute Full Body Workout for Kids | 12 Fun Hold Exercises | KidMotion
+5 Minute Kids Workout | 12 Fun Freeze Challenges | KidMotion
 
 ## DESCRIPTION / CAPTION
-Get moving with this 5-minute full-body KidMotion workout for kids! Follow along with 12 simple hold exercises designed to practice balance, strength, coordination and body control — 20 seconds at a time.
+Can you hold all 12 KidMotion freeze challenges?
 
-No equipment is needed. Clear enough space to move safely, go at your own pace, and stop if anything hurts.
+Follow along with this 5-minute full-body kids workout: 12 fun static poses, 20 seconds each, with short GET READY breaks between exercises.
+
+Move at your own pace, clear some space, and stop if anything hurts.
 
 Workout format:
-- 12 different full-body hold exercises
+- 12 different freeze challenges
 - 20 seconds per exercise
-- short 5-second transitions
+- 11 dedicated 5-second GET READY transitions
 - approximately 5 minutes total
 
-Perfect for a quick movement break at home, after school or whenever kids need to get active.
-
-#KidMotion #KidsWorkout #FullBodyWorkout #ExerciseForKids #MovementBreak
+#KidMotion #KidsWorkout #ExerciseForKids #MovementBreak
