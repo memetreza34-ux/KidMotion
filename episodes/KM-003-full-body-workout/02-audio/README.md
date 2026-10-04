@@ -1,11 +1,7 @@
-# KM-003 Audio
+Required files:
+- Voice 01.mp3 — 13.65–14.00s opening voice
+- bg-music.mp3 — final approved instrumental
+- MUSIC_BRIEF.md — target style + source/license note
 
-Required final files:
-- `Voice 01.mp3` — one continuous opening Voice, target 13.65–14.00 seconds and must end before Exercise 1
-- `bg-music.mp3` — licensed instrumental kids-fitness background music
-
-Rules:
-- Voice begins at frame 0 and carries Intro + Safety + LET'S BEGIN.
-- No spoken Voice after the opening.
-- Music is lower under Voice, slightly louder afterward, and loops through the entire workout.
-- No lyrics or spoken samples in the music.
+No spoken Voice after the opening.
+Music should be upbeat kids-fitness electro-pop, 120–130 BPM, no vocals.
