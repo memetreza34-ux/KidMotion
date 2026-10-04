@@ -19,6 +19,7 @@ if (!episodeFolder) {
 const paths = resolveEpisodePaths(root, episodeFolder);
 const failures = [];
 const fail = (message) => failures.push(message);
+
 if (paths.structure === 'missing') fail('Episode data is missing.');
 if (!fs.existsSync(paths.reviewPath)) fail(`Missing ${path.relative(paths.episodeRoot, paths.reviewPath)}.`);
 if (!fs.existsSync(paths.revisionPath)) fail(`Missing ${path.relative(paths.episodeRoot, paths.revisionPath)}.`);
@@ -47,6 +48,7 @@ if (sceneV3) {
   for (const candidate of ['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png']) {
     if (fs.existsSync(path.join(paths.imagesDir, candidate))) fail(`Temporary/rejected cover candidate still exists: ${candidate}`);
   }
+  if (!fs.existsSync(path.join(paths.audioDir, 'MUSIC_BRIEF.md'))) fail('Missing 02-audio/MUSIC_BRIEF.md.');
 }
 
 const requiredReviewFlags = [
@@ -60,12 +62,18 @@ const requiredReviewFlags = [
   'noAnatomyErrors',
   'noCroppingOfImportantLimbs',
 ];
+if (sceneV3) {
+  requiredReviewFlags.push('poseVarietyStrong');
+  requiredReviewFlags.push('allGetReadyImagesClearAndNotConfusableWithExercise');
+}
+
 if (review.episodeFolder !== episodeFolder) fail('VISUAL_REVIEW.json episodeFolder does not match.');
 if (review.revision !== revision) fail('VISUAL_REVIEW.json revision does not match generation revision.');
 for (const key of requiredReviewFlags) if (review[key] !== true) fail(`Visual review flag must be true: ${key}`);
 
 const scenes = Array.isArray(data.scenes) ? data.scenes : [];
 const requiredImages = [...new Set(scenes.map((scene) => scene.image).filter(Boolean))];
+
 if (paths.isV2) {
   const plan = JSON.parse(fs.readFileSync(paths.imagePlanPath, 'utf8'));
   const planImages = Array.isArray(plan.images) ? plan.images : [];
@@ -74,23 +82,25 @@ if (paths.isV2) {
   for (const [index, image] of planImages.entries()) {
     const expectedFile = sceneV3 ? `Szene ${String(index + 1).padStart(2, '0')}.png` : `Bild ${String(index).padStart(2, '0')}.png`;
     if (image.imageFile !== expectedFile) fail(`IMAGE_PLAN image ${index} must be ${expectedFile}.`);
-    for (const field of ['visualPurpose', 'topicAnchor', 'visualForm', 'prompt']) {
+    for (const field of ['visualPurpose','topicAnchor','visualForm','prompt']) {
       const value = String(image[field] ?? '').trim();
       if (!value || /\bTBD\b/i.test(value)) fail(`IMAGE_PLAN ${expectedFile} has unresolved ${field}.`);
     }
   }
+  if (sceneV3) {
+    if (planImages.length !== 28) fail(`V3 approval requires 28 scene images, found ${planImages.length}.`);
+    if (plan.generationRules?.getReadySceneCount !== 11) fail('V3 approval requires 11 dedicated GET READY scenes.');
+  }
+
   const prompt = fs.readFileSync(paths.promptPath, 'utf8');
   if (/\bTBD\b/i.test(prompt)) fail('google-flow-prompt.txt still contains TBD values.');
   if (!prompt.includes('Google Flow') && !prompt.includes('GOOGLE FLOW')) fail('Flow prompt must define Google Flow ownership.');
   if (sceneV3) {
-    if (!prompt.includes('STOP completely')) fail('Flow prompt must stop after the three cover candidates.');
-    if (!prompt.includes('Wait until the user explicitly chooses')) fail('Flow prompt must require explicit user cover selection.');
+    for (const phrase of ['STOP completely','Wait until the user explicitly chooses','POSE DIVERSITY RULE','GET-READY RULE']) {
+      if (!prompt.includes(phrase)) fail(`Flow prompt missing required rule: ${phrase}`);
+    }
     for (let i = 1; i <= requiredImages.length; i += 1) {
       if (!prompt.includes(`Szene ${String(i).padStart(2, '0')}`)) fail(`Flow prompt is missing Szene ${String(i).padStart(2, '0')}.`);
-    }
-  } else {
-    for (let i = 0; i < requiredImages.length; i += 1) {
-      if (!prompt.includes(`Bild ${String(i).padStart(2, '0')}`)) fail(`Flow prompt is missing Bild ${String(i).padStart(2, '0')}.`);
     }
   }
 }
