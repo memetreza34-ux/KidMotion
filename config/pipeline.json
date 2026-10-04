@@ -1,6 +1,6 @@
 {
-  "pipelineVersion": 2,
-  "projectSchemaVersion": 2,
+  "pipelineVersion": 3,
+  "projectSchemaVersion": 3,
   "language": "en",
   "aspectRatio": "16:9",
   "fps": 30,
@@ -21,21 +21,29 @@
     "legacyFlatAliasesForbidden": true
   },
   "coverPolicy": {
-    "coverImageNumber": 0,
+    "coverSceneNumber": 1,
     "coverOutsideVideo": true,
     "coverCandidateCount": 3,
-    "selectOneWinner": true,
-    "finalFile": "Bild 00.png"
+    "candidateFiles": ["Cover-Kandidat-01.png", "Cover-Kandidat-02.png", "Cover-Kandidat-03.png"],
+    "mustWaitForExplicitUserSelection": true,
+    "selectionFile": "99-technik/COVER_SELECTION.json",
+    "finalFile": "Szene 01.png",
+    "deleteRejectedCandidatesAfterSelection": true,
+    "selectedCoverBecomesPrimaryReference": true
   },
   "imageGenerationPolicy": {
+    "sceneFilePattern": "Szene NN.png",
+    "firstFinalScene": 1,
+    "lastFinalScene": 17,
+    "allFinalScenesInOneFolder": true,
     "oneImageOneVisualPurpose": true,
     "finalImagesFlatDirectory": true,
     "automaticAlternateVersionsForbidden": true,
     "regenerationOnlyAfterExplicitRejection": true,
-    "maxConcurrentGenerations": 5,
     "renameImmediatelyAfterAcceptance": true,
-    "primaryReferenceImage": "Bild 01.png",
-    "exerciseUiReferenceImage": "Bild 04.png",
+    "primaryReferenceImage": "Szene 01.png",
+    "exerciseUiReferenceImage": "Szene 05.png",
+    "blockScenesAfterCoverUntilSelection": true,
     "requireVisualPurpose": true,
     "requireTopicAnchor": true,
     "requireVisualForm": true,
@@ -76,6 +84,7 @@
   },
   "approvalPolicy": {
     "visualReviewRequired": true,
+    "coverSelectionRequired": true,
     "sha256AssetLockRequired": true,
     "assetMutationInvalidatesApproval": true
   }
