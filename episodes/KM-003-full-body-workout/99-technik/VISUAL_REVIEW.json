@@ -1,6 +1,6 @@
 {
   "episodeFolder": "KM-003-full-body-workout",
-  "revision": "KM003-R1",
+  "revision": "KM003-R2",
   "sameCharacterEveryScene": false,
   "allExercisePosesClearFromOneStill": false,
   "allExerciseTextReadableAndConsistent": false,
@@ -10,5 +10,5 @@
   "noExtraPeople": false,
   "noAnatomyErrors": false,
   "noCroppingOfImportantLimbs": false,
-  "notes": "Keep every flag false until the final images are actually inspected. Verify all non-timer visible text is already baked into the Google Flow images."
+  "notes": "All flags remain false until the user-selected Szene 01 cover and final Szene 02–17 images are actually inspected. Verify that Szene 01 is the primary visual reference for every later scene."
 }
