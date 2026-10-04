@@ -7,7 +7,8 @@ Status: Bildplanung fertig, finale Assets fehlen noch.
 - `00-bildprompts/images/` — nur finale Bild 00–16 Dateien
 - `01-voice-script/voice-script.txt` — eine Opening-Voice
 - `02-audio/` — Voice 01.mp3 + bg-music.mp3
-- `03-export/` — finaler Export
+- `03-export/FINAL_VIDEO.mp4` — finales Video
+- `03-export/UPLOAD_METADATA.md` — finaler YouTube-Titel + Videobeschreibung/Caption
 - `99-technik/episode.json` — Episodenregeln
 - `99-technik/IMAGE_PLAN.json` — Bildplanung
 - `99-technik/VISUAL_REVIEW.json` — echte Sichtprüfung
@@ -23,5 +24,6 @@ Status: Bildplanung fertig, finale Assets fehlen noch.
 7. Alle Bilder tatsächlich ansehen und erst dann VISUAL_REVIEW auf true setzen.
 8. Voice/Musik ablegen und `assets:approve` ausführen.
 9. Episode aktivieren und guarded render ausführen.
+10. `03-export/UPLOAD_METADATA.md` mit finalem Titel + finaler Beschreibung/Caption auf den fertigen Videoinhalt prüfen und auf FINAL setzen.
 
 Kein Asset ist aktuell automatisch freigegeben.
