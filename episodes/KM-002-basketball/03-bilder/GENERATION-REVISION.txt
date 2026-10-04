@@ -1,3 +1,0 @@
-KM002-R1-REJECTED
-
-Do not change this to KM002-R2-APPROVED until Bild 04 through Bild 15 and Bild 16 have been regenerated with the current bild-prompts.md rules and visually approved.
