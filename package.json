@@ -13,6 +13,7 @@
     "render": "node scripts/render-guarded.mjs",
     "render:safe": "node scripts/render-guarded.mjs",
     "kidmotion:new": "node scripts/new-episode.mjs",
+    "kidmotion:select-cover": "node scripts/select-cover.mjs",
     "kidmotion:activate": "node scripts/activate-episode.mjs"
   },
   "dependencies": {
