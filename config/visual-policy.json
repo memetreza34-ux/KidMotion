@@ -1,32 +1,34 @@
 {
-  "visualPolicyVersion": 3,
+  "visualPolicyVersion": 4,
   "status": "READY",
   "styleId": "kidmotion-premium-3d-v3-flow-text",
-  "description": "Zentrale KidMotion Bildwelt. Google Flow erzeugt alle sichtbaren Texte im Bild. Remotion darf ausschliesslich den numerischen Countdown-Timer ueber das statische Bild legen.",
+  "description": "Zentrale KidMotion Bildwelt. Google Flow erzeugt alle sichtbaren Texte im Bild. Remotion darf ausschliesslich den Countdown-Timer ueber das statische Bild legen. Ab Szenenstruktur V3 wird zuerst ein Cover aus drei Kandidaten vom Nutzer ausgewaehlt; dieses Cover wird Szene 01 und primaere Referenz fuer alle weiteren Szenen.",
   "visibleTextLanguage": "en",
   "rules": [
     "16:9 landscape, premium stylized 3D kids animation look",
     "exactly one recurring KidMotion child per episode",
     "child identity follows characters/CHARACTER_BIBLE.md",
     "same face, hair, age appearance, skin tone and body proportions throughout one episode",
-    "episode outfit and world are locked after Bild 01 approval",
+    "generate exactly three cover candidates first and STOP until the user explicitly chooses one",
+    "the selected cover is renamed Szene 01.png and becomes the primary character/outfit/world/color reference",
+    "all remaining final images are named Szene 02.png through Szene 17.png and stored in the same flat image folder",
     "full body must remain readable for all exercise poses",
     "exercise pose must be understandable from one still image",
     "bright clean child-friendly lighting and uncluttered composition",
     "generic original sports environments only; no real team, league, sponsor or brand logos",
-    "Bild 01 is the primary character/world reference for Bild 02 through the outro",
-    "Bild 04 is the secondary exercise title/instruction UI reference for later exercise images",
+    "Szene 05 is the secondary exercise title/instruction UI reference for Szene 06 through Szene 16",
     "ALL visible text except the changing countdown number is generated directly by Google Flow inside the source image",
-    "Bild 01 contains the complete Intro text",
-    "Bild 02 contains the complete Safety text",
-    "Bild 03 contains LET'S BEGIN!",
-    "Bild 04 through Bild 15 contain exercise title bottom-left plus instruction top-right",
-    "Bild 16 contains GREAT JOB! and WORKOUT COMPLETE",
+    "Szene 02 contains the complete Intro text",
+    "Szene 03 contains the complete Safety text",
+    "Szene 04 contains LET'S BEGIN!",
+    "Szene 05 through Szene 16 contain exercise title bottom-left plus instruction top-right",
+    "Szene 17 contains GREAT JOB! and WORKOUT COMPLETE",
     "top-left 220x220 px remains clear on exercise images for the Remotion timer",
-    "there is no Remotion progress bar and therefore no bottom progress-bar safe zone",
-    "Rest reuses the next exercise image and Remotion adds only the countdown timer; no REST label is added"
+    "there is no Remotion progress bar",
+    "Rest reuses the next exercise image and Remotion adds only the countdown timer"
   ],
   "forbidden": [
+    "generating Szene 02 or later before explicit user cover selection",
     "second visible child or adult",
     "extra background people",
     "anatomy errors or hidden/confusing limbs",
@@ -46,9 +48,11 @@
     "motion-dependent exercise poses"
   ],
   "referenceWorkflow": {
-    "primaryCharacterWorldReference": "Bild 01.png",
-    "secondaryExerciseUiReference": "Bild 04.png",
-    "approveBild01BeforeLaterImages": true,
-    "approveBild04BeforeLaterExercises": true
+    "coverCandidatesFirst": true,
+    "waitForUserSelection": true,
+    "primaryCharacterWorldReference": "Szene 01.png",
+    "secondaryExerciseUiReference": "Szene 05.png",
+    "approveSelectedCoverBeforeLaterScenes": true,
+    "approveSzene05BeforeLaterExercises": true
   }
 }
