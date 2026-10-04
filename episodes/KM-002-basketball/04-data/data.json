@@ -22,7 +22,7 @@
   "exerciseUiReference": "approved KM-002 Bild 04 reference for title/cloud style only",
   "outfitLockedForEpisode": true,
   "worldLockedForEpisode": true,
-  "imageGenerationRevisionRequired": "KM002-R2-APPROVED",
+  "imageGenerationRevisionRequired": "KM002-R2",
   "regenerationRequired": [
     "Bild 04.png",
     "Bild 05.png",
