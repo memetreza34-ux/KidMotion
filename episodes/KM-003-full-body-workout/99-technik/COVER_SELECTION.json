@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "episodeFolder": "KM-003-full-body-workout",
+  "status": "AWAITING_USER_SELECTION",
+  "selectedCandidate": null,
+  "selectedCandidateOriginalFile": null,
+  "finalFile": null,
+  "userSelectionRequired": true,
+  "primaryReferenceForLaterScenes": "Szene 01.png",
+  "notes": "Generate exactly three cover candidates first, show all three to the user, then stop until the user explicitly selects 1, 2 or 3."
+}
