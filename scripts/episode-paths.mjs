@@ -3,17 +3,17 @@ import path from 'node:path';
 
 export function resolveEpisodePaths(root, episodeFolder) {
   const episodeRoot = path.join(root, 'episodes', episodeFolder);
-  const v2Data = path.join(episodeRoot, '99-technik', 'episode.json');
+  const modernData = path.join(episodeRoot, '99-technik', 'episode.json');
   const legacyData = path.join(episodeRoot, '04-data', 'data.json');
 
-  const structure = fs.existsSync(v2Data) ? 'v2' : fs.existsSync(legacyData) ? 'legacy' : 'missing';
+  const structure = fs.existsSync(modernData) ? 'v2' : fs.existsSync(legacyData) ? 'legacy' : 'missing';
   const isV2 = structure === 'v2';
 
   return {
     structure,
     isV2,
     episodeRoot,
-    dataPath: isV2 ? v2Data : legacyData,
+    dataPath: isV2 ? modernData : legacyData,
     promptPath: isV2
       ? path.join(episodeRoot, '00-bildprompts', 'google-flow-prompt.txt')
       : path.join(episodeRoot, '03-bilder', 'bild-prompts.md'),
@@ -24,9 +24,7 @@ export function resolveEpisodePaths(root, episodeFolder) {
       ? path.join(episodeRoot, '01-voice-script', 'voice-script.txt')
       : path.join(episodeRoot, '01-skript', 'voice-text.md'),
     audioDir: path.join(episodeRoot, '02-audio'),
-    exportDir: isV2
-      ? path.join(episodeRoot, '03-export')
-      : path.join(episodeRoot, '03-export'),
+    exportDir: path.join(episodeRoot, '03-export'),
     techDir: isV2
       ? path.join(episodeRoot, '99-technik')
       : path.join(episodeRoot, '04-data'),
@@ -38,6 +36,9 @@ export function resolveEpisodePaths(root, episodeFolder) {
       : null,
     statusPath: isV2
       ? path.join(episodeRoot, '99-technik', 'status.json')
+      : null,
+    coverSelectionPath: isV2
+      ? path.join(episodeRoot, '99-technik', 'COVER_SELECTION.json')
       : null,
     reviewPath: isV2
       ? path.join(episodeRoot, '99-technik', 'VISUAL_REVIEW.json')
