@@ -55,7 +55,9 @@ for (const clutter of ['WELCOME TO', 'COPY • HOLD • HAVE FUN']) {
 }
 
 const letsBegin = read('src/components/LetsBeginScreen.tsx');
-if (!letsBegin.includes("LET'S BEGIN!")) fail("LetsBeginScreen must visibly render LET'S BEGIN!.");
+if (!letsBegin.includes("LET'S BEGIN!") && !letsBegin.includes('LET&apos;S BEGIN!')) {
+  fail("LetsBeginScreen must visibly render LET'S BEGIN!.");
+}
 
 const safety = read('src/components/SafetyDisclaimerScreen.tsx');
 if (safety.includes('opacity: fadeIn')) fail('Safety screen must not fade the complete scene from blank.');
