@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 2,
+  "staticExerciseImages": true,
+  "staticRestImages": true,
+  "backgroundMusic": true,
+  "timer": {"owner": "remotion", "position": "top-left", "seconds": 20},
+  "progressBar": {"owner": "remotion", "position": "bottom"},
+  "restCountdown": {"owner": "remotion", "position": "top-left", "seconds": 5},
+  "exerciseText": {"owner": "google-flow-image"},
+  "kenBurnsOnExerciseOrRest": false
+}

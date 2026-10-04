@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 2,
+  "phase1Ready": true,
+  "imagesReady": false,
+  "audioReady": false,
+  "assetsApproved": false,
+  "renderReady": false,
+  "note": "Image plan and Flow prompt are complete; final assets still need generation and review."
+}

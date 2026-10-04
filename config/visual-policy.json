@@ -1,0 +1,43 @@
+{
+  "visualPolicyVersion": 2,
+  "status": "READY",
+  "styleId": "kidmotion-premium-3d-v2",
+  "description": "Zentrale KidMotion Bildwelt. Jede Episode nutzt diese Basis und sperrt danach Charakter, Outfit und Welt ueber Bild 01; Bild 04 wird zusaetzlich als Exercise-UI-Referenz genutzt.",
+  "visibleTextLanguage": "en",
+  "rules": [
+    "16:9 landscape, premium stylized 3D kids animation look",
+    "exactly one recurring KidMotion child per episode",
+    "child identity follows characters/CHARACTER_BIBLE.md",
+    "same face, hair, age appearance, skin tone and body proportions throughout one episode",
+    "episode outfit and world are locked after Bild 01 approval",
+    "full body must remain readable for all exercise poses",
+    "exercise pose must be understandable from one still image",
+    "bright clean child-friendly lighting and uncluttered composition",
+    "generic original sports environments only; no real team, league, sponsor or brand logos",
+    "Bild 01 is the primary character/world reference for Bild 02 through the outro",
+    "Bild 04 is the secondary title/cloud UI reference for later exercise images",
+    "exercise title is bottom-left and instruction cloud is top-right",
+    "top-left 220x220 px remains clear for Remotion timer",
+    "lowest approximately 90 px remains clear for Remotion progress bar",
+    "non-exercise images Bild 01, 02, 03 and outro contain zero generated text"
+  ],
+  "forbidden": [
+    "second visible child or adult",
+    "extra background people",
+    "anatomy errors or hidden/confusing limbs",
+    "cropped hands, feet or important joints",
+    "pseudo-text",
+    "real logos or trademarks",
+    "generated timer",
+    "generated progress bar",
+    "generated REST UI",
+    "thought-bubble dots",
+    "motion-dependent exercise poses"
+  ],
+  "referenceWorkflow": {
+    "primaryCharacterWorldReference": "Bild 01.png",
+    "secondaryExerciseUiReference": "Bild 04.png",
+    "approveBild01BeforeLaterImages": true,
+    "approveBild04BeforeLaterExercises": true
+  }
+}

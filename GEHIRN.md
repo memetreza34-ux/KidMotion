@@ -1,155 +1,110 @@
-# KidMotion — Projekt-Gehirn
+# KidMotion — Projekt-Gehirn V2
 
-> Diese Datei ist die höchste verbindliche Regelquelle für KidMotion. Bei Widersprüchen gilt immer diese Datei.
-
----
+> Höchste verbindliche Regelquelle. Bei Widersprüchen gilt diese Datei.
 
 ## 0. Format
-KidMotion produziert englische YouTube-Longform-Workout-Videos für Kinder mit statischen, klar erkennbaren Hold-Posen.
+KidMotion produziert englische YouTube-Longform-Workout-Videos für Kinder mit statischen, sofort verständlichen Hold-Posen.
 
 Standard:
-- 16:9
-- 1920×1080
-- 30 fps
-- ca. 5–10 Minuten
-- kein TikTok/Reel-Format
-- genau EIN Hauptcharakter pro Video
+- 16:9, 1920×1080, 30 fps
+- genau ein Hauptcharakter pro Episode
+- 12 Übungen × 20s
+- 11 Rest-Phasen × 5s
+- Intro 8s, Safety 4s, LET'S BEGIN 2s, Outro 4s
+- Standardlaufzeit 313s / 5:13
+- Bild 00 = Cover, niemals im MP4
 
----
+## 1. Zentrale Pipeline-Regeln
+Globale Regeln stehen in:
+- `config/pipeline.json`
+- `config/visual-policy.json`
+- `characters/CHARACTER_BIBLE.md`
 
-## 1. Episodenstruktur
-Jede Episode liegt ausschließlich unter:
-`episodes/KM-XXX-.../`
+`config/visual-policy.json` definiert die gemeinsame KidMotion-Bildwelt. Eine Episode darf diese Bildwelt konkretisieren, aber nicht heimlich widersprechen.
 
-Standard-Unterordner:
-- `01-skript/` — ein copy-ready Opening-Voice-Fließtext
-- `02-audio/` — `Voice 01.mp3` + `bg-music.mp3`
-- `03-bilder/` — `Bild 00.png` bis `Bild 16.png` + Google-Flow-Prompts
-- `04-data/` — `data.json`, `VISUAL_REVIEW.json`, später `ASSET_APPROVAL.json`
-- `GENERATION-REVISION.txt` — aktuelle Asset-Revision
+## 2. Episodenstruktur V2
+Alle neuen Episoden und KM-002+ verwenden ausschließlich:
 
-`Bild 00.png` ist nur Cover/Thumbnail und kommt niemals in das MP4.
-
-Legacy-Ordner `content/episodes` dürfen nicht mehr als aktive Produktionsquelle benutzt werden.
-
----
-
-## 2. Produktionsablauf
-### Phase A — Planung
-- nur statische Posen auswählen, die aus EINEM Standbild verständlich sind
-- Opening-Voice als EINEN Fließtext schreiben
-- Bildprompts erstellen
-- Episodendaten aktualisieren
-
-### Phase B — Assets
-- genau eine Opening-Voice-Datei `Voice 01.mp3`
-- eine lizenzierte `bg-music.mp3`
-- Google Flow erzeugt `Bild 00`–`Bild 16`
-- jedes Bild sofort prüfen und umbenennen
-
-### Phase C — Visuelle Freigabe — PFLICHT
-Bevor gerendert werden darf, müssen die tatsächlichen finalen Assets visuell geprüft werden.
-
-`04-data/VISUAL_REVIEW.json` bleibt standardmäßig auf `false`.
-Ein Flag darf erst auf `true` gesetzt werden, wenn die finalen Bilddateien wirklich angesehen und geprüft wurden.
-
-Pflichtprüfung:
-- gleicher Charakter in jeder Szene
-- jede Pose aus einem Standbild klar
-- Titel/Cloud über alle Übungen konsistent und lesbar
-- Timer-/Progress-Safe-Zones frei
-- Ball-/Prop-Anzahl korrekt
-- Bild 01/02/03/16 ohne Google-Flow-Text
-- keine zweite Person
-- keine Anatomiefehler
-- keine wichtigen Gliedmaßen abgeschnitten
-
-Erst danach:
-```bash
-npm run assets:approve -- --episode=KM-XXX-slug
+```text
+episodes/KM-XXX-name/
+├── 00-bildprompts/
+│   ├── google-flow-prompt.txt
+│   └── images/
+│       ├── Bild 00.png
+│       ├── Bild 01.png
+│       └── ... Bild 16.png
+├── 01-voice-script/
+│   └── voice-script.txt
+├── 02-audio/
+│   ├── Voice 01.mp3
+│   └── bg-music.mp3
+├── 03-export/
+│   └── FINAL_VIDEO.mp4
+└── 99-technik/
+    ├── episode.json
+    ├── IMAGE_PLAN.json
+    ├── RENDER_PLAN.json
+    ├── VISUAL_REVIEW.json
+    ├── ASSET_APPROVAL.json
+    ├── GENERATION-REVISION.txt
+    └── status.json
 ```
 
-`assets:approve` erstellt `ASSET_APPROVAL.json` und sperrt alle freigegebenen Bild-/Audiodateien per SHA-256.
+KM-001 darf als Legacy-Archiv bestehen bleiben. Eine V2-Episode darf nicht parallel alte Produktionsquellen wie `03-bilder/bild-prompts.md`, `04-data/data.json`, `01-skript/voice-text.md` oder eine Root-`GENERATION-REVISION.txt` verwenden.
 
-**Nach der Freigabe gilt:** Wird auch nur eine Bild- oder Audiodatei verändert/ersetzt, ist die Freigabe automatisch ungültig und der Render wird blockiert.
+## 3. Produktionsablauf
 
-### Phase D — Produktion
-- aktive Episode sauber mappen
-- TypeScript
-- Project Doctor
-- Preflight
-- Asset Gate
-- Render
-- Postrender-QA
-- finale MP4 visuell prüfen
+### Phase 1 — Planung
+1. Thema/Workout festlegen.
+2. `episode.json` vollständig ausarbeiten.
+3. `IMAGE_PLAN.json` vollständig ausarbeiten.
+4. `google-flow-prompt.txt` vollständig ausarbeiten.
+5. Keine `TBD`-Werte dürfen vor finaler Asset-Erzeugung übrig bleiben.
 
----
+Jedes Bild im `IMAGE_PLAN.json` braucht mindestens:
+- `Visual Purpose`
+- `Topic Anchor`
+- `Visual Form`
+- Character Reference
+- UI Reference, falls relevant
+- Prop Count
+- Generated Text
+- Safe Zones
+- Acceptance Criteria
+- vollständigen finalen Prompt
 
-## 3. Audio — HARTE REGEL
-### Eine einzige gesprochene Datei
-Es gibt genau EINE gesprochene Datei:
-`Voice 01.mp3`
+Ein Bild existiert nur, wenn es eine klare visuelle Funktion hat.
 
-Sie startet direkt bei Frame 0 und MUSS die komplette kurze Opening-Sequenz sprachlich tragen:
-- Intro ca. 8s
-- Safety ca. 4s
-- LET'S BEGIN ca. 2s
-- danach beginnt Exercise 1
+### Phase 2 — Google Flow Assets
+Die Pipeline ruft Google Flow nicht selbst per API auf. `google-flow-prompt.txt` ist der verbindliche Arbeitsauftrag für den Agenten/Nutzer, der Google Flow bedient.
 
-Standard-Opening: 14 Sekunden.
+Harter Ablauf:
+`BLOCK LESEN → REFERENZEN LADEN → GENERIEREN → PRÜFEN → AKZEPTIEREN/ABLEHNEN → SOFORT UMBENENNEN → ERST DANN WEITER`
 
-### CONTINUOUS OPENING VOICE — HARTE REGEL
-Vom ersten Frame bis unmittelbar vor Exercise 1 soll der Sprecher praktisch durchgehend zu hören sein.
+Finale Bilder liegen ausschließlich flach in:
+`00-bildprompts/images/`
 
-Das bedeutet:
-- Voice beginnt sofort bei 0s; kein Musik-only-Intro vor dem ersten gesprochenen Wort
-- Intro, Safety und LET'S BEGIN sind Teil EINES zusammenhängenden Sprechertexts
-- Safety darf nicht nur Musik + Textkarte sein
-- LET'S BEGIN darf nicht nur Musik + Textkarte sein
-- natürliche kurze Atem-/Satzpausen sind erlaubt
-- längere leere Voice-Abschnitte im Opening sind verboten
-- Hintergrundmusik zählt NICHT als Ersatz für Voiceover
-- der Text muss lang genug für das tatsächliche TTS-Sprechtempo sein
-- niemals den Text künstlich kürzen, nur um eine Ziel-Wortzahl einzuhalten
+### Cover
+- `Bild 00` ist separates Thumbnail und nicht Teil des Videos.
+- genau drei temporäre Cover-Kandidaten erzeugen
+- genau einen Gewinner auswählen
+- nur der Gewinner bleibt als `Bild 00.png`
 
-Für ein 14s-Opening soll die tatsächlich erzeugte Voice ungefähr 13,65–14,00s lang sein und vollständig vor Exercise 1 enden. Wenn die Voice deutlich früher endet und mehrere Sekunden nur Musik übrig bleiben, ist das Opening NICHT freigegeben: Script verlängern oder Voice neu erzeugen.
+### Nicht-Cover
+- `Bild 01`–`Bild 16` haben je genau eine akzeptierte Finalversion
+- keine automatischen Alternativversionen
+- Regeneration nur nach expliziter Ablehnung
+- maximal fünf parallele Generationen, Referenzabhängigkeiten haben Vorrang
 
-Danach:
-- Übungen: keine Voice
-- Rest: keine Voice
-- Outro: keine Voice
+### Referenz-Workflow
+1. `Bild 01` zuerst generieren und freigeben.
+2. `Bild 01` wird PRIMARY character/world reference für `Bild 02`–`Bild 16`.
+3. `Bild 04` generieren und freigeben, bevor `Bild 05`–`Bild 15` entstehen.
+4. `Bild 04` wird SECONDARY exercise UI/layout reference.
+5. Spätere Bilder übernehmen aus Bild 04 nur UI-Stil, niemals Pose oder Wortlaut.
 
-Keine separaten Voice-Dateien für Safety/LET'S BEGIN.
-Keine Übungsansagen.
-Keine Countdown-Stimme.
-Keine Motivations-Füllsätze nach dem Opening.
-Keine Untertitel, Captions oder Transkripte.
-
-### Script-Format
-Der gesprochene Text wird für den Nutzer immer als genau EIN kopierfertiger Fließtext geschrieben.
-Keine Teil-1/Teil-2-Aufteilung, keine Regiehinweise im Copy-Text.
-
-Bei der Script-Erstellung zuerst die tatsächliche Opening-Dauer und das geplante TTS-Sprechtempo berücksichtigen. Das Ziel ist keine feste Wortzahl, sondern eine natürlich klingende, nahezu lückenlose Voice-Abdeckung bis Exercise 1.
-
-### Hintergrundmusik — FINAL REQUIRED
-Für einen finalen Render ist `bg-music.mp3` Pflicht.
-
-Musik:
-- instrumental
-- kinderfreundlich
-- sportlich/spielerisch
-- keine Lyrics
-- keine gesprochenen Samples
-- während Opening-Voice leiser
-- danach etwas lauter
-- durch das komplette Video geloopt
-
-Ein finaler Render darf nach dem Opening nicht digital still werden.
-
----
-
-## 4. EIN-BILD-KLARHEIT — HÖCHSTE ÜBUNGSREGEL
-Eine Übung ist nur erlaubt, wenn ein Kind die Pose aus genau EINEM Standbild sofort erkennen und nachmachen kann.
+## 4. Ein-Bild-Klarheit — höchste Übungsregel
+Eine Übung ist nur erlaubt, wenn ein Kind sie aus genau einem Standbild sofort versteht.
 
 Pflicht:
 - Ganzkörper sichtbar
@@ -157,227 +112,116 @@ Pflicht:
 - Arme/Beine klar getrennt
 - eindeutige Silhouette
 - klarer statischer Endzustand
-- keine Bewegungsrichtung nötig
-- keine Geschwindigkeit nötig
-- kein Vorher/Nachher nötig
-- keine kleinen Mikrodetails als Hauptmerkmal
 - natürliche Anatomie
+- keine Bewegung nötig, um die Übung zu verstehen
 
-Nicht verwenden:
-- Kick-/Lauf-/Sprungbewegungen, wenn Bewegung entscheidend ist
-- Dribbling/Pass/Shooting als Bewegungsablauf
-- repetitive Übungen
-- komplex verschränkte Gliedmaßen
-- verdeckte Füße/Hände bei relevanten Posen
+Wenn eine Pose nach zwei ernsthaften Flow-Versuchen unklar bleibt, wird die Pose ersetzt statt mit mehr Text gerettet.
 
-Silhouetten-Test: Wenn die Pose als schwarze Silhouette nicht klar wäre, ist sie ungeeignet.
-
-Google-Flow-Test: Nach maximal zwei ernsthaften Fehlversuchen wird die Pose ersetzt, nicht mit mehr Text gerettet.
-
-Bildklarheit ist wichtiger als perfekte Sportspezifik.
-
----
-
-## 5. Google Flow — Bildverantwortung
-### Charakterkontinuität
-- pro Video genau ein Charakter
-- `Bild 01.png` wird nach Freigabe PRIMARY character/world reference für alle späteren Bilder
-- gleiche Identität, Haare, Proportionen, Outfit und Welt
-- keine zweite Person
-
-### Exercise UI direkt im Bild
+## 5. Google Flow Text/UI
 Für `Bild 04`–`Bild 15` erzeugt Google Flow direkt:
-- ONE exercise title bottom-left
-- ONE short instruction cloud top-right
+- genau einen Exercise Title bottom-left
+- genau eine kurze Instruction Cloud top-right
 
-`Bild 04` wird nach Freigabe zusätzlich als SECONDARY UI/LAYOUT reference für `Bild 05`–`Bild 15` benutzt.
+`Bild 01`, `Bild 02`, `Bild 03`, `Bild 16` enthalten ZERO generierten Text.
 
-Damit müssen über alle Übungen gleich bleiben:
-- Titelstil
-- Titelgröße
-- Titelposition
-- Cloudform
-- Cloud-Rand
-- Textstil
-- Abstände
+Safe Zones bei Exercises:
+- top-left ca. 220×220 px frei für Remotion-Timer
+- unterste ca. 90 px frei für Progress Bar
+- Titel oberhalb der Progress-Zone
+- Cloud oben rechts mit sicherem Rand
 
 Verboten:
 - Thought-bubble dots
-- zufällige Bubble-Formen
-- wechselnde Fonts/Farben
-- Text am Rand abgeschnitten
-- doppelte Titel/Instructions
+- zweiter Titel
+- zweite Instruction
+- Timer im Bild
+- Progress im Bild
+- REST UI im Bild
+- Untertitel/Transcript-Bar
 
-### Safe Zones
-Bei Exercise-Bildern:
-- TOP-LEFT ca. 220×220 px frei für Remotion-Timer
-- unterste ca. 90 px frei für Progress Bar
-- Titel oberhalb dieses unteren Safe-Bereichs
-- Cloud oben rechts mit sicherem Rand
+## 6. Prop-Regel
+Wenn eine Pose keinen Ball braucht: ZERO Basketballs im gesamten Bild.
+Wenn eine Pose einen Ball braucht: EXACTLY ONE Basketball.
+Keine losen oder doppelten Background-Bälle.
 
-### Ball-/Prop-Regel
-Wenn eine Pose keinen Ball braucht: ZERO Bälle im gesamten Bild.
-Wenn eine Pose einen Ball braucht: EXACTLY ONE Ball.
-Keine losen/background duplicate Bälle.
+## 7. Audio
+Genau eine gesprochene Datei:
+`02-audio/Voice 01.mp3`
 
-### Textfreie Nicht-Übungsbilder
-`Bild 01`, `Bild 02`, `Bild 03` und `Bild 16` enthalten ZERO Google-Flow-Text.
-Remotion besitzt Intro-, Safety-, LET'S-BEGIN- und Outro-Grafiken.
+Sie startet bei Frame 0 und trägt Intro + Safety + LET'S BEGIN nahezu lückenlos.
+Zielbereich: ca. 13,65–14,00s; technisches Maximum 14,05s.
+Sie endet vor Exercise 1.
 
-`Bild 16` darf insbesondere KEIN `GREAT JOB` enthalten.
+Danach:
+- keine Exercise Voice
+- keine Rest Voice
+- keine Outro Voice
+- keine Countdown-Stimme
+- keine Untertitel/Captions
 
----
+`02-audio/bg-music.mp3` ist für finalen Render Pflicht, instrumental, kinderfreundlich, ohne Lyrics/Spoken Samples und über das komplette Video geloopt.
 
-## 6. Remotion — HARTE VIDEOREGELN
-### Kein Blank-Flash
-Jedes Szenenbild muss im allerersten Frame vollständig sichtbar sein.
+## 8. Remotion
+Remotion trifft keine Bildgenerierungsentscheidung. Es setzt nur den bereits freigegebenen Produktionsplan um.
 
-Verboten:
-- Full-scene fade von opacity 0
-- schwarze 0.3s-Blitze
-- weiße/pastellige 0.3s-Blitze
-- blanke Übergangsframes
+Exercises:
+- Source-Image statisch 1:1
+- nur 20s Circular Timer top-left
+- nur Progress Bar
+- kein zweiter Exercise Name/Instruction
 
-### Kein Ken Burns auf Exercise/Rest
-Exercise- und Rest-Bilder enthalten eingebrannten Google-Flow-Text.
-Darum:
-- kein Zoom
-- kein Scale 1.00→1.06
-- kein Pan
-- keine Bewegung, die Titel/Cloud croppt
+Rest:
+- nächstes Exercise-Bild wiederverwenden
+- nur REST + Countdown top-left
+- kein NEXT-Name
 
-Exercise- und Rest-Source-Images bleiben statisch bei 1:1 framing.
+Verboten auf Exercise/Rest:
+- Ken Burns
+- Zoom
+- Pan
+- Full-image Fade von 0
+- blanke schwarze/weiße Übergangsframes
 
-### Übungen
-Remotion fügt bei Übungen NUR hinzu:
-- 20s circular timer top-left
-- progress bar
-- exakte 20s Szenendauer
+## 9. Visuelle Freigabe + SHA-256 Lock
+`99-technik/VISUAL_REVIEW.json` bleibt zunächst vollständig `false`.
+Flags dürfen nur nach tatsächlicher Sichtprüfung der finalen Bilder gesetzt werden.
 
-Kein zweiter Übungsname.
-Keine zweite Beschreibung.
+Prüfen:
+- gleicher Charakter
+- jede Pose klar aus einem Standbild
+- Exercise UI konsistent und lesbar
+- Safe Zones frei
+- Prop Count korrekt
+- Non-Exercise-Bilder ohne generierten Text
+- keine Extra-Personen
+- keine Anatomiefehler
+- keine wichtigen abgeschnittenen Gliedmaßen
 
-### Rest
-Rest zeigt das NÄCHSTE Exercise-Bild full-screen.
-Remotion fügt nur einen kompakten `REST + countdown` Block TOP-LEFT hinzu.
+Dann:
+`npm run assets:approve -- --episode=KM-XXX-slug`
 
-TOP-RIGHT Rest-Countdown ist verboten, weil dort die Google-Flow-Instruction-Cloud liegt.
-Kein `NEXT: pose`.
+Approval sperrt alle freigegebenen Bild-/Audiodateien per SHA-256. Jede spätere Asset-Änderung macht die Freigabe ungültig.
 
-### Intro
-Sauber und kurz.
-Nur:
-- KIDMOTION + Theme
-- 5 MIN ... WORKOUT
-- 12 POSES • 20 SEC EACH
-- FOLLOW ALONG
+## 10. Render-Gates
+Finaler Render nur über guarded pipeline:
 
-Kein `WELCOME TO`.
-Keine doppelten Chips.
-Kein `COPY • HOLD • HAVE FUN`.
-Keine unnötigen Slogans.
+`TypeScript → project:doctor → preflight → asset:gate → Remotion render → postrender:qa`
 
-### Safety
-`Bild 02` bleibt ab Frame 1 sichtbar.
-Nur kurze Safety-Grafik.
-Opening-Voice läuft hier weiter; Safety ist kein Voice-Loch.
+`project:doctor` schützt V2-Struktur, Flow-Workflow und zentrale Policies.
+`preflight` blockiert unvollständige IMAGE_PLAN/Flow-Prompts, fehlende Assets, falsches Timing und falsche Voice/Music.
+`asset:gate` blockiert alles, was nicht exakt der visuell freigegebenen SHA-256-Version entspricht.
 
-### LET'S BEGIN
-`Bild 03` bleibt ab Frame 1 sichtbar.
-Remotion zeigt EIN klares `LET'S BEGIN!`.
-Opening-Voice läuft hier weiter und endet erst unmittelbar vor Exercise 1.
+Automatische Checks ersetzen niemals die visuelle Bildprüfung.
 
-### Outro
-`Bild 16` ist komplett textfrei.
-Remotion zeigt genau EINMAL:
-- GREAT JOB!
-- WORKOUT COMPLETE
-
-Keine doppelte Completion-Grafik.
-
----
-
-## 7. Standard-Timing
-```text
-Intro 8s → Safety 4s → LET'S BEGIN 2s →
-[Exercise 20s → Rest 5s] × 11 →
-Exercise 12 20s → Outro 4s
-```
-
-Standard: 313s / 5:13.
-
-Opening-Voice-Coverage: nahezu die vollen ersten 14s, danach keine Voice.
-
----
-
-## 8. Automatische Regression-Sperren
-Ein finaler Render darf ausschließlich mit `npm run render:safe` erzeugt werden.
-
-`render:safe` führt aus:
-```text
-TypeScript
-→ project:doctor
-→ preflight
-→ asset:gate
-→ render
-→ postrender:qa
-```
-
-### project:doctor blockiert u. a.
-- Rückkehr eines Short-Formats
-- Exercise-/Rest-Zoom oder Full-image-Fade
-- überladenes Intro
-- fehlendes LET'S BEGIN
-- nicht geloopte Musik
-- spätere separate Voice-Wiedergabe
-- falsche/alte Episodenstruktur
-
-### preflight blockiert u. a.
-- fehlende Opening-Voice
-- Voice, die über Exercise 1 hinausläuft
-- eine Opening-Voice, die die 14s-Opening-Sequenz deutlich zu früh verlässt und Voice-Dead-Air erzeugt
-
-### asset:gate blockiert
-- fehlende visuelle Freigabe
-- fehlendes ASSET_APPROVAL
-- falsche Revision
-- nicht freigegebene Assets
-- jede nachträgliche Änderung an Bild/Voice/Musik nach Freigabe
-
-### postrender:qa prüft die echte MP4
-- exakte Laufzeit
-- laufende Musik im Workout
-- schwarze Segmente
-- blank/helle Szenengrenzen
-
-**Wichtig:** Automatische Checks ersetzen nicht die visuelle Bildprüfung. Semantische Fehler wie falsche Pose, falscher Charakter, falsche Ballanzahl oder schlechte Textplatzierung müssen vor `assets:approve` direkt am Bild geprüft werden.
-
----
-
-## 9. Final-QA
-PRODUCTION COMPLETE erst wenn:
-- alle Pflichtbilder vorhanden
-- jede Pose besteht EIN-BILD-KLARHEIT
-- Charakter konsistent
-- kein zweiter Mensch
-- UI-Stil der Exercise-Bilder konsistent
-- Ballanzahl korrekt
-- keine schwarzen/weißen Boundary-Flashes
-- keine Exercise/Rest-Zoom-Crops
-- Rest-UI kollidiert nicht mit Instruction-Cloud
-- LET'S BEGIN sichtbar
-- Outro nicht doppelt beschriftet
-- Voice 01 startet sofort bei Frame 0
-- Voice 01 trägt Intro + Safety + LET'S BEGIN nahezu lückenlos
-- kein längerer Musik-only-Abschnitt vor Exercise 1
-- Voice 01 endet unmittelbar vor Exercise 1 und läuft niemals in die Übung hinein
-- Hintergrundmusik läuft durch das gesamte Video
-- keine Untertitel
-- VISUAL_REVIEW vollständig wahrheitsgemäß abgeschlossen
-- ASSET_APPROVAL erzeugt und unverändert gültig
-- TypeScript passt
-- Project Doctor passt
-- Preflight passt
-- Asset Gate passt
-- Postrender-QA passt
-- MP4 visuell geprüft
+## 11. Definition of Done
+Eine Episode ist erst fertig, wenn:
+- IMAGE_PLAN vollständig
+- Google-Flow-Prompt vollständig
+- Bild 00–16 vorhanden
+- Bild 01/04 Referenzworkflow eingehalten
+- Visual Review wahrheitsgemäß vollständig
+- Asset Approval gültig
+- Voice/Music gültig
+- TypeScript, Project Doctor, Preflight, Asset Gate bestanden
+- Render und Postrender-QA bestanden
+- finale MP4 visuell geprüft

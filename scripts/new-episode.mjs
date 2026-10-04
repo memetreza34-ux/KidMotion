@@ -9,11 +9,23 @@ const getArg = (name, fallback = '') => {
 
 const topic = getArg('topic');
 const requestedId = getArg('id');
-const exerciseCount = Math.max(1, Number(getArg('scenes', '12')) || 12);
 const character = getArg('character', 'boy').toLowerCase() === 'girl' ? 'girl' : 'boy';
+const requestedScenes = Number(getArg('scenes', '12')) || 12;
 
 if (!topic) {
   console.error('Missing --topic="..."');
+  process.exit(1);
+}
+if (requestedScenes !== 12) {
+  console.error('KidMotion V2 longform requires exactly 12 exercises.');
+  process.exit(1);
+}
+
+const root = process.cwd();
+const pipeline = JSON.parse(fs.readFileSync(path.join(root, 'config', 'pipeline.json'), 'utf8'));
+const visual = JSON.parse(fs.readFileSync(path.join(root, 'config', 'visual-policy.json'), 'utf8'));
+if (visual.status !== 'READY' || !visual.styleId || visual.styleId === 'UNSET') {
+  console.error('KidMotion V2 requires config/visual-policy.json status READY and a real styleId.');
   process.exit(1);
 }
 
@@ -26,14 +38,12 @@ const slugify = (value) => value
   .replace(/^-+|-+$/g, '')
   .slice(0, 64);
 
-const episodesRoot = path.join(process.cwd(), 'episodes');
+const episodesRoot = path.join(root, 'episodes');
 fs.mkdirSync(episodesRoot, {recursive: true});
-
 const existingIds = fs.readdirSync(episodesRoot, {withFileTypes: true})
   .filter((entry) => entry.isDirectory() && /^KM-\d{3}-/.test(entry.name))
   .map((entry) => Number(entry.name.slice(3, 6)))
   .filter(Number.isFinite);
-
 const autoNumber = String((existingIds.length ? Math.max(...existingIds) : 0) + 1).padStart(3, '0');
 const episodeId = /^KM-\d{3}$/.test(requestedId) ? requestedId : `KM-${autoNumber}`;
 const slug = slugify(topic) || `episode-${episodeId.slice(3)}`;
@@ -46,18 +56,13 @@ if (fs.existsSync(episodeRoot)) {
   process.exit(1);
 }
 
-const firstExerciseScene = 4;
-const outroScene = firstExerciseScene + exerciseCount;
 const write = (relativePath, content) => {
   const target = path.join(episodeRoot, relativePath);
   fs.mkdirSync(path.dirname(target), {recursive: true});
   fs.writeFileSync(target, content, 'utf8');
 };
-
-fs.mkdirSync(path.join(episodeRoot, '01-skript'), {recursive: true});
-fs.mkdirSync(path.join(episodeRoot, '02-audio'), {recursive: true});
-fs.mkdirSync(path.join(episodeRoot, '03-bilder'), {recursive: true});
-fs.mkdirSync(path.join(episodeRoot, '04-data'), {recursive: true});
+const mkdir = (relativePath) => fs.mkdirSync(path.join(episodeRoot, relativePath), {recursive: true});
+for (const dir of ['00-bildprompts/images', '01-voice-script', '02-audio', '03-export', '99-technik']) mkdir(dir);
 
 const scenes = [
   {scene:'00', type:'cover', image:'Bild 00.png', duration:0, character, inVideo:false},
@@ -65,9 +70,8 @@ const scenes = [
   {scene:'02', type:'safety', image:'Bild 02.png', duration:4, character},
   {scene:'03', type:'lets-begin', image:'Bild 03.png', duration:2, character},
 ];
-
-for (let i = 0; i < exerciseCount; i += 1) {
-  const sceneNumber = pad(firstExerciseScene + i);
+for (let i = 0; i < 12; i += 1) {
+  const sceneNumber = pad(4 + i);
   scenes.push({
     scene: sceneNumber,
     type: 'exercise',
@@ -75,32 +79,29 @@ for (let i = 0; i < exerciseCount; i += 1) {
     instruction: 'TBD',
     image: `Bild ${sceneNumber}.png`,
     duration: 20,
-    restAfter: i === exerciseCount - 1 ? 0 : 5,
+    restAfter: i === 11 ? 0 : 5,
     character,
     ballCount: null,
   });
 }
-
-scenes.push({
-  scene: pad(outroScene),
-  type: 'outro',
-  image: `Bild ${pad(outroScene)}.png`,
-  duration: 4,
-  character,
-  generatedTextAllowed: false,
-});
-
-const runtimeSeconds = 8 + 4 + 2 + exerciseCount * 20 + Math.max(0, exerciseCount - 1) * 5 + 4;
+scenes.push({scene:'16', type:'outro', image:'Bild 16.png', duration:4, character, generatedTextAllowed:false});
 
 const data = {
+  schemaVersion: 2,
+  structureVersion: 2,
   id: episodeId,
   slug,
   topic,
+  status: 'planned',
+  visualPolicyFile: 'config/visual-policy.json',
+  visualStyleId: visual.styleId,
+  imagePlanFile: '99-technik/IMAGE_PLAN.json',
+  flowPromptFile: '00-bildprompts/google-flow-prompt.txt',
   format: 'youtube-longform',
-  aspectRatio: '16:9',
-  fps: 30,
-  width: 1920,
-  height: 1080,
+  aspectRatio: pipeline.aspectRatio,
+  fps: pipeline.fps,
+  width: pipeline.resolution.width,
+  height: pipeline.resolution.height,
   mainCharacter: character,
   singleCharacterWholeEpisode: true,
   allowCharacterSwitch: false,
@@ -110,16 +111,17 @@ const data = {
   singleFrameClarityRequired: true,
   silhouetteTestRequired: true,
   maxGoogleFlowAttemptsBeforePoseReplacement: 2,
-  characterReference: `approved KidMotion ${character} / clean ${episodeId} Bild 01 reference`,
+  characterReference: `approved ${episodeId} Bild 01 reference`,
   exerciseUiReference: `approved ${episodeId} Bild 04 reference for title/cloud style only`,
   outfitLockedForEpisode: true,
   worldLockedForEpisode: true,
+  imageGenerationRevisionRequired: revision,
   introDuration: 8,
   introTitle: 'TBD',
-  introSubtitle: `${exerciseCount} POSES • 20 SEC EACH`,
+  introSubtitle: '12 POSES • 20 SEC EACH',
   introBadge: 'KIDMOTION',
   introExtraInfo: ['FOLLOW ALONG'],
-  introVoiceText: 'TBD — write one natural copy-ready opening paragraph that lasts about 11–14 seconds and ends before exercise 1.',
+  introVoiceText: 'TBD — one continuous opening paragraph designed to cover approximately 13.65–14.00 seconds and end before Exercise 1.',
   voiceScriptFormat: 'one continuous copy-ready paragraph',
   safetyDuration: 4,
   letsBeginDuration: 2,
@@ -138,8 +140,8 @@ const data = {
     outroVoice: false,
     subtitles: false,
     voiceCaptions: false,
-    openingVoiceTargetSeconds: '11-14',
-    voiceFile: 'Voice 01.mp3',
+    openingVoiceTargetSeconds: '13.65-14.00',
+    voiceFile: 'Voice 01.mp3'
   },
   audioPolicy: {
     backgroundMusicRequiredForFinal: true,
@@ -147,14 +149,14 @@ const data = {
     backgroundMusicLoop: true,
     backgroundMusicLowDuringOpening: true,
     backgroundMusicContinuesThroughWorkout: true,
-    noSpokenVoiceAfterOpening: true,
+    noSpokenVoiceAfterOpening: true
   },
   transitionPolicy: {
     blankFramesForbidden: true,
     blackFlashesForbidden: true,
     whiteFlashesForbidden: true,
     fullSceneFadeFromZeroForbidden: true,
-    hardCutWithVisibleImageFromFirstFrame: true,
+    hardCutWithVisibleImageFromFirstFrame: true
   },
   exerciseVisualPolicy: {
     exerciseNameSource: 'GoogleFlowImage',
@@ -172,7 +174,7 @@ const data = {
     googleFlowTimerForbidden: true,
     googleFlowProgressBarForbidden: true,
     remotionKenBurnsOnExerciseForbidden: true,
-    remotionExerciseImageFadeFromZeroForbidden: true,
+    remotionExerciseImageFadeFromZeroForbidden: true
   },
   restVisualPolicy: {
     blankScreenForbidden: true,
@@ -183,7 +185,7 @@ const data = {
     restUiPosition: 'top-left',
     topRightRestCountdownForbidden: true,
     remotionKenBurnsOnRestForbidden: true,
-    remotionRestImageFadeFromZeroForbidden: true,
+    remotionRestImageFadeFromZeroForbidden: true
   },
   nonExerciseImagePolicy: {
     introGeneratedTextAllowed: false,
@@ -193,66 +195,83 @@ const data = {
     remotionOwnsIntroGraphic: true,
     remotionOwnsSafetyGraphic: true,
     remotionOwnsLetsBeginGraphic: true,
-    remotionOwnsOutroGraphic: true,
+    remotionOwnsOutroGraphic: true
   },
   scenes,
-  runtimeSeconds,
+  runtimeSeconds: 313
 };
 
-write('04-data/data.json', `${JSON.stringify(data, null, 2)}\n`);
-write('GENERATION-REVISION.txt', `${revision}\n`);
-write('04-data/VISUAL_REVIEW.json', `${JSON.stringify({
+const imagePlan = {
+  schemaVersion: 2,
   episodeFolder,
   revision,
-  sameCharacterEveryScene: false,
-  allExercisePosesClearFromOneStill: false,
-  allExerciseTextReadableAndConsistent: false,
-  allExerciseSafeZonesClear: false,
-  propBallCountsCorrect: false,
-  nonExerciseImagesContainNoGeneratedText: false,
-  noExtraPeople: false,
-  noAnatomyErrors: false,
-  noCroppingOfImportantLimbs: false,
-  notes: 'All flags remain false until the FINAL generated image set has been visually inspected image by image.'
-}, null, 2)}\n`);
-
-write('01-skript/voice-text.md', `# ${episodeId} — Voice\n\nUse exactly ONE spoken file: \`Voice 01.mp3\`.\n\nThe Voice starts at 0s and may continue naturally across Intro → Safety → LET'S BEGIN. Target: about 11–14 seconds. It MUST end before the first exercise starts.\n\nAfter the opening: no spoken Voice in exercises, rests or Outro. No subtitles/captions.\n\n## COPY-READY SCRIPT\n\nTBD\n`);
-
-write('02-audio/README.md', `# ${episodeId} — Audio\n\nFinal required files:\n- \`Voice 01.mp3\` — one continuous 11–14s opening Voice\n- \`bg-music.mp3\` — licensed instrumental background music\n\nMusic must be low under the opening Voice, slightly louder afterward, and loop through the full video. No lyrics/spoken samples.\n\nDo not create Voice 02+ files.\n`);
-
-const promptSections = [];
-const addPrompt = (number, title, body) => {
-  const n = pad(number);
-  promptSections.push(`## Bild ${n} — ${title}\n\n\`\`\`text\nIMAGE NUMBER: Bild ${n}\nFINAL FILE NAME: Bild ${n}.png\n\n${body}\n\nAfter generation immediately rename to: Bild ${n}.png\n\`\`\``);
+  visualStyleId: visual.styleId,
+  generationRules: {
+    coverCandidateCount: 3,
+    nonCoverAutomaticAlternates: false,
+    maxConcurrentGenerations: 5,
+    primaryReference: 'Bild 01.png',
+    exerciseUiReference: 'Bild 04.png',
+    finalDirectory: '00-bildprompts/images'
+  },
+  images: scenes.map((scene) => ({
+    imageNumber: Number(scene.scene),
+    imageFile: scene.image,
+    sceneRole: scene.type,
+    visualPurpose: scene.type === 'cover' ? 'Create the strongest mobile-readable YouTube thumbnail for this workout.' : 'TBD',
+    topicAnchor: topic,
+    visualForm: scene.type === 'exercise' ? 'single clear static full-body pose' : 'single clean premium 3D scene',
+    characterReference: scene.scene === '00' || scene.scene === '01' ? 'KidMotion master identity' : 'approved Bild 01.png',
+    uiReference: scene.type === 'exercise' && Number(scene.scene) > 4 ? 'approved Bild 04.png' : null,
+    propCount: scene.type === 'exercise' ? scene.ballCount : null,
+    generatedText: scene.type === 'exercise' ? {title: scene.title, instruction: scene.instruction} : scene.type === 'cover' ? 'TBD thumbnail text' : null,
+    safeZones: scene.type === 'exercise' ? ['top-left 220x220 timer zone clear', 'lowest ~90px progress zone clear'] : [],
+    acceptanceCriteria: [
+      'same recurring character where applicable',
+      'correct anatomy',
+      'no extra people',
+      'important limbs fully visible',
+      'correct prop count',
+      '16:9 composition'
+    ],
+    prompt: 'TBD'
+  }))
 };
 
-addPrompt(0, 'COVER', `Use the approved KidMotion ${character} master identity. Exactly one character. Create a premium 16:9 YouTube thumbnail for ${topic}. Visible English thumbnail text: TBD. No third-party logos.`);
-addPrompt(1, 'INTRO / PRIMARY CHARACTER REFERENCE', `Use the approved KidMotion ${character} master identity. Exactly one character. Create the locked episode outfit/world. Put the character full-body on the RIGHT and leave the LEFT clean for Remotion Intro graphics. ABSOLUTELY ZERO generated text, labels, logos, captions, timer or progress.`);
-addPrompt(2, 'SAFETY', `Use approved Bild 01 as PRIMARY character/world reference. Same character/outfit/world. Full-body character on RIGHT, LEFT clean for Remotion Safety graphic. ABSOLUTELY ZERO generated text. Prop/ball count: TBD and must be explicit before generation.`);
-addPrompt(3, "LET'S BEGIN", `Use approved Bild 01 as PRIMARY character/world reference. Same character/outfit/world. Create one clear STATIC ready pose and leave central-left space for the Remotion LET'S BEGIN graphic. ABSOLUTELY ZERO generated text. Prop/ball count: TBD and must be explicit before generation.`);
+const flowBlocks = imagePlan.images.map((item) => {
+  const n = pad(item.imageNumber);
+  return `Bild ${n}\nScene Role: ${item.sceneRole}\nVisual Purpose: ${item.visualPurpose}\nTopic Anchor: ${item.topicAnchor}\nVisual Form: ${item.visualForm}\nCharacter Reference: ${item.characterReference}\nUI Reference: ${item.uiReference || 'none'}\nProp Count: ${item.propCount === null ? 'TBD / not applicable' : item.propCount}\nGenerated Text: ${typeof item.generatedText === 'string' ? item.generatedText : item.generatedText ? JSON.stringify(item.generatedText) : 'ZERO generated text'}\nSafe Zones: ${item.safeZones.length ? item.safeZones.join('; ') : 'standard composition only'}\nAcceptance: ${item.acceptanceCriteria.join('; ')}\nPrompt: ${item.prompt}\nFinal file after acceptance: Bild ${n}.png`;
+});
 
-for (let i = 0; i < exerciseCount; i += 1) {
-  const scene = firstExerciseScene + i;
-  const secondaryRef = i === 0
-    ? 'This is the UI MASTER image. Once approved, use it as SECONDARY title/cloud reference for every later exercise.'
-    : 'PRIMARY reference: approved Bild 01 for character/world. SECONDARY UI reference: approved Bild 04 for title/cloud style.';
-  addPrompt(scene, `EXERCISE ${pad(i + 1)} — TBD`, `${secondaryRef}\n\nSTATIC POSE: TBD — must pass one-still clarity and silhouette test. Full body visible.\nPROP/BALL COUNT: TBD — explicitly set ZERO or EXACTLY ONE before generation.\n\nBOTTOM-LEFT TITLE:\nTBD\n\nTOP-RIGHT CLOUD:\nTBD\n\nUse exactly one bold white/navy outlined title and exactly one white/turquoise rounded instruction cloud. NO thought-bubble dots. Keep top-left 220x220 px clear for timer and lowest ~90 px clear for progress. NO subtitles, timer or progress.`);
-}
+const flowPrompt = `VISUAL_POLICY_FILE: config/visual-policy.json\nACTIVE_STYLE_ID: ${visual.styleId}\n\nKIDMOTION GOOGLE FLOW MASTER PROMPT — ${episodeId} — ${topic}\n\nGOAL\nGenerate the complete final KidMotion image set Bild 00 through Bild 16. The final accepted images live flat in 00-bildprompts/images/.\n\nHARD GENERATION WORKFLOW\n1. Read the complete image block before generating.\n2. Generate only the image(s) requested by that block.\n3. Inspect the result against Visual Purpose, references, prop count, safe zones and acceptance criteria.\n4. Rename the accepted result immediately to the exact final filename.\n5. Only then continue.\n\nCOVER RULE\n- Bild 00 is the separate YouTube cover and is NOT part of the MP4.\n- Generate exactly THREE temporary Bild 00 candidates.\n- Select exactly ONE winner and rename only that winner Bild 00.png.\n- Discard the other candidates.\n\nNON-COVER RULE\n- Bild 01 through Bild 16 have one accepted final version each.\n- Do not create automatic alternate versions.\n- Regenerate only after an explicit rejection against the acceptance criteria.\n- Maximum five active generations at once, but reference dependencies still apply.\n\nREFERENCE WORKFLOW\n- Generate and approve Bild 01 first. It becomes the PRIMARY character/world reference for Bild 02 through Bild 16.\n- Generate and approve Bild 04 before Bild 05 through Bild 15. It becomes the SECONDARY exercise title/cloud UI reference.\n- Never copy the pose or wording from Bild 04 into later exercises; copy only its UI system.\n\nEXERCISE RULE\nEvery exercise must pass the one-still clarity test before text is considered. If a pose remains unclear after two serious attempts, replace the pose instead of adding explanatory clutter.\n\nTEXT OWNERSHIP\n- Bild 01, Bild 02, Bild 03 and Bild 16: ZERO generated text.\n- Bild 04 through Bild 15: Google Flow creates exactly one bottom-left exercise title and one top-right instruction cloud.\n- Never generate timer, progress, REST UI, subtitles or transcript bars.\n\nFINAL FOLDER\nOnly final accepted Bild 00.png through Bild 16.png belong in 00-bildprompts/images/.\n\nIMAGE PLAN\n\n${flowBlocks.join('\n\n---\n\n')}\n\nFINAL CHECK\n- visual policy loaded\n- Bild 00 has one winner from three candidates\n- Bild 01 approved before dependent images\n- Bild 04 approved before later exercise images\n- one accepted final image per number\n- no missing numbers\n- no extra people\n- correct prop count\n- safe zones clear\n- final files flat in 00-bildprompts/images/\n`;
 
-addPrompt(outroScene, 'OUTRO / CLEAN IMAGE ONLY', `Use approved Bild 01 as PRIMARY reference. Same character/outfit/world. Full-body victory pose on RIGHT and LEFT clean for Remotion completion graphic. ABSOLUTELY ZERO generated text/graphics. Do NOT generate GREAT JOB or WORKOUT COMPLETE. Prop/ball count: TBD and must be explicit.`);
+write('99-technik/episode.json', `${JSON.stringify(data, null, 2)}\n`);
+write('99-technik/IMAGE_PLAN.json', `${JSON.stringify(imagePlan, null, 2)}\n`);
+write('99-technik/RENDER_PLAN.json', `${JSON.stringify({schemaVersion:2, staticExerciseImages:true, staticRestImages:true, timer:'remotion', progressBar:'remotion', restCountdown:'remotion', backgroundMusic:true}, null, 2)}\n`);
+write('99-technik/VISUAL_REVIEW.json', `${JSON.stringify({
+  episodeFolder,
+  revision,
+  sameCharacterEveryScene:false,
+  allExercisePosesClearFromOneStill:false,
+  allExerciseTextReadableAndConsistent:false,
+  allExerciseSafeZonesClear:false,
+  propBallCountsCorrect:false,
+  nonExerciseImagesContainNoGeneratedText:false,
+  noExtraPeople:false,
+  noAnatomyErrors:false,
+  noCroppingOfImportantLimbs:false,
+  notes:'Set flags true only after inspecting the final images in 00-bildprompts/images/.'
+}, null, 2)}\n`);
+write('99-technik/status.json', `${JSON.stringify({schemaVersion:2, phase1Ready:false, imagesReady:false, audioReady:false, assetsApproved:false, renderReady:false}, null, 2)}\n`);
+write('99-technik/GENERATION-REVISION.txt', `${revision}\n`);
+write('00-bildprompts/google-flow-prompt.txt', flowPrompt);
+write('01-voice-script/voice-script.txt', `${data.introVoiceText}\n`);
+write('02-audio/README.md', `# ${episodeId} Audio\n\nRequired final files:\n- Voice 01.mp3 — one continuous opening Voice, target 13.65–14.00s, must end before Exercise 1\n- bg-music.mp3 — instrumental background music, looped through the workout\n\nDo not add Voice 02+ files.\n`);
+write('README.md', `# ${episodeId} — ${topic}\n\nKidMotion Pipeline V2 episode.\n\nStructure:\n- 00-bildprompts/google-flow-prompt.txt + images/\n- 01-voice-script/voice-script.txt\n- 02-audio/\n- 03-export/\n- 99-technik/ episode/image/review/render state\n\nFill every TBD in episode.json, IMAGE_PLAN.json and google-flow-prompt.txt before final generation.\n`);
+write('ANTIGRAVITY.md', `# ${episodeId} — Antigravity\n\nRead GEHIRN.md, config/pipeline.json, config/visual-policy.json, then 99-technik/episode.json and 00-bildprompts/google-flow-prompt.txt.\n\nNever bypass the reference workflow, visual review or SHA-256 asset approval.\n`);
+write('03-export/.gitkeep', '');
+write('00-bildprompts/images/.gitkeep', '');
 
-write('03-bilder/bild-prompts.md', `# ${episodeId} — Google Flow Image Prompts\n\n## HARD WORKFLOW\n\`PROMPT LESEN → EIN BILD ERZEUGEN → EIN-BILD-KLARHEIT PRÜFEN → TEXT/UI + PROP COUNT PRÜFEN → SOFORT UMBENENNEN → ERST DANN NÄCHSTES BILD\`\n\n## REFERENCES\n- Bild 01 = PRIMARY character/world reference\n- Bild 04 = SECONDARY exercise title/cloud UI reference after approval\n\n## SAFE ZONES\n- top-left 220x220 px free for timer\n- lowest ~90 px free for progress\n- instruction cloud top-right with safe margin\n\n## NON-EXERCISE TEXT\nBild 01, 02, 03 and final Outro image contain ZERO generated text.\n\n## PROP RULE\nEvery prompt must explicitly say ZERO or EXACTLY ONE relevant prop/ball. No stray background duplicates.\n\n${promptSections.join('\n\n')}\n\n## REST\nDo not generate Rest cards. Remotion reuses the NEXT exercise image and adds compact REST + countdown TOP-LEFT only.\n`);
-
-write('03-bilder/README.md', `# ${episodeId} — Bilder\n\nRequired: Bild 00 through Bild ${pad(outroScene)} with no gaps.\n\nBild 01 = PRIMARY character reference.\nBild 04 = SECONDARY Exercise UI reference.\n\nReject an exercise image if the pose is unclear, anatomy is wrong, text is clipped/inconsistent, thought-bubble dots appear, safe zones are occupied, the character drifts, or prop/ball count is wrong.\n\nBild 01/02/03/Outro must contain ZERO Google Flow text.\n\nAfter the FINAL image set exists, inspect every image and update \`04-data/VISUAL_REVIEW.json\`. Do not approve from prompts or filenames alone.\n`);
-
-write('README.md', `# ${episodeId} — ${topic}\n\n## Status\nPLANNED — fill all TBD fields before generating final assets.\n\n## Structure\n- Intro 8s\n- Safety 4s\n- LET'S BEGIN 2s\n- ${exerciseCount} static exercises × 20s\n- ${Math.max(0, exerciseCount - 1)} rests × 5s\n- Outro 4s\n- total ${runtimeSeconds}s\n\n## Hard rules\n- exactly one recurring ${character}\n- every exercise must be understandable from one still\n- one continuous opening Voice only, target 11–14s, ends before exercise 1\n- looping background music required final\n- Google Flow owns exercise title + instruction\n- Remotion owns timer + progress during exercises\n- no whole-image fade from black/white\n- no Ken Burns on exercise/rest images\n- Rest UI top-left only\n- non-exercise source images text-free\n- final assets require visual review + SHA-256 approval lock before render\n`);
-
-write('ANTIGRAVITY.md', `# ${episodeId} — Antigravity\n\nRead \`GEHIRN.md\` first, then this episode's README, voice, image prompts and data.json.\n\nDo not render final until all TBD fields are resolved and final assets exist.\n\nHard rules:\n- one character throughout\n- one-still static poses only\n- one Voice 01 may span the 14s opening and ends before exercise 1\n- bg-music.mp3 required and loops throughout\n- no subtitles\n- no full-scene fade from zero\n- no Ken Burns on exercise/rest images\n- Google Flow owns exercise title/cloud\n- Remotion owns timer/progress only during exercises\n- Rest uses next image + REST/countdown top-left only\n- Bild 01/02/03/Outro generated text-free\n\nMANDATORY GATE:\n1. Visually inspect EVERY final image.\n2. Set every required flag in \`04-data/VISUAL_REVIEW.json\` true only after actual inspection.\n3. Run \`npm run assets:approve -- --episode=${episodeFolder}\`.\n4. This creates a SHA-256 lock. Any later asset change invalidates approval.\n5. Activate episode, then run \`npm run render:safe\`.\n\nNever bypass the visual review or asset lock.\n`);
-
-write('RENDER_QA.md', `# ${episodeId} — Render QA\n\n- [ ] all TBD values resolved\n- [ ] one character throughout\n- [ ] all poses pass one-still clarity\n- [ ] all required images exist\n- [ ] Bild 01/02/03/Outro are generated text-free\n- [ ] Bild 04–exercise end use consistent title/cloud UI\n- [ ] correct prop/ball count per scene\n- [ ] Voice 01 about 11–14s and ends before exercise 1\n- [ ] bg-music loops through whole video\n- [ ] no subtitles\n- [ ] no black/white boundary flashes\n- [ ] no Exercise/Rest Ken Burns cropping\n- [ ] Rest countdown top-left only\n- [ ] exactly one GREAT JOB completion graphic\n- [ ] VISUAL_REVIEW.json completed from actual image inspection\n- [ ] assets:approve passes and creates ASSET_APPROVAL.json\n- [ ] typecheck passes\n- [ ] project:doctor passes\n- [ ] preflight passes\n- [ ] asset:gate passes\n- [ ] render passes\n- [ ] postrender QA passes\n- [ ] final MP4 visually inspected\n`);
-
-write('publishing.md', `# ${episodeId} — Publishing\n\nYouTube title: TBD\n\nONE cross-platform caption:\nTBD #Tag1 #Tag2 #Tag3 #Tag4 #KidMotion\n\nExactly five hashtags; final hashtag #KidMotion.\n`);
-
-console.log(`Created canonical episode: ${episodeRoot}`);
-console.log(`Revision: ${revision}`);
-console.log('Final render is blocked until VISUAL_REVIEW + assets:approve are completed.');
+console.log(`Created KidMotion V2 episode: ${episodeRoot}`);
+console.log(`Visual style: ${visual.styleId}`);
+console.log('Final render remains blocked until image plan, assets, visual review and asset approval are complete.');

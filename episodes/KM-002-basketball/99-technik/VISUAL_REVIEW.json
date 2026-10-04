@@ -10,5 +10,5 @@
   "noExtraPeople": false,
   "noAnatomyErrors": false,
   "noCroppingOfImportantLimbs": false,
-  "notes": "BLOCKED until Antigravity visually inspects every final Bild 00–16 and changes every required flag to true. Do not mark true from filenames or prompts alone."
+  "notes": "All flags stay false until the final files in 00-bildprompts/images/ have actually been inspected image by image."
 }

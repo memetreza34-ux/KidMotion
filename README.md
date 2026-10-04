@@ -1,124 +1,92 @@
-# KidMotion
+# KidMotion V2
 
-KidMotion is an original English-language kids fitness YouTube project using premium stylized 3D characters, static one-frame HOLD poses, Google Flow images and Remotion assembly.
+KidMotion ist eine datengetriebene Produktionspipeline für englische YouTube-Kinderworkouts mit statischen Hold-Posen, Google-Flow-Bildern und Remotion-Rendering.
 
-> `GEHIRN.md` is the highest-priority source of truth.
+## Source of truth
+1. `GEHIRN.md`
+2. `config/pipeline.json`
+3. `config/visual-policy.json`
+4. `characters/CHARACTER_BIBLE.md`
+5. jeweilige Episode unter `episodes/KM-XXX-name/`
 
-## Current format
-- YouTube long-form only
-- 16:9 / 1920×1080 / 30fps
-- exactly ONE main character per episode
-- static poses understandable from one still image
-- typical episode: 12 exercises
-- every exercise: exactly 20s
-- typical Rest: 5s
-- standard runtime: 313s / 5:13
+## V2-Episodenstruktur
 
-## Canonical episode structure
-Episodes live only under:
-`episodes/KM-XXX-name/`
+```text
+episodes/KM-XXX-name/
+├── 00-bildprompts/
+│   ├── google-flow-prompt.txt
+│   └── images/Bild 00.png ... Bild 16.png
+├── 01-voice-script/voice-script.txt
+├── 02-audio/Voice 01.mp3 + bg-music.mp3
+├── 03-export/
+└── 99-technik/
+    ├── episode.json
+    ├── IMAGE_PLAN.json
+    ├── RENDER_PLAN.json
+    ├── VISUAL_REVIEW.json
+    ├── GENERATION-REVISION.txt
+    ├── status.json
+    └── ASSET_APPROVAL.json (erst nach Freigabe)
+```
 
-Each episode contains:
-- `01-skript/` — one copy-ready Opening Voice paragraph
-- `02-audio/` — `Voice 01.mp3` + `bg-music.mp3`
-- `03-bilder/` — Google Flow images/prompts
-- `04-data/data.json`
-- `04-data/VISUAL_REVIEW.json`
-- `04-data/ASSET_APPROVAL.json` after approval
-- `GENERATION-REVISION.txt`
-- episode README + Antigravity + QA instructions
+KM-001 bleibt Legacy-Archiv. KM-002 ist die erste V2-Episode.
 
-Legacy `content/episodes/` is not a production source.
+## Google-Flow-Workflow
 
-## Character / pose rules
-One video = exactly one recurring character. No second visible person.
+Jedes Bild wird vor der Generierung geplant mit:
+- Visual Purpose
+- Topic Anchor
+- Visual Form
+- Character/UI Reference
+- Prop Count
+- Generated Text
+- Safe Zones
+- Acceptance Criteria
+- finalem Prompt
 
-Every exercise must work from exactly ONE still image. Reject/replace a pose if motion is needed, silhouette is unclear, anatomy is bad, important limbs overlap/crop, or Google Flow cannot depict it clearly after two serious attempts.
+`Bild 00`: drei temporäre Cover-Kandidaten → ein Gewinner `Bild 00.png`.
 
-## Image numbering
-- `Bild 00.png` = Cover only; NEVER inside MP4
-- `Bild 01.png` = Intro + PRIMARY character/world reference
-- `Bild 02.png` = Safety
-- `Bild 03.png` = LET'S BEGIN
-- `Bild 04.png`–`Bild 15.png` = 12 exercise images
-- `Bild 16.png` = Outro
+`Bild 01`: zuerst erzeugen und freigeben → PRIMARY character/world reference.
 
-## Google Flow responsibilities
-Exercise images contain directly:
-- exercise name bottom-left
-- one short instruction cloud top-right
+`Bild 04`: danach erzeugen und freigeben → SECONDARY exercise UI reference für Bild 05–15.
 
-Approved `Bild 04` becomes SECONDARY UI/LAYOUT reference for later exercise images.
+Alle akzeptierten Finalbilder liegen flach in `00-bildprompts/images/`.
 
-Safe zones:
-- top-left ~220×220 px clear for Remotion timer
-- lowest ~90 px clear for Remotion progress
-
-`Bild 01`, `Bild 02`, `Bild 03`, `Bild 16` contain ZERO Google Flow text.
-
-Prop rule: ZERO props when scene says zero; EXACTLY ONE when scene says one. No stray duplicates.
-
-## Opening Voice
-Exactly one spoken file: `Voice 01.mp3`.
-
-It may span the complete 14s opening:
+## Standardvideo
 - Intro 8s
 - Safety 4s
 - LET'S BEGIN 2s
+- 12 × Exercise 20s
+- 11 × Rest 5s
+- Outro 4s
+- Gesamt 313s / 5:13
 
-Target about 11–14s and it must end before exercise 1.
-After that: no spoken Voice, no spoken countdown, no subtitles/captions/transcripts.
+## Audio
+- genau `Voice 01.mp3` für das 14s Opening
+- Ziel ca. 13.65–14.00s, maximal 14.05s
+- danach keine Voice
+- `bg-music.mp3` Pflicht und geloopt
 
-## Background music
-Final renders require `bg-music.mp3`, instrumental and child-friendly, low under Opening Voice and looped through the full workout.
+## Produktion
 
-## Remotion responsibilities
-During exercises Remotion adds ONLY timer + progress + timing.
-Exercise and Rest source images stay static. No Ken Burns/zoom/pan. No full-image fade from blank.
-
-Rest reuses the NEXT exercise image and adds compact `REST + countdown` top-left only.
-
-## Mandatory asset review lock
-A final render is blocked until the actual final source files are visually reviewed.
-
-1. Inspect every final image directly.
-2. Set every required flag in `04-data/VISUAL_REVIEW.json` to true only after real inspection.
-3. Run:
+Neue Episode:
 ```bash
-npm run assets:approve -- --episode=KM-XXX-name
+npm run kidmotion:new -- --topic="THEME" --character=girl
 ```
-4. This creates `ASSET_APPROVAL.json` with SHA-256 hashes.
-5. If any approved image/audio changes afterward, rendering is blocked until re-review/re-approval.
 
-## Guarded rendering
-Both:
+Aktivieren:
 ```bash
-npm run render
+npm run kidmotion:activate -- --episode=KM-XXX-slug
 ```
-and:
+
+Nach echter visueller Prüfung:
+```bash
+npm run assets:approve -- --episode=KM-XXX-slug
+```
+
+Final rendern:
 ```bash
 npm run render:safe
 ```
-run the same guarded pipeline:
 
-```text
-TypeScript
-→ project:doctor
-→ preflight
-→ asset:gate
-→ KidMotionVideo render
-→ postrender:qa
-```
-
-There is intentionally no normal npm raw-render path.
-
-Postrender QA checks runtime, resolution/FPS, ongoing music, black/white/pale boundary flashes and suspicious repeated exercise scenes.
-
-## Current target
-`KM-002-basketball`
-
-The previous KM-002 test render is rejected. Fix/acceptance rules are in:
-- `episodes/KM-002-basketball/ANTIGRAVITY.md`
-- `episodes/KM-002-basketball/RENDER_QA.md`
-
-Do not call an episode PRODUCTION COMPLETE until all automated gates pass and the resulting MP4 is visually checked.
+Der Render bleibt blockiert, solange Bildplan, Flow-Prompt, Assets, Visual Review oder SHA-256-Approval nicht vollständig gültig sind.

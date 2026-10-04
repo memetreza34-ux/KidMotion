@@ -1,0 +1,72 @@
+{
+  "pipelineVersion": 2,
+  "projectSchemaVersion": 2,
+  "language": "en",
+  "aspectRatio": "16:9",
+  "fps": 30,
+  "resolution": {"width": 1920, "height": 1080},
+  "structure": {
+    "promptDirectory": "00-bildprompts",
+    "finalImageDirectory": "00-bildprompts/images",
+    "voiceScriptDirectory": "01-voice-script",
+    "audioDirectory": "02-audio",
+    "exportDirectory": "03-export",
+    "technicalDirectory": "99-technik"
+  },
+  "coverPolicy": {
+    "coverImageNumber": 0,
+    "coverOutsideVideo": true,
+    "coverCandidateCount": 3,
+    "selectOneWinner": true,
+    "finalFile": "Bild 00.png"
+  },
+  "imageGenerationPolicy": {
+    "oneImageOneVisualPurpose": true,
+    "finalImagesFlatDirectory": true,
+    "automaticAlternateVersionsForbidden": true,
+    "regenerationOnlyAfterExplicitRejection": true,
+    "maxConcurrentGenerations": 5,
+    "renameImmediatelyAfterAcceptance": true,
+    "primaryReferenceImage": "Bild 01.png",
+    "exerciseUiReferenceImage": "Bild 04.png",
+    "requireVisualPurpose": true,
+    "requireTopicAnchor": true,
+    "requireVisualForm": true,
+    "requireAcceptanceCriteria": true
+  },
+  "workoutTiming": {
+    "introSeconds": 8,
+    "safetySeconds": 4,
+    "letsBeginSeconds": 2,
+    "exerciseSeconds": 20,
+    "restSeconds": 5,
+    "exerciseCount": 12,
+    "outroSeconds": 4,
+    "runtimeSeconds": 313
+  },
+  "audioPolicy": {
+    "voiceFile": "Voice 01.mp3",
+    "voiceStartsAtFrameZero": true,
+    "voiceMustEndBeforeExerciseOne": true,
+    "minimumVoiceSeconds": 13.65,
+    "maximumVoiceSeconds": 14.05,
+    "backgroundMusicRequired": true,
+    "backgroundMusicFile": "bg-music.mp3",
+    "backgroundMusicLoop": true,
+    "spokenVoiceAfterOpeningForbidden": true
+  },
+  "renderPolicy": {
+    "exerciseImagesStatic": true,
+    "restImagesStatic": true,
+    "kenBurnsForbiddenOnWorkoutScenes": true,
+    "remotionOwnsTimer": true,
+    "remotionOwnsProgressBar": true,
+    "remotionOwnsRestCountdown": true,
+    "googleFlowOwnsExerciseTitleAndInstruction": true
+  },
+  "approvalPolicy": {
+    "visualReviewRequired": true,
+    "sha256AssetLockRequired": true,
+    "assetMutationInvalidatesApproval": true
+  }
+}
