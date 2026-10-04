@@ -63,10 +63,12 @@ if (data.allowSecondVisibleCharacter !== false) fail('allowSecondVisibleCharacte
 if (data.allVideoSectionsUseCharacterImage !== true) fail('allVideoSectionsUseCharacterImage must be true.');
 
 if (data.imageGenerationRevisionRequired) {
-  const revisionPath = path.join(imageRoot, 'GENERATION-REVISION.txt');
+  const revisionPath = usingCanonical
+    ? path.join(canonicalEpisodeRoot, 'GENERATION-REVISION.txt')
+    : path.join(imageRoot, 'GENERATION-REVISION.txt');
   const currentRevision = fs.existsSync(revisionPath) ? fs.readFileSync(revisionPath, 'utf8').trim().split(/\r?\n/)[0] : '';
   if (currentRevision !== data.imageGenerationRevisionRequired) {
-    fail(`Image generation revision is not approved. Required ${data.imageGenerationRevisionRequired}, found ${currentRevision || 'MISSING'}. Regenerate/approve the images listed in regenerationRequired before rendering.`);
+    fail(`Generation revision mismatch. Required ${data.imageGenerationRevisionRequired}, found ${currentRevision || 'MISSING'}. Regenerate/review the assets listed in regenerationRequired before rendering.`);
   }
 }
 
@@ -187,4 +189,4 @@ if (failures.length) {
 console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${runtime}s`);
 console.log("Opening Voice: frame 0 through Safety + LET'S BEGIN, near-full opening coverage, and must end before Exercise 1.");
 console.log('Music: required/looped for final production when episode policy requires it.');
-console.log('Visual: approved image-generation revision required; no blank fades; exercise/rest images static; Google Flow owns title/instruction.');
+console.log('Visual: canonical generation revision required; no blank fades; exercise/rest images static; Google Flow owns title/instruction.');
