@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "status": "READY",
+  "exportDirectory": "03-export",
+  "requiredFinalFiles": [
+    "FINAL_VIDEO.mp4",
+    "UPLOAD_METADATA.md"
+  ],
+  "uploadMetadata": {
+    "requiredFields": [
+      "title",
+      "description"
+    ],
+    "language": "en",
+    "mustBeReadyToCopy": true,
+    "placeholdersForbiddenAtFinal": true
+  },
+  "notes": [
+    "03-export is the final publishing package, not only the rendered MP4.",
+    "UPLOAD_METADATA.md must contain the final YouTube title and final video description/caption.",
+    "The metadata may stay DRAFT during production but must be FINAL before the episode is considered production complete."
+  ]
+}
