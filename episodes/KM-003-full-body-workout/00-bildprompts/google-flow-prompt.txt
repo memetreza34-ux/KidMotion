@@ -1,146 +1,200 @@
 VISUAL_POLICY_FILE: config/visual-policy.json
-ACTIVE_STYLE_ID: kidmotion-premium-3d-v2
+ACTIVE_STYLE_ID: kidmotion-premium-3d-v3-flow-text
+REVISION: KM003-R2
 
-KIDMOTION GOOGLE FLOW MASTER PROMPT — KM-003 — FULL BODY WORKOUT
+KIDMOTION GOOGLE FLOW MASTER WORKFLOW — KM-003 FULL BODY WORKOUT
 
-GOAL
-Create the complete image set for a 5:13 KidMotion full-body workout for kids. The final accepted files must be Bild 00.png through Bild 16.png inside 00-bildprompts/images/.
+HARD STOP WORKFLOW — COVER FIRST
+1. Generate ONLY these three cover candidates first:
+   - Cover-Kandidat-01.png
+   - Cover-Kandidat-02.png
+   - Cover-Kandidat-03.png
+2. Use the same KidMotion boy identity, outfit palette and premium 3D direction for all three, but vary composition/pose enough to give the user a real choice.
+3. Show all three covers to the user.
+4. STOP completely. Do NOT generate Szene 02 or any later scene yet.
+5. Wait until the user explicitly chooses candidate 1, 2 or 3.
+6. After the explicit choice run:
+   npm run kidmotion:select-cover -- --episode=KM-003-full-body-workout --candidate=<1|2|3>
+7. The selected winner becomes exactly Szene 01.png.
+8. The two rejected cover candidates are deleted.
+9. Szene 01.png becomes the PRIMARY visual reference for character, face, hair, proportions, outfit, colors, lighting and world for every later scene.
+10. Only after COVER_SELECTION.json says SELECTED may Szene 02–17 be generated.
 
-CHARACTER LOCK
-Use exactly ONE recurring KidMotion BOY for the entire episode.
-Identity: friendly athletic boy around 10 years old, medium warm skin, short slightly textured dark-brown hair, expressive brown eyes, soft rounded facial features, confident friendly smile, slim active child-appropriate proportions.
-Episode outfit: royal-blue athletic T-shirt with lime accents, dark navy athletic shorts, white crew socks, clean blue-and-white sneakers.
-World: bright premium modern kids fitness studio, warm wood floor, soft blue/lime accents, clean uncluttered background, polished family-animation 3D lighting.
-No other people. No brand logos. No copyrighted characters.
+ONE-FOLDER RULE
+- All three temporary cover candidates start in 00-bildprompts/images/.
+- After selection only the winner remains there as Szene 01.png.
+- Every later accepted final image goes into the SAME folder.
+- Final folder contents are exactly Szene 01.png through Szene 17.png.
+- No cover subfolder. No scene subfolders. No accepted/rejected subfolders.
 
-TEXT OWNERSHIP — HARD RULE
-Google Flow owns ALL visible text except the numeric countdown timer added later by Remotion.
-Therefore Flow must generate all intro, safety, LET'S BEGIN, exercise, instruction and outro text directly inside the images.
-Never generate a timer or progress bar.
+RENAMING RULE
+- Rename every accepted result immediately before continuing.
+- Cover = Szene 01.png.
+- Intro = Szene 02.png.
+- Safety = Szene 03.png.
+- LET'S BEGIN = Szene 04.png.
+- Exercises = Szene 05.png through Szene 16.png.
+- Outro = Szene 17.png.
 
-REFERENCE WORKFLOW — HARD RULE
-1. Bild 00: generate exactly THREE temporary cover candidates, select one winner, rename only the winner Bild 00.png.
-2. Generate and approve Bild 01 first. It becomes the PRIMARY character/outfit/world reference for every later image.
-3. Generate Bild 02 and Bild 03 using approved Bild 01.
-4. Generate and approve Bild 04 before Bild 05–15. Bild 04 becomes the SECONDARY exercise UI reference.
-5. Bild 05–15 use Bild 01 for character/world and Bild 04 for title/cloud UI only.
-6. Bild 16 uses Bild 01 for character/world.
-7. Rename each accepted image immediately. No automatic alternate versions for Bild 01–16.
+REFERENCE RULE
+- Szene 01.png is always the PRIMARY character/outfit/world/color reference after selection.
+- Generate and approve Szene 05.png before Szene 06–16.
+- Szene 05.png becomes the SECONDARY exercise UI reference only.
+- Szene 05 must never replace Szene 01 as the character/world reference.
 
-EXERCISE UI LOCK
-For Bild 04–15 create exactly:
-- ONE bold exercise title bottom-left
-- ONE rounded white/turquoise instruction cloud top-right
-Use bold white rounded athletic lettering with thick dark-navy outline and soft shadow for titles.
-Use dark-navy bold rounded text in the instruction cloud.
-No thought-bubble dots.
-Keep top-left 220x220 px visually clear for the Remotion countdown timer.
-No timer, progress bar, subtitles, transcript bar, REST label or NEXT label.
+TEXT OWNERSHIP
+- Google Flow creates every visible text element except the changing countdown timer.
+- Remotion adds only the countdown timer.
+- Never generate a timer, progress bar, REST label, NEXT label, subtitles or transcript bar into any image.
 
-ONE-STILL CLARITY
-Every exercise must be understandable from one still image before reading the text. Full body visible from head to shoes. Important joints visible. Arms and legs clearly separated. Natural child-safe anatomy. If a pose remains unclear after two serious attempts, reject/replace the pose rather than adding visual clutter.
-
----
-
-Bild 00 — COVER
-Visual Purpose: strongest mobile-readable YouTube thumbnail for this workout.
-Generate exactly THREE candidates.
-Prompt: Premium stylized 3D KidMotion thumbnail. Same approved boy identity, royal-blue/lime workout outfit, bright modern kids fitness studio. Exactly one boy large on the RIGHT in a strong static athletic stance, full or nearly full body. LEFT side contains large high-contrast text exactly: "5 MIN FULL BODY WORKOUT" and smaller "FOR KIDS". Bold clean white/navy typography with blue/lime accents. No other people, no brands, no clutter, 16:9. Select the strongest candidate and rename it Bild 00.png.
-
----
-
-Bild 01 — INTRO / PRIMARY REFERENCE
-Visual Purpose: lock the final character, outfit and world and deliver the full intro card.
-Prompt: Use the approved KidMotion boy master identity. Exactly one boy, full body on the RIGHT in a relaxed confident athletic stance, smiling toward camera. Bright modern KidMotion studio, royal-blue shirt with lime accents, navy shorts, white socks, blue-white sneakers. LEFT side contains exactly: "KIDMOTION", "5 MIN FULL BODY WORKOUT", "12 POSES • 20 SEC EACH", "FOLLOW ALONG". Clean premium hierarchy, highly readable, no timer, no other people. 16:9. After approval this image becomes the PRIMARY reference. Rename Bild 01.png.
-
----
-
-Bild 02 — SAFETY
-Visual Purpose: clear safety message while preserving exact character continuity.
-Prompt: Use approved Bild 01 as PRIMARY reference. Same boy, face, hair, proportions, outfit, shoes, studio and lighting. Full body on the RIGHT in a calm neutral stance. LEFT side contains exactly: "SAFETY FIRST", "Clear some space.", "Stop if anything hurts." Same KidMotion design language. No timer, no other people. Rename Bild 02.png.
-
----
-
-Bild 03 — LET'S BEGIN
-Visual Purpose: clean transition into Exercise 1.
-Prompt: Use approved Bild 01. Same boy and studio. Static ready pose: feet shoulder-width apart, knees slightly bent, torso upright, hands relaxed in front, confident smile, full body visible. Add exactly one large message: "LET'S BEGIN!". No timer, no extra text, no other people. Rename Bild 03.png.
-
----
-
-Bild 04 — READY SQUAT HOLD / UI MASTER
-Visual Purpose: teach the first hold and establish the exercise UI master.
-Prompt: Use approved Bild 01. Same boy/outfit/studio. Static pose: feet shoulder-width, knees visibly bent, hips slightly back, torso upright, hands clearly in front. Full body head-to-shoes. Keep top-left 220x220 clear. Bottom-left title exactly: "READY SQUAT HOLD". Top-right rounded instruction cloud exactly: "Bend your knees and stay strong." No thought-bubble dots, no timer, no progress bar, no other people. After approval this becomes the SECONDARY UI reference. Rename Bild 04.png.
-
----
-
-Bild 05 — STAR REACH HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Static pose: feet wide, both arms raised diagonally upward in a large V, torso tall, hands open, strong star silhouette. Full body visible. Keep top-left timer zone clear. Bottom-left title: "STAR REACH HOLD". Top-right cloud: "Stand wide and reach up high." Match Bild 04 UI exactly. Rename Bild 05.png.
-
----
-
-Bild 06 — SIDE LUNGE HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Static wide stance: LEFT knee comfortably bent, hips shifted left, RIGHT leg long and nearly straight, torso upright, hands comfortably in front. Both shoes visible. Keep top-left timer zone clear. Title: "SIDE LUNGE HOLD". Cloud: "Bend one knee and keep the other leg long." Match Bild 04 UI. Rename Bild 06.png.
-
----
-
-Bild 07 — KNEE-UP BALANCE
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Stand tall on LEFT leg, lift RIGHT knee to about hip height, arms slightly extended for balance, torso upright, full body visible. Keep timer zone clear. Title: "KNEE-UP BALANCE". Cloud: "Lift one knee and stay steady." Match Bild 04 UI. Rename Bild 07.png.
-
----
-
-Bild 08 — WIDE SQUAT HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Feet wider than shoulders, knees bent, hips lowered comfortably, chest upright, hands together in front, full body visible. Keep timer zone clear. Title: "WIDE SQUAT HOLD". Cloud: "Sit low with your chest tall." Match Bild 04 UI. Rename Bild 08.png.
-
----
-
-Bild 09 — AIRPLANE BALANCE
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Stand on LEFT leg, torso tilted moderately forward, RIGHT leg extended straight behind, both arms stretched straight sideways at shoulder height. Child-safe, not excessively horizontal, full body and clear silhouette. Keep timer zone clear. Title: "AIRPLANE BALANCE". Cloud: "Lean forward and stretch your arms wide." Match Bild 04 UI. Rename Bild 09.png.
-
----
-
-Bild 10 — FORWARD LUNGE HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. One foot clearly forward and one behind, both knees comfortably bent, torso upright, slight three-quarter camera angle so both legs and feet are distinct. Full body visible. Keep timer zone clear. Title: "FORWARD LUNGE HOLD". Cloud: "Step forward and keep your body tall." Match Bild 04 UI. Rename Bild 10.png.
-
----
-
-Bild 11 — SIDE LEG BALANCE
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Stand on LEFT leg, lift RIGHT leg clearly sideways at a comfortable height, both arms stretched sideways for balance, torso tall, full body visible. Keep timer zone clear. Title: "SIDE LEG BALANCE". Cloud: "Lift one leg to the side and stay steady." Match Bild 04 UI. Rename Bild 11.png.
-
----
-
-Bild 12 — OVERHEAD REACH HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Feet hip-width, body tall, both arms straight overhead, hands open and clearly separated, full body visible. Keep timer zone clear. Title: "OVERHEAD REACH HOLD". Cloud: "Stand tall and reach both hands up." Match Bild 04 UI. Rename Bild 12.png.
-
----
-
-Bild 13 — KNEE HUG HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Stand tall on LEFT leg, raise RIGHT knee toward chest, hold raised shin gently with both hands, torso upright, standing foot visible. Keep timer zone clear. Title: "KNEE HUG HOLD". Cloud: "Lift one knee and hold it close." Match Bild 04 UI. Rename Bild 13.png.
-
----
-
-Bild 14 — SIDE STRETCH HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Feet comfortably wide, LEFT hand on left hip, RIGHT arm extended overhead, torso leaning gently LEFT while hips remain centered. Full body and raised hand visible. Keep timer zone clear. Title: "SIDE STRETCH HOLD". Cloud: "Reach overhead and lean to one side." Match Bild 04 UI. Rename Bild 14.png.
-
----
-
-Bild 15 — POWER FINISH HOLD
-Prompt: PRIMARY Bild 01, SECONDARY UI Bild 04. Same boy. Feet wide, knees soft, chest tall, elbows bent around 90 degrees, fists beside shoulders, confident happy expression. Full body visible. Keep timer zone clear. Title: "POWER FINISH HOLD". Cloud: "Stand strong and show your power." Match Bild 04 UI. Rename Bild 15.png.
-
----
-
-Bild 16 — OUTRO
-Visual Purpose: positive completion card.
-Prompt: Use approved Bild 01 as PRIMARY reference. Same boy, same outfit and same bright KidMotion studio. Full-body victory pose on the RIGHT, cheerful confident smile. LEFT side contains exactly: "GREAT JOB!" and "WORKOUT COMPLETE" in the same clean premium KidMotion visual language. No timer, no extra slogans, no other people. Rename Bild 16.png.
-
-FINAL CHECK BEFORE LEAVING FLOW
-- Bild 00 has one winner from exactly three cover candidates.
-- Bild 01 approved before any dependent image.
-- Bild 04 approved before Bild 05–15.
-- Exactly one accepted final image for each Bild 00–16.
-- Same boy/outfit/world throughout.
+STYLE LOCK
+- Premium stylized 3D family-animation quality.
+- Exactly one friendly athletic boy around 10 years old.
+- Medium warm skin, short textured dark-brown hair, expressive brown eyes, slim active child proportions.
+- Episode outfit locked from selected cover: royal-blue athletic T-shirt with lime accents, dark navy shorts, white socks, blue-and-white sneakers.
+- Bright modern kids fitness studio with blue, lime and warm wood accents.
+- No real brands, teams or logos.
 - No extra people.
-- Full body and anatomy correct on all exercise images.
-- Top-left timer zone clear on Bild 04–15.
-- Every visible text element except the countdown timer is already present in the Flow image.
-- No generated timer or progress bar.
-- Final files live flat in 00-bildprompts/images/.
+- 16:9 landscape.
+
+SCENE 01 — COVER
+TEMP FILES FIRST: Cover-Kandidat-01.png / 02 / 03
+FINAL AFTER USER CHOICE: Szene 01.png
+Create three premium stylized 3D YouTube thumbnail candidates. One KidMotion boy large on the RIGHT in a strong static athletic pose, full or nearly full body, friendly confident expression. Bright modern kids fitness studio. LEFT side contains exact large mobile-readable text:
+5 MIN FULL BODY WORKOUT
+FOR KIDS
+Use bold clean athletic lettering with strong contrast. No extra people, no logos, no timer, no progress bar.
+After generating the three candidates: SHOW THEM AND STOP.
+
+SCENE 02 — INTRO
+FINAL FILE: Szene 02.png
+PRIMARY REFERENCE: selected Szene 01.png
+Preserve exact boy, face, hair, proportions, outfit, colors, studio and lighting from Szene 01. Full-body boy on RIGHT in a relaxed confident stance. LEFT side contains exactly:
+KIDMOTION
+5 MIN FULL BODY WORKOUT
+12 POSES • 20 SEC EACH
+FOLLOW ALONG
+Clean premium hierarchy. No timer, no extra people.
+
+SCENE 03 — SAFETY
+FINAL FILE: Szene 03.png
+PRIMARY REFERENCE: selected Szene 01.png
+Same exact boy/outfit/world. Calm neutral full-body pose on RIGHT. LEFT side contains exactly:
+SAFETY FIRST
+Clear some space.
+Stop if anything hurts.
+Readable, uncluttered, no timer, no extra people.
+
+SCENE 04 — LET'S BEGIN
+FINAL FILE: Szene 04.png
+PRIMARY REFERENCE: selected Szene 01.png
+Same exact boy/outfit/world. Full-body ready stance: feet shoulder-width, knees slightly bent, torso upright, hands relaxed in front, confident smile. Add exactly one large readable message:
+LET'S BEGIN!
+No timer, no other text, no extra people.
+
+SCENE 05 — READY SQUAT HOLD — UI MASTER
+FINAL FILE: Szene 05.png
+PRIMARY REFERENCE: selected Szene 01.png
+STATIC POSE: feet shoulder-width, knees visibly bent, hips slightly back, torso upright, hands clearly in front. Full body head-to-shoes visible. Keep TOP-LEFT 220x220 completely clear for Remotion timer.
+BOTTOM-LEFT exact title:
+READY SQUAT HOLD
+TOP-RIGHT exact instruction:
+Bend your knees and stay strong.
+Use one clean rounded instruction bubble. No thought-bubble dots. No timer/progress bar. This accepted scene becomes the SECONDARY UI reference.
+
+SCENE 06 — STAR REACH HOLD
+FINAL FILE: Szene 06.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: feet wide, both arms raised diagonally upward in a large V, torso tall, hands open, strong star silhouette. Full body visible. Timer zone clear.
+TITLE: STAR REACH HOLD
+INSTRUCTION: Stand wide and reach up high.
+Match Szene 05 title/instruction style exactly.
+
+SCENE 07 — SIDE LUNGE HOLD
+FINAL FILE: Szene 07.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: wide stance, LEFT knee bent, hips shifted left, RIGHT leg long and nearly straight, torso upright, arms comfortably in front. Both shoes visible. Timer zone clear.
+TITLE: SIDE LUNGE HOLD
+INSTRUCTION: Bend one knee and keep the other leg long.
+
+SCENE 08 — KNEE-UP BALANCE
+FINAL FILE: Szene 08.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: stand tall on LEFT leg, lift RIGHT knee to about hip height, arms slightly extended for balance, torso upright. Full body visible. Timer zone clear.
+TITLE: KNEE-UP BALANCE
+INSTRUCTION: Lift one knee and stay steady.
+
+SCENE 09 — WIDE SQUAT HOLD
+FINAL FILE: Szene 09.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: feet wider than shoulders, knees bent, hips lowered comfortably, chest upright, hands together in front. Full body visible. Timer zone clear.
+TITLE: WIDE SQUAT HOLD
+INSTRUCTION: Sit low with your chest tall.
+
+SCENE 10 — AIRPLANE BALANCE
+FINAL FILE: Szene 10.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: stand on LEFT leg, torso tilted moderately forward, RIGHT leg extended straight behind, both arms stretched sideways at shoulder height. Child-safe, clear silhouette, full body visible. Timer zone clear.
+TITLE: AIRPLANE BALANCE
+INSTRUCTION: Lean forward and stretch your arms wide.
+
+SCENE 11 — FORWARD LUNGE HOLD
+FINAL FILE: Szene 11.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: one foot clearly forward and one behind, both knees comfortably bent, torso upright. Slight three-quarter camera angle so both legs/feet are distinct. Full body visible. Timer zone clear.
+TITLE: FORWARD LUNGE HOLD
+INSTRUCTION: Step forward and keep your body tall.
+
+SCENE 12 — SIDE LEG BALANCE
+FINAL FILE: Szene 12.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: stand on LEFT leg, lift RIGHT leg clearly sideways at comfortable height, both arms stretched sideways for balance, torso tall. Full body visible. Timer zone clear.
+TITLE: SIDE LEG BALANCE
+INSTRUCTION: Lift one leg to the side and stay steady.
+
+SCENE 13 — OVERHEAD REACH HOLD
+FINAL FILE: Szene 13.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: stand tall, feet hip-width, both arms fully extended overhead, hands open. Full body visible. Timer zone clear.
+TITLE: OVERHEAD REACH HOLD
+INSTRUCTION: Stand tall and reach both hands up.
+
+SCENE 14 — KNEE HUG HOLD
+FINAL FILE: Szene 14.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: stand on LEFT leg, lift RIGHT knee toward chest, hold knee/shin gently with both hands, torso upright. Full body visible. Timer zone clear.
+TITLE: KNEE HUG HOLD
+INSTRUCTION: Lift one knee and hold it close.
+
+SCENE 15 — SIDE STRETCH HOLD
+FINAL FILE: Szene 15.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: feet comfortably wide, arms overhead, torso clearly leaning to one side while hips stay centered. Full body visible. Timer zone clear.
+TITLE: SIDE STRETCH HOLD
+INSTRUCTION: Reach overhead and lean to one side.
+
+SCENE 16 — POWER FINISH HOLD
+FINAL FILE: Szene 16.png
+PRIMARY: Szene 01. SECONDARY UI: Szene 05.
+STATIC POSE: feet wide, elbows bent, fists near shoulder height, confident child-safe power pose, chest tall. Full body visible. Timer zone clear.
+TITLE: POWER FINISH HOLD
+INSTRUCTION: Stand strong and show your power.
+
+SCENE 17 — OUTRO
+FINAL FILE: Szene 17.png
+PRIMARY REFERENCE: selected Szene 01.png
+Same exact boy, outfit, studio, colors and lighting. Happy strong finishing stance, full body visible. Add exact readable text:
+GREAT JOB!
+WORKOUT COMPLETE
+No timer, no extra people.
+
+FINAL CHECK
+- exactly three covers were generated first
+- user explicitly chose one cover
+- COVER_SELECTION.json = SELECTED
+- selected cover is Szene 01.png
+- rejected cover candidates are deleted
+- Szene 01 is the primary reference for every later scene
+- Szene 05 is only the secondary exercise UI reference
+- final folder contains Szene 01.png through Szene 17.png in one flat folder
+- all non-timer visible text is already baked into the Flow images
