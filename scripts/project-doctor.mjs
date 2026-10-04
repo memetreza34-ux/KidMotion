@@ -42,6 +42,13 @@ if (workout.includes('exercise.voice') || workout.includes('outroVoice') || work
   fail('WorkoutVideo must not play separate spoken Voice after the single opening Voice.');
 }
 
+const types = read('src/types.ts');
+const exerciseType = types.match(/export type Exercise = \{[\s\S]*?\n\};/)?.[0] || '';
+if (exerciseType.includes('voice?:')) fail('Exercise type must not expose a Voice field.');
+for (const forbiddenType of ['safetyVoice?:', 'letsBeginVoice?:', 'outroVoice?:']) {
+  if (types.includes(forbiddenType)) fail(`Workout type exposes forbidden field: ${forbiddenType}`);
+}
+
 const intro = read('src/components/IntroScreen.tsx');
 for (const clutter of ['WELCOME TO', 'COPY • HOLD • HAVE FUN']) {
   if (intro.includes(clutter)) fail(`Intro clutter regression detected: ${clutter}`);
@@ -64,6 +71,31 @@ const newEpisode = read('scripts/new-episode.mjs');
 if (!newEpisode.includes('VISUAL_REVIEW.json')) fail('new-episode must create a visual review gate.');
 if (!newEpisode.includes('GENERATION-REVISION.txt')) fail('new-episode must create a generation revision file.');
 
+const gitignore = read('.gitignore');
+if (gitignore.split(/\r?\n/).some((line) => line.trim() === 'package-lock.json')) {
+  fail('package-lock.json must not be ignored; reproducible installs require the lockfile to be committable.');
+}
+
+const qualityWorkflow = read('.github/workflows/quality.yml');
+if (!qualityWorkflow.includes('npm run typecheck') || !qualityWorkflow.includes('npm run project:doctor')) {
+  fail('GitHub quality workflow must run typecheck + project:doctor.');
+}
+
+const episodesRoot = path.join(root, 'episodes');
+if (fs.existsSync(episodesRoot)) {
+  for (const entry of fs.readdirSync(episodesRoot, {withFileTypes: true})) {
+    if (!entry.isDirectory() || !/^KM-\d{3}-/.test(entry.name)) continue;
+    const nestedRevision = path.join(episodesRoot, entry.name, '03-bilder', 'GENERATION-REVISION.txt');
+    if (fs.existsSync(nestedRevision)) {
+      fail(`${entry.name} contains a legacy nested 03-bilder/GENERATION-REVISION.txt. The episode-root revision file is the single source of truth.`);
+    }
+  }
+}
+
+if (fs.existsSync(path.join(root, '.DS_Store')) || fs.existsSync(path.join(root, 'public', '.DS_Store'))) {
+  fail('Tracked/working-tree .DS_Store metadata must not exist in root or public/.');
+}
+
 if (fs.existsSync(path.join(root, 'content'))) fail('Legacy root content/ directory exists. Canonical episode system is root episodes/ only.');
 
 if (failures.length) {
@@ -73,4 +105,4 @@ if (failures.length) {
 }
 
 console.log('PROJECT DOCTOR PASSED');
-console.log('Protected: guarded render command, canonical episode path, longform-only root, opening-only Voice, looped music, static exercise/rest images, clean Intro, mandatory visual review, and no blank-scene fades.');
+console.log('Protected: guarded render command, canonical episode path/revision, longform-only root, opening-only Voice types/playback, looped music, static exercise/rest images, clean Intro, mandatory visual review, quality CI, and no blank-scene fades.');
