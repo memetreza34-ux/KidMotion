@@ -3,167 +3,182 @@
 > Höchste verbindliche Regelquelle. Bei Widersprüchen gilt diese Datei.
 
 ## 1. Format
-KidMotion produziert englische 16:9 YouTube-Longform-Kinderworkouts mit einem wiederkehrenden 3D-Charakter und statischen Hold-Posen.
+KidMotion produziert englische 16:9 YouTube-Longform-Kinderworkouts mit einem wiederkehrenden 3D-Charakter und statischen Hold-/Freeze-Posen.
 
-Standard: 1920×1080, 30 fps, 12 Übungen, 20s je Übung, 5s Rest zwischen Übungen, 313s / 5:13.
+Standard: 1920×1080, 30 fps, 12 Übungen, 20s je Übung, 11 Übergänge à 5s, 313s / 5:13.
 
-## 2. Szenenstruktur V3
-Jede neue Episode liegt unter `episodes/KM-XXX-name/`.
-
-Finale Bilder:
+## 2. V3-Episodenstruktur
 ```text
-00-bildprompts/images/
-├── Szene 01.png   # Cover / Thumbnail, NICHT im MP4
-├── Szene 02.png   # Intro
-├── Szene 03.png   # Safety
-├── Szene 04.png   # LET'S BEGIN
-├── Szene 05.png   # Exercise 1
-├── ...
-├── Szene 16.png   # Exercise 12
-└── Szene 17.png   # Outro
+episodes/KM-XXX-name/
+├── 00-bildprompts/
+│   ├── google-flow-prompt.txt
+│   └── images/
+│       ├── Szene 01.png
+│       ├── Szene 02.png
+│       └── ... Szene 28.png
+├── 01-voice-script/voice-script.txt
+├── 02-audio/
+│   ├── Voice 01.mp3
+│   ├── bg-music.mp3
+│   └── MUSIC_BRIEF.md
+├── 03-export/
+│   ├── FINAL_VIDEO.mp4
+│   └── UPLOAD_METADATA.md
+└── 99-technik/
+    ├── episode.json
+    ├── IMAGE_PLAN.json
+    ├── RENDER_PLAN.json
+    ├── COVER_SELECTION.json
+    ├── VISUAL_REVIEW.json
+    ├── GENERATION-REVISION.txt
+    └── ASSET_APPROVAL.json
 ```
 
-Alle finalen Bilder liegen in genau EINEM flachen Bilderordner. Keine Cover-Unterordner, keine Szenen-Unterordner.
+Alle finalen Bilder liegen flach in genau einem Bilderordner.
 
-Weitere Dateien:
-```text
-01-voice-script/voice-script.txt
-02-audio/Voice 01.mp3 + bg-music.mp3
-03-export/FINAL_VIDEO.mp4 + UPLOAD_METADATA.md
-99-technik/
-├── episode.json
-├── IMAGE_PLAN.json
-├── COVER_SELECTION.json
-├── RENDER_PLAN.json
-├── VISUAL_REVIEW.json
-├── GENERATION-REVISION.txt
-└── ASSET_APPROVAL.json
-```
+## 3. Cover-Workflow — HARTE SPERRE
+1. Zuerst exakt drei Cover-Kandidaten erzeugen:
+   - `Cover-Kandidat-01.png`
+   - `Cover-Kandidat-02.png`
+   - `Cover-Kandidat-03.png`
+2. Dem Nutzer alle drei zeigen.
+3. **STOP.**
+4. Keine Szene 02 oder später erzeugen, bevor der Nutzer Kandidat 1/2/3 ausdrücklich gewählt hat.
+5. Gewinner → `Szene 01.png`.
+6. Die zwei Verlierer löschen.
+7. `Szene 01.png` ist ab dann die PRIMARY-Referenz für Gesicht, Haare, Alter, Proportionen, Outfit, Farben, Licht und Bildwelt.
 
-## 3. Cover zuerst — HARTE STOPP-REGEL
-Vor allen anderen Bildern werden ausschließlich drei Cover erzeugt:
+## 4. Szenenplan
+- Szene 01: Cover, nicht im MP4
+- Szene 02: Intro, 8s
+- Szene 03: Safety, 4s
+- Szene 04: LET'S BEGIN, 2s
+- Szene 05: Übung 1, 20s
+- Szene 06: GET READY für Übung 2, 5s
+- Szene 07: Übung 2, 20s
+- Szene 08: GET READY für Übung 3, 5s
+- ...
+- Szene 25: Übung 11, 20s
+- Szene 26: GET READY für Übung 12, 5s
+- Szene 27: Übung 12, 20s
+- Szene 28: Outro, 4s
 
-- `Cover-Kandidat-01.png`
-- `Cover-Kandidat-02.png`
-- `Cover-Kandidat-03.png`
+Die 5-Sekunden-Übergänge benutzen **nie** das nächste 20-Sekunden-Übungsbild.
 
-Alle drei liegen vorübergehend im selben `00-bildprompts/images/`-Ordner.
+## 5. Google Flow besitzt alle sichtbaren Texte
+**HARTE REGEL:** Google Flow erzeugt jeden sichtbaren Text direkt im finalen Bild. Die einzige Ausnahme ist der dynamische Countdown-Timer, den Remotion darüberlegt.
 
-Danach:
-1. Alle drei Covers dem Nutzer zeigen.
-2. **STOP.**
-3. Keine Szene 02 oder später erzeugen.
-4. Auf die ausdrückliche Auswahl des Nutzers warten.
-5. Gewinner über `kidmotion:select-cover` auswählen.
-6. Gewinner wird exakt `Szene 01.png`.
-7. Beide abgelehnten Cover-Kandidaten werden gelöscht.
-8. `COVER_SELECTION.json` wird auf `SELECTED` gesetzt.
-9. Erst jetzt darf Szene 02–17 erzeugt werden.
+Google Flow erzeugt:
+- Cover-Text
+- Intro-Text
+- Safety-Text
+- LET'S BEGIN
+- Übungsname + Instruction
+- GET READY + NEXT: Übungsname
+- Outro-Text
 
-Ohne ausdrückliche Nutzerauswahl ist die Bildproduktion gesperrt.
+Remotion darf keinen dieser Texte erneut erzeugen.
 
-## 4. Referenzworkflow
-`Szene 01.png` ist nach der Nutzerauswahl die wichtigste Referenz für ALLE späteren Szenen:
-- Gesicht
-- Haare
-- Alter
-- Körperproportionen
-- Outfit
-- Farben
-- Beleuchtung
-- Welt/Hintergrundstil
+## 6. Übungsqualität — klare Kinder-Challenges
+Die 12 Übungsbilder dürfen nicht wie zwölf Varianten von Squat/Lunge/Balance aussehen.
 
-`Szene 05.png` wird zusätzlich als Exercise-UI-Referenz für Szene 06–16 benutzt.
+Pflicht:
+- deutlich unterschiedliche Silhouetten
+- unterschiedliche Körperhöhen und Richtungen
+- Mischung aus upright, wide, diagonal, one-leg, side-bend und floor-level
+- jede Pose aus einem Standbild sofort verständlich
+- benachbarte Übungen dürfen nicht nahezu identisch wirken
+- nach zwei schlechten Flow-Versuchen Pose austauschen statt endlos regenerieren
 
-Wichtig: Szene 05 darf nur Titel-/Instruction-Stil liefern. Charakter und Welt kommen weiterhin aus Szene 01.
+## 7. Bildwelt
+- exakt ein Hauptcharakter pro Episode
+- gleicher Charakter, Haare, Proportionen und Outfit
+- dieselbe KidMotion-Gym-Welt
+- innerhalb dieser Welt dürfen verschiedene Zonen/Perspektiven genutzt werden, damit nicht jedes Bild gleich aussieht
+- keine zweite Person
+- keine realen Logos/Teams/Sponsoren
+- natürliche Anatomie
+- Ganzkörper und wichtige Gelenke sichtbar
 
-## 5. Google Flow besitzt die sichtbare Gestaltung
-Google Flow erzeugt jeden sichtbaren Text direkt im finalen Bild. Einzige Ausnahme: der dynamische Countdown-Timer von Remotion.
+Szene 05 ist die Exercise-UI-Referenz für alle späteren Übungsbilder.
 
-Flow erzeugt:
-- Szene 01: Thumbnail-Text
-- Szene 02: kompletter Intro-Text
-- Szene 03: Safety-Text
-- Szene 04: `LET'S BEGIN!`
-- Szene 05–16: Übungsname + Instruction
-- Szene 17: `GREAT JOB!` + `WORKOUT COMPLETE`
+## 8. GET READY
+Jeder 5s-Übergang hat ein eigenes Flow-Bild.
 
-Remotion darf diese Texte niemals erneut erzeugen.
+Pflicht:
+- gleicher Charakter
+- neutraler Ready-Stand
+- **nicht** bereits die nächste Übungspose
+- sichtbarer Flow-Text: `GET READY` + `NEXT: <exercise>`
+- top-left 230×230 px frei für den Timer
 
-## 6. Remotion — TIMER ONLY
+## 9. Remotion — TIMER ONLY
+Remotion darf visuell ausschließlich den Countdown-Timer erzeugen.
+
 Erlaubt:
 - statisches Flow-Bild 1:1 anzeigen
-- Countdown-Timer bei Exercise/Rest
-- Voice + Hintergrundmusik
+- 20s Timer über Übung
+- 5s Timer über GET READY
+- Voice + Hintergrundmusik abspielen
 - Szenen zeitlich zusammensetzen
 
 Verboten:
 - Progress Bar
-- Intro-/Safety-/LET'S-BEGIN-/Exercise-/REST-/NEXT-/Outro-Text
-- Untertitel
-- zusätzliche Karten/Labels/Grafiken
-- Zoom/Pan/Ken Burns auf Exercise/Rest
+- zusätzliche Titel/Instructions
+- GET READY/NEXT als Remotion-Text
+- Intro/Safety/Outro-Text
+- Untertitel/Captions
+- Zoom/Pan/Ken Burns auf Workout-Szenen
 - Full-scene Fade von leer/schwarz/weiß
 
-Rest zeigt das nächste Exercise-Bild full-screen und Remotion legt nur den 5s Timer darüber.
+### Timer
+- 192 px
+- top-left, ca. 26 px Abstand
+- Safe-Zone 230×230 px
+- deutlich größere Zahl
+- dunkler klarer Timer-Hintergrund + kräftiger Ring
+- Übung: 20→1
+- GET READY: 5→1
+- kein sichtbarer 0-Frame
 
-## 7. Bildproduktion
-Jede Szene wird in `IMAGE_PLAN.json` geplant mit:
-- Visual Purpose
-- Topic Anchor
-- Visual Form
-- Referenzbild
-- Prop Count
-- gewünschtem Text
-- Timer-Safe-Zone
-- Acceptance Criteria
-- finalem Google-Flow-Prompt
-
-Ablauf nach Cover-Auswahl:
-`Prompt lesen → Szene erzeugen → ansehen → akzeptieren/ablehnen → sofort in Szene NN.png umbenennen → nächste Szene`.
-
-Keine automatischen Alternativen. Bei Fehler gezielt neu generieren.
-
-## 8. Bildregeln
-- genau ein Hauptcharakter
-- gleicher Charakter/Outfit/Welt wie Szene 01
-- keine zweite Person
-- Ganzkörper und wichtige Gelenke sichtbar
-- statische Pose sofort verständlich
-- natürliche Anatomie
-- korrekte Prop-Anzahl
-- keine realen Logos
-- sichtbarer Text Englisch
-- Exercise-Szenen halten top-left ca. 220×220 px für den Timer frei
-
-## 9. Audio
+## 10. Audio
 Genau eine gesprochene Datei: `Voice 01.mp3`.
-Sie startet bei Frame 0, trägt Intro + Safety + LET'S BEGIN nahezu lückenlos und endet vor Exercise 1.
-Ziel 13.65–14.00s, absolut max. 14.05s.
+Sie startet Frame 0, trägt Intro + Safety + LET'S BEGIN nahezu lückenlos und endet vor Übung 1. Ziel 13.65–14.00s, absolut max. 14.05s.
 
-Danach keine Voice. `bg-music.mp3` ist Pflicht und wird durchgehend geloopt.
+Danach keine Voice und keine Untertitel.
 
-## 10. Freigabe
-`VISUAL_REVIEW.json` bleibt false, bis die echten finalen Szenen angesehen wurden.
+`bg-music.mp3` ist Pflicht.
 
-`assets:approve` darf nur bestehen, wenn:
-- Cover ausdrücklich gewählt wurde
-- `COVER_SELECTION.json = SELECTED`
-- nur `Szene 01.png` bis `Szene 17.png` als finale Szenen vorhanden sind
-- keine temporären Cover-Kandidaten mehr übrig sind
-- visuelle Prüfung vollständig wahrheitsgemäß ist
-- Voice/Musik vorhanden und gültig sind
+Musikziel:
+- 120–130 BPM
+- upbeat playful kids-fitness electro-pop instrumental
+- hell, sportlich, spielerisch
+- keine Vocals
+- kein dunkler Trap-/aggressiver EDM-Sound
+- nicht kinderlied-/babyhaft
+- möglichst sauber loopbar
+- kommerzielle YouTube-Nutzung muss erlaubt sein
+- während Opening-Voice leiser, danach spürbar energiereicher
 
-Danach SHA-256-Lock. Jede spätere Asset-Änderung macht die Freigabe ungültig.
+## 11. Visuelle Freigabe
+`VISUAL_REVIEW.json` bleibt false, bis die echten Bilder angesehen wurden.
 
-## 11. Render und Export
+Zusätzlich zu Anatomie/Text/Konsistenz muss geprüft werden:
+- `poseVarietyStrong`
+- `allGetReadyImagesClearAndNotConfusableWithExercise`
+
+Danach `npm run assets:approve -- --episode=...`.
+Approval sperrt Assets per SHA-256.
+
+## 12. Render
 Final nur über `npm run render:safe`.
 
 Ablauf:
 TypeScript → Project Doctor → Preflight → Asset Gate → Render → Postrender QA.
 
+## 13. Export
 `03-export/` enthält mindestens:
 - `FINAL_VIDEO.mp4`
-- `UPLOAD_METADATA.md` mit fertigem YouTube-Titel und Beschreibung/Caption
+- `UPLOAD_METADATA.md` mit copy-ready YouTube-Titel und Beschreibung/Caption
 
 PRODUCTION COMPLETE erst nach visueller MP4-Prüfung.

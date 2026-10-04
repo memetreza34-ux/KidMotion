@@ -3,6 +3,7 @@ export type Exercise = {
   title: string;
   instruction?: string;
   image: string;
+  readyImage?: string;
   duration: number;
   restAfter?: number;
   side?: 'left' | 'right' | 'both';

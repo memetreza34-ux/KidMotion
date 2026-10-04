@@ -14,8 +14,8 @@ export const RestScreen: React.FC<{durationInSeconds: number; image?: string}> =
           style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover'}}
         />
       ) : null}
-      {/* Rest reuses the next Flow image. No REST/NEXT text is added by Remotion. */}
-      <CircularTimer durationInFrames={durationInFrames} totalSeconds={durationInSeconds} />
+      {/* Dedicated Google Flow GET READY image. Remotion adds ONLY the 5-second timer. */}
+      <CircularTimer durationInFrames={durationInFrames} totalSeconds={durationInSeconds} mode="ready" />
     </AbsoluteFill>
   );
 };

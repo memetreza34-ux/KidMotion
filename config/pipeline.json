@@ -4,7 +4,10 @@
   "language": "en",
   "aspectRatio": "16:9",
   "fps": 30,
-  "resolution": {"width": 1920, "height": 1080},
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
   "structure": {
     "promptDirectory": "00-bildprompts",
     "finalImageDirectory": "00-bildprompts/images",
@@ -24,7 +27,11 @@
     "coverSceneNumber": 1,
     "coverOutsideVideo": true,
     "coverCandidateCount": 3,
-    "candidateFiles": ["Cover-Kandidat-01.png", "Cover-Kandidat-02.png", "Cover-Kandidat-03.png"],
+    "candidateFiles": [
+      "Cover-Kandidat-01.png",
+      "Cover-Kandidat-02.png",
+      "Cover-Kandidat-03.png"
+    ],
     "mustWaitForExplicitUserSelection": true,
     "selectionFile": "99-technik/COVER_SELECTION.json",
     "finalFile": "Szene 01.png",
@@ -34,7 +41,7 @@
   "imageGenerationPolicy": {
     "sceneFilePattern": "Szene NN.png",
     "firstFinalScene": 1,
-    "lastFinalScene": 17,
+    "lastFinalScene": 28,
     "allFinalScenesInOneFolder": true,
     "oneImageOneVisualPurpose": true,
     "finalImagesFlatDirectory": true,
@@ -44,21 +51,39 @@
     "primaryReferenceImage": "Szene 01.png",
     "exerciseUiReferenceImage": "Szene 05.png",
     "blockScenesAfterCoverUntilSelection": true,
+    "dedicatedGetReadyScenes": true,
+    "getReadySceneCount": 11,
     "requireVisualPurpose": true,
     "requireTopicAnchor": true,
     "requireVisualForm": true,
     "requireAcceptanceCriteria": true,
-    "googleFlowOwnsAllNonTimerVisibleText": true
+    "googleFlowOwnsAllNonTimerVisibleText": true,
+    "poseDiversityRequired": true
   },
   "workoutTiming": {
     "introSeconds": 8,
     "safetySeconds": 4,
     "letsBeginSeconds": 2,
     "exerciseSeconds": 20,
-    "restSeconds": 5,
+    "getReadySeconds": 5,
     "exerciseCount": 12,
+    "getReadyCount": 11,
     "outroSeconds": 4,
     "runtimeSeconds": 313
+  },
+  "timerPolicy": {
+    "owner": "remotion",
+    "onlyDynamicVisualOverlay": true,
+    "exerciseSeconds": 20,
+    "getReadySeconds": 5,
+    "position": {
+      "top": 26,
+      "left": 26
+    },
+    "sizePixels": 192,
+    "requiredSafeZonePixels": 230,
+    "showZeroFrame": false,
+    "exerciseAndReadyMayUseDifferentRingAccent": true
   },
   "audioPolicy": {
     "voiceFile": "Voice 01.mp3",
@@ -69,18 +94,23 @@
     "backgroundMusicRequired": true,
     "backgroundMusicFile": "bg-music.mp3",
     "backgroundMusicLoop": true,
-    "spokenVoiceAfterOpeningForbidden": true
+    "spokenVoiceAfterOpeningForbidden": true,
+    "musicBriefFile": "02-audio/MUSIC_BRIEF.md",
+    "targetBpm": "120-130",
+    "musicStyle": "upbeat playful kids fitness electro-pop instrumental",
+    "vocalsForbidden": true,
+    "commercialYouTubeLicenseRequired": true
   },
   "renderPolicy": {
     "exerciseImagesStatic": true,
-    "restImagesStatic": true,
+    "getReadyImagesStatic": true,
     "kenBurnsForbiddenOnWorkoutScenes": true,
     "remotionOwnsTimerOnly": true,
     "remotionTextOverlaysForbiddenExceptTimerDigits": true,
     "remotionOwnsProgressBar": false,
-    "remotionOwnsRestLabel": false,
     "googleFlowOwnsAllNonTimerVisibleText": true,
-    "restReusesNextExerciseImage": true
+    "restUsesDedicatedGetReadyImage": true,
+    "restReusesNextExerciseImage": false
   },
   "approvalPolicy": {
     "visualReviewRequired": true,

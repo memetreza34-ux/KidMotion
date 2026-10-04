@@ -16,7 +16,10 @@ export const workoutDurationInFrames = (workout: Workout) => {
   const safety = (workout.safetyDuration ?? 4) * fps;
   const letsBegin = (workout.letsBeginDuration ?? 2) * fps;
   const outro = (workout.outroDuration ?? 4) * fps;
-  const exerciseFrames = workout.exercises.reduce((total, exercise) => total + (exercise.duration + (exercise.restAfter ?? 0)) * fps, 0);
+  const exerciseFrames = workout.exercises.reduce(
+    (total, exercise) => total + (exercise.duration + (exercise.restAfter ?? 0)) * fps,
+    0,
+  );
   return intro + safety + letsBegin + exerciseFrames + outro;
 };
 
@@ -40,17 +43,17 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
           volume={(f) => {
             const afterOpening = interpolate(
               f,
-              [openingFrames, openingFrames + Math.round(fps * 1.2)],
-              [0.08, 0.16],
+              [openingFrames, openingFrames + Math.round(fps * 0.8)],
+              [0.07, 0.22],
               {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
             );
             const outroFade = interpolate(
               f,
               [Math.max(0, totalFrames - Math.round(fps * 2)), totalFrames - 1],
-              [1, 0.55],
+              [1, 0.45],
               {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
             );
-            const base = f < openingFrames ? 0.08 : afterOpening;
+            const base = f < openingFrames ? 0.07 : afterOpening;
             return base * outroFade;
           }}
         />
@@ -64,38 +67,50 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
 
       {(workout.introDuration ?? 0) > 0 ? (
         <Sequence from={0} durationInFrames={introFrames}>
-          <IntroScreen image={workout.introImage} title={workout.introTitle ?? workout.title} subtitle={workout.introSubtitle ?? workout.subtitle} badge={workout.introBadge ?? 'KIDMOTION'} />
+          <IntroScreen
+            image={workout.introImage}
+            title={workout.introTitle ?? workout.title}
+            subtitle={workout.introSubtitle ?? workout.subtitle}
+            badge={workout.introBadge ?? 'KIDMOTION'}
+          />
         </Sequence>
       ) : null}
 
       <Sequence from={cursor} durationInFrames={safetyFrames}>
         <SafetyDisclaimerScreen image={workout.safetyImage} />
       </Sequence>
-      {(() => { cursor += safetyFrames; return null; })()}
+      {(() => {
+        cursor += safetyFrames;
+        return null;
+      })()}
 
       <Sequence from={cursor} durationInFrames={letsBeginFrames}>
         <LetsBeginScreen image={workout.letsBeginImage} />
       </Sequence>
-      {(() => { cursor += letsBeginFrames; return null; })()}
+      {(() => {
+        cursor += letsBeginFrames;
+        return null;
+      })()}
 
-      {workout.exercises.map((exercise, index) => {
+      {workout.exercises.map((exercise) => {
         const exerciseStart = cursor;
         const exerciseFrames = exercise.duration * fps;
         cursor += exerciseFrames;
-        const restSeconds = exercise.restAfter ?? 0;
-        const restStart = cursor;
-        const restFrames = restSeconds * fps;
-        cursor += restFrames;
-        const nextExercise = workout.exercises[index + 1];
+
+        const readySeconds = exercise.restAfter ?? 0;
+        const readyStart = cursor;
+        const readyFrames = readySeconds * fps;
+        cursor += readyFrames;
 
         return (
           <React.Fragment key={exercise.id}>
             <Sequence from={exerciseStart} durationInFrames={exerciseFrames}>
               <ExerciseScene exercise={exercise} />
             </Sequence>
-            {restSeconds > 0 ? (
-              <Sequence from={restStart} durationInFrames={restFrames}>
-                <RestScreen durationInSeconds={restSeconds} image={nextExercise?.image ?? exercise.image} />
+
+            {readySeconds > 0 ? (
+              <Sequence from={readyStart} durationInFrames={readyFrames}>
+                <RestScreen durationInSeconds={readySeconds} image={exercise.readyImage ?? exercise.image} />
               </Sequence>
             ) : null}
           </React.Fragment>

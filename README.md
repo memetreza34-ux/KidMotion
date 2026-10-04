@@ -2,66 +2,47 @@
 
 Datengetriebene Pipeline für englische YouTube-Kinderworkouts mit Google-Flow-Bildern und Remotion.
 
-## Kernregel
-**Google Flow erzeugt ALLE sichtbaren Texte. Remotion erzeugt visuell NUR den Countdown-Timer.**
+## Kernregeln
+- Google Flow erzeugt **alle sichtbaren Texte**.
+- Remotion erzeugt visuell **nur den Countdown-Timer**.
+- Erst 3 Cover → Nutzer wählt 1 → Gewinner wird `Szene 01.png`.
+- Danach entstehen `Szene 02.png` bis `Szene 28.png`.
+- Alle finalen Bilder liegen in einem einzigen Bilderordner.
+- 12 Übungen müssen klar unterschiedliche Kinder-Challenge-Posen haben.
+- 11 Pausen benutzen eigene `GET READY`-Bilder und **nicht** das nächste Übungsbild.
 
-Intro, Safety, LET'S BEGIN, Übungsname, Anleitung, Outro und Thumbnail-Text sind direkt Bestandteil der generierten Bilder. Es gibt keine Remotion-Progress-Bar und keinen Remotion-REST/NEXT-Text.
-
-## Szenenstruktur
+## Szenen
 ```text
-episodes/KM-XXX-name/
-├── 00-bildprompts/
-│   ├── google-flow-prompt.txt
-│   └── images/
-│       ├── Szene 01.png   # Cover / Thumbnail, nicht im MP4
-│       ├── Szene 02.png   # Intro
-│       ├── Szene 03.png   # Safety
-│       ├── Szene 04.png   # LET'S BEGIN
-│       ├── Szene 05.png   # Exercise 1
-│       ├── ...
-│       └── Szene 17.png   # Outro
-├── 01-voice-script/voice-script.txt
-├── 02-audio/Voice 01.mp3 + bg-music.mp3
-├── 03-export/FINAL_VIDEO.mp4 + UPLOAD_METADATA.md
-└── 99-technik/
-    ├── episode.json
-    ├── IMAGE_PLAN.json
-    ├── COVER_SELECTION.json
-    ├── RENDER_PLAN.json
-    ├── VISUAL_REVIEW.json
-    ├── GENERATION-REVISION.txt
-    └── ASSET_APPROVAL.json
+01 Cover
+02 Intro
+03 Safety
+04 LET'S BEGIN
+05 Exercise 1
+06 GET READY
+07 Exercise 2
+08 GET READY
+...
+25 Exercise 11
+26 GET READY
+27 Exercise 12
+28 Outro
 ```
 
-## Cover-Auswahl — Pflicht
-1. Zuerst genau drei Cover erzeugen: `Cover-Kandidat-01.png`, `Cover-Kandidat-02.png`, `Cover-Kandidat-03.png`.
-2. Alle drei dem Nutzer zeigen.
-3. **STOP und auf die ausdrückliche Auswahl warten.**
-4. Gewählten Kandidaten auswählen mit:
-   `npm run kidmotion:select-cover -- --episode=KM-XXX-slug --candidate=<1|2|3>`
-5. Gewinner wird `Szene 01.png`; die beiden anderen Kandidaten werden gelöscht.
-6. `Szene 01.png` ist danach die Hauptreferenz für Charakter, Outfit, Farben, Licht und Welt.
-7. Erst dann `Szene 02.png` bis `Szene 17.png` erzeugen.
+## Timer
+192px, top-left, große Zahl, Übung 20→1, GET READY 5→1. Kein sichtbarer 0-Frame.
 
-Alle finalen Szenen liegen gemeinsam in einem flachen Bilderordner.
-
-## Referenzen
-- `Szene 01.png`: PRIMARY reference für alle späteren Szenen.
-- `Szene 05.png`: SECONDARY Exercise-UI reference für Szene 06–16.
-
-## Timing
-Intro 8s → Safety 4s → LET'S BEGIN 2s → [Exercise 20s → Rest 5s] × 11 → Exercise 12 20s → Outro 4s = 313s.
-
-Während Exercise und Rest legt Remotion nur den Countdown-Timer über das statische Flow-Bild. Rest verwendet das nächste Exercise-Bild und hat keinen zusätzlichen REST/NEXT-Text.
+## Musik
+120–130 BPM, upbeat playful kids-fitness electro-pop instrumental, keine Vocals, kommerzielle YouTube-Lizenz.
 
 ## Produktion
 Neue Episode:
-`npm run kidmotion:new -- --topic="THEME" --character=girl`
+`npm run kidmotion:new -- --topic="THEME" --character=boy`
 
-Nach Cover-Auswahl und echter visueller Prüfung:
+Cover-Auswahl:
+`npm run kidmotion:select-cover -- --episode=KM-XXX-slug --candidate=2`
+
+Nach echter visueller Prüfung:
 `npm run assets:approve -- --episode=KM-XXX-slug`
 
 Final:
 `npm run render:safe`
-
-KM-001 bleibt Legacy. KM-002 ist V2. KM-003 ist die erste Szene-01–17-V3-Episode.
