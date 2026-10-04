@@ -1,8 +1,10 @@
 {
   "episodeFolder": "KM-003-full-body-workout",
-  "revision": "KM003-R2",
+  "revision": "KM003-R3",
   "sameCharacterEveryScene": false,
   "allExercisePosesClearFromOneStill": false,
+  "poseVarietyStrong": false,
+  "allGetReadyImagesClearAndNotConfusableWithExercise": false,
   "allExerciseTextReadableAndConsistent": false,
   "allExerciseSafeZonesClear": false,
   "propBallCountsCorrect": false,
@@ -10,5 +12,5 @@
   "noExtraPeople": false,
   "noAnatomyErrors": false,
   "noCroppingOfImportantLimbs": false,
-  "notes": "All flags remain false until the user-selected Szene 01 cover and final Szene 02–17 images are actually inspected. Verify that Szene 01 is the primary visual reference for every later scene."
+  "notes": "All flags stay false until all final KM003-R3 Szene 01–28 images are visually inspected. GET READY scenes must be clearly distinct from the 20s exercise images."
 }
