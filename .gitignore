@@ -2,7 +2,6 @@ node_modules/
 out/
 .DS_Store
 *.DS_Store
-package-lock.json
 video_info.json
 ref_video.mp4
 public/.DS_Store
