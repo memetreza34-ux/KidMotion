@@ -14,44 +14,61 @@ const guardedCommand = 'node scripts/render-guarded.mjs';
 if (pkg.scripts?.render !== guardedCommand) fail('npm run render must use scripts/render-guarded.mjs.');
 if (pkg.scripts?.['render:safe'] !== guardedCommand) fail('npm run render:safe must use scripts/render-guarded.mjs.');
 if (pkg.scripts?.['render:short']) fail('render:short must not exist in longform-only phase.');
+if (pkg.scripts?.['kidmotion:select-cover'] !== 'node scripts/select-cover.mjs') fail('kidmotion:select-cover script must exist.');
 
 const guarded = read('scripts/render-guarded.mjs');
-for (const required of ['typecheck', 'project:doctor', 'preflight', 'asset:gate', 'postrender:qa']) {
+for (const required of ['typecheck','project:doctor','preflight','asset:gate','postrender:qa']) {
   if (!guarded.includes(required)) fail(`render-guarded.mjs must include ${required}.`);
 }
 if (!guarded.includes("'KidMotionVideo'")) fail('Guarded render must target KidMotionVideo only.');
 
 const pipelineText = read('config/pipeline.json');
 const visualText = read('config/visual-policy.json');
-if (!pipelineText) fail('config/pipeline.json is required for KidMotion V2.');
-if (!visualText) fail('config/visual-policy.json is required for KidMotion V2.');
+if (!pipelineText) fail('config/pipeline.json is required.');
+if (!visualText) fail('config/visual-policy.json is required.');
+
 if (pipelineText) {
   const pipeline = JSON.parse(pipelineText);
-  if (pipeline.pipelineVersion !== 2) fail('KidMotion pipelineVersion must be 2.');
-  if (pipeline.structure?.finalImageDirectory !== '00-bildprompts/images') fail('V2 final image directory must be 00-bildprompts/images.');
+  if (pipeline.pipelineVersion !== 3) fail('KidMotion pipelineVersion must be 3.');
+  if (pipeline.structure?.finalImageDirectory !== '00-bildprompts/images') fail('Final image directory must be 00-bildprompts/images.');
   if (pipeline.publicRuntimeStructure?.root !== 'public/episodes') fail('Public runtime root must be public/episodes.');
-  if (pipeline.publicRuntimeStructure?.layout !== '{date}/{episodeFolder}/{images|audio}') fail('Public runtime layout must group assets by date and episode.');
+  if (pipeline.publicRuntimeStructure?.layout !== '{date}/{episodeFolder}/{images|audio}') fail('Public runtime layout must group assets by date and episode folder.');
   if (pipeline.publicRuntimeStructure?.legacyFlatAliasesForbidden !== true) fail('Legacy flat public episode aliases must be forbidden.');
-  if (pipeline.coverPolicy?.coverImageNumber !== 0 || pipeline.coverPolicy?.coverCandidateCount !== 3) fail('V2 cover must be Bild 00 with exactly 3 temporary candidates.');
-  if (pipeline.imageGenerationPolicy?.primaryReferenceImage !== 'Bild 01.png') fail('V2 primary reference must be Bild 01.png.');
-  if (pipeline.imageGenerationPolicy?.exerciseUiReferenceImage !== 'Bild 04.png') fail('V2 exercise UI reference must be Bild 04.png.');
+  if (pipeline.coverPolicy?.coverSceneNumber !== 1 || pipeline.coverPolicy?.coverCandidateCount !== 3) fail('V3 cover must be Szene 01 with exactly three candidates.');
+  if (pipeline.coverPolicy?.mustWaitForExplicitUserSelection !== true) fail('V3 cover workflow must wait for explicit user selection.');
+  if (pipeline.coverPolicy?.finalFile !== 'Szene 01.png') fail('Selected cover final file must be Szene 01.png.');
+  if (pipeline.imageGenerationPolicy?.primaryReferenceImage !== 'Szene 01.png') fail('V3 primary reference must be Szene 01.png.');
+  if (pipeline.imageGenerationPolicy?.exerciseUiReferenceImage !== 'Szene 05.png') fail('V3 exercise UI reference must be Szene 05.png.');
+  if (pipeline.imageGenerationPolicy?.allFinalScenesInOneFolder !== true) fail('All final scenes must stay in one image folder.');
   if (pipeline.renderPolicy?.remotionOwnsTimerOnly !== true) fail('Remotion must own only the countdown timer.');
   if (pipeline.renderPolicy?.remotionOwnsProgressBar !== false) fail('Remotion progress bar must be disabled.');
   if (pipeline.renderPolicy?.googleFlowOwnsAllNonTimerVisibleText !== true) fail('Google Flow must own all non-timer visible text.');
 }
+
 if (visualText) {
   const visual = JSON.parse(visualText);
   if (visual.status !== 'READY' || !visual.styleId || visual.styleId === 'UNSET') fail('KidMotion visual policy must be READY with a real styleId.');
   if (visual.visibleTextLanguage !== 'en') fail('KidMotion generated visible text language must be English.');
+  if (visual.referenceWorkflow?.waitForUserSelection !== true) fail('Visual policy must require user cover selection.');
+  if (visual.referenceWorkflow?.primaryCharacterWorldReference !== 'Szene 01.png') fail('Visual policy primary reference must be Szene 01.png.');
 }
 
-if (!read('scripts/episode-paths.mjs').includes("'00-bildprompts', 'images'")) fail('episode-paths.mjs must resolve the V2 image directory.');
+const episodePaths = read('scripts/episode-paths.mjs');
+if (!episodePaths.includes('coverSelectionPath')) fail('episode-paths.mjs must expose coverSelectionPath.');
+if (!episodePaths.includes("'00-bildprompts', 'images'")) fail('episode-paths.mjs must resolve the image directory.');
+
 const newEpisode = read('scripts/new-episode.mjs');
-for (const required of ['00-bildprompts/images','01-voice-script','03-export','99-technik','IMAGE_PLAN.json','google-flow-prompt.txt','Generate exactly THREE temporary Bild 00 candidates','ALL NON-TIMER VISIBLE TEXT IS GENERATED BY GOOGLE FLOW','requestedDate','date:requestedDate','publicAssetRoot']) {
-  if (!newEpisode.includes(required)) fail(`new-episode V2 requirement missing: ${required}`);
+for (const required of ['structureVersion:3','Cover-Kandidat-01.png','COVER_SELECTION.json','Szene 01.png','Szene 17.png','stopAfterCoverCandidatesUntilExplicitUserSelection']) {
+  if (!newEpisode.includes(required)) fail(`new-episode V3 requirement missing: ${required}`);
 }
+
+const selectCover = read('scripts/select-cover.mjs');
+for (const required of ['COVER SELECTION FAILED','Szene 01.png','SELECTED','Cover-Kandidat-03.png']) {
+  if (!selectCover.includes(required)) fail(`select-cover.mjs requirement missing: ${required}`);
+}
+
 const activate = read('scripts/activate-episode.mjs');
-if (!activate.includes('resolveEpisodePaths')) fail('activate-episode must use shared V2/legacy path resolver.');
+if (!activate.includes('resolveEpisodePaths')) fail('activate-episode must use shared episode paths.');
 if (!activate.includes('paths.imagesDir')) fail('activate-episode must wire the resolved image directory.');
 if (!activate.includes('data.date')) fail('activate-episode must use the episode date.');
 if (!activate.includes("path.join(publicEpisodes, episodeDate, publicEpisodeFolder)")) fail('activate-episode must group runtime assets by date and episode folder.');
@@ -59,16 +76,18 @@ if (!activate.includes("/^KM-\\d{3}-(audio|bilder)$/")) fail('activate-episode m
 for (const script of ['scripts/preflight.mjs','scripts/approve-assets.mjs','scripts/asset-gate.mjs']) {
   if (!read(script).includes('resolveEpisodePaths')) fail(`${script} must use shared episode paths.`);
 }
+if (!read('scripts/preflight.mjs').includes('COVER_SELECTION.json')) fail('preflight must enforce cover selection.');
+if (!read('scripts/approve-assets.mjs').includes('Cover has not been explicitly selected')) fail('asset approval must enforce cover selection.');
 
 const rootSource = read('src/Root.tsx');
 if (rootSource.includes('KidMotionShort')) fail('Root.tsx must expose KidMotionVideo only.');
 const exercise = read('src/components/ExerciseScene.tsx');
-for (const forbidden of ['opacity: fadeIn', 'transform: `scale(', 'ExerciseHeader', 'KidProgressBar']) if (exercise.includes(forbidden)) fail(`ExerciseScene regression: ${forbidden}`);
+for (const forbidden of ['opacity: fadeIn','transform: `scale(','ExerciseHeader','KidProgressBar']) if (exercise.includes(forbidden)) fail(`ExerciseScene regression: ${forbidden}`);
 if (!exercise.includes('CircularTimer')) fail('ExerciseScene must contain the countdown timer.');
 const rest = read('src/components/RestScreen.tsx');
-for (const forbidden of ['opacity: fadeIn', 'transform: `scale(', 'NEXT:', '>REST<']) if (rest.includes(forbidden)) fail(`RestScreen regression: ${forbidden}`);
+for (const forbidden of ['opacity: fadeIn','transform: `scale(','NEXT:','>REST<']) if (rest.includes(forbidden)) fail(`RestScreen regression: ${forbidden}`);
 if (!rest.includes('CircularTimer')) fail('RestScreen must contain only the countdown timer over the reused image.');
-if (fs.existsSync(path.join(root, 'src', 'components', 'KidProgressBar.tsx'))) fail('KidProgressBar.tsx must not exist; Remotion progress bars are forbidden.');
+if (fs.existsSync(path.join(root, 'src', 'components', 'KidProgressBar.tsx'))) fail('KidProgressBar.tsx must not exist.');
 
 for (const file of ['IntroScreen.tsx','SafetyDisclaimerScreen.tsx','LetsBeginScreen.tsx','GreatJobScreen.tsx']) {
   const source = read(`src/components/${file}`);
@@ -90,17 +109,27 @@ if (fs.existsSync(episodesRoot)) {
     if (!entry.isDirectory() || !/^KM-\d{3}-/.test(entry.name)) continue;
     const episodeRoot = path.join(episodesRoot, entry.name);
     const episodeDataPath = path.join(episodeRoot, '99-technik', 'episode.json');
-    const v2 = fs.existsSync(episodeDataPath);
-    if (!v2) continue;
+    if (!fs.existsSync(episodeDataPath)) continue;
     const episodeData = JSON.parse(fs.readFileSync(episodeDataPath, 'utf8'));
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(episodeData.date || ''))) fail(`${entry.name} V2 must declare date as YYYY-MM-DD.`);
-    if (!episodeData.topic) fail(`${entry.name} V2 must declare topic.`);
-    if (!episodeData.slug) fail(`${entry.name} V2 must declare slug.`);
+    const version = Number(episodeData.structureVersion || 2);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(episodeData.date || ''))) fail(`${entry.name} must declare date as YYYY-MM-DD.`);
+    if (!episodeData.topic) fail(`${entry.name} must declare topic.`);
+    if (!episodeData.slug) fail(`${entry.name} must declare slug.`);
     for (const legacy of ['04-data/data.json','03-bilder/bild-prompts.md','01-skript/voice-text.md','GENERATION-REVISION.txt']) {
-      if (fs.existsSync(path.join(episodeRoot, legacy))) fail(`${entry.name} is V2 but still contains legacy ${legacy}.`);
+      if (fs.existsSync(path.join(episodeRoot, legacy))) fail(`${entry.name} is modern but still contains legacy ${legacy}.`);
     }
     for (const required of ['00-bildprompts/google-flow-prompt.txt','99-technik/IMAGE_PLAN.json','99-technik/VISUAL_REVIEW.json','99-technik/GENERATION-REVISION.txt']) {
-      if (!fs.existsSync(path.join(episodeRoot, required))) fail(`${entry.name} V2 missing ${required}.`);
+      if (!fs.existsSync(path.join(episodeRoot, required))) fail(`${entry.name} missing ${required}.`);
+    }
+    if (version >= 3) {
+      if (!fs.existsSync(path.join(episodeRoot, '99-technik', 'COVER_SELECTION.json'))) fail(`${entry.name} V3 missing 99-technik/COVER_SELECTION.json.`);
+      const scenes = Array.isArray(episodeData.scenes) ? episodeData.scenes : [];
+      if (scenes.length !== 17) fail(`${entry.name} V3 must define exactly 17 final scenes.`);
+      for (let i = 0; i < scenes.length; i += 1) {
+        const expected = `Szene ${String(i + 1).padStart(2, '0')}.png`;
+        if (scenes[i]?.image !== expected) fail(`${entry.name} scene ${i + 1} must map ${expected}.`);
+      }
+      if (scenes[0]?.type !== 'cover' || scenes[0]?.inVideo !== false) fail(`${entry.name} Szene 01 must be the cover outside the MP4.`);
     }
   }
 }
@@ -125,4 +154,4 @@ if (failures.length) {
   process.exit(1);
 }
 console.log('PROJECT DOCTOR PASSED');
-console.log('Protected: V2 episode metadata/date, dated public runtime structure, Google-Flow ownership of all non-timer text, timer-only Remotion overlays, opening-only Voice, visual review and SHA-256 asset lock.');
+console.log('Protected: 3-cover user-selection gate, Szene 01–17 single-folder workflow, selected-cover reference, Flow-owned text, timer-only Remotion and SHA-256 approval.');
