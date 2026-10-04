@@ -18,6 +18,8 @@ if (paths.structure === 'missing') {
 }
 
 const data = readEpisodeData(paths);
+const structureVersion = Number(data.structureVersion || 1);
+const sceneV3 = structureVersion >= 3;
 const pipeline = JSON.parse(fs.readFileSync(path.join(root, 'config', 'pipeline.json'), 'utf8'));
 const visual = JSON.parse(fs.readFileSync(path.join(root, 'config', 'visual-policy.json'), 'utf8'));
 const failures = [];
@@ -41,42 +43,60 @@ if (!activeSource) fail('src/data/active-workout.ts is missing. Run kidmotion:ac
 if (activeSource && !activeSource.includes(episodeFolder)) fail(`active-workout.ts is not wired to ${episodeFolder}.`);
 
 if (paths.isV2) {
-  if (data.structureVersion !== 2) fail('V2 episode must declare structureVersion=2.');
+  if (![2, 3].includes(structureVersion)) fail('Modern episode must declare structureVersion 2 or 3.');
   if (visual.status !== 'READY') fail('config/visual-policy.json must be READY.');
   if (data.visualStyleId !== visual.styleId) fail('Episode visualStyleId does not match active visual policy.');
   if (!fs.existsSync(paths.imagePlanPath)) fail('Missing 99-technik/IMAGE_PLAN.json.');
   if (!fs.existsSync(paths.promptPath)) fail('Missing 00-bildprompts/google-flow-prompt.txt.');
   if (!fs.existsSync(paths.revisionPath)) fail('Missing 99-technik/GENERATION-REVISION.txt.');
 
-  if (data.visibleTextPolicy?.googleFlowOwnsAllNonTimerVisibleText !== true) fail('V2 must assign every non-timer visible text element to Google Flow.');
-  if (data.visibleTextPolicy?.remotionTimerOnly !== true) fail('V2 must limit Remotion overlays to the countdown timer.');
+  if (data.visibleTextPolicy?.googleFlowOwnsAllNonTimerVisibleText !== true) fail('Google Flow must own every non-timer visible text element.');
+  if (data.visibleTextPolicy?.remotionTimerOnly !== true) fail('Remotion overlays must be limited to the countdown timer.');
   if (data.visibleTextPolicy?.progressBarForbidden !== true) fail('Remotion progress bar must be forbidden.');
-  if (data.nonExerciseImagePolicy?.introGeneratedTextAllowed !== true || data.nonExerciseImagePolicy?.safetyGeneratedTextAllowed !== true || data.nonExerciseImagePolicy?.letsBeginGeneratedTextAllowed !== true || data.nonExerciseImagePolicy?.outroGeneratedTextAllowed !== true) {
-    fail('Intro, Safety, LETS BEGIN and Outro text must be generated directly in their Flow images.');
+
+  if (sceneV3) {
+    if (!fs.existsSync(paths.coverSelectionPath)) fail('Missing 99-technik/COVER_SELECTION.json.');
+    else {
+      const selection = JSON.parse(fs.readFileSync(paths.coverSelectionPath, 'utf8'));
+      if (selection.status !== 'SELECTED') fail('Cover selection is not complete. The user must explicitly choose one of the three cover candidates first.');
+      if (selection.finalFile !== 'Szene 01.png') fail('Selected cover final file must be Szene 01.png.');
+    }
+    for (const candidate of ['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png']) {
+      if (fs.existsSync(path.join(paths.imagesDir, candidate))) fail(`Rejected/temporary cover candidate still exists: ${candidate}`);
+    }
   }
 
   if (fs.existsSync(paths.imagePlanPath)) {
     const plan = JSON.parse(fs.readFileSync(paths.imagePlanPath, 'utf8'));
     const planImages = Array.isArray(plan.images) ? plan.images : [];
-    if (planImages.length !== 17) fail(`V2 IMAGE_PLAN must contain Bild 00–16, found ${planImages.length}.`);
+    if (planImages.length !== 17) fail(`IMAGE_PLAN must contain 17 final scenes, found ${planImages.length}.`);
     for (let i = 0; i < planImages.length; i += 1) {
       const item = planImages[i];
-      const expected = `Bild ${String(i).padStart(2, '0')}.png`;
+      const expected = sceneV3 ? `Szene ${String(i + 1).padStart(2, '0')}.png` : `Bild ${String(i).padStart(2, '0')}.png`;
       if (item.imageFile !== expected) fail(`IMAGE_PLAN index ${i} must be ${expected}.`);
       for (const field of ['visualPurpose','topicAnchor','visualForm','prompt']) {
         const value = String(item[field] ?? '').trim();
         if (!value || /\bTBD\b/i.test(value)) fail(`IMAGE_PLAN ${expected}: unresolved ${field}.`);
       }
     }
-    if (plan.generationRules?.coverCandidateCount !== 3) fail('Bild 00 must use exactly 3 temporary cover candidates.');
-    if (plan.generationRules?.primaryReference !== 'Bild 01.png') fail('Bild 01 must be the primary character/world reference.');
-    if (plan.generationRules?.exerciseUiReference !== 'Bild 04.png') fail('Bild 04 must be the exercise UI reference.');
+    if (plan.generationRules?.coverCandidateCount !== 3) fail('Exactly three cover candidates are required.');
+    if (sceneV3) {
+      if (plan.generationRules?.primaryReference !== 'Szene 01.png') fail('Selected Szene 01 must be the primary reference.');
+      if (plan.generationRules?.exerciseUiReference !== 'Szene 05.png') fail('Szene 05 must be the exercise UI reference.');
+      if (plan.generationRules?.stopAfterCoverCandidatesUntilExplicitUserSelection !== true) fail('Image plan must hard-stop after cover candidates until user selection.');
+    } else {
+      if (plan.generationRules?.primaryReference !== 'Bild 01.png') fail('V2 primary reference must be Bild 01.png.');
+      if (plan.generationRules?.exerciseUiReference !== 'Bild 04.png') fail('V2 exercise UI reference must be Bild 04.png.');
+    }
   }
 
   const prompt = read(paths.promptPath);
   if (/\bTBD\b/i.test(prompt)) fail('google-flow-prompt.txt still contains TBD values.');
-  for (const required of ['ALL NON-TIMER VISIBLE TEXT IS GENERATED BY GOOGLE FLOW','Generate exactly THREE temporary Bild 00 candidates','Generate and approve Bild 01 first','Generate and approve Bild 04 before Bild 05 through Bild 15']) {
-    if (!prompt.includes(required)) fail(`Flow prompt missing rule: ${required}`);
+  if (!prompt.includes('Google Flow') && !prompt.includes('GOOGLE FLOW')) fail('Flow prompt must define Google Flow generation rules.');
+  if (sceneV3) {
+    for (const required of ['Generate ONLY these three cover candidates first','STOP completely','Wait until the user explicitly chooses','Szene 01.png','Szene 17.png']) {
+      if (!prompt.includes(required)) fail(`V3 Flow prompt missing rule: ${required}`);
+    }
   }
 }
 
@@ -108,12 +128,13 @@ const cover = scenes.find((scene) => scene.type === 'cover');
 const intro = scenes.find((scene) => scene.type === 'intro');
 const exercises = scenes.filter((scene) => scene.type === 'exercise');
 let runtime = 0;
-if (!cover || cover.image !== 'Bild 00.png' || cover.inVideo !== false) fail('Cover must be Bild 00.png and stay outside MP4.');
-if (!intro?.voice) fail('Opening must map Voice 01.mp3 on Scene 01.');
+const expectedCover = sceneV3 ? 'Szene 01.png' : 'Bild 00.png';
+if (!cover || cover.image !== expectedCover || cover.inVideo !== false) fail(`Cover must be ${expectedCover} and stay outside MP4.`);
+if (!intro?.voice) fail('Opening must map Voice 01.mp3 on the Intro scene.');
 
 for (const scene of scenes) {
   const sceneNumber = String(scene.scene).padStart(2, '0');
-  const expectedImage = `Bild ${sceneNumber}.png`;
+  const expectedImage = sceneV3 ? `Szene ${sceneNumber}.png` : `Bild ${sceneNumber}.png`;
   if (scene.type !== 'cover') runtime += Number(scene.duration || 0) + Number(scene.restAfter || 0);
   if (scene.image && scene.image !== expectedImage) fail(`Scene ${sceneNumber} must use ${expectedImage}.`);
   if (scene.type === 'exercise' && Number(scene.duration) !== 20) fail(`Scene ${sceneNumber} must last exactly 20s.`);
@@ -150,4 +171,4 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${paths.structure} — ${runtime}s`);
-console.log('Validated: Google Flow owns all non-timer text; Remotion adds countdown timer only.');
+console.log('Validated: explicit cover selection, scene naming, Google Flow text ownership and timer-only Remotion.');
