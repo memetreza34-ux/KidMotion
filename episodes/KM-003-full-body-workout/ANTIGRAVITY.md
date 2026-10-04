@@ -1,15 +1,17 @@
-# KM-003 — Antigravity Production Instructions
+Read GEHIRN.md first.
 
-Use `00-bildprompts/google-flow-prompt.txt` as the authoritative Google Flow production order.
-
-Rules:
-1. Do not improvise a different character, outfit, world, exercise list or text.
-2. Generate Bild 00 as exactly three cover candidates and retain one winner.
-3. Generate and visually approve Bild 01 before any dependent image. Use it as the PRIMARY character/world reference.
-4. Generate and visually approve Bild 04 before Bild 05–15. Use it only as the SECONDARY title/cloud UI reference.
-5. Produce one accepted final version per image number and rename it immediately.
-6. All final accepted PNG files go in `00-bildprompts/images/` as `Bild 00.png` through `Bild 16.png`.
-7. Remotion owns only the numeric countdown timer. Every other visible text element must already exist in the Google Flow image.
-8. Never set VISUAL_REVIEW flags true without actually viewing the final files.
-9. Never create ASSET_APPROVAL manually. Run the repo approval command only after the real assets exist.
-10. Do not activate/render KM-003 until images, Voice 01.mp3 and bg-music.mp3 are final and approved.
+HARD STOP WORKFLOW:
+1. Generate exactly three cover candidates in `00-bildprompts/images/`:
+   - `Cover-Kandidat-01.png`
+   - `Cover-Kandidat-02.png`
+   - `Cover-Kandidat-03.png`
+2. Show all three to the user.
+3. STOP and wait for the user's explicit choice. Do not generate Szene 02 or later before that choice.
+4. After the user chooses, run `npm run kidmotion:select-cover -- --episode=KM-003-full-body-workout --candidate=<1|2|3>`.
+5. The winner becomes `Szene 01.png`; rejected candidates are deleted.
+6. Use `Szene 01.png` as the PRIMARY reference for character, face, hair, proportions, outfit, colors, lighting and world for every later scene.
+7. Only then generate `Szene 02.png` through `Szene 17.png`, renaming each accepted result immediately.
+8. Generate and approve `Szene 05.png` before Szene 06–16. Use Szene 05 only as the SECONDARY exercise title/instruction UI reference.
+9. Keep every final scene in the same flat `00-bildprompts/images/` folder.
+10. Google Flow creates every visible text element except the changing countdown timer. Remotion adds only the timer.
+11. Never mark VISUAL_REVIEW true without inspecting the actual final images.
