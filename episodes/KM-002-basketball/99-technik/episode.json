@@ -9,7 +9,7 @@
   "theme": "basketball",
   "status": "assets-pending",
   "visualPolicyFile": "config/visual-policy.json",
-  "visualStyleId": "kidmotion-premium-3d-v2",
+  "visualStyleId": "kidmotion-premium-3d-v3-flow-text",
   "imagePlanFile": "99-technik/IMAGE_PLAN.json",
   "flowPromptFile": "00-bildprompts/google-flow-prompt.txt",
   "format": "youtube-longform",
@@ -27,10 +27,10 @@
   "silhouetteTestRequired": true,
   "maxGoogleFlowAttemptsBeforePoseReplacement": 2,
   "characterReference": "approved KM-002 Bild 01 reference",
-  "exerciseUiReference": "approved KM-002 Bild 04 reference for title/cloud style only",
+  "exerciseUiReference": "approved KM-002 Bild 04 reference for title/instruction style only",
   "outfitLockedForEpisode": true,
   "worldLockedForEpisode": true,
-  "imageGenerationRevisionRequired": "KM002-R2",
+  "imageGenerationRevisionRequired": "KM002-R3",
   "introDuration": 8,
   "introTitle": "5 MIN BASKETBALL WORKOUT",
   "introSubtitle": "12 POSES • 20 SEC EACH",
@@ -73,6 +73,12 @@
     "fullSceneFadeFromZeroForbidden": true,
     "hardCutWithVisibleImageFromFirstFrame": true
   },
+  "visibleTextPolicy": {
+    "googleFlowOwnsAllNonTimerVisibleText": true,
+    "remotionTimerOnly": true,
+    "progressBarForbidden": true,
+    "restLabelForbidden": true
+  },
   "scenes": [
     {"scene":"00","type":"cover","image":"Bild 00.png","duration":0,"character":"girl","inVideo":false},
     {"scene":"01","type":"intro","image":"Bild 01.png","voice":"Voice 01.mp3","duration":8,"character":"girl"},
@@ -90,23 +96,22 @@
     {"scene":"13","type":"exercise","title":"BALL SIDE STRETCH","instruction":"Reach the ball high and lean to one side.","image":"Bild 13.png","duration":20,"restAfter":5,"character":"girl","ballCount":1},
     {"scene":"14","type":"exercise","title":"KNEE HUG HOLD","instruction":"Lift one knee and hold it close.","image":"Bild 14.png","duration":20,"restAfter":5,"character":"girl","ballCount":0},
     {"scene":"15","type":"exercise","title":"BALL FRONT HOLD","instruction":"Hold the ball straight in front.","image":"Bild 15.png","duration":20,"restAfter":0,"character":"girl","ballCount":1},
-    {"scene":"16","type":"outro","image":"Bild 16.png","duration":4,"character":"girl","generatedTextAllowed":false}
+    {"scene":"16","type":"outro","image":"Bild 16.png","duration":4,"character":"girl","generatedTextAllowed":true}
   ],
   "exerciseVisualPolicy": {
     "exerciseNameSource": "GoogleFlowImage",
     "exerciseInstructionSource": "GoogleFlowImage",
     "instructionBubbleSource": "GoogleFlowImage",
-    "exerciseNamePosition": "bottom-left-safe",
-    "instructionPosition": "top-right-safe",
+    "exerciseNamePosition": "bottom-left",
+    "instructionPosition": "top-right",
     "exerciseUiStyleReference": "Bild 04.png",
     "sameUiStyleRequiredAcrossAllExercises": true,
     "thoughtBubbleDotsForbidden": true,
     "timerSafeZoneTopLeftPixels": 220,
-    "bottomProgressSafeZonePixels": 90,
     "remotionExerciseNameForbidden": true,
     "remotionExerciseInstructionForbidden": true,
     "googleFlowTimerForbidden": true,
-    "googleFlowProgressBarForbidden": true,
+    "remotionProgressBarForbidden": true,
     "remotionKenBurnsOnExerciseForbidden": true,
     "remotionExerciseImageFadeFromZeroForbidden": true
   },
@@ -114,22 +119,19 @@
     "blankScreenForbidden": true,
     "reuseNextExerciseImage": true,
     "characterMustRemainVisible": true,
-    "remotionRestTextAllowed": ["REST", "countdown"],
+    "remotionTimerOnly": true,
+    "remotionRestTextForbidden": true,
     "remotionNextPoseNameForbidden": true,
-    "restUiPosition": "top-left",
-    "topRightRestCountdownForbidden": true,
     "remotionKenBurnsOnRestForbidden": true,
     "remotionRestImageFadeFromZeroForbidden": true
   },
   "nonExerciseImagePolicy": {
-    "introGeneratedTextAllowed": false,
-    "safetyGeneratedTextAllowed": false,
-    "letsBeginGeneratedTextAllowed": false,
-    "outroGeneratedTextAllowed": false,
-    "remotionOwnsIntroGraphic": true,
-    "remotionOwnsSafetyGraphic": true,
-    "remotionOwnsLetsBeginGraphic": true,
-    "remotionOwnsOutroGraphic": true
+    "introGeneratedTextAllowed": true,
+    "safetyGeneratedTextAllowed": true,
+    "letsBeginGeneratedTextAllowed": true,
+    "outroGeneratedTextAllowed": true,
+    "googleFlowOwnsAllVisibleText": true,
+    "remotionTextOverlaysForbidden": true
   },
   "runtimeSeconds": 313
 }

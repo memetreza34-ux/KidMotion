@@ -3,9 +3,12 @@
   "staticExerciseImages": true,
   "staticRestImages": true,
   "backgroundMusic": true,
-  "timer": {"owner": "remotion", "position": "top-left", "seconds": 20},
-  "progressBar": {"owner": "remotion", "position": "bottom"},
-  "restCountdown": {"owner": "remotion", "position": "top-left", "seconds": 5},
-  "exerciseText": {"owner": "google-flow-image"},
+  "remotionOverlay": "countdown-timer-only",
+  "timer": {"owner": "remotion", "position": "top-left", "exerciseSeconds": 20, "restSeconds": 5},
+  "progressBar": false,
+  "restLabel": false,
+  "nextLabel": false,
+  "allNonTimerVisibleTextOwner": "google-flow",
+  "restUsesNextExerciseImage": true,
   "kenBurnsOnExerciseOrRest": false
 }

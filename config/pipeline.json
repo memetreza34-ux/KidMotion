@@ -32,7 +32,8 @@
     "requireVisualPurpose": true,
     "requireTopicAnchor": true,
     "requireVisualForm": true,
-    "requireAcceptanceCriteria": true
+    "requireAcceptanceCriteria": true,
+    "googleFlowOwnsAllNonTimerVisibleText": true
   },
   "workoutTiming": {
     "introSeconds": 8,
@@ -59,10 +60,12 @@
     "exerciseImagesStatic": true,
     "restImagesStatic": true,
     "kenBurnsForbiddenOnWorkoutScenes": true,
-    "remotionOwnsTimer": true,
-    "remotionOwnsProgressBar": true,
-    "remotionOwnsRestCountdown": true,
-    "googleFlowOwnsExerciseTitleAndInstruction": true
+    "remotionOwnsTimerOnly": true,
+    "remotionTextOverlaysForbiddenExceptTimerDigits": true,
+    "remotionOwnsProgressBar": false,
+    "remotionOwnsRestLabel": false,
+    "googleFlowOwnsAllNonTimerVisibleText": true,
+    "restReusesNextExerciseImage": true
   },
   "approvalPolicy": {
     "visualReviewRequired": true,

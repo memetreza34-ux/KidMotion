@@ -1,14 +1,14 @@
 {
   "episodeFolder": "KM-002-basketball",
-  "revision": "KM002-R2",
+  "revision": "KM002-R3",
   "sameCharacterEveryScene": false,
   "allExercisePosesClearFromOneStill": false,
   "allExerciseTextReadableAndConsistent": false,
   "allExerciseSafeZonesClear": false,
   "propBallCountsCorrect": false,
-  "nonExerciseImagesContainNoGeneratedText": false,
+  "allNonTimerTextGeneratedAndReadable": false,
   "noExtraPeople": false,
   "noAnatomyErrors": false,
   "noCroppingOfImportantLimbs": false,
-  "notes": "All flags stay false until the final files in 00-bildprompts/images/ have actually been inspected image by image."
+  "notes": "All flags remain false until the final R3 images are visually inspected. Verify that every visible text element except the countdown timer is already baked into the Google Flow image."
 }
