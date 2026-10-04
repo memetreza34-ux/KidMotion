@@ -31,6 +31,9 @@ const errors = [];
 
 if (paths.isV2) {
   if (data.structureVersion !== 2) errors.push('V2 episode must declare structureVersion=2.');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(data.date || ''))) errors.push('V2 episode must declare date as YYYY-MM-DD.');
+  if (!data.topic) errors.push('V2 episode must declare topic.');
+  if (!data.slug) errors.push('V2 episode must declare slug.');
   if (!fs.existsSync(paths.promptPath)) errors.push('Missing 00-bildprompts/google-flow-prompt.txt.');
   if (!fs.existsSync(paths.imagePlanPath)) errors.push('Missing 99-technik/IMAGE_PLAN.json.');
 }
@@ -64,14 +67,26 @@ const ensureAlias = (aliasPath, targetPath) => {
 };
 
 const publicEpisodes = path.join(root, 'public', 'episodes');
-const id = data.id || episodeFolder.split('-').slice(0, 2).join('-');
-const imageAliasName = `${id}-bilder`;
-const audioAliasName = `${id}-audio`;
-ensureAlias(path.join(publicEpisodes, imageAliasName), paths.imagesDir);
-ensureAlias(path.join(publicEpisodes, audioAliasName), paths.audioDir);
+fs.mkdirSync(publicEpisodes, {recursive: true});
 
-const imageFolder = `episodes/${imageAliasName}`;
-const audioFolder = `episodes/${audioAliasName}`;
+// Remove the old flat runtime aliases such as KM-002-audio / KM-002-bilder.
+for (const entry of fs.readdirSync(publicEpisodes, {withFileTypes: true})) {
+  if (/^KM-\d{3}-(audio|bilder)$/.test(entry.name)) {
+    fs.rmSync(path.join(publicEpisodes, entry.name), {recursive: true, force: true});
+  }
+}
+
+const id = data.id || episodeFolder.split('-').slice(0, 2).join('-');
+const episodeDate = paths.isV2 ? String(data.date) : 'legacy';
+const publicEpisodeFolder = paths.isV2 ? episodeFolder : `${id}-${data.slug || 'legacy'}`;
+const publicEpisodeRoot = path.join(publicEpisodes, episodeDate, publicEpisodeFolder);
+const imageAlias = path.join(publicEpisodeRoot, 'images');
+const audioAlias = path.join(publicEpisodeRoot, 'audio');
+ensureAlias(imageAlias, paths.imagesDir);
+ensureAlias(audioAlias, paths.audioDir);
+
+const imageFolder = `episodes/${episodeDate}/${publicEpisodeFolder}/images`;
+const audioFolder = `episodes/${episodeDate}/${publicEpisodeFolder}/audio`;
 const q = JSON.stringify;
 const image = (name) => name ? `imageAsset(${q(name)})` : 'undefined';
 const audio = (name) => {
@@ -84,16 +99,26 @@ const exerciseRows = exercises.map((scene) =>
   `    {id:${q(String(scene.scene))}, title:${q(scene.title)}, instruction:${q(scene.instruction)}, image:${image(scene.image)}, duration:${Number(scene.duration)}, restAfter:${Number(scene.restAfter || 0)}},`
 ).join('\n');
 
-const source = `import type {Workout} from '../types';\n\nconst imageAsset = (name: string) => \`${imageFolder}/\${name}\`;\nconst audioAsset = (name: string) => \`${audioFolder}/\${name}\`;\n\n// AUTO-GENERATED ACTIVE EPISODE: ${episodeFolder}\n// Structure: ${paths.structure}\nexport const activeWorkout: Workout = {\n  id: ${q(data.slug ? `${data.id}-${data.slug}` : (data.id || episodeFolder))},\n  title: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  subtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  fps: ${Number(data.fps || 30)},\n  width: ${Number(data.width || 1920)},\n  height: ${Number(data.height || 1080)},\n  introDuration: ${Number(intro.duration || data.introDuration || 8)},\n  safetyDuration: ${Number(safety.duration || data.safetyDuration || 4)},\n  letsBeginDuration: ${Number(start.duration || data.letsBeginDuration || 2)},\n  outroDuration: ${Number(outro.duration || data.outroDuration || 4)},\n  introImage: ${image(intro.image)},\n  introTitle: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  introSubtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  introBadge: ${q(data.introBadge || 'KIDMOTION')},\n  introVoice: ${audio(voiceFile)},\n  safetyImage: ${image(safety.image)},\n  letsBeginImage: ${image(start.image)},\n  outroImage: ${image(outro.image)},\n  bgMusic: ${audio(musicFile)},\n  exercises: [\n${exerciseRows}\n  ],\n};\n`;
+const source = `import type {Workout} from '../types';\n\nconst imageAsset = (name: string) => \`${imageFolder}/\${name}\`;\nconst audioAsset = (name: string) => \`${audioFolder}/\${name}\`;\n\n// AUTO-GENERATED ACTIVE EPISODE: ${episodeFolder}\n// Runtime assets: public/episodes/${episodeDate}/${publicEpisodeFolder}/{images,audio}\n// Structure: ${paths.structure}\nexport const activeWorkout: Workout = {\n  id: ${q(data.slug ? `${data.id}-${data.slug}` : (data.id || episodeFolder))},\n  title: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  subtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  fps: ${Number(data.fps || 30)},\n  width: ${Number(data.width || 1920)},\n  height: ${Number(data.height || 1080)},\n  introDuration: ${Number(intro.duration || data.introDuration || 8)},\n  safetyDuration: ${Number(safety.duration || data.safetyDuration || 4)},\n  letsBeginDuration: ${Number(start.duration || data.letsBeginDuration || 2)},\n  outroDuration: ${Number(outro.duration || data.outroDuration || 4)},\n  introImage: ${image(intro.image)},\n  introTitle: ${q(data.introTitle || data.title || data.id || episodeFolder)},\n  introSubtitle: ${q(data.introSubtitle || data.subtitle || '')},\n  introBadge: ${q(data.introBadge || 'KIDMOTION')},\n  introVoice: ${audio(voiceFile)},\n  safetyImage: ${image(safety.image)},\n  letsBeginImage: ${image(start.image)},\n  outroImage: ${image(outro.image)},\n  bgMusic: ${audio(musicFile)},\n  exercises: [\n${exerciseRows}\n  ],\n};\n`;
 
 fs.writeFileSync(path.join(root, 'src', 'data', 'active-workout.ts'), source, 'utf8');
 fs.writeFileSync(
   path.join(root, 'episodes', 'ACTIVE_EPISODE.json'),
-  `${JSON.stringify({episodeFolder, structure: paths.structure, dataPath: path.relative(root, paths.dataPath)}, null, 2)}\n`,
+  `${JSON.stringify({
+    episodeFolder,
+    structure: paths.structure,
+    date: episodeDate,
+    topic: data.topic || data.theme || '',
+    publicAssetRoot: `public/episodes/${episodeDate}/${publicEpisodeFolder}`,
+    dataPath: path.relative(root, paths.dataPath),
+  }, null, 2)}\n`,
   'utf8',
 );
 
 console.log(`Activated episode: ${episodeFolder} (${paths.structure})`);
+console.log(`Date: ${episodeDate}`);
+console.log(`Topic: ${data.topic || data.theme || ''}`);
+console.log(`Public runtime root: ${publicEpisodeRoot}`);
 console.log(`Image source: ${paths.imagesDir}`);
 console.log(`Audio source: ${paths.audioDir}`);
 if (!fs.existsSync(path.join(paths.audioDir, voiceFile))) console.warn(`WARNING: missing ${voiceFile}`);

@@ -2,6 +2,14 @@
 
 Status: Phase 1 complete. Image/audio production pending.
 
+## Metadata
+- Date: 2026-10-04
+- Day: Sunday
+- Theme: full-body-workout
+- Topic: 5 minute full body workout for kids
+- Episode: KM-003
+- Runtime assets after activation: `public/episodes/2026-10-04/KM-003-full-body-workout/`
+
 ## Video
 - 16:9 / 1920x1080 / 30 fps
 - 313 seconds / 5:13
@@ -35,6 +43,14 @@ Status: Phase 1 complete. Image/audio production pending.
 7. Inspect all final images and truthfully complete VISUAL_REVIEW.json.
 8. Create Voice 01.mp3 and bg-music.mp3.
 9. Run assets:approve, activate the episode, then render:safe.
+
+## Runtime folder after activation
+
+```text
+public/episodes/2026-10-04/KM-003-full-body-workout/
+├── images/
+└── audio/
+```
 
 ## Remotion ownership
 Remotion only assembles the video/audio and draws the numeric countdown timer. Every other visible text element is generated inside the Google Flow images.

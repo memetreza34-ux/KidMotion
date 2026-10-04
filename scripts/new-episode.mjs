@@ -8,9 +8,14 @@ const getArg = (name, fallback = '') => {
 };
 const topic = getArg('topic');
 const requestedId = getArg('id');
+const requestedDate = getArg('date', new Date().toISOString().slice(0, 10));
 const character = getArg('character', 'boy').toLowerCase() === 'girl' ? 'girl' : 'boy';
 if (!topic) {
   console.error('Missing --topic="..."');
+  process.exit(1);
+}
+if (!/^\d{4}-\d{2}-\d{2}$/.test(requestedDate)) {
+  console.error('Invalid --date. Use YYYY-MM-DD.');
   process.exit(1);
 }
 
@@ -58,13 +63,16 @@ const data = {
   schemaVersion:2,
   structureVersion:2,
   id:episodeId,
+  date:requestedDate,
   slug,
+  theme:slug,
   topic,
   status:'planned',
   visualPolicyFile:'config/visual-policy.json',
   visualStyleId:visual.styleId,
   imagePlanFile:'99-technik/IMAGE_PLAN.json',
   flowPromptFile:'00-bildprompts/google-flow-prompt.txt',
+  publicAssetRoot:`public/episodes/${requestedDate}/${episodeFolder}`,
   format:'youtube-longform',aspectRatio:pipeline.aspectRatio,fps:pipeline.fps,width:pipeline.resolution.width,height:pipeline.resolution.height,
   mainCharacter:character,singleCharacterWholeEpisode:true,allowCharacterSwitch:false,allowSecondVisibleCharacter:false,allVideoSectionsUseCharacterImage:true,
   staticPoseOnly:true,singleFrameClarityRequired:true,silhouetteTestRequired:true,maxGoogleFlowAttemptsBeforePoseReplacement:2,
@@ -123,6 +131,8 @@ write('00-bildprompts/google-flow-prompt.txt', flowPrompt);
 write('01-voice-script/voice-script.txt', `${data.introVoiceText}\n`);
 write('02-audio/README.md', `Required: Voice 01.mp3 (13.65–14.00s opening) and bg-music.mp3. No spoken Voice after the opening.\n`);
 write('03-export/UPLOAD_METADATA.md', `# Upload Metadata\n\n## YouTube Title\nTBD\n\n## Description / Caption\nTBD\n`);
-write('README.md', `# ${episodeId} — ${topic}\n\nKidMotion V2. Google Flow owns every visible text element except the countdown timer. Remotion renders the static images, audio and countdown timer only.\n`);
+write('README.md', `# ${episodeId} — ${topic}\n\nDate: ${requestedDate}\nTheme: ${slug}\nPublic runtime: public/episodes/${requestedDate}/${episodeFolder}/\n\nKidMotion V2. Google Flow owns every visible text element except the countdown timer. Remotion renders the static images, audio and countdown timer only.\n`);
 write('ANTIGRAVITY.md', `Read GEHIRN.md first. Fill episode.json, IMAGE_PLAN.json and google-flow-prompt.txt before asset generation. Google Flow creates all non-timer visible text. Remotion adds countdown timer only. Never mark VISUAL_REVIEW true without inspecting final images.\n`);
 console.log(`Created KidMotion V2 episode: ${episodeFolder}`);
+console.log(`Date: ${requestedDate}`);
+console.log(`Theme: ${slug}`);

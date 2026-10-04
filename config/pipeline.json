@@ -13,6 +13,13 @@
     "exportDirectory": "03-export",
     "technicalDirectory": "99-technik"
   },
+  "publicRuntimeStructure": {
+    "root": "public/episodes",
+    "layout": "{date}/{episodeFolder}/{images|audio}",
+    "dateFormat": "YYYY-MM-DD",
+    "example": "public/episodes/2026-10-04/KM-003-full-body-workout/images",
+    "legacyFlatAliasesForbidden": true
+  },
   "coverPolicy": {
     "coverImageNumber": 0,
     "coverOutsideVideo": true,
