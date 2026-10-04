@@ -6,8 +6,9 @@ KidMotion ist eine datengetriebene Produktionspipeline für englische YouTube-Ki
 1. `GEHIRN.md`
 2. `config/pipeline.json`
 3. `config/visual-policy.json`
-4. `characters/CHARACTER_BIBLE.md`
-5. jeweilige Episode unter `episodes/KM-XXX-name/`
+4. `config/export-policy.json`
+5. `characters/CHARACTER_BIBLE.md`
+6. jeweilige Episode unter `episodes/KM-XXX-name/`
 
 ## V2-Episodenstruktur
 
@@ -19,6 +20,8 @@ episodes/KM-XXX-name/
 ├── 01-voice-script/voice-script.txt
 ├── 02-audio/Voice 01.mp3 + bg-music.mp3
 ├── 03-export/
+│   ├── FINAL_VIDEO.mp4
+│   └── UPLOAD_METADATA.md
 └── 99-technik/
     ├── episode.json
     ├── IMAGE_PLAN.json
@@ -66,6 +69,19 @@ Alle akzeptierten Finalbilder liegen flach in `00-bildprompts/images/`.
 - Ziel ca. 13.65–14.00s, maximal 14.05s
 - danach keine Voice
 - `bg-music.mp3` Pflicht und geloopt
+
+## Export / Veröffentlichung
+`03-export/` ist das fertige Veröffentlichungs-Paket.
+
+Pflicht am Ende:
+- `FINAL_VIDEO.mp4`
+- `UPLOAD_METADATA.md`
+
+`UPLOAD_METADATA.md` enthält mindestens:
+- finalen YouTube-Titel
+- finale Videobeschreibung / Caption
+
+Während der Produktion darf die Datei `DRAFT` sein. Vor `PRODUCTION COMPLETE` muss sie vollständig copy-ready und frei von Platzhaltern sein.
 
 ## Produktion
 
