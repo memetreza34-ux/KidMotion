@@ -29,13 +29,21 @@ Internal batches:
 - `Szene 22–26`
 - `Szene 27–28`
 
+IMPORTANT: Batches are only organizational groups. NEVER launch several scene generations in parallel.
+Generate strictly one scene at a time in numerical order.
+
+STRICT PER-SCENE PROCEDURE
 For every scene from 02 through 28:
-1. Find that exact scene section in `00-bildprompts/google-flow-prompt.txt`.
-2. Attach ONLY selected `Szene 01.png` as the image reference.
-3. Use the full `FINAL GOOGLE FLOW PROMPT` from that section.
-4. Generate exactly once.
-5. Save immediately using the exact filename from the section.
-6. Continue to the next scene without asking the user.
+1. Confirm that the expected final file for this scene does NOT already exist.
+2. Find that exact scene section in `00-bildprompts/google-flow-prompt.txt`.
+3. Attach ONLY selected `Szene 01.png` as the image reference.
+4. Use the full `FINAL GOOGLE FLOW PROMPT` from that section.
+5. Send exactly ONE generation request for that scene.
+6. WAIT until Flow returns the actual image result for that exact request. Do not start the next scene while this one is still pending.
+7. If Flow returns no image or an error, mark this scene as missing/failed. NEVER reuse the previous scene, NEVER duplicate another file, and NEVER rename an older output to fill the slot.
+8. If Flow returns an image, download/save that exact result immediately under the exact final filename for this scene.
+9. Verify that the new file exists before moving to the next scene.
+10. Continue to the next scene automatically without asking the user.
 
 HARD REFERENCE RULE
 - `Szene 01.png` is the ONLY image reference allowed for every scene from `Szene 02.png` through `Szene 28.png`.
@@ -46,7 +54,16 @@ HARD ONE-GENERATION RULE
 - Generate each `Szene 02.png` through `Szene 28.png` exactly once.
 - Do not create alternate versions.
 - Do not regenerate a scene after an image has been produced.
-- Rename/store the generated result immediately using its exact scene filename.
+- A Flow error/no-output does NOT authorize copying or reusing another scene.
+
+ORDER / DUPLICATE PROTECTION
+- Never infer progress only from the number of files in the folder.
+- Track the exact scene number currently being generated.
+- Do not increment to the next scene until the current scene request has completed and its result has been handled.
+- Never use the same downloaded Flow result for two scene filenames.
+- Missing scene = hard error, not a reason to shift all later images one filename earlier.
+- After Szene 28, run `npm run scene:qa`.
+- If `scene:qa` reports a missing, extra, exact duplicate, near-duplicate, wrong reference rule or unresolved prompt, do NOT render the video.
 
 OTHER RULES
 - Do not stop or ask the user between internal batches.
@@ -56,3 +73,4 @@ OTHER RULES
 - Remotion adds only the timer.
 - Keep all final images together in `00-bildprompts/images/`.
 - Never mark `VISUAL_REVIEW.json` true without inspecting the actual final images.
+- During visual review, explicitly verify: scene order, exercise/title match, GET READY target match, no missing scenes, no duplicated scene content and no shifted filenames.
