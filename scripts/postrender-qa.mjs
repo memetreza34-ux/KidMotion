@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -22,179 +23,153 @@ if (!fs.existsSync(pointerPath)) {
 
 const pointer = JSON.parse(fs.readFileSync(pointerPath, 'utf8'));
 const episodeFolder = pointer.episodeFolder;
-const dataPath = path.join(root, 'episodes', episodeFolder, '04-data', 'data.json');
-if (!fs.existsSync(dataPath)) {
-  console.error(`POSTRENDER QA FAILED: missing canonical data for ${episodeFolder}`);
+const paths = resolveEpisodePaths(root, episodeFolder);
+if (paths.structure === 'missing') {
+  console.error(`POSTRENDER QA FAILED: episode data missing for ${episodeFolder}.`);
   process.exit(1);
 }
-const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+const data = readEpisodeData(paths);
+const scenes = Array.isArray(data.scenes) ? data.scenes : [];
+const renderedScenes = scenes.filter((scene) => scene.type !== 'cover');
 
 const runText = (cmd, cmdArgs) => spawnSync(cmd, cmdArgs, {encoding: 'utf8'});
 const durationProbe = runText('ffprobe', [
-  '-v', 'error',
-  '-show_entries', 'format=duration',
-  '-of', 'default=noprint_wrappers=1:nokey=1',
-  videoPath,
+  '-v', 'error', '-show_entries', 'format=duration',
+  '-of', 'default=noprint_wrappers=1:nokey=1', videoPath,
 ]);
 const actualDuration = Number.parseFloat(durationProbe.stdout || '');
-const expectedDuration = Number(data.runtimeSeconds || 313);
-if (!Number.isFinite(actualDuration)) {
-  fail('Could not read MP4 duration with ffprobe.');
-} else if (Math.abs(actualDuration - expectedDuration) > 0.15) {
-  fail(`MP4 duration is ${actualDuration.toFixed(3)}s; expected ${expectedDuration}s.`);
-}
+const expectedDuration = renderedScenes.reduce((sum, scene) => sum + Number(scene.duration || 0), 0);
+if (!Number.isFinite(actualDuration)) fail('Could not read MP4 duration with ffprobe.');
+else if (Math.abs(actualDuration - expectedDuration) > 0.15) fail(`MP4 duration is ${actualDuration.toFixed(3)}s; expected ${expectedDuration}s.`);
 
 const streamProbe = runText('ffprobe', [
-  '-v', 'error',
-  '-select_streams', 'v:0',
-  '-show_entries', 'stream=width,height,r_frame_rate',
-  '-of', 'json',
-  videoPath,
+  '-v', 'error', '-select_streams', 'v:0',
+  '-show_entries', 'stream=width,height,r_frame_rate', '-of', 'json', videoPath,
 ]);
 try {
   const stream = JSON.parse(streamProbe.stdout || '{}').streams?.[0];
-  if (!stream) {
-    fail('MP4 has no readable video stream.');
-  } else {
+  if (!stream) fail('MP4 has no readable video stream.');
+  else {
     if (Number(stream.width) !== Number(data.width || 1920) || Number(stream.height) !== Number(data.height || 1080)) {
       fail(`Wrong render size: ${stream.width}x${stream.height}; expected ${data.width || 1920}x${data.height || 1080}.`);
     }
     const [num, den] = String(stream.r_frame_rate || '').split('/').map(Number);
     const fps = den ? num / den : Number(stream.r_frame_rate);
-    if (!Number.isFinite(fps) || Math.abs(fps - Number(data.fps || 30)) > 0.05) {
-      fail(`Wrong frame rate: ${Number.isFinite(fps) ? fps.toFixed(3) : 'unknown'}; expected ${data.fps || 30}.`);
-    }
+    if (!Number.isFinite(fps) || Math.abs(fps - Number(data.fps || 30)) > 0.05) fail(`Wrong frame rate: ${Number.isFinite(fps) ? fps.toFixed(3) : 'unknown'}; expected ${data.fps || 30}.`);
   }
 } catch {
   fail('Could not parse video stream metadata.');
 }
 
 const getMeanVolume = (start, duration = 2) => {
-  const result = spawnSync('ffmpeg', [
-    '-hide_banner', '-ss', String(start), '-t', String(duration), '-i', videoPath,
-    '-af', 'volumedetect', '-f', 'null', '-',
-  ], {encoding: 'utf8'});
+  const result = spawnSync('ffmpeg', ['-hide_banner', '-ss', String(start), '-t', String(duration), '-i', videoPath, '-af', 'volumedetect', '-f', 'null', '-'], {encoding: 'utf8'});
   const text = `${result.stdout || ''}\n${result.stderr || ''}`;
   const match = text.match(/mean_volume:\s*(-?[\d.]+) dB/);
   return match ? Number.parseFloat(match[1]) : null;
 };
-
 if (data.audioPolicy?.backgroundMusicRequiredForFinal === true) {
-  const sampleTimes = [20, Math.floor(expectedDuration / 2), Math.max(20, expectedDuration - 12)];
-  for (const time of sampleTimes) {
+  for (const time of [20, Math.floor(expectedDuration / 2), Math.max(20, expectedDuration - 12)]) {
     const mean = getMeanVolume(time, 2);
-    if (mean === null) {
-      fail(`Could not measure audio around ${time}s.`);
-    } else if (mean <= -60) {
-      fail(`Audio is effectively silent around ${time}s (${mean.toFixed(1)} dB). Background music must continue through the workout.`);
-    }
+    if (mean === null) fail(`Could not measure audio around ${time}s.`);
+    else if (mean <= -60) fail(`Audio is effectively silent around ${time}s (${mean.toFixed(1)} dB).`);
   }
 }
 
-const blackDetect = spawnSync('ffmpeg', [
-  '-hide_banner', '-i', videoPath,
-  '-vf', 'blackdetect=d=0.08:pix_th=0.04',
-  '-an', '-f', 'null', '-',
-], {encoding: 'utf8'});
+const blackDetect = spawnSync('ffmpeg', ['-hide_banner', '-i', videoPath, '-vf', 'blackdetect=d=0.08:pix_th=0.04', '-an', '-f', 'null', '-'], {encoding: 'utf8'});
 const blackText = `${blackDetect.stdout || ''}\n${blackDetect.stderr || ''}`;
 const blackSegments = [...blackText.matchAll(/black_start:([\d.]+)\s+black_end:([\d.]+)\s+black_duration:([\d.]+)/g)]
   .map((m) => ({start: Number(m[1]), end: Number(m[2]), duration: Number(m[3])}))
   .filter((segment) => segment.duration >= 0.08);
-if (blackSegments.length) {
-  fail(`Detected black flash/segment(s): ${blackSegments.map((s) => `${s.start.toFixed(2)}-${s.end.toFixed(2)}s`).join(', ')}`);
-}
+if (blackSegments.length) fail(`Detected black flash/segment(s): ${blackSegments.map((s) => `${s.start.toFixed(2)}-${s.end.toFixed(2)}s`).join(', ')}`);
 
-const scenes = Array.isArray(data.scenes) ? data.scenes : [];
-const boundaryTimes = [];
-const exerciseCenters = [];
-let cursor = 0;
-for (const scene of scenes) {
-  if (scene.type === 'cover') continue;
-  if (cursor > 0) boundaryTimes.push(cursor);
-  const sceneDuration = Number(scene.duration || 0);
-  if (scene.type === 'exercise') exerciseCenters.push({scene: scene.scene, time: cursor + sceneDuration / 2});
-  cursor += sceneDuration;
-  if (Number(scene.restAfter || 0) > 0) {
-    boundaryTimes.push(cursor);
-    cursor += Number(scene.restAfter || 0);
-  }
-}
+const W = 160;
+const H = 90;
+const TIMER_MASK_X = 24;
+const TIMER_MASK_Y = 24;
 
-const sampleGrayFrame = (time) => {
+const sampleGrayVideo = (time) => {
   const result = spawnSync('ffmpeg', [
-    '-loglevel', 'error', '-ss', String(time), '-i', videoPath,
-    '-frames:v', '1', '-vf', 'scale=96:54,format=gray',
+    '-loglevel', 'error', '-ss', String(Math.max(0, time)), '-i', videoPath,
+    '-frames:v', '1', '-vf', `scale=${W}:${H},format=gray`,
     '-f', 'rawvideo', '-pix_fmt', 'gray', '-',
   ], {encoding: null, maxBuffer: 1024 * 1024});
-  return result.stdout && result.stdout.length ? result.stdout : null;
+  return result.status === 0 && result.stdout?.length === W * H ? Buffer.from(result.stdout) : null;
 };
 
-const frameStats = (buf) => {
-  if (!buf?.length) return null;
-  let sum = 0;
-  let sumSquares = 0;
-  let dark = 0;
-  let light = 0;
-  let min = 255;
-  let max = 0;
-  for (const value of buf) {
-    sum += value;
-    sumSquares += value * value;
-    if (value < 24) dark += 1;
-    if (value > 238) light += 1;
-    if (value < min) min = value;
-    if (value > max) max = value;
-  }
-  const mean = sum / buf.length;
-  const variance = Math.max(0, sumSquares / buf.length - mean * mean);
-  return {
-    mean,
-    stdDev: Math.sqrt(variance),
-    min,
-    max,
-    darkRatio: dark / buf.length,
-    lightRatio: light / buf.length,
-  };
+const sampleGrayImage = (file) => {
+  const result = spawnSync('ffmpeg', [
+    '-loglevel', 'error', '-i', file,
+    '-frames:v', '1', '-vf', `scale=${W}:${H},format=gray`,
+    '-f', 'rawvideo', '-pix_fmt', 'gray', '-',
+  ], {encoding: null, maxBuffer: 1024 * 1024});
+  return result.status === 0 && result.stdout?.length === W * H ? Buffer.from(result.stdout) : null;
 };
 
-if (data.transitionPolicy?.blankFramesForbidden === true) {
-  for (const boundary of boundaryTimes) {
-    for (const offset of [0, 0.05, 0.15]) {
-      const t = Math.min(expectedDuration - 0.05, boundary + offset);
-      const buf = sampleGrayFrame(t);
-      const stats = frameStats(buf);
-      if (!stats) {
-        fail(`Could not inspect boundary frame around ${t.toFixed(2)}s.`);
-        continue;
-      }
-      if (stats.darkRatio > 0.90) {
-        fail(`Near-black blank frame detected around ${t.toFixed(2)}s (${(stats.darkRatio * 100).toFixed(0)}% dark pixels).`);
-      }
-      if (stats.lightRatio > 0.90) {
-        fail(`Near-white blank frame detected around ${t.toFixed(2)}s (${(stats.lightRatio * 100).toFixed(0)}% light pixels).`);
-      }
-      const paleUniformBlank = stats.mean > 205 && stats.stdDev < 20 && stats.min > 145;
-      if (paleUniformBlank) {
-        fail(`Pale/uniform blank-looking transition frame detected around ${t.toFixed(2)}s (mean ${stats.mean.toFixed(1)}, std ${stats.stdDev.toFixed(1)}).`);
-      }
-    }
+const maskTimer = (buf) => {
+  if (!buf) return null;
+  const copy = Buffer.from(buf);
+  for (let y = 0; y < TIMER_MASK_Y; y += 1) {
+    for (let x = 0; x < TIMER_MASK_X; x += 1) copy[y * W + x] = 0;
   }
-}
+  return copy;
+};
 
-// Catch accidental repeated exercise visuals in the actual rendered MP4.
-const centerFrames = exerciseCenters.map(({scene, time}) => ({scene, time, buf: sampleGrayFrame(time)}));
 const meanAbsDiff = (a, b) => {
   if (!a || !b || a.length !== b.length) return null;
   let total = 0;
   for (let i = 0; i < a.length; i += 1) total += Math.abs(a[i] - b[i]);
   return total / a.length;
 };
-for (let i = 0; i < centerFrames.length; i += 1) {
-  for (let j = i + 1; j < centerFrames.length; j += 1) {
-    const diff = meanAbsDiff(centerFrames[i].buf, centerFrames[j].buf);
-    if (diff !== null && diff < 0.5) {
-      fail(`Rendered exercise scenes ${centerFrames[i].scene} and ${centerFrames[j].scene} look effectively identical at their center frames (mean pixel diff ${diff.toFixed(3)}). Possible reused/wrong image.`);
-    }
+
+const sourceFrames = new Map();
+for (const scene of renderedScenes) {
+  const sourcePath = path.join(paths.imagesDir, scene.image);
+  if (!fs.existsSync(sourcePath)) {
+    fail(`Missing source image for rendered scene: ${scene.image}`);
+    continue;
+  }
+  sourceFrames.set(scene.image, maskTimer(sampleGrayImage(sourcePath)));
+}
+
+const timeline = [];
+let cursor = 0;
+for (const scene of renderedScenes) {
+  const duration = Number(scene.duration || 0);
+  timeline.push({scene, start: cursor, end: cursor + duration, center: cursor + duration / 2});
+  cursor += duration;
+}
+
+// Verify that every planned source image is actually visible in its intended time slot.
+const SOURCE_MATCH_MAX_DIFF = 8.0;
+for (const item of timeline) {
+  const rendered = maskTimer(sampleGrayVideo(item.center));
+  const source = sourceFrames.get(item.scene.image);
+  const diff = meanAbsDiff(rendered, source);
+  if (diff === null) fail(`Could not compare rendered ${item.scene.image} at ${item.center.toFixed(2)}s.`);
+  else if (diff > SOURCE_MATCH_MAX_DIFF) {
+    fail(`${item.scene.image} does not match its planned source at ${item.center.toFixed(2)}s (mean diff ${diff.toFixed(2)}). Possible wrong/missing/reused scene.`);
+  }
+}
+
+// Verify every cut from both sides. This catches scenes appearing early or late.
+for (let i = 0; i < timeline.length - 1; i += 1) {
+  const current = timeline[i];
+  const next = timeline[i + 1];
+  const boundary = current.end;
+  const pre = maskTimer(sampleGrayVideo(Math.max(current.start + 0.05, boundary - 0.08)));
+  const post = maskTimer(sampleGrayVideo(Math.min(next.end - 0.05, boundary + 0.08)));
+  const preDiff = meanAbsDiff(pre, sourceFrames.get(current.scene.image));
+  const postDiff = meanAbsDiff(post, sourceFrames.get(next.scene.image));
+  if (preDiff === null || preDiff > SOURCE_MATCH_MAX_DIFF) fail(`Scene before ${boundary.toFixed(2)}s is wrong or changes too early: expected ${current.scene.image}.`);
+  if (postDiff === null || postDiff > SOURCE_MATCH_MAX_DIFF) fail(`Scene after ${boundary.toFixed(2)}s is wrong or changes too late: expected ${next.scene.image}.`);
+}
+
+// Catch repeated rendered scenes even if files were renamed or re-encoded.
+const renderedCenters = timeline.map((item) => ({scene: item.scene.image, buf: maskTimer(sampleGrayVideo(item.center))}));
+for (let i = 0; i < renderedCenters.length; i += 1) {
+  for (let j = i + 1; j < renderedCenters.length; j += 1) {
+    const diff = meanAbsDiff(renderedCenters[i].buf, renderedCenters[j].buf);
+    if (diff !== null && diff < 0.6) fail(`Rendered scenes ${renderedCenters[i].scene} and ${renderedCenters[j].scene} are visually almost identical (mean diff ${diff.toFixed(3)}). Possible duplicate/reused image.`);
   }
 }
 
@@ -206,4 +181,4 @@ if (failures.length) {
 
 console.log(`POSTRENDER QA PASSED — ${episodeFolder}`);
 if (Number.isFinite(actualDuration)) console.log(`Duration: ${actualDuration.toFixed(3)}s`);
-console.log('Checked: runtime, resolution/FPS, ongoing music, black segments, black/white/pale scene-boundary frames, and repeated-looking exercise scenes.');
+console.log('Checked: runtime, resolution/FPS, ongoing audio, black flashes, exact scene-to-source mapping, cut timing on both sides and rendered duplicate scenes.');
