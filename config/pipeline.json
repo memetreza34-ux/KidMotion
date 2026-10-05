@@ -46,6 +46,11 @@
     "mustWaitForExplicitUserContinue": false,
     "autoContinueToNextBatch": true,
     "deliverOnlyAfterAllScenesComplete": true,
+    "sequentialWithinBatch": true,
+    "parallelSceneGenerationForbidden": true,
+    "waitForCurrentFlowResultBeforeNextScene": true,
+    "verifyFinalFileExistsBeforeAdvance": true,
+    "neverFillMissingSceneWithPreviousOutput": true,
     "batches": [
       [2, 3, 4, 5, 6],
       [7, 8, 9, 10, 11],
@@ -79,7 +84,10 @@
     "requireVisualForm": true,
     "requireAcceptanceCriteria": true,
     "googleFlowOwnsAllNonTimerVisibleText": true,
-    "poseDiversityRequired": true
+    "poseDiversityRequired": true,
+    "missingOutputIsHardError": true,
+    "duplicateOutputIsHardError": true,
+    "shiftLaterFilenamesAfterMissingSceneForbidden": true
   },
   "workoutTiming": {
     "introSeconds": 8,
@@ -128,7 +136,10 @@
     "remotionOwnsProgressBar": false,
     "googleFlowOwnsAllNonTimerVisibleText": true,
     "restUsesDedicatedGetReadyImage": true,
-    "restReusesNextExerciseImage": false
+    "restReusesNextExerciseImage": false,
+    "sceneIntegrityQaRequiredBeforeRender": true,
+    "postrenderSourceMatchRequired": true,
+    "postrenderBoundaryTimingCheckRequired": true
   },
   "approvalPolicy": {
     "visualReviewRequired": true,
