@@ -1,8 +1,8 @@
 {
-  "visualPolicyVersion": 5,
+  "visualPolicyVersion": 6,
   "status": "READY",
   "styleId": "kidmotion-premium-3d-v3-flow-text",
-  "description": "Zentrale KidMotion Bildwelt. Erst drei Cover, dann Nutzerwahl. Das gewählte Cover wird Szene 01 und Referenz. Google Flow erzeugt alle sichtbaren Texte; Remotion zeichnet nur den Countdown-Timer. Ab dieser Revision haben 5-Sekunden-Pausen eigene GET READY-Szenen und die 12 Übungen müssen klar unterschiedliche Silhouetten haben.",
+  "description": "Zentrale KidMotion Bildwelt. Erst drei Cover, dann Nutzerwahl. Das gewählte Cover wird Szene 01 und Referenz. Danach werden alle weiteren Flow-Bilder ausschliesslich in 5er-Bloecken erzeugt und nach jedem Block dem Nutzer gezeigt. Google Flow erzeugt alle sichtbaren Texte; Remotion zeichnet nur den Countdown-Timer.",
   "visibleTextLanguage": "en",
   "rules": [
     "16:9 landscape, premium stylized 3D kids animation look",
@@ -11,10 +11,15 @@
     "same face, hair, age appearance, skin tone and body proportions throughout one episode",
     "generate exactly three cover candidates first and STOP until the user explicitly chooses one",
     "the selected cover is renamed Szene 01.png and becomes the primary character/outfit/world/color reference",
+    "after cover selection generate later scenes only in ordered batches of maximum five images",
+    "batch 1 is Szene 02-06, batch 2 Szene 07-11, batch 3 Szene 12-16, batch 4 Szene 17-21, batch 5 Szene 22-26, final batch Szene 27-28",
+    "after every batch show all newly generated images to the user and STOP until the user explicitly says to continue",
+    "never start the next batch before the user approves/continues",
+    "Szene 01 remains the primary character/outfit/world reference in every batch",
+    "Szene 05 becomes the secondary exercise title/instruction UI reference after batch 1",
     "all remaining final images are named Szene 02.png through Szene 28.png and stored in the same flat image folder",
     "12 exercise scenes must have obviously different silhouettes, body levels and directions; avoid a sequence dominated by squat/lunge/balance variants",
-    "the same gym world may use different zones and modest camera-angle changes to avoid repetitive frames while keeping continuity",
-    "Szene 05 is the secondary exercise title/instruction UI reference for all later exercise scenes",
+    "the same gym/adventure world may use different zones and modest camera-angle changes to avoid repetitive frames while keeping continuity",
     "exercise scenes are Szene 05,07,09,11,13,15,17,19,21,23,25,27",
     "dedicated GET READY scenes are Szene 06,08,10,12,14,16,18,20,22,24,26",
     "every GET READY scene shows a neutral ready stance, not the next exercise pose, and contains GET READY plus NEXT: exercise title",
@@ -26,6 +31,8 @@
   ],
   "forbidden": [
     "generating Szene 02 or later before explicit user cover selection",
+    "generating more than five later scenes in one batch",
+    "starting the next image batch before explicit user continue",
     "second visible child or adult",
     "extra background people",
     "anatomy errors or hidden/confusing limbs",
@@ -53,6 +60,8 @@
     "primaryCharacterWorldReference": "Szene 01.png",
     "secondaryExerciseUiReference": "Szene 05.png",
     "approveSelectedCoverBeforeLaterScenes": true,
-    "approveSzene05BeforeLaterExercises": true
+    "approveSzene05BeforeLaterExercises": true,
+    "batchSizeAfterCover": 5,
+    "waitForUserBetweenBatches": true
   }
 }
