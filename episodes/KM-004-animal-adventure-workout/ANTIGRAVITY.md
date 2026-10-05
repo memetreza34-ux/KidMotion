@@ -1,5 +1,10 @@
 Read GEHIRN.md first.
 
+PRE-FLOW GATE
+- Before generating ANY cover or scene, run:
+  `npm run prompt:qa -- --episode=KM-004-animal-adventure-workout`
+- If prompt:qa fails, do not open/start Google Flow generation. Fix the planning error first.
+
 PROMPT SOURCE OF TRUTH
 - The actual Google Flow image prompts are in `00-bildprompts/google-flow-prompt.txt`.
 - For every generation, use the complete block labeled `FINAL GOOGLE FLOW PROMPT` for that exact cover candidate or scene.
@@ -63,7 +68,7 @@ ORDER / DUPLICATE PROTECTION
 - Never use the same downloaded Flow result for two scene filenames.
 - Missing scene = hard error, not a reason to shift all later images one filename earlier.
 - After Szene 28, run `npm run scene:qa -- --episode=KM-004-animal-adventure-workout`.
-- If `scene:qa` reports a missing, extra, exact duplicate, near-duplicate, wrong reference rule or unresolved prompt, do NOT activate or render the video.
+- If `scene:qa` reports a missing, extra, exact duplicate, near-duplicate, wrong reference rule or unresolved prompt, do NOT render the video.
 
 OTHER RULES
 - Do not stop or ask the user between internal batches.
