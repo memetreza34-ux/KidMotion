@@ -91,6 +91,15 @@ for (let i = 0; i < 12; i += 1) {
 }
 scenes.push({scene:'28',type:'outro',image:'Szene 28.png',duration:4,character});
 
+const generationBatches = [
+  [2,3,4,5,6],
+  [7,8,9,10,11],
+  [12,13,14,15,16],
+  [17,18,19,20,21],
+  [22,23,24,25,26],
+  [27,28],
+];
+
 const data = {
   schemaVersion:3,
   structureVersion:3,
@@ -126,6 +135,7 @@ const data = {
   worldLockedAfterCoverSelection:true,
   imageGenerationRevisionRequired:revision,
   coverPolicy:{generateCandidatesFirst:3,candidateFiles:['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png'],waitForExplicitUserSelection:true,winnerFinalFile:'Szene 01.png',selectedCoverIsPrimaryReference:true,noLaterSceneGenerationBeforeSelection:true},
+  imageBatchPolicy:{enabled:true,batchSize:5,showBatchToUser:true,waitForExplicitUserContinue:true,batches:generationBatches,primaryReferenceEveryBatch:'Szene 01.png',exerciseUiReferenceAfterBatch1:'Szene 05.png'},
   introDuration:8,introTitle:'TBD',introSubtitle:'12 FUN FREEZE POSES • 20 SEC EACH',introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
   introVoiceText:'TBD — one continuous opening paragraph designed to cover approximately 13.65–14.00 seconds and end before Exercise 1.',voiceScriptFormat:'one continuous copy-ready paragraph',
   safetyDuration:4,letsBeginDuration:2,outroDuration:4,exerciseDuration:20,defaultRestAfter:5,openingDuration:14,
@@ -152,7 +162,7 @@ const generatedTextFor = (scene) => {
 
 const imagePlan = {
   schemaVersion:3,episodeFolder,revision,visualStyleId:visual.styleId,
-  generationRules:{coverCandidateCount:3,coverCandidateFiles:['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png'],coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesPrimaryReference:true,nonCoverAutomaticAlternates:false,regenerationOnlyAfterExplicitRejection:true,primaryReference:'Szene 01.png',exerciseUiReference:'Szene 05.png',finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
+  generationRules:{coverCandidateCount:3,coverCandidateFiles:['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png'],coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesPrimaryReference:true,batchSizeAfterCover:5,showBatchToUserBeforeContinuing:true,waitForExplicitUserContinueBetweenBatches:true,generationBatches,nonCoverAutomaticAlternates:false,regenerationOnlyAfterExplicitRejection:true,primaryReference:'Szene 01.png',exerciseUiReference:'Szene 05.png',finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
   images:scenes.map((scene) => ({
     sceneNumber:Number(scene.scene),
     imageFile:scene.image,
@@ -172,11 +182,13 @@ const imagePlan = {
 
 const blocks = imagePlan.images.map((item) => `SZENE ${pad(item.sceneNumber)}\nVisual Purpose: ${item.visualPurpose}\nTopic Anchor: ${item.topicAnchor}\nVisual Form: ${item.visualForm}\nGenerated Text: ${typeof item.generatedText === 'string' ? item.generatedText : JSON.stringify(item.generatedText)}\nSafe Zones: ${item.safeZones.join('; ') || 'none'}\nPrompt: ${item.prompt}\nFinal file: Szene ${pad(item.sceneNumber)}.png`);
 
-const flowPrompt = `VISUAL_POLICY_FILE: config/visual-policy.json\nACTIVE_STYLE_ID: ${visual.styleId}\n\nKIDMOTION GOOGLE FLOW MASTER PROMPT — ${episodeId} — ${topic}\n\nHARD STOP WORKFLOW — COVER FIRST\n1. Generate ONLY these three cover candidates first: Cover-Kandidat-01.png, Cover-Kandidat-02.png, Cover-Kandidat-03.png.\n2. Show all three to the user.\n3. STOP completely. Do NOT generate Szene 02 or any later scene.\n4. Wait until the user explicitly chooses candidate 1, 2 or 3.\n5. Run npm run kidmotion:select-cover -- --episode=${episodeFolder} --candidate=<1|2|3>.\n6. The winner becomes Szene 01.png; rejected candidates are deleted.\n7. Szene 01.png becomes the PRIMARY reference.\n8. Only after COVER_SELECTION.json says SELECTED may generation continue.\n\nONE-FOLDER RULE\nAll accepted final images live in 00-bildprompts/images/ as Szene 01.png through Szene 28.png.\n\nPOSE DIVERSITY RULE\nThe 12 exercise poses must have obviously different silhouettes, levels and directions. Avoid a workout dominated by near-identical squat/lunge/balance poses.\n\nGET-READY RULE\nThere are 11 dedicated five-second GET READY scenes between exercises. Each must show a neutral ready stance, not the next exercise pose, and bake GET READY + NEXT: [exercise title] into the image. Remotion adds only the countdown timer.\n\nALL NON-TIMER VISIBLE TEXT IS GENERATED BY GOOGLE FLOW. Remotion adds ONLY the changing countdown timer.\n\n${blocks.join('\n\n---\n\n')}\n`;
+const batchWorkflow = `FIVE-IMAGE BATCH WORKFLOW AFTER COVER SELECTION\nBatch 1: Szene 02-06. Show all five to the user and STOP.\nBatch 2: Szene 07-11. Show all five to the user and STOP.\nBatch 3: Szene 12-16. Show all five to the user and STOP.\nBatch 4: Szene 17-21. Show all five to the user and STOP.\nBatch 5: Szene 22-26. Show all five to the user and STOP.\nFinal Batch 6: Szene 27-28. Show both to the user and STOP.\nNever start the next batch until the user explicitly says to continue. Never generate more than five new final scenes in one batch. Use Szene 01 as PRIMARY reference in every batch. After Batch 1 use approved Szene 05 only as SECONDARY exercise UI reference.\n`;
+
+const flowPrompt = `VISUAL_POLICY_FILE: config/visual-policy.json\nACTIVE_STYLE_ID: ${visual.styleId}\n\nKIDMOTION GOOGLE FLOW MASTER PROMPT — ${episodeId} — ${topic}\n\nHARD STOP WORKFLOW — COVER FIRST\n1. Generate ONLY these three cover candidates first: Cover-Kandidat-01.png, Cover-Kandidat-02.png, Cover-Kandidat-03.png.\n2. Show all three to the user.\n3. STOP completely. Do NOT generate Szene 02 or any later scene.\n4. Wait until the user explicitly chooses candidate 1, 2 or 3.\n5. Run npm run kidmotion:select-cover -- --episode=${episodeFolder} --candidate=<1|2|3>.\n6. The winner becomes Szene 01.png; rejected candidates are deleted.\n7. Szene 01.png becomes the PRIMARY reference.\n8. Only after COVER_SELECTION.json says SELECTED may generation continue.\n\n${batchWorkflow}\nONE-FOLDER RULE\nAll accepted final images live in 00-bildprompts/images/ as Szene 01.png through Szene 28.png.\n\nPOSE DIVERSITY RULE\nThe 12 exercise poses must have obviously different silhouettes, levels and directions. Avoid a workout dominated by near-identical squat/lunge/balance poses.\n\nGET-READY RULE\nThere are 11 dedicated five-second GET READY scenes between exercises. Each must show a neutral ready stance, not the next exercise pose, and bake GET READY + NEXT: [exercise title] into the image. Remotion adds only the countdown timer.\n\nALL NON-TIMER VISIBLE TEXT IS GENERATED BY GOOGLE FLOW. Remotion adds ONLY the changing countdown timer.\n\n${blocks.join('\n\n---\n\n')}\n`;
 
 write('99-technik/episode.json', `${JSON.stringify(data,null,2)}\n`);
 write('99-technik/IMAGE_PLAN.json', `${JSON.stringify(imagePlan,null,2)}\n`);
-write('99-technik/RENDER_PLAN.json', `${JSON.stringify({schemaVersion:3,staticExerciseImages:true,staticGetReadyImages:true,backgroundMusic:true,coverOutsideVideo:true,coverSelectionRequiredBeforeLaterScenes:true,primaryVisualReference:'Szene 01.png',exerciseUiReference:'Szene 05.png',remotionOverlay:'countdown-timer-only',progressBar:false,allNonTimerVisibleTextOwner:'google-flow',restUsesDedicatedGetReadyImage:true,restUsesNextExerciseImage:false},null,2)}\n`);
+write('99-technik/RENDER_PLAN.json', `${JSON.stringify({schemaVersion:3,staticExerciseImages:true,staticGetReadyImages:true,backgroundMusic:true,coverOutsideVideo:true,coverSelectionRequiredBeforeLaterScenes:true,primaryVisualReference:'Szene 01.png',exerciseUiReference:'Szene 05.png',imageGenerationBatchSize:5,waitForUserBetweenImageBatches:true,remotionOverlay:'countdown-timer-only',progressBar:false,allNonTimerVisibleTextOwner:'google-flow',restUsesDedicatedGetReadyImage:true,restUsesNextExerciseImage:false},null,2)}\n`);
 write('99-technik/COVER_SELECTION.json', `${JSON.stringify({schemaVersion:1,episodeFolder,status:'AWAITING_USER_SELECTION',selectedCandidate:null,selectedCandidateOriginalFile:null,finalFile:null,userSelectionRequired:true,primaryReferenceForLaterScenes:'Szene 01.png'},null,2)}\n`);
 write('99-technik/VISUAL_REVIEW.json', `${JSON.stringify({episodeFolder,revision,sameCharacterEveryScene:false,allExercisePosesClearFromOneStill:false,poseVarietyStrong:false,allGetReadyImagesClearAndNotConfusableWithExercise:false,allExerciseTextReadableAndConsistent:false,allExerciseSafeZonesClear:false,propBallCountsCorrect:false,allNonTimerTextGeneratedAndReadable:false,noExtraPeople:false,noAnatomyErrors:false,noCroppingOfImportantLimbs:false,notes:'Set true only after inspecting all final Szene 01–28 images.'},null,2)}\n`);
 write('99-technik/status.json', `${JSON.stringify({schemaVersion:3,coverSelectionPending:true,coverSelected:false,phase1Ready:false,imagesReady:false,audioReady:false,assetsApproved:false,renderReady:false},null,2)}\n`);
@@ -186,8 +198,8 @@ write('01-voice-script/voice-script.txt', `${data.introVoiceText}\n`);
 write('02-audio/README.md', `Required: Voice 01.mp3 (13.65–14.00s opening), bg-music.mp3 and MUSIC_BRIEF.md. No spoken Voice after the opening.\n`);
 write('02-audio/MUSIC_BRIEF.md', `# Music brief\n\nUse upbeat playful kids-fitness electro-pop instrumental music, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Music stays low under the 14s opening voice and becomes clearly more energetic after the opening. Prefer a seamless loop.\n`);
 write('03-export/UPLOAD_METADATA.md', `# Upload Metadata\n\n## YouTube Title\nTBD\n\n## Description / Caption\nTBD\n`);
-write('README.md', `# ${episodeId} — ${topic}\n\nDate: ${requestedDate}\nTheme: ${slug}\n\nGenerate three covers first and wait for explicit user selection. Then create Szene 02–28. The 11 five-second breaks use dedicated GET READY images, not the next exercise image. All non-timer text comes from Google Flow.\n`);
-write('ANTIGRAVITY.md', `Read GEHIRN.md first. Generate exactly three cover candidates and STOP. Wait for the user to choose one. Use kidmotion:select-cover to turn the winner into Szene 01.png. Only then generate Szene 02–28. Use 12 strongly different exercise silhouettes and 11 dedicated GET READY images. Never mark VISUAL_REVIEW true without inspecting final images.\n`);
+write('README.md', `# ${episodeId} — ${topic}\n\nDate: ${requestedDate}\nTheme: ${slug}\n\nGenerate three covers first and wait for explicit user selection. Then generate all later scenes only in five-image batches: 02–06, 07–11, 12–16, 17–21, 22–26, then 27–28. Show each batch to the user and wait for explicit continue before starting the next.\n`);
+write('ANTIGRAVITY.md', `Read GEHIRN.md first. Generate exactly three cover candidates and STOP. Wait for the user to choose one. Use kidmotion:select-cover to turn the winner into Szene 01.png. Then generate later scenes only in five-image batches: 02–06, 07–11, 12–16, 17–21, 22–26, and final 27–28. Show every finished batch to the user and STOP until explicit continue. Use Szene 01 as PRIMARY reference in every batch and approved Szene 05 as SECONDARY exercise UI reference after Batch 1. Never mark VISUAL_REVIEW true without inspecting final images.\n`);
 
 console.log(`Created KidMotion V3 episode: ${episodeFolder}`);
 console.log(`Date: ${requestedDate}`);
