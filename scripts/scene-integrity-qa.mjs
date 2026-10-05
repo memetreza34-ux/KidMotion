@@ -5,17 +5,23 @@ import {spawnSync} from 'node:child_process';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 
 const root = process.cwd();
+const args = process.argv.slice(2);
+const episodeArg = args.find((arg) => arg.startsWith('--episode='));
+const explicitEpisode = episodeArg ? episodeArg.slice('--episode='.length) : '';
 const pointerPath = path.join(root, 'episodes', 'ACTIVE_EPISODE.json');
 const failures = [];
 const fail = (message) => failures.push(message);
 
-if (!fs.existsSync(pointerPath)) {
-  console.error('SCENE INTEGRITY QA FAILED: episodes/ACTIVE_EPISODE.json is missing.');
-  process.exit(1);
+let episodeFolder = explicitEpisode;
+if (!episodeFolder) {
+  if (!fs.existsSync(pointerPath)) {
+    console.error('SCENE INTEGRITY QA FAILED: use --episode=KM-XXX-slug or activate an episode first.');
+    process.exit(1);
+  }
+  const pointer = JSON.parse(fs.readFileSync(pointerPath, 'utf8'));
+  episodeFolder = pointer.episodeFolder;
 }
 
-const pointer = JSON.parse(fs.readFileSync(pointerPath, 'utf8'));
-const episodeFolder = pointer.episodeFolder;
 const paths = resolveEpisodePaths(root, episodeFolder);
 if (paths.structure === 'missing') {
   console.error(`SCENE INTEGRITY QA FAILED: episode not found: ${episodeFolder}`);
