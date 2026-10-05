@@ -15,6 +15,7 @@ const run = (label, command, args) => {
 run('TYPECHECK', npm, ['run', 'typecheck']);
 run('PROJECT DOCTOR', npm, ['run', 'project:doctor']);
 run('PREFLIGHT', npm, ['run', 'preflight']);
+run('SCENE INTEGRITY QA', npm, ['run', 'scene:qa']);
 run('ASSET GATE', npm, ['run', 'asset:gate']);
 run('REMOTION RENDER', npx, ['remotion', 'render', 'src/index.ts', 'KidMotionVideo', 'out/kidmotion.mp4', '--crf', '28', '--preset', 'faster']);
 run('POSTRENDER QA', npm, ['run', 'postrender:qa']);
