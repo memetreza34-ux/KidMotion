@@ -38,6 +38,24 @@
     "deleteRejectedCandidatesAfterSelection": true,
     "selectedCoverBecomesPrimaryReference": true
   },
+  "batchGenerationPolicy": {
+    "enabled": true,
+    "startsAfterCoverSelection": true,
+    "batchSize": 5,
+    "showBatchToUserBeforeContinuing": true,
+    "mustWaitForExplicitUserContinue": true,
+    "batches": [
+      [2, 3, 4, 5, 6],
+      [7, 8, 9, 10, 11],
+      [12, 13, 14, 15, 16],
+      [17, 18, 19, 20, 21],
+      [22, 23, 24, 25, 26],
+      [27, 28]
+    ],
+    "primaryReferenceEveryBatch": "Szene 01.png",
+    "exerciseUiReferenceAfterFirstBatch": "Szene 05.png",
+    "generateNextBatchBeforeUserContinueForbidden": true
+  },
   "imageGenerationPolicy": {
     "sceneFilePattern": "Szene NN.png",
     "firstFinalScene": 1,
