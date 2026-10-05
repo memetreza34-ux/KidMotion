@@ -34,6 +34,13 @@ if (pipelineText) {
   if (pipeline.coverPolicy?.coverSceneNumber !== 1 || pipeline.coverPolicy?.coverCandidateCount !== 3) fail('V3 cover must be Szene 01 with exactly three candidates.');
   if (pipeline.coverPolicy?.mustWaitForExplicitUserSelection !== true) fail('V3 cover workflow must wait for explicit user selection.');
   if (pipeline.coverPolicy?.finalFile !== 'Szene 01.png') fail('Selected cover final file must be Szene 01.png.');
+  if (pipeline.batchGenerationPolicy?.enabled !== true) fail('Five-image batch generation policy must be enabled.');
+  if (pipeline.batchGenerationPolicy?.batchSize !== 5) fail('Image generation batch size must be exactly five.');
+  if (pipeline.batchGenerationPolicy?.showBatchToUserBeforeContinuing !== true || pipeline.batchGenerationPolicy?.mustWaitForExplicitUserContinue !== true) fail('Every image batch must be shown to the user and wait for explicit continue.');
+  const expectedBatches = [[2,3,4,5,6],[7,8,9,10,11],[12,13,14,15,16],[17,18,19,20,21],[22,23,24,25,26],[27,28]];
+  if (JSON.stringify(pipeline.batchGenerationPolicy?.batches) !== JSON.stringify(expectedBatches)) fail('Image generation batches must be 02-06, 07-11, 12-16, 17-21, 22-26 and 27-28.');
+  if (pipeline.batchGenerationPolicy?.primaryReferenceEveryBatch !== 'Szene 01.png') fail('Selected Szene 01 must remain primary reference in every image batch.');
+  if (pipeline.batchGenerationPolicy?.exerciseUiReferenceAfterFirstBatch !== 'Szene 05.png') fail('Approved Szene 05 must be the secondary exercise UI reference after Batch 1.');
   if (pipeline.imageGenerationPolicy?.primaryReferenceImage !== 'Szene 01.png') fail('V3 primary reference must be Szene 01.png.');
   if (pipeline.imageGenerationPolicy?.exerciseUiReferenceImage !== 'Szene 05.png') fail('V3 exercise UI reference must be Szene 05.png.');
   if (pipeline.imageGenerationPolicy?.lastFinalScene !== 28) fail('V3 must end at Szene 28.');
@@ -50,6 +57,7 @@ if (visualText) {
   if (visual.visibleTextLanguage !== 'en') fail('Visible text language must be English.');
   if (visual.referenceWorkflow?.waitForUserSelection !== true) fail('Visual policy must require user cover selection.');
   if (visual.referenceWorkflow?.primaryCharacterWorldReference !== 'Szene 01.png') fail('Primary visual reference must be Szene 01.png.');
+  if (visual.referenceWorkflow?.batchSizeAfterCover !== 5 || visual.referenceWorkflow?.waitForUserBetweenBatches !== true) fail('Visual policy must require five-image batches with user confirmation between batches.');
   if (!visual.rules?.some((rule) => String(rule).includes('GET READY'))) fail('Visual policy must define dedicated GET READY scenes.');
 }
 
@@ -58,7 +66,7 @@ if (!episodePaths.includes('coverSelectionPath')) fail('episode-paths.mjs must e
 if (!episodePaths.includes("'00-bildprompts', 'images'")) fail('episode-paths.mjs must resolve the image directory.');
 
 const newEpisode = read('scripts/new-episode.mjs');
-for (const required of ['structureVersion:3','Cover-Kandidat-01.png','COVER_SELECTION.json','Szene 01.png','Szene 28.png','get-ready','useDedicatedGetReadyImage','stopAfterCoverCandidatesUntilExplicitUserSelection']) {
+for (const required of ['structureVersion:3','Cover-Kandidat-01.png','COVER_SELECTION.json','Szene 01.png','Szene 28.png','get-ready','useDedicatedGetReadyImage','stopAfterCoverCandidatesUntilExplicitUserSelection','generationBatches','batchSizeAfterCover:5','waitForExplicitUserContinueBetweenBatches:true','FIVE-IMAGE BATCH WORKFLOW']) {
   if (!newEpisode.includes(required)) fail(`new-episode V3 requirement missing: ${required}`);
 }
 
@@ -162,4 +170,4 @@ if (failures.length) {
   process.exit(1);
 }
 console.log('PROJECT DOCTOR PASSED');
-console.log('Protected: cover-selection gate, 28-scene workflow, 11 dedicated GET READY images, pose diversity, redesigned timer, stronger kids-music policy, timer-only Remotion and SHA-256 approval.');
+console.log('Protected: 3-cover user choice, five-image Flow batches with user stop between batches, Szene 01 primary reference, 28-scene workflow, dedicated GET READY images, pose diversity, redesigned timer, kids-music policy and SHA-256 approval.');
