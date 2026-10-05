@@ -10,10 +10,27 @@ Status: Planung fertig, Cover-Auswahl ist der nächste Schritt.
 3. **STOP und auf die ausdrückliche Auswahl warten.**
 4. Gewinner mit `npm run kidmotion:select-cover -- --episode=KM-004-animal-adventure-workout --candidate=<1|2|3>` auswählen.
 5. Gewinner wird `Szene 01.png`; die anderen zwei Kandidaten werden gelöscht.
-6. `Szene 01.png` bleibt Hauptreferenz für Charakter, Outfit, Farben und Welt.
-7. Erst dann `Szene 02.png` bis `Szene 28.png` erzeugen.
-8. `Szene 05.png` ist zusätzlich nur die Exercise-UI-Referenz.
-9. Alle finalen Bilder bleiben gemeinsam in `00-bildprompts/images/`.
+6. `Szene 01.png` bleibt Hauptreferenz für Charakter, Gesicht, Outfit, Farben, Licht und Welt.
+7. Danach niemals alle restlichen Bilder auf einmal erzeugen.
+8. Die Bilder werden ausschließlich in folgenden Blöcken erzeugt:
+   - Batch 1: `Szene 02–06`
+   - Batch 2: `Szene 07–11`
+   - Batch 3: `Szene 12–16`
+   - Batch 4: `Szene 17–21`
+   - Batch 5: `Szene 22–26`
+   - Final Batch 6: `Szene 27–28`
+9. Nach jedem Batch alle neuen Bilder dem Nutzer zeigen und **STOP**. Erst nach ausdrücklichem `weiter` mit dem nächsten Batch beginnen.
+10. `Szene 05.png` ist nach Freigabe von Batch 1 zusätzlich die Exercise-UI-Referenz für alle späteren Übungsbilder.
+11. Alle finalen Bilder bleiben gemeinsam in `00-bildprompts/images/`.
+
+## Inhalt von Batch 1
+- Szene 02: Intro
+- Szene 03: Safety First
+- Szene 04: LET'S BEGIN
+- Szene 05: Übung 1
+- Szene 06: GET READY für Übung 2
+
+Damit sieht der Nutzer bereits nach dem ersten 5er-Block, ob Charakter, Safety, Startbild, erste Pose und Übergangsbild korrekt aussehen.
 
 ## Übungen
 1. GORILLA POWER HOLD
