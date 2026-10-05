@@ -7,6 +7,7 @@
     "typecheck": "tsc --noEmit",
     "project:doctor": "node scripts/project-doctor.mjs",
     "preflight": "node scripts/preflight.mjs",
+    "scene:qa": "node scripts/scene-integrity-qa.mjs",
     "assets:approve": "node scripts/approve-assets.mjs",
     "asset:gate": "node scripts/asset-gate.mjs",
     "postrender:qa": "node scripts/postrender-qa.mjs",
