@@ -49,7 +49,7 @@ Alle finalen Bilder liegen flach in genau einem Bilderordner.
 7. `Szene 01.png` ist ab dann die **einzige erlaubte Bildreferenz** für alle Szenen 02–28.
 8. Kein später erzeugtes Bild darf jemals als zweite Referenz verwendet werden.
 
-## 4. Bildgenerierung — HARTE EINMAL-REGEL
+## 4. Bildgenerierung — HARTE EINMAL- UND REIHENFOLGE-REGEL
 Nach der Cover-Auswahl läuft die Bildproduktion automatisch bis zum fertigen Ordner durch.
 
 Pflicht:
@@ -60,6 +60,13 @@ Pflicht:
 - pro Szene als Bildreferenz ausschließlich `Szene 01.png`
 - keine `Szene 05`-Referenz und keine Referenz auf irgendeine vorherige Szene
 - Text-/UI-Konsistenz ausschließlich über die geschriebenen Google-Flow-Prompts beschreiben
+- Szenen **streng numerisch und einzeln** erzeugen
+- niemals zwei Szenen parallel in Google Flow starten
+- erst zur nächsten Szene gehen, wenn die aktuelle Flow-Ausgabe wirklich fertig ist und behandelt wurde
+- nach erfolgreicher Ausgabe die Datei sofort unter dem exakten Szenennamen speichern
+- wenn Flow fehlschlägt oder kein Bild liefert, bleibt genau diese Szene fehlend; niemals ein älteres Bild kopieren oder wiederverwenden
+- bei fehlender Szene dürfen spätere Dateinamen **nicht nach vorne verschoben** werden
+- niemals dasselbe Flow-Ergebnis für zwei unterschiedliche Szenennamen benutzen
 
 Interne Produktionsblöcke:
 - Szene 02–06
@@ -69,7 +76,9 @@ Interne Produktionsblöcke:
 - Szene 22–26
 - Szene 27–28
 
-Zwischen diesen Blöcken wird nicht gestoppt und der Nutzer wird nicht erneut gefragt.
+Diese Blöcke sind nur organisatorisch. Innerhalb des Blocks wird trotzdem **Bild für Bild** gearbeitet. Zwischen den Blöcken wird nicht gestoppt und der Nutzer wird nicht erneut gefragt.
+
+Nach Szene 28 ist `npm run scene:qa` Pflicht. Fehlende, zusätzliche, exakte doppelte oder nahezu doppelte Bilder blockieren den Render.
 
 ## 5. Szenenplan
 - Szene 01: Cover, nicht im MP4
@@ -101,6 +110,8 @@ Google Flow erzeugt:
 - Outro-Text
 
 Remotion darf keinen dieser Texte erneut erzeugen.
+
+`google-flow-prompt.txt` muss für **jedes** Cover und jede Szene einen echten vollständigen Block `FINAL GOOGLE FLOW PROMPT` enthalten. Eine reine Anleitung oder Verweis auf `IMAGE_PLAN.json` reicht nicht.
 
 ## 7. Übungsqualität — klare Kinder-Challenges
 Die 12 Übungsbilder dürfen nicht wie zwölf Varianten von Squat/Lunge/Balance aussehen.
@@ -190,6 +201,11 @@ Musikziel:
 Zusätzlich zu Anatomie/Text/Konsistenz muss geprüft werden:
 - `poseVarietyStrong`
 - `allGetReadyImagesClearAndNotConfusableWithExercise`
+- Szenenfolge stimmt mit dem Plan
+- keine Szene fehlt
+- kein Szeneninhalt wurde doppelt verwendet
+- jedes Bild zeigt wirklich die vorgesehene Übung bzw. den vorgesehenen GET-READY-Hinweis
+- Opening-Bilder wirken zeitlich passend zur gesprochenen Voice
 
 Danach `npm run assets:approve -- --episode=...`.
 Approval sperrt Assets per SHA-256.
@@ -198,7 +214,9 @@ Approval sperrt Assets per SHA-256.
 Final nur über `npm run render:safe`.
 
 Ablauf:
-TypeScript → Project Doctor → Preflight → Asset Gate → Render → Postrender QA.
+TypeScript → Project Doctor → Preflight → **Scene Integrity QA** → Asset Gate → Render → Postrender QA.
+
+Die Postrender-QA muss für jede Szene die gerenderte Bildmitte mit der erwarteten Quelldatei vergleichen und jeden Schnitt von beiden Seiten prüfen. Dadurch werden falsche Zuordnung sowie zu frühe/zu späte Bildwechsel blockiert.
 
 ## 14. Export
 `03-export/` enthält mindestens:
