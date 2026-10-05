@@ -36,7 +36,7 @@
     "selectionFile": "99-technik/COVER_SELECTION.json",
     "finalFile": "Szene 01.png",
     "deleteRejectedCandidatesAfterSelection": true,
-    "selectedCoverBecomesPrimaryReference": true
+    "selectedCoverBecomesSoleReference": true
   },
   "batchGenerationPolicy": {
     "enabled": true,
@@ -54,9 +54,8 @@
       [22, 23, 24, 25, 26],
       [27, 28]
     ],
-    "primaryReferenceEveryBatch": "Szene 01.png",
-    "exerciseUiReferenceAfterFirstBatch": "Szene 05.png",
-    "generateNextBatchBeforeUserContinueForbidden": false
+    "soleReferenceEveryBatch": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true
   },
   "imageGenerationPolicy": {
     "sceneFilePattern": "Szene NN.png",
@@ -66,10 +65,12 @@
     "oneImageOneVisualPurpose": true,
     "finalImagesFlatDirectory": true,
     "automaticAlternateVersionsForbidden": true,
-    "regenerationOnlyAfterExplicitRejection": true,
-    "renameImmediatelyAfterAcceptance": true,
-    "primaryReferenceImage": "Szene 01.png",
-    "exerciseUiReferenceImage": "Szene 05.png",
+    "generateEachNonCoverSceneExactlyOnce": true,
+    "maximumGenerationAttemptsPerNonCoverScene": 1,
+    "regenerationForbidden": true,
+    "renameImmediatelyAfterGeneration": true,
+    "soleReferenceImage": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true,
     "blockScenesAfterCoverUntilSelection": true,
     "dedicatedGetReadyScenes": true,
     "getReadySceneCount": 11,
@@ -96,10 +97,7 @@
     "onlyDynamicVisualOverlay": true,
     "exerciseSeconds": 20,
     "getReadySeconds": 5,
-    "position": {
-      "top": 26,
-      "left": 26
-    },
+    "position": {"top": 26, "left": 26},
     "sizePixels": 192,
     "requiredSafeZonePixels": 230,
     "showZeroFrame": false,
