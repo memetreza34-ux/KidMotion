@@ -5,12 +5,14 @@ PHASE 1 — COVER FIRST
    - `Cover-Kandidat-01.png`
    - `Cover-Kandidat-02.png`
    - `Cover-Kandidat-03.png`
-2. Show all three covers to the user.
-3. STOP. Do not generate any later scene.
-4. Wait for the user's explicit choice.
-5. Run `npm run kidmotion:select-cover -- --episode=KM-004-animal-adventure-workout --candidate=<1|2|3>`.
-6. The winner becomes `Szene 01.png`; rejected covers are deleted.
-7. Use selected `Szene 01.png` as the PRIMARY reference for character, face, hair, proportions, outfit, colors, lighting and world in every later image.
+2. For the covers, use ONLY the safe cover wording from `00-bildprompts/google-flow-prompt.txt`.
+3. Do not expand the cover prompt with an exact age, skin tone, body type, measurements, detailed minor physical profile or photorealistic wording.
+4. Show all three covers to the user.
+5. STOP. Do not generate any later scene.
+6. Wait for the user's explicit choice.
+7. Run `npm run kidmotion:select-cover -- --episode=KM-004-animal-adventure-workout --candidate=<1|2|3>`.
+8. The winner becomes `Szene 01.png`; rejected covers are deleted.
+9. Use selected `Szene 01.png` itself as the PRIMARY reference for character identity, outfit, colors, lighting and world in every later image. Do not reconstruct the identity with demographic/body descriptions.
 
 PHASE 2 — FIVE-IMAGE BATCHES
 Never generate all remaining scenes in one run.
