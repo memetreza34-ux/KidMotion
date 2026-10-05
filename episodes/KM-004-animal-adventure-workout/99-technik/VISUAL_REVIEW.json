@@ -1,1 +1,20 @@
-{"episodeFolder":"KM-004-animal-adventure-workout","revision":"KM004-R1","sameCharacterEveryScene":false,"allExercisePosesClearFromOneStill":false,"allExerciseTextReadableAndConsistent":false,"allExerciseSafeZonesClear":false,"allGetReadyScenesClearAndNotNextPose":false,"poseDiversityClearlyVisible":false,"propBallCountsCorrect":false,"allNonTimerTextGeneratedAndReadable":false,"noExtraPeople":false,"noAnatomyErrors":false,"noCroppingOfImportantLimbs":false,"notes":"Set true only after inspecting all final Szene 01–28 images."}
+{
+  "episodeFolder": "KM-004-animal-adventure-workout",
+  "revision": "KM004-R1",
+  "sameCharacterEveryScene": false,
+  "allExercisePosesClearFromOneStill": false,
+  "poseVarietyStrong": false,
+  "allGetReadyImagesClearAndNotConfusableWithExercise": false,
+  "allExerciseTextReadableAndConsistent": false,
+  "allExerciseSafeZonesClear": false,
+  "propBallCountsCorrect": false,
+  "allNonTimerTextGeneratedAndReadable": false,
+  "noExtraPeople": false,
+  "noAnatomyErrors": false,
+  "noCroppingOfImportantLimbs": false,
+  "sceneOrderMatchesPlan": false,
+  "noMissingOrDuplicateSceneContent": false,
+  "eachSceneMatchesItsPromptRole": false,
+  "openingVisualTimingMatchesVoice": false,
+  "notes": "Set true only after inspecting the real final Szene 01–28 images and the rendered MP4. Check scene order, duplicates/missing scenes, prompt-role correctness and opening image timing against the spoken voice."
+}
