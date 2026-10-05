@@ -42,8 +42,10 @@
     "enabled": true,
     "startsAfterCoverSelection": true,
     "batchSize": 5,
-    "showBatchToUserBeforeContinuing": true,
-    "mustWaitForExplicitUserContinue": true,
+    "showBatchToUserBeforeContinuing": false,
+    "mustWaitForExplicitUserContinue": false,
+    "autoContinueToNextBatch": true,
+    "deliverOnlyAfterAllScenesComplete": true,
     "batches": [
       [2, 3, 4, 5, 6],
       [7, 8, 9, 10, 11],
@@ -54,7 +56,7 @@
     ],
     "primaryReferenceEveryBatch": "Szene 01.png",
     "exerciseUiReferenceAfterFirstBatch": "Szene 05.png",
-    "generateNextBatchBeforeUserContinueForbidden": true
+    "generateNextBatchBeforeUserContinueForbidden": false
   },
   "imageGenerationPolicy": {
     "sceneFilePattern": "Szene NN.png",
