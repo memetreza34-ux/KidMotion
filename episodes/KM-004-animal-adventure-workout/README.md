@@ -6,22 +6,23 @@ Status: Planung fertig, Cover-Auswahl ist der nächste Schritt.
 
 ## Pflichtreihenfolge
 1. `Cover-Kandidat-01.png`, `Cover-Kandidat-02.png`, `Cover-Kandidat-03.png` erzeugen.
-2. Alle drei dem Nutzer zeigen.
-3. **STOP und auf die ausdrückliche Auswahl warten.**
+2. Alle drei dem Nutzer einmal zeigen.
+3. Auf die einmalige Cover-Auswahl warten.
 4. Gewinner mit `npm run kidmotion:select-cover -- --episode=KM-004-animal-adventure-workout --candidate=<1|2|3>` auswählen.
-5. Gewinner wird `Szene 01.png`; die anderen zwei Kandidaten werden gelöscht.
-6. `Szene 01.png` bleibt Hauptreferenz für Charakter, Gesicht, Outfit, Farben, Licht und Welt.
-7. Danach niemals alle restlichen Bilder auf einmal erzeugen.
-8. Die Bilder werden ausschließlich in folgenden Blöcken erzeugt:
+5. Gewinner wird `Szene 01.png`; die anderen zwei Cover werden sofort gelöscht.
+6. `Szene 01.png` bleibt Hauptreferenz für Charakter, Outfit, Farben, Licht und Welt.
+7. Danach automatisch bis `Szene 28.png` weiterarbeiten, ohne weitere Rückfragen.
+8. Intern in folgenden Blöcken arbeiten:
    - Batch 1: `Szene 02–06`
    - Batch 2: `Szene 07–11`
    - Batch 3: `Szene 12–16`
    - Batch 4: `Szene 17–21`
    - Batch 5: `Szene 22–26`
    - Final Batch 6: `Szene 27–28`
-9. Nach jedem Batch alle neuen Bilder dem Nutzer zeigen und **STOP**. Erst nach ausdrücklichem `weiter` mit dem nächsten Batch beginnen.
-10. `Szene 05.png` ist nach Freigabe von Batch 1 zusätzlich die Exercise-UI-Referenz für alle späteren Übungsbilder.
+9. Zwischen den Batches NICHT stoppen, nichts zur Freigabe zeigen und nicht nach `weiter` fragen.
+10. `Szene 05.png` wird nach der Erzeugung automatisch die Exercise-UI-Referenz für alle späteren Übungsbilder.
 11. Alle finalen Bilder bleiben gemeinsam in `00-bildprompts/images/`.
+12. Erst wenn `Szene 01.png` bis `Szene 28.png` vollständig vorhanden sind, den fertigen Bilderordner präsentieren.
 
 ## Inhalt von Batch 1
 - Szene 02: Intro
@@ -29,8 +30,6 @@ Status: Planung fertig, Cover-Auswahl ist der nächste Schritt.
 - Szene 04: LET'S BEGIN
 - Szene 05: Übung 1
 - Szene 06: GET READY für Übung 2
-
-Damit sieht der Nutzer bereits nach dem ersten 5er-Block, ob Charakter, Safety, Startbild, erste Pose und Übergangsbild korrekt aussehen.
 
 ## Übungen
 1. GORILLA POWER HOLD
