@@ -5,33 +5,24 @@ IMAGE_PLAN_FILE: 99-technik/IMAGE_PLAN.json
 KIDMOTION GOOGLE FLOW MASTER WORKFLOW — KM-004 — ANIMAL ADVENTURE WORKOUT
 
 PHASE 1 — THREE COVERS, ONE USER CHOICE
-1. Generate exactly these three cover candidates first:
+1. Generate exactly three cover candidates first:
    - Cover-Kandidat-01.png
    - Cover-Kandidat-02.png
    - Cover-Kandidat-03.png
-2. Use ONLY the safe fictional/stylized cover wording below.
-3. Show the three covers to the user once and wait for the user's choice: 1, 2 or 3.
-4. Run: npm run kidmotion:select-cover -- --episode=KM-004-animal-adventure-workout --candidate=<1|2|3>
-5. The selected winner becomes Szene 01.png.
-6. Delete the two rejected cover candidates immediately.
-7. Szene 01.png is now the PRIMARY visual reference for identity, outfit, colors, lighting and overall world.
-
-SAFE COVER BASE PROMPT
-Premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style. Show exactly one original KidMotion adventure mascot character, fully clothed in a bright teal-and-coral sporty outfit, with a friendly energetic expression. Place the character on the right side in a simple confident explorer-ready standing pose. Create a colorful original animal-adventure fitness world with lush jungle shapes, warm rocks, bright sky and playful abstract animal-track motifs. On the left add large clean text exactly: 5 MIN ANIMAL ADVENTURE and smaller text: FOR KIDS. Strong contrast, clean composition, no real people, no brands, no extra characters, no photorealism, 16:9.
-
-Candidate 01 variation: brighter jungle entrance with strong green foliage and warm sunlight.
-Candidate 02 variation: colorful adventure-rock clearing with a wider sky and stronger depth.
-Candidate 03 variation: playful jungle trail with bold abstract animal-track shapes and a slightly closer character framing.
-
-Do not add an exact age, skin tone, body type, body measurements or detailed physical profile to the cover prompt.
+2. Use only this safe fictional/stylized cover direction:
+   Premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style. Exactly one original KidMotion adventure mascot character, fully clothed in a bright teal-and-coral sporty outfit, friendly energetic expression, simple confident explorer-ready standing pose. Colorful original animal-adventure fitness world with lush jungle shapes, warm rocks, bright sky and playful abstract animal-track motifs. Left text exactly: 5 MIN ANIMAL ADVENTURE and smaller: FOR KIDS. Strong contrast, clean composition, no real people, no brands, no extra characters, no photorealism, 16:9.
+3. Candidate 01: brighter jungle entrance with green foliage and warm sunlight.
+4. Candidate 02: colorful adventure-rock clearing with wider sky and stronger depth.
+5. Candidate 03: playful jungle trail with bold abstract animal-track shapes and slightly closer framing.
+6. Show the three covers once and wait for the user's choice: 1, 2 or 3.
+7. Run: npm run kidmotion:select-cover -- --episode=KM-004-animal-adventure-workout --candidate=<1|2|3>
+8. The selected winner becomes Szene 01.png.
+9. Delete the two rejected cover candidates immediately.
 
 PHASE 2 — AUTONOMOUS GENERATION TO COMPLETION
-After COVER_SELECTION.json says SELECTED, do NOT ask the user anything else during image generation.
-Do NOT stop after normal image batches.
-Do NOT show intermediate batches and wait for approval.
-Continue automatically until every required final scene has been created and correctly named.
+After COVER_SELECTION.json says SELECTED, continue automatically until Szene 28 is complete. Do not ask the user anything else during image generation.
 
-Use these INTERNAL batches only for reliability:
+Internal batches only for reliability:
 - Batch 1: Szene 02–06
 - Batch 2: Szene 07–11
 - Batch 3: Szene 12–16
@@ -39,17 +30,25 @@ Use these INTERNAL batches only for reliability:
 - Batch 5: Szene 22–26
 - Final Batch 6: Szene 27–28
 
-After each internal batch, immediately continue to the next batch without asking the user.
-Never generate more than five new final scenes simultaneously.
+HARD SOLE-REFERENCE RULE
+- For EVERY scene from Szene 02 through Szene 28, attach/use ONLY selected `Szene 01.png` as the image reference.
+- Do NOT use `Szene 05.png` as a UI reference.
+- Do NOT use any previous generated scene as a reference.
+- Do NOT use any second reference image.
+- UI/text consistency comes only from the written prompt instructions in IMAGE_PLAN.json.
+
+HARD ONE-GENERATION RULE
+- Generate every scene from Szene 02 through Szene 28 exactly once.
+- Maximum one generation attempt per non-cover scene.
+- Do not generate alternates or variants.
+- Do not regenerate a scene after an image has been produced.
+- Save/rename the one generated result immediately to its exact final filename.
 
 SCENE PROMPT SOURCE OF TRUTH
-For Szene 02–28, read the exact scene-specific Visual Purpose, Generated Text, Safe Zones, Acceptance Criteria and FINAL prompt from `99-technik/IMAGE_PLAN.json`.
+For Szene 02–28, read the exact scene-specific Visual Purpose, Generated Text, Safe Zones, Acceptance Criteria and prompt from `99-technik/IMAGE_PLAN.json`.
 Do not invent a different scene order or different text.
 
-REFERENCE RULES
-- Szene 01.png remains the PRIMARY character/outfit/world reference for every later scene.
-- From Szene 07 onward, use Szene 05.png only as the SECONDARY exercise title/instruction UI reference.
-- Do not reconstruct the character using detailed demographic/body descriptions after cover selection; use the selected reference image itself.
+COMMON RULES
 - Exercise scenes: 05,07,09,11,13,15,17,19,21,23,25,27.
 - GET READY scenes: 06,08,10,12,14,16,18,20,22,24,26.
 - GET READY scenes show a neutral ready stance, never the next exercise pose.
@@ -59,11 +58,9 @@ REFERENCE RULES
 - No generated countdown numbers, no progress bar, no extra people, no brands.
 
 FILE HANDLING
-- Rename each accepted generated image immediately to its exact final filename.
-- Keep every final image in the SAME folder: `00-bildprompts/images/`.
+- Keep every final image in `00-bildprompts/images/`.
 - Final folder must contain exactly `Szene 01.png` through `Szene 28.png`.
-- The two rejected cover candidates must not remain in the final folder.
+- The two rejected cover candidates must not remain.
 
 FINAL DELIVERY
-Only after Szene 01–28 are complete, perform one final folder check and then present the completed `00-bildprompts/images/` folder to the user.
-Do not ask for intermediate image approval after the cover has been selected.
+Only after Szene 01–28 are complete, perform one final folder check and present the completed image folder to the user.
