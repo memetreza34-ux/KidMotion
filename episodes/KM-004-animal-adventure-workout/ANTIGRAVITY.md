@@ -62,8 +62,8 @@ ORDER / DUPLICATE PROTECTION
 - Do not increment to the next scene until the current scene request has completed and its result has been handled.
 - Never use the same downloaded Flow result for two scene filenames.
 - Missing scene = hard error, not a reason to shift all later images one filename earlier.
-- After Szene 28, run `npm run scene:qa`.
-- If `scene:qa` reports a missing, extra, exact duplicate, near-duplicate, wrong reference rule or unresolved prompt, do NOT render the video.
+- After Szene 28, run `npm run scene:qa -- --episode=KM-004-animal-adventure-workout`.
+- If `scene:qa` reports a missing, extra, exact duplicate, near-duplicate, wrong reference rule or unresolved prompt, do NOT activate or render the video.
 
 OTHER RULES
 - Do not stop or ask the user between internal batches.
