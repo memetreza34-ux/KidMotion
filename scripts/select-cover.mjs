@@ -54,7 +54,8 @@ const selection = {
   finalFile: 'Szene 01.png',
   selectedAt: new Date().toISOString(),
   userSelectionRequired: true,
-  primaryReferenceForLaterScenes: 'Szene 01.png'
+  soleReferenceForLaterScenes: 'Szene 01.png',
+  secondaryImageReferencesForbidden: true
 };
 fs.writeFileSync(paths.coverSelectionPath, `${JSON.stringify(selection, null, 2)}\n`, 'utf8');
 
@@ -66,4 +67,4 @@ if (paths.statusPath && fs.existsSync(paths.statusPath)) {
 }
 
 console.log(`COVER SELECTED — candidate ${candidateNumber} -> Szene 01.png`);
-console.log('Pipeline unlocked: Szene 02 through Szene 17 may now be generated using Szene 01.png as the primary reference.');
+console.log('Pipeline unlocked: generate Szene 02 through Szene 28 exactly once, using Szene 01.png as the ONLY image reference.');
