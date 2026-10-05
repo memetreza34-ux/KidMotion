@@ -45,10 +45,33 @@ Alle finalen Bilder liegen flach in genau einem Bilderordner.
 3. **STOP.**
 4. Keine Szene 02 oder später erzeugen, bevor der Nutzer Kandidat 1/2/3 ausdrücklich gewählt hat.
 5. Gewinner → `Szene 01.png`.
-6. Die zwei Verlierer löschen.
-7. `Szene 01.png` ist ab dann die PRIMARY-Referenz für Gesicht, Haare, Alter, Proportionen, Outfit, Farben, Licht und Bildwelt.
+6. Die zwei Verlierer sofort löschen.
+7. `Szene 01.png` ist ab dann die **einzige erlaubte Bildreferenz** für alle Szenen 02–28.
+8. Kein später erzeugtes Bild darf jemals als zweite Referenz verwendet werden.
 
-## 4. Szenenplan
+## 4. Bildgenerierung — HARTE EINMAL-REGEL
+Nach der Cover-Auswahl läuft die Bildproduktion automatisch bis zum fertigen Ordner durch.
+
+Pflicht:
+- Szene 02–28 jeweils exakt **einmal** generieren
+- maximal ein Generierungsversuch pro Szene
+- keine Alternativversionen
+- keine Regeneration, sobald ein Bild erzeugt wurde
+- pro Szene als Bildreferenz ausschließlich `Szene 01.png`
+- keine `Szene 05`-Referenz und keine Referenz auf irgendeine vorherige Szene
+- Text-/UI-Konsistenz ausschließlich über die geschriebenen Google-Flow-Prompts beschreiben
+
+Interne Produktionsblöcke:
+- Szene 02–06
+- Szene 07–11
+- Szene 12–16
+- Szene 17–21
+- Szene 22–26
+- Szene 27–28
+
+Zwischen diesen Blöcken wird nicht gestoppt und der Nutzer wird nicht erneut gefragt.
+
+## 5. Szenenplan
 - Szene 01: Cover, nicht im MP4
 - Szene 02: Intro, 8s
 - Szene 03: Safety, 4s
@@ -65,7 +88,7 @@ Alle finalen Bilder liegen flach in genau einem Bilderordner.
 
 Die 5-Sekunden-Übergänge benutzen **nie** das nächste 20-Sekunden-Übungsbild.
 
-## 5. Google Flow besitzt alle sichtbaren Texte
+## 6. Google Flow besitzt alle sichtbaren Texte
 **HARTE REGEL:** Google Flow erzeugt jeden sichtbaren Text direkt im finalen Bild. Die einzige Ausnahme ist der dynamische Countdown-Timer, den Remotion darüberlegt.
 
 Google Flow erzeugt:
@@ -79,7 +102,7 @@ Google Flow erzeugt:
 
 Remotion darf keinen dieser Texte erneut erzeugen.
 
-## 6. Übungsqualität — klare Kinder-Challenges
+## 7. Übungsqualität — klare Kinder-Challenges
 Die 12 Übungsbilder dürfen nicht wie zwölf Varianten von Squat/Lunge/Balance aussehen.
 
 Pflicht:
@@ -88,21 +111,22 @@ Pflicht:
 - Mischung aus upright, wide, diagonal, one-leg, side-bend und floor-level
 - jede Pose aus einem Standbild sofort verständlich
 - benachbarte Übungen dürfen nicht nahezu identisch wirken
-- nach zwei schlechten Flow-Versuchen Pose austauschen statt endlos regenerieren
 
-## 7. Bildwelt
+Da jede Szene nur einmal erzeugt wird, muss der Prompt **vor der Generierung** vollständig und eindeutig sein. Es gibt keine automatische zweite Variante als Korrekturversuch.
+
+## 8. Bildwelt
 - exakt ein Hauptcharakter pro Episode
 - gleicher Charakter, Haare, Proportionen und Outfit
-- dieselbe KidMotion-Gym-Welt
+- dieselbe KidMotion-Gym-/Adventure-Welt
 - innerhalb dieser Welt dürfen verschiedene Zonen/Perspektiven genutzt werden, damit nicht jedes Bild gleich aussieht
 - keine zweite Person
 - keine realen Logos/Teams/Sponsoren
 - natürliche Anatomie
 - Ganzkörper und wichtige Gelenke sichtbar
 
-Szene 05 ist die Exercise-UI-Referenz für alle späteren Übungsbilder.
+**Referenzregel:** Für Szene 02–28 wird ausschließlich das vom Nutzer gewählte `Szene 01.png` als Bildreferenz benutzt. Kein zweites Bild.
 
-## 8. GET READY
+## 9. GET READY
 Jeder 5s-Übergang hat ein eigenes Flow-Bild.
 
 Pflicht:
@@ -112,7 +136,7 @@ Pflicht:
 - sichtbarer Flow-Text: `GET READY` + `NEXT: <exercise>`
 - top-left 230×230 px frei für den Timer
 
-## 9. Remotion — TIMER ONLY
+## 10. Remotion — TIMER ONLY
 Remotion darf visuell ausschließlich den Countdown-Timer erzeugen.
 
 Erlaubt:
@@ -141,7 +165,7 @@ Verboten:
 - GET READY: 5→1
 - kein sichtbarer 0-Frame
 
-## 10. Audio
+## 11. Audio
 Genau eine gesprochene Datei: `Voice 01.mp3`.
 Sie startet Frame 0, trägt Intro + Safety + LET'S BEGIN nahezu lückenlos und endet vor Übung 1. Ziel 13.65–14.00s, absolut max. 14.05s.
 
@@ -160,7 +184,7 @@ Musikziel:
 - kommerzielle YouTube-Nutzung muss erlaubt sein
 - während Opening-Voice leiser, danach spürbar energiereicher
 
-## 11. Visuelle Freigabe
+## 12. Visuelle Freigabe
 `VISUAL_REVIEW.json` bleibt false, bis die echten Bilder angesehen wurden.
 
 Zusätzlich zu Anatomie/Text/Konsistenz muss geprüft werden:
@@ -170,13 +194,13 @@ Zusätzlich zu Anatomie/Text/Konsistenz muss geprüft werden:
 Danach `npm run assets:approve -- --episode=...`.
 Approval sperrt Assets per SHA-256.
 
-## 12. Render
+## 13. Render
 Final nur über `npm run render:safe`.
 
 Ablauf:
 TypeScript → Project Doctor → Preflight → Asset Gate → Render → Postrender QA.
 
-## 13. Export
+## 14. Export
 `03-export/` enthält mindestens:
 - `FINAL_VIDEO.mp4`
 - `UPLOAD_METADATA.md` mit copy-ready YouTube-Titel und Beschreibung/Caption
