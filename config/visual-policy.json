@@ -1,9 +1,17 @@
 {
-  "visualPolicyVersion": 10,
+  "visualPolicyVersion": 11,
   "status": "READY",
   "styleId": "kidmotion-premium-3d-v3-flow-text",
   "description": "Zentrale KidMotion Bildwelt. Erst drei Flow-kompatible Cover, dann eine Nutzerwahl. Das gewaehlte Cover wird Szene 01 und danach die EINZIGE Bildreferenz fuer alle weiteren Szenen. Szene 02-28 werden jeweils genau einmal und streng nacheinander erzeugt. Die internen 5er-Bloecke laufen nach der Coverwahl automatisch bis zum fertigen Bilderordner durch. Google Flow erzeugt alle sichtbaren Texte; Remotion zeichnet nur den Countdown-Timer.",
   "visibleTextLanguage": "en",
+  "promptDefinedUiContract": {
+    "exerciseTitle": "bottom-left; bold uppercase white sans-serif; same font weight and scale every exercise; dark navy semi-transparent rounded rectangle behind text; maximum two lines; no gold plaque, no gray badge, no decorative icon",
+    "exerciseInstruction": "top-right; warm off-white rounded rectangle; dark navy sans-serif sentence; maximum two lines where possible; same size, padding and corner radius every exercise; no speech-tail, no thought-bubble dots",
+    "getReady": "lower-left to lower-center; large bold uppercase white GET READY; directly below it smaller uppercase white NEXT: <EXERCISE>; subtle dark shadow only; same placement and typography for all 11 GET READY scenes",
+    "introSafetyStartOutro": "clean text-only card treatment with the selected character; no tiny human/animal pictograms, no extra mascot figures, no decorative characters that can be confused with a second person",
+    "timerSafeZone": "top-left 230x230 remains free of text, character limbs and important objects on exercise and GET READY scenes",
+    "rule": "This UI contract must be written explicitly into every relevant Google Flow prompt. It is text-only guidance and NEVER authorizes a second image reference."
+  },
   "rules": [
     "16:9 landscape, premium stylized 3D family-friendly animation look",
     "exactly one recurring original KidMotion mascot character per episode",
@@ -14,6 +22,7 @@
     "delete the two rejected cover candidates immediately after selection",
     "never use Szene 02, Szene 03, Szene 04, Szene 05 or any other later scene as a reference image",
     "later prompts may describe layout, pose and text in words, but the only attached/reference image is Szene 01.png",
+    "repeat the promptDefinedUiContract text explicitly in every relevant scene prompt so Flow cannot improvise a different title/instruction style",
     "generate every non-cover scene Szene 02 through Szene 28 exactly once",
     "generate later scenes strictly one at a time in numeric order; never run two scene generations in parallel",
     "wait for the actual Flow result of the current scene before starting the next scene",
@@ -53,6 +62,9 @@
     "starting the next scene before the current Flow request has completed",
     "filling a failed/missing scene by copying a previous output",
     "renaming a later scene into an earlier missing slot",
+    "inconsistent exercise title styles such as mixing gold plaques, gray badges and plain white titles",
+    "inconsistent instruction bubble size, placement or typography between exercise scenes",
+    "tiny human/animal pictograms or extra decorative mascot characters on intro/safety/outro cards",
     "generating more than five later scenes in one internal batch",
     "asking the user to continue between image batches",
     "stopping after a normal image batch before the full scene set is complete",
