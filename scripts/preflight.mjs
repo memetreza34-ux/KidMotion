@@ -5,6 +5,12 @@ import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 
 const root = process.cwd();
 const pointerPath = path.join(root, 'episodes', 'ACTIVE_EPISODE.json');
+const failures = [];
+const warnings = [];
+const fail = (message) => failures.push(message);
+const warn = (message) => warnings.push(message);
+const read = (file) => fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+
 if (!fs.existsSync(pointerPath)) {
   console.error('PRE-FLIGHT FAILED: no ACTIVE_EPISODE pointer found. Run kidmotion:activate first.');
   process.exit(1);
@@ -19,16 +25,11 @@ if (paths.structure === 'missing') {
 }
 
 const data = readEpisodeData(paths);
-const structureVersion = Number(data.structureVersion || 1);
-const sceneV3 = structureVersion >= 3;
-const pipeline = JSON.parse(fs.readFileSync(path.join(root, 'config', 'pipeline.json'), 'utf8'));
-const visual = JSON.parse(fs.readFileSync(path.join(root, 'config', 'visual-policy.json'), 'utf8'));
-const failures = [];
-const warnings = [];
-const fail = (message) => failures.push(message);
-const warn = (message) => warnings.push(message);
-const read = (file) => fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+const structureVersion = Number(data.structureVersion || 0);
+if (structureVersion < 3) fail('Active episode must use KidMotion V3 scene structure.');
 
+const pipeline = JSON.parse(read(path.join(root, 'config', 'pipeline.json')) || '{}');
+const visual = JSON.parse(read(path.join(root, 'config', 'visual-policy.json')) || '{}');
 const activeSource = read(path.join(root, 'src', 'data', 'active-workout.ts'));
 const workoutVideoSource = read(path.join(root, 'src', 'WorkoutVideo.tsx'));
 const exerciseSceneSource = read(path.join(root, 'src', 'components', 'ExerciseScene.tsx'));
@@ -44,70 +45,69 @@ const imageOnlyComponents = [
 if (!activeSource) fail('src/data/active-workout.ts is missing. Run kidmotion:activate first.');
 if (activeSource && !activeSource.includes(episodeFolder)) fail(`active-workout.ts is not wired to ${episodeFolder}.`);
 
-if (paths.isV2) {
-  if (![2, 3].includes(structureVersion)) fail('Modern episode must declare structureVersion 2 or 3.');
-  if (visual.status !== 'READY') fail('config/visual-policy.json must be READY.');
-  if (data.visualStyleId !== visual.styleId) fail('Episode visualStyleId does not match active visual policy.');
-  if (!fs.existsSync(paths.imagePlanPath)) fail('Missing 99-technik/IMAGE_PLAN.json.');
-  if (!fs.existsSync(paths.promptPath)) fail('Missing 00-bildprompts/google-flow-prompt.txt.');
-  if (!fs.existsSync(paths.revisionPath)) fail('Missing 99-technik/GENERATION-REVISION.txt.');
-  if (data.visibleTextPolicy?.googleFlowOwnsAllNonTimerVisibleText !== true) fail('Google Flow must own every non-timer visible text element.');
-  if (data.visibleTextPolicy?.remotionTimerOnly !== true) fail('Remotion overlays must be limited to the countdown timer.');
-  if (data.visibleTextPolicy?.progressBarForbidden !== true) fail('Remotion progress bar must be forbidden.');
+if (visual.status !== 'READY') fail('config/visual-policy.json must be READY.');
+if (data.visualStyleId !== visual.styleId) fail('Episode visualStyleId does not match active visual policy.');
+for (const requiredPath of [paths.imagePlanPath, paths.promptPath, paths.revisionPath, paths.coverSelectionPath]) {
+  if (!requiredPath || !fs.existsSync(requiredPath)) fail(`Missing required production file: ${requiredPath ? path.relative(paths.episodeRoot, requiredPath) : 'unknown'}.`);
+}
 
-  if (sceneV3) {
-    if (!fs.existsSync(paths.coverSelectionPath)) fail('Missing 99-technik/COVER_SELECTION.json.');
-    else {
-      const selection = JSON.parse(fs.readFileSync(paths.coverSelectionPath, 'utf8'));
-      if (selection.status !== 'SELECTED') fail('Cover selection is not complete. The user must explicitly choose one of the three cover candidates first.');
-      if (selection.finalFile !== 'Szene 01.png') fail('Selected cover final file must be Szene 01.png.');
-    }
-    for (const candidate of ['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png']) {
-      if (fs.existsSync(path.join(paths.imagesDir, candidate))) fail(`Rejected/temporary cover candidate still exists: ${candidate}`);
-    }
-    if (data.restVisualPolicy?.useDedicatedGetReadyImage !== true || data.restVisualPolicy?.reuseNextExerciseImage !== false) {
-      fail('V3 must use dedicated GET READY images and must not reuse the next exercise image during the 5-second transition.');
-    }
-    if (data.restVisualPolicy?.remotionTimerOnly !== true) fail('GET READY scenes may receive only the Remotion timer overlay.');
-    if (!fs.existsSync(path.join(paths.audioDir, 'MUSIC_BRIEF.md'))) fail('Missing 02-audio/MUSIC_BRIEF.md.');
-  }
+if (data.visibleTextPolicy?.googleFlowOwnsAllNonTimerVisibleText !== true) fail('Google Flow must own every non-timer visible text element.');
+if (data.visibleTextPolicy?.remotionTimerOnly !== true) fail('Remotion overlays must be limited to the countdown timer.');
+if (data.visibleTextPolicy?.progressBarForbidden !== true) fail('Progress bar must be forbidden.');
 
-  if (fs.existsSync(paths.imagePlanPath)) {
-    const plan = JSON.parse(fs.readFileSync(paths.imagePlanPath, 'utf8'));
-    const planImages = Array.isArray(plan.images) ? plan.images : [];
-    const expectedCount = sceneV3 ? 28 : 17;
-    if (planImages.length !== expectedCount) fail(`IMAGE_PLAN must contain ${expectedCount} final scenes, found ${planImages.length}.`);
-    for (let i = 0; i < planImages.length; i += 1) {
-      const item = planImages[i];
-      const expected = sceneV3 ? `Szene ${String(i + 1).padStart(2, '0')}.png` : `Bild ${String(i).padStart(2, '0')}.png`;
-      if (item.imageFile !== expected) fail(`IMAGE_PLAN index ${i} must be ${expected}.`);
-      for (const field of ['visualPurpose','topicAnchor','visualForm','prompt']) {
-        const value = String(item[field] ?? '').trim();
-        if (!value || /\bTBD\b/i.test(value)) fail(`IMAGE_PLAN ${expected}: unresolved ${field}.`);
-      }
-    }
-    if (plan.generationRules?.coverCandidateCount !== 3) fail('Exactly three cover candidates are required.');
-    if (sceneV3) {
-      if (plan.generationRules?.primaryReference !== 'Szene 01.png') fail('Selected Szene 01 must be the primary reference.');
-      if (plan.generationRules?.exerciseUiReference !== 'Szene 05.png') fail('Szene 05 must be the exercise UI reference.');
-      if (plan.generationRules?.lastFinalScene !== 28) fail('V3 image plan must end at Szene 28.');
-      if (plan.generationRules?.dedicatedGetReadyScenes !== true || plan.generationRules?.getReadySceneCount !== 11) fail('V3 image plan must define 11 dedicated GET READY scenes.');
-      if (plan.generationRules?.stopAfterCoverCandidatesUntilExplicitUserSelection !== true) fail('Image plan must hard-stop after cover candidates until user selection.');
-    }
-  }
+if (fs.existsSync(paths.coverSelectionPath)) {
+  const selection = JSON.parse(fs.readFileSync(paths.coverSelectionPath, 'utf8'));
+  if (selection.status !== 'SELECTED') fail('Cover selection is incomplete. User must choose one of the three cover candidates first.');
+  if (selection.finalFile !== 'Szene 01.png') fail('Selected cover final file must be Szene 01.png.');
+  if (selection.soleReferenceForLaterScenes && selection.soleReferenceForLaterScenes !== 'Szene 01.png') fail('Cover selection must declare Szene 01.png as sole later-scene reference.');
+}
+for (const candidate of ['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png']) {
+  if (fs.existsSync(path.join(paths.imagesDir, candidate))) fail(`Rejected/temporary cover candidate still exists: ${candidate}`);
+}
 
-  const prompt = read(paths.promptPath);
-  if (/\bTBD\b/i.test(prompt)) fail('google-flow-prompt.txt still contains TBD values.');
-  if (!prompt.includes('Google Flow') && !prompt.includes('GOOGLE FLOW')) fail('Flow prompt must define Google Flow generation rules.');
-  if (sceneV3) {
-    for (const required of ['Generate ONLY these three cover candidates first','STOP completely','Wait until the user explicitly chooses','POSE DIVERSITY RULE','GET-READY RULE','Szene 01.png','Szene 28.png']) {
-      if (!prompt.includes(required)) fail(`V3 Flow prompt missing rule: ${required}`);
+if (fs.existsSync(paths.imagePlanPath)) {
+  const plan = JSON.parse(fs.readFileSync(paths.imagePlanPath, 'utf8'));
+  const rules = plan.generationRules || {};
+  const images = Array.isArray(plan.images) ? plan.images : [];
+  if (images.length !== 28) fail(`IMAGE_PLAN must contain 28 scenes, found ${images.length}.`);
+  if (rules.selectedCoverBecomesSoleReference !== true || rules.soleReference !== 'Szene 01.png') fail('IMAGE_PLAN must use selected Szene 01.png as the sole later-scene reference.');
+  if (rules.secondaryImageReferencesForbidden !== true) fail('IMAGE_PLAN must forbid secondary image references.');
+  if (rules.generateEachNonCoverSceneExactlyOnce !== true || Number(rules.maximumGenerationAttemptsPerNonCoverScene) !== 1) fail('Every non-cover scene must be generated exactly once.');
+  if (rules.regenerationForbidden !== true || rules.automaticAlternatesForbidden !== true) fail('Regeneration and automatic alternates must be forbidden.');
+  if (rules.lastFinalScene !== 28 || rules.getReadySceneCount !== 11 || rules.dedicatedGetReadyScenes !== true) fail('V3 IMAGE_PLAN must define Szene 01–28 with 11 dedicated GET READY scenes.');
+  for (let i = 0; i < images.length; i += 1) {
+    const item = images[i];
+    const expected = `Szene ${String(i + 1).padStart(2, '0')}.png`;
+    if (item.imageFile !== expected) fail(`IMAGE_PLAN index ${i} must be ${expected}.`);
+    for (const field of ['visualPurpose','topicAnchor','visualForm','prompt']) {
+      const value = String(item[field] ?? '').trim();
+      if (!value || /\bTBD\b/i.test(value)) fail(`IMAGE_PLAN ${expected}: unresolved ${field}.`);
+    }
+    if (i > 0) {
+      if (item.characterReference !== 'selected Szene 01.png ONLY') fail(`${expected}: selected Szene 01.png must be the only image reference.`);
+      if (item.uiReference !== null) fail(`${expected}: uiReference must be null.`);
+      if (Number(item.generationAttemptsAllowed) !== 1) fail(`${expected}: generationAttemptsAllowed must be 1.`);
     }
   }
 }
 
-if (data.singleCharacterWholeEpisode !== true || data.allowCharacterSwitch !== false || data.allowSecondVisibleCharacter !== false || data.allVideoSectionsUseCharacterImage !== true) {
-  fail('Single-character continuity policy is invalid.');
+const prompt = read(paths.promptPath);
+if (/\bTBD\b/i.test(prompt)) fail('google-flow-prompt.txt still contains TBD values.');
+for (let candidate = 1; candidate <= 3; candidate += 1) {
+  if (!prompt.includes(`COVER CANDIDATE 0${candidate}`)) fail(`Flow prompt missing COVER CANDIDATE 0${candidate}.`);
+}
+for (let scene = 2; scene <= 28; scene += 1) {
+  const id = String(scene).padStart(2, '0');
+  const marker = `SZENE ${id}`;
+  const start = prompt.indexOf(marker);
+  if (start < 0) {
+    fail(`Flow prompt missing ${marker}.`);
+    continue;
+  }
+  const next = scene < 28 ? prompt.indexOf(`SZENE ${String(scene + 1).padStart(2, '0')}`, start + marker.length) : prompt.length;
+  const block = prompt.slice(start, next > start ? next : prompt.length);
+  if (!block.includes('FINAL GOOGLE FLOW PROMPT:')) fail(`${marker} is missing a direct FINAL GOOGLE FLOW PROMPT.`);
+  if (!block.includes('ONLY image reference')) fail(`${marker} must explicitly use Szene 01 as the ONLY image reference.`);
 }
 
 if (data.imageGenerationRevisionRequired) {
@@ -122,15 +122,17 @@ if (data.voicePolicy?.subtitles !== false || data.voicePolicy?.voiceCaptions !==
 if (data.exerciseVisualPolicy?.exerciseNameSource !== 'GoogleFlowImage' || data.exerciseVisualPolicy?.exerciseInstructionSource !== 'GoogleFlowImage') fail('Exercise title/instruction must come from Google Flow images.');
 if (data.exerciseVisualPolicy?.remotionExerciseNameForbidden !== true || data.exerciseVisualPolicy?.remotionExerciseInstructionForbidden !== true) fail('Remotion exercise text overlays must be forbidden.');
 if (data.exerciseVisualPolicy?.remotionProgressBarForbidden !== true) fail('Remotion progress bar must be forbidden.');
+if (data.restVisualPolicy?.dedicatedGetReadyImageRequired !== true && data.restVisualPolicy?.useDedicatedGetReadyImage !== true) fail('Dedicated GET READY images are required.');
+if (data.restVisualPolicy?.reuseNextExerciseImage !== false) fail('GET READY must never reuse the next exercise image.');
 
 if (exerciseSceneSource.includes('KidProgressBar')) fail('ExerciseScene must not render a progress bar.');
 if (!exerciseSceneSource.includes('CircularTimer')) fail('ExerciseScene must render the timer.');
 if (!restScreenSource.includes('CircularTimer')) fail('RestScreen must render the timer.');
 if (restScreenSource.includes('>REST<') || restScreenSource.includes('NEXT:')) fail('RestScreen must not add REST/NEXT text.');
-if (sceneV3 && !restScreenSource.includes('mode="ready"')) fail('GET READY timer must use ready timer mode.');
-if (sceneV3 && !workoutVideoSource.includes('exercise.readyImage')) fail('WorkoutVideo must use the dedicated readyImage during the 5-second transition.');
-if (sceneV3 && workoutVideoSource.includes('nextExercise?.image')) fail('WorkoutVideo must not reuse the next exercise image during transitions.');
-if (sceneV3 && !timerSource.includes('const size = 192')) fail('Timer must use the redesigned 192px layout.');
+if (!restScreenSource.includes('mode="ready"')) fail('GET READY timer must use ready timer mode.');
+if (!workoutVideoSource.includes('exercise.readyImage')) fail('WorkoutVideo must use dedicated readyImage transitions.');
+if (workoutVideoSource.includes('nextExercise?.image')) fail('WorkoutVideo must not reuse next exercise images during transitions.');
+if (!timerSource.includes('const size = 192')) fail('Timer must use the 192px layout.');
 for (const source of imageOnlyComponents) if (source.includes('<div') || source.includes('brand.') || source.includes('interpolate(') || source.includes('spring(')) fail('Non-timed screens must be pure Flow images with no Remotion graphics/text.');
 if (fs.existsSync(path.join(root, 'src', 'components', 'KidProgressBar.tsx'))) fail('KidProgressBar.tsx must not exist.');
 if (data.audioPolicy?.backgroundMusicLoop === true && !workoutVideoSource.includes('loop')) fail('WorkoutVideo must loop background music.');
@@ -140,49 +142,41 @@ const cover = scenes.find((scene) => scene.type === 'cover');
 const intro = scenes.find((scene) => scene.type === 'intro');
 const exercises = scenes.filter((scene) => scene.type === 'exercise');
 const readyScenes = scenes.filter((scene) => scene.type === 'get-ready');
-let runtime = 0;
-const expectedCover = sceneV3 ? 'Szene 01.png' : 'Bild 00.png';
-if (!cover || cover.image !== expectedCover || cover.inVideo !== false) fail(`Cover must be ${expectedCover} and stay outside MP4.`);
+if (scenes.length !== 28) fail(`V3 must define exactly 28 scenes, found ${scenes.length}.`);
+if (!cover || cover.image !== 'Szene 01.png' || cover.inVideo !== false) fail('Szene 01 must be the cover outside the MP4.');
 if (!intro?.voice) fail('Opening must map Voice 01.mp3 on the Intro scene.');
+if (exercises.length !== 12) fail(`Expected 12 exercises, found ${exercises.length}.`);
+if (readyScenes.length !== 11) fail(`Expected 11 GET READY scenes, found ${readyScenes.length}.`);
 
+let runtime = 0;
 const readyByExercise = new Map();
-if (sceneV3) {
-  if (scenes.length !== 28) fail(`V3 must define exactly 28 final scenes, found ${scenes.length}.`);
-  if (readyScenes.length !== 11) fail(`V3 must define 11 GET READY scenes, found ${readyScenes.length}.`);
-  for (const ready of readyScenes) {
-    if (Number(ready.duration) !== 5) fail(`GET READY scene ${ready.scene} must last exactly 5s.`);
-    if (!ready.afterExerciseScene) fail(`GET READY scene ${ready.scene} needs afterExerciseScene.`);
-    if (!ready.nextExerciseTitle) fail(`GET READY scene ${ready.scene} needs nextExerciseTitle.`);
-    if (ready.afterExerciseScene) readyByExercise.set(String(ready.afterExerciseScene), ready);
-  }
+for (const ready of readyScenes) {
+  if (Number(ready.duration) !== 5) fail(`GET READY scene ${ready.scene} must last exactly 5s.`);
+  if (!ready.afterExerciseScene || !ready.nextExerciseTitle) fail(`GET READY scene ${ready.scene} needs afterExerciseScene + nextExerciseTitle.`);
+  if (ready.afterExerciseScene) readyByExercise.set(String(ready.afterExerciseScene), ready);
 }
 
-for (const scene of scenes) {
-  const sceneNumber = String(scene.scene).padStart(2, '0');
-  const expectedImage = sceneV3 ? `Szene ${sceneNumber}.png` : `Bild ${sceneNumber}.png`;
-  if (scene.type !== 'cover') runtime += sceneV3 ? Number(scene.duration || 0) : Number(scene.duration || 0) + Number(scene.restAfter || 0);
-  if (scene.image && scene.image !== expectedImage) fail(`Scene ${sceneNumber} must use ${expectedImage}.`);
-  if (scene.type === 'exercise' && Number(scene.duration) !== 20) fail(`Exercise scene ${sceneNumber} must last exactly 20s.`);
-  if (scene.type === 'exercise' && (!scene.title || !scene.instruction || /\bTBD\b/i.test(`${scene.title} ${scene.instruction}`))) fail(`Exercise scene ${sceneNumber} needs resolved title + instruction.`);
-  if (scene.type !== 'intro' && scene.voice) fail(`Scene ${sceneNumber} must not map a separate Voice file.`);
-  if (scene.image && !fs.existsSync(path.join(paths.imagesDir, scene.image))) fail(`Missing image: ${scene.image}`);
+for (let i = 0; i < scenes.length; i += 1) {
+  const scene = scenes[i];
+  const expectedImage = `Szene ${String(i + 1).padStart(2, '0')}.png`;
+  if (scene.image !== expectedImage) fail(`Scene ${i + 1} must use ${expectedImage}.`);
+  if (scene.type !== 'cover') runtime += Number(scene.duration || 0);
+  if (scene.type === 'exercise' && Number(scene.duration) !== 20) fail(`Exercise scene ${scene.scene} must last exactly 20s.`);
+  if (scene.type === 'exercise' && (!scene.title || !scene.instruction || /\bTBD\b/i.test(`${scene.title} ${scene.instruction}`))) fail(`Exercise scene ${scene.scene} needs resolved title + instruction.`);
+  if (scene.type !== 'intro' && scene.voice) fail(`Scene ${scene.scene} must not map a separate Voice file.`);
+  if (!fs.existsSync(path.join(paths.imagesDir, scene.image))) fail(`Missing image: ${scene.image}`);
   if (activeSource && scene.type === 'exercise') {
     if (!activeSource.includes(scene.title)) fail(`active-workout.ts is stale: missing title ${scene.title}.`);
     if (!activeSource.includes(scene.image)) fail(`active-workout.ts is stale: missing image ${scene.image}.`);
-    if (sceneV3) {
-      const ready = readyByExercise.get(String(scene.scene));
-      if (ready && !activeSource.includes(ready.image)) fail(`active-workout.ts is stale: missing ready image ${ready.image}.`);
-    }
+    const ready = readyByExercise.get(String(scene.scene));
+    if (ready && !activeSource.includes(ready.image)) fail(`active-workout.ts is stale: missing ready image ${ready.image}.`);
   }
 }
 
-if (exercises.length !== 12) fail(`Expected 12 exercises, found ${exercises.length}.`);
-if (sceneV3) {
-  for (const [index, exercise] of exercises.entries()) {
-    if (index < exercises.length - 1 && !readyByExercise.get(String(exercise.scene))) fail(`Exercise ${exercise.scene} is missing its dedicated GET READY scene.`);
-  }
+for (const [index, exercise] of exercises.entries()) {
+  if (index < exercises.length - 1 && !readyByExercise.get(String(exercise.scene))) fail(`Exercise ${exercise.scene} is missing its dedicated GET READY scene.`);
 }
-if (Number(data.introDuration) !== 8 || Number(data.safetyDuration) !== 4 || Number(data.letsBeginDuration) !== 2 || Number(data.outroDuration) !== 4) fail('Opening/outro timing must remain 8/4/2/4 seconds.');
+if (Number(data.introDuration) !== 8 || Number(data.safetyDuration) !== 4 || Number(data.letsBeginDuration) !== 2 || Number(data.outroDuration) !== 4) fail('Opening/outro timing must remain 8/4/2/4 seconds unless the project timing policy is deliberately revised.');
 if (runtime !== 313) fail(`Runtime must be 313s / 5:13, found ${runtime}s.`);
 
 const voiceFile = data.voicePolicy?.voiceFile || intro?.voice || 'Voice 01.mp3';
@@ -206,5 +200,5 @@ if (failures.length) {
   failures.forEach((message, index) => console.error(`${index + 1}. ${message}`));
   process.exit(1);
 }
-console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${paths.structure} — ${runtime}s`);
-console.log('Validated: cover selection, 28 final scenes, dedicated GET READY images, varied exercise plan, timer-only Remotion and music policy.');
+console.log(`PRE-FLIGHT PASSED — ${episodeFolder} — ${runtime}s`);
+console.log('Validated: one-time cover choice, sole Szene 01 reference, one generation per later scene, direct Flow prompts, exact 28-scene order, dedicated GET READY images, timer-only Remotion and audio policy.');
