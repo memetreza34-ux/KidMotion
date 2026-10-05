@@ -48,6 +48,36 @@ SCENE PROMPT SOURCE OF TRUTH
 For Szene 02–28, read the exact scene-specific Visual Purpose, Generated Text, Safe Zones, Acceptance Criteria and prompt from `99-technik/IMAGE_PLAN.json`.
 Do not invent a different scene order or different text.
 
+EXACT FINAL SCENE FILES
+Szene 01.png
+Szene 02.png
+Szene 03.png
+Szene 04.png
+Szene 05.png
+Szene 06.png
+Szene 07.png
+Szene 08.png
+Szene 09.png
+Szene 10.png
+Szene 11.png
+Szene 12.png
+Szene 13.png
+Szene 14.png
+Szene 15.png
+Szene 16.png
+Szene 17.png
+Szene 18.png
+Szene 19.png
+Szene 20.png
+Szene 21.png
+Szene 22.png
+Szene 23.png
+Szene 24.png
+Szene 25.png
+Szene 26.png
+Szene 27.png
+Szene 28.png
+
 COMMON RULES
 - Exercise scenes: 05,07,09,11,13,15,17,19,21,23,25,27.
 - GET READY scenes: 06,08,10,12,14,16,18,20,22,24,26.
