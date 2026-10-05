@@ -1,96 +1,200 @@
-VISUAL_POLICY_FILE: config/visual-policy.json
-ACTIVE_STYLE_ID: kidmotion-premium-3d-v3-flow-text
-IMAGE_PLAN_FILE: 99-technik/IMAGE_PLAN.json
+KIDMOTION GOOGLE FLOW PROMPTS — KM-004 — ANIMAL ADVENTURE WORKOUT
 
-KIDMOTION GOOGLE FLOW MASTER WORKFLOW — KM-004 — ANIMAL ADVENTURE WORKOUT
+IMPORTANT WORKFLOW
+- Generate the three cover candidates first.
+- Show only those three covers to the user and wait for one selection.
+- Selected winner becomes `Szene 01.png`; delete the other two covers.
+- For EVERY later image use ONLY selected `Szene 01.png` as the image reference.
+- Never use any other generated scene as a second reference.
+- Generate every non-cover scene exactly once.
+- After the cover choice continue automatically through Szene 02–28.
+- Save every accepted result directly in `00-bildprompts/images/` with its exact filename.
+- Remotion adds only the changing timer. Every other visible text element must already be inside the Google Flow image.
 
-PHASE 1 — THREE COVERS, ONE USER CHOICE
-1. Generate exactly three cover candidates first:
-   - Cover-Kandidat-01.png
-   - Cover-Kandidat-02.png
-   - Cover-Kandidat-03.png
-2. Use only this safe fictional/stylized cover direction:
-   Premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style. Exactly one original KidMotion adventure mascot character, fully clothed in a bright teal-and-coral sporty outfit, friendly energetic expression, simple confident explorer-ready standing pose. Colorful original animal-adventure fitness world with lush jungle shapes, warm rocks, bright sky and playful abstract animal-track motifs. Left text exactly: 5 MIN ANIMAL ADVENTURE and smaller: FOR KIDS. Strong contrast, clean composition, no real people, no brands, no extra characters, no photorealism, 16:9.
-3. Candidate 01: brighter jungle entrance with green foliage and warm sunlight.
-4. Candidate 02: colorful adventure-rock clearing with wider sky and stronger depth.
-5. Candidate 03: playful jungle trail with bold abstract animal-track shapes and slightly closer framing.
-6. Show the three covers once and wait for the user's choice: 1, 2 or 3.
-7. Run: npm run kidmotion:select-cover -- --episode=KM-004-animal-adventure-workout --candidate=<1|2|3>
-8. The selected winner becomes Szene 01.png.
-9. Delete the two rejected cover candidates immediately.
+============================================================
+COVER CANDIDATE 01 — Cover-Kandidat-01.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional, family-friendly animated style, 16:9 landscape. Show exactly one original KidMotion adventure mascot character, fully clothed in a bright teal-and-coral sporty outfit, with a friendly energetic expression and a simple confident explorer-ready standing pose. Place the character large on the right side. Build a bright jungle entrance with lush green foliage, warm sunlight, rounded rocks, vivid sky, playful abstract animal-track motifs and strong depth. Keep the composition clean and high-contrast for mobile viewing. On the left add large clean text exactly: 5 MIN ANIMAL ADVENTURE. Under it add smaller text exactly: FOR KIDS. No real people, no brands, no logos, no extra characters, no photorealism.
 
-PHASE 2 — AUTONOMOUS GENERATION TO COMPLETION
-After COVER_SELECTION.json says SELECTED, continue automatically until Szene 28 is complete. Do not ask the user anything else during image generation.
+============================================================
+COVER CANDIDATE 02 — Cover-Kandidat-02.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional, family-friendly animated style, 16:9 landscape. Show exactly one original KidMotion adventure mascot character, fully clothed in a bright teal-and-coral sporty outfit, with a friendly energetic expression and a simple confident explorer-ready standing pose. Place the character large on the right side. Use a colorful adventure-rock clearing with warm rounded cliffs, a wider bright sky, layered jungle shapes in the distance and playful abstract animal-track motifs. Strong cinematic depth, clean mobile-readable composition and high contrast. On the left add large clean text exactly: 5 MIN ANIMAL ADVENTURE. Under it add smaller text exactly: FOR KIDS. No real people, no brands, no logos, no extra characters, no photorealism.
 
-Internal batches only for reliability:
-- Batch 1: Szene 02–06
-- Batch 2: Szene 07–11
-- Batch 3: Szene 12–16
-- Batch 4: Szene 17–21
-- Batch 5: Szene 22–26
-- Final Batch 6: Szene 27–28
+============================================================
+COVER CANDIDATE 03 — Cover-Kandidat-03.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional, family-friendly animated style, 16:9 landscape. Show exactly one original KidMotion adventure mascot character, fully clothed in a bright teal-and-coral sporty outfit, with a friendly energetic expression and a simple confident explorer-ready standing pose. Use a slightly closer character framing on the right. Build a playful jungle trail with bold abstract animal-track shapes, colorful foliage, warm rocks, bright sky and a clear adventure path leading into the scene. Strong mobile readability and clean high-contrast composition. On the left add large clean text exactly: 5 MIN ANIMAL ADVENTURE. Under it add smaller text exactly: FOR KIDS. No real people, no brands, no logos, no extra characters, no photorealism.
 
-HARD SOLE-REFERENCE RULE
-- For EVERY scene from Szene 02 through Szene 28, attach/use ONLY selected `Szene 01.png` as the image reference.
-- Do NOT use `Szene 05.png` as a UI reference.
-- Do NOT use any previous generated scene as a reference.
-- Do NOT use any second reference image.
-- UI/text consistency comes only from the written prompt instructions in IMAGE_PLAN.json.
+AFTER USER SELECTION:
+Rename the selected cover to `Szene 01.png`, delete the other two candidates, and use ONLY `Szene 01.png` as the image reference for every prompt below.
 
-HARD ONE-GENERATION RULE
-- Generate every scene from Szene 02 through Szene 28 exactly once.
-- Maximum one generation attempt per non-cover scene.
-- Do not generate alternates or variants.
-- Do not regenerate a scene after an image has been produced.
-- Save/rename the one generated result immediately to its exact final filename.
+============================================================
+SZENE 02 — INTRO — Szene 02.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the same character, outfit, colors, lighting language and animal-adventure visual world. Create a premium stylized 3D 16:9 intro card with the same character shown full body in a confident explorer-ready stance. Keep the layout clean and energetic. Add exactly these visible text elements with clear hierarchy: KIDMOTION, 5 MIN ANIMAL ADVENTURE, 12 ANIMAL POSES • 20 SEC EACH, FOLLOW ALONG. No timer, no progress bar, no extra people, no logos.
 
-SCENE PROMPT SOURCE OF TRUTH
-For Szene 02–28, read the exact scene-specific Visual Purpose, Generated Text, Safe Zones, Acceptance Criteria and prompt from `99-technik/IMAGE_PLAN.json`.
-Do not invent a different scene order or different text.
+============================================================
+SZENE 03 — SAFETY — Szene 03.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the same character, outfit and animal-adventure world. Show the character full body in a calm neutral standing pose with open, relaxed body language. Create a clean premium stylized 3D 16:9 safety card. Add exactly: SAFETY FIRST. Under it add exactly: Clear some space. Under that add exactly: Stop if anything hurts. Keep the text large and easy to read. No timer, no progress bar, no extra people, no logos.
 
-EXACT FINAL SCENE FILES
-Szene 01.png
-Szene 02.png
-Szene 03.png
-Szene 04.png
-Szene 05.png
-Szene 06.png
-Szene 07.png
-Szene 08.png
-Szene 09.png
-Szene 10.png
-Szene 11.png
-Szene 12.png
-Szene 13.png
-Szene 14.png
-Szene 15.png
-Szene 16.png
-Szene 17.png
-Szene 18.png
-Szene 19.png
-Szene 20.png
-Szene 21.png
-Szene 22.png
-Szene 23.png
-Szene 24.png
-Szene 25.png
-Szene 26.png
-Szene 27.png
-Szene 28.png
+============================================================
+SZENE 04 — LET'S BEGIN — Szene 04.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the same character, outfit and visual world. Show the character full body in an energetic explorer-ready stance, feet planted, arms relaxed but ready. Premium stylized 3D, 16:9. Add one large clean message exactly: LET'S BEGIN! No other visible text, no timer, no progress bar, no extra people, no logos.
 
-COMMON RULES
-- Exercise scenes: 05,07,09,11,13,15,17,19,21,23,25,27.
-- GET READY scenes: 06,08,10,12,14,16,18,20,22,24,26.
-- GET READY scenes show a neutral ready stance, never the next exercise pose.
-- Keep top-left 230x230 clear on Exercise and GET READY scenes for the Remotion timer.
-- Google Flow creates every visible text element except the changing countdown timer.
-- Remotion adds only the timer.
-- No generated countdown numbers, no progress bar, no extra people, no brands.
+============================================================
+SZENE 05 — GORILLA POWER HOLD — Szene 05.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Place the same character in a jungle training zone with leafy arches and a warm stone floor. Show one clear static full-body pose: low wide squat, feet planted wide, knees bent comfortably, elbows bent outward, fists near the shoulders, broad strong gorilla-inspired silhouette, face visible, natural anatomy. Keep the entire top-left 230x230 area visually clear for a later Remotion countdown timer. Add a clean title at bottom-left exactly: GORILLA POWER HOLD. Add a rounded instruction panel at top-right exactly: Bend low, plant your feet, and show strong arms. No generated timer, no progress bar, no extra people, no logos.
 
-FILE HANDLING
-- Keep every final image in `00-bildprompts/images/`.
-- Final folder must contain exactly `Szene 01.png` through `Szene 28.png`.
-- The two rejected cover candidates must not remain.
+============================================================
+SZENE 06 — GET READY: FLAMINGO BALANCE — Szene 06.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Move into a pink-orange lagoon adventure zone with stylized reeds and soft sunset accents. Show the same character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the flamingo balance pose yet. Keep the entire top-left 230x230 area clear for the 5-second Remotion timer. Add exactly: GET READY. Add exactly: NEXT: FLAMINGO BALANCE. No generated timer, no progress bar, no extra people, no logos.
 
-FINAL DELIVERY
-Only after Szene 01–28 are complete, perform one final folder check and present the completed image folder to the user.
+============================================================
+SZENE 07 — FLAMINGO BALANCE — Szene 07.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the pink-orange lagoon zone with stylized reeds. Show one clear static full-body pose: upright one-leg balance, one knee lifted and bent, standing leg straight but natural, arms softly extended to the sides for balance, face visible. Keep top-left 230x230 clear for the Remotion timer. Add bottom-left title exactly: FLAMINGO BALANCE. Add a rounded top-right instruction panel exactly: Stand tall on one leg and stay steady. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 08 — GET READY: TIGER CROUCH — Szene 08.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a striped jungle-path zone with amber foliage accents. Show the same character full body in a neutral upright ready stance with both legs straight and arms relaxed. Do NOT show the tiger crouch yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: TIGER CROUCH. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 09 — TIGER CROUCH — Szene 09.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the striped jungle-path zone with amber foliage. Show one clear static low asymmetric crouch: one knee bent deeper than the other, torso strong and lifted, hands open like calm paws, feet and hands fully visible, face visible, natural anatomy. Keep top-left 230x230 clear. Add bottom-left title exactly: TIGER CROUCH. Add a rounded top-right instruction panel exactly: Crouch low and keep your chest proud. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 10 — GET READY: EAGLE WINGS HOLD — Szene 10.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a bright clifftop-sky adventure zone with distant rounded mountains and soft clouds. Show the same character in a neutral upright ready stance with arms relaxed down. Do NOT stretch the arms into the eagle pose yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: EAGLE WINGS HOLD. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 11 — EAGLE WINGS HOLD — Szene 11.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the bright clifftop-sky zone. Show one clear static tall full-body pose: feet planted naturally, torso upright, both arms fully extended sideways at shoulder height to form a strong T silhouette, hands visible, face visible. Keep top-left 230x230 clear. Add bottom-left title exactly: EAGLE WINGS HOLD. Add a rounded top-right instruction panel exactly: Stretch both arms wide and stand tall. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 12 — GET READY: FROG POWER HOLD — Szene 12.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a bright green pond-adventure zone with round lily-pad motifs and soft water reflections. Show the same character standing neutrally with knees straight and arms relaxed. Do NOT squat yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: FROG POWER HOLD. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 13 — FROG POWER HOLD — Szene 13.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the bright green pond-adventure zone. Show one clear static deep wide squat: feet planted wide, knees comfortably apart, hips low, torso upright, hands together at the chest, full body visible, natural anatomy. Keep top-left 230x230 clear. Add bottom-left title exactly: FROG POWER HOLD. Add a rounded top-right instruction panel exactly: Sit low, knees wide, hands together. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 14 — GET READY: PENGUIN FREEZE — Szene 14.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a cool icy-blue adventure zone with rounded snowbank shapes. Show the same character in an ordinary neutral upright stance with feet naturally apart and arms relaxed. Do NOT show the penguin pose yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: PENGUIN FREEZE. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 15 — PENGUIN FREEZE — Szene 15.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the icy-blue adventure zone. Show one clear static narrow standing pose: feet close together, torso upright, elbows slightly away from the body, forearms angled down, palms visible, friendly face, full body visible. Keep top-left 230x230 clear. Add bottom-left title exactly: PENGUIN FREEZE. Add a rounded top-right instruction panel exactly: Keep your feet close and arms by your sides. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 16 — GET READY: CRAB TABLE HOLD — Szene 16.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a warm beach-cove adventure zone with coral and sand-inspired shapes. Show the same character standing neutrally. Do NOT show the floor-level crab pose yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: CRAB TABLE HOLD. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 17 — CRAB TABLE HOLD — Szene 17.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the warm beach-cove zone. Show one clear safe reverse-tabletop floor pose: hands planted behind the torso, feet planted, knees bent, hips lifted, face visible, all limbs visible, natural anatomy, full pose inside frame. Keep top-left 230x230 clear. Add bottom-left title exactly: CRAB TABLE HOLD. Add a rounded top-right instruction panel exactly: Lift your hips and keep your belly strong. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 18 — GET READY: GIRAFFE REACH — Szene 18.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a sunny savanna adventure zone with tall grass silhouettes and warm golden light. Show the same character in a neutral upright stance with both arms relaxed. Do NOT raise an arm into the giraffe pose yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: GIRAFFE REACH. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 19 — GIRAFFE REACH — Szene 19.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the sunny savanna zone. Show one clear static tall full-body pose: feet in a comfortable staggered stance, one arm reaching straight overhead, other hand resting near the hip, torso long and upright, face visible. Keep top-left 230x230 clear. Add bottom-left title exactly: GIRAFFE REACH. Add a rounded top-right instruction panel exactly: Reach one hand high and grow super tall. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 20 — GET READY: KANGAROO READY — Szene 20.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a red-rock outback adventure zone with rounded canyon shapes. Show the same character in a neutral upright stance with legs straight and hands relaxed. Do NOT bend the knees into the kangaroo pose yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: KANGAROO READY. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 21 — KANGAROO READY — Szene 21.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the red-rock outback zone. Show one clear compact static athletic stance: knees bent comfortably, heels grounded, hands held up near the chest, torso upright, no jumping, full body visible. Keep top-left 230x230 clear. Add bottom-left title exactly: KANGAROO READY. Add a rounded top-right instruction panel exactly: Bend your knees and keep your hands up. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 22 — GET READY: BEAR TABLE HOLD — Szene 22.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a forest-trail adventure zone with rounded logs and pine silhouettes. Show the same character standing neutrally. Do NOT show the all-fours pose yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: BEAR TABLE HOLD. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 23 — BEAR TABLE HOLD — Szene 23.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the forest-trail zone. Show one clear stable all-fours tabletop pose on hands and knees, back flat, head lifted, hands and knees clearly visible, natural anatomy, full pose inside frame. Keep top-left 230x230 clear. Add bottom-left title exactly: BEAR TABLE HOLD. Add a rounded top-right instruction panel exactly: Hold a strong tabletop on hands and knees. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 24 — GET READY: SHARK SIDE LEAN — Szene 24.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use an ocean-blue reef adventure zone with abstract wave and fin motifs. Show the same character in a neutral upright stance with arms relaxed and torso straight. Do NOT side-bend yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: SHARK SIDE LEAN. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 25 — SHARK SIDE LEAN — Szene 25.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the ocean-blue reef zone. Show one clear static side-bend pose: wide stance, one arm reaching overhead, torso leaning clearly to one side, opposite hand near the hip, both feet visible, face visible. Keep top-left 230x230 clear. Add bottom-left title exactly: SHARK SIDE LEAN. Add a rounded top-right instruction panel exactly: Reach overhead and lean to one side. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 26 — GET READY: LION CHAMPION — Szene 26.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use a golden adventure finish platform with sunburst shapes and a jungle-sky backdrop. Show the same character in a neutral upright ready stance with hands relaxed. Do NOT show the champion pose yet. Keep top-left 230x230 clear. Add exactly: GET READY. Add exactly: NEXT: LION CHAMPION. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 27 — LION CHAMPION — Szene 27.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Premium stylized 3D, 16:9. Use the golden finish platform with sunburst and jungle-sky backdrop. Show one clear heroic static full-body pose: feet wide, fists on hips, chest lifted, proud friendly smile, natural anatomy. Keep top-left 230x230 clear. Add bottom-left title exactly: LION CHAMPION. Add a rounded top-right instruction panel exactly: Stand tall, chest up, and finish strong. No generated timer, no progress bar, no extra people, no logos.
+
+============================================================
+SZENE 28 — OUTRO — Szene 28.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the same character, outfit and animal-adventure visual world. Create a premium stylized 3D 16:9 celebration card in the golden finish environment. Show the character full body in a confident celebratory stance with a proud friendly smile. Add exactly: GREAT JOB! Add exactly: WORKOUT COMPLETE. No timer, no progress bar, no extra people, no logos.
+
+FINAL CHECK
+- `Szene 01.png` is the sole image reference for Szene 02–28.
+- Every Szene 02–28 is generated exactly once.
+- Final folder contains `Szene 01.png` through `Szene 28.png` and no rejected cover candidates.
