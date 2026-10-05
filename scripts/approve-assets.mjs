@@ -44,6 +44,8 @@ if (sceneV3) {
     const selection = JSON.parse(fs.readFileSync(paths.coverSelectionPath, 'utf8'));
     if (selection.status !== 'SELECTED') fail('Cover has not been explicitly selected by the user.');
     if (selection.finalFile !== 'Szene 01.png') fail('Selected cover must be finalized as Szene 01.png.');
+    if (selection.soleReferenceForLaterScenes !== 'Szene 01.png') fail('Selected cover must be recorded as the sole later-scene reference.');
+    if (selection.secondaryImageReferencesForbidden !== true) fail('Cover selection must forbid secondary image references.');
   }
   for (const candidate of ['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png']) {
     if (fs.existsSync(path.join(paths.imagesDir, candidate))) fail(`Temporary/rejected cover candidate still exists: ${candidate}`);
@@ -90,14 +92,24 @@ if (paths.isV2) {
   if (sceneV3) {
     if (planImages.length !== 28) fail(`V3 approval requires 28 scene images, found ${planImages.length}.`);
     if (plan.generationRules?.getReadySceneCount !== 11) fail('V3 approval requires 11 dedicated GET READY scenes.');
+    if (plan.generationRules?.soleReference !== 'Szene 01.png') fail('V3 approval requires Szene 01.png as the sole image reference.');
+    if (plan.generationRules?.secondaryImageReferencesForbidden !== true) fail('V3 approval requires all secondary image references to be forbidden.');
+    if (plan.generationRules?.generateEachNonCoverSceneExactlyOnce !== true) fail('V3 approval requires each non-cover scene to be generated exactly once.');
+    if (plan.generationRules?.maximumGenerationAttemptsPerNonCoverScene !== 1) fail('V3 approval allows only one generation attempt per non-cover scene.');
+    if (plan.generationRules?.regenerationForbidden !== true || plan.generationRules?.automaticAlternatesForbidden !== true) fail('V3 approval forbids scene regeneration and alternate versions.');
+    for (const image of planImages.slice(1)) {
+      if (image.characterReference !== 'selected Szene 01.png ONLY') fail(`${image.imageFile} must use selected Szene 01.png ONLY as image reference.`);
+      if (image.uiReference !== null) fail(`${image.imageFile} must not contain a second UI/reference image.`);
+      if (image.generationAttemptsAllowed !== 1) fail(`${image.imageFile} must allow exactly one generation.`);
+    }
   }
 
   const prompt = fs.readFileSync(paths.promptPath, 'utf8');
   if (/\bTBD\b/i.test(prompt)) fail('google-flow-prompt.txt still contains TBD values.');
   if (!prompt.includes('Google Flow') && !prompt.includes('GOOGLE FLOW')) fail('Flow prompt must define Google Flow ownership.');
   if (sceneV3) {
-    for (const phrase of ['STOP completely','Wait until the user explicitly chooses','POSE DIVERSITY RULE','GET-READY RULE']) {
-      if (!prompt.includes(phrase)) fail(`Flow prompt missing required rule: ${phrase}`);
+    for (const phrase of ['Szene 01.png', 'ONLY image reference', 'exactly once', 'GET READY']) {
+      if (!prompt.includes(phrase)) fail(`Flow prompt missing required V3 rule: ${phrase}`);
     }
     for (let i = 1; i <= requiredImages.length; i += 1) {
       if (!prompt.includes(`Szene ${String(i).padStart(2, '0')}`)) fail(`Flow prompt is missing Szene ${String(i).padStart(2, '0')}.`);
