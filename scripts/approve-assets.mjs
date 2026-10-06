@@ -35,6 +35,7 @@ if (failures.length) {
 const data = readEpisodeData(paths);
 const structureVersion = Number(data.structureVersion || 1);
 const sceneV3 = structureVersion >= 3;
+if (paths.isV2 && structureVersion !== 3) fail('Only current KidMotion V3 contract episodes may be approved; older structures are read-only.');
 const contract = loadContract(root);
 if (sceneV3) {
   for (const error of currentContractErrors(data, contract)) fail(`CURRENT PRODUCTION CONTRACT: ${error}`);

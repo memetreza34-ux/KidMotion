@@ -39,7 +39,7 @@ if (sceneV3) {
 }
 
 if (paths.isV2) {
-  if (![2, 3].includes(structureVersion)) errors.push('Modern episode must declare structureVersion 2 or 3.');
+  if (structureVersion !== 3) errors.push('Only current KidMotion V3 contract episodes may be activated; older modern structures are read-only.');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(String(data.date || ''))) errors.push('Modern episode must declare date as YYYY-MM-DD.');
   if (!data.topic) errors.push('Modern episode must declare topic.');
   if (!data.slug) errors.push('Modern episode must declare slug.');
