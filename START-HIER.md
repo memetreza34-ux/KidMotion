@@ -1,14 +1,14 @@
-# START HIER — KidMotion V2
+# START HIER
 
-1. `GEHIRN.md` lesen.
-2. Episode unter `episodes/KM-XXX-name/` planen.
-3. `IMAGE_PLAN.json` und `google-flow-prompt.txt` vollständig ausarbeiten.
-4. In Google Flow Bild 00–16 erzeugen. **Alle sichtbaren Texte außer dem Timer werden direkt in Flow erzeugt.**
-5. Bild 01 zuerst als Charakter/Welt-Referenz freigeben; Bild 04 als Exercise-UI-Referenz.
-6. Finale Bilder in `00-bildprompts/images/` ablegen.
-7. Voice 01 + bg-music ablegen.
-8. Bilder wirklich visuell prüfen und erst dann `VISUAL_REVIEW.json` freigeben.
-9. `assets:approve`, aktivieren, `render:safe`.
-10. In `03-export/` FINAL_VIDEO.mp4 + fertigen Titel/Beschreibung ablegen.
+1. `GEHIRN.md` und `config/v3-contract.json` lesen.
+2. Neue Episode mit `npm run kidmotion:new -- --topic="..."` anlegen.
+3. Alle `__PLAN_REQUIRED__`-Felder vollständig ausarbeiten: Übungen, Posen, Flow-Prompts, Voice-Plan, TTS-Text, Upload-Metadaten.
+4. `npm run prompt:qa -- --episode=KM-XXX-slug` muss bestehen, **bevor Google Flow geöffnet wird**.
+5. Exakt 3 Cover erzeugen und dem Nutzer einmal zeigen.
+6. Nutzer wählt 1 Cover. Gewinner = `Szene 01.png`; die anderen beiden löschen.
+7. Danach `Szene 02.png` bis `Szene 28.png` automatisch, streng seriell und jeweils genau einmal erzeugen. Einzige Bildreferenz ist immer `Szene 01.png`.
+8. `npm run scene:qa -- --episode=KM-XXX-slug`.
+9. Echte Bilder visuell prüfen; erst dann `assets:approve`.
+10. Voice 01 + Musik ablegen, Episode aktivieren und `npm run render:safe` ausführen.
 
-Remotion = **Countdown-Timer only**. Keine Progress Bar und keine weiteren Texte/Grafiken.
+Remotion = Countdown-Timer only. Kein zusätzlicher Text, keine Progress-Bar, kein REST/NEXT-Overlay.

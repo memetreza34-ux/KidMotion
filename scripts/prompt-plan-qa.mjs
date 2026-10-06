@@ -1,140 +1,114 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
+import {loadContract, expectedSceneSpecs, sceneFile, hasPlanningPlaceholder, currentContractErrors, validateVoicePlanObject} from './contract.mjs';
 
 const root = process.cwd();
+const contract = loadContract(root);
 const args = process.argv.slice(2);
-const episodeArg = args.find((arg) => arg.startsWith('--episode='));
+const episodeArg = args.find((arg)=>arg.startsWith('--episode='));
 let episodeFolder = episodeArg ? episodeArg.slice('--episode='.length) : '';
-
 if (!episodeFolder) {
-  const pointerPath = path.join(root, 'episodes', 'ACTIVE_EPISODE.json');
-  if (fs.existsSync(pointerPath)) {
-    episodeFolder = JSON.parse(fs.readFileSync(pointerPath, 'utf8')).episodeFolder || '';
-  }
+  const pointer = path.join(root,'episodes','ACTIVE_EPISODE.json');
+  if (fs.existsSync(pointer)) episodeFolder = JSON.parse(fs.readFileSync(pointer,'utf8')).episodeFolder || '';
 }
-
 if (!episodeFolder) {
-  console.error('PROMPT PLAN QA FAILED: pass --episode=<episode-folder> before Flow generation.');
+  console.error('PROMPT PLAN QA FAILED: pass --episode=<episode-folder>.');
   process.exit(1);
 }
-
-const paths = resolveEpisodePaths(root, episodeFolder);
+const paths = resolveEpisodePaths(root,episodeFolder);
 if (!paths.isV2) {
-  console.error(`PROMPT PLAN QA FAILED: ${episodeFolder} is not a modern KidMotion episode.`);
+  console.error('PROMPT PLAN QA FAILED: current production requires modern V3 episode structure.');
   process.exit(1);
 }
+const failures=[];
+const fail=(m)=>failures.push(m);
+const data=readEpisodeData(paths);
+for (const error of currentContractErrors(data,contract)) fail(error);
 
-const failures = [];
-const fail = (message) => failures.push(message);
-const data = readEpisodeData(paths);
-
-if (!fs.existsSync(paths.imagePlanPath)) fail('Missing 99-technik/IMAGE_PLAN.json.');
-if (!fs.existsSync(paths.promptPath)) fail('Missing 00-bildprompts/google-flow-prompt.txt.');
-if (!fs.existsSync(paths.voiceScriptPath)) fail('Missing 01-voice-script/voice-script.txt.');
-if (!fs.existsSync(paths.voicePlanPath)) fail('Missing 99-technik/VOICE_PLAN.json.');
-
-let plan = null;
-let prompt = '';
-if (fs.existsSync(paths.imagePlanPath)) plan = JSON.parse(fs.readFileSync(paths.imagePlanPath, 'utf8'));
-if (fs.existsSync(paths.promptPath)) prompt = fs.readFileSync(paths.promptPath, 'utf8');
-
-const hasPlaceholder = (value) => /\bTBD\b|__PLAN_REQUIRED__|PLACEHOLDER/i.test(String(value ?? ''));
-if (hasPlaceholder(JSON.stringify(data))) fail('episode.json still contains unresolved planning placeholders.');
-if (plan && hasPlaceholder(JSON.stringify(plan))) fail('IMAGE_PLAN.json still contains unresolved planning placeholders.');
-if (hasPlaceholder(prompt)) fail('google-flow-prompt.txt still contains unresolved planning placeholders.');
-const voiceScript = fs.existsSync(paths.voiceScriptPath) ? fs.readFileSync(paths.voiceScriptPath, 'utf8') : '';
-const voicePlan = fs.existsSync(paths.voicePlanPath) ? JSON.parse(fs.readFileSync(paths.voicePlanPath, 'utf8')) : null;
-if (hasPlaceholder(voiceScript)) fail('voice-script.txt still contains unresolved planning placeholders.');
-if (voicePlan && hasPlaceholder(JSON.stringify(voicePlan))) fail('VOICE_PLAN.json still contains unresolved planning placeholders.');
-if (voiceScript && !voiceScript.includes('00:00–00:08') && !voiceScript.includes('00:00-00:08')) fail('voice-script.txt must include the Intro 00:00–00:08 timing block.');
-if (voiceScript && !voiceScript.includes('00:08–00:12') && !voiceScript.includes('00:08-00:12')) fail('voice-script.txt must include the Safety 00:08–00:12 timing block.');
-if (voiceScript && !voiceScript.includes('00:12–00:14') && !voiceScript.includes('00:12-00:14')) fail('voice-script.txt must include the LETS BEGIN 00:12–00:14 timing block.');
-if (voiceScript && !voiceScript.includes('Exact TTS copy')) fail('voice-script.txt must contain an Exact TTS copy section.');
-if (voicePlan) {
-  const sections = Array.isArray(voicePlan.sections) ? voicePlan.sections : [];
-  const expected = [['02',0,8],['03',8,12],['04',12,14]];
-  if (sections.length !== 3) fail('VOICE_PLAN.json must contain exactly 3 opening sections.');
-  for (let i=0;i<Math.min(sections.length,expected.length);i+=1) {
-    const [scene,start,end]=expected[i]; const s=sections[i];
-    if (String(s.scene)!==scene || Number(s.startSeconds)!==start || Number(s.endSeconds)!==end) fail(`VOICE_PLAN section ${i+1} must be Szene ${scene} at ${start}–${end}s.`);
-  }
-  if (!String(voicePlan.exactTtsCopy || '').trim()) fail('VOICE_PLAN.json needs exactTtsCopy.');
-  if (Number(voicePlan.noSpokenVoiceAfterSeconds)!==14) fail('VOICE_PLAN.json must forbid spoken voice after 14s.');
+for (const rel of contract.requiredEpisodeFiles) {
+  const abs=path.join(paths.episodeRoot,rel);
+  if (!fs.existsSync(abs)) fail(`Missing ${rel}.`);
 }
+const plan=fs.existsSync(paths.imagePlanPath)?JSON.parse(fs.readFileSync(paths.imagePlanPath,'utf8')):{};
+const prompt=fs.existsSync(paths.promptPath)?fs.readFileSync(paths.promptPath,'utf8'):'';
+const voiceScript=fs.existsSync(paths.voiceScriptPath)?fs.readFileSync(paths.voiceScriptPath,'utf8'):'';
+const voicePlan=fs.existsSync(paths.voicePlanPath)?JSON.parse(fs.readFileSync(paths.voicePlanPath,'utf8')):null;
+const upload=fs.existsSync(path.join(paths.exportDir,'UPLOAD_METADATA.md'))?fs.readFileSync(path.join(paths.exportDir,'UPLOAD_METADATA.md'),'utf8'):'';
 
-const scenes = Array.isArray(data.scenes) ? data.scenes : [];
-if (scenes.length !== 28) fail(`Expected exactly 28 scene records, found ${scenes.length}.`);
+const combined=JSON.stringify(data)+JSON.stringify(plan)+prompt+voiceScript+JSON.stringify(voicePlan)+upload;
+if (hasPlanningPlaceholder(combined)) fail('Planning still contains TBD/__PLAN_REQUIRED__/PLACEHOLDER values.');
 
-for (let i = 0; i < scenes.length; i += 1) {
-  const scene = scenes[i];
-  const number = String(i + 1).padStart(2, '0');
-  const expectedImage = `Szene ${number}.png`;
-  if (scene.image !== expectedImage) fail(`Scene ${number} must map to ${expectedImage}.`);
-  if (scene.type === 'exercise') {
-    if (!String(scene.title || '').trim() || hasPlaceholder(scene.title)) fail(`Scene ${number} exercise title is unresolved.`);
-    if (!String(scene.instruction || '').trim() || hasPlaceholder(scene.instruction)) fail(`Scene ${number} exercise instruction is unresolved.`);
-  }
-  if (scene.type === 'get-ready') {
-    if (!String(scene.nextExerciseTitle || '').trim() || hasPlaceholder(scene.nextExerciseTitle)) fail(`Scene ${number} NEXT target is unresolved.`);
+const expected=expectedSceneSpecs(contract);
+const scenes=Array.isArray(data.scenes)?data.scenes:[];
+if (scenes.length!==expected.length) fail(`Expected ${expected.length} scenes, found ${scenes.length}.`);
+for(let i=0;i<Math.min(scenes.length,expected.length);i+=1){
+  const scene=scenes[i],spec=expected[i],n=Number(spec.scene);
+  if(Number(scene.scene)!==n) fail(`Scene index ${i+1} must be Szene ${String(n).padStart(2,'0')}.`);
+  if(scene.type!==spec.type) fail(`Szene ${String(n).padStart(2,'0')} must be type ${spec.type}.`);
+  if(scene.image!==sceneFile(n)) fail(`Szene ${String(n).padStart(2,'0')} must map to ${sceneFile(n)}.`);
+  if(Number(scene.duration||0)!==Number(spec.duration||0)) fail(`Szene ${String(n).padStart(2,'0')} must last ${spec.duration}s.`);
+  if(scene.type==='exercise' && (!String(scene.title||'').trim() || !String(scene.instruction||'').trim())) fail(`Szene ${scene.scene} exercise title/instruction missing.`);
+  if(scene.type==='get-ready'){
+    const next=scenes[i+1];
+    if(!next || next.type!=='exercise' || scene.nextExerciseTitle!==next.title) fail(`Szene ${scene.scene} NEXT target must match following exercise.`);
   }
 }
 
-if (plan) {
-  const images = Array.isArray(plan.images) ? plan.images : [];
-  if (images.length !== 28) fail(`IMAGE_PLAN must contain 28 images, found ${images.length}.`);
-  if (plan.generationRules?.soleReference !== 'Szene 01.png') fail('IMAGE_PLAN must define Szene 01.png as soleReference.');
-  if (plan.generationRules?.secondaryImageReferencesForbidden !== true) fail('IMAGE_PLAN must forbid secondary image references.');
-  if (plan.generationRules?.generateEachNonCoverSceneExactlyOnce !== true) fail('IMAGE_PLAN must require exactly one generation for every later scene.');
-  if (plan.generationRules?.maximumGenerationAttemptsPerNonCoverScene !== 1) fail('IMAGE_PLAN must allow only one generation attempt per later scene.');
-
-  for (let i = 0; i < images.length; i += 1) {
-    const item = images[i];
-    const number = String(i + 1).padStart(2, '0');
-    const expectedImage = `Szene ${number}.png`;
-    if (item.imageFile !== expectedImage) fail(`IMAGE_PLAN item ${number} must be ${expectedImage}.`);
-    for (const field of ['visualPurpose', 'topicAnchor', 'visualForm', 'prompt']) {
-      if (!String(item[field] ?? '').trim() || hasPlaceholder(item[field])) fail(`${expectedImage} has unresolved ${field}.`);
-    }
-    if (i > 0) {
-      if (item.characterReference !== 'selected Szene 01.png ONLY') fail(`${expectedImage} must use selected Szene 01.png ONLY.`);
-      if (item.uiReference !== null) fail(`${expectedImage} must not use a second image/UI reference.`);
-      if (item.generationAttemptsAllowed !== 1) fail(`${expectedImage} must allow exactly one generation.`);
-    }
+const images=Array.isArray(plan.images)?plan.images:[];
+if(images.length!==contract.sceneContract.sceneCount) fail(`IMAGE_PLAN must contain ${contract.sceneContract.sceneCount} images.`);
+const rules=plan.generationRules||{};
+if(rules.soleReference!==contract.generationContract.soleImageReference) fail('IMAGE_PLAN soleReference must be Szene 01.png.');
+if(rules.secondaryImageReferencesForbidden!==true) fail('IMAGE_PLAN must forbid secondary references.');
+if(rules.generateEachNonCoverSceneExactlyOnce!==true || Number(rules.maximumGenerationAttemptsPerNonCoverScene)!==1 || rules.regenerationForbidden!==true) fail('IMAGE_PLAN must enforce exactly one later-scene generation and no regeneration.');
+for(let i=0;i<images.length;i+=1){
+  const item=images[i],expectedFile=sceneFile(i+1);
+  if(item.imageFile!==expectedFile) fail(`IMAGE_PLAN item ${i+1} must be ${expectedFile}.`);
+  for(const field of ['visualPurpose','topicAnchor','visualForm','prompt']) if(!String(item[field]||'').trim()) fail(`${expectedFile} unresolved ${field}.`);
+  if(i>0){
+    if(item.characterReference!=='selected Szene 01.png ONLY') fail(`${expectedFile} must use selected Szene 01.png ONLY.`);
+    if(item.uiReference!==null) fail(`${expectedFile} must not use a second/UI image reference.`);
+    if(Number(item.generationAttemptsAllowed)!==1) fail(`${expectedFile} must allow exactly one generation.`);
   }
 }
 
-if (prompt) {
-  for (const n of [1, 2, 3]) {
-    if (!prompt.includes(`COVER CANDIDATE 0${n}`)) fail(`Missing full Cover Candidate 0${n} prompt block.`);
+const promptCount=(prompt.match(/FINAL GOOGLE FLOW PROMPT:/g)||[]).length;
+if(promptCount!==contract.promptContract.finalGoogleFlowPromptBlocks) fail(`Expected exactly ${contract.promptContract.finalGoogleFlowPromptBlocks} FINAL GOOGLE FLOW PROMPT blocks, found ${promptCount}.`);
+for(let c=1;c<=3;c+=1){
+  const marker=`COVER CANDIDATE 0${c}`;
+  const start=prompt.indexOf(marker);
+  const next=c<3?prompt.indexOf(`COVER CANDIDATE 0${c+1}`,start+marker.length):prompt.indexOf('SZENE 02',start+marker.length);
+  const block=start>=0?prompt.slice(start,next>start?next:prompt.length):'';
+  if(!block) fail(`Missing ${marker}.`);
+  if(!/fictional/i.test(block) || !/fully clothed/i.test(block)) fail(`${marker} must explicitly describe a fictional, fully clothed stylized character.`);
+  if(/\bage\s*[:=]?\s*\d{1,2}\b/i.test(block) || /skin tone|skin color|body measurements|body type|photorealistic child|young boy|young girl/i.test(block)) fail(`${marker} contains disallowed detailed minor/photorealistic cover wording.`);
+}
+for(let n=2;n<=28;n+=1){
+  const id=String(n).padStart(2,'0'),marker=`SZENE ${id}`;
+  const start=prompt.indexOf(marker);
+  const next=n<28?prompt.indexOf(`SZENE ${String(n+1).padStart(2,'0')}`,start+marker.length):prompt.length;
+  const block=start>=0?prompt.slice(start,next>start?next:prompt.length):'';
+  if(!block.includes('FINAL GOOGLE FLOW PROMPT:')) fail(`${marker} missing FINAL GOOGLE FLOW PROMPT.`);
+  if(!block.includes('ONLY image reference')) fail(`${marker} must explicitly use Szene 01 as the ONLY image reference.`);
+  const scene=scenes[n-1];
+  if(scene?.type==='exercise'){
+    if(!block.includes(scene.title) || !block.includes(scene.instruction)) fail(`${marker} must contain exact exercise title and instruction.`);
+    if(!/bottom-left/i.test(block) || !/dark semi-transparent navy/i.test(block) || !/top-right/i.test(block) || !/light cream rounded/i.test(block)) fail(`${marker} must include the locked exercise UI contract.`);
   }
-  for (let i = 2; i <= 28; i += 1) {
-    const number = String(i).padStart(2, '0');
-    if (!prompt.includes(`SZENE ${number}`)) fail(`Missing Szene ${number} prompt block.`);
-  }
-  const finalPromptCount = (prompt.match(/FINAL GOOGLE FLOW PROMPT:/g) || []).length;
-  if (finalPromptCount !== 30) fail(`Expected exactly 30 FINAL GOOGLE FLOW PROMPT blocks, found ${finalPromptCount}.`);
-
-  if (!prompt.includes('Szene 01.png') || !prompt.includes('ONLY image reference')) {
-    fail('Flow prompt must state that Szene 01.png is the only later-scene image reference.');
-  }
-
-  for (const scene of scenes) {
-    if (scene.type === 'exercise') {
-      if (!prompt.includes(scene.title)) fail(`Flow prompt is missing exercise title: ${scene.title}.`);
-      if (!prompt.includes(scene.instruction)) fail(`Flow prompt is missing exercise instruction: ${scene.instruction}.`);
-    }
-    if (scene.type === 'get-ready' && !prompt.includes(`NEXT: ${scene.nextExerciseTitle}`)) {
-      fail(`Flow prompt is missing GET READY target: ${scene.nextExerciseTitle}.`);
-    }
+  if(scene?.type==='get-ready'){
+    if(!block.includes(`NEXT: ${scene.nextExerciseTitle}`)) fail(`${marker} has wrong GET READY target.`);
+    if(!/dark semi-transparent navy/i.test(block) || !/bright-cyan/i.test(block)) fail(`${marker} must include the locked GET READY UI contract.`);
   }
 }
 
-if (failures.length) {
+for(const error of validateVoicePlanObject(voicePlan,contract)) fail(error);
+for(const label of ['00:00','00:08','00:12','Exact TTS copy']) if(!voiceScript.includes(label)) fail(`voice-script.txt missing ${label}.`);
+if(voicePlan?.exactTtsCopy && !voiceScript.includes(voicePlan.exactTtsCopy)) fail('voice-script Exact TTS copy must match VOICE_PLAN.json.');
+
+if(failures.length){
   console.error(`PROMPT PLAN QA FAILED — ${episodeFolder}`);
-  failures.forEach((message, index) => console.error(`${index + 1}. ${message}`));
+  failures.forEach((m,i)=>console.error(`${i+1}. ${m}`));
   process.exit(1);
 }
-
 console.log(`PROMPT PLAN QA PASSED — ${episodeFolder}`);
-console.log('Validated: 3 cover prompts, Szene 02–28 prompts, no placeholders, scene order, exercise text, GET READY targets, sole reference and one-generation policy.');
+console.log('Validated central contract, scene order, 30 direct Flow prompts, cover safety wording, locked UI prompts, sole reference, one-generation policy and timed voice plan.');

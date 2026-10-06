@@ -1,13 +1,17 @@
-# ANTIGRAVITY — KidMotion V2
+# ANTIGRAVITY — globale KidMotion-Regeln
 
-Vor jeder Arbeit `GEHIRN.md` lesen.
+Lies zuerst `GEHIRN.md` und `config/v3-contract.json`.
 
-## Unverhandelbare Renderregel
-Remotion darf visuell ausschließlich den Countdown-Timer hinzufügen. **Jeder andere sichtbare Text wird von Google Flow direkt im Bild erzeugt.**
+Arbeite niemals nach einer alten Episode als Pipeline-Vorlage. Pipeline-Verhalten kommt ausschließlich aus den globalen Regeln und Skripten.
 
-Das gilt für Cover, Intro, Safety, LET'S BEGIN, Exercise title/instruction und Outro. Rest verwendet das nächste Exercise-Bild; Remotion ergänzt nur den 5s Timer, keinen REST/NEXT-Text.
-
-## Arbeitsfolge
-Plan → IMAGE_PLAN → kompletter Flow-Prompt → Bild 00 (3 Kandidaten/1 Gewinner) → Bild 01 freigeben → Bild 02/03 → Bild 04 freigeben → Bild 05–15 → Bild 16 → echte Sichtprüfung → Voice/Musik → SHA-256 Approval → guarded render → Export-Titel/Beschreibung.
-
-Nie VISUAL_REVIEW oder ASSET_APPROVAL vortäuschen.
+Für jede neue Episode:
+1. Generator verwenden.
+2. Planung vollständig ausarbeiten.
+3. `prompt:qa` ausführen; bei Fehlern niemals Flow starten.
+4. 3 Cover generieren, einmal auf Nutzerwahl warten.
+5. Gewinner zu `Szene 01.png`; beide Verlierer löschen.
+6. Szene 02–28 streng nacheinander, jeweils genau einmal. Nur `Szene 01.png` als Bildreferenz.
+7. Kein fehlendes Bild durch ein anderes Ergebnis ersetzen.
+8. Nach allen Bildern `scene:qa`.
+9. VISUAL_REVIEW niemals ohne echte Sichtprüfung auf true setzen.
+10. Remotion darf nur den Countdown-Timer hinzufügen.

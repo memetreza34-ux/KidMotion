@@ -25,3 +25,6 @@ jobs:
 
       - name: Project doctor
         run: npm run project:doctor
+
+      - name: Repository contract QA
+        run: npm run repo:qa

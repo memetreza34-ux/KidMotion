@@ -1,0 +1,210 @@
+{
+  "contractVersion": 1,
+  "name": "KidMotion Production Contract",
+  "structureVersion": 3,
+  "pipelineVersion": 3,
+  "language": "en",
+  "status": "ACTIVE",
+  "requiredRootFiles": [
+    "GEHIRN.md",
+    "config/pipeline.json",
+    "config/visual-policy.json",
+    "config/v3-contract.json"
+  ],
+  "requiredEpisodeFiles": [
+    "00-bildprompts/google-flow-prompt.txt",
+    "01-voice-script/voice-script.txt",
+    "02-audio/MUSIC_BRIEF.md",
+    "03-export/UPLOAD_METADATA.md",
+    "99-technik/episode.json",
+    "99-technik/IMAGE_PLAN.json",
+    "99-technik/RENDER_PLAN.json",
+    "99-technik/COVER_SELECTION.json",
+    "99-technik/VISUAL_REVIEW.json",
+    "99-technik/VOICE_PLAN.json",
+    "99-technik/GENERATION-REVISION.txt",
+    "99-technik/status.json",
+    "ANTIGRAVITY.md",
+    "README.md"
+  ],
+  "sceneContract": {
+    "sceneCount": 28,
+    "cover": {
+      "scene": 1,
+      "type": "cover",
+      "duration": 0,
+      "inVideo": false
+    },
+    "intro": {
+      "scene": 2,
+      "type": "intro",
+      "duration": 8
+    },
+    "safety": {
+      "scene": 3,
+      "type": "safety",
+      "duration": 4
+    },
+    "letsBegin": {
+      "scene": 4,
+      "type": "lets-begin",
+      "duration": 2
+    },
+    "exerciseSceneNumbers": [
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21,
+      23,
+      25,
+      27
+    ],
+    "getReadySceneNumbers": [
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26
+    ],
+    "exerciseDuration": 20,
+    "getReadyDuration": 5,
+    "outro": {
+      "scene": 28,
+      "type": "outro",
+      "duration": 4
+    },
+    "runtimeSeconds": 313,
+    "imagePattern": "Szene NN.png"
+  },
+  "coverContract": {
+    "candidateCount": 3,
+    "candidateFiles": [
+      "Cover-Kandidat-01.png",
+      "Cover-Kandidat-02.png",
+      "Cover-Kandidat-03.png"
+    ],
+    "explicitUserChoiceRequired": true,
+    "finalFile": "Szene 01.png",
+    "deleteRejectedCandidates": true,
+    "laterSceneGenerationBeforeChoiceForbidden": true,
+    "coverPromptSafety": {
+      "clearlyFictionalStylizedCharacterRequired": true,
+      "fullyClothedRequired": true,
+      "exactMinorAgeForbidden": true,
+      "detailedMinorBodyProfileForbidden": true,
+      "photorealisticChildForbidden": true
+    }
+  },
+  "generationContract": {
+    "soleImageReference": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true,
+    "scene02To28ExactlyOnce": true,
+    "maximumAttemptsPerLaterScene": 1,
+    "automaticAlternatesForbidden": true,
+    "regenerationForbidden": true,
+    "serialGenerationRequired": true,
+    "parallelGenerationForbidden": true,
+    "waitForCurrentResultBeforeNext": true,
+    "missingSceneIsHardError": true,
+    "copyingPreviousOutputToFillMissingForbidden": true,
+    "shiftingLaterFilenamesForbidden": true,
+    "internalBatchSize": 5,
+    "waitForUserBetweenBatches": false,
+    "autoContinueAfterCoverChoice": true
+  },
+  "promptContract": {
+    "directPromptFile": "00-bildprompts/google-flow-prompt.txt",
+    "finalGoogleFlowPromptBlocks": 30,
+    "coverPromptBlocks": 3,
+    "laterScenePromptBlocks": 27,
+    "placeholdersForbiddenBeforeFlow": true,
+    "imagePlanMustMatchPrompts": true,
+    "allNonTimerVisibleTextOwner": "google-flow",
+    "exerciseUi": {
+      "titlePosition": "bottom-left",
+      "titleStyle": "bold uppercase white sans-serif on dark semi-transparent navy rounded rectangle",
+      "instructionPosition": "top-right",
+      "instructionStyle": "dark navy text on light cream rounded rectangle",
+      "alternatePlaquesForbidden": true
+    },
+    "getReadyUi": {
+      "text": "GET READY + NEXT: <exercise>",
+      "position": "right-half outside timer safe zone",
+      "style": "dark semi-transparent navy rounded rectangle; white GET READY; bright-cyan NEXT line"
+    },
+    "timerSafeZoneTopLeftPixels": 230
+  },
+  "voiceContract": {
+    "voiceFile": "Voice 01.mp3",
+    "oneContinuousFile": true,
+    "sections": [
+      {
+        "scene": "02",
+        "label": "INTRO",
+        "startSeconds": 0,
+        "endSeconds": 8
+      },
+      {
+        "scene": "03",
+        "label": "SAFETY",
+        "startSeconds": 8,
+        "endSeconds": 12
+      },
+      {
+        "scene": "04",
+        "label": "LETS_BEGIN",
+        "startSeconds": 12,
+        "endSeconds": 14
+      }
+    ],
+    "exactTtsCopyRequired": true,
+    "targetMinSeconds": 13.65,
+    "targetMaxSeconds": 14,
+    "absoluteMaxSeconds": 14.05,
+    "spokenVoiceAfterSeconds": 14,
+    "spokenVoiceAfterOpeningForbidden": true,
+    "subtitlesForbidden": true
+  },
+  "audioContract": {
+    "backgroundMusicFile": "bg-music.mp3",
+    "requiredForFinal": true,
+    "targetBpm": "120-130",
+    "vocalsForbidden": true,
+    "commercialYouTubeLicenseRequired": true
+  },
+  "remotionContract": {
+    "visualOverlay": "countdown-timer-only",
+    "progressBarForbidden": true,
+    "extraTextForbidden": true,
+    "workoutKenBurnsForbidden": true,
+    "timerSizePixels": 192,
+    "timerSafeZonePixels": 230,
+    "exerciseCountdown": "20-to-1",
+    "getReadyCountdown": "5-to-1",
+    "visibleZeroFrameForbidden": true
+  },
+  "approvalContract": {
+    "promptQaBeforeFlow": true,
+    "sceneQaAfterImages": true,
+    "visualReviewRequired": true,
+    "sha256AssetApprovalRequired": true,
+    "postrenderSourceMatchRequired": true,
+    "postrenderBoundaryTimingCheckRequired": true
+  },
+  "legacyPolicy": {
+    "structureVersionBelow3": "read-only legacy",
+    "v3WithoutProductionContractVersion": "read-only pre-contract episode",
+    "currentProductionRequiresMatchingContractVersion": true
+  }
+}

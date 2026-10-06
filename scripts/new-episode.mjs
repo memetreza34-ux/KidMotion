@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {loadContract, expectedSceneSpecs, sceneFile, padScene} from './contract.mjs';
 
 const args = process.argv.slice(2);
 const getArg = (name, fallback = '') => {
@@ -21,190 +22,116 @@ if (!/^\d{4}-\d{2}-\d{2}$/.test(requestedDate)) {
 }
 
 const root = process.cwd();
-const pipeline = JSON.parse(fs.readFileSync(path.join(root, 'config', 'pipeline.json'), 'utf8'));
-const visual = JSON.parse(fs.readFileSync(path.join(root, 'config', 'visual-policy.json'), 'utf8'));
-if (visual.status !== 'READY' || !visual.styleId || visual.styleId === 'UNSET') {
-  console.error('KidMotion V3 requires a READY visual policy.');
-  process.exit(1);
-}
+const contract = loadContract(root);
+const pipeline = JSON.parse(fs.readFileSync(path.join(root,'config','pipeline.json'),'utf8'));
+const visual = JSON.parse(fs.readFileSync(path.join(root,'config','visual-policy.json'),'utf8'));
+if (visual.status !== 'READY' || !visual.styleId) throw new Error('KidMotion requires a READY visual policy.');
 
-const pad = (n) => String(n).padStart(2, '0');
-const slugify = (value) => String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64);
-const episodesRoot = path.join(root, 'episodes');
-fs.mkdirSync(episodesRoot, {recursive:true});
-const ids = fs.readdirSync(episodesRoot, {withFileTypes:true})
-  .filter((e) => e.isDirectory() && /^KM-\d{3}-/.test(e.name))
-  .map((e) => Number(e.name.slice(3,6))).filter(Number.isFinite);
-const autoNumber = String((ids.length ? Math.max(...ids) : 0) + 1).padStart(3, '0');
+const slugify = (value) => String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,64);
+const episodesRoot = path.join(root,'episodes');
+fs.mkdirSync(episodesRoot,{recursive:true});
+const ids = fs.readdirSync(episodesRoot,{withFileTypes:true})
+  .filter((e)=>e.isDirectory() && /^KM-\d{3}-/.test(e.name))
+  .map((e)=>Number(e.name.slice(3,6))).filter(Number.isFinite);
+const autoNumber = String((ids.length ? Math.max(...ids) : 0) + 1).padStart(3,'0');
 const episodeId = /^KM-\d{3}$/.test(requestedId) ? requestedId : `KM-${autoNumber}`;
 const slug = slugify(topic) || `episode-${episodeId.slice(3)}`;
 const episodeFolder = `${episodeId}-${slug}`;
-const episodeRoot = path.join(episodesRoot, episodeFolder);
-const revision = `${episodeId.replace('-', '')}-R1`;
+const episodeRoot = path.join(episodesRoot,episodeFolder);
 if (fs.existsSync(episodeRoot)) throw new Error(`Episode already exists: ${episodeFolder}`);
+const revision = `${episodeId.replace('-','')}-R1`;
+const placeholder = (label) => `__PLAN_REQUIRED__ ${label}`;
 
-const write = (relativePath, content) => {
-  const target = path.join(episodeRoot, relativePath);
-  fs.mkdirSync(path.dirname(target), {recursive:true});
-  fs.writeFileSync(target, content, 'utf8');
+const write = (rel, content) => {
+  const target = path.join(episodeRoot,rel);
+  fs.mkdirSync(path.dirname(target),{recursive:true});
+  fs.writeFileSync(target,content,'utf8');
 };
-for (const dir of ['00-bildprompts/images','01-voice-script','02-audio','03-export','99-technik']) {
-  fs.mkdirSync(path.join(episodeRoot, dir), {recursive:true});
-}
+for (const dir of ['00-bildprompts/images','01-voice-script','02-audio','03-export','99-technik']) fs.mkdirSync(path.join(episodeRoot,dir),{recursive:true});
 
-const scenes = [
-  {scene:'01',type:'cover',image:'Szene 01.png',duration:0,character,inVideo:false},
-  {scene:'02',type:'intro',image:'Szene 02.png',voice:'Voice 01.mp3',duration:8,character},
-  {scene:'03',type:'safety',image:'Szene 03.png',duration:4,character},
-  {scene:'04',type:'lets-begin',image:'Szene 04.png',duration:2,character},
-];
-let sceneNumber = 5;
-for (let i = 0; i < 12; i += 1) {
-  const exerciseScene = pad(sceneNumber);
-  scenes.push({scene:exerciseScene,type:'exercise',title:'TBD',instruction:'TBD',image:`Szene ${exerciseScene}.png`,duration:20,character,ballCount:null});
-  sceneNumber += 1;
-  if (i < 11) {
-    const readyScene = pad(sceneNumber);
-    scenes.push({scene:readyScene,type:'get-ready',image:`Szene ${readyScene}.png`,duration:5,character,nextExerciseTitle:'TBD',afterExerciseScene:exerciseScene});
-    sceneNumber += 1;
+const specs = expectedSceneSpecs(contract);
+const exerciseTitleByScene = new Map();
+const scenes = [];
+for (const spec of specs) {
+  const scene = padScene(spec.scene);
+  if (spec.type === 'cover') {
+    scenes.push({scene,type:'cover',image:sceneFile(spec.scene),duration:0,character,inVideo:false});
+  } else if (spec.type === 'intro') {
+    scenes.push({scene,type:'intro',image:sceneFile(spec.scene),voice:contract.voiceContract.voiceFile,duration:spec.duration,character});
+  } else if (spec.type === 'exercise') {
+    const title = placeholder(`EXERCISE ${spec.exerciseIndex} TITLE`);
+    exerciseTitleByScene.set(spec.scene,title);
+    scenes.push({scene,type:'exercise',title,instruction:placeholder(`EXERCISE ${spec.exerciseIndex} INSTRUCTION`),poseDescription:placeholder(`EXERCISE ${spec.exerciseIndex} POSE`),worldZone:placeholder(`EXERCISE ${spec.exerciseIndex} WORLD ZONE`),image:sceneFile(spec.scene),duration:spec.duration,character,ballCount:0});
+  } else if (spec.type === 'get-ready') {
+    scenes.push({scene,type:'get-ready',image:sceneFile(spec.scene),duration:spec.duration,character,afterExerciseScene:padScene(spec.afterExerciseScene),nextExerciseTitle:placeholder(`NEXT EXERCISE AFTER SZENE ${padScene(spec.afterExerciseScene)}`),generatedText:placeholder(`GET READY TEXT SZENE ${scene}`),worldZone:placeholder(`GET READY WORLD ZONE SZENE ${scene}`)});
+  } else {
+    scenes.push({scene,type:spec.type,image:sceneFile(spec.scene),duration:spec.duration,character});
   }
 }
-scenes.push({scene:'28',type:'outro',image:'Szene 28.png',duration:4,character});
-
-const generationBatches = [[2,3,4,5,6],[7,8,9,10,11],[12,13,14,15,16],[17,18,19,20,21],[22,23,24,25,26],[27,28]];
 
 const data = {
   schemaVersion:3,
-  structureVersion:3,
+  structureVersion:contract.structureVersion,
+  productionContractVersion:contract.contractVersion,
+  contractFile:'config/v3-contract.json',
   id:episodeId,
   date:requestedDate,
-  slug,
-  theme:slug,
-  topic,
-  status:'cover-selection-pending',
-  visualPolicyFile:'config/visual-policy.json',
-  visualStyleId:visual.styleId,
-  imagePlanFile:'99-technik/IMAGE_PLAN.json',
-  flowPromptFile:'00-bildprompts/google-flow-prompt.txt',
+  day:new Date(`${requestedDate}T12:00:00Z`).toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'}),
+  slug,theme:slug,topic,status:'planning-required',
+  visualPolicyFile:'config/visual-policy.json',visualStyleId:visual.styleId,
+  imagePlanFile:'99-technik/IMAGE_PLAN.json',flowPromptFile:'00-bildprompts/google-flow-prompt.txt',
+  voiceScriptFile:'01-voice-script/voice-script.txt',voicePlanFile:'99-technik/VOICE_PLAN.json',
   coverSelectionFile:'99-technik/COVER_SELECTION.json',
   publicAssetRoot:`public/episodes/${requestedDate}/${episodeFolder}`,
-  format:'youtube-longform',
-  aspectRatio:pipeline.aspectRatio,
-  fps:pipeline.fps,
-  width:pipeline.resolution.width,
-  height:pipeline.resolution.height,
-  mainCharacter:character,
-  singleCharacterWholeEpisode:true,
-  allowCharacterSwitch:false,
-  allowSecondVisibleCharacter:false,
-  allVideoSectionsUseCharacterImage:true,
-  staticPoseOnly:true,
-  singleFrameClarityRequired:true,
-  silhouetteTestRequired:true,
-  characterReference:`selected ${episodeId} Szene 01 cover reference ONLY`,
-  soleImageReference:'Szene 01.png',
-  secondaryImageReferencesForbidden:true,
-  eachNonCoverSceneGeneratedExactlyOnce:true,
-  maximumGenerationAttemptsPerNonCoverScene:1,
-  regenerationForbidden:true,
-  outfitLockedAfterCoverSelection:true,
-  worldLockedAfterCoverSelection:true,
+  format:'youtube-longform',aspectRatio:pipeline.aspectRatio,fps:pipeline.fps,width:pipeline.resolution.width,height:pipeline.resolution.height,
+  mainCharacter:character,singleCharacterWholeEpisode:true,allowCharacterSwitch:false,allowSecondVisibleCharacter:false,allVideoSectionsUseCharacterImage:true,
+  staticPoseOnly:true,singleFrameClarityRequired:true,silhouetteTestRequired:true,poseDiversityRequired:true,
+  characterReference:`selected ${episodeId} Szene 01 cover reference ONLY`,soleImageReference:'Szene 01.png',secondaryImageReferencesForbidden:true,
+  eachNonCoverSceneGeneratedExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,
   imageGenerationRevisionRequired:revision,
-  coverPolicy:{generateCandidatesFirst:3,candidateFiles:['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png'],waitForExplicitUserSelection:true,winnerFinalFile:'Szene 01.png',selectedCoverIsSoleReference:true,noLaterSceneGenerationBeforeSelection:true,deleteRejectedCandidatesAfterSelection:true},
-  imageBatchPolicy:{enabled:true,batchSize:5,showBatchToUser:false,waitForExplicitUserContinue:false,autoContinueToNextBatch:true,deliverCompletedFolderAtEnd:true,batches:generationBatches,soleReferenceEveryBatch:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachSceneExactlyOnce:true},
-  introDuration:8,introTitle:'TBD',introSubtitle:'12 FUN FREEZE POSES • 20 SEC EACH',introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
-  introVoiceText:'TBD — exact continuous TTS copy for the 14-second opening.',voiceScriptFormat:'timecoded production script plus exact TTS copy',voiceScriptFile:'01-voice-script/voice-script.txt',voicePlanFile:'99-technik/VOICE_PLAN.json',
-  safetyDuration:4,letsBeginDuration:2,outroDuration:4,exerciseDuration:20,defaultRestAfter:5,openingDuration:14,
+  coverPolicy:{generateCandidatesFirst:3,candidateFiles:contract.coverContract.candidateFiles,waitForExplicitUserSelection:true,winnerFinalFile:'Szene 01.png',selectedCoverIsSoleReference:true,noLaterSceneGenerationBeforeSelection:true,deleteRejectedCandidatesAfterSelection:true},
+  imageBatchPolicy:{enabled:true,batchSize:5,showBatchToUser:false,waitForExplicitUserContinue:false,autoContinueToNextBatch:true,deliverCompletedFolderAtEnd:true,batches:pipeline.batchGenerationPolicy.batches,soleReferenceEveryBatch:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachSceneExactlyOnce:true},
+  introDuration:8,introTitle:placeholder('INTRO TITLE'),introSubtitle:placeholder('INTRO SUBTITLE'),introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
+  introVoiceText:placeholder('EXACT CONTINUOUS TTS COPY'),voiceScriptFormat:'timecoded production script plus exact TTS copy',
+  safetyDuration:4,letsBeginDuration:2,outroDuration:4,exerciseDuration:20,getReadyDuration:5,openingDuration:14,
   voicePolicy:{openingSequenceVoiceOnly:true,voiceStartsAtIntro:true,voiceMayContinueAcrossSafety:true,voiceMayContinueAcrossLetsBegin:true,voiceMustEndBeforeFirstExercise:true,exerciseVoice:false,restVoice:false,outroVoice:false,subtitles:false,voiceCaptions:false,openingVoiceTargetSeconds:'13.65-14.00',voiceFile:'Voice 01.mp3'},
-  audioPolicy:{backgroundMusicRequiredForFinal:true,backgroundMusicFile:'bg-music.mp3',backgroundMusicLoop:true,backgroundMusicLowDuringOpening:true,backgroundMusicContinuesThroughWorkout:true,noSpokenVoiceAfterOpening:true,musicBriefFile:'02-audio/MUSIC_BRIEF.md',targetBpm:'120-130',vocalsForbidden:true,style:'upbeat playful kids fitness electro-pop instrumental'},
+  audioPolicy:{backgroundMusicRequiredForFinal:true,backgroundMusicFile:'bg-music.mp3',backgroundMusicLoop:true,backgroundMusicLowDuringOpening:true,backgroundMusicContinuesThroughWorkout:true,noSpokenVoiceAfterOpening:true,musicBriefFile:'02-audio/MUSIC_BRIEF.md'},
   transitionPolicy:{blankFramesForbidden:true,blackFlashesForbidden:true,whiteFlashesForbidden:true,fullSceneFadeFromZeroForbidden:true,hardCutWithVisibleImageFromFirstFrame:true},
-  visibleTextPolicy:{googleFlowOwnsAllNonTimerVisibleText:true,remotionTimerOnly:true,progressBarForbidden:true},
-  exerciseVisualPolicy:{exerciseNameSource:'GoogleFlowImage',exerciseInstructionSource:'GoogleFlowImage',instructionBubbleSource:'GoogleFlowImage',exerciseNamePosition:'bottom-left',instructionPosition:'top-right',exerciseUiStyleSource:'prompt-defined layout only',sameUiStyleRequiredAcrossAllExercises:true,timerSafeZoneTopLeftPixels:230,remotionExerciseNameForbidden:true,remotionExerciseInstructionForbidden:true,googleFlowTimerForbidden:true,remotionProgressBarForbidden:true,remotionKenBurnsOnExerciseForbidden:true,poseDiversityRequired:true,maxSimilarPoseFamilies:2},
-  restVisualPolicy:{blankScreenForbidden:true,useDedicatedGetReadyImage:true,reuseNextExerciseImage:false,getReadyDuration:5,getReadyTextSource:'GoogleFlowImage',characterMustRemainVisible:true,remotionTimerOnly:true,remotionRestTextForbidden:true,remotionNextPoseNameForbidden:true,remotionKenBurnsOnRestForbidden:true},
-  nonExerciseImagePolicy:{introGeneratedTextAllowed:true,safetyGeneratedTextAllowed:true,letsBeginGeneratedTextAllowed:true,getReadyGeneratedTextAllowed:true,outroGeneratedTextAllowed:true,googleFlowOwnsAllVisibleText:true,remotionTextOverlaysForbidden:true},
-  scenes,
-  runtimeSeconds:313
-};
-
-const generatedTextFor = (scene) => {
-  if (scene.type === 'cover') return 'TBD thumbnail title';
-  if (scene.type === 'intro') return 'TBD complete intro title/subtitle/badge/follow-along text';
-  if (scene.type === 'safety') return 'SAFETY FIRST / Clear some space. / Stop if anything hurts.';
-  if (scene.type === 'lets-begin') return "LET'S BEGIN!";
-  if (scene.type === 'exercise') return {title:scene.title,instruction:scene.instruction};
-  if (scene.type === 'get-ready') return `GET READY / NEXT: ${scene.nextExerciseTitle}`;
-  return 'GREAT JOB! / WORKOUT COMPLETE';
+  visibleTextPolicy:{googleFlowOwnsAllNonTimerVisibleText:true,remotionTimerOnly:true,progressBarForbidden:true,restLabelForbidden:true},
+  exerciseVisualPolicy:{exerciseNameSource:'GoogleFlowImage',exerciseInstructionSource:'GoogleFlowImage',instructionBubbleSource:'GoogleFlowImage',exerciseNamePosition:'bottom-left',instructionPosition:'top-right',exerciseUiStyleSource:'prompt-defined layout only',sameUiStyleRequiredAcrossAllExercises:true,timerSafeZoneTopLeftPixels:230,remotionExerciseNameForbidden:true,remotionExerciseInstructionForbidden:true,googleFlowTimerForbidden:true,remotionProgressBarForbidden:true,remotionKenBurnsOnExerciseForbidden:true},
+  restVisualPolicy:{blankScreenForbidden:true,dedicatedGetReadyImageRequired:true,reuseNextExerciseImage:false,characterMustRemainVisible:true,remotionTimerOnly:true,googleFlowOwnsGetReadyText:true,remotionRestTextForbidden:true,remotionNextPoseNameForbidden:true,remotionKenBurnsOnRestForbidden:true},
+  nonExerciseImagePolicy:{introGeneratedTextAllowed:true,safetyGeneratedTextAllowed:true,letsBeginGeneratedTextAllowed:true,outroGeneratedTextAllowed:true,googleFlowOwnsAllVisibleText:true,remotionTextOverlaysForbidden:true},
+  scenes,runtimeSeconds:contract.sceneContract.runtimeSeconds
 };
 
 const imagePlan = {
-  schemaVersion:3,
-  episodeFolder,
-  revision,
-  visualStyleId:visual.styleId,
-  generationRules:{
-    coverCandidateCount:3,
-    coverCandidateFiles:['Cover-Kandidat-01.png','Cover-Kandidat-02.png','Cover-Kandidat-03.png'],
-    coverSelectionFile:'99-technik/COVER_SELECTION.json',
-    stopAfterCoverCandidatesUntilExplicitUserSelection:true,
-    selectedCoverFinalFile:'Szene 01.png',
-    selectedCoverBecomesSoleReference:true,
-    batchSizeAfterCover:5,
-    autoContinueToNextBatch:true,
-    generationBatches,
-    generateEachNonCoverSceneExactlyOnce:true,
-    maximumGenerationAttemptsPerNonCoverScene:1,
-    regenerationForbidden:true,
-    automaticAlternatesForbidden:true,
-    soleReference:'Szene 01.png',
-    secondaryImageReferencesForbidden:true,
-    finalDirectory:'00-bildprompts/images',
-    allFinalScenesInOneFolder:true,
-    sceneFilePattern:'Szene NN.png',
-    firstFinalScene:1,
-    lastFinalScene:28,
-    dedicatedGetReadyScenes:true,
-    getReadySceneCount:11,
-    allNonTimerVisibleTextOwner:'google-flow'
-  },
-  images:scenes.map((scene) => ({
-    sceneNumber:Number(scene.scene),
-    imageFile:scene.image,
-    sceneRole:scene.type,
-    visualPurpose:scene.type === 'cover' ? 'Create the strongest mobile-readable YouTube thumbnail and lock the episode visual identity.' : 'TBD',
-    topicAnchor:topic,
-    visualForm:scene.type === 'exercise' ? 'single clear static full-body pose with baked title and instruction' : scene.type === 'get-ready' ? 'dedicated transition card with neutral ready stance and baked GET READY/NEXT text' : 'single complete premium 3D frame with all required text baked in',
-    characterReference:scene.type === 'cover' ? 'three-cover candidate stage' : 'selected Szene 01.png ONLY',
-    uiReference:null,
-    generationAttemptsAllowed:scene.type === 'cover' ? 3 : 1,
-    propCount:scene.type === 'exercise' ? scene.ballCount : 0,
-    generatedText:generatedTextFor(scene),
-    safeZones:['exercise','get-ready'].includes(scene.type) ? ['top-left 230x230 countdown timer zone clear'] : [],
-    acceptanceCriteria:['same selected character where applicable','correct anatomy','no extra people','all required non-timer text visible and readable','16:9 composition'],
-    prompt:'TBD'
-  }))
+  schemaVersion:3,productionContractVersion:contract.contractVersion,episodeFolder,revision,visualStyleId:visual.styleId,
+  generationRules:{coverCandidateCount:3,coverCandidateFiles:contract.coverContract.candidateFiles,coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesSoleReference:true,batchSizeAfterCover:5,autoContinueToNextBatch:true,generationBatches:pipeline.batchGenerationPolicy.batches,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,automaticAlternatesForbidden:true,soleReference:'Szene 01.png',secondaryImageReferencesForbidden:true,finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
+  images:scenes.map((scene,index)=>({sceneNumber:index+1,imageFile:scene.image,sceneRole:scene.type,visualPurpose:placeholder(`SZENE ${scene.scene} VISUAL PURPOSE`),topicAnchor:topic,visualForm:placeholder(`SZENE ${scene.scene} VISUAL FORM`),characterReference:scene.type==='cover'?'three-cover candidate stage':'selected Szene 01.png ONLY',uiReference:null,generationAttemptsAllowed:scene.type==='cover'?3:1,propCount:0,generatedText:placeholder(`SZENE ${scene.scene} GENERATED TEXT`),safeZones:['exercise','get-ready'].includes(scene.type)?['top-left 230x230 countdown timer zone clear']:[],acceptanceCriteria:['same selected character identity and outfit','correct scene role','natural anatomy','no extra people','16:9 composition','no generated countdown timer or progress bar'],prompt:placeholder(`SZENE ${scene.scene} FINAL GOOGLE FLOW PROMPT`)}))
 };
 
-const blocks = imagePlan.images.map((item) => `SZENE ${pad(item.sceneNumber)}\nVisual Purpose: ${item.visualPurpose}\nTopic Anchor: ${item.topicAnchor}\nVisual Form: ${item.visualForm}\nGenerated Text: ${typeof item.generatedText === 'string' ? item.generatedText : JSON.stringify(item.generatedText)}\nReference image: ${item.sceneNumber === 1 ? 'none during cover candidate generation' : 'Szene 01.png ONLY'}\nPrompt: ${item.prompt}\nFinal file: Szene ${pad(item.sceneNumber)}.png`);
+let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\n\n`;
+for (let n=1;n<=3;n+=1) prompt += `COVER CANDIDATE 0${n} — Cover-Kandidat-0${n}.png\nFINAL GOOGLE FLOW PROMPT:\n${placeholder(`COVER CANDIDATE 0${n} PROMPT`)}\n\n`;
+for (let n=2;n<=28;n+=1) prompt += `SZENE ${padScene(n)} — ${sceneFile(n)}\nFINAL GOOGLE FLOW PROMPT:\n${placeholder(`SZENE ${padScene(n)} PROMPT`)}\n\n`;
 
-const batchWorkflow = `FIVE-IMAGE INTERNAL BATCH WORKFLOW AFTER COVER SELECTION\nBatch 1: Szene 02-06.\nBatch 2: Szene 07-11.\nBatch 3: Szene 12-16.\nBatch 4: Szene 17-21.\nBatch 5: Szene 22-26.\nFinal Batch 6: Szene 27-28.\nAutomatically continue without asking the user again. Generate every Szene 02-28 exactly once. Do not create alternates or regenerations. Attach/use ONLY Szene 01.png as the image reference for every later scene. Never use Szene 05 or any other later scene as a reference.\n`;
+const voicePlan={schemaVersion:1,productionContractVersion:contract.contractVersion,episodeFolder,voiceFile:'Voice 01.mp3',targetDurationSeconds:{min:13.65,target:13.9,max:14.05},startsAtSeconds:0,mustEndBeforeSeconds:14.05,noSpokenVoiceAfterSeconds:14,sections:contract.voiceContract.sections.map((s)=>({...s,text:placeholder(`${s.label} VOICE`)})),exactTtsCopy:placeholder('EXACT CONTINUOUS TTS COPY'),note:'Timecodes are production targets, not subtitles.'};
+const voiceScript=`# ${episodeId} — Voice Script\n\n## Timing map\n\n### 00:00–00:08 — Szene 02 — INTRO\n${placeholder('INTRO VOICE')}\n\n### 00:08–00:12 — Szene 03 — SAFETY\n${placeholder('SAFETY VOICE')}\n\n### 00:12–00:14 — Szene 04 — LET'S BEGIN\n${placeholder('LETS BEGIN VOICE')}\n\n## Exact TTS copy\n\n${placeholder('EXACT CONTINUOUS TTS COPY')}\n\n## Rules\n- One continuous Voice 01.mp3 only.\n- Target 13.65–14.00s; hard max 14.05s.\n- No spoken voice after 14s.\n`;
 
-const flowPrompt = `VISUAL_POLICY_FILE: config/visual-policy.json\nACTIVE_STYLE_ID: ${visual.styleId}\n\nKIDMOTION GOOGLE FLOW MASTER PROMPT — ${episodeId} — ${topic}\n\nHARD STOP WORKFLOW — COVER FIRST\n1. Generate ONLY three cover candidates: Cover-Kandidat-01.png, Cover-Kandidat-02.png, Cover-Kandidat-03.png.\n2. Show all three to the user and wait for exactly one cover choice.\n3. Do NOT generate Szene 02 or later before the cover choice.\n4. Run npm run kidmotion:select-cover -- --episode=${episodeFolder} --candidate=<1|2|3>.\n5. The winner becomes Szene 01.png and both rejected covers are deleted.\n6. From then on Szene 01.png is the ONLY image reference allowed.\n7. Continue automatically through Szene 02-28 with no more user questions.\n\n${batchWorkflow}\nONE-FOLDER RULE\nAll final images live in 00-bildprompts/images/ as Szene 01.png through Szene 28.png.\n\nGET-READY RULE\nThere are 11 dedicated five-second GET READY scenes. They show a neutral ready stance, not the next exercise pose.\n\nREFERENCE RULE\nFor every Szene 02-28, attach/use selected Szene 01.png and NO other image. Text layout consistency must come from the written prompt, never from a second reference image.\n\nONE-GENERATION RULE\nGenerate every Szene 02-28 exactly once. No alternate versions. No regeneration after an image exists.\n\nALL NON-TIMER VISIBLE TEXT IS GENERATED BY GOOGLE FLOW. Remotion adds ONLY the changing countdown timer.\n\n${blocks.join('\n\n---\n\n')}\n`;
+write('99-technik/episode.json',JSON.stringify(data,null,2)+'\n');
+write('99-technik/IMAGE_PLAN.json',JSON.stringify(imagePlan,null,2)+'\n');
+write('99-technik/RENDER_PLAN.json',JSON.stringify({schemaVersion:3,productionContractVersion:contract.contractVersion,episodeFolder,runtimeSeconds:313,coverOutsideVideo:true,coverSelectionRequiredBeforeLaterScenes:true,soleVisualReference:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,sceneCount:28,exerciseCount:12,getReadyCount:11,exerciseSeconds:20,getReadySeconds:5,imageGenerationBatchSize:5,waitForUserBetweenImageBatches:false,autoContinueImageBatches:true,deliverCompletedImageFolderAtEnd:true,staticExerciseImages:true,staticGetReadyImages:true,backgroundMusic:true,remotionOverlay:'countdown-timer-only',progressBar:false,allNonTimerVisibleTextOwner:'google-flow',restUsesDedicatedGetReadyImage:true,restReusesNextExerciseImage:false},null,2)+'\n');
+write('99-technik/COVER_SELECTION.json',JSON.stringify({schemaVersion:1,productionContractVersion:contract.contractVersion,episodeFolder,status:'AWAITING_USER_SELECTION',selectedCandidate:null,selectedCandidateOriginalFile:null,finalFile:null,userSelectionRequired:true,soleReferenceForLaterScenes:'Szene 01.png',secondaryImageReferencesForbidden:true},null,2)+'\n');
+write('99-technik/VISUAL_REVIEW.json',JSON.stringify({episodeFolder,revision,sameCharacterEveryScene:false,allExercisePosesClearFromOneStill:false,poseVarietyStrong:false,allGetReadyImagesClearAndNotConfusableWithExercise:false,allExerciseTextReadableAndConsistent:false,allExerciseSafeZonesClear:false,propBallCountsCorrect:false,allNonTimerTextGeneratedAndReadable:false,noExtraPeople:false,noAnatomyErrors:false,noCroppingOfImportantLimbs:false,sceneOrderMatchesPlan:false,noMissingOrDuplicateSceneContent:false,eachSceneMatchesItsPromptRole:false,openingVisualTimingMatchesVoice:false,notes:'Set true only after inspecting real final images and rendered MP4.'},null,2)+'\n');
+write('99-technik/VOICE_PLAN.json',JSON.stringify(voicePlan,null,2)+'\n');
+write('99-technik/GENERATION-REVISION.txt',revision+'\n');
+write('99-technik/status.json',JSON.stringify({schemaVersion:3,productionContractVersion:contract.contractVersion,status:'planning-required',promptPlanReady:false,coverSelectionPending:true,coverSelected:false,imagesReady:false,audioReady:false,assetsApproved:false,renderReady:false},null,2)+'\n');
+write('00-bildprompts/google-flow-prompt.txt',prompt);
+write('01-voice-script/voice-script.txt',voiceScript);
+write('02-audio/README.md','Required for final: Voice 01.mp3 + bg-music.mp3. Voice follows VOICE_PLAN.json; no spoken voice after 14s.\n');
+write('02-audio/MUSIC_BRIEF.md','# Music brief\n\nUpbeat playful kids-fitness electro-pop instrumental, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Lower under opening voice, more energetic after 14s.\n');
+write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n__PLAN_REQUIRED__ TITLE\n\n## Description / Caption\n__PLAN_REQUIRED__ DESCRIPTION\n');
+write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Then run prompt:qa. Do not open Flow before it passes.\n`);
+write('ANTIGRAVITY.md',`Read GEHIRN.md and config/v3-contract.json first. This episode is contract v${contract.contractVersion}. Complete all planning placeholders, run npm run prompt:qa -- --episode=${episodeFolder}, then generate 3 covers, wait once for the user choice, and continue Szene 02–28 serially using ONLY Szene 01.png.\n`);
 
-write('99-technik/episode.json', `${JSON.stringify(data,null,2)}\n`);
-write('99-technik/IMAGE_PLAN.json', `${JSON.stringify(imagePlan,null,2)}\n`);
-write('99-technik/RENDER_PLAN.json', `${JSON.stringify({schemaVersion:3,staticExerciseImages:true,staticGetReadyImages:true,backgroundMusic:true,coverOutsideVideo:true,coverSelectionRequiredBeforeLaterScenes:true,soleVisualReference:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachNonCoverSceneExactlyOnce:true,imageGenerationBatchSize:5,autoContinueImageBatches:true,deliverCompletedImageFolderAtEnd:true,remotionOverlay:'countdown-timer-only',progressBar:false,allNonTimerVisibleTextOwner:'google-flow',restUsesDedicatedGetReadyImage:true,restUsesNextExerciseImage:false},null,2)}\n`);
-write('99-technik/COVER_SELECTION.json', `${JSON.stringify({schemaVersion:1,episodeFolder,status:'AWAITING_USER_SELECTION',selectedCandidate:null,selectedCandidateOriginalFile:null,finalFile:null,userSelectionRequired:true,soleReferenceForLaterScenes:'Szene 01.png'},null,2)}\n`);
-write('99-technik/VISUAL_REVIEW.json', `${JSON.stringify({episodeFolder,revision,sameCharacterEveryScene:false,allExercisePosesClearFromOneStill:false,poseVarietyStrong:false,allGetReadyImagesClearAndNotConfusableWithExercise:false,allExerciseTextReadableAndConsistent:false,allExerciseSafeZonesClear:false,propBallCountsCorrect:false,allNonTimerTextGeneratedAndReadable:false,noExtraPeople:false,noAnatomyErrors:false,noCroppingOfImportantLimbs:false,notes:'Set true only after inspecting all final Szene 01–28 images.'},null,2)}\n`);
-write('99-technik/status.json', `${JSON.stringify({schemaVersion:3,coverSelectionPending:true,coverSelected:false,imagesReady:false,audioReady:false,assetsApproved:false,renderReady:false},null,2)}\n`);
-write('99-technik/GENERATION-REVISION.txt', `${revision}\n`);
-write('00-bildprompts/google-flow-prompt.txt', flowPrompt);
-write('01-voice-script/voice-script.txt', `# ${episodeId} — Voice Script\n\n## Timing map\n\n### 00:00–00:08 — Szene 02 — INTRO\nTBD INTRO VOICE\n\n### 00:08–00:12 — Szene 03 — SAFETY\nTBD SAFETY VOICE\n\n### 00:12–00:14 — Szene 04 — LET'S BEGIN\nTBD LETS BEGIN VOICE\n\n## Exact TTS copy\n\nTBD EXACT CONTINUOUS TTS COPY\n\n## Rules\n- One continuous Voice 01.mp3 only.\n- Target 13.65–14.00s; hard max 14.05s.\n- No spoken voice after 14s.\n`);\nwrite('99-technik/VOICE_PLAN.json', `${JSON.stringify({schemaVersion:1,episodeFolder,voiceFile:'Voice 01.mp3',targetDurationSeconds:{min:13.65,target:13.9,max:14.05},startsAtSeconds:0,mustEndBeforeSeconds:14.05,noSpokenVoiceAfterSeconds:14,sections:[{scene:'02',label:'INTRO',startSeconds:0,endSeconds:8,text:'TBD INTRO VOICE'},{scene:'03',label:'SAFETY',startSeconds:8,endSeconds:12,text:'TBD SAFETY VOICE'},{scene:'04',label:'LETS_BEGIN',startSeconds:12,endSeconds:14,text:'TBD LETS BEGIN VOICE'}],exactTtsCopy:'TBD EXACT CONTINUOUS TTS COPY',note:'Timecodes are production targets, not subtitles.'},null,2)}\n`);
-write('02-audio/README.md', `Required: Voice 01.mp3 (13.65–14.00s opening), bg-music.mp3 and MUSIC_BRIEF.md. No spoken Voice after the opening.\n`);
-write('02-audio/MUSIC_BRIEF.md', `# Music brief\n\nUse upbeat playful kids-fitness electro-pop instrumental music, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Music stays low under the 14s opening voice and becomes clearly more energetic after the opening. Prefer a seamless loop.\n`);
-write('03-export/UPLOAD_METADATA.md', `# Upload Metadata\n\n## YouTube Title\nTBD\n\n## Description / Caption\nTBD\n`);
-write('README.md', `# ${episodeId} — ${topic}\n\nDate: ${requestedDate}\nTheme: ${slug}\n\nGenerate three covers, wait for one user choice, delete the two rejected covers, then generate Szene 02–28 automatically. Every later scene is generated exactly once and uses ONLY selected Szene 01.png as its image reference.\n`);
-write('ANTIGRAVITY.md', `Read GEHIRN.md first. Generate exactly three cover candidates and wait for the user's one-time choice. Delete the two rejected covers and rename the winner Szene 01.png. Then continue automatically through Szene 02–28. Generate each later scene exactly once. For every later scene use ONLY Szene 01.png as the image reference. Never use Szene 05 or any other later image as a reference. Keep all final images in one folder. Never mark VISUAL_REVIEW true without inspecting final images.\n`);
-
-console.log(`Created KidMotion V3 episode: ${episodeFolder}`);
-console.log(`Date: ${requestedDate}`);
-console.log(`Theme: ${slug}`);
+console.log(`Created KidMotion contract-v${contract.contractVersion} draft: ${episodeFolder}`);
+console.log('Status: planning-required. Flow is blocked until prompt:qa passes.');

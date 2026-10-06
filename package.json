@@ -6,6 +6,7 @@
     "start": "remotion studio src/index.ts",
     "typecheck": "tsc --noEmit",
     "project:doctor": "node scripts/project-doctor.mjs",
+    "repo:qa": "node scripts/repo-qa.mjs",
     "prompt:qa": "node scripts/prompt-plan-qa.mjs",
     "preflight": "node scripts/preflight.mjs",
     "scene:qa": "node scripts/scene-integrity-qa.mjs",
