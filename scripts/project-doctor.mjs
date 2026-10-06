@@ -52,7 +52,7 @@ for (const required of ['typecheck','project:doctor','repo:qa','prompt:qa','pref
 if (!guarded.includes("'KidMotionVideo'")) fail('Guarded render must target KidMotionVideo.');
 
 const generator = read('scripts/new-episode.mjs');
-for (const required of ['loadContract','productionContractVersion','VOICE_PLAN.json','planning-required','Szene 28.png','__PLAN_REQUIRED__']) {
+for (const required of ['loadContract','expectedSceneSpecs','sceneFile','productionContractVersion','VOICE_PLAN.json','planning-required','__PLAN_REQUIRED__']) {
   if (!generator.includes(required)) fail(`new-episode.mjs missing contract behavior: ${required}`);
 }
 
