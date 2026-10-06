@@ -13,3 +13,7 @@ Production order:
 5. Use ONLY `Szene 01.png` as image reference.
 6. Run `npm run scene:qa -- --episode=episodes/KM-005-space-mission-workout`.
 7. Perform real visual review before approval.
+
+## Voice Script
+
+The opening voice is a real timed production script, not just a loose paragraph. See `01-voice-script/voice-script.txt` and `99-technik/VOICE_PLAN.json`. It maps Intro 00:00–00:08, Safety 00:08–00:12 and LET'S BEGIN 00:12–00:14, then no further voice.

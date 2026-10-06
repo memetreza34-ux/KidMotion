@@ -23,6 +23,9 @@ export function resolveEpisodePaths(root, episodeFolder) {
     voiceScriptPath: isV2
       ? path.join(episodeRoot, '01-voice-script', 'voice-script.txt')
       : path.join(episodeRoot, '01-skript', 'voice-text.md'),
+    voicePlanPath: isV2
+      ? path.join(episodeRoot, '99-technik', 'VOICE_PLAN.json')
+      : null,
     audioDir: path.join(episodeRoot, '02-audio'),
     exportDir: path.join(episodeRoot, '03-export'),
     techDir: isV2

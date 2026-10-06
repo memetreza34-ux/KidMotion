@@ -110,8 +110,8 @@
   "introExtraInfo": [
     "FOLLOW ALONG"
   ],
-  "introVoiceText": "Welcome, space explorers! Today we’re blasting through a five-minute mission with twelve fun freeze challenges. Clear some space, move at your own pace, and stop if anything hurts. Power up your engines, stay strong, and let’s begin!",
-  "voiceScriptFormat": "one continuous copy-ready paragraph",
+  "introVoiceText": "Welcome, space explorers! Today we’re blasting through a five-minute mission with twelve fun freeze challenges. Follow along and hold each pose strong. Clear some space, move at your own pace, and stop if anything hurts. Engines ready? Let’s begin!",
+  "voiceScriptFormat": "timecoded production script plus exact TTS copy",
   "safetyDuration": 4,
   "letsBeginDuration": 2,
   "outroDuration": 4,
@@ -130,7 +130,30 @@
     "subtitles": false,
     "voiceCaptions": false,
     "openingVoiceTargetSeconds": "13.65-14.00",
-    "voiceFile": "Voice 01.mp3"
+    "voiceFile": "Voice 01.mp3",
+    "openingVoiceSections": [
+      {
+        "scene": "02",
+        "label": "INTRO",
+        "startSeconds": 0,
+        "endSeconds": 8,
+        "text": "Welcome, space explorers! Today we’re blasting through a five-minute mission with twelve fun freeze challenges. Follow along and hold each pose strong."
+      },
+      {
+        "scene": "03",
+        "label": "SAFETY",
+        "startSeconds": 8,
+        "endSeconds": 12,
+        "text": "Clear some space, move at your own pace, and stop if anything hurts."
+      },
+      {
+        "scene": "04",
+        "label": "LETS_BEGIN",
+        "startSeconds": 12,
+        "endSeconds": 14,
+        "text": "Engines ready? Let’s begin!"
+      }
+    ]
   },
   "audioPolicy": {
     "backgroundMusicRequiredForFinal": true,
@@ -516,5 +539,7 @@
       "character": "boy"
     }
   ],
-  "runtimeSeconds": 313
+  "runtimeSeconds": 313,
+  "voiceScriptFile": "01-voice-script/voice-script.txt",
+  "voicePlanFile": "99-technik/VOICE_PLAN.json"
 }

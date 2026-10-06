@@ -22,3 +22,10 @@ FINAL
 Run `npm run scene:qa -- --episode=episodes/KM-005-space-mission-workout`.
 Do not render if it reports missing, extra, duplicate, near-duplicate, prompt, reference or ordering problems.
 Never set VISUAL_REVIEW flags true without inspecting the actual images.
+
+VOICE PRODUCTION
+- Read `01-voice-script/voice-script.txt` and `99-technik/VOICE_PLAN.json`.
+- Generate exactly one `Voice 01.mp3` from the section labeled `Exact TTS copy`.
+- Target 13.65–14.00s total, hard maximum 14.05s.
+- Align meaning with Intro 00:00–00:08, Safety 00:08–00:12, LET'S BEGIN 00:12–00:14.
+- No spoken voice after 14s.

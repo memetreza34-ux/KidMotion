@@ -31,6 +31,8 @@ const data = readEpisodeData(paths);
 
 if (!fs.existsSync(paths.imagePlanPath)) fail('Missing 99-technik/IMAGE_PLAN.json.');
 if (!fs.existsSync(paths.promptPath)) fail('Missing 00-bildprompts/google-flow-prompt.txt.');
+if (!fs.existsSync(paths.voiceScriptPath)) fail('Missing 01-voice-script/voice-script.txt.');
+if (!fs.existsSync(paths.voicePlanPath)) fail('Missing 99-technik/VOICE_PLAN.json.');
 
 let plan = null;
 let prompt = '';
@@ -41,6 +43,25 @@ const hasPlaceholder = (value) => /\bTBD\b|__PLAN_REQUIRED__|PLACEHOLDER/i.test(
 if (hasPlaceholder(JSON.stringify(data))) fail('episode.json still contains unresolved planning placeholders.');
 if (plan && hasPlaceholder(JSON.stringify(plan))) fail('IMAGE_PLAN.json still contains unresolved planning placeholders.');
 if (hasPlaceholder(prompt)) fail('google-flow-prompt.txt still contains unresolved planning placeholders.');
+const voiceScript = fs.existsSync(paths.voiceScriptPath) ? fs.readFileSync(paths.voiceScriptPath, 'utf8') : '';
+const voicePlan = fs.existsSync(paths.voicePlanPath) ? JSON.parse(fs.readFileSync(paths.voicePlanPath, 'utf8')) : null;
+if (hasPlaceholder(voiceScript)) fail('voice-script.txt still contains unresolved planning placeholders.');
+if (voicePlan && hasPlaceholder(JSON.stringify(voicePlan))) fail('VOICE_PLAN.json still contains unresolved planning placeholders.');
+if (voiceScript && !voiceScript.includes('00:00–00:08') && !voiceScript.includes('00:00-00:08')) fail('voice-script.txt must include the Intro 00:00–00:08 timing block.');
+if (voiceScript && !voiceScript.includes('00:08–00:12') && !voiceScript.includes('00:08-00:12')) fail('voice-script.txt must include the Safety 00:08–00:12 timing block.');
+if (voiceScript && !voiceScript.includes('00:12–00:14') && !voiceScript.includes('00:12-00:14')) fail('voice-script.txt must include the LETS BEGIN 00:12–00:14 timing block.');
+if (voiceScript && !voiceScript.includes('Exact TTS copy')) fail('voice-script.txt must contain an Exact TTS copy section.');
+if (voicePlan) {
+  const sections = Array.isArray(voicePlan.sections) ? voicePlan.sections : [];
+  const expected = [['02',0,8],['03',8,12],['04',12,14]];
+  if (sections.length !== 3) fail('VOICE_PLAN.json must contain exactly 3 opening sections.');
+  for (let i=0;i<Math.min(sections.length,expected.length);i+=1) {
+    const [scene,start,end]=expected[i]; const s=sections[i];
+    if (String(s.scene)!==scene || Number(s.startSeconds)!==start || Number(s.endSeconds)!==end) fail(`VOICE_PLAN section ${i+1} must be Szene ${scene} at ${start}–${end}s.`);
+  }
+  if (!String(voicePlan.exactTtsCopy || '').trim()) fail('VOICE_PLAN.json needs exactTtsCopy.');
+  if (Number(voicePlan.noSpokenVoiceAfterSeconds)!==14) fail('VOICE_PLAN.json must forbid spoken voice after 14s.');
+}
 
 const scenes = Array.isArray(data.scenes) ? data.scenes : [];
 if (scenes.length !== 28) fail(`Expected exactly 28 scene records, found ${scenes.length}.`);
