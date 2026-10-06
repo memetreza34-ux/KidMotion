@@ -1,0 +1,831 @@
+{
+  "schemaVersion": 3,
+  "episodeFolder": "episodes/KM-005-space-mission-workout",
+  "revision": "KM005-R1",
+  "visualStyleId": "kidmotion-premium-3d-v3-flow-text",
+  "generationRules": {
+    "coverCandidateCount": 3,
+    "coverCandidateFiles": [
+      "Cover-Kandidat-01.png",
+      "Cover-Kandidat-02.png",
+      "Cover-Kandidat-03.png"
+    ],
+    "coverSelectionFile": "99-technik/COVER_SELECTION.json",
+    "stopAfterCoverCandidatesUntilExplicitUserSelection": true,
+    "selectedCoverFinalFile": "Szene 01.png",
+    "selectedCoverBecomesSoleReference": true,
+    "batchSizeAfterCover": 5,
+    "autoContinueToNextBatch": true,
+    "generationBatches": [
+      [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      [
+        27,
+        28
+      ]
+    ],
+    "generateEachNonCoverSceneExactlyOnce": true,
+    "maximumGenerationAttemptsPerNonCoverScene": 1,
+    "regenerationForbidden": true,
+    "automaticAlternatesForbidden": true,
+    "soleReference": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true,
+    "finalDirectory": "00-bildprompts/images",
+    "allFinalScenesInOneFolder": true,
+    "sceneFilePattern": "Szene NN.png",
+    "firstFinalScene": 1,
+    "lastFinalScene": 28,
+    "dedicatedGetReadyScenes": true,
+    "getReadySceneCount": 11,
+    "allNonTimerVisibleTextOwner": "google-flow"
+  },
+  "images": [
+    {
+      "sceneNumber": 1,
+      "imageFile": "Szene 01.png",
+      "sceneRole": "cover",
+      "visualPurpose": "Create the strongest mobile-readable YouTube cover and establish the single visual identity used by every later scene.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "premium stylized 3D YouTube thumbnail, one fictional mascot character, strong title hierarchy",
+      "characterReference": "three-cover candidate stage",
+      "uiReference": null,
+      "generationAttemptsAllowed": 3,
+      "propCount": 0,
+      "generatedText": "5 MIN SPACE MISSION / FOR KIDS",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original KidMotion space mascot character, fully clothed in a bright cobalt-blue, white and neon-lime sporty space-training outfit, with a friendly energetic expression and a simple confident mission-ready standing pose. Place the character large on the right. Build a bright futuristic launch deck with a huge curved window showing stars and a blue planet, clean glowing floor lines and rounded sci-fi architecture. On the left add large clean text exactly: 5 MIN SPACE MISSION. Under it add smaller text exactly: FOR KIDS. Strong mobile readability, clear depth, no real people, no brands, no logos, no extra characters, no photorealism. | Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original KidMotion space mascot character, fully clothed in a bright cobalt-blue, white and neon-lime sporty space-training outfit, with a friendly energetic expression and a simple confident mission-ready standing pose. Place the character large on the right. Use a moon-base observation deck with a wide starfield, a ringed planet in the distance, glowing cyan panels and a dramatic but playful space horizon. On the left add large clean text exactly: 5 MIN SPACE MISSION. Under it add smaller text exactly: FOR KIDS. Strong mobile readability, no real people, no brands, no logos, no extra characters, no photorealism. | Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original KidMotion space mascot character, fully clothed in a bright cobalt-blue, white and neon-lime sporty space-training outfit, with a friendly energetic expression and a simple confident mission-ready standing pose. Use a slightly closer character framing on the right. Build a colorful command-deck scene with a huge curved space window, stylized comet trails, deep navy sky, bright cyan and violet accent lights and a clean futuristic floor. On the left add large clean text exactly: 5 MIN SPACE MISSION. Under it add smaller text exactly: FOR KIDS. Strong mobile readability, no real people, no brands, no logos, no extra characters, no photorealism."
+    },
+    {
+      "sceneNumber": 2,
+      "imageFile": "Szene 02.png",
+      "sceneRole": "intro",
+      "visualPurpose": "Introduce the five-minute space mission, duration format and follow-along concept.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "premium stylized 3D intro card with full-body character and baked intro text",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "KIDMOTION / 5 MIN SPACE MISSION / 12 SPACE CHALLENGES • 20 SEC EACH / FOLLOW ALONG",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle, outfit colors and overall premium stylized 3D KidMotion space world. Create a clean 16:9 intro card on a bright space-station training deck. Show the character full body in a confident mission-ready stance. Add exactly these visible text elements with clear hierarchy: KIDMOTION, 5 MIN SPACE MISSION, 12 SPACE CHALLENGES • 20 SEC EACH, FOLLOW ALONG. No timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 3,
+      "imageFile": "Szene 03.png",
+      "sceneRole": "safety",
+      "visualPurpose": "Show the safety message before the workout begins.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "premium stylized 3D safety card with calm neutral full-body stance and baked text",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "SAFETY FIRST / Clear some space. / Stop if anything hurts.",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and space-station visual world. Show the character full body in a calm neutral standing pose. Create a clean premium stylized 3D 16:9 safety card. Add exactly: SAFETY FIRST. Under it add exactly: Clear some space. Under that add exactly: Stop if anything hurts. Keep text large and easy to read. No timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 4,
+      "imageFile": "Szene 04.png",
+      "sceneRole": "lets-begin",
+      "visualPurpose": "Create a short energetic handoff into Exercise 1.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "premium stylized 3D launch card with one large LET'S BEGIN message",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "LET'S BEGIN!",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and visual world. Show the character full body in an energetic mission-ready stance, feet planted and body ready. Premium stylized 3D, 16:9. Add one large clean message exactly: LET'S BEGIN! No other visible text, no timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 5,
+      "imageFile": "Szene 05.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach ROCKET LAUNCH HOLD instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ROCKET LAUNCH HOLD",
+        "instruction": "Reach straight up and stand powerful."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: bright launch bay with glowing floor lines, rounded rocket-window shapes and a distant blue planet. Show exactly one clear static full-body exercise pose: wide stable stance, both arms straight overhead, fingers reaching upward, torso tall, strong vertical rocket silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: ROCKET LAUNCH HOLD. Add the top-right instruction exactly: Reach straight up and stand powerful. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 6,
+      "imageFile": "Szene 06.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for MOON STEP FREEZE without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: MOON STEP FREEZE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: moon-base training deck with soft gray craters, blue-violet horizon glow and rounded station panels. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the MOON STEP FREEZE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: MOON STEP FREEZE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: MOON STEP FREEZE. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 7,
+      "imageFile": "Szene 07.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach MOON STEP FREEZE instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "MOON STEP FREEZE",
+        "instruction": "Step long, stay tall, and freeze in place."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: moon-base training deck with soft gray craters, blue-violet horizon glow and rounded station panels. Show exactly one clear static full-body exercise pose: long staggered standing stance, front foot flat, back heel gently lifted, elbows bent at comfortable angles, torso upright. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: MOON STEP FREEZE. Add the top-right instruction exactly: Step long, stay tall, and freeze in place. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 8,
+      "imageFile": "Szene 08.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for ASTEROID DODGE without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: ASTEROID DODGE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: asteroid simulator with floating stylized rock shapes behind the character and warm orange warning lights. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the ASTEROID DODGE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: ASTEROID DODGE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: ASTEROID DODGE. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 9,
+      "imageFile": "Szene 09.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach ASTEROID DODGE instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ASTEROID DODGE",
+        "instruction": "Lean away, bend one knee, and hold steady."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: asteroid simulator with floating stylized rock shapes behind the character and warm orange warning lights. Show exactly one clear static full-body exercise pose: wide stance, one knee bent, torso clearly leaning to the opposite side, both hands open near shoulder height, strong asymmetric silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: ASTEROID DODGE. Add the top-right instruction exactly: Lean away, bend one knee, and hold steady. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 10,
+      "imageFile": "Szene 10.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for SATELLITE SIGNAL without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: SATELLITE SIGNAL",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: observation deck with a large star window, small stylized satellite shapes and cool cyan lighting. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the SATELLITE SIGNAL exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: SATELLITE SIGNAL. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: SATELLITE SIGNAL. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 11,
+      "imageFile": "Szene 11.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach SATELLITE SIGNAL instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "SATELLITE SIGNAL",
+        "instruction": "Reach one arm high and one arm wide."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: observation deck with a large star window, small stylized satellite shapes and cool cyan lighting. Show exactly one clear static full-body exercise pose: upright stance, one arm reaching diagonally upward, opposite arm extended horizontally, legs straight and stable, clear angular signal silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: SATELLITE SIGNAL. Add the top-right instruction exactly: Reach one arm high and one arm wide. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 12,
+      "imageFile": "Szene 12.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for ALIEN ANTENNA HOLD without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: ALIEN ANTENNA HOLD",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: friendly alien-garden dome with rounded glowing plants, turquoise floor pads and purple nebula accents. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the ALIEN ANTENNA HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: ALIEN ANTENNA HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: ALIEN ANTENNA HOLD. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 13,
+      "imageFile": "Szene 13.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach ALIEN ANTENNA HOLD instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ALIEN ANTENNA HOLD",
+        "instruction": "Stand tall, elbows out, and point up."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: friendly alien-garden dome with rounded glowing plants, turquoise floor pads and purple nebula accents. Show exactly one clear static full-body exercise pose: feet comfortably apart, elbows lifted outward, both hands near the sides of the head with index fingers pointing upward like playful antennae, torso tall. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: ALIEN ANTENNA HOLD. Add the top-right instruction exactly: Stand tall, elbows out, and point up. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 14,
+      "imageFile": "Szene 14.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for ZERO-G KNEE LIFT without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: ZERO-G KNEE LIFT",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: zero-gravity training lab with circular wall rings, floating geometric props in the background and soft blue light. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the ZERO-G KNEE LIFT exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: ZERO-G KNEE LIFT. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: ZERO-G KNEE LIFT. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 15,
+      "imageFile": "Szene 15.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach ZERO-G KNEE LIFT instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ZERO-G KNEE LIFT",
+        "instruction": "Lift one knee and reach the opposite arm high."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: zero-gravity training lab with circular wall rings, floating geometric props in the background and soft blue light. Show exactly one clear static full-body exercise pose: one-leg balance, opposite knee lifted to hip height, opposite arm reaching overhead, free arm extended slightly sideways, torso upright. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: ZERO-G KNEE LIFT. Add the top-right instruction exactly: Lift one knee and reach the opposite arm high. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 16,
+      "imageFile": "Szene 16.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for COMET TRAIL STRETCH without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: COMET TRAIL STRETCH",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: comet tunnel with sweeping cyan-white light trails and deep navy space beyond. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the COMET TRAIL STRETCH exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: COMET TRAIL STRETCH. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: COMET TRAIL STRETCH. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 17,
+      "imageFile": "Szene 17.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach COMET TRAIL STRETCH instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "COMET TRAIL STRETCH",
+        "instruction": "Stand wide and reach across on a diagonal."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: comet tunnel with sweeping cyan-white light trails and deep navy space beyond. Show exactly one clear static full-body exercise pose: wide stance, torso rotated slightly, one arm reaching diagonally up across the body while the other arm reaches diagonally down, both legs mostly straight. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: COMET TRAIL STRETCH. Add the top-right instruction exactly: Stand wide and reach across on a diagonal. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 18,
+      "imageFile": "Szene 18.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for ROBOT FREEZE without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: ROBOT FREEZE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: robot service bay with rounded panels, simple inactive robot-arm shapes and lime-blue indicator lights. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the ROBOT FREEZE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: ROBOT FREEZE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: ROBOT FREEZE. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 19,
+      "imageFile": "Szene 19.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach ROBOT FREEZE instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ROBOT FREEZE",
+        "instruction": "Make sharp angles with your arms and legs."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: robot service bay with rounded panels, simple inactive robot-arm shapes and lime-blue indicator lights. Show exactly one clear static full-body exercise pose: feet apart, one knee slightly lifted forward, both elbows bent at clear ninety-degree angles in different directions, torso upright, playful robot silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: ROBOT FREEZE. Add the top-right instruction exactly: Make sharp angles with your arms and legs. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 20,
+      "imageFile": "Szene 20.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for PLANET RING HOLD without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: PLANET RING HOLD",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: ring-planet viewing dome with a giant stylized ringed planet visible through the window and warm violet-gold space light. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the PLANET RING HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: PLANET RING HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: PLANET RING HOLD. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 21,
+      "imageFile": "Szene 21.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach PLANET RING HOLD instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "PLANET RING HOLD",
+        "instruction": "Make a big circle with your arms and stand tall."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: ring-planet viewing dome with a giant stylized ringed planet visible through the window and warm violet-gold space light. Show exactly one clear static full-body exercise pose: feet shoulder-width apart, both arms rounded into a large circle in front of the upper body, shoulders relaxed, torso tall. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: PLANET RING HOLD. Add the top-right instruction exactly: Make a big circle with your arms and stand tall. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 22,
+      "imageFile": "Szene 22.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for SPACE BEAR HOLD without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: SPACE BEAR HOLD",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: cargo training deck with padded floor tiles, rounded storage pods and teal guide lights. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the SPACE BEAR HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: SPACE BEAR HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: SPACE BEAR HOLD. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 23,
+      "imageFile": "Szene 23.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach SPACE BEAR HOLD instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "SPACE BEAR HOLD",
+        "instruction": "Hands down, hips up, and hold your strong base."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: cargo training deck with padded floor tiles, rounded storage pods and teal guide lights. Show exactly one clear static full-body exercise pose: safe bear hold on hands and feet, knees bent and hovering slightly above the floor, hips low enough for a stable shape, head lifted, all limbs clearly visible. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: SPACE BEAR HOLD. Add the top-right instruction exactly: Hands down, hips up, and hold your strong base. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 24,
+      "imageFile": "Szene 24.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for STARFISH FREEZE without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: STARFISH FREEZE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: starfield bridge with a huge bright star-map window, soft indigo floor glow and scattered star points. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the STARFISH FREEZE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: STARFISH FREEZE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: STARFISH FREEZE. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 25,
+      "imageFile": "Szene 25.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach STARFISH FREEZE instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "STARFISH FREEZE",
+        "instruction": "Stretch arms and legs wide like a giant star."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: starfield bridge with a huge bright star-map window, soft indigo floor glow and scattered star points. Show exactly one clear static full-body exercise pose: upright full-body X shape, legs spread wide, both arms raised diagonally upward, torso centered, highly readable star silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: STARFISH FREEZE. Add the top-right instruction exactly: Stretch arms and legs wide like a giant star. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 26,
+      "imageFile": "Szene 26.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for COMMANDER FINISH without revealing its exercise pose early.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "neutral full-body ready stance with locked prompt-defined GET READY UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: COMMANDER FINISH",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: command deck finish platform with bright horizon window, subtle mission-complete light arcs and deep-space backdrop. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the COMMANDER FINISH exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: COMMANDER FINISH. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: COMMANDER FINISH. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 27,
+      "imageFile": "Szene 27.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach COMMANDER FINISH instantly from one static pose with readable title and instruction.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "single clear static full-body pose with locked prompt-defined exercise UI",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "COMMANDER FINISH",
+        "instruction": "Stand proud, one fist high, and finish strong."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "exercise UI follows locked navy-title and cream-instruction contract"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, white and neon-lime outfit. Premium stylized 3D, 16:9. Use this environment: command deck finish platform with bright horizon window, subtle mission-complete light arcs and deep-space backdrop. Show exactly one clear static full-body exercise pose: feet planted shoulder-width, one fist raised diagonally overhead, opposite fist resting over the chest, torso proud and upright, celebratory commander silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: COMMANDER FINISH. Add the top-right instruction exactly: Stand proud, one fist high, and finish strong. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 28,
+      "imageFile": "Szene 28.png",
+      "sceneRole": "outro",
+      "visualPurpose": "Celebrate completion and clearly end the workout.",
+      "topicAnchor": "5 minute space mission workout for kids",
+      "visualForm": "premium stylized 3D celebration card with baked completion text",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GREAT JOB! / WORKOUT COMPLETE",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and KidMotion space world. Create a premium stylized 3D 16:9 celebration card on the bright command-deck finish platform with a starfield through the window. Show the character full body in a proud friendly celebratory stance. Add exactly: GREAT JOB! Add exactly: WORKOUT COMPLETE. No timer, no progress bar, no extra people, no logos."
+    }
+  ]
+}

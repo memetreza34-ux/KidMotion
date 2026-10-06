@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "episodeFolder": "episodes/KM-005-space-mission-workout",
+  "status": "AWAITING_USER_SELECTION",
+  "selectedCandidate": null,
+  "selectedCandidateOriginalFile": null,
+  "finalFile": null,
+  "userSelectionRequired": true,
+  "soleReferenceForLaterScenes": "Szene 01.png",
+  "secondaryImageReferencesForbidden": true
+}
