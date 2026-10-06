@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
+import {loadContract, currentContractErrors} from './contract.mjs';
 
 const args = process.argv.slice(2);
 const readArg = (name) => {
@@ -32,6 +33,10 @@ const outro = scenes.find((s) => s.type === 'outro');
 const exercises = scenes.filter((s) => s.type === 'exercise');
 const getReadyScenes = scenes.filter((s) => s.type === 'get-ready');
 const errors = [];
+const contract = loadContract(root);
+if (sceneV3) {
+  for (const error of currentContractErrors(data, contract)) errors.push(`CURRENT PRODUCTION CONTRACT: ${error}`);
+}
 
 if (paths.isV2) {
   if (![2, 3].includes(structureVersion)) errors.push('Modern episode must declare structureVersion 2 or 3.');

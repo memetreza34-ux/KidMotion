@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
+import {loadContract, currentContractErrors} from './contract.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -24,6 +25,13 @@ if (paths.structure === 'missing') {
 const data = readEpisodeData(paths);
 if (Number(data.structureVersion || 0) < 3) {
   console.error('COVER SELECTION FAILED: this command is for scene-numbered V3 episodes only.');
+  process.exit(1);
+}
+const contract = loadContract(root);
+const contractErrors = currentContractErrors(data, contract);
+if (contractErrors.length) {
+  console.error('COVER SELECTION FAILED: episode does not satisfy the current production contract.');
+  contractErrors.forEach((error, index) => console.error(`${index + 1}. ${error}`));
   process.exit(1);
 }
 

@@ -541,5 +541,7 @@
   ],
   "runtimeSeconds": 313,
   "voiceScriptFile": "01-voice-script/voice-script.txt",
-  "voicePlanFile": "99-technik/VOICE_PLAN.json"
+  "voicePlanFile": "99-technik/VOICE_PLAN.json",
+  "productionContractVersion": 1,
+  "contractFile": "config/v3-contract.json"
 }

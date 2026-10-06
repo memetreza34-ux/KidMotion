@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
+import {loadContract, currentContractErrors} from './contract.mjs';
 
 const root = process.cwd();
 const pointerPath = path.join(root, 'episodes', 'ACTIVE_EPISODE.json');
@@ -27,6 +28,9 @@ if (paths.structure === 'missing') {
 const data = readEpisodeData(paths);
 const structureVersion = Number(data.structureVersion || 0);
 if (structureVersion < 3) fail('Active episode must use KidMotion V3 scene structure.');
+const contract = loadContract(root);
+for (const error of currentContractErrors(data, contract)) fail(`CURRENT PRODUCTION CONTRACT: ${error}`);
+if (!paths.voicePlanPath || !fs.existsSync(paths.voicePlanPath)) fail('Missing required 99-technik/VOICE_PLAN.json.');
 
 const pipeline = JSON.parse(read(path.join(root, 'config', 'pipeline.json')) || '{}');
 const visual = JSON.parse(read(path.join(root, 'config', 'visual-policy.json')) || '{}');

@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
+import {loadContract, currentContractErrors} from './contract.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -35,6 +36,8 @@ if (!sceneV3) {
   console.log(`SCENE INTEGRITY QA SKIPPED — ${episodeFolder} is not V3.`);
   process.exit(0);
 }
+const contract = loadContract(root);
+for (const error of currentContractErrors(data, contract)) fail(`CURRENT PRODUCTION CONTRACT: ${error}`);
 
 if (scenes.length !== 28) fail(`Expected exactly 28 scenes, found ${scenes.length}.`);
 

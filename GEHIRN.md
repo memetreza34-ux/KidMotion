@@ -1,6 +1,9 @@
 # KidMotion — Projekt-Gehirn
 
-> Höchste verbindliche Regelquelle. Bei Widersprüchen gilt diese Datei.
+> Menschenlesbare verbindliche Regelquelle. Der maschinenlesbare Produktionsvertrag liegt in `config/v3-contract.json`. Beide müssen identisch bleiben; `project:doctor` und `repo:qa` blockieren Abweichungen.
+
+## 0. Maschinenlesbarer Vertrag
+Neue produktive Episoden müssen `productionContractVersion` und `contractFile: config/v3-contract.json` tragen. Episoden ohne aktuelle Contract-Version sind read-only/pre-contract und dürfen nicht ausgewählt, approved, aktiviert oder gerendert werden.
 
 ## 1. Format
 KidMotion produziert englische 16:9 YouTube-Longform-Kinderworkouts mit einem wiederkehrenden 3D-Charakter und statischen Hold-/Freeze-Posen.

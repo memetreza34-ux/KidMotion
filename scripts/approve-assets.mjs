@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
+import {loadContract, currentContractErrors} from './contract.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -34,6 +35,11 @@ if (failures.length) {
 const data = readEpisodeData(paths);
 const structureVersion = Number(data.structureVersion || 1);
 const sceneV3 = structureVersion >= 3;
+const contract = loadContract(root);
+if (sceneV3) {
+  for (const error of currentContractErrors(data, contract)) fail(`CURRENT PRODUCTION CONTRACT: ${error}`);
+  if (!paths.voicePlanPath || !fs.existsSync(paths.voicePlanPath)) fail('Missing required 99-technik/VOICE_PLAN.json.');
+}
 const review = JSON.parse(fs.readFileSync(paths.reviewPath, 'utf8'));
 const revision = fs.readFileSync(paths.revisionPath, 'utf8').trim();
 const pipeline = JSON.parse(fs.readFileSync(path.join(root, 'config', 'pipeline.json'), 'utf8'));
