@@ -56,7 +56,7 @@ const antiRoot = read(path.join(root,'ANTIGRAVITY.md'));
 if (!antiRoot.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail('Root ANTIGRAVITY.md must declare the Phase 3 image-generation ban.');
 if (!antiRoot.includes('phase3:prepare')) fail('Root ANTIGRAVITY.md must require phase3:prepare for raw handoff.');
 if (!antiRoot.includes('phase3:gate')) fail('Root ANTIGRAVITY.md must require phase3:gate after approval.');
-const antiOrder=['phase3:prepare','assets:approve','phase3:gate','render:safe'].map((token)=>antiRoot.indexOf(token));
+const antiOrder=['npm run phase3:prepare','npm run assets:approve','npm run phase3:gate','npm run render:safe'].map((token)=>antiRoot.indexOf(token));
 if (antiOrder.some((i)=>i<0) || !(antiOrder[0]<antiOrder[1] && antiOrder[1]<antiOrder[2] && antiOrder[2]<antiOrder[3])) fail('Root ANTIGRAVITY.md Phase 3 order is wrong.');
 
 for (const doc of rootDocs) {
@@ -101,7 +101,7 @@ if (fs.existsSync(episodeRoot)) {
     if (!anti.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail(`${entry.name}: ANTIGRAVITY.md must declare Phase 3 image generation forbidden.`);
     if (!anti.includes('phase3:prepare')) fail(`${entry.name}: ANTIGRAVITY.md must require phase3:prepare for raw handoff.`);
     if (!anti.includes('phase3:gate')) fail(`${entry.name}: ANTIGRAVITY.md must require phase3:gate after approval.`);
-    const episodeAntiOrder=['phase3:prepare','assets:approve','phase3:gate','render'].map((token)=>anti.indexOf(token));
+    const episodeAntiOrder=['npm run phase3:prepare','npm run assets:approve','npm run phase3:gate','npm run render:safe'].map((token)=>anti.indexOf(token));
     if (episodeAntiOrder.some((i)=>i<0) || !(episodeAntiOrder[0]<episodeAntiOrder[1] && episodeAntiOrder[1]<episodeAntiOrder[2] && episodeAntiOrder[2]<episodeAntiOrder[3])) fail(`${entry.name}: ANTIGRAVITY.md Phase 3 order is wrong.`);
     if (/then generate 3 covers|continue Szene 02.?28 serially using ONLY Szene 01\.png/i.test(anti)) fail(`${entry.name}: ANTIGRAVITY.md still assigns image generation to Antigravity.`);
     for (const rel of contract.requiredEpisodeFiles) {
