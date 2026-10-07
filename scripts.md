@@ -14,7 +14,8 @@
 - `npm run render:safe` — führt alle globalen und aktiven Episoden-Gates aus, rendert und prüft die fertige MP4.
 
 ## Phase 3
-- `npm run phase3:gate` — Pflicht vor Antigravity Phase 3. Prüft, dass ausschließlich die in Phase 2 freigegebenen SHA-256-Assets vorhanden und unverändert sind.
+- `npm run phase3:ingest -- --episode=KM-XXX-slug` — importiert einen Phase-2-Handoff: ZIP entpacken, PNGs deterministisch einsortieren und vorhandene Audio-Container mit ffmpeg nach MP3 konvertieren. Keine Bildgenerierung/Pixeländerung.
+- `npm run phase3:gate` — Pflicht **nach Ingest + Visual Review + Asset Approval**. Prüft, dass die freigegebenen SHA-256-Assets vorhanden und unverändert sind.
 - Antigravity darf bei Gate-Fehler **keine Bilder erzeugen oder reparieren**. Es muss stoppen.
 
 ## Render-Gates

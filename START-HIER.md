@@ -1,21 +1,25 @@
 # START HIER
 
 ## Phase 1 — Planung
-1. `GEHIRN.md` und `config/v3-contract.json` lesen.
-2. Neue Episode anlegen und Planung vollständig ausarbeiten.
-3. `prompt:qa` muss bestehen.
+1. Planung vollständig ausarbeiten.
+2. `prompt:qa` muss bestehen.
 
-## Phase 2 — Bilder erstellen und übergeben
-4. Bildworkflow/Google Flow erzeugt die 3 Cover.
-5. Nutzer wählt 1 Cover; Gewinner = `Szene 01.png`, die zwei anderen löschen.
-6. Der Bildworkflow erzeugt die restlichen finalen Szenen nach dem Plan.
-7. `scene:qa` ausführen und Bilder real visuell prüfen.
-8. `assets:approve` ausführen. Dadurch werden die Phase-2-Assets per SHA-256 gesperrt.
+## Phase 2 — Asset-Erstellung
+3. Bilder/Audio werden erstellt und dem Projekt übergeben. Das kann auch als ZIP bzw. Audio in einem Container wie MP4 erfolgen.
 
-## Phase 3 — Antigravity
-9. Antigravity darf **keine Bilder erzeugen**. Es nimmt ausschließlich die fertigen Phase-2-Bilder.
-10. Vor jeder Phase-3-Arbeit muss `npm run phase3:gate` bestehen.
-11. Fehlt/ändert sich ein Bild: **STOP**, niemals Ersatz erzeugen.
-12. Antigravity darf vorhandene Assets aktivieren, mit Remotion zusammensetzen, den erlaubten Timer hinzufügen, rendern und Postrender-QA ausführen.
+## Phase 3 — Antigravity Ingest + Assembly
+Wenn der Nutzer sagt „alles ist im Ordner“:
 
-Antigravity Phase 3 = Assembly only.
+4. **Zuerst** `npm run phase3:ingest -- --episode=KM-XXX-slug`.
+   - ZIP entpacken
+   - vorhandene, eindeutig nummerierte PNGs einsortieren
+   - vorhandene MP4/M4A/WAV/AAC-Audios mit ffmpeg in benötigte MP3-Dateien konvertieren
+   - keine Bilder neu erzeugen
+5. `scene:qa`
+6. Bilder real visuell prüfen
+7. `assets:approve`
+8. Episode aktivieren
+9. `phase3:gate`
+10. `render:safe`
+
+Wichtig: `phase3:gate` darf nicht vor dem Roh-Import erwartet werden. Es prüft die bereits vorbereiteten und freigegebenen Assets.

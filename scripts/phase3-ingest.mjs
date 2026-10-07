@@ -142,6 +142,10 @@ for(let n=1;n<=28;n+=1){
   const candidates=byScene.get(n)||[];
   if(candidates.length===1){
     const source=candidates[0];
+    if(path.extname(source).toLowerCase()!=='.png'){
+      manifest.warnings.push(`Szene ${String(n).padStart(2,'0')}: source is ${path.extname(source)}; image transcoding is not allowed in Phase 3 ingest. Provide PNG from Phase 2.`);
+      continue;
+    }
     fs.copyFileSync(source,target);
     manifest.importedImages.push({scene:n,from:rel(source),to:rel(target),sha256:sha256(target),pixelContentChanged:false});
   }else if(candidates.length>1){

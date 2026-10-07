@@ -10,7 +10,7 @@ Neue produktive Episoden müssen `productionContractVersion` und `contractFile: 
 
 **Phase 2 — Bildproduktion und Übergabe:** Google Flow bzw. der vorgesehene Bildworkflow erzeugt die finalen Bilder. Nutzerwahl/Review findet hier statt. Danach werden die fertigen Bilder per SHA-256 freigegeben.
 
-**Phase 3 — Antigravity Assembly/Render:** Antigravity erzeugt **keine Bilder**. Es verwendet ausschließlich die in Phase 2 übergebenen und freigegebenen Bilder.
+**Phase 3 — Antigravity Ingest + Assembly/Render:** Antigravity erzeugt **keine Bilder**. Es darf aber die vom Nutzer aus Phase 2 übergebenen Dateien entpacken, technisch einsortieren und vorhandene Audio-Container konvertieren. Danach verwendet es ausschließlich diese übergebenen Assets.
 
 Für Phase 3 gilt:
 - kein Bildgenerator / kein Google Flow
@@ -19,8 +19,13 @@ Für Phase 3 gilt:
 - kein Ersetzen/Improvisieren
 - keine Fallback-Bilder
 - fehlendes/geändertes Bild = Phase 3 blockieren
-- vor Phase 3 muss `npm run phase3:gate` bestehen
-- die Phase-2-Bilder sind unveränderliche Inputs
+- bei einem Roh-Handoff zuerst `npm run phase3:ingest -- --episode=<episode-folder>`
+- ZIP entpacken und technische Datei-Normalisierung sind erlaubt
+- Audio aus vorhandenen MP4/M4A/WAV/AAC-Dateien nach MP3 konvertieren ist erlaubt
+- Bildpixel/Bildinhalt dürfen nicht verändert werden
+- danach Scene-QA + visuelle Prüfung + Asset Approval
+- erst **nach Approval** muss `npm run phase3:gate` bestehen
+- die importierten Phase-2-Bilder sind danach unveränderliche Inputs
 
 ## 1. Format
 KidMotion produziert englische 16:9 YouTube-Longform-Kinderworkouts mit einem wiederkehrenden 3D-Charakter und statischen Hold-/Freeze-Posen.
@@ -275,7 +280,9 @@ Erst danach `npm run assets:approve -- --episode=...`.
 Approval sperrt Assets per SHA-256.
 
 ## 13. PHASE 3 — Antigravity Assembly/Render
-Final nur über `npm run render:safe`.
+Roh-Handoff zuerst über `npm run phase3:ingest -- --episode=<episode-folder>`.
+
+Finaler Render danach nur über `npm run render:safe`.
 
 Ablauf:
 TypeScript → Project Doctor → Preflight → Asset Gate → Render → Postrender QA.

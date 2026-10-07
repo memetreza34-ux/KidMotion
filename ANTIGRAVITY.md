@@ -2,45 +2,39 @@
 
 `ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true`
 
-Antigravity ist in dieser Pipeline **ausschließlich Phase 3: Assembly/Render**.
+Antigravity erstellt in Phase 3 **keine neuen Bilder**. Es darf aber die vom Nutzer aus Phase 2 übergebenen Dateien technisch importieren.
 
-Lies zuerst `GEHIRN.md` und `config/v3-contract.json`.
+## Wenn der Nutzer sagt „alles ist im Ordner“
+**Nicht zuerst `phase3:gate` ausführen.**
 
-## Harte Zuständigkeitsgrenze
+Zuerst:
 
-### Phase 1 — Planung
-Prompts, Szenen, Voice, Timing und Metadaten werden fertig geplant.
+`npm run phase3:ingest -- --episode=KM-XXX-slug`
 
-### Phase 2 — Bilder
-Die finalen Bilder werden **außerhalb von Antigravity Phase 3** erstellt/ausgewählt, geprüft und freigegeben.
-Ergebnis von Phase 2 sind die fertigen Dateien in `00-bildprompts/images/`.
+Dieser Schritt darf:
+- eine vorhandene Phase-2-ZIP entpacken
+- vorhandene PNG-Szenen anhand eindeutiger Szenennummern in `00-bildprompts/images/` einsortieren
+- Dateien technisch verschieben/kopieren/umbenennen, ohne Bildpixel zu verändern
+- aus einer vorhandenen Audio-/Videodatei wie `.mp4`, `.m4a`, `.wav` oder `.aac` die Audiospur mit ffmpeg in das benötigte MP3-Format umwandeln
+- z. B. eine eindeutige `Kids.mp4` als `Voice 01.mp3` extrahieren
+- `PHASE3_INGEST.json` als Importprotokoll erstellen
 
-### Phase 3 — Antigravity
-Antigravity nimmt **nur exakt die Bilder, die aus Phase 2 übergeben wurden**.
+Dieser Schritt darf **nicht**:
+- Google Flow oder einen Bildgenerator aufrufen
+- neue Cover/Szenen erzeugen
+- Bildinhalt verändern
+- ein fehlendes Bild erfinden
+- ein falsches Bild als Ersatz einsetzen
+- bei uneindeutigen Dateinamen die Szenenreihenfolge raten
 
-Antigravity darf in Phase 3 niemals:
-- Google Flow oder irgendeinen Bildgenerator aufrufen
-- Cover oder Szenenbilder erzeugen
-- Bilder nachgenerieren
-- Bilder bearbeiten
-- Bilder ersetzen
-- Varianten/Alternativen erstellen
-- ein fehlendes Bild mit einem anderen Bild auffüllen
-- ein Ersatz-/Fallback-Bild erzeugen
+## Danach
+1. `scene:qa`
+2. echte Bilder visuell prüfen
+3. `assets:approve`
+4. Episode aktivieren
+5. `phase3:gate`
+6. Render
 
-Vor der ersten Phase-3-Aktion muss `npm run phase3:gate` erfolgreich sein.
+`phase3:gate` ist also die Sperre **nach Import und Approval**, nicht der erste Schritt beim Roh-Handoff.
 
-Wenn ein Phase-2-Bild fehlt, geändert wurde oder nicht freigegeben ist:
-**STOP / PHASE 3 BLOCKIEREN.**
-Nicht reparieren. Nicht generieren. Nicht ersetzen.
-
-Erlaubt in Phase 3:
-- vorhandene freigegebene Phase-2-Bilder lesen/verwenden
-- Runtime-Zuordnung aktivieren
-- freigegebene Voice/Musik verwenden
-- Remotion-Timer hinzufügen
-- Video aus vorhandenen Assets zusammensetzen
-- rendern
-- Postrender-QA ausführen
-
-Die Phase-2-Bilder sind in Phase 3 unveränderliche Inputs.
+Wenn nach `phase3:ingest` Dateien fehlen, muss Antigravity konkret melden, welche Phase-2-Dateien fehlen. Es darf niemals selbst neue Bilder dafür erstellen.

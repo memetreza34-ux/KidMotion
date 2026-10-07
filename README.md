@@ -1,17 +1,24 @@
 # KidMotion
 
-KidMotion ist eine datengetriebene Pipeline für englische 16:9-Kindervideos. Der aktuelle Workout-Formatvertrag liegt in `config/v3-contract.json`.
+## Produktionsfluss
 
-## Drei Phasen
-**Phase 1 — Planung:** Episode vollständig planen.
+**Phase 1:** Planung.
 
-**Phase 2 — Asset-Produktion:** Bilder werden im vorgesehenen Bildworkflow erstellt, ausgewählt und geprüft. Nach `assets:approve` sind sie SHA-256-gesperrt.
+**Phase 2:** Bilder und Audio werden erstellt. Der Handoff darf als fertiger Ordner, ZIP oder Audio-Container erfolgen.
 
-**Phase 3 — Antigravity Assembly/Render:** Antigravity erstellt **keine Bilder**. Es verwendet nur die aus Phase 2 übergebenen und freigegebenen Dateien.
+**Phase 3:** Antigravity führt zuerst den technischen Import aus:
 
-Vor Phase 3: `npm run phase3:gate`
+`npm run phase3:ingest -- --episode=KM-XXX-slug`
 
-Wenn ein Bild fehlt oder verändert wurde, wird Phase 3 blockiert. Antigravity darf kein Ersatzbild, keine Variante und keine Regeneration erzeugen.
+Erlaubt:
+- ZIP entpacken
+- eindeutig nummerierte PNG-Szenen einsortieren
+- vorhandene Audio-/Videocontainer per ffmpeg in die benötigten MP3-Dateien konvertieren
 
-## Repo-Schutz
-`project:doctor` + `repo:qa` prüfen die globale Architektur und die Phase-3-Zuständigkeitsgrenze.
+Verboten:
+- Bilder generieren
+- Bildinhalt verändern
+- fehlende Szenen erfinden
+- uneindeutige Bildreihenfolge raten
+
+Danach: Scene QA → Visual Review → Asset Approval → Activate → Phase 3 Gate → Render.
