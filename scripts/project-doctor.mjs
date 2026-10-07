@@ -52,7 +52,7 @@ const anti=read('ANTIGRAVITY.md');
 for(const token of ['ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true','phase3:prepare','assets:approve','phase3:gate','render:safe']){
   if(!anti.includes(token)) fail('ANTIGRAVITY.md missing: '+token);
 }
-const order=['phase3:prepare','assets:approve','phase3:gate','render:safe'].map((t)=>anti.indexOf(t));
+const order=['npm run phase3:prepare','npm run assets:approve','npm run phase3:gate','npm run render:safe'].map((t)=>anti.indexOf(t));
 if(order.some((i)=>i<0) || !(order[0]<order[1] && order[1]<order[2] && order[2]<order[3])) fail('ANTIGRAVITY.md has the wrong Phase 3 order.');
 
 const ingest=read('scripts/phase3-ingest.mjs');
