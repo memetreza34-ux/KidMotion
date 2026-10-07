@@ -191,6 +191,20 @@
     "phase3": "antigravity-assembly-only",
     "phase3ImageGenerationForbidden": true,
     "phase3UsesOnlyApprovedPhase2Images": true,
-    "phase3MissingImageBehavior": "BLOCK"
+    "phase3MissingImageBehavior": "BLOCK",
+    "phase3AssetIngestAllowed": true,
+    "phase3ArchiveExtractionAllowed": true,
+    "phase3AudioTranscodeAllowed": true,
+    "phase3ImagePixelModificationForbidden": true,
+    "phase3IngestCommand": "npm run phase3:ingest -- --episode=<episode-folder>",
+    "phase3Order": [
+      "ingest",
+      "scene-qa",
+      "visual-review",
+      "assets-approve",
+      "activate",
+      "phase3-gate",
+      "render"
+    ]
   }
 }

@@ -7,13 +7,17 @@ const root = process.cwd();
 const pointerPath = path.join(root, 'episodes', 'ACTIVE_EPISODE.json');
 const failures = [];
 const fail = (message) => failures.push(message);
-if (!fs.existsSync(pointerPath)) {
-  console.error('ASSET GATE FAILED: episodes/ACTIVE_EPISODE.json is missing. Run kidmotion:activate first.');
-  process.exit(1);
+const args=process.argv.slice(2);
+const episodeArg=args.find((value)=>value.startsWith('--episode='));
+let episodeFolder=episodeArg?episodeArg.slice('--episode='.length):'';
+if(!episodeFolder){
+  if (!fs.existsSync(pointerPath)) {
+    console.error('ASSET GATE FAILED: pass --episode=KM-XXX-slug or run kidmotion:activate first.');
+    process.exit(1);
+  }
+  const pointer = JSON.parse(fs.readFileSync(pointerPath, 'utf8'));
+  episodeFolder = pointer.episodeFolder;
 }
-
-const pointer = JSON.parse(fs.readFileSync(pointerPath, 'utf8'));
-const episodeFolder = pointer.episodeFolder;
 const paths = resolveEpisodePaths(root, episodeFolder);
 if (paths.structure === 'missing') fail('Active episode data is missing.');
 if (!fs.existsSync(paths.approvalPath)) fail(`Missing ${path.relative(paths.episodeRoot, paths.approvalPath)}.`);

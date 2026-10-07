@@ -20,7 +20,11 @@ if (contract.phaseContract?.phase3?.antigravityMayRegenerateImages !== false) fa
 if (contract.phaseContract?.phase3?.antigravityMayEditImages !== false) fail('Contract must forbid Antigravity image editing in Phase 3.');
 if (contract.phaseContract?.phase3?.antigravityMayReplaceImages !== false) fail('Contract must forbid Antigravity image replacement in Phase 3.');
 if (contract.phaseContract?.phase3?.mayUseOnlyPhase2ApprovedImages !== true) fail('Phase 3 must use only approved Phase 2 images.');
-if (contract.phaseContract?.phase3?.missingOrChangedImageBehavior !== 'BLOCK_PHASE_3') fail('Missing/changed Phase 2 images must block Phase 3.');
+if (contract.phaseContract?.phase3?.missingOrChangedImageBehavior !== 'BLOCK_PHASE_3') fail('Missing/changed Phase 2 images must block Phase 3 after ingest/approval.');
+if (contract.phaseContract?.phase3?.assetIngestAllowed !== true) fail('Phase 3 must allow technical ingest of user-provided Phase 2 assets.');
+if (contract.phaseContract?.phase3?.archiveExtractionAllowed !== true) fail('Phase 3 must allow archive extraction.');
+if (contract.phaseContract?.phase3?.audioTranscodeAllowed !== true) fail('Phase 3 must allow audio-container conversion.');
+if (contract.phaseContract?.phase3?.imagePixelModificationForbidden !== true) fail('Phase 3 must forbid image pixel modification.');
 
 const pipeline = readJson(path.join(root, 'config', 'pipeline.json'));
 if (Number(pipeline.pipelineVersion) !== Number(contract.pipelineVersion)) fail('pipelineVersion does not match production contract.');

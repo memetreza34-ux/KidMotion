@@ -51,6 +51,8 @@ if (pipeline.batchGenerationPolicy?.parallelSceneGenerationForbidden !== true ||
 if (pipeline.renderPolicy?.remotionOwnsTimerOnly !== true || pipeline.renderPolicy?.remotionOwnsProgressBar !== false) fail('Remotion must own timer only and no progress bar.');
 if (pipeline.timerPolicy?.sizePixels !== contract.remotionContract.timerSizePixels || pipeline.timerPolicy?.requiredSafeZonePixels !== contract.remotionContract.timerSafeZonePixels) fail('Timer config must match production contract.');
 if (pipeline.phaseWorkflow?.phase3ImageGenerationForbidden !== true || pipeline.phaseWorkflow?.phase3UsesOnlyApprovedPhase2Images !== true) fail('Pipeline must enforce Phase 3 assembly-only image ownership.');
+if (pipeline.phaseWorkflow?.phase3AssetIngestAllowed !== true || pipeline.phaseWorkflow?.phase3ArchiveExtractionAllowed !== true || pipeline.phaseWorkflow?.phase3AudioTranscodeAllowed !== true) fail('Pipeline must allow technical Phase 3 ingest of user-provided assets.');
+if (pipeline.phaseWorkflow?.phase3ImagePixelModificationForbidden !== true) fail('Phase 3 ingest must forbid image pixel modification.');
 
 const visual = JSON.parse(read('config/visual-policy.json') || '{}');
 if (visual.status !== 'READY') fail('config/visual-policy.json must be READY.');
@@ -94,6 +96,12 @@ for (const name of fs.readdirSync(scriptsDir)) {
 
 const approvalScript = read('scripts/approve-assets.mjs');
 if (!approvalScript.includes('phase2HandoffComplete') || !approvalScript.includes('phase3ImageGenerationForbidden')) fail('approve-assets.mjs must mark the Phase 2 → Phase 3 handoff.');
+const ingestScript = read('scripts/phase3-ingest.mjs');
+for (const required of ['PHASE 3 INGEST','unzip','ffmpeg','pixelContentChanged:false','PHASE3_INGEST.json']) {
+  if (!ingestScript.includes(required)) fail(`phase3-ingest.mjs missing required behavior: ${required}`);
+}
+if (/imagegen|google flow/i.test(ingestScript)) fail('phase3-ingest.mjs must never call an image generator.');
+
 const assetGateScript = read('scripts/asset-gate.mjs');
 if (!assetGateScript.includes('phase2HandoffComplete') || !assetGateScript.includes('phase3InputLocked')) fail('asset-gate.mjs must enforce the Phase 3 input lock.');
 

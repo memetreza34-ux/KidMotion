@@ -139,16 +139,21 @@ This file applies only to Phase 3 for ${episodeFolder}.
 
 Phase 2 must already have delivered and approved all final images in 00-bildprompts/images/.
 
-Before doing any Phase 3 work:
-1. Activate the episode if required by the runtime.
-2. Run npm run phase3:gate.
-3. Continue only if the gate passes.
+When the user hands over Phase 2 files, first run:
+npm run phase3:ingest -- --episode=${episodeFolder}
+
+Phase 3 ingest MAY unpack ZIP archives, copy/rename files without changing image pixels, and convert/extract user-provided audio containers such as MP4/M4A/WAV into the required audio filenames.
+
+Then run scene QA, inspect the actual images, complete visual review and assets:approve.
+After approval: activate the episode and run npm run phase3:gate.
 
 In Phase 3 Antigravity MUST NOT:
 - call Google Flow or any image generator
 - generate or regenerate any cover/scene image
-- edit, replace, rename as a substitute, or invent images
-- create fallback images for missing assets
+- alter image pixels or visual content
+- invent fallback/replacement images
+
+Technical ingest is allowed: archive extraction, deterministic filename normalization, file relocation, and audio-container conversion.
 
 Use ONLY the exact approved Phase 2 images.
 If any image is missing or changed: STOP. Do not create anything.

@@ -244,6 +244,13 @@
       "requiredInputGate": "phase3:gate",
       "missingOrChangedImageBehavior": "BLOCK_PHASE_3",
       "allowedWork": [
+        "unpack user-provided Phase 2 ZIP archives",
+        "copy/move user-provided images without changing pixels",
+        "normalize image filenames only when scene numbers are deterministic",
+        "extract/transcode user-provided audio containers to required audio filenames",
+        "write ingest metadata",
+        "run scene QA and visual review",
+        "create asset approval after review",
         "validate approved Phase 2 inputs",
         "activate runtime mappings",
         "assemble existing images",
@@ -251,7 +258,18 @@
         "use approved voice/music",
         "render video",
         "run postrender QA"
-      ]
+      ],
+      "assetIngestAllowed": true,
+      "archiveExtractionAllowed": true,
+      "deterministicFilenameNormalizationAllowed": true,
+      "losslessImageRelocationAllowed": true,
+      "audioContainerExtractionAllowed": true,
+      "audioTranscodeAllowed": true,
+      "imagePixelModificationForbidden": true,
+      "visualContentModificationForbidden": true,
+      "ingestCommand": "phase3:ingest",
+      "ingestBeforeApproval": true,
+      "approvalBeforeGate": true
     }
   }
 }
