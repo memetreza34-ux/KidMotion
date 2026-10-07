@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-006-jungle-explorer-workout",
+  "voiceFile": "Voice 01.mp3",
+  "targetDurationSeconds": {
+    "min": 13.65,
+    "target": 13.9,
+    "max": 14.05
+  },
+  "startsAtSeconds": 0,
+  "mustEndBeforeSeconds": 14.05,
+  "noSpokenVoiceAfterSeconds": 14,
+  "sections": [
+    {
+      "scene": "02",
+      "label": "INTRO",
+      "startSeconds": 0,
+      "endSeconds": 8,
+      "text": "Welcome, jungle explorers! Today we’re taking on twelve fun freeze challenges in a five-minute jungle adventure. Follow along and hold each pose strong."
+    },
+    {
+      "scene": "03",
+      "label": "SAFETY",
+      "startSeconds": 8,
+      "endSeconds": 12,
+      "text": "Clear some space, move at your own pace, and stop if anything hurts."
+    },
+    {
+      "scene": "04",
+      "label": "LETS_BEGIN",
+      "startSeconds": 12,
+      "endSeconds": 14,
+      "text": "Trail ready? Let’s begin!"
+    }
+  ],
+  "exactTtsCopy": "Welcome, jungle explorers! Today we’re taking on twelve fun freeze challenges in a five-minute jungle adventure. Follow along and hold each pose strong. Clear some space, move at your own pace, and stop if anything hurts. Trail ready? Let’s begin!",
+  "note": "Timecodes are production targets for the opening images, not subtitles. Generate one continuous Voice 01.mp3 from exactTtsCopy."
+}

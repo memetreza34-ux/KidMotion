@@ -1,0 +1,208 @@
+KIDMOTION GOOGLE FLOW PROMPTS — KM-006 — JUNGLE EXPLORER WORKOUT
+
+PRE-FLOW GATE
+Run: npm run prompt:qa -- --episode=KM-006-jungle-explorer-workout
+Do not start Google Flow unless it passes.
+
+IMPORTANT WORKFLOW
+- Generate the three cover candidates first.
+- Show only those three covers to the user and wait for one selection.
+- Selected winner becomes `Szene 01.png`; delete the other two covers.
+- For EVERY later image use ONLY selected `Szene 01.png` as the image reference.
+- Never use any other generated scene as a second reference.
+- Generate every non-cover scene exactly once.
+- Work strictly serially: finish and save scene N before starting scene N+1.
+- Never fill a failed scene by copying, renaming or reusing another result.
+- After the cover choice continue automatically through Szene 02–28.
+- Save every successful result immediately in `00-bildprompts/images/` with its exact filename.
+- Remotion adds only the changing timer. Every other visible text element must already be inside the Google Flow image.
+
+============================================================
+COVER CANDIDATE 01 — Cover-Kandidat-01.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original fictional KidMotion jungle-explorer mascot character, fully clothed in a bright emerald, turquoise and sunshine-yellow sporty explorer outfit, with a friendly energetic expression and a simple confident adventure-ready standing pose. Place the character large on the right. Build a vibrant jungle base-camp world with huge layered leaves, warm sunbeams, a distant waterfall and a clean adventurous trail. On the left add large clean text exactly: 5 MIN JUNGLE ADVENTURE. Under it add smaller text exactly: FOR KIDS. Strong mobile readability, clear depth, no real people, no brands, no logos, no extra characters, no animals, no photorealism.
+
+============================================================
+COVER CANDIDATE 02 — Cover-Kandidat-02.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original fictional KidMotion jungle-explorer mascot character, fully clothed in a bright emerald, turquoise and sunshine-yellow sporty explorer outfit, with a friendly energetic expression and a simple confident adventure-ready standing pose. Place the character large on the right. Use an ancient jungle-ruins setting with broad stone steps, hanging vines, bright green foliage and a glowing golden path through the center. On the left add large clean text exactly: 5 MIN JUNGLE ADVENTURE. Under it add smaller text exactly: FOR KIDS. Strong mobile readability, no real people, no brands, no logos, no extra characters, no animals, no photorealism.
+
+============================================================
+COVER CANDIDATE 03 — Cover-Kandidat-03.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original fictional KidMotion jungle-explorer mascot character, fully clothed in a bright emerald, turquoise and sunshine-yellow sporty explorer outfit, with a friendly energetic expression and a simple confident adventure-ready standing pose. Use a slightly closer character framing on the right. Build a bright waterfall-and-canopy lookout with turquoise mist, giant leaves, distant treetops and warm sunrise light. On the left add large clean text exactly: 5 MIN JUNGLE ADVENTURE. Under it add smaller text exactly: FOR KIDS. Strong mobile readability, no real people, no brands, no logos, no extra characters, no animals, no photorealism.
+
+AFTER USER SELECTION:
+Rename the selected cover to `Szene 01.png`, delete the other two candidates, and use ONLY `Szene 01.png` as the image reference for every prompt below.
+
+============================================================
+SZENE 02 — INTRO — Szene 02.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle, outfit colors and premium stylized 3D KidMotion jungle world. Create a clean 16:9 intro card in a bright jungle base-camp clearing. Show the character full body in a confident explorer-ready stance. Add exactly these visible text elements with clear hierarchy: KIDMOTION, 5 MIN JUNGLE ADVENTURE, 12 JUNGLE CHALLENGES • 20 SEC EACH, FOLLOW ALONG. No timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 03 — SAFETY — Szene 03.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and jungle world. Show the character full body in a calm neutral standing pose on a clean jungle trail clearing. Create a premium stylized 3D 16:9 safety card. Add exactly: SAFETY FIRST. Under it add exactly: Clear some space. Under that add exactly: Stop if anything hurts. Keep text large and easy to read. No timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 04 — LETS-BEGIN — Szene 04.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and jungle world. Show the character full body in an energetic adventure-ready stance with feet planted and body ready. Premium stylized 3D, 16:9. Add one large clean message exactly: LET'S BEGIN! No other visible text, no timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 05 — VINE REACH HOLD — Szene 05.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: bright jungle base-camp clearing with layered green leaves, simple wooden trail signs far in the background, warm sunbeams and a clean mossy training mat. Show exactly one clear static full-body exercise pose: feet planted a little wider than shoulders, torso upright, both arms fully extended straight overhead with open hands, long clear vertical silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: VINE REACH HOLD. Add the top-right instruction exactly: Reach both hands high and stand tall. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 06 — GET READY: RIVER STONE BALANCE — Szene 06.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: shallow jungle-river training area with large rounded stepping stones, turquoise water, soft ferns and distant waterfall mist. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the RIVER STONE BALANCE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: RIVER STONE BALANCE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: RIVER STONE BALANCE. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 07 — RIVER STONE BALANCE — Szene 07.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: shallow jungle-river training area with large rounded stepping stones, turquoise water, soft ferns and distant waterfall mist. Show exactly one clear static full-body exercise pose: one-leg balance with the free knee bent gently forward, both arms extended horizontally to the sides, torso tall, standing foot fully visible. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: RIVER STONE BALANCE. Add the top-right instruction exactly: Stand on one leg and stretch your arms wide. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 08 — GET READY: EXPLORER CROUCH — Szene 08.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: ancient jungle-ruins clearing with broad stone steps, vines on distant walls and warm amber light filtering through leaves. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the EXPLORER CROUCH exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: EXPLORER CROUCH. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: EXPLORER CROUCH. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 09 — EXPLORER CROUCH — Szene 09.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: ancient jungle-ruins clearing with broad stone steps, vines on distant walls and warm amber light filtering through leaves. Show exactly one clear static full-body exercise pose: deep wide crouch with both feet flat, knees bent outward, torso upright, one hand lightly above the eyebrows like an explorer visor and the other arm relaxed forward. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: EXPLORER CROUCH. Add the top-right instruction exactly: Sit low, keep your chest up, and freeze. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 10 — GET READY: CANOPY SIDE REACH — Szene 10.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: high canopy lookout with safe wooden deck, giant leaves, distant treetops and bright sky gaps. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the CANOPY SIDE REACH exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: CANOPY SIDE REACH. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: CANOPY SIDE REACH. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 11 — CANOPY SIDE REACH — Szene 11.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: high canopy lookout with safe wooden deck, giant leaves, distant treetops and bright sky gaps. Show exactly one clear static full-body exercise pose: wide upright stance, one hand resting near the hip, opposite arm curved overhead while the torso bends clearly sideways, both legs mostly straight. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: CANOPY SIDE REACH. Add the top-right instruction exactly: Lean to one side and reach long overhead. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 12 — GET READY: TRAIL RUNNER FREEZE — Szene 12.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: sunlit jungle trail with curved path, broad leaves, orange trail markers and soft depth in the trees. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the TRAIL RUNNER FREEZE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: TRAIL RUNNER FREEZE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: TRAIL RUNNER FREEZE. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 13 — TRAIL RUNNER FREEZE — Szene 13.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: sunlit jungle trail with curved path, broad leaves, orange trail markers and soft depth in the trees. Show exactly one clear static full-body exercise pose: athletic split stance with front knee softly bent and rear leg extended back, opposite elbows bent like a paused running motion, torso leaning only slightly forward. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: TRAIL RUNNER FREEZE. Add the top-right instruction exactly: Step one foot back, bend your arms, and hold. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 14 — GET READY: COMPASS TWIST HOLD — Szene 14.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: explorer map terrace with a stylized compass mosaic on the floor, jungle cliffs and distant canopy beyond. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the COMPASS TWIST HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: COMPASS TWIST HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: COMPASS TWIST HOLD. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 15 — COMPASS TWIST HOLD — Szene 15.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: explorer map terrace with a stylized compass mosaic on the floor, jungle cliffs and distant canopy beyond. Show exactly one clear static full-body exercise pose: feet wide and stable, hips mostly forward, torso rotated to one side, front arm extended straight forward and rear arm extended straight backward at shoulder height. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: COMPASS TWIST HOLD. Add the top-right instruction exactly: Turn your chest and point both arms opposite ways. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 16 — GET READY: BRIDGE TABLE HOLD — Szene 16.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: padded training platform beside a jungle rope bridge, wooden planks and vines in the background, no character touching the bridge. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the BRIDGE TABLE HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: BRIDGE TABLE HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: BRIDGE TABLE HOLD. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 17 — BRIDGE TABLE HOLD — Szene 17.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: padded training platform beside a jungle rope bridge, wooden planks and vines in the background, no character touching the bridge. Show exactly one clear static full-body exercise pose: safe reverse tabletop on hands and feet, chest facing upward, hips lifted, knees bent, arms straight enough to support the body, head neutral and all limbs visible. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: BRIDGE TABLE HOLD. Add the top-right instruction exactly: Hands and feet down, lift your hips, and hold. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 18 — GET READY: CAVE PLANK HOLD — Szene 18.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: bright cave-mouth training area with smooth stone floor, green plants around the entrance and cool blue light inside the distant cave. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the CAVE PLANK HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: CAVE PLANK HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: CAVE PLANK HOLD. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 19 — CAVE PLANK HOLD — Szene 19.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: bright cave-mouth training area with smooth stone floor, green plants around the entrance and cool blue light inside the distant cave. Show exactly one clear static full-body exercise pose: straight-arm plank with both hands under shoulders, legs extended back, body forming one clear line, head neutral, hands and feet fully inside frame. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: CAVE PLANK HOLD. Add the top-right instruction exactly: Make one strong straight line from head to heels. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 20 — GET READY: WATERFALL KNEE HUG — Szene 20.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: waterfall clearing with soft turquoise pool far behind, misty light, broad ferns and a dry flat training surface. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the WATERFALL KNEE HUG exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: WATERFALL KNEE HUG. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: WATERFALL KNEE HUG. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 21 — WATERFALL KNEE HUG — Szene 21.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: waterfall clearing with soft turquoise pool far behind, misty light, broad ferns and a dry flat training surface. Show exactly one clear static full-body exercise pose: upright one-leg balance, both hands gently holding one raised knee close to the chest, standing leg straight but relaxed, shoulders level. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: WATERFALL KNEE HUG. Add the top-right instruction exactly: Lift one knee, hug it gently, and balance. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 22 — GET READY: TREE TRUNK PUSH — Szene 22.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: giant-tree grove with enormous stylized trunks, warm green light and simple leafy ground cover, clear open training space. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the TREE TRUNK PUSH exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: TREE TRUNK PUSH. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: TREE TRUNK PUSH. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 23 — TREE TRUNK PUSH — Szene 23.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: giant-tree grove with enormous stylized trunks, warm green light and simple leafy ground cover, clear open training space. Show exactly one clear static full-body exercise pose: staggered standing stance with one foot forward and one foot back, both arms extended forward at chest height, palms flat facing outward, torso upright as if pressing an invisible surface. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: TREE TRUNK PUSH. Add the top-right instruction exactly: Step back and press both palms forward. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 24 — GET READY: JUNGLE STAR FREEZE — Szene 24.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: hilltop canopy platform with layered jungle horizon, bright sky, distant mountains and clean open floor. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the JUNGLE STAR FREEZE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: JUNGLE STAR FREEZE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: JUNGLE STAR FREEZE. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 25 — JUNGLE STAR FREEZE — Szene 25.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: hilltop canopy platform with layered jungle horizon, bright sky, distant mountains and clean open floor. Show exactly one clear static full-body exercise pose: upright full-body X shape with legs spread wide and both arms raised diagonally upward, torso centered, strong symmetrical star silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: JUNGLE STAR FREEZE. Add the top-right instruction exactly: Stretch arms and legs wide like a giant star. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 26 — GET READY: EXPLORER VICTORY — Szene 26.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: sunset jungle lookout with golden sky, layered treetops, distant river and a clean circular finish platform. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the EXPLORER VICTORY exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: EXPLORER VICTORY. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible text must be exactly: GET READY and NEXT: EXPLORER VICTORY. No generated timer, no progress bar, no extra people, no animals, no logos.
+
+============================================================
+SZENE 27 — EXPLORER VICTORY — Szene 27.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and emerald, turquoise and sunshine-yellow outfit. Premium stylized 3D, 16:9. Use this environment: sunset jungle lookout with golden sky, layered treetops, distant river and a clean circular finish platform. Show exactly one clear static full-body exercise pose: feet planted shoulder-width, one fist raised diagonally overhead, opposite hand resting at the hip, torso proud and upright, clear celebratory silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Do NOT use gold plaques, gray badges, ribbons, decorative labels or alternate title-box styles. Add the bottom-left title exactly: EXPLORER VICTORY. Add the top-right instruction exactly: Stand proud, raise one fist, and finish strong. No generated timer, no progress bar, no extra people, no animals, no logos, natural anatomy, all important limbs fully visible.
+
+============================================================
+SZENE 28 — OUTRO — Szene 28.png
+============================================================
+FINAL GOOGLE FLOW PROMPT:
+Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and KidMotion jungle world. Create a premium stylized 3D 16:9 celebration card on the sunset jungle lookout with warm golden light and layered treetops. Show the character full body in a proud friendly celebratory stance. Add exactly: GREAT JOB! Add exactly: ADVENTURE COMPLETE. No timer, no progress bar, no extra people, no animals, no logos.
+
+FINAL CHECK
+- `Szene 01.png` is the ONLY image reference for Szene 02–28.
+- Szene 02–28 were generated exactly once and strictly in order.
+- No failed scene was replaced with another scene's output.
+- Final folder contains `Szene 01.png` through `Szene 28.png` and no rejected cover candidates.
+- Run: npm run scene:qa -- --episode=KM-006-jungle-explorer-workout
