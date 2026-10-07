@@ -111,7 +111,7 @@
     "FOLLOW ALONG"
   ],
   "introVoiceText": "Welcome, space explorers! Today we’re blasting through a five-minute mission with twelve fun freeze challenges. Follow along and hold each pose strong. Clear some space, move at your own pace, and stop if anything hurts. Engines ready? Let’s begin!",
-  "voiceScriptFormat": "timecoded production script plus exact TTS copy",
+  "voiceScriptFormat": "plain continuous text only",
   "safetyDuration": 4,
   "letsBeginDuration": 2,
   "outroDuration": 4,
