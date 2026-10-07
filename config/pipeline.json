@@ -184,5 +184,13 @@
     "assetMutationInvalidatesApproval": true
   },
   "productionContractFile": "config/v3-contract.json",
-  "productionContractVersion": 1
+  "productionContractVersion": 1,
+  "phaseWorkflow": {
+    "phase1": "planning",
+    "phase2": "image-production-and-handoff",
+    "phase3": "antigravity-assembly-only",
+    "phase3ImageGenerationForbidden": true,
+    "phase3UsesOnlyApprovedPhase2Images": true,
+    "phase3MissingImageBehavior": "BLOCK"
+  }
 }

@@ -2,15 +2,20 @@
 
 KidMotion arbeitet nach dem zentralen Produktionsvertrag `config/v3-contract.json`.
 
-Die Episode ist nur Inhaltsdaten. Pipeline-Regeln gehören **nicht** in einzelne Episoden. Neue Episoden werden immer vom globalen Generator erstellt und durch globale QA geprüft.
+## Phasen
+- **Phase 1: Planung** — Szenen, Prompts, Voice, Timing, Metadaten.
+- **Phase 2: Bildproduktion/Handoff** — finale Bilder werden erstellt, ausgewählt, geprüft und per SHA-256 freigegeben.
+- **Phase 3: Antigravity Assembly/Render** — Antigravity verwendet ausschließlich die freigegebenen Phase-2-Bilder und erstellt selbst **keine Bilder**.
 
-Kernregeln:
-- 28 finale Szenen, `Szene 01` ist Cover außerhalb des MP4.
-- Erst 3 Cover, danach genau eine Nutzerwahl.
-- Nur das gewählte `Szene 01.png` darf später als Bildreferenz verwendet werden.
-- Szene 02–28: genau eine Generierung pro Szene, streng seriell, keine Parallelgenerierung, kein Kopieren bei Fehlern.
-- 11 eigene GET-READY-Bilder; nie vorzeitig die nächste Übung zeigen.
-- Flow erzeugt jeden sichtbaren Nicht-Timer-Text.
-- Remotion erzeugt nur 20→1 bzw. 5→1 Countdown.
-- Voice: ein 14-Sekunden-Opening mit festem Intro-/Safety-/LET'S-BEGIN-Zeitplan.
-- Vor Flow: `prompt:qa`. Nach Bildern: `scene:qa`. Vor Render: SHA-256 Asset Approval. Nach Render: Source-/Timing-QA.
+### Phase-3-Hard-Rule
+`ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true`
+
+Antigravity darf kein Bild generieren, regenerieren, bearbeiten, ersetzen oder als Fallback erzeugen. Fehlendes/geändertes Phase-2-Bild = Block. Vor Phase 3 muss `phase3:gate` bestehen.
+
+Workout-Kernregeln bleiben:
+- 28 finale Szenen, `Szene 01` Cover außerhalb des MP4
+- nur gewähltes `Szene 01.png` als Referenz während Phase 2
+- 11 eigene GET-READY-Bilder
+- Flow besitzt alle Nicht-Timer-Texte
+- Remotion besitzt nur den Countdown-Timer
+- Postrender-QA prüft Quellen und Timing

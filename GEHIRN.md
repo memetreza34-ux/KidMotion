@@ -5,6 +5,23 @@
 ## 0. Maschinenlesbarer Vertrag
 Neue produktive Episoden müssen `productionContractVersion` und `contractFile: config/v3-contract.json` tragen. Episoden ohne aktuelle Contract-Version sind read-only/pre-contract und dürfen nicht ausgewählt, approved, aktiviert oder gerendert werden.
 
+## 0a. Phasenmodell — HARTE ZUSTÄNDIGKEITSGRENZE
+**Phase 1 — Planung:** Szenenplan, Prompts, Voice-Plan, Timing und Metadaten.
+
+**Phase 2 — Bildproduktion und Übergabe:** Google Flow bzw. der vorgesehene Bildworkflow erzeugt die finalen Bilder. Nutzerwahl/Review findet hier statt. Danach werden die fertigen Bilder per SHA-256 freigegeben.
+
+**Phase 3 — Antigravity Assembly/Render:** Antigravity erzeugt **keine Bilder**. Es verwendet ausschließlich die in Phase 2 übergebenen und freigegebenen Bilder.
+
+Für Phase 3 gilt:
+- kein Bildgenerator / kein Google Flow
+- keine Bildgenerierung oder Regeneration
+- keine Bildbearbeitung
+- kein Ersetzen/Improvisieren
+- keine Fallback-Bilder
+- fehlendes/geändertes Bild = Phase 3 blockieren
+- vor Phase 3 muss `npm run phase3:gate` bestehen
+- die Phase-2-Bilder sind unveränderliche Inputs
+
 ## 1. Format
 KidMotion produziert englische 16:9 YouTube-Longform-Kinderworkouts mit einem wiederkehrenden 3D-Charakter und statischen Hold-/Freeze-Posen.
 
@@ -39,7 +56,7 @@ episodes/KM-XXX-name/
 
 Alle finalen Bilder liegen flach in genau einem Bilderordner.
 
-## 3. Cover-Workflow — HARTE SPERRE
+## 3. PHASE 2 — Cover-Workflow — HARTE SPERRE
 1. Zuerst exakt drei Cover-Kandidaten erzeugen:
    - `Cover-Kandidat-01.png`
    - `Cover-Kandidat-02.png`
@@ -52,7 +69,7 @@ Alle finalen Bilder liegen flach in genau einem Bilderordner.
 7. `Szene 01.png` ist ab dann die **einzige erlaubte Bildreferenz** für alle Szenen 02–28.
 8. Kein später erzeugtes Bild darf jemals als zweite Referenz verwendet werden.
 
-## 4. Bildgenerierung — HARTE EINMAL-REGEL
+## 4. PHASE 2 — Bildgenerierung — HARTE EINMAL-REGEL
 Nach der Cover-Auswahl läuft die Bildproduktion automatisch bis zum fertigen Ordner durch.
 
 Pflicht:
@@ -256,7 +273,7 @@ Nach allen 28 Bildern läuft:
 Erst danach `npm run assets:approve -- --episode=...`.
 Approval sperrt Assets per SHA-256.
 
-## 13. Render
+## 13. PHASE 3 — Antigravity Assembly/Render
 Final nur über `npm run render:safe`.
 
 Ablauf:

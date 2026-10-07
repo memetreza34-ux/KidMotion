@@ -1,22 +1,17 @@
 # KidMotion
 
-KidMotion ist eine datengetriebene Pipeline für englische 16:9-Kinderworkouts.
+KidMotion ist eine datengetriebene Pipeline für englische 16:9-Kindervideos. Der aktuelle Workout-Formatvertrag liegt in `config/v3-contract.json`.
 
-## Eine Regelquelle
-Die maschinenlesbare Produktionsregel ist `config/v3-contract.json`. `GEHIRN.md` erklärt dieselben Regeln für Menschen/Agenten. Einzelne Episoden dürfen keine eigenen abweichenden Pipeline-Regeln erfinden.
+## Drei Phasen
+**Phase 1 — Planung:** Episode vollständig planen.
 
-## Standardvideo
-- 5:13 Minuten
-- 12 Übungen × 20 Sekunden
-- 11 GET-READY-Übergänge × 5 Sekunden
-- 3 Cover-Kandidaten, genau eine Nutzerwahl
-- Gewinner = `Szene 01.png` und einzige Bildreferenz für alle späteren Szenen
-- `Szene 02.png` bis `Szene 28.png` jeweils genau einmal und streng nacheinander generieren
-- Google Flow erzeugt alle sichtbaren Texte
-- Remotion erzeugt visuell nur den Countdown-Timer
+**Phase 2 — Asset-Produktion:** Bilder werden im vorgesehenen Bildworkflow erstellt, ausgewählt und geprüft. Nach `assets:approve` sind sie SHA-256-gesperrt.
 
-## Produktionsweg
-`kidmotion:new` → Planung vollständig ausarbeiten → `prompt:qa` → 3 Cover → Nutzerwahl → Szenen seriell → `scene:qa` → echte visuelle Prüfung → `assets:approve` → `kidmotion:activate` → `render:safe`.
+**Phase 3 — Antigravity Assembly/Render:** Antigravity erstellt **keine Bilder**. Es verwendet nur die aus Phase 2 übergebenen und freigegebenen Dateien.
+
+Vor Phase 3: `npm run phase3:gate`
+
+Wenn ein Bild fehlt oder verändert wurde, wird Phase 3 blockiert. Antigravity darf kein Ersatzbild, keine Variante und keine Regeneration erzeugen.
 
 ## Repo-Schutz
-`npm run project:doctor` prüft die globale Architektur. `npm run repo:qa` prüft den zentralen Vertrag und alle aktuellen Contract-Episoden. GitHub Actions führt beide Checks bei jedem Push/PR aus.
+`project:doctor` + `repo:qa` prüfen die globale Architektur und die Phase-3-Zuständigkeitsgrenze.

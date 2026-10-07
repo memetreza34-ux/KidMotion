@@ -206,5 +206,46 @@
     "structureVersionBelow3": "read-only legacy",
     "v3WithoutProductionContractVersion": "read-only pre-contract episode",
     "currentProductionRequiresMatchingContractVersion": true
+  },
+  "phaseContract": {
+    "phase1": {
+      "name": "planning",
+      "purpose": "Complete scene plan, prompts, voice plan, timing and metadata."
+    },
+    "phase2": {
+      "name": "image-production-and-handoff",
+      "purpose": "Create/select final image assets outside Antigravity Phase 3, review them and lock the approved files.",
+      "imageCreationAllowed": true,
+      "imageCreator": "Google Flow / user-provided image workflow",
+      "outputDirectory": "00-bildprompts/images",
+      "requiredFinalImages": "Szene 01.png through Szene 28.png",
+      "mustRunSceneQa": true,
+      "mustCompleteVisualReview": true,
+      "mustCreateSha256Approval": true
+    },
+    "phase3": {
+      "name": "antigravity-assembly-only",
+      "owner": "Antigravity",
+      "antigravityMayGenerateImages": false,
+      "antigravityMayRegenerateImages": false,
+      "antigravityMayEditImages": false,
+      "antigravityMayReplaceImages": false,
+      "antigravityMayCreateFallbackImages": false,
+      "antigravityMayCallImageGeneration": false,
+      "sourceImagesImmutable": true,
+      "mayUseOnlyPhase2ApprovedImages": true,
+      "requiredInputDirectory": "00-bildprompts/images",
+      "requiredInputGate": "phase3:gate",
+      "missingOrChangedImageBehavior": "BLOCK_PHASE_3",
+      "allowedWork": [
+        "validate approved Phase 2 inputs",
+        "activate runtime mappings",
+        "assemble existing images",
+        "add permitted Remotion timer",
+        "use approved voice/music",
+        "render video",
+        "run postrender QA"
+      ]
+    }
   }
 }

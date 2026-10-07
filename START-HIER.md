@@ -1,14 +1,21 @@
 # START HIER
 
+## Phase 1 — Planung
 1. `GEHIRN.md` und `config/v3-contract.json` lesen.
-2. Neue Episode mit `npm run kidmotion:new -- --topic="..."` anlegen.
-3. Alle `__PLAN_REQUIRED__`-Felder vollständig ausarbeiten: Übungen, Posen, Flow-Prompts, Voice-Plan, TTS-Text, Upload-Metadaten.
-4. `npm run prompt:qa -- --episode=KM-XXX-slug` muss bestehen, **bevor Google Flow geöffnet wird**.
-5. Exakt 3 Cover erzeugen und dem Nutzer einmal zeigen.
-6. Nutzer wählt 1 Cover. Gewinner = `Szene 01.png`; die anderen beiden löschen.
-7. Danach `Szene 02.png` bis `Szene 28.png` automatisch, streng seriell und jeweils genau einmal erzeugen. Einzige Bildreferenz ist immer `Szene 01.png`.
-8. `npm run scene:qa -- --episode=KM-XXX-slug`.
-9. Echte Bilder visuell prüfen; erst dann `assets:approve`.
-10. Voice 01 + Musik ablegen, Episode aktivieren und `npm run render:safe` ausführen.
+2. Neue Episode anlegen und Planung vollständig ausarbeiten.
+3. `prompt:qa` muss bestehen.
 
-Remotion = Countdown-Timer only. Kein zusätzlicher Text, keine Progress-Bar, kein REST/NEXT-Overlay.
+## Phase 2 — Bilder erstellen und übergeben
+4. Bildworkflow/Google Flow erzeugt die 3 Cover.
+5. Nutzer wählt 1 Cover; Gewinner = `Szene 01.png`, die zwei anderen löschen.
+6. Der Bildworkflow erzeugt die restlichen finalen Szenen nach dem Plan.
+7. `scene:qa` ausführen und Bilder real visuell prüfen.
+8. `assets:approve` ausführen. Dadurch werden die Phase-2-Assets per SHA-256 gesperrt.
+
+## Phase 3 — Antigravity
+9. Antigravity darf **keine Bilder erzeugen**. Es nimmt ausschließlich die fertigen Phase-2-Bilder.
+10. Vor jeder Phase-3-Arbeit muss `npm run phase3:gate` bestehen.
+11. Fehlt/ändert sich ein Bild: **STOP**, niemals Ersatz erzeugen.
+12. Antigravity darf vorhandene Assets aktivieren, mit Remotion zusammensetzen, den erlaubten Timer hinzufügen, rendern und Postrender-QA ausführen.
+
+Antigravity Phase 3 = Assembly only.
