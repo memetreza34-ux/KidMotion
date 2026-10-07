@@ -1,31 +1,20 @@
-Read GEHIRN.md first.
+# ANTIGRAVITY — PHASE 3 ONLY
 
-PRE-FLOW
-Run `npm run prompt:qa -- --episode=episodes/KM-005-space-mission-workout`. If it fails, do not open Google Flow.
+ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true
 
-PROMPT SOURCE
-Use only the complete `FINAL GOOGLE FLOW PROMPT` block for the exact cover candidate or scene from `00-bildprompts/google-flow-prompt.txt`. Do not summarize or rewrite it.
+This episode follows the global Phase 3 rule in `/ANTIGRAVITY.md` and `config/v3-contract.json`.
 
-COVER
-Generate exactly Cover-Kandidat-01.png, Cover-Kandidat-02.png and Cover-Kandidat-03.png. Show all 3 once. Wait only for the user's cover choice. Run `npm run kidmotion:select-cover -- --episode=episodes/KM-005-space-mission-workout --candidate=<1|2|3>`. Winner becomes Szene 01.png and both rejected covers are deleted.
+Antigravity receives the final images from Phase 2 and must use those exact files only.
 
-LATER SCENES
-After cover selection, automatically generate Szene 02–28.
-- ONLY image reference: selected Szene 01.png.
-- Exactly one generation request per scene.
-- Strictly serial: do not start scene N+1 until scene N has completed and its exact result is saved or explicitly marked failed.
-- Never copy, reuse or rename another scene to fill a failed slot.
-- Save each successful result immediately under its exact scene filename.
-- Do not ask the user between internal 5-scene groups.
+Before Phase 3:
+- Phase 2 image production is finished.
+- visual review and asset approval are finished.
+- activate the intended episode if necessary.
+- run `npm run phase3:gate`.
+- continue only if the gate passes.
 
-FINAL
-Run `npm run scene:qa -- --episode=episodes/KM-005-space-mission-workout`.
-Do not render if it reports missing, extra, duplicate, near-duplicate, prompt, reference or ordering problems.
-Never set VISUAL_REVIEW flags true without inspecting the actual images.
+In Phase 3 Antigravity must NOT call Google Flow or any image generator and must NOT generate, regenerate, edit, replace or invent any image.
 
-VOICE PRODUCTION
-- Read `01-voice-script/voice-script.txt` and `99-technik/VOICE_PLAN.json`.
-- Generate exactly one `Voice 01.mp3` from the section labeled `Exact TTS copy`.
-- Target 13.65–14.00s total, hard maximum 14.05s.
-- Align meaning with Intro 00:00–00:08, Safety 00:08–00:12, LET'S BEGIN 00:12–00:14.
-- No spoken voice after 14s.
+If any approved Phase 2 image is missing or changed: STOP. Do not create a replacement.
+
+Allowed: use approved existing images/audio, assemble scenes, add the permitted Remotion timer, render, and run postrender QA.
