@@ -1,24 +1,15 @@
 # KidMotion
 
-## Produktionsfluss
+## Robuster Handoff
 
-**Phase 1:** Planung.
+Ein Phase-2-Handoff darf als ZIP, bereits fertiger Bilderordner und/oder Audio in MP4/M4A/WAV/AAC/MP3 vorliegen.
 
-**Phase 2:** Bilder und Audio werden erstellt. Der Handoff darf als fertiger Ordner, ZIP oder Audio-Container erfolgen.
+Antigravity startet bei einem Roh-Handoff immer mit:
 
-**Phase 3:** Antigravity führt zuerst den technischen Import aus:
+npm run phase3:prepare -- --episode=KM-XXX-slug
 
-`npm run phase3:ingest -- --episode=KM-XXX-slug`
+Der Prepare-Schritt übernimmt technisch sichere Arbeiten automatisch und führt Scene QA aus. Danach prüft Antigravity die echten Bilder visuell, approved sie, aktiviert die Episode und führt erst dann phase3:gate aus.
 
-Erlaubt:
-- ZIP entpacken
-- eindeutig nummerierte PNG-Szenen einsortieren
-- vorhandene Audio-/Videocontainer per ffmpeg in die benötigten MP3-Dateien konvertieren
+**Kein Nutzer muss ZIP-Dateien manuell entpacken oder eine eindeutige MP4-Voice manuell zu MP3 konvertieren.**
 
-Verboten:
-- Bilder generieren
-- Bildinhalt verändern
-- fehlende Szenen erfinden
-- uneindeutige Bildreihenfolge raten
-
-Danach: Scene QA → Visual Review → Asset Approval → Activate → Phase 3 Gate → Render.
+Unverändert verboten: Bildgenerierung, Bildpixel-Änderung, Ersatzbilder, geratenes Szenen-Mapping und gefälschte Visual Reviews.

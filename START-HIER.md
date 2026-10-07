@@ -1,25 +1,23 @@
 # START HIER
 
 ## Phase 1 — Planung
-1. Planung vollständig ausarbeiten.
-2. `prompt:qa` muss bestehen.
+1. Episode vollständig planen.
+2. prompt:qa muss bestehen.
 
-## Phase 2 — Asset-Erstellung
-3. Bilder/Audio werden erstellt und dem Projekt übergeben. Das kann auch als ZIP bzw. Audio in einem Container wie MP4 erfolgen.
+## Phase 2 — Asset-Produktion
+3. Bilder und Audio erstellen. Der Handoff darf als fertiger Ordner, ZIP und/oder Audio-/Videocontainer erfolgen.
 
-## Phase 3 — Antigravity Ingest + Assembly
-Wenn der Nutzer sagt „alles ist im Ordner“:
+## Phase 3 — Antigravity
 
-4. **Zuerst** `npm run phase3:ingest -- --episode=KM-XXX-slug`.
-   - ZIP entpacken
-   - vorhandene, eindeutig nummerierte PNGs einsortieren
-   - vorhandene MP4/M4A/WAV/AAC-Audios mit ffmpeg in benötigte MP3-Dateien konvertieren
-   - keine Bilder neu erzeugen
-5. `scene:qa`
-6. Bilder real visuell prüfen
-7. `assets:approve`
-8. Episode aktivieren
-9. `phase3:gate`
-10. `render:safe`
+Wenn der Nutzer „alles ist im Ordner“ sagt:
 
-Wichtig: `phase3:gate` darf nicht vor dem Roh-Import erwartet werden. Es prüft die bereits vorbereiteten und freigegebenen Assets.
+4. npm run phase3:prepare -- --episode=KM-XXX-slug
+5. Antigravity prüft die importierten Bilder selbst visuell und aktualisiert VISUAL_REVIEW.json wahrheitsgemäß.
+6. npm run assets:approve -- --episode=KM-XXX-slug
+7. npm run kidmotion:activate -- --episode=KM-XXX-slug
+8. npm run phase3:gate -- --episode=KM-XXX-slug
+9. npm run render:safe
+
+phase3:prepare darf ZIP entpacken, deterministische PNG-Dateinamen normalisieren und vorhandene Audio-Container nach MP3 konvertieren. Es darf keine Bilder erzeugen oder deren Pixel verändern.
+
+phase3:gate kommt erst nach Import + Review + Approval.

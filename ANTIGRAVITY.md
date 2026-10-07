@@ -1,40 +1,46 @@
-# ANTIGRAVITY — PHASE 3 ONLY
+# ANTIGRAVITY — PHASE 3 HANDOFF + ASSEMBLY
 
-`ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true`
-
-Antigravity erstellt in Phase 3 **keine neuen Bilder**. Es darf aber die vom Nutzer aus Phase 2 übergebenen Dateien technisch importieren.
+ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true
 
 ## Wenn der Nutzer sagt „alles ist im Ordner“
-**Nicht zuerst `phase3:gate` ausführen.**
 
-Zuerst:
+Antigravity startet **nicht** mit phase3:gate und schickt den Nutzer nicht zum manuellen Entpacken/Konvertieren zurück.
 
-`npm run phase3:ingest -- --episode=KM-XXX-slug`
+Erster Befehl:
 
-Dieser Schritt darf:
-- eine vorhandene Phase-2-ZIP entpacken
-- vorhandene PNG-Szenen anhand eindeutiger Szenennummern in `00-bildprompts/images/` einsortieren
-- Dateien technisch verschieben/kopieren/umbenennen, ohne Bildpixel zu verändern
-- aus einer vorhandenen Audio-/Videodatei wie `.mp4`, `.m4a`, `.wav` oder `.aac` die Audiospur mit ffmpeg in das benötigte MP3-Format umwandeln
-- z. B. eine eindeutige `Kids.mp4` als `Voice 01.mp3` extrahieren
-- `PHASE3_INGEST.json` als Importprotokoll erstellen
+npm run phase3:prepare -- --episode=KM-XXX-slug
 
-Dieser Schritt darf **nicht**:
+phase3:prepare übernimmt den technischen Handoff:
+- ZIPs im Episodenordner finden und nur relevante Assets sicher entpacken
+- eindeutig nummerierte PNG-Szenen in den finalen Bilderordner einsortieren
+- Szene 01 als bereits gewähltes finales Cover erkennen und COVER_SELECTION.json rekonstruieren/normalisieren
+- vorhandene Audio-/Videocontainer wie MP4, M4A, WAV, AAC oder MP3 erkennen
+- eine eindeutige kurze Voice-Quelle (z. B. Kids.mp4) per ffmpeg zu Voice 01.mp3 extrahieren
+- eine eindeutige Musikquelle zu bg-music.mp3 normalisieren
+- Scene Integrity QA ausführen
+- niemals eine uneindeutige Szenenreihenfolge raten
+
+Danach führt Antigravity **selbst** die reale visuelle Prüfung der importierten Szene-01-bis-28-Bilder durch und setzt VISUAL_REVIEW.json nur anhand dieser echten Prüfung.
+
+Dann:
+1. npm run assets:approve -- --episode=KM-XXX-slug
+2. npm run kidmotion:activate -- --episode=KM-XXX-slug
+3. npm run phase3:gate -- --episode=KM-XXX-slug
+4. npm run render:safe
+
+## Verboten
+
+Antigravity darf in Phase 3 niemals:
 - Google Flow oder einen Bildgenerator aufrufen
-- neue Cover/Szenen erzeugen
-- Bildinhalt verändern
-- ein fehlendes Bild erfinden
-- ein falsches Bild als Ersatz einsetzen
-- bei uneindeutigen Dateinamen die Szenenreihenfolge raten
+- Bilder generieren/regenerieren
+- Bildpixel oder Bildinhalt verändern
+- fehlende Bilder erfinden
+- bei mehrdeutigen Dateinamen die Reihenfolge raten
+- eine fehlende Datei durch irgendeine andere Szene ersetzen
+- VISUAL_REVIEW ohne echte Sichtprüfung fälschen
 
-## Danach
-1. `scene:qa`
-2. echte Bilder visuell prüfen
-3. `assets:approve`
-4. Episode aktivieren
-5. `phase3:gate`
-6. Render
+## Wichtig
 
-`phase3:gate` ist also die Sperre **nach Import und Approval**, nicht der erste Schritt beim Roh-Handoff.
+phase3:gate ist **nicht** der Roh-Handoff-Einstieg. Es prüft erst die bereits importierten, visuell geprüften und SHA-256-approved Assets.
 
-Wenn nach `phase3:ingest` Dateien fehlen, muss Antigravity konkret melden, welche Phase-2-Dateien fehlen. Es darf niemals selbst neue Bilder dafür erstellen.
+Fehlt nach phase3:prepare wirklich ein Phase-2-Asset oder ist die Zuordnung mehrdeutig, meldet Antigravity exakt diese Datei. Es fordert aber nicht pauschal manuelles Entpacken, Umbenennen oder MP4→MP3-Konvertieren vom Nutzer an, wenn der technische Import das selbst sicher erledigen kann.

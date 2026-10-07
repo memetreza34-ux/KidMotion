@@ -1,21 +1,20 @@
-# ANTIGRAVITY — PHASE 3 ONLY
+# ANTIGRAVITY — PHASE 3 HANDOFF + ASSEMBLY
 
 ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true
 
-When Phase 2 files have been placed in this episode, start with:
+When the user says the files are ready/in the folder, start with:
 
-`npm run phase3:ingest -- --episode=KM-006-jungle-explorer-workout`
+npm run phase3:prepare -- --episode=KM-006-jungle-explorer-workout
 
-Antigravity may unpack the provided ZIP, place deterministically numbered PNG scene files into the images folder, and extract/transcode provided audio/video containers to the required MP3 files.
+Do not start with phase3:gate.
 
-Antigravity must NOT generate images, alter image pixels, invent missing scenes, or guess ambiguous scene order.
+phase3:prepare must unpack/normalize technically safe Phase 2 files and run scene QA. It may extract audio from a supplied MP4/M4A/WAV/AAC/MP3 when the role is unambiguous. It must never generate or alter images and must never guess ambiguous scene order.
 
-After ingest:
-1. run scene QA
-2. inspect the real images and complete visual review
-3. run assets:approve
-4. activate the episode
-5. run phase3:gate
-6. render
+After prepare succeeds:
+1. inspect the real imported images yourself and update VISUAL_REVIEW.json truthfully
+2. npm run assets:approve -- --episode=KM-006-jungle-explorer-workout
+3. npm run kidmotion:activate -- --episode=KM-006-jungle-explorer-workout
+4. npm run phase3:gate -- --episode=KM-006-jungle-explorer-workout
+5. npm run render:safe
 
-Do not run phase3:gate as the first action on a raw ZIP/MP4 handoff.
+Do not send the user back to manually unzip, deterministically rename, or convert a readable audio container when the technical ingest can do it safely.

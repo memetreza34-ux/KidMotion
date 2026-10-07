@@ -244,13 +244,16 @@
       "requiredInputGate": "phase3:gate",
       "missingOrChangedImageBehavior": "BLOCK_PHASE_3",
       "allowedWork": [
-        "unpack user-provided Phase 2 ZIP archives",
-        "copy/move user-provided images without changing pixels",
-        "normalize image filenames only when scene numbers are deterministic",
-        "extract/transcode user-provided audio containers to required audio filenames",
-        "write ingest metadata",
-        "run scene QA and visual review",
-        "create asset approval after review",
+        "discover user-provided Phase 2 handoff files inside the episode",
+        "unpack relevant assets from ZIP archives",
+        "copy/move deterministic PNG scene files without changing pixels",
+        "normalize deterministic scene filenames",
+        "reconstruct cover-selection metadata when final Szene 01.png was already chosen in Phase 2",
+        "extract/transcode user-provided audio/video containers to required MP3 filenames",
+        "write ingest and prepare metadata",
+        "run scene QA",
+        "visually inspect the actual imported images",
+        "create SHA-256 asset approval after visual review",
         "validate approved Phase 2 inputs",
         "activate runtime mappings",
         "assemble existing images",
@@ -269,7 +272,23 @@
       "visualContentModificationForbidden": true,
       "ingestCommand": "phase3:ingest",
       "ingestBeforeApproval": true,
-      "approvalBeforeGate": true
+      "approvalBeforeGate": true,
+      "rawHandoffEntryPoint": "phase3:prepare",
+      "technicalIngestCommand": "phase3:ingest",
+      "coverSelectionReconstructionFromFinalScene01Allowed": true,
+      "userManualUnzipRequired": false,
+      "userManualAudioConversionRequired": false,
+      "agentMustHandleTechnicalNormalizationWhenPossible": true,
+      "ambiguousSceneMappingBehavior": "BLOCK_WITH_REPORT",
+      "rawHandoffOrder": [
+        "phase3:prepare",
+        "visual-review-by-agent",
+        "assets:approve",
+        "kidmotion:activate",
+        "phase3:gate",
+        "render:safe"
+      ],
+      "gateMeaning": "phase3:gate validates already reviewed and SHA-256-approved assets; it is never the first command for a raw ZIP/audio handoff"
     }
   }
 }

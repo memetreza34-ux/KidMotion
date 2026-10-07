@@ -198,13 +198,18 @@
     "phase3ImagePixelModificationForbidden": true,
     "phase3IngestCommand": "npm run phase3:ingest -- --episode=<episode-folder>",
     "phase3Order": [
-      "ingest",
-      "scene-qa",
+      "prepare",
       "visual-review",
       "assets-approve",
       "activate",
       "phase3-gate",
-      "render"
-    ]
+      "render-safe"
+    ],
+    "phase3RawHandoffEntryPoint": "npm run phase3:prepare -- --episode=<episode-folder>",
+    "phase3TechnicalIngestCommand": "npm run phase3:ingest -- --episode=<episode-folder>",
+    "phase3AgentHandlesTechnicalNormalization": true,
+    "phase3UserManualUnzipRequired": false,
+    "phase3UserManualAudioConversionRequired": false,
+    "phase3AmbiguousSceneMappingBehavior": "BLOCK_WITH_REPORT"
   }
 }

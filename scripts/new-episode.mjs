@@ -127,7 +127,7 @@ write('99-technik/GENERATION-REVISION.txt',revision+'\n');
 write('99-technik/status.json',JSON.stringify({schemaVersion:3,productionContractVersion:contract.contractVersion,status:'planning-required',promptPlanReady:false,coverSelectionPending:true,coverSelected:false,imagesReady:false,audioReady:false,assetsApproved:false,renderReady:false},null,2)+'\n');
 write('00-bildprompts/google-flow-prompt.txt',prompt);
 write('01-voice-script/voice-script.txt',voiceScript);
-write('02-audio/README.md','Required for final: Voice 01.mp3 + bg-music.mp3. Voice follows VOICE_PLAN.json; no spoken voice after 14s.\n');
+write('02-audio/README.md','Final runtime needs Voice 01.mp3 + bg-music.mp3. A Phase 2 handoff may also provide voice/music in MP4/M4A/WAV/AAC; phase3:prepare must normalize unambiguous audio automatically. No spoken voice after 14s.\n');
 write('02-audio/MUSIC_BRIEF.md','# Music brief\n\nUpbeat playful kids-fitness electro-pop instrumental, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Lower under opening voice, more energetic after 14s.\n');
 write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n__PLAN_REQUIRED__ TITLE\n\n## Description / Caption\n__PLAN_REQUIRED__ DESCRIPTION\n');
 write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Then run prompt:qa. Do not open Flow before it passes.\n`);
@@ -140,24 +140,29 @@ This file applies only to Phase 3 for ${episodeFolder}.
 Phase 2 must already have delivered and approved all final images in 00-bildprompts/images/.
 
 When the user hands over Phase 2 files, first run:
-npm run phase3:ingest -- --episode=${episodeFolder}
+npm run phase3:prepare -- --episode=${episodeFolder}
 
-Phase 3 ingest MAY unpack ZIP archives, copy/rename files without changing image pixels, and convert/extract user-provided audio containers such as MP4/M4A/WAV into the required audio filenames.
+phase3:prepare is the raw-handoff entry point. It must automatically:
+- discover/extract provided ZIP assets
+- place deterministic numbered PNG scenes without changing pixels
+- reconstruct final cover metadata when Szene 01.png is already supplied
+- extract/transcode provided audio/video containers such as MP4/M4A/WAV/AAC into the required MP3 files when the role is unambiguous
+- run scene integrity QA
 
-Then run scene QA, inspect the actual images, complete visual review and assets:approve.
-After approval: activate the episode and run npm run phase3:gate.
+Do NOT run phase3:gate first on a raw handoff.
 
-In Phase 3 Antigravity MUST NOT:
-- call Google Flow or any image generator
-- generate or regenerate any cover/scene image
+After phase3:prepare succeeds, Antigravity must inspect the actual images itself and update VISUAL_REVIEW.json truthfully. Then run assets:approve, activate the episode, phase3:gate, and render:safe.
+
+Antigravity MUST NOT:
+- call Google Flow or any image generator in Phase 3
+- generate/regenerate cover or scene images
 - alter image pixels or visual content
 - invent fallback/replacement images
+- guess an ambiguous scene order
 
-Technical ingest is allowed: archive extraction, deterministic filename normalization, file relocation, and audio-container conversion.
+The user must not be sent back to manually unzip, rename deterministic files, or convert a technically readable audio container when Antigravity can do it safely.
 
-Use ONLY the exact approved Phase 2 images.
-If any image is missing or changed: STOP. Do not create anything.
-Allowed Phase 3 work: assembly, approved audio, permitted Remotion timer, render and postrender QA.
+Allowed Phase 3 work: technical ingest, real visual review, approval, assembly, approved audio, permitted Remotion timer, render and postrender QA.
 `);
 
 console.log(`Created KidMotion contract-v${contract.contractVersion} draft: ${episodeFolder}`);

@@ -21,6 +21,10 @@ if (contract.phaseContract?.phase3?.antigravityMayEditImages !== false) fail('Co
 if (contract.phaseContract?.phase3?.antigravityMayReplaceImages !== false) fail('Contract must forbid Antigravity image replacement in Phase 3.');
 if (contract.phaseContract?.phase3?.mayUseOnlyPhase2ApprovedImages !== true) fail('Phase 3 must use only approved Phase 2 images.');
 if (contract.phaseContract?.phase3?.missingOrChangedImageBehavior !== 'BLOCK_PHASE_3') fail('Missing/changed Phase 2 images must block Phase 3 after ingest/approval.');
+if (contract.phaseContract?.phase3?.rawHandoffEntryPoint !== 'phase3:prepare') fail('Raw handoff must start with phase3:prepare.');
+if (contract.phaseContract?.phase3?.userManualUnzipRequired !== false) fail('User manual unzip must not be required.');
+if (contract.phaseContract?.phase3?.userManualAudioConversionRequired !== false) fail('User manual audio conversion must not be required.');
+if (contract.phaseContract?.phase3?.ambiguousSceneMappingBehavior !== 'BLOCK_WITH_REPORT') fail('Ambiguous scene mapping must block with a report.');
 if (contract.phaseContract?.phase3?.assetIngestAllowed !== true) fail('Phase 3 must allow technical ingest of user-provided Phase 2 assets.');
 if (contract.phaseContract?.phase3?.archiveExtractionAllowed !== true) fail('Phase 3 must allow archive extraction.');
 if (contract.phaseContract?.phase3?.audioTranscodeAllowed !== true) fail('Phase 3 must allow audio-container conversion.');
@@ -34,6 +38,8 @@ if (pipeline.imageGenerationPolicy?.soleReferenceImage !== contract.generationCo
 if (pipeline.imageGenerationPolicy?.maximumGenerationAttemptsPerNonCoverScene !== contract.generationContract.maximumAttemptsPerLaterScene) fail('Pipeline generation attempt count differs from contract.');
 if (pipeline.timerPolicy?.sizePixels !== contract.remotionContract.timerSizePixels) fail('Pipeline timer size differs from contract.');
 if (pipeline.phaseWorkflow?.phase3ImageGenerationForbidden !== true) fail('Pipeline must forbid image generation in Phase 3.');
+if (pipeline.phaseWorkflow?.phase3RawHandoffEntryPoint !== 'npm run phase3:prepare -- --episode=<episode-folder>') fail('Pipeline raw handoff entry point must be phase3:prepare.');
+if (pipeline.phaseWorkflow?.phase3AgentHandlesTechnicalNormalization !== true) fail('Pipeline must make the agent handle technical normalization.');
 if (pipeline.phaseWorkflow?.phase3UsesOnlyApprovedPhase2Images !== true) fail('Pipeline Phase 3 must use only approved Phase 2 images.');
 
 const rootDocs = ['README.md','START-HIER.md','PROJECT_BRAIN.md','ANTIGRAVITY.md','scripts.md'];
@@ -48,7 +54,10 @@ const forbiddenDocPatterns = [
 ];
 const antiRoot = read(path.join(root,'ANTIGRAVITY.md'));
 if (!antiRoot.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail('Root ANTIGRAVITY.md must declare the Phase 3 image-generation ban.');
-if (!antiRoot.includes('npm run phase3:gate')) fail('Root ANTIGRAVITY.md must require phase3:gate.');
+if (!antiRoot.includes('phase3:prepare')) fail('Root ANTIGRAVITY.md must require phase3:prepare for raw handoff.');
+if (!antiRoot.includes('phase3:gate')) fail('Root ANTIGRAVITY.md must require phase3:gate after approval.');
+const antiOrder=['phase3:prepare','assets:approve','phase3:gate','render:safe'].map((token)=>antiRoot.indexOf(token));
+if (antiOrder.some((i)=>i<0) || !(antiOrder[0]<antiOrder[1] && antiOrder[1]<antiOrder[2] && antiOrder[2]<antiOrder[3])) fail('Root ANTIGRAVITY.md Phase 3 order is wrong.');
 
 for (const doc of rootDocs) {
   const content = read(path.join(root, doc));
@@ -90,7 +99,10 @@ if (fs.existsSync(episodeRoot)) {
     const antiPath = path.join(base,'ANTIGRAVITY.md');
     const anti = read(antiPath);
     if (!anti.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail(`${entry.name}: ANTIGRAVITY.md must declare Phase 3 image generation forbidden.`);
-    if (!anti.includes('phase3:gate')) fail(`${entry.name}: ANTIGRAVITY.md must require phase3:gate before Phase 3.`);
+    if (!anti.includes('phase3:prepare')) fail(`${entry.name}: ANTIGRAVITY.md must require phase3:prepare for raw handoff.`);
+    if (!anti.includes('phase3:gate')) fail(`${entry.name}: ANTIGRAVITY.md must require phase3:gate after approval.`);
+    const episodeAntiOrder=['phase3:prepare','assets:approve','phase3:gate','render'].map((token)=>anti.indexOf(token));
+    if (episodeAntiOrder.some((i)=>i<0) || !(episodeAntiOrder[0]<episodeAntiOrder[1] && episodeAntiOrder[1]<episodeAntiOrder[2] && episodeAntiOrder[2]<episodeAntiOrder[3])) fail(`${entry.name}: ANTIGRAVITY.md Phase 3 order is wrong.`);
     if (/then generate 3 covers|continue Szene 02.?28 serially using ONLY Szene 01\.png/i.test(anti)) fail(`${entry.name}: ANTIGRAVITY.md still assigns image generation to Antigravity.`);
     for (const rel of contract.requiredEpisodeFiles) {
       if (!fs.existsSync(path.join(base, rel))) fail(`${entry.name}: missing ${rel}`);

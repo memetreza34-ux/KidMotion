@@ -1,20 +1,25 @@
 # PROJECT BRAIN
 
-KidMotion hat drei Stufen:
+KidMotion arbeitet mit einem Roh-Handoff-fähigen Phase-3-Prozess.
 
-- **Phase 1:** Planung
-- **Phase 2:** Bilder/Audio erstellen und als Handoff bereitstellen
-- **Phase 3:** Antigravity importiert den Handoff technisch und baut daraus das Video
+## Phase 3 Reihenfolge
 
-## Phase 3
-Antigravity darf vorhandene Phase-2-Dateien:
-- aus ZIP entpacken
-- ohne Pixeländerung einsortieren/umbenennen
-- Audio aus MP4/M4A/WAV/AAC nach MP3 extrahieren/transcodieren
+phase3:prepare → echte visuelle Prüfung → assets:approve → activate → phase3:gate → render:safe
 
-Antigravity darf **keine Bilder erzeugen oder visuell verändern**.
+### phase3:prepare
+Darf:
+- ZIP technisch entpacken
+- deterministisch nummerierte PNGs einsortieren
+- finale Szene 01 als Cover-Handoff übernehmen
+- MP4/M4A/WAV/AAC/MP3-Audio technisch normalisieren
+- Scene QA ausführen
 
-Reihenfolge:
-`phase3:ingest → scene:qa → visual review → assets:approve → activate → phase3:gate → render`.
+Darf nicht:
+- Bilder erzeugen oder verändern
+- Szenenreihenfolge raten
+- fehlende Bilder ersetzen
 
-Wenn der Import uneindeutig ist, wird nicht geraten.
+Antigravity übernimmt technisch lösbare Handoff-Arbeit selbst. Der Nutzer soll nicht wegen ZIP/MP4/Dateiverschiebung zurückgeschickt werden.
+
+### Gate
+phase3:gate ist nur für bereits visuell geprüfte und SHA-256-approved Assets. Ein fehlendes ASSET_APPROVAL vor Review ist kein Roh-Handoff-Fehler.

@@ -20,7 +20,7 @@ if(!episodeFolder){
 }
 const paths = resolveEpisodePaths(root, episodeFolder);
 if (paths.structure === 'missing') fail('Active episode data is missing.');
-if (!fs.existsSync(paths.approvalPath)) fail(`Missing ${path.relative(paths.episodeRoot, paths.approvalPath)}.`);
+if (!fs.existsSync(paths.approvalPath)) fail(`Missing ${path.relative(paths.episodeRoot, paths.approvalPath)}. This gate is only valid AFTER phase3:prepare, real visual review, and assets:approve.`);
 if (!fs.existsSync(paths.revisionPath)) fail(`Missing ${path.relative(paths.episodeRoot, paths.revisionPath)}.`);
 if (failures.length) {
   console.error('ASSET GATE FAILED');
