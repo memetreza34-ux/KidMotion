@@ -131,10 +131,10 @@ if (fs.existsSync(episodeRoot)) {
     const voicePlan = readJson(path.join(base, '99-technik', 'VOICE_PLAN.json'));
     for (const error of validateVoicePlanObject(voicePlan, contract)) fail(`${entry.name}: ${error}`);
     const voiceScript = read(path.join(base, '01-voice-script', 'voice-script.txt'));
-    for (const label of ['00:00','00:08','00:12','Exact TTS copy']) {
-      if (!voiceScript.includes(label)) fail(`${entry.name}: voice-script.txt missing ${label}.`);
-    }
-    if (!voiceScript.includes(String(voicePlan.exactTtsCopy || ''))) fail(`${entry.name}: voice-script Exact TTS copy must match VOICE_PLAN.json.`);
+    const normalizedVoiceScript = voiceScript.trim();
+    const expectedVoiceText = String(voicePlan.exactTtsCopy || '').trim();
+    if (normalizedVoiceScript !== expectedVoiceText) fail(`${entry.name}: voice-script.txt must contain only VOICE_PLAN exactTtsCopy.`);
+    if (/^\s*#|\b00:\d{2}\b|Timing map|Exact TTS copy|##|Voice Script|Rules:/i.test(voiceScript)) fail(`${entry.name}: voice-script.txt contains forbidden headings/timecodes/instructions.`);
 
     const completePlanning = String(data.status || '') !== 'planning-required';
     if (completePlanning) {

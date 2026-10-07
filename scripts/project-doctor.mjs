@@ -32,6 +32,9 @@ if (contract.phaseContract?.phase3?.antigravityMayGenerateImages !== false) fail
 if (contract.phaseContract?.phase3?.sourceImagesImmutable !== true) fail('Contract must make Phase 2 images immutable in Phase 3.');
 if (contract.phaseContract?.phase3?.mayUseOnlyPhase2ApprovedImages !== true) fail('Contract must restrict Phase 3 to approved Phase 2 images.');
 if (contract.phaseContract?.phase3?.missingOrChangedImageBehavior !== 'BLOCK_PHASE_3') fail('Missing/changed images must block Phase 3.');
+if (contract.voiceContract?.voiceScriptFormat !== 'plain-continuous-text-only') fail('Voice script contract must be plain continuous text only.');
+if (contract.voiceContract?.voiceScriptMustEqualExactTtsCopy !== true) fail('Voice script must exactly match VOICE_PLAN exactTtsCopy.');
+if (contract.voiceContract?.voiceScriptTimecodesForbidden !== true) fail('Voice script timecodes must be forbidden.');
 
 const globalAntigravity = read('ANTIGRAVITY.md');
 if (!globalAntigravity.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail('ANTIGRAVITY.md must explicitly forbid image generation.');
@@ -67,7 +70,7 @@ for (const required of ['loadContract','expectedSceneSpecs','sceneFile','product
 }
 
 const promptQa = read('scripts/prompt-plan-qa.mjs');
-for (const required of ['loadContract','VOICE_PLAN.json','FINAL GOOGLE FLOW PROMPT','Exact TTS copy']) {
+for (const required of ['loadContract','VOICE_PLAN.json','FINAL GOOGLE FLOW PROMPT','voice-script.txt must contain ONLY']) {
   if (!promptQa.includes(required)) fail(`prompt-plan-qa.mjs missing contract behavior: ${required}`);
 }
 

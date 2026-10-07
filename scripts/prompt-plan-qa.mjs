@@ -102,8 +102,10 @@ for(let n=2;n<=28;n+=1){
 }
 
 for(const error of validateVoicePlanObject(voicePlan,contract)) fail(error);
-for(const label of ['00:00','00:08','00:12','Exact TTS copy']) if(!voiceScript.includes(label)) fail(`voice-script.txt missing ${label}.`);
-if(voicePlan?.exactTtsCopy && !voiceScript.includes(voicePlan.exactTtsCopy)) fail('voice-script Exact TTS copy must match VOICE_PLAN.json.');
+const normalizedVoiceScript=voiceScript.trim();
+const expectedVoiceText=String(voicePlan?.exactTtsCopy||'').trim();
+if(normalizedVoiceScript!==expectedVoiceText) fail('voice-script.txt must contain ONLY the exact continuous spoken text from VOICE_PLAN.json exactTtsCopy.');
+if(/^\s*#|\b00:\d{2}\b|Timing map|Exact TTS copy|##|Voice Script|Rules:/i.test(voiceScript)) fail('voice-script.txt must not contain headings, timecodes, labels or instructions.');
 
 if(failures.length){
   console.error(`PROMPT PLAN QA FAILED — ${episodeFolder}`);
@@ -111,4 +113,4 @@ if(failures.length){
   process.exit(1);
 }
 console.log(`PROMPT PLAN QA PASSED — ${episodeFolder}`);
-console.log('Validated central contract, scene order, 30 direct Flow prompts, cover safety wording, locked UI prompts, sole reference, one-generation policy and timed voice plan.');
+console.log('Validated central contract, scene order, 30 direct Flow prompts, cover safety wording, locked UI prompts, sole reference, one-generation policy, plain-text voice script and timed VOICE_PLAN.');

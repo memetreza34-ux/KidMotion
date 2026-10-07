@@ -226,17 +226,18 @@ Verboten:
 
 ## 11. Audio
 ### Voice-Skript-Standard
-Jede V3-Episode braucht einen echten Produktions-Script, nicht nur einen losen Absatz.
+`01-voice-script/voice-script.txt` enthält **nur den reinen gesprochenen Fließtext**.
 
 Pflicht:
-- `01-voice-script/voice-script.txt` mit Zeitabschnitten
-- `99-technik/VOICE_PLAN.json` mit denselben Segmenten
-- `00:00–00:08` Intro / Szene 02
-- `00:08–00:12` Safety / Szene 03
-- `00:12–00:14` LET'S BEGIN / Szene 04
-- zusätzlich ein exakt kopierbarer kontinuierlicher `Exact TTS copy`
-- genau eine `Voice 01.mp3`
-- keine gesprochene Voice nach 14 Sekunden
+- keine Zeitangaben
+- keine Überschriften
+- keine Markdown-Struktur
+- keine Erklärungen oder Regeln
+- keine Labels wie INTRO / SAFETY / LET'S BEGIN
+- nur exakt der Text, der gesprochen wird
+- der komplette Dateiinhalt muss dem `exactTtsCopy` aus `99-technik/VOICE_PLAN.json` entsprechen
+
+Alle technischen Zeitinformationen bleiben ausschließlich in `99-technik/VOICE_PLAN.json`. Sie gehören niemals in `voice-script.txt`.
 
 Genau eine gesprochene Datei: `Voice 01.mp3`.
 Sie startet Frame 0, trägt Intro + Safety + LET'S BEGIN nahezu lückenlos und endet vor Übung 1. Ziel 13.65–14.00s, absolut max. 14.05s.

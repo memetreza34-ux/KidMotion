@@ -92,7 +92,7 @@ const data = {
   coverPolicy:{generateCandidatesFirst:3,candidateFiles:contract.coverContract.candidateFiles,waitForExplicitUserSelection:true,winnerFinalFile:'Szene 01.png',selectedCoverIsSoleReference:true,noLaterSceneGenerationBeforeSelection:true,deleteRejectedCandidatesAfterSelection:true},
   imageBatchPolicy:{enabled:true,batchSize:5,showBatchToUser:false,waitForExplicitUserContinue:false,autoContinueToNextBatch:true,deliverCompletedFolderAtEnd:true,batches:pipeline.batchGenerationPolicy.batches,soleReferenceEveryBatch:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachSceneExactlyOnce:true},
   introDuration:8,introTitle:placeholder('INTRO TITLE'),introSubtitle:placeholder('INTRO SUBTITLE'),introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
-  introVoiceText:placeholder('EXACT CONTINUOUS TTS COPY'),voiceScriptFormat:'timecoded production script plus exact TTS copy',
+  introVoiceText:placeholder('EXACT CONTINUOUS TTS COPY'),voiceScriptFormat:'plain continuous text only',
   safetyDuration:4,letsBeginDuration:2,outroDuration:4,exerciseDuration:20,getReadyDuration:5,openingDuration:14,
   voicePolicy:{openingSequenceVoiceOnly:true,voiceStartsAtIntro:true,voiceMayContinueAcrossSafety:true,voiceMayContinueAcrossLetsBegin:true,voiceMustEndBeforeFirstExercise:true,exerciseVoice:false,restVoice:false,outroVoice:false,subtitles:false,voiceCaptions:false,openingVoiceTargetSeconds:'13.65-14.00',voiceFile:'Voice 01.mp3'},
   audioPolicy:{backgroundMusicRequiredForFinal:true,backgroundMusicFile:'bg-music.mp3',backgroundMusicLoop:true,backgroundMusicLowDuringOpening:true,backgroundMusicContinuesThroughWorkout:true,noSpokenVoiceAfterOpening:true,musicBriefFile:'02-audio/MUSIC_BRIEF.md'},
@@ -115,7 +115,7 @@ for (let n=1;n<=3;n+=1) prompt += `COVER CANDIDATE 0${n} — Cover-Kandidat-0${n
 for (let n=2;n<=28;n+=1) prompt += `SZENE ${padScene(n)} — ${sceneFile(n)}\nFINAL GOOGLE FLOW PROMPT:\n${placeholder(`SZENE ${padScene(n)} PROMPT`)}\n\n`;
 
 const voicePlan={schemaVersion:1,productionContractVersion:contract.contractVersion,episodeFolder,voiceFile:'Voice 01.mp3',targetDurationSeconds:{min:13.65,target:13.9,max:14.05},startsAtSeconds:0,mustEndBeforeSeconds:14.05,noSpokenVoiceAfterSeconds:14,sections:contract.voiceContract.sections.map((s)=>({...s,text:placeholder(`${s.label} VOICE`)})),exactTtsCopy:placeholder('EXACT CONTINUOUS TTS COPY'),note:'Timecodes are production targets, not subtitles.'};
-const voiceScript=`# ${episodeId} — Voice Script\n\n## Timing map\n\n### 00:00–00:08 — Szene 02 — INTRO\n${placeholder('INTRO VOICE')}\n\n### 00:08–00:12 — Szene 03 — SAFETY\n${placeholder('SAFETY VOICE')}\n\n### 00:12–00:14 — Szene 04 — LET'S BEGIN\n${placeholder('LETS BEGIN VOICE')}\n\n## Exact TTS copy\n\n${placeholder('EXACT CONTINUOUS TTS COPY')}\n\n## Rules\n- One continuous Voice 01.mp3 only.\n- Target 13.65–14.00s; hard max 14.05s.\n- No spoken voice after 14s.\n`;
+const voiceScript=`${placeholder('EXACT CONTINUOUS TTS COPY')}\n`;
 
 write('99-technik/episode.json',JSON.stringify(data,null,2)+'\n');
 write('99-technik/IMAGE_PLAN.json',JSON.stringify(imagePlan,null,2)+'\n');

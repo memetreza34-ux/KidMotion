@@ -174,7 +174,13 @@
     "absoluteMaxSeconds": 14.05,
     "spokenVoiceAfterSeconds": 14,
     "spokenVoiceAfterOpeningForbidden": true,
-    "subtitlesForbidden": true
+    "subtitlesForbidden": true,
+    "voiceScriptFormat": "plain-continuous-text-only",
+    "voiceScriptMustEqualExactTtsCopy": true,
+    "voiceScriptTimecodesForbidden": true,
+    "voiceScriptHeadingsForbidden": true,
+    "voiceScriptInstructionsForbidden": true,
+    "timingMetadataLocation": "99-technik/VOICE_PLAN.json"
   },
   "audioContract": {
     "backgroundMusicFile": "bg-music.mp3",
