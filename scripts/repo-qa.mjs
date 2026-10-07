@@ -15,6 +15,13 @@ for (const rootFile of contract.requiredRootFiles || []) {
   if (!fs.existsSync(path.join(root, rootFile))) fail(`Missing required root file: ${rootFile}`);
 }
 
+if (contract.phaseContract?.phase3?.antigravityMayGenerateImages !== false) fail('Contract must forbid Antigravity image generation in Phase 3.');
+if (contract.phaseContract?.phase3?.antigravityMayRegenerateImages !== false) fail('Contract must forbid Antigravity image regeneration in Phase 3.');
+if (contract.phaseContract?.phase3?.antigravityMayEditImages !== false) fail('Contract must forbid Antigravity image editing in Phase 3.');
+if (contract.phaseContract?.phase3?.antigravityMayReplaceImages !== false) fail('Contract must forbid Antigravity image replacement in Phase 3.');
+if (contract.phaseContract?.phase3?.mayUseOnlyPhase2ApprovedImages !== true) fail('Phase 3 must use only approved Phase 2 images.');
+if (contract.phaseContract?.phase3?.missingOrChangedImageBehavior !== 'BLOCK_PHASE_3') fail('Missing/changed Phase 2 images must block Phase 3.');
+
 const pipeline = readJson(path.join(root, 'config', 'pipeline.json'));
 if (Number(pipeline.pipelineVersion) !== Number(contract.pipelineVersion)) fail('pipelineVersion does not match production contract.');
 if (Number(pipeline.productionContractVersion) !== Number(contract.contractVersion)) fail('config/pipeline.json productionContractVersion does not match contract.');
@@ -22,6 +29,8 @@ if (pipeline.productionContractFile !== 'config/v3-contract.json') fail('config/
 if (pipeline.imageGenerationPolicy?.soleReferenceImage !== contract.generationContract.soleImageReference) fail('Pipeline sole image reference differs from contract.');
 if (pipeline.imageGenerationPolicy?.maximumGenerationAttemptsPerNonCoverScene !== contract.generationContract.maximumAttemptsPerLaterScene) fail('Pipeline generation attempt count differs from contract.');
 if (pipeline.timerPolicy?.sizePixels !== contract.remotionContract.timerSizePixels) fail('Pipeline timer size differs from contract.');
+if (pipeline.phaseWorkflow?.phase3ImageGenerationForbidden !== true) fail('Pipeline must forbid image generation in Phase 3.');
+if (pipeline.phaseWorkflow?.phase3UsesOnlyApprovedPhase2Images !== true) fail('Pipeline Phase 3 must use only approved Phase 2 images.');
 
 const rootDocs = ['README.md','START-HIER.md','PROJECT_BRAIN.md','ANTIGRAVITY.md','scripts.md'];
 const forbiddenDocPatterns = [
@@ -33,6 +42,10 @@ const forbiddenDocPatterns = [
   /Rest verwendet das nächste Exercise-Bild/i,
   /Exercise UI Reference/i,
 ];
+const antiRoot = read(path.join(root,'ANTIGRAVITY.md'));
+if (!antiRoot.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail('Root ANTIGRAVITY.md must declare the Phase 3 image-generation ban.');
+if (!antiRoot.includes('npm run phase3:gate')) fail('Root ANTIGRAVITY.md must require phase3:gate.');
+
 for (const doc of rootDocs) {
   const content = read(path.join(root, doc));
   if (!content) fail(`Missing root documentation: ${doc}`);
@@ -70,6 +83,11 @@ if (fs.existsSync(episodeRoot)) {
     }
 
     for (const error of currentContractErrors(data, contract)) fail(`${entry.name}: ${error}`);
+    const antiPath = path.join(base,'ANTIGRAVITY.md');
+    const anti = read(antiPath);
+    if (!anti.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail(`${entry.name}: ANTIGRAVITY.md must declare Phase 3 image generation forbidden.`);
+    if (!anti.includes('phase3:gate')) fail(`${entry.name}: ANTIGRAVITY.md must require phase3:gate before Phase 3.`);
+    if (/then generate 3 covers|continue Szene 02.?28 serially using ONLY Szene 01\.png/i.test(anti)) fail(`${entry.name}: ANTIGRAVITY.md still assigns image generation to Antigravity.`);
     for (const rel of contract.requiredEpisodeFiles) {
       if (!fs.existsSync(path.join(base, rel))) fail(`${entry.name}: missing ${rel}`);
     }

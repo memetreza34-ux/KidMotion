@@ -131,7 +131,29 @@ write('02-audio/README.md','Required for final: Voice 01.mp3 + bg-music.mp3. Voi
 write('02-audio/MUSIC_BRIEF.md','# Music brief\n\nUpbeat playful kids-fitness electro-pop instrumental, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Lower under opening voice, more energetic after 14s.\n');
 write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n__PLAN_REQUIRED__ TITLE\n\n## Description / Caption\n__PLAN_REQUIRED__ DESCRIPTION\n');
 write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Then run prompt:qa. Do not open Flow before it passes.\n`);
-write('ANTIGRAVITY.md',`Read GEHIRN.md and config/v3-contract.json first. This episode is contract v${contract.contractVersion}. Complete all planning placeholders, run npm run prompt:qa -- --episode=${episodeFolder}, then generate 3 covers, wait once for the user choice, and continue Szene 02–28 serially using ONLY Szene 01.png.\n`);
+write('ANTIGRAVITY.md',`# ANTIGRAVITY — PHASE 3 ONLY
+
+ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true
+
+This file applies only to Phase 3 for ${episodeFolder}.
+
+Phase 2 must already have delivered and approved all final images in 00-bildprompts/images/.
+
+Before doing any Phase 3 work:
+1. Activate the episode if required by the runtime.
+2. Run npm run phase3:gate.
+3. Continue only if the gate passes.
+
+In Phase 3 Antigravity MUST NOT:
+- call Google Flow or any image generator
+- generate or regenerate any cover/scene image
+- edit, replace, rename as a substitute, or invent images
+- create fallback images for missing assets
+
+Use ONLY the exact approved Phase 2 images.
+If any image is missing or changed: STOP. Do not create anything.
+Allowed Phase 3 work: assembly, approved audio, permitted Remotion timer, render and postrender QA.
+`);
 
 console.log(`Created KidMotion contract-v${contract.contractVersion} draft: ${episodeFolder}`);
 console.log('Status: planning-required. Flow is blocked until prompt:qa passes.');

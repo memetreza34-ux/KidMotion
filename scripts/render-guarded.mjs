@@ -18,7 +18,7 @@ run('REPOSITORY CONTRACT QA', npm, ['run','repo:qa']);
 run('PROMPT / VOICE PLAN QA', npm, ['run','prompt:qa']);
 run('PREFLIGHT', npm, ['run','preflight']);
 run('SCENE INTEGRITY QA', npm, ['run','scene:qa']);
-run('ASSET GATE', npm, ['run','asset:gate']);
+run('PHASE 3 INPUT GATE', npm, ['run','phase3:gate']);
 run('REMOTION RENDER', npx, ['remotion','render','src/index.ts','KidMotionVideo','out/kidmotion.mp4','--crf','28','--preset','faster']);
 run('POSTRENDER QA', npm, ['run','postrender:qa']);
 

@@ -17,7 +17,8 @@
     "render:safe": "node scripts/render-guarded.mjs",
     "kidmotion:new": "node scripts/new-episode.mjs",
     "kidmotion:select-cover": "node scripts/select-cover.mjs",
-    "kidmotion:activate": "node scripts/activate-episode.mjs"
+    "kidmotion:activate": "node scripts/activate-episode.mjs",
+    "phase3:gate": "node scripts/asset-gate.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

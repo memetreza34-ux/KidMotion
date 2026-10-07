@@ -29,6 +29,11 @@ const revision = fs.readFileSync(paths.revisionPath, 'utf8').trim();
 if (approval.status !== 'APPROVED_FOR_RENDER') fail('Asset approval status is not APPROVED_FOR_RENDER.');
 if (approval.episodeFolder !== episodeFolder) fail('Asset approval belongs to a different episode.');
 if (approval.revision !== revision) fail('Generation revision changed after asset approval. Re-review and re-approve.');
+if (Number(approval.schemaVersion) >= 3) {
+  if (approval.phase2HandoffComplete !== true) fail('Phase 2 handoff is not complete.');
+  if (approval.phase3InputLocked !== true) fail('Phase 3 inputs are not locked.');
+  if (approval.phase3ImageGenerationForbidden !== true) fail('Approval must explicitly forbid image generation in Phase 3.');
+}
 
 const sha256 = (file) => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const approvedFiles = approval.files && typeof approval.files === 'object' ? approval.files : {};
@@ -64,4 +69,5 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(`ASSET GATE PASSED — ${episodeFolder} — ${revision}`);
-console.log('All render assets exactly match the visually reviewed SHA-256 manifest.');
+console.log('PHASE 3 INPUT GATE PASSED: all approved Phase 2 assets exactly match the SHA-256 manifest.');
+console.log('Antigravity Phase 3 is assembly-only; image generation is forbidden.');

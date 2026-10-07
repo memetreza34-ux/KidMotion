@@ -194,6 +194,9 @@ if (failures.length) {
 const approval = {
   schemaVersion: sceneV3 ? 3 : paths.isV2 ? 2 : 1,
   status: 'APPROVED_FOR_RENDER',
+  phase2HandoffComplete: sceneV3 ? true : undefined,
+  phase3InputLocked: sceneV3 ? true : undefined,
+  phase3ImageGenerationForbidden: sceneV3 ? true : undefined,
   episodeFolder,
   structure: paths.structure,
   revision,
