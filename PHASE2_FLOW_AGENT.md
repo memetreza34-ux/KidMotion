@@ -80,7 +80,13 @@ Prüfe ohne Nutzerunterbrechung:
 
 KidMotion behält die bestehende Einmal-Regel: Bei einem fehlgeschlagenen oder unbrauchbaren Ergebnis nicht heimlich ein anderes Bild einsetzen, Dateinummern verschieben oder Varianten sammeln. Blockieren und die exakte fehlerhafte Szene melden.
 
-## 5. Prompt Quality v2
+## 5. Prompt Quality v2 — COMPACT (für neue Episoden)
+
+**Neu:** Pro Szene maximal 1.500 Zeichen, pro Cover maximal 1.200 Zeichen. Kürzere, bildwirksame Anweisungen sind besser als wiederholte Stil- und Negativabsätze. Jede Sektion: möglichst nur ein konkreter Satz. Die strengen Regeln werden im Plan/Contract gehalten, Flow erhält pro Bild nur das für dieses Bild Notwendige. Alte Episoden sind kompatibel.
+
+**Nie streichen:** Szene 01 als EINZIGE Referenz, exakte Übungspose, eigene Kamera, sichtbare Textpositionen, 230×230-Timerzone sowie Dateiname.
+
+
 
 Jeder Story-Prompt braucht:
 

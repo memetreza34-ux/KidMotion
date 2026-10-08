@@ -185,6 +185,17 @@ if (fs.existsSync(episodeRoot)) {
       for (let n = 2; n <= contract.sceneContract.sceneCount; n += 1) {
         if (!prompt.includes(`SZENE ${String(n).padStart(2,'0')}`)) fail(`${entry.name}: missing prompt section for Szene ${String(n).padStart(2,'0')}.`);
       }
+      if(String(data.compactPromptPolicy||'')==='v2-short'){
+        for(let n=2;n<=contract.sceneContract.sceneCount;n++){
+          const number=String(n).padStart(2,'0');
+          const begin=prompt.indexOf('SZENE '+number+' —');
+          const after=n<contract.sceneContract.sceneCount?prompt.indexOf('SZENE '+String(n+1).padStart(2,'0')+' —',begin+1):prompt.length;
+          const block=begin>=0?prompt.slice(begin,after>begin?after:prompt.length):'';
+          const actual=block.split('FINAL GOOGLE FLOW PROMPT:')[1]?.trim()||'';
+          if(actual.length<Number(promptQuality.minimumScenePromptCharacters)||actual.length>Number(promptQuality.maximumScenePromptCharacters)) fail(entry.name+': Szene '+number+' compact prompt length invalid.');
+          if(actual!==String(images[n-1]?.prompt||'').trim()) fail(entry.name+': Szene '+number+' prompt mismatch with IMAGE_PLAN.');
+        }
+      }
       if(Number(data.promptSpecVersion||1)>=2){
         for(const label of promptQuality.sceneRequiredSections||[]) if(!prompt.includes(label)) fail(`${entry.name}: Prompt Quality v2 section missing from prompt file: ${label}`);
         if(Number(plan.promptSpecVersion||0)!==Number(data.promptSpecVersion)) fail(`${entry.name}: IMAGE_PLAN promptSpecVersion must match episode.json.`);

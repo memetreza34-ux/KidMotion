@@ -38,6 +38,7 @@ const voiceScript=fs.existsSync(paths.voiceScriptPath)?fs.readFileSync(paths.voi
 const voicePlan=fs.existsSync(paths.voicePlanPath)?JSON.parse(fs.readFileSync(paths.voicePlanPath,'utf8')):null;
 const upload=fs.existsSync(path.join(paths.exportDir,'UPLOAD_METADATA.md'))?fs.readFileSync(path.join(paths.exportDir,'UPLOAD_METADATA.md'),'utf8'):'';
 const promptSpecVersion=Number(data.promptSpecVersion||plan.promptSpecVersion||1);
+const compact=String(data.compactPromptPolicy||'')==='v2-short';
 
 const combined=JSON.stringify(data)+JSON.stringify(plan)+prompt+voiceScript+JSON.stringify(voicePlan)+upload;
 if (hasPlanningPlaceholder(combined)) fail('Planning still contains TBD/__PLAN_REQUIRED__/PLACEHOLDER values.');
@@ -96,6 +97,10 @@ for(let c=1;c<=3;c+=1){
   const next=c<3?prompt.indexOf(`COVER CANDIDATE 0${c+1}`,start+marker.length):prompt.indexOf('SZENE 02',start+marker.length);
   const block=start>=0?prompt.slice(start,next>start?next:prompt.length):'';
   if(!block) fail(`Missing ${marker}.`);
+  if(compact){
+    const pure=block.split('FINAL GOOGLE FLOW PROMPT:')[1]?.trim()||'';
+    if(pure.length<Number(promptQuality.minimumCoverPromptCharacters)||pure.length>Number(promptQuality.maximumCoverPromptCharacters)) fail(`${marker} must be ${promptQuality.minimumCoverPromptCharacters}-${promptQuality.maximumCoverPromptCharacters} chars, got ${pure.length}.`);
+  }
   if(!/fictional/i.test(block) || !/fully clothed/i.test(block)) fail(`${marker} must explicitly describe a fictional, fully clothed stylized character.`);
   if(/\bage\s*[:=]?\s*\d{1,2}\b/i.test(block) || /skin tone|skin color|body measurements|body type|photorealistic child|young boy|young girl/i.test(block)) fail(`${marker} contains disallowed detailed minor/photorealistic cover wording.`);
 }
@@ -105,6 +110,11 @@ for(let n=2;n<=28;n+=1){
   const next=n<28?prompt.indexOf(`SZENE ${String(n+1).padStart(2,'0')}`,start+marker.length):prompt.length;
   const block=start>=0?prompt.slice(start,next>start?next:prompt.length):'';
   if(!block.includes('FINAL GOOGLE FLOW PROMPT:')) fail(`${marker} missing FINAL GOOGLE FLOW PROMPT.`);
+  if(compact){
+    const pure=block.split('FINAL GOOGLE FLOW PROMPT:')[1]?.trim()||'';
+    if(pure.length<Number(promptQuality.minimumScenePromptCharacters)||pure.length>Number(promptQuality.maximumScenePromptCharacters)) fail(`${marker} must be ${promptQuality.minimumScenePromptCharacters}-${promptQuality.maximumScenePromptCharacters} chars, got ${pure.length}.`);
+    if(pure!==String(images[n-1]?.prompt||'').trim()) fail(`${marker}: IMAGE_PLAN prompt differs from Flow prompt.`);
+  }
   if(!block.includes('ONLY image reference')) fail(`${marker} must explicitly use Szene 01 as the ONLY image reference.`);
   if(promptSpecVersion>=2){
     for(const label of promptQuality.sceneRequiredSections||[]) if(!sectionPresent(block,label)) fail(`${marker} missing Prompt Quality v2 section ${label}`);

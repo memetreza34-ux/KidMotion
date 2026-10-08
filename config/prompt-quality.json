@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "KidMotion Flow Prompt Quality Standard",
-  "goal": "Every image prompt must direct one instantly readable child-facing visual instead of a generic style paragraph.",
+  "name": "KidMotion Flow Prompt Quality — concise v2",
+  "goal": "Concrete short single-image prompts; no repeating global style or negative paragraphs per scene.",
   "coverRequiredSections": [
     "CLICK IDEA:",
     "SHOT / COMPOSITION:",
@@ -25,8 +25,8 @@
     "QUALITY CHECK:",
     "OUTPUT:"
   ],
-  "minimumCoverPromptCharacters": 750,
-  "minimumScenePromptCharacters": 900,
+  "minimumCoverPromptCharacters": 450,
+  "minimumScenePromptCharacters": 650,
   "principles": {
     "twoSecondComprehensionTest": true,
     "sceneSpecificCompositionRequired": true,
@@ -45,5 +45,10 @@
     "controlled matte materials, readable shapes and intentional lighting",
     "strong foreground/midground/background separation",
     "one dominant visual idea with supporting details only when useful"
-  ]
+  ],
+  "maximumCoverPromptCharacters": 1200,
+  "maximumScenePromptCharacters": 1500,
+  "compactPolicy": "v2-short",
+  "compactPolicyAppliesWhen": "episode.compactPromptPolicy === 'v2-short'",
+  "notes": "Keep all v2 headings, exact labels, the reference and unique shot; phrase each section in 1 sentence. Old episodes remain backward compatible."
 }

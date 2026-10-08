@@ -80,6 +80,7 @@ const data = {
   productionContractVersion:contract.contractVersion,
   contractFile:'config/v3-contract.json',
   contentFormat,
+  compactPromptPolicy:'v2-short',
   formatContractFile:contentFormat === 'learn-and-move' ? 'config/formats/learn-and-move.json' : 'config/formats/workout.json',
   learningObjective:contentFormat === 'learn-and-move' ? placeholder('LEARNING OBJECTIVE') : undefined,
   id:episodeId,
@@ -118,6 +119,7 @@ const imagePlan = {
   images:scenes.map((scene,index)=>({sceneNumber:index+1,imageFile:scene.image,sceneRole:scene.type,visualPurpose:placeholder(`SZENE ${scene.scene} VISUAL PURPOSE`),topicAnchor:topic,visualForm:placeholder(`SZENE ${scene.scene} VISUAL FORM`),characterReference:scene.type==='cover'?'three-cover candidate stage':'selected Szene 01.png ONLY',uiReference:null,generationAttemptsAllowed:scene.type==='cover'?3:1,propCount:0,generatedText:placeholder(`SZENE ${scene.scene} GENERATED TEXT`),safeZones:['exercise','get-ready'].includes(scene.type)?['top-left 230x230 countdown timer zone clear']:[],acceptanceCriteria:['same selected character identity and outfit','correct scene role','natural anatomy','no extra people','16:9 composition','no generated countdown timer or progress bar'],prompt:placeholder(`SZENE ${scene.scene} FINAL GOOGLE FLOW PROMPT`)}))
 };
 
+// Short scene-specific sentences only. Global style lives in config/visual-policy.json.
 const coverPromptScaffold=(n)=>`CLICK IDEA:
 ${placeholder(`COVER 0${n} CLICK IDEA`)}
 
@@ -149,7 +151,7 @@ const scenePromptScaffold=(n)=>`VIEWER TAKEAWAY:
 ${placeholder(`SZENE ${padScene(n)} VIEWER TAKEAWAY`)}
 
 REFERENCE USE:
-Use selected Szene 01.png as the ONLY image reference for character identity, outfit and world direction. Do not copy the cover pose, camera, text layout or composition.
+Use selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 
 SHOT / COMPOSITION:
 ${placeholder(`SZENE ${padScene(n)} SHOT COMPOSITION`)}
@@ -175,7 +177,7 @@ ${placeholder(`SZENE ${padScene(n)} QUALITY CHECK`)}
 OUTPUT:
 16:9 landscape, ${sceneFile(n)}`;
 
-let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nPROMPT SPEC: v${contract.promptContract.currentPromptSpecVersion}\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\nAFTER COVER SELECTION: run npm run flow:batch -- --episode=${episodeFolder} before every 5-scene production step.\n\n`;
+let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nPROMPT SPEC: v${contract.promptContract.currentPromptSpecVersion}\nSHORT PROMPTS: one concrete sentence per section; max 1500 characters per scene. No repeated style essays.\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\nAFTER COVER SELECTION: run npm run flow:batch -- --episode=${episodeFolder} before every 5-scene production step.\n\n`;
 for (let n=1;n<=3;n+=1) prompt += `COVER CANDIDATE 0${n} — Cover-Kandidat-0${n}.png\nFINAL GOOGLE FLOW PROMPT:\n${coverPromptScaffold(n)}\n\n`;
 for (let n=2;n<=28;n+=1) prompt += `SZENE ${padScene(n)} — ${sceneFile(n)}\nFINAL GOOGLE FLOW PROMPT:\n${scenePromptScaffold(n)}\n\n`;
 
@@ -195,7 +197,7 @@ write('01-voice-script/voice-script.txt',voiceScript);
 write('02-audio/README.md','Final runtime needs Voice 01.mp3 + bg-music.mp3. A Phase 2 handoff may also provide voice/music in MP4/M4A/WAV/AAC; phase3:prepare must normalize unambiguous audio automatically. No spoken voice after 14s.\n');
 write('02-audio/MUSIC_BRIEF.md','# Music brief\n\nUpbeat playful kids-fitness electro-pop instrumental, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Lower under opening voice, more energetic after 14s.\n');
 write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n__PLAN_REQUIRED__ TITLE\n\n## Description / Caption\n__PLAN_REQUIRED__ DESCRIPTION\n');
-write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Prompts must follow Prompt Quality v2. Then run prompt:qa. After cover selection use flow:batch before every hard 5-scene production step.\n`);
+write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Each final Flow prompt must be brief, specific and use the compact v2-short length limits. Then run prompt:qa. After cover selection use flow:batch before every hard 5-scene production step.\n`);
 write('ANTIGRAVITY.md',`# ANTIGRAVITY — PHASE 3 ONLY
 
 ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true
