@@ -36,21 +36,43 @@ if (contractErrors.length) {
 }
 
 const candidates = ['Cover-Kandidat-01.png', 'Cover-Kandidat-02.png', 'Cover-Kandidat-03.png'];
+const winner = candidates[candidateNumber - 1];
+const winnerPath = path.join(paths.imagesDir, winner);
+const finalPath = path.join(paths.imagesDir, 'Szene 01.png');
+const selectionAlready = fs.existsSync(paths.coverSelectionPath)
+  ? JSON.parse(fs.readFileSync(paths.coverSelectionPath, 'utf8')) : {};
+
+if (selectionAlready.status === 'SELECTED') {
+  if (Number(selectionAlready.selectedCandidate) !== candidateNumber) {
+    console.error('COVER SELECTION BLOCKED: an existing selection differs. No cover will be overwritten.');
+    process.exit(1);
+  }
+  if (!fs.existsSync(finalPath)) {
+    console.error('COVER SELECTION BLOCKED: selected Szene 01.png is missing. Never replace it automatically.');
+    process.exit(1);
+  }
+  for (const name of candidates) {
+    const file = path.join(paths.imagesDir, name);
+    if (fs.existsSync(file)) fs.rmSync(file, {force:true});
+  }
+  console.log('COVER ALREADY SELECTED — rejected candidate files cleaned; keep Szene 01.png unchanged.');
+  process.exit(0);
+}
+if (fs.existsSync(finalPath)) {
+  console.error('COVER SELECTION BLOCKED: Szene 01.png already exists without confirmed selection. Do not overwrite it.');
+  process.exit(1);
+}
 const missing = candidates.filter((name) => !fs.existsSync(path.join(paths.imagesDir, name)));
 if (missing.length) {
   console.error(`COVER SELECTION FAILED: all three candidates must exist first. Missing: ${missing.join(', ')}`);
   process.exit(1);
 }
 
-const winner = candidates[candidateNumber - 1];
-const winnerPath = path.join(paths.imagesDir, winner);
-const finalPath = path.join(paths.imagesDir, 'Szene 01.png');
-fs.rmSync(finalPath, {force: true});
+// Only after the explicit user choice, move the selected candidate and delete
+// both losers immediately. This is not a Phase-3 task.
 fs.renameSync(winnerPath, finalPath);
-
 for (const name of candidates) {
-  if (name === winner) continue;
-  fs.rmSync(path.join(paths.imagesDir, name), {force: true});
+  if (name !== winner) fs.rmSync(path.join(paths.imagesDir, name), {force:true});
 }
 
 const selection = {
@@ -61,6 +83,7 @@ const selection = {
   selectedCandidateOriginalFile: winner,
   finalFile: 'Szene 01.png',
   selectedAt: new Date().toISOString(),
+  rejectedCandidatesDeleted: true,
   userSelectionRequired: true,
   soleReferenceForLaterScenes: 'Szene 01.png',
   secondaryImageReferencesForbidden: true
@@ -75,4 +98,5 @@ if (paths.statusPath && fs.existsSync(paths.statusPath)) {
 }
 
 console.log(`COVER SELECTED — candidate ${candidateNumber} -> Szene 01.png`);
+console.log('Both other cover candidates deleted immediately; no unused cover remains.');
 console.log('Pipeline unlocked: generate Szene 02 through Szene 28 exactly once, using Szene 01.png as the ONLY image reference.');
