@@ -17,6 +17,7 @@ const expectedScripts={
   'project:doctor':'node scripts/project-doctor.mjs',
   'repo:qa':'node scripts/repo-qa.mjs',
   'prompt:qa':'node scripts/prompt-plan-qa.mjs',
+  'flow:batch':'node scripts/flow-batch.mjs',
   'scene:qa':'node scripts/scene-integrity-qa.mjs',
   'assets:approve':'node scripts/approve-assets.mjs',
   'phase3:ingest':'node scripts/phase3-ingest.mjs',
@@ -41,12 +42,27 @@ if(p3.userManualUnzipRequired!==false || p3.userManualAudioConversionRequired!==
 if(p3.rawHandoffEntryPoint!=='phase3:prepare') fail('Raw handoff entry point must be phase3:prepare.');
 if(p3.ambiguousSceneMappingBehavior!=='BLOCK_WITH_REPORT') fail('Ambiguous scene mapping must block with a report.');
 
+const promptQuality=JSON.parse(read('config/prompt-quality.json')||'{}');
+if(Number(promptQuality.version)!==Number(contract.promptContract?.currentPromptSpecVersion)) fail('Prompt Quality version mismatch.');
+for(const label of ['VIEWER TAKEAWAY:','SHOT / COMPOSITION:','NEGATIVE / STABILITY:','QUALITY CHECK:']) {
+  if(!(promptQuality.sceneRequiredSections||[]).includes(label)) fail('Prompt Quality v2 missing required scene section '+label);
+}
+const flowAgent=read('PHASE2_FLOW_AGENT.md');
+for(const token of ['flow:batch','5er-Schritte','VIEWER TAKEAWAY:','SHOT / COMPOSITION:','2-Sekunden-Test']) {
+  if(!flowAgent.includes(token)) fail('PHASE2_FLOW_AGENT.md missing '+token);
+}
+const flowBatchScript=read('scripts/flow-batch.mjs');
+for(const token of ['FLOW_BATCH_STATE.json','OUT_OF_ORDER_BLOCKED','CURRENT HARD 5-SCENE STEP','laterBatchOutputsFound']) {
+  if(!flowBatchScript.includes(token)) fail('flow-batch.mjs missing '+token);
+}
+
 const pipeline=JSON.parse(read('config/pipeline.json')||'{}');
 if(Number(pipeline.pipelineVersion)!==Number(contract.pipelineVersion)) fail('Pipeline version mismatch.');
 if(Number(pipeline.productionContractVersion)!==Number(contract.contractVersion)) fail('Production contract version mismatch.');
 if(pipeline.phaseWorkflow?.phase3RawHandoffEntryPoint!=='npm run phase3:prepare -- --episode=<episode-folder>') fail('Pipeline raw handoff entry point mismatch.');
 if(pipeline.phaseWorkflow?.phase3AgentHandlesTechnicalNormalization!==true) fail('Pipeline must make Antigravity handle technical normalization.');
 if(pipeline.phaseWorkflow?.phase3ImagePixelModificationForbidden!==true) fail('Pipeline must forbid image pixel modification.');
+if(pipeline.batchGenerationPolicy?.hardBatchBoundaries!==true || pipeline.batchGenerationPolicy?.batchMustBeCompleteBeforeNext!==true) fail('Pipeline must enforce hard 5-scene batch boundaries.');
 
 const anti=read('ANTIGRAVITY.md');
 for(const token of ['ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true','phase3:prepare','assets:approve','phase3:gate','render:safe']){

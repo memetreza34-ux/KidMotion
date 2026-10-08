@@ -93,7 +93,22 @@
       ]
     ],
     "soleReferenceEveryBatch": "Szene 01.png",
-    "secondaryImageReferencesForbidden": true
+    "secondaryImageReferencesForbidden": true,
+    "controllerCommand": "npm run flow:batch -- --episode=<episode-folder>",
+    "hardBatchBoundaries": true,
+    "batchMustBeCompleteBeforeNext": true,
+    "laterBatchOutputBeforeCurrentCompleteForbidden": true,
+    "silentVisualQcAfterEachBatch": true,
+    "userPromptBetweenBatchesForbidden": true,
+    "workflow": [
+      "request allowed batch from flow:batch",
+      "generate only scenes in that batch",
+      "generate strictly serially inside the batch",
+      "save each exact result immediately",
+      "after the full block exists perform silent visual QC across the whole block",
+      "if QC passes request the next batch immediately",
+      "never ask the user between batches"
+    ]
   },
   "imageGenerationPolicy": {
     "sceneFilePattern": "Szene NN.png",
@@ -211,5 +226,10 @@
     "phase3UserManualUnzipRequired": false,
     "phase3UserManualAudioConversionRequired": false,
     "phase3AmbiguousSceneMappingBehavior": "BLOCK_WITH_REPORT"
+  },
+  "promptQuality": {
+    "version": 2,
+    "file": "config/prompt-quality.json",
+    "requiredForNewEpisodes": true
   }
 }

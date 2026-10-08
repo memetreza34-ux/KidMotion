@@ -88,13 +88,24 @@ Pflicht:
 - Generierungen strikt **seriell** abarbeiten: Szene N vollständig abschließen und speichern, bevor Szene N+1 gestartet wird
 - eine fehlgeschlagene/fehlende Szene niemals durch Kopieren, Umbenennen oder Wiederverwenden eines anderen Bildes auffüllen
 
-Interne Produktionsblöcke:
+### Harte 5er-Produktionsschritte
+Vor jedem Block läuft:
+
+`npm run flow:batch -- --episode=<episode-folder>`
+
+Nur der ausgegebene Block darf produziert werden:
 - Szene 02–06
 - Szene 07–11
 - Szene 12–16
 - Szene 17–21
 - Szene 22–26
 - Szene 27–28
+
+Innerhalb des Blocks bleiben die Szenen streng seriell, damit Reihenfolge und Dateinamen stabil bleiben.
+
+**Ein Block gilt erst als fertig, wenn alle seine Dateien gespeichert und gemeinsam still geprüft wurden.** Danach startet ohne Nutzerfrage sofort der nächste Block. Eine Datei aus einem späteren Block, während der aktuelle Block unvollständig ist, ist ein Produktionsfehler.
+
+Die stille Block-QC prüft Bildinhalt, Pose, Text, Anatomie, Timer-Safe-Zone, Charakterkonsistenz, semantische Duplikate, Kompositionsvariation und AI-Slop.
 
 Zwischen diesen Blöcken wird nicht gestoppt und der Nutzer wird nicht erneut gefragt.
 
@@ -117,6 +128,8 @@ Der Check muss verhindern:
 - mehr als einen erlaubten Generierungsversuch pro späterer Szene
 
 `google-flow-prompt.txt` ist die direkte Promptquelle. Für KM-V3 enthält sie genau drei Cover-Promptblöcke und je einen vollständigen `FINAL GOOGLE FLOW PROMPT` für Szene 02–28.
+
+Neue Episoden verwenden **Prompt Quality v2** aus `config/prompt-quality.json`: Jeder Szenenprompt enthält einen konkreten Viewer Takeaway, Referenznutzung, eigene Shot-/Kompositionsregie, Pose, Welt, UI/Text, Licht/Material, Negativregeln, Quality Check und Output-Regel. Das Cover steuert Identität/Welt, darf aber nicht seine Pose/Kamera/Komposition auf alle Folgeszenen übertragen.
 
 ## 5. Szenenplan
 - Szene 01: Cover, nicht im MP4

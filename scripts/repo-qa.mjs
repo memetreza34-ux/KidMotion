@@ -30,11 +30,15 @@ if (contract.phaseContract?.phase3?.archiveExtractionAllowed !== true) fail('Pha
 if (contract.phaseContract?.phase3?.audioTranscodeAllowed !== true) fail('Phase 3 must allow audio-container conversion.');
 if (contract.phaseContract?.phase3?.imagePixelModificationForbidden !== true) fail('Phase 3 must forbid image pixel modification.');
 
+const promptQuality=readJson(path.join(root,'config','prompt-quality.json'));
+if(Number(promptQuality.version)!==Number(contract.promptContract?.currentPromptSpecVersion)) fail('Prompt Quality version mismatch.');
 const pipeline = readJson(path.join(root, 'config', 'pipeline.json'));
 if (Number(pipeline.pipelineVersion) !== Number(contract.pipelineVersion)) fail('pipelineVersion does not match production contract.');
 if (Number(pipeline.productionContractVersion) !== Number(contract.contractVersion)) fail('config/pipeline.json productionContractVersion does not match contract.');
 if (pipeline.productionContractFile !== 'config/v3-contract.json') fail('config/pipeline.json must point to config/v3-contract.json.');
 if (pipeline.imageGenerationPolicy?.soleReferenceImage !== contract.generationContract.soleImageReference) fail('Pipeline sole image reference differs from contract.');
+if (pipeline.batchGenerationPolicy?.hardBatchBoundaries !== true || pipeline.batchGenerationPolicy?.batchMustBeCompleteBeforeNext !== true) fail('Pipeline must enforce hard 5-scene production steps.');
+if (pipeline.batchGenerationPolicy?.controllerCommand !== 'npm run flow:batch -- --episode=<episode-folder>') fail('Pipeline must use flow:batch as the batch controller.');
 if (pipeline.imageGenerationPolicy?.maximumGenerationAttemptsPerNonCoverScene !== contract.generationContract.maximumAttemptsPerLaterScene) fail('Pipeline generation attempt count differs from contract.');
 if (pipeline.timerPolicy?.sizePixels !== contract.remotionContract.timerSizePixels) fail('Pipeline timer size differs from contract.');
 if (pipeline.phaseWorkflow?.phase3ImageGenerationForbidden !== true) fail('Pipeline must forbid image generation in Phase 3.');
@@ -66,6 +70,9 @@ for (const doc of rootDocs) {
     if (pattern.test(content)) fail(`${doc} contains obsolete production guidance: ${pattern}`);
   }
 }
+
+const phase2FlowAgent=read(path.join(root,'PHASE2_FLOW_AGENT.md'));
+for(const token of ['flow:batch','5er-Schritte','VIEWER TAKEAWAY:','2-Sekunden-Test']) if(!phase2FlowAgent.includes(token)) fail(`PHASE2_FLOW_AGENT.md missing ${token}.`);
 
 const scriptsDir = path.join(root, 'scripts');
 for (const name of fs.readdirSync(scriptsDir)) {
@@ -161,6 +168,10 @@ if (fs.existsSync(episodeRoot)) {
       if (promptCount !== contract.promptContract.finalGoogleFlowPromptBlocks) fail(`${entry.name}: expected ${contract.promptContract.finalGoogleFlowPromptBlocks} FINAL GOOGLE FLOW PROMPT blocks, found ${promptCount}.`);
       for (let n = 2; n <= contract.sceneContract.sceneCount; n += 1) {
         if (!prompt.includes(`SZENE ${String(n).padStart(2,'0')}`)) fail(`${entry.name}: missing prompt section for Szene ${String(n).padStart(2,'0')}.`);
+      }
+      if(Number(data.promptSpecVersion||1)>=2){
+        for(const label of promptQuality.sceneRequiredSections||[]) if(!prompt.includes(label)) fail(`${entry.name}: Prompt Quality v2 section missing from prompt file: ${label}`);
+        if(Number(plan.promptSpecVersion||0)!==Number(data.promptSpecVersion)) fail(`${entry.name}: IMAGE_PLAN promptSpecVersion must match episode.json.`);
       }
     }
   }

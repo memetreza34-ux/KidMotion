@@ -77,7 +77,7 @@ const data = {
   id:episodeId,
   date:requestedDate,
   day:new Date(`${requestedDate}T12:00:00Z`).toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'}),
-  slug,theme:slug,topic,status:'planning-required',
+  slug,theme:slug,topic,status:'planning-required',promptSpecVersion:contract.promptContract.currentPromptSpecVersion,
   visualPolicyFile:'config/visual-policy.json',visualStyleId:visual.styleId,
   imagePlanFile:'99-technik/IMAGE_PLAN.json',flowPromptFile:'00-bildprompts/google-flow-prompt.txt',
   voiceScriptFile:'01-voice-script/voice-script.txt',voicePlanFile:'99-technik/VOICE_PLAN.json',
@@ -105,14 +105,71 @@ const data = {
 };
 
 const imagePlan = {
-  schemaVersion:3,productionContractVersion:contract.contractVersion,episodeFolder,revision,visualStyleId:visual.styleId,
+  schemaVersion:3,productionContractVersion:contract.contractVersion,promptSpecVersion:contract.promptContract.currentPromptSpecVersion,episodeFolder,revision,visualStyleId:visual.styleId,
   generationRules:{coverCandidateCount:3,coverCandidateFiles:contract.coverContract.candidateFiles,coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesSoleReference:true,batchSizeAfterCover:5,autoContinueToNextBatch:true,generationBatches:pipeline.batchGenerationPolicy.batches,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,automaticAlternatesForbidden:true,soleReference:'Szene 01.png',secondaryImageReferencesForbidden:true,finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
   images:scenes.map((scene,index)=>({sceneNumber:index+1,imageFile:scene.image,sceneRole:scene.type,visualPurpose:placeholder(`SZENE ${scene.scene} VISUAL PURPOSE`),topicAnchor:topic,visualForm:placeholder(`SZENE ${scene.scene} VISUAL FORM`),characterReference:scene.type==='cover'?'three-cover candidate stage':'selected Szene 01.png ONLY',uiReference:null,generationAttemptsAllowed:scene.type==='cover'?3:1,propCount:0,generatedText:placeholder(`SZENE ${scene.scene} GENERATED TEXT`),safeZones:['exercise','get-ready'].includes(scene.type)?['top-left 230x230 countdown timer zone clear']:[],acceptanceCriteria:['same selected character identity and outfit','correct scene role','natural anatomy','no extra people','16:9 composition','no generated countdown timer or progress bar'],prompt:placeholder(`SZENE ${scene.scene} FINAL GOOGLE FLOW PROMPT`)}))
 };
 
-let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\n\n`;
-for (let n=1;n<=3;n+=1) prompt += `COVER CANDIDATE 0${n} — Cover-Kandidat-0${n}.png\nFINAL GOOGLE FLOW PROMPT:\n${placeholder(`COVER CANDIDATE 0${n} PROMPT`)}\n\n`;
-for (let n=2;n<=28;n+=1) prompt += `SZENE ${padScene(n)} — ${sceneFile(n)}\nFINAL GOOGLE FLOW PROMPT:\n${placeholder(`SZENE ${padScene(n)} PROMPT`)}\n\n`;
+const coverPromptScaffold=(n)=>`CLICK IDEA:
+${placeholder(`COVER 0${n} CLICK IDEA`)}
+
+SHOT / COMPOSITION:
+${placeholder(`COVER 0${n} SHOT COMPOSITION`)}
+
+CHARACTER:
+${placeholder(`COVER 0${n} CHARACTER`)}
+
+WORLD:
+${placeholder(`COVER 0${n} WORLD`)}
+
+TEXT:
+${placeholder(`COVER 0${n} TEXT`)}
+
+LIGHT / MATERIALS:
+${placeholder(`COVER 0${n} LIGHT MATERIALS`)}
+
+NEGATIVE / STABILITY:
+${placeholder(`COVER 0${n} NEGATIVE STABILITY`)}
+
+QUALITY CHECK:
+${placeholder(`COVER 0${n} QUALITY CHECK`)}
+
+OUTPUT:
+16:9 landscape, Cover-Kandidat-0${n}.png`;
+
+const scenePromptScaffold=(n)=>`VIEWER TAKEAWAY:
+${placeholder(`SZENE ${padScene(n)} VIEWER TAKEAWAY`)}
+
+REFERENCE USE:
+Use selected Szene 01.png as the ONLY image reference for character identity, outfit and world direction. Do not copy the cover pose, camera, text layout or composition.
+
+SHOT / COMPOSITION:
+${placeholder(`SZENE ${padScene(n)} SHOT COMPOSITION`)}
+
+CHARACTER / POSE:
+${placeholder(`SZENE ${padScene(n)} CHARACTER POSE`)}
+
+WORLD / ENVIRONMENT:
+${placeholder(`SZENE ${padScene(n)} WORLD ENVIRONMENT`)}
+
+TEXT / UI:
+${placeholder(`SZENE ${padScene(n)} TEXT UI`)}
+
+LIGHT / MATERIALS:
+${placeholder(`SZENE ${padScene(n)} LIGHT MATERIALS`)}
+
+NEGATIVE / STABILITY:
+${placeholder(`SZENE ${padScene(n)} NEGATIVE STABILITY`)}
+
+QUALITY CHECK:
+${placeholder(`SZENE ${padScene(n)} QUALITY CHECK`)}
+
+OUTPUT:
+16:9 landscape, ${sceneFile(n)}`;
+
+let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nPROMPT SPEC: v${contract.promptContract.currentPromptSpecVersion}\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\nAFTER COVER SELECTION: run npm run flow:batch -- --episode=${episodeFolder} before every 5-scene production step.\n\n`;
+for (let n=1;n<=3;n+=1) prompt += `COVER CANDIDATE 0${n} — Cover-Kandidat-0${n}.png\nFINAL GOOGLE FLOW PROMPT:\n${coverPromptScaffold(n)}\n\n`;
+for (let n=2;n<=28;n+=1) prompt += `SZENE ${padScene(n)} — ${sceneFile(n)}\nFINAL GOOGLE FLOW PROMPT:\n${scenePromptScaffold(n)}\n\n`;
 
 const voicePlan={schemaVersion:1,productionContractVersion:contract.contractVersion,episodeFolder,voiceFile:'Voice 01.mp3',targetDurationSeconds:{min:13.65,target:13.9,max:14.05},startsAtSeconds:0,mustEndBeforeSeconds:14.05,noSpokenVoiceAfterSeconds:14,sections:contract.voiceContract.sections.map((s)=>({...s,text:placeholder(`${s.label} VOICE`)})),exactTtsCopy:placeholder('EXACT CONTINUOUS TTS COPY'),note:'Timecodes are production targets, not subtitles.'};
 const voiceScript=`${placeholder('EXACT CONTINUOUS TTS COPY')}\n`;
@@ -130,7 +187,7 @@ write('01-voice-script/voice-script.txt',voiceScript);
 write('02-audio/README.md','Final runtime needs Voice 01.mp3 + bg-music.mp3. A Phase 2 handoff may also provide voice/music in MP4/M4A/WAV/AAC; phase3:prepare must normalize unambiguous audio automatically. No spoken voice after 14s.\n');
 write('02-audio/MUSIC_BRIEF.md','# Music brief\n\nUpbeat playful kids-fitness electro-pop instrumental, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Lower under opening voice, more energetic after 14s.\n');
 write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n__PLAN_REQUIRED__ TITLE\n\n## Description / Caption\n__PLAN_REQUIRED__ DESCRIPTION\n');
-write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Then run prompt:qa. Do not open Flow before it passes.\n`);
+write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Prompts must follow Prompt Quality v2. Then run prompt:qa. After cover selection use flow:batch before every hard 5-scene production step.\n`);
 write('ANTIGRAVITY.md',`# ANTIGRAVITY — PHASE 3 ONLY
 
 ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true

@@ -9,7 +9,9 @@
     "GEHIRN.md",
     "config/pipeline.json",
     "config/visual-policy.json",
-    "config/v3-contract.json"
+    "config/v3-contract.json",
+    "config/prompt-quality.json",
+    "PHASE2_FLOW_AGENT.md"
   ],
   "requiredEpisodeFiles": [
     "00-bildprompts/google-flow-prompt.txt",
@@ -121,7 +123,14 @@
     "shiftingLaterFilenamesForbidden": true,
     "internalBatchSize": 5,
     "waitForUserBetweenBatches": false,
-    "autoContinueAfterCoverChoice": true
+    "autoContinueAfterCoverChoice": true,
+    "batchControllerCommand": "flow:batch",
+    "hardBatchBoundaries": true,
+    "batchMustBeCompleteBeforeNext": true,
+    "laterBatchOutputBeforeCurrentCompleteForbidden": true,
+    "silentVisualQcAfterEachBatch": true,
+    "userPromptBetweenBatchesForbidden": true,
+    "batchWorkflow": "get allowed 5-scene block -> generate scenes serially -> save all block files -> silent QC of whole block -> immediately request next block"
   },
   "promptContract": {
     "directPromptFile": "00-bildprompts/google-flow-prompt.txt",
@@ -143,7 +152,14 @@
       "position": "right-half outside timer safe zone",
       "style": "dark semi-transparent navy rounded rectangle; white GET READY; bright-cyan NEXT line"
     },
-    "timerSafeZoneTopLeftPixels": 230
+    "timerSafeZoneTopLeftPixels": 230,
+    "currentPromptSpecVersion": 2,
+    "promptQualityFile": "config/prompt-quality.json",
+    "newEpisodesRequirePromptSpecVersion": 2,
+    "structuredScenePromptsRequired": true,
+    "twoSecondViewerTakeawayRequired": true,
+    "sceneSpecificCompositionRequired": true,
+    "coverMayGuideIdentityAndWorldButMustNotForceLaterComposition": true
   },
   "voiceContract": {
     "voiceFile": "Voice 01.mp3",

@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "name": "KidMotion Flow Prompt Quality Standard",
+  "goal": "Every image prompt must direct one instantly readable child-facing visual instead of a generic style paragraph.",
+  "coverRequiredSections": [
+    "CLICK IDEA:",
+    "SHOT / COMPOSITION:",
+    "CHARACTER:",
+    "WORLD:",
+    "TEXT:",
+    "LIGHT / MATERIALS:",
+    "NEGATIVE / STABILITY:",
+    "QUALITY CHECK:",
+    "OUTPUT:"
+  ],
+  "sceneRequiredSections": [
+    "VIEWER TAKEAWAY:",
+    "REFERENCE USE:",
+    "SHOT / COMPOSITION:",
+    "CHARACTER / POSE:",
+    "WORLD / ENVIRONMENT:",
+    "TEXT / UI:",
+    "LIGHT / MATERIALS:",
+    "NEGATIVE / STABILITY:",
+    "QUALITY CHECK:",
+    "OUTPUT:"
+  ],
+  "minimumCoverPromptCharacters": 750,
+  "minimumScenePromptCharacters": 900,
+  "principles": {
+    "twoSecondComprehensionTest": true,
+    "sceneSpecificCompositionRequired": true,
+    "adjacentExerciseCompositionShouldDiffer": true,
+    "selectedCoverControlsIdentityAndWorldButMustNotForceComposition": true,
+    "fullBodyPoseReadabilityRequired": true,
+    "textMustBeExact": true,
+    "accidentalTextForbidden": true,
+    "timerSafeZoneMustRemainClear": true,
+    "aiSlopCheckRequired": true,
+    "fillerBeautyShotForbidden": true
+  },
+  "styleDirection": [
+    "clean broadcast-quality educational CGI",
+    "clearly stylized and clearly rendered, never photorealistic",
+    "controlled matte materials, readable shapes and intentional lighting",
+    "strong foreground/midground/background separation",
+    "one dominant visual idea with supporting details only when useful"
+  ]
+}

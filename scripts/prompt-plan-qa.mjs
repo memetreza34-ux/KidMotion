@@ -5,6 +5,8 @@ import {loadContract, expectedSceneSpecs, sceneFile, hasPlanningPlaceholder, cur
 
 const root = process.cwd();
 const contract = loadContract(root);
+const promptQualityPath=path.join(root,contract.promptContract?.promptQualityFile||'config/prompt-quality.json');
+const promptQuality=fs.existsSync(promptQualityPath)?JSON.parse(fs.readFileSync(promptQualityPath,'utf8')):{};
 const args = process.argv.slice(2);
 const episodeArg = args.find((arg)=>arg.startsWith('--episode='));
 let episodeFolder = episodeArg ? episodeArg.slice('--episode='.length) : '';
@@ -35,6 +37,7 @@ const prompt=fs.existsSync(paths.promptPath)?fs.readFileSync(paths.promptPath,'u
 const voiceScript=fs.existsSync(paths.voiceScriptPath)?fs.readFileSync(paths.voiceScriptPath,'utf8'):'';
 const voicePlan=fs.existsSync(paths.voicePlanPath)?JSON.parse(fs.readFileSync(paths.voicePlanPath,'utf8')):null;
 const upload=fs.existsSync(path.join(paths.exportDir,'UPLOAD_METADATA.md'))?fs.readFileSync(path.join(paths.exportDir,'UPLOAD_METADATA.md'),'utf8'):'';
+const promptSpecVersion=Number(data.promptSpecVersion||plan.promptSpecVersion||1);
 
 const combined=JSON.stringify(data)+JSON.stringify(plan)+prompt+voiceScript+JSON.stringify(voicePlan)+upload;
 if (hasPlanningPlaceholder(combined)) fail('Planning still contains TBD/__PLAN_REQUIRED__/PLACEHOLDER values.');
@@ -74,6 +77,19 @@ for(let i=0;i<images.length;i+=1){
 
 const promptCount=(prompt.match(/FINAL GOOGLE FLOW PROMPT:/g)||[]).length;
 if(promptCount!==contract.promptContract.finalGoogleFlowPromptBlocks) fail(`Expected exactly ${contract.promptContract.finalGoogleFlowPromptBlocks} FINAL GOOGLE FLOW PROMPT blocks, found ${promptCount}.`);
+const sectionPresent=(block,label)=>block.includes(label);
+const sectionValue=(block,label,nextLabels=[])=>{
+  const start=block.indexOf(label);
+  if(start<0) return '';
+  const from=start+label.length;
+  let end=block.length;
+  for(const next of nextLabels){
+    const idx=block.indexOf(next,from);
+    if(idx>=0 && idx<end) end=idx;
+  }
+  return block.slice(from,end).trim();
+};
+
 for(let c=1;c<=3;c+=1){
   const marker=`COVER CANDIDATE 0${c}`;
   const start=prompt.indexOf(marker);
@@ -90,6 +106,11 @@ for(let n=2;n<=28;n+=1){
   const block=start>=0?prompt.slice(start,next>start?next:prompt.length):'';
   if(!block.includes('FINAL GOOGLE FLOW PROMPT:')) fail(`${marker} missing FINAL GOOGLE FLOW PROMPT.`);
   if(!block.includes('ONLY image reference')) fail(`${marker} must explicitly use Szene 01 as the ONLY image reference.`);
+  if(promptSpecVersion>=2){
+    for(const label of promptQuality.sceneRequiredSections||[]) if(!sectionPresent(block,label)) fail(`${marker} missing Prompt Quality v2 section ${label}`);
+    if(block.length<Number(promptQuality.minimumScenePromptCharacters||0)) fail(`${marker} is too short for Prompt Quality v2.`);
+    if(!/do not copy.*cover.*(pose|camera|composition)|do not copy the cover pose/i.test(block)) fail(`${marker} must state that the cover reference does not dictate scene composition.`);
+  }
   const scene=scenes[n-1];
   if(scene?.type==='exercise'){
     if(!block.includes(scene.title) || !block.includes(scene.instruction)) fail(`${marker} must contain exact exercise title and instruction.`);
@@ -98,6 +119,23 @@ for(let n=2;n<=28;n+=1){
   if(scene?.type==='get-ready'){
     if(!block.includes(`NEXT: ${scene.nextExerciseTitle}`)) fail(`${marker} has wrong GET READY target.`);
     if(!/dark semi-transparent navy/i.test(block) || !/bright-cyan/i.test(block)) fail(`${marker} must include the locked GET READY UI contract.`);
+  }
+}
+
+if(promptSpecVersion>=2){
+  const exerciseBlocks=[];
+  for(let n=2;n<=28;n+=1){
+    const scene=scenes[n-1];
+    if(scene?.type!=='exercise') continue;
+    const id=String(n).padStart(2,'0'),marker=`SZENE ${id}`;
+    const start=prompt.indexOf(marker);
+    const next=n<28?prompt.indexOf(`SZENE ${String(n+1).padStart(2,'0')}`,start+marker.length):prompt.length;
+    const block=start>=0?prompt.slice(start,next>start?next:prompt.length):'';
+    const composition=sectionValue(block,'SHOT / COMPOSITION:',promptQuality.sceneRequiredSections||[]);
+    exerciseBlocks.push({id,composition});
+  }
+  for(let i=1;i<exerciseBlocks.length;i+=1){
+    if(exerciseBlocks[i].composition && exerciseBlocks[i].composition===exerciseBlocks[i-1].composition) fail(`Adjacent exercise prompts reuse the exact same SHOT / COMPOSITION: Szene ${exerciseBlocks[i-1].id} and ${exerciseBlocks[i].id}.`);
   }
 }
 
@@ -113,4 +151,4 @@ if(failures.length){
   process.exit(1);
 }
 console.log(`PROMPT PLAN QA PASSED — ${episodeFolder}`);
-console.log('Validated central contract, scene order, 30 direct Flow prompts, cover safety wording, locked UI prompts, sole reference, one-generation policy, plain-text voice script and timed VOICE_PLAN.');
+console.log('Validated central contract, hard 5-scene planning, Prompt Quality v2, scene order, 30 direct Flow prompts, cover safety wording, locked UI prompts, sole reference, one-generation policy, plain-text voice script and timed VOICE_PLAN.');
