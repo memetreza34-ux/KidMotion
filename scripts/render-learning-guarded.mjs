@@ -14,6 +14,8 @@ const run=(label,cmd,args)=>{
 run('TYPECHECK',npm,['run','typecheck']);
 run('PROJECT DOCTOR',npm,['run','project:doctor']);
 run('REPOSITORY QA',npm,['run','repo:qa']);
+run('LEARNING SYSTEM DOCTOR',npm,['run','learning:system:doctor']);
+run('LEARNING REPOSITORY QA',npm,['run','learning:repo:qa']);
 run('LEARNING PREFLIGHT',npm,['run','learning:preflight']);
 run('LEARNING ASSET GATE',npm,['run','learning:asset:gate']);
 run('REMOTION LEARNING RENDER',npx,['remotion','render','src/index.ts','KidMotionLearning','out/kidmotion-learning.mp4','--crf','28','--preset','faster']);

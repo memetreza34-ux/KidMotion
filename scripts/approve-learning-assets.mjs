@@ -14,10 +14,27 @@ const data=readEpisodeData(paths);
 if(data.contentFormat!=='learning'){console.error('LEARNING APPROVAL FAILED: not learning format.');process.exit(1);}
 
 const review=fs.existsSync(paths.reviewPath)?JSON.parse(fs.readFileSync(paths.reviewPath,'utf8')):{};
-const required=['learningAccuracyVerified','sceneOrderMatchesPlan','visualsTeachIntendedConcept','textAndSpellingCorrect','noUnnecessaryCharacterInsertion','noAnatomyOrObjectErrors','noMissingOrDuplicateScenes'];
+const baseRequired=[
+  'learningAccuracyVerified',
+  'primaryObjectiveServedByEveryScene',
+  'ageBandAppropriate',
+  'practiceAnswerHiddenUntilReveal',
+  'revealExplainsAnswer',
+  'recapMatchesLearningPlan',
+  'sceneOrderMatchesPlan',
+  'visualsTeachIntendedConcept',
+  'textAndSpellingCorrect',
+  'noUnnecessaryCharacterInsertion',
+  'noUnplannedFactualClaims',
+  'noAnatomyOrObjectErrors',
+  'noMissingOrDuplicateScenes'
+];
+const hasApply=(data.scenes||[]).some((s)=>String(s.role||'').toUpperCase()==='APPLY');
+const required=hasApply?[...baseRequired,'applicationSceneWorks']:baseRequired;
 const incomplete=required.filter((key)=>review[key]!==true);
+
 if(incomplete.length){
-  console.error('LEARNING APPROVAL FAILED: visual review incomplete: '+incomplete.join(', '));
+  console.error('LEARNING APPROVAL FAILED: pedagogical/visual review incomplete: '+incomplete.join(', '));
   process.exit(1);
 }
 
@@ -41,12 +58,18 @@ if(fs.existsSync(musicPath)){
 }
 
 const approval={
-  schemaVersion:1,
+  schemaVersion:2,
   contentFormat:'learning',
+  learningEngineVersion:data.learningEngineVersion||1,
+  ageBand:data.ageBand,
+  learningMode:data.learningMode,
+  primaryLearningObjective:data.primaryLearningObjective,
   episodeFolder,
   status:'APPROVED_FOR_RENDER',
+  pedagogicalReviewComplete:true,
   approvedAt:new Date().toISOString(),
   files
 };
 fs.writeFileSync(paths.approvalPath,JSON.stringify(approval,null,2)+'\n','utf8');
 console.log('LEARNING ASSETS APPROVED — '+episodeFolder);
+console.log('Pedagogical review locked: objective, age band, practice/reveal, facts, application/recap and visuals.');
