@@ -1,15 +1,66 @@
 # KidMotion
 
-## Robuster Handoff
+KidMotion ist ein **allgemeiner Kinderkanal**, kein reiner Sportkanal.
 
-Ein Phase-2-Handoff darf als ZIP, bereits fertiger Bilderordner und/oder Audio in MP4/M4A/WAV/AAC/MP3 vorliegen.
+## Videoformate
 
-Antigravity startet bei einem Roh-Handoff immer mit:
+### 1. WORKOUT
+Bewegung ist das Hauptziel.
 
-npm run phase3:prepare -- --episode=KM-XXX-slug
+Beispiele:
+- 5 Minute Jungle Workout
+- Animal Freeze Challenge
 
-Der Prepare-Schritt übernimmt technisch sichere Arbeiten automatisch und führt Scene QA aus. Danach prüft Antigravity die echten Bilder visuell, approved sie, aktiviert die Episode und führt erst dann phase3:gate aus.
+Vertrag: `config/v3-contract.json`
 
-**Kein Nutzer muss ZIP-Dateien manuell entpacken oder eine eindeutige MP4-Voice manuell zu MP3 konvertieren.**
+### 2. LEARNING
+Wissen/Lernen ist das Hauptziel.
 
-Unverändert verboten: Bildgenerierung, Bildpixel-Änderung, Ersatzbilder, geratenes Szenen-Mapping und gefälschte Visual Reviews.
+Beispiele:
+- Learn Numbers 1–10
+- Alphabet / ABC
+- Colors and Shapes
+- Animals and Habitats
+- Planets for Kids
+- Why Do Volcanoes Erupt?
+- How Trains Work
+
+Vertrag: `config/formats/learning.json`
+
+Für reine Lernvideos gilt ausdrücklich:
+- kein Workout-Zwang
+- kein Timer-Zwang
+- kein GET READY
+- kein Bewegungszwang
+- kein Kind/Mascot-Zwang
+- Voice darf durch das ganze Video laufen
+- Szenenzahl und Laufzeit sind flexibel
+- Bilder dürfen Objekte, Tiere, Karten, Diagramme, Maschinen, Buchstaben, Zahlen, Umgebungen oder Figuren zeigen — je nachdem, was am besten erklärt
+
+### 3. LEARN_AND_MOVE
+Optionale Mischform. Nur verwenden, wenn Bewegung das Lernen wirklich unterstützt.
+
+## Neue Episode
+
+```bash
+npm run kidmotion:new -- --format=workout --topic="..."
+npm run kidmotion:new -- --format=learning --topic="..."
+npm run kidmotion:new -- --format=learn-and-move --topic="..."
+```
+
+Ohne `--format` wird abgebrochen. Dadurch wird ein Lernvideo nie versehentlich zum Workout.
+
+Siehe: `FORMAT_ROUTER.md`.
+
+## Reines Learning rendern
+
+```bash
+npm run learning:prompt:qa -- --episode=KM-XXX-slug
+npm run learning:activate -- --episode=KM-XXX-slug
+npm run learning:preflight
+npm run learning:assets:approve -- --episode=KM-XXX-slug
+npm run learning:asset:gate
+npm run learning:render
+```
+
+Remotion Composition: `KidMotionLearning`.

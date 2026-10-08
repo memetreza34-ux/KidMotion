@@ -1,5 +1,29 @@
 # KidMotion — Projekt-Gehirn
 
+## 0x. Kanal-Router — HÖCHSTE FORMATREGEL
+
+KidMotion ist ein **allgemeiner Kinderkanal**.
+
+Vor jeder Episode muss zuerst eines dieser Formate gewählt werden:
+- `workout`
+- `learning`
+- `learn-and-move`
+
+`FORMAT_ROUTER.md` und `config/channel.json` sind dafür verbindlich.
+
+**WICHTIG:** Die Workout-Regeln in diesem Dokument ab Abschnitt 1 gelten nur für `workout` und den aktuellen `learn-and-move`-Runtime.
+
+Für `learning` gilt stattdessen `config/formats/learning.json` und `PHASE2_LEARNING_AGENT.md`.
+
+Pure Learning bedeutet insbesondere:
+- kein Workout-Zwang
+- kein Timer-Zwang
+- kein GET READY
+- kein Kind/Mascot-Zwang
+- Narration darf durch das gesamte Video laufen
+- flexible Szenenzahl und Laufzeit
+- Visuals nach Lernnutzen statt Character-Konsistenz auswählen
+
 > Menschenlesbare verbindliche Regelquelle. Der maschinenlesbare Produktionsvertrag liegt in `config/v3-contract.json`. Beide müssen identisch bleiben; `project:doctor` und `repo:qa` blockieren Abweichungen.
 
 ## 0. Maschinenlesbarer Vertrag
@@ -27,8 +51,8 @@ Für Phase 3 gilt:
 - erst **nach Approval** muss `npm run phase3:gate` bestehen
 - die importierten Phase-2-Bilder sind danach unveränderliche Inputs
 
-## 1. Format
-KidMotion produziert englische 16:9 YouTube-Longform-Kinderworkouts mit einem wiederkehrenden 3D-Charakter und statischen Hold-/Freeze-Posen.
+## 1. WORKOUT-FORMAT (nur Workout / aktueller Learn+Move-Runtime)
+Dieses Regelwerk produziert englische 16:9 YouTube-Longform-Kinderworkouts mit einem wiederkehrenden 3D-Charakter und statischen Hold-/Freeze-Posen.
 
 Standard: 1920×1080, 30 fps, 12 Übungen, 20s je Übung, 11 Übergänge à 5s, 313s / 5:13.
 

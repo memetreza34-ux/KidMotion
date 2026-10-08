@@ -1,23 +1,45 @@
 # START HIER
 
-## Phase 1 — Planung
-1. Episode vollständig planen.
-2. prompt:qa muss bestehen.
+## 1. Zuerst Format bestimmen
 
-## Phase 2 — Asset-Produktion
-3. Bilder und Audio erstellen. Der Handoff darf als fertiger Ordner, ZIP und/oder Audio-/Videocontainer erfolgen.
+Frage nicht automatisch: "Welche Übung?"
 
-## Phase 3 — Antigravity
+Zuerst entscheiden:
 
-Wenn der Nutzer „alles ist im Ordner“ sagt:
+- `workout` — Bewegung ist das Hauptziel
+- `learning` — Wissen/Lernen ist das Hauptziel
+- `learn-and-move` — Lernen + Bewegung ist bewusst kombiniert
 
-4. npm run phase3:prepare -- --episode=KM-XXX-slug
-5. Antigravity prüft die importierten Bilder selbst visuell und aktualisiert VISUAL_REVIEW.json wahrheitsgemäß.
-6. npm run assets:approve -- --episode=KM-XXX-slug
-7. npm run kidmotion:activate -- --episode=KM-XXX-slug
-8. npm run phase3:gate -- --episode=KM-XXX-slug
-9. npm run render:safe
+## 2. Episode anlegen
 
-phase3:prepare darf ZIP entpacken, deterministische PNG-Dateinamen normalisieren und vorhandene Audio-Container nach MP3 konvertieren. Es darf keine Bilder erzeugen oder deren Pixel verändern.
+Workout:
+```bash
+npm run kidmotion:new -- --format=workout --topic="..."
+```
 
-phase3:gate kommt erst nach Import + Review + Approval.
+Pure Learning:
+```bash
+npm run kidmotion:new -- --format=learning --topic="..."
+```
+
+Learn + Move:
+```bash
+npm run kidmotion:new -- --format=learn-and-move --topic="..."
+```
+
+## 3. Pure Learning
+
+Bei `learning`:
+- keine Workout-Regeln übernehmen
+- kein Kind/Mascot erzwingen
+- keinen Timer erzwingen
+- keine GET-READY-Szenen
+- durchgehende Narration erlaubt
+- Visuals nach Lernnutzen auswählen
+- Fakten/Lernziel in `LEARNING_PLAN.json` festhalten
+- `learning:prompt:qa` verwenden
+- Rendering über `KidMotionLearning`
+
+## 4. Workout
+
+Workout bleibt beim bestehenden V3-Prozess mit Cover, 5er-Bildblöcken, 12 Übungen, GET READY und Timer.

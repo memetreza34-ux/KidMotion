@@ -1,19 +1,36 @@
 # KidMotion Scripts
 
-## Globale Qualität
-- npm run scripts:check — Syntaxcheck aller .mjs-Skripte.
-- npm run project:doctor — prüft Contract, Pipeline und Prozessreihenfolge.
-- npm run repo:qa — prüft aktuelle Contract-Episoden.
+## Format-Router
 
-## Phase 3 Roh-Handoff
-- npm run phase3:prepare -- --episode=KM-XXX-slug — **erster Schritt**, wenn ZIP/MP4/Dateien übergeben wurden. Führt ingest + scene:qa aus.
-- npm run phase3:ingest -- --episode=KM-XXX-slug — technischer Unterbau: ZIP, Dateizuordnung, Audio-Normalisierung.
-- npm run assets:approve -- --episode=KM-XXX-slug — erst nach echter visueller Prüfung.
-- npm run kidmotion:activate -- --episode=KM-XXX-slug
-- npm run phase3:gate -- --episode=KM-XXX-slug — erst nach Approval; SHA-256-Sperre.
-- npm run render:safe
+```bash
+npm run kidmotion:new -- --format=workout --topic="..."
+npm run kidmotion:new -- --format=learning --topic="..."
+npm run kidmotion:new -- --format=learn-and-move --topic="..."
+```
 
-## Verantwortlichkeiten
-Phase 2 liefert kreative Assets.
-Phase 3 darf diese Assets technisch importieren/normalisieren und anschließend zusammenbauen.
-Phase 3 darf niemals neue Bilder erzeugen oder Bildpixel verändern.
+## Workout
+
+- `npm run prompt:qa -- --episode=...`
+- `npm run flow:batch -- --episode=...`
+- `npm run scene:qa -- --episode=...`
+- `npm run assets:approve -- --episode=...`
+- `npm run kidmotion:activate -- --episode=...`
+- `npm run phase3:gate -- --episode=...`
+- `npm run render:safe`
+
+## Pure Learning
+
+- `npm run learning:prompt:qa -- --episode=...`
+- `npm run learning:activate -- --episode=...`
+- `npm run learning:preflight`
+- `npm run learning:assets:approve -- --episode=...`
+- `npm run learning:asset:gate`
+- `npm run learning:render`
+
+Pure Learning hat keinen Countdown-Timer, keine GET-READY-Pflicht und keinen Character-Zwang.
+
+## Global
+
+- `npm run scripts:check`
+- `npm run project:doctor`
+- `npm run repo:qa`
