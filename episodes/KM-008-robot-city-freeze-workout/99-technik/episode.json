@@ -42,7 +42,7 @@
   "outfitLockedAfterCoverSelection": true,
   "worldIdentityLockedAfterCoverSelection": true,
   "worldZoneVariationAllowed": true,
-  "imageGenerationRevisionRequired": "KM008-R1",
+  "imageGenerationRevisionRequired": "KM008-R2-HUMAN",
   "coverPolicy": {
     "generateCandidatesFirst": 3,
     "candidateFiles": [
@@ -60,7 +60,9 @@
     "refuseCoverReplacement": true,
     "mustPersistSelectionMetadata": true,
     "mustKeepSelectedCoverSha256": true,
-    "cannotStartScene02BeforeSelection": true
+    "cannotStartScene02BeforeSelection": true,
+    "humanCoverReviewRequired": true,
+    "humanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
   },
   "imageBatchPolicy": {
     "enabled": true,
@@ -249,7 +251,8 @@
       "image": "Szene 01.png",
       "duration": 0,
       "character": "girl",
-      "inVideo": false
+      "inVideo": false,
+      "characterSpecies": "human"
     },
     {
       "scene": "02",
@@ -257,21 +260,24 @@
       "image": "Szene 02.png",
       "voice": "Voice 01.mp3",
       "duration": 8,
-      "character": "girl"
+      "character": "girl",
+      "characterSpecies": "human"
     },
     {
       "scene": "03",
       "type": "safety",
       "image": "Szene 03.png",
       "duration": 4,
-      "character": "girl"
+      "character": "girl",
+      "characterSpecies": "human"
     },
     {
       "scene": "04",
       "type": "lets-begin",
       "image": "Szene 04.png",
       "duration": 2,
-      "character": "girl"
+      "character": "girl",
+      "characterSpecies": "human"
     },
     {
       "scene": "05",
@@ -283,7 +289,8 @@
       "image": "Szene 05.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "06",
@@ -294,7 +301,8 @@
       "afterExerciseScene": "05",
       "nextExerciseTitle": "T-BAR HOLD",
       "generatedText": "GET READY / NEXT: T-BAR HOLD",
-      "worldZone": "signal bridge with two smooth arch spans"
+      "worldZone": "signal bridge with two smooth arch spans",
+      "characterSpecies": "human"
     },
     {
       "scene": "07",
@@ -306,7 +314,8 @@
       "image": "Szene 07.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "08",
@@ -317,7 +326,8 @@
       "afterExerciseScene": "07",
       "nextExerciseTitle": "GEAR SQUAT HOLD",
       "generatedText": "GET READY / NEXT: GEAR SQUAT HOLD",
-      "worldZone": "gear garden with one static round cog sculpture"
+      "worldZone": "gear garden with one static round cog sculpture",
+      "characterSpecies": "human"
     },
     {
       "scene": "09",
@@ -329,7 +339,8 @@
       "image": "Szene 09.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "10",
@@ -340,7 +351,8 @@
       "afterExerciseScene": "09",
       "nextExerciseTitle": "SIDE SIGNAL REACH",
       "generatedText": "GET READY / NEXT: SIDE SIGNAL REACH",
-      "worldZone": "solar promenade below a fan-shaped roof"
+      "worldZone": "solar promenade below a fan-shaped roof",
+      "characterSpecies": "human"
     },
     {
       "scene": "11",
@@ -352,7 +364,8 @@
       "image": "Szene 11.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "12",
@@ -363,7 +376,8 @@
       "afterExerciseScene": "11",
       "nextExerciseTitle": "RUNNER FREEZE",
       "generatedText": "GET READY / NEXT: RUNNER FREEZE",
-      "worldZone": "circuit runway with a distant inactive round gate"
+      "worldZone": "circuit runway with a distant inactive round gate",
+      "characterSpecies": "human"
     },
     {
       "scene": "13",
@@ -375,7 +389,8 @@
       "image": "Szene 13.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "14",
@@ -386,7 +401,8 @@
       "afterExerciseScene": "13",
       "nextExerciseTitle": "COMPASS TURN",
       "generatedText": "GET READY / NEXT: COMPASS TURN",
-      "worldZone": "navigation hub with one large compass-circle floor inlay without letters"
+      "worldZone": "navigation hub with one large compass-circle floor inlay without letters",
+      "characterSpecies": "human"
     },
     {
       "scene": "15",
@@ -398,7 +414,8 @@
       "image": "Szene 15.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "16",
@@ -409,7 +426,8 @@
       "afterExerciseScene": "15",
       "nextExerciseTitle": "TABLE BRIDGE",
       "generatedText": "GET READY / NEXT: TABLE BRIDGE",
-      "worldZone": "quiet maintenance patio with clean grid floor and a low architectural arch"
+      "worldZone": "quiet maintenance patio with clean grid floor and a low architectural arch",
+      "characterSpecies": "human"
     },
     {
       "scene": "17",
@@ -421,7 +439,8 @@
       "image": "Szene 17.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "18",
@@ -432,7 +451,8 @@
       "afterExerciseScene": "17",
       "nextExerciseTitle": "POWER PLANK",
       "generatedText": "GET READY / NEXT: POWER PLANK",
-      "worldZone": "training tunnel with one nonfunctional rounded portal"
+      "worldZone": "training tunnel with one nonfunctional rounded portal",
+      "characterSpecies": "human"
     },
     {
       "scene": "19",
@@ -444,7 +464,8 @@
       "image": "Szene 19.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "20",
@@ -455,7 +476,8 @@
       "afterExerciseScene": "19",
       "nextExerciseTitle": "SKY BALANCE",
       "generatedText": "GET READY / NEXT: SKY BALANCE",
-      "worldZone": "safe observation deck with distant skyline and clear sky"
+      "worldZone": "safe observation deck with distant skyline and clear sky",
+      "characterSpecies": "human"
     },
     {
       "scene": "21",
@@ -467,7 +489,8 @@
       "image": "Szene 21.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "22",
@@ -478,7 +501,8 @@
       "afterExerciseScene": "21",
       "nextExerciseTitle": "SHIELD PRESS",
       "generatedText": "GET READY / NEXT: SHIELD PRESS",
-      "worldZone": "shield courtyard with a single curved translucent building panel"
+      "worldZone": "shield courtyard with a single curved translucent building panel",
+      "characterSpecies": "human"
     },
     {
       "scene": "23",
@@ -490,7 +514,8 @@
       "image": "Szene 23.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "24",
@@ -501,7 +526,8 @@
       "afterExerciseScene": "23",
       "nextExerciseTitle": "STAR FREEZE",
       "generatedText": "GET READY / NEXT: STAR FREEZE",
-      "worldZone": "star courtyard with one giant five-point inlay on the ground"
+      "worldZone": "star courtyard with one giant five-point inlay on the ground",
+      "characterSpecies": "human"
     },
     {
       "scene": "25",
@@ -513,7 +539,8 @@
       "image": "Szene 25.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "26",
@@ -524,7 +551,8 @@
       "afterExerciseScene": "25",
       "nextExerciseTitle": "POWER-UP VICTORY",
       "generatedText": "GET READY / NEXT: POWER-UP VICTORY",
-      "worldZone": "final roof garden with a broad finish arch and warm futuristic skyline"
+      "worldZone": "final roof garden with a broad finish arch and warm futuristic skyline",
+      "characterSpecies": "human"
     },
     {
       "scene": "27",
@@ -536,19 +564,31 @@
       "image": "Szene 27.png",
       "duration": 20,
       "character": "girl",
-      "ballCount": 0
+      "ballCount": 0,
+      "characterSpecies": "human"
     },
     {
       "scene": "28",
       "type": "outro",
       "image": "Szene 28.png",
       "duration": 4,
-      "character": "girl"
+      "character": "girl",
+      "characterSpecies": "human"
     }
   ],
   "runtimeSeconds": 313,
   "promptSpecVersion": 2,
   "contentFormat": "workout",
   "formatContractFile": "config/formats/workout.json",
-  "compactPromptPolicy": "v2-short"
+  "compactPromptPolicy": "v2-short",
+  "characterPolicy": {
+    "species": "human",
+    "style": "stylized 3D human girl athlete",
+    "fullyClothed": true,
+    "noRobotCharacters": true,
+    "noAnimalCharacters": true,
+    "oneHumanOnly": true,
+    "coverHumanReviewRequired": true,
+    "coverHumanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
+  }
 }

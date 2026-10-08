@@ -14,3 +14,11 @@ The voice script is continuous spoken text; only VOICE_PLAN.json has section tim
 - Nach deiner Auswahl wird unverzüglich `npm run kidmotion:select-cover -- --episode=KM-008-robot-city-freeze-workout --candidate=<1|2|3>` ausgeführt und die zwei abgelehnten Cover gelöscht. Die ausgewählte `Szene 01.png` ist die einzige Bildreferenz.
 - Nach dem letzten 5er-Block `npm run phase2:finalize -- --episode=KM-008-robot-city-freeze-workout` ausführen. Fehlende Bilder anhand `99-technik/PHASE2_MISSING_SCENES.json` **noch in Google Flow (Phase 2)** generieren und Endkontrolle wiederholen.
 - Erst wenn `PHASE2_HANDOFF.json` existiert und **alle 28 realen Bilder** richtig benannt im gemeinsamen Ordner `00-bildprompts/images/` liegen: `npm run scene:qa -- --episode=KM-008-robot-city-freeze-workout` und echte visuelle Freigabe. Phase 3 darf keine Bilder generieren.
+
+## WORKOUT: HUMAN-ONLY CHARACTERS
+
+The KM-008 mascot MUST be one fully clothed stylized 3D **HUMAN girl athlete**, with recognizable human face, hair and hands. No robot, fox, animal or anthropomorphic character — even in Robot City. Background architecture may be robotic; the demonstrator may not.
+
+All three previously generated Google Flow covers shown in the screenshot are INVALID. Generate three new covers with the corrected prompts, inspect all actual PNGs, then set the three human-review records in `99-technik/COVER_HUMAN_REVIEW.json` with REAL SHA256 values. `kidmotion:select-cover` will block until human review passes. This is a real visual check, not something that can be assumed from the prompt.
+
+After choosing a human cover, it stays the sole human identity reference for scenes 02–28. Pure learning format is NOT affected.

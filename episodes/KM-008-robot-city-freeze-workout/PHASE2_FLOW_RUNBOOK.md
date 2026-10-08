@@ -51,3 +51,11 @@ Nur bei `COMPLETE` und tatsächlich vorhandener `99-technik/PHASE2_HANDOFF.json`
 Danach `npm run scene:qa -- --episode=KM-008-robot-city-freeze-workout` ausführen und die wirklichen Bilder visuell prüfen (Pose, Beschriftung, Motiv), bevor sie freigegeben werden. Fehlende Bilder **niemals an Phase 3 delegieren**. `ANTIGRAVITY.md` bleibt Assembly/Render-only.
 
 **Aktueller Zustand im GitHub-Repo:** Hier liegen derzeit die Pläne und Prompts, keine generierten Bilder. Die Auswahl und Abschlusskontrolle können erst auf wirklichen Bilddateien ausgeführt werden.
+
+## WORKOUT: HUMAN-ONLY CHARACTERS
+
+The KM-008 mascot MUST be one fully clothed stylized 3D **HUMAN girl athlete**, with recognizable human face, hair and hands. No robot, fox, animal or anthropomorphic character — even in Robot City. Background architecture may be robotic; the demonstrator may not.
+
+All three previously generated Google Flow covers shown in the screenshot are INVALID. Generate three new covers with the corrected prompts, inspect all actual PNGs, then set the three human-review records in `99-technik/COVER_HUMAN_REVIEW.json` with REAL SHA256 values. `kidmotion:select-cover` will block until human review passes. This is a real visual check, not something that can be assumed from the prompt.
+
+After choosing a human cover, it stays the sole human identity reference for scenes 02–28. Pure learning format is NOT affected.

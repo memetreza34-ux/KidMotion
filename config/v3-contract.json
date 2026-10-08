@@ -107,7 +107,9 @@
       "fullyClothedRequired": true,
       "exactMinorAgeForbidden": true,
       "detailedMinorBodyProfileForbidden": true,
-      "photorealisticChildForbidden": true
+      "photorealisticChildForbidden": true,
+      "humanSpeciesRequired": true,
+      "nonHumanMascotsForbidden": true
     }
   },
   "generationContract": {
@@ -310,5 +312,6 @@
     }
   },
   "format": "workout",
-  "scope": "This contract applies only to contentFormat=workout and the current learn-and-move runtime. It is NOT the channel-wide learning contract."
+  "scope": "This contract applies only to contentFormat=workout and the current learn-and-move runtime. It is NOT the channel-wide learning contract.",
+  "workoutCharacterPolicyFile": "config/workout-character-policy.json"
 }

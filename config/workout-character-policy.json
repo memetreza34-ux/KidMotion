@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "scope": "workout and learn-and-move using the workout runtime only",
+  "species": "human",
+  "characterType": "stylized fully clothed 3D human athlete",
+  "approvedHumanChoices": [
+    "boy",
+    "girl"
+  ],
+  "forbiddenMainCharacters": [
+    "robot",
+    "android",
+    "fox",
+    "cat",
+    "dog",
+    "bear",
+    "animal",
+    "anthropomorphic animal",
+    "alien",
+    "object mascot"
+  ],
+  "environmentRule": "Robot City can contain robot-themed buildings; the exercise demonstrator is always HUMAN.",
+  "coverReviewFile": "99-technik/COVER_HUMAN_REVIEW.json",
+  "coverSelectionRequiresVerifiedImages": true,
+  "realCoverHashRequired": true,
+  "characterConsistencyRequired": true,
+  "learningFormatExempt": true
+}

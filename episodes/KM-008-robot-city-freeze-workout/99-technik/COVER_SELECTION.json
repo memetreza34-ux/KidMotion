@@ -16,5 +16,7 @@
     "deleteOtherTwo": true,
     "protectSelectedImageHash": true,
     "neverAskUserToSelectAgainAfterSuccessfulChoice": true
-  }
+  },
+  "humanOnlyPolicy": true,
+  "humanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
 }

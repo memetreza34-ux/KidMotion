@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "episodeFolder": "KM-008-robot-city-freeze-workout",
+  "status": "PENDING_REAL_IMAGE_REVIEW",
+  "reviewedAt": null,
+  "note": "The three previous robot/fox Google Flow covers are rejected. Generate three new HUMAN-girl covers. Only after actually inspecting each PNG and calculating its SHA256 may a reviewer mark it APPROVED.",
+  "candidates": [
+    {
+      "candidate": 1,
+      "file": "Cover-Kandidat-01.png",
+      "humanVisible": false,
+      "fullyClothed": false,
+      "noRobotOrAnimalMascot": false,
+      "actualImageInspected": false,
+      "sha256": null,
+      "status": "PENDING"
+    },
+    {
+      "candidate": 2,
+      "file": "Cover-Kandidat-02.png",
+      "humanVisible": false,
+      "fullyClothed": false,
+      "noRobotOrAnimalMascot": false,
+      "actualImageInspected": false,
+      "sha256": null,
+      "status": "PENDING"
+    },
+    {
+      "candidate": 3,
+      "file": "Cover-Kandidat-03.png",
+      "humanVisible": false,
+      "fullyClothed": false,
+      "noRobotOrAnimalMascot": false,
+      "actualImageInspected": false,
+      "sha256": null,
+      "status": "PENDING"
+    }
+  ]
+}

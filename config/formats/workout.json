@@ -2,5 +2,11 @@
   "format": "workout",
   "status": "ACTIVE",
   "contractFile": "config/v3-contract.json",
-  "description": "Current workout engine."
+  "description": "Current workout engine.",
+  "characterPolicy": {
+    "species": "human",
+    "noRobotOrAnimalCharacters": true,
+    "visualReviewRequired": true,
+    "policyFile": "config/workout-character-policy.json"
+  }
 }

@@ -37,7 +37,9 @@
     "finalFile": "Szene 01.png",
     "deleteRejectedCandidatesAfterSelection": true,
     "selectedCoverBecomesSoleReference": true,
-    "deleteRejectedCandidatesImmediatelyAfterSelection": true
+    "deleteRejectedCandidatesImmediatelyAfterSelection": true,
+    "requiresRealHumanCoverReview": true,
+    "humanCoverReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
   },
   "batchGenerationPolicy": {
     "enabled": true,
@@ -237,5 +239,6 @@
     "version": 2,
     "file": "config/prompt-quality.json",
     "requiredForNewEpisodes": true
-  }
+  },
+  "workoutCharacterPolicyFile": "config/workout-character-policy.json"
 }

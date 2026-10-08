@@ -13,6 +13,7 @@
     "rule": "This UI contract must be written explicitly into every relevant Google Flow prompt. It is text-only guidance and NEVER authorizes a second image reference."
   },
   "rules": [
+    "Every workout image and cover must show exactly one obviously HUMAN, fully clothed stylized boy or girl, NEVER a robot or animal mascot, even in Robot City.",
     "16:9 landscape, premium stylized 3D family-friendly animation look",
     "exactly one recurring original KidMotion mascot character per episode",
     "cover prompts use a clearly fictional stylized mascot character and stay non-photorealistic",
@@ -87,7 +88,8 @@
     "thought-bubble dots",
     "motion-dependent exercise poses",
     "reusing the next 20-second exercise image during the 5-second transition",
-    "more than two neighboring exercises with near-identical squat/lunge/balance silhouettes"
+    "more than two neighboring exercises with near-identical squat/lunge/balance silhouettes",
+    "robots, foxes, animals or anthropomorphic objects as workout demonstrators"
   ],
   "referenceWorkflow": {
     "coverCandidatesFirst": true,
@@ -106,7 +108,16 @@
     "waitForUserBetweenBatches": false,
     "autoContinueAfterCoverSelection": true,
     "deliverCompletedFolderAtEnd": true,
-    "coverPromptSafetyMode": "generic-fictional-mascot",
+    "coverPromptSafetyMode": "stylized-human-only",
     "repeatDetailedPhysicalProfileAfterSelection": false
+  },
+  "workoutCharacterPolicy": {
+    "species": "human",
+    "robotOrAnimalMascotForbidden": true,
+    "appliesTo": [
+      "workout",
+      "learn-and-move"
+    ],
+    "pureLearningExempt": true
   }
 }

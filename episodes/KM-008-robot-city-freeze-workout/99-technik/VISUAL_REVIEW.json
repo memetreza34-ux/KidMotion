@@ -1,6 +1,6 @@
 {
   "episodeFolder": "KM-008-robot-city-freeze-workout",
-  "revision": "KM008-R1",
+  "revision": "KM008-R2-HUMAN",
   "sameCharacterEveryScene": false,
   "allExercisePosesClearFromOneStill": false,
   "poseVarietyStrong": false,
@@ -16,5 +16,7 @@
   "noMissingOrDuplicateSceneContent": false,
   "eachSceneMatchesItsPromptRole": false,
   "openingVisualTimingMatchesVoice": false,
-  "notes": "No generated media have been reviewed. Leave all checks false until viewing actual images and render."
+  "notes": "Screenshot shows robot/fox covers; these do not qualify. Review actual regenerated human images only.",
+  "humanCharacterConfirmedEveryScene": false,
+  "noNonHumanMascotInWorkoutScenes": false
 }
