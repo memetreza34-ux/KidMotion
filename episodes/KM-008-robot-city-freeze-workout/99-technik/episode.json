@@ -527,5 +527,6 @@
   "runtimeSeconds": 313,
   "promptSpecVersion": 2,
   "contentFormat": "workout",
-  "formatContractFile": "config/formats/workout.json"
+  "formatContractFile": "config/formats/workout.json",
+  "compactPromptPolicy": "v2-short"
 }
