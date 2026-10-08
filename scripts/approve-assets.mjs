@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, currentContractErrors} from './contract.mjs';
+import {humanOnlyWorkout} from './workout-character-policy.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -71,6 +72,10 @@ const requiredReviewFlags = [
   'noAnatomyErrors',
   'noCroppingOfImportantLimbs',
 ];
+if(humanOnlyWorkout(data)){
+  requiredReviewFlags.push('humanCharacterConfirmedEveryScene');
+  requiredReviewFlags.push('noNonHumanMascotInWorkoutScenes');
+}
 if (sceneV3) {
   requiredReviewFlags.push('poseVarietyStrong');
   requiredReviewFlags.push('allGetReadyImagesClearAndNotConfusableWithExercise');
