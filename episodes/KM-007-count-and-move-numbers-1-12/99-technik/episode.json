@@ -574,5 +574,7 @@
     }
   ],
   "runtimeSeconds": 313,
-  "promptSpecVersion": 2
+  "promptSpecVersion": 2,
+  "contentFormat": "learn-and-move",
+  "formatContractFile": "config/formats/learn-and-move.json"
 }
