@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-007-count-and-move-numbers-1-12",
+  "status": "AWAITING_USER_SELECTION",
+  "selectedCandidate": null,
+  "selectedCandidateOriginalFile": null,
+  "finalFile": null,
+  "userSelectionRequired": true,
+  "soleReferenceForLaterScenes": "Szene 01.png",
+  "secondaryImageReferencesForbidden": true
+}

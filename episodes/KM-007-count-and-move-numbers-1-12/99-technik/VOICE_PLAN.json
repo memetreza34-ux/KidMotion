@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-007-count-and-move-numbers-1-12",
+  "voiceFile": "Voice 01.mp3",
+  "targetDurationSeconds": {
+    "min": 13.65,
+    "target": 13.9,
+    "max": 14.05
+  },
+  "startsAtSeconds": 0,
+  "mustEndBeforeSeconds": 14.05,
+  "noSpokenVoiceAfterSeconds": 14,
+  "sections": [
+    {
+      "scene": "02",
+      "label": "INTRO",
+      "startSeconds": 0,
+      "endSeconds": 8,
+      "text": "Welcome to KidMotion Count and Move! Today we’ll learn numbers one to twelve with fun freeze poses. Look for each number and say it with me."
+    },
+    {
+      "scene": "03",
+      "label": "SAFETY",
+      "startSeconds": 8,
+      "endSeconds": 12,
+      "text": "Clear some space, move safely, and stop if anything hurts."
+    },
+    {
+      "scene": "04",
+      "label": "LETS_BEGIN",
+      "startSeconds": 12,
+      "endSeconds": 14,
+      "text": "Ready to count? Let’s begin!"
+    }
+  ],
+  "exactTtsCopy": "Welcome to KidMotion Count and Move! Today we’ll learn numbers one to twelve with fun freeze poses. Look for each number and say it with me. Clear some space, move safely, and stop if anything hurts. Ready to count? Let’s begin!",
+  "note": "Timecodes are production targets for the opening images, not subtitles. voice-script.txt contains only exactTtsCopy."
+}

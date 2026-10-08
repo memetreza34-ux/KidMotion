@@ -1,0 +1,844 @@
+{
+  "schemaVersion": 3,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-007-count-and-move-numbers-1-12",
+  "revision": "KM007-R1",
+  "visualStyleId": "kidmotion-premium-3d-v3-flow-text",
+  "generationRules": {
+    "coverCandidateCount": 3,
+    "coverCandidateFiles": [
+      "Cover-Kandidat-01.png",
+      "Cover-Kandidat-02.png",
+      "Cover-Kandidat-03.png"
+    ],
+    "coverSelectionFile": "99-technik/COVER_SELECTION.json",
+    "stopAfterCoverCandidatesUntilExplicitUserSelection": true,
+    "selectedCoverFinalFile": "Szene 01.png",
+    "selectedCoverBecomesSoleReference": true,
+    "batchSizeAfterCover": 5,
+    "autoContinueToNextBatch": true,
+    "generationBatches": [
+      [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      [
+        27,
+        28
+      ]
+    ],
+    "generateEachNonCoverSceneExactlyOnce": true,
+    "maximumGenerationAttemptsPerNonCoverScene": 1,
+    "regenerationForbidden": true,
+    "automaticAlternatesForbidden": true,
+    "soleReference": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true,
+    "finalDirectory": "00-bildprompts/images",
+    "allFinalScenesInOneFolder": true,
+    "sceneFilePattern": "Szene NN.png",
+    "firstFinalScene": 1,
+    "lastFinalScene": 28,
+    "dedicatedGetReadyScenes": true,
+    "getReadySceneCount": 11,
+    "allNonTimerVisibleTextOwner": "google-flow"
+  },
+  "images": [
+    {
+      "sceneNumber": 1,
+      "imageFile": "Szene 01.png",
+      "sceneRole": "cover",
+      "visualPurpose": "Create a strong mobile-readable Count & Move thumbnail and establish the single Number City character/world identity for all later scenes.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "premium stylized 3D educational YouTube thumbnail with one fictional fully clothed mascot and strong number-learning title hierarchy",
+      "characterReference": "three-cover candidate stage",
+      "uiReference": null,
+      "generationAttemptsAllowed": 3,
+      "propCount": 0,
+      "generatedText": "COUNT & MOVE 1-12 / LEARN NUMBERS WITH FUN MOVES",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original fictional KidMotion mascot character, fully clothed in a sporty cobalt-blue, coral-orange and lime-green outfit, with a friendly energetic expression and a simple confident standing pose. Place the character large on the right. Build a bright playful Number City with oversized colorful numeral sculptures 1, 2, 3 and simple geometric buildings in the background. On the left add large clean text exactly: COUNT & MOVE 1-12. Under it add smaller text exactly: LEARN NUMBERS WITH FUN MOVES. Strong mobile readability, no real people, no brands, no logos, no extra characters, no photorealism. | Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original fictional KidMotion mascot character, fully clothed in a sporty cobalt-blue, coral-orange and lime-green outfit, with a friendly energetic expression and a simple confident standing pose. Place the character large on the right. Use a colorful Number City learning plaza with giant clean numeral blocks, a curved rainbow bridge and bright geometric paths. On the left add large clean text exactly: COUNT & MOVE 1-12. Under it add smaller text exactly: LEARN NUMBERS WITH FUN MOVES. Strong mobile readability, no real people, no brands, no logos, no extra characters, no photorealism. | Create a premium stylized 3D KidMotion YouTube thumbnail in a clearly fictional family-friendly animated style, 16:9 landscape. Show exactly one original fictional KidMotion mascot character, fully clothed in a sporty cobalt-blue, coral-orange and lime-green outfit, with a friendly energetic expression and a simple confident standing pose. Use a slightly closer character framing on the right. Build a vibrant educational city skyline with large floating numeral shapes, colorful arches and a clean activity platform. On the left add large clean text exactly: COUNT & MOVE 1-12. Under it add smaller text exactly: LEARN NUMBERS WITH FUN MOVES. Strong mobile readability, no real people, no brands, no logos, no extra characters, no photorealism."
+    },
+    {
+      "sceneNumber": 2,
+      "imageFile": "Szene 02.png",
+      "sceneRole": "intro",
+      "visualPurpose": "Introduce number learning from 1 to 12 and the move-along format.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "premium stylized 3D intro card with full-body character, number-learning theme and baked intro text",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "KIDMOTION / COUNT & MOVE / NUMBERS 1-12 / LEARN MOVE PLAY",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle, outfit colors and premium stylized 3D Number City world. Create a clean 16:9 intro card in a bright learning plaza. Show the character full body in a friendly ready stance. Add exactly these visible text elements with clear hierarchy: KIDMOTION, COUNT & MOVE, NUMBERS 1-12, LEARN MOVE PLAY. Include a simple row of large colorful numerals 1 2 3 4 5 6 along the lower background as decorative learning elements, clearly separate from the title. No timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 3,
+      "imageFile": "Szene 03.png",
+      "sceneRole": "safety",
+      "visualPurpose": "Show the safety message clearly before learning and movement begins.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "premium stylized 3D safety card with calm neutral full-body stance and baked text",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "SAFETY FIRST / Clear some space. / Stop if anything hurts.",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and Number City world. Show the character full body in a calm neutral standing pose on a clean activity plaza. Create a premium stylized 3D 16:9 safety card. Add exactly: SAFETY FIRST. Under it add exactly: Clear some space. Under that add exactly: Stop if anything hurts. Keep text large and easy to read. No timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 4,
+      "imageFile": "Szene 04.png",
+      "sceneRole": "lets-begin",
+      "visualPurpose": "Create a short energetic handoff into number 1.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "premium stylized 3D start card with two large simple lines",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "READY TO COUNT? / LET'S BEGIN!",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and Number City world. Show the character full body in an energetic ready stance with feet planted and body prepared to move. Premium stylized 3D, 16:9. Add large clean text exactly: READY TO COUNT? Add a second large line exactly: LET'S BEGIN! No other visible text, no timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 5,
+      "imageFile": "Szene 05.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 1 and word ONE while showing 1 ONE SKY REACH as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "1 ONE SKY REACH",
+        "instruction": "Reach one arm high and stand tall.",
+        "learningBadge": "1 = ONE"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: sunrise Number City plaza with a large clean numeral 1 sculpture, rounded colorful buildings, soft clouds and an open mint-colored activity floor. Show exactly one clear static full-body exercise pose: feet shoulder-width, torso upright, right arm extended straight overhead with an open hand, left arm relaxed by the side, one clear vertical reaching line. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 1 ONE SKY REACH. Add the top-right instruction exactly: Reach one arm high and stand tall. Add the center-left learning badge exactly: 1 = ONE. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 6,
+      "imageFile": "Szene 06.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 2 TWO WING HOLD and preview number 2 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 2 TWO WING HOLD / NEXT NUMBER 2",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: bright twin-arch bridge zone with a large clean numeral 2 sign, blue sky, two sweeping rainbow-like architectural curves and a wide safe platform. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 2 TWO WING HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 2 TWO WING HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 2 TWO WING HOLD. Add one small clean learning cue under the panel exactly: NEXT NUMBER 2. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 7,
+      "imageFile": "Szene 07.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 2 and word TWO while showing 2 TWO WING HOLD as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "2 TWO WING HOLD",
+        "instruction": "Stretch both arms wide and hold.",
+        "learningBadge": "2 = TWO"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: bright twin-arch bridge zone with a large clean numeral 2 sign, blue sky, two sweeping rainbow-like architectural curves and a wide safe platform. Show exactly one clear static full-body exercise pose: upright stance with both feet planted, both arms extended horizontally in opposite directions like wings, shoulders level, clear symmetrical silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 2 TWO WING HOLD. Add the top-right instruction exactly: Stretch both arms wide and hold. Add the center-left learning badge exactly: 2 = TWO. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 8,
+      "imageFile": "Szene 08.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 3 THREE TRIANGLE LEAN and preview number 3 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 3 THREE TRIANGLE LEAN / NEXT NUMBER 3",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: playful triangle garden with a large clean numeral 3 sculpture, geometric hedges, soft triangular shade sails and a clear lavender exercise pad. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 3 THREE TRIANGLE LEAN exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 3 THREE TRIANGLE LEAN. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 3 THREE TRIANGLE LEAN. Add one small clean learning cue under the panel exactly: NEXT NUMBER 3. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 9,
+      "imageFile": "Szene 09.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 3 and word THREE while showing 3 THREE TRIANGLE LEAN as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "3 THREE TRIANGLE LEAN",
+        "instruction": "Lean to one side with one arm overhead.",
+        "learningBadge": "3 = THREE"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: playful triangle garden with a large clean numeral 3 sculpture, geometric hedges, soft triangular shade sails and a clear lavender exercise pad. Show exactly one clear static full-body exercise pose: wide stance, one hand near the hip, opposite arm curved overhead while the torso bends clearly sideways, both feet flat and visible. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 3 THREE TRIANGLE LEAN. Add the top-right instruction exactly: Lean to one side with one arm overhead. Add the center-left learning badge exactly: 3 = THREE. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 10,
+      "imageFile": "Szene 10.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 4 FOUR CORNER SQUAT and preview number 4 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 4 FOUR CORNER SQUAT / NEXT NUMBER 4",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: square-block courtyard with a large clean numeral 4 wall feature, colorful cube architecture, simple checker paving and open training space. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 4 FOUR CORNER SQUAT exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 4 FOUR CORNER SQUAT. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 4 FOUR CORNER SQUAT. Add one small clean learning cue under the panel exactly: NEXT NUMBER 4. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 11,
+      "imageFile": "Szene 11.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 4 and word FOUR while showing 4 FOUR CORNER SQUAT as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "4 FOUR CORNER SQUAT",
+        "instruction": "Sit into a wide squat and stay strong.",
+        "learningBadge": "4 = FOUR"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: square-block courtyard with a large clean numeral 4 wall feature, colorful cube architecture, simple checker paving and open training space. Show exactly one clear static full-body exercise pose: wide squat with both feet flat, knees bent outward, torso upright, both forearms raised comfortably in front of the chest, strong stable silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 4 FOUR CORNER SQUAT. Add the top-right instruction exactly: Sit into a wide squat and stay strong. Add the center-left learning badge exactly: 4 = FOUR. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 12,
+      "imageFile": "Szene 12.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 5 FIVE STAR STRETCH and preview number 5 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 5 FIVE STAR STRETCH / NEXT NUMBER 5",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: star fountain plaza with a large clean numeral 5 sculpture, stylized star shapes in the pavement, warm yellow accents and a spacious coral activity platform. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 5 FIVE STAR STRETCH exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 5 FIVE STAR STRETCH. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 5 FIVE STAR STRETCH. Add one small clean learning cue under the panel exactly: NEXT NUMBER 5. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 13,
+      "imageFile": "Szene 13.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 5 and word FIVE while showing 5 FIVE STAR STRETCH as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "5 FIVE STAR STRETCH",
+        "instruction": "Stretch arms and legs into a big star.",
+        "learningBadge": "5 = FIVE"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: star fountain plaza with a large clean numeral 5 sculpture, stylized star shapes in the pavement, warm yellow accents and a spacious coral activity platform. Show exactly one clear static full-body exercise pose: full-body X shape with legs spread wide and both arms raised diagonally upward, torso centered, palms open and all limbs clearly separated. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 5 FIVE STAR STRETCH. Add the top-right instruction exactly: Stretch arms and legs into a big star. Add the center-left learning badge exactly: 5 = FIVE. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 14,
+      "imageFile": "Szene 14.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 6 SIX RUNNER FREEZE and preview number 6 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 6 SIX RUNNER FREEZE / NEXT NUMBER 6",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: curving Number City track with a large clean numeral 6 sign, sweeping circular path markings, colorful lane accents and a clean open section for the character. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 6 SIX RUNNER FREEZE exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 6 SIX RUNNER FREEZE. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 6 SIX RUNNER FREEZE. Add one small clean learning cue under the panel exactly: NEXT NUMBER 6. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 15,
+      "imageFile": "Szene 15.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 6 and word SIX while showing 6 SIX RUNNER FREEZE as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "6 SIX RUNNER FREEZE",
+        "instruction": "Step one foot back and freeze like a runner.",
+        "learningBadge": "6 = SIX"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: curving Number City track with a large clean numeral 6 sign, sweeping circular path markings, colorful lane accents and a clean open section for the character. Show exactly one clear static full-body exercise pose: athletic split stance with front knee softly bent, rear leg extended back, opposite elbows bent as if pausing mid-run, torso leaning only slightly forward. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 6 SIX RUNNER FREEZE. Add the top-right instruction exactly: Step one foot back and freeze like a runner. Add the center-left learning badge exactly: 6 = SIX. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 16,
+      "imageFile": "Szene 16.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 7 SEVEN BALANCE POINT and preview number 7 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 7 SEVEN BALANCE POINT / NEXT NUMBER 7",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: rooftop learning deck with a large clean numeral 7 sculpture, simple skyline shapes, soft clouds and padded teal flooring. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 7 SEVEN BALANCE POINT exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 7 SEVEN BALANCE POINT. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 7 SEVEN BALANCE POINT. Add one small clean learning cue under the panel exactly: NEXT NUMBER 7. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 17,
+      "imageFile": "Szene 17.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 7 and word SEVEN while showing 7 SEVEN BALANCE POINT as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "7 SEVEN BALANCE POINT",
+        "instruction": "Balance on one leg and point one arm up.",
+        "learningBadge": "7 = SEVEN"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: rooftop learning deck with a large clean numeral 7 sculpture, simple skyline shapes, soft clouds and padded teal flooring. Show exactly one clear static full-body exercise pose: one-leg balance with free knee bent gently forward, one arm pointing diagonally upward, opposite arm extended sideways for balance, standing foot fully visible. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 7 SEVEN BALANCE POINT. Add the top-right instruction exactly: Balance on one leg and point one arm up. Add the center-left learning badge exactly: 7 = SEVEN. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 18,
+      "imageFile": "Szene 18.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 8 EIGHT POWER CROUCH and preview number 8 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 8 EIGHT POWER CROUCH / NEXT NUMBER 8",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: loop-shaped activity park with a large clean numeral 8 structure, rounded pathways, blue and lime curves and a clear central exercise area. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 8 EIGHT POWER CROUCH exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 8 EIGHT POWER CROUCH. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 8 EIGHT POWER CROUCH. Add one small clean learning cue under the panel exactly: NEXT NUMBER 8. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 19,
+      "imageFile": "Szene 19.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 8 and word EIGHT while showing 8 EIGHT POWER CROUCH as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "8 EIGHT POWER CROUCH",
+        "instruction": "Crouch low with feet wide and chest up.",
+        "learningBadge": "8 = EIGHT"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: loop-shaped activity park with a large clean numeral 8 structure, rounded pathways, blue and lime curves and a clear central exercise area. Show exactly one clear static full-body exercise pose: low wide crouch with knees bent, feet planted, chest lifted, both hands resting lightly near the thighs without hiding the body silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 8 EIGHT POWER CROUCH. Add the top-right instruction exactly: Crouch low with feet wide and chest up. Add the center-left learning badge exactly: 8 = EIGHT. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 20,
+      "imageFile": "Szene 20.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 9 NINE TWIST HOLD and preview number 9 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 9 NINE TWIST HOLD / NEXT NUMBER 9",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: spiral learning park with a large clean numeral 9 sign, curved garden paths, simple circular planters and bright afternoon light. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 9 NINE TWIST HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 9 NINE TWIST HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 9 NINE TWIST HOLD. Add one small clean learning cue under the panel exactly: NEXT NUMBER 9. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 21,
+      "imageFile": "Szene 21.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 9 and word NINE while showing 9 NINE TWIST HOLD as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "9 NINE TWIST HOLD",
+        "instruction": "Twist your chest and point both arms sideways.",
+        "learningBadge": "9 = NINE"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: spiral learning park with a large clean numeral 9 sign, curved garden paths, simple circular planters and bright afternoon light. Show exactly one clear static full-body exercise pose: feet wide and stable, hips mostly forward, torso rotated to one side, front arm extended forward and rear arm extended backward at shoulder height. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 9 NINE TWIST HOLD. Add the top-right instruction exactly: Twist your chest and point both arms sideways. Add the center-left learning badge exactly: 9 = NINE. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 22,
+      "imageFile": "Szene 22.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 10 TEN TABLE HOLD and preview number 10 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 10 TEN TABLE HOLD / NEXT NUMBER 10",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: double-digit gateway plaza with a large clean 10 sign, two tall rounded towers, soft neon accents and a padded cream activity floor. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 10 TEN TABLE HOLD exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 10 TEN TABLE HOLD. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 10 TEN TABLE HOLD. Add one small clean learning cue under the panel exactly: NEXT NUMBER 10. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 23,
+      "imageFile": "Szene 23.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 10 and word TEN while showing 10 TEN TABLE HOLD as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "10 TEN TABLE HOLD",
+        "instruction": "Lift your hips into a strong reverse table.",
+        "learningBadge": "10 = TEN"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: double-digit gateway plaza with a large clean 10 sign, two tall rounded towers, soft neon accents and a padded cream activity floor. Show exactly one clear static full-body exercise pose: safe reverse tabletop on hands and feet, chest facing upward, hips lifted, knees bent, arms straight enough to support the body, head neutral and all limbs visible. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 10 TEN TABLE HOLD. Add the top-right instruction exactly: Lift your hips into a strong reverse table. Add the center-left learning badge exactly: 10 = TEN. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 24,
+      "imageFile": "Szene 24.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 11 ELEVEN KNEE HUG and preview number 11 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 11 ELEVEN KNEE HUG / NEXT NUMBER 11",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: bright line avenue with a large clean 11 sign, paired vertical light columns, colorful banners and a smooth open blue exercise platform. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 11 ELEVEN KNEE HUG exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 11 ELEVEN KNEE HUG. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 11 ELEVEN KNEE HUG. Add one small clean learning cue under the panel exactly: NEXT NUMBER 11. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 25,
+      "imageFile": "Szene 25.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 11 and word ELEVEN while showing 11 ELEVEN KNEE HUG as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "11 ELEVEN KNEE HUG",
+        "instruction": "Hug one knee gently and balance tall.",
+        "learningBadge": "11 = ELEVEN"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: bright line avenue with a large clean 11 sign, paired vertical light columns, colorful banners and a smooth open blue exercise platform. Show exactly one clear static full-body exercise pose: upright one-leg balance, both hands gently holding one raised knee close to the chest, standing leg tall, shoulders level and full body visible. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 11 ELEVEN KNEE HUG. Add the top-right instruction exactly: Hug one knee gently and balance tall. Add the center-left learning badge exactly: 11 = ELEVEN. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 26,
+      "imageFile": "Szene 26.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Prepare for 12 TWELVE VICTORY STAR and preview number 12 without revealing the exercise pose early.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "neutral full-body ready stance with locked GET READY UI and small next-number cue",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: 12 TWELVE VICTORY STAR / NEXT NUMBER 12",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: Number City celebration plaza with a large clean 12 sign, confetti-shaped decorations frozen in the environment, bright skyline and a circular finish platform. Show the character full body in a neutral upright ready stance with both feet on the ground and arms relaxed. Do NOT show the 12 TWELVE VICTORY STAR exercise pose yet. Keep the entire top-left 230x230 area clear for the later 5-second Remotion timer. UI CONTRACT — keep this identical across ALL GET READY scenes: place a dark semi-transparent navy rounded rectangle on the right half of the frame, never in the top-left timer safe zone. Inside it show large bold uppercase white text GET READY and directly below it smaller bright-cyan uppercase text NEXT: 12 TWELVE VICTORY STAR. Keep the same position, proportions, font style, padding and margins in every GET READY scene. No alternate badges, plaques or ribbons. The visible transition text must be exactly: GET READY and NEXT: 12 TWELVE VICTORY STAR. Add one small clean learning cue under the panel exactly: NEXT NUMBER 12. No generated timer, no progress bar, no extra people, no logos."
+    },
+    {
+      "sceneNumber": 27,
+      "imageFile": "Szene 27.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Teach numeral 12 and word TWELVE while showing 12 TWELVE VICTORY STAR as one clear static pose.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "single clear static full-body pose with locked exercise UI plus consistent number-learning badge",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "12 TWELVE VICTORY STAR",
+        "instruction": "Stand wide, raise both arms, and finish proud.",
+        "learningBadge": "12 = TWELVE"
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "number-learning badge exactly matches numeral and English number word"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character identity, face, hairstyle and cobalt-blue, coral-orange and lime-green outfit. Premium stylized 3D, 16:9. Use this environment: Number City celebration plaza with a large clean 12 sign, confetti-shaped decorations frozen in the environment, bright skyline and a circular finish platform. Show exactly one clear static full-body exercise pose: feet planted wide, both arms raised high in a broad V, torso proud and upright, friendly celebratory expression and a strong finish silhouette. Keep the entire top-left 230x230 area visually clear for the later Remotion countdown timer. UI CONTRACT — keep this identical across ALL exercise scenes: place the exercise title at bottom-left in bold uppercase white clean sans-serif inside the same dark semi-transparent navy rounded rectangle, with consistent size, padding and margins. Place the instruction at top-right inside the same light cream rounded rectangle with dark navy text, consistent size, padding and margins. Also place one clean learning badge at center-left BELOW the timer safe zone, using a bright cream card with a navy border and very large dark navy text showing the exact numeral and English number word. Do NOT use gold plaques, gray badges, ribbons or alternate title-box styles. Add the bottom-left title exactly: 12 TWELVE VICTORY STAR. Add the top-right instruction exactly: Stand wide, raise both arms, and finish proud. Add the center-left learning badge exactly: 12 = TWELVE. The numeral and word must be spelled correctly and must match each other. No generated timer, no progress bar, no extra people, no logos, natural anatomy, all important limbs fully visible."
+    },
+    {
+      "sceneNumber": 28,
+      "imageFile": "Szene 28.png",
+      "sceneRole": "outro",
+      "visualPurpose": "Celebrate completing numbers 1 through 12 and clearly end the video.",
+      "topicAnchor": "learn numbers 1 to 12 with movement for kids",
+      "visualForm": "premium stylized 3D educational celebration card with baked completion text",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GREAT JOB! / YOU COUNTED 1-12!",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same selected character identity and outfit",
+        "correct scene role and exact required text",
+        "correct anatomy and all important limbs visible",
+        "no extra people",
+        "16:9 composition",
+        "no generated countdown timer or progress bar",
+        "scene-specific UI follows prompt exactly"
+      ],
+      "prompt": "Use selected `Szene 01.png` as the ONLY image reference. Preserve the exact same character, outfit and Number City world. Create a premium stylized 3D 16:9 celebration card in the Number City finish plaza with bright geometric decorations and large clean numerals 1 through 12 arranged neatly in the background. Show the character full body in a proud friendly celebratory stance. Add exactly: GREAT JOB! Add exactly: YOU COUNTED 1-12! No timer, no progress bar, no extra people, no logos."
+    }
+  ]
+}

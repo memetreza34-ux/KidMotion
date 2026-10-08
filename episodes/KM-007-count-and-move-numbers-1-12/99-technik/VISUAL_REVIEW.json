@@ -1,0 +1,20 @@
+{
+  "episodeFolder": "KM-007-count-and-move-numbers-1-12",
+  "revision": "KM007-R1",
+  "sameCharacterEveryScene": false,
+  "allExercisePosesClearFromOneStill": false,
+  "poseVarietyStrong": false,
+  "allGetReadyImagesClearAndNotConfusableWithExercise": false,
+  "allExerciseTextReadableAndConsistent": false,
+  "allExerciseSafeZonesClear": false,
+  "propBallCountsCorrect": false,
+  "allNonTimerTextGeneratedAndReadable": false,
+  "noExtraPeople": false,
+  "noAnatomyErrors": false,
+  "noCroppingOfImportantLimbs": false,
+  "sceneOrderMatchesPlan": false,
+  "noMissingOrDuplicateSceneContent": false,
+  "eachSceneMatchesItsPromptRole": false,
+  "openingVisualTimingMatchesVoice": false,
+  "notes": "Set true only after inspecting the real final images and rendered MP4. For KM-007 also verify every exercise learning badge exactly matches 1=ONE through 12=TWELVE."
+}
