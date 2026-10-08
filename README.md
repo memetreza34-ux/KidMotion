@@ -44,7 +44,7 @@ Optionale Mischform. Nur verwenden, wenn Bewegung das Lernen wirklich unterstüt
 
 ```bash
 npm run kidmotion:new -- --format=workout --topic="..."
-npm run kidmotion:new -- --format=learning --topic="..."
+npm run kidmotion:new -- --format=learning --topic="..." --age-band=5-8 --learning-mode=QUESTION_EXPLAINER
 npm run kidmotion:new -- --format=learn-and-move --topic="..."
 ```
 
@@ -64,3 +64,16 @@ npm run learning:render
 ```
 
 Remotion Composition: `KidMotionLearning`.
+
+
+## Learning Engine
+
+Pure learning uses `config/learning-engine.json`.
+
+Planning order:
+`age band → one primary objective → learning mode → facts → scenes → practice/reveal → application → recap → script → visuals`.
+
+Core learning sequence:
+`HOOK → TEACH → EXAMPLE → PRACTICE → REVEAL → APPLY → RECAP`
+
+The exact sequence changes by learning mode. See `LEARNING_ENGINE.md`.

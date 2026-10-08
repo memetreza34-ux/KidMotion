@@ -30,7 +30,9 @@
     "learning:preflight": "node scripts/learning-preflight.mjs",
     "learning:assets:approve": "node scripts/approve-learning-assets.mjs",
     "learning:asset:gate": "node scripts/learning-asset-gate.mjs",
-    "learning:render": "node scripts/render-learning-guarded.mjs"
+    "learning:render": "node scripts/render-learning-guarded.mjs",
+    "learning:system:doctor": "node scripts/learning-system-doctor.mjs",
+    "learning:repo:qa": "node scripts/learning-repo-qa.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

@@ -40,12 +40,23 @@ export type Workout = {
 };
 
 
+export type LearningSceneRole =
+  | 'HOOK' | 'PROMISE' | 'SETUP' | 'QUESTION' | 'CONTEXT' | 'TEACH'
+  | 'DISCOVER' | 'EXAMPLE' | 'COMPARE' | 'REPEAT' | 'CHANT'
+  | 'PRACTICE' | 'PAUSE' | 'REVEAL' | 'APPLY' | 'RECAP' | 'CLOSING_QUESTION';
+
 export type LearningScene = {
   id: string;
+  role?: LearningSceneRole;
   image?: string;
   duration: number;
   overlayText?: string;
   overlayPosition?: 'top' | 'center' | 'bottom';
+  question?: string;
+  choices?: string[];
+  answer?: string;
+  showPracticeOverlay?: boolean;
+  showRevealOverlay?: boolean;
 };
 
 export type LearningVideoData = {

@@ -1,63 +1,86 @@
 # PHASE 2 — PURE LEARNING VISUAL AGENT
 
-This file applies only to episodes with `contentFormat: learning`.
+This applies only to `contentFormat: learning`.
 
-## Core rule
+Read first:
+- `config/learning-engine.json`
+- `99-technik/LEARNING_PLAN.json`
 
-A learning video is not a workout with educational text added.
+## First question for every scene
 
-Do not add a child, mascot, movement pose, timer or GET READY screen unless the specific lesson genuinely needs it.
+> What teaching job does this scene perform?
 
-## Visual choice
+Then:
 
-For every scene ask:
+> What visual teaches that job fastest?
 
-> What visual teaches this fact or concept fastest?
+Do not begin from “show the mascot in a nice 3D location.”
 
-Allowed answers include:
-- one object
-- several countable objects
-- a letter/word composition
-- an animal in its habitat
-- a diagram
-- a map
-- a machine cutaway
-- a before/after comparison
-- a process sequence
-- an environment
-- a fictional character scene
+## Age-band behavior
 
-A human is only one option among many.
+### 3-4
+Large simple subjects, low clutter, repetition, naming and simple choices.
 
-## Prompt Quality v2
+### 5-8
+Clear explanation, concrete examples, prediction/question moments and real-world application.
 
-Every image prompt still needs:
+### 9-12
+Cause/effect, comparisons, diagrams, maps, timelines, processes and stronger vocabulary.
+
+## Scene roles
+
+Visual decisions must match the role:
+
+- HOOK → curiosity
+- TEACH → one new idea
+- EXAMPLE → concrete instance
+- COMPARE → direct side-by-side relationship
+- PRACTICE → question visible, answer hidden
+- REVEAL → answer becomes obvious and is explained
+- APPLY → new/real-world situation
+- RECAP → compressed memory cue
+
+No filler beauty shots.
+
+## Character rule
+
+Default: no character.
+
+A child/mascot may appear only when `characterMode` is not `none` AND `characterJustification` explains the teaching benefit.
+
+## Prompt Quality
+
+Every scene prompt must include:
+- SCENE ROLE
 - VIEWER TAKEAWAY
+- TEACHING JOB
 - SHOT / COMPOSITION
 - SUBJECT / ACTION
 - WORLD / CONTEXT
 - TEXT / LABELS
 - LIGHT / MATERIALS
 - NEGATIVE / STABILITY
-- QUALITY CHECK
+- ACCURACY CHECK
 - OUTPUT
 
-The prompt should not contain CHARACTER / POSE when there is no character. Use SUBJECT / ACTION instead.
+## Practice / Reveal
 
-## Five-scene production steps
+PRACTICE must not visually expose the answer.
 
-Learning images are produced in hard blocks of up to five:
-5 complete scenes → silent QC → next block automatically.
+REVEAL must clearly show the answer and connect it to the taught idea.
 
-Do not ask the user between blocks.
+The thinking pause is stored in `VOICE_PLAN.json`, not in `voice-script.txt`.
 
-## Accuracy QC
+## Five-scene production blocks
 
-For every block check:
-- visual matches the fact
-- spelling is correct
-- numbers/quantities are correct
-- labels point to the right thing
-- no invented fact appears in the image
-- no decorative child/mascot was inserted without purpose
-- visual is understandable at a glance
+Up to five completed scenes → silent learning QC → next block automatically.
+
+QC:
+- role is correct
+- learning point is visually supported
+- fact/quantity/spelling is correct
+- no unplanned factual claim
+- no unnecessary character
+- practice answer is hidden
+- reveal answer is clear
+- no repeated filler composition

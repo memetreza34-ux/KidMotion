@@ -15,7 +15,8 @@
     "learning": {
       "status": "ACTIVE",
       "contractFile": "config/formats/learning.json",
-      "description": "Pure educational videos. No movement, child, mascot, timer or GET READY requirement."
+      "description": "Pure educational videos. No movement, child, mascot, timer or GET READY requirement.",
+      "engineFile": "config/learning-engine.json"
     },
     "learn-and-move": {
       "status": "ACTIVE",
@@ -44,5 +45,8 @@
       "children when genuinely useful"
     ],
     "defaultForLearning": "Use the visual subject that teaches the concept best. Do not insert a child or mascot merely for consistency."
-  }
+  },
+  "learningEngineFile": "config/learning-engine.json",
+  "defaultLearningAgeBand": "5-8",
+  "learningPrinciple": "Pure learning videos choose age band, one primary objective and a teaching mode before script/images."
 }

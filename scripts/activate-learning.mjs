@@ -46,7 +46,10 @@ const musicExists=fs.existsSync(path.join(paths.audioDir,musicFile));
 
 const rows=scenes.map((s)=>{
   const overlay=String(s.remotionOverlayText||'').trim();
-  return '    {id:'+q(String(s.scene))+', image:'+imageExpr(s.image)+', duration:'+Number(s.duration||8)+', overlayText:'+(overlay?q(overlay):'undefined')+', overlayPosition:'+q(s.overlayPosition||'bottom')+'},';
+  const question=String(s.question||'').trim();
+  const answer=String(s.answer||'').trim();
+  const role=String(s.role||'TEACH').toUpperCase();
+  return '    {id:'+q(String(s.scene))+', role:'+q(role)+', image:'+imageExpr(s.image)+', duration:'+Number(s.duration||8)+', overlayText:'+(overlay?q(overlay):'undefined')+', overlayPosition:'+q(s.overlayPosition||'bottom')+', question:'+(question?q(question):'undefined')+', answer:'+(answer?q(answer):'undefined')+', showPracticeOverlay:'+(s.showPracticeOverlay===true?'true':'false')+', showRevealOverlay:'+(s.showRevealOverlay===true?'true':'false')+'},';
 }).join('\n');
 
 const source=[

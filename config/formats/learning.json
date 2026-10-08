@@ -1,10 +1,10 @@
 {
-  "contractVersion": 1,
+  "contractVersion": 2,
   "format": "learning",
   "name": "KidMotion Pure Learning Format",
   "status": "ACTIVE",
   "language": "en",
-  "goal": "Teach one clear age-appropriate topic through narration and purpose-built visuals.",
+  "goal": "Teach one clear age-appropriate objective through the teaching mechanism that fits the topic best.",
   "structure": {
     "coverOutsideVideo": true,
     "coverCandidateCount": 3,
@@ -86,7 +86,11 @@
     "factsPlanRequired": true,
     "unsupportedFactualClaimsForbidden": true,
     "spellingAndNumberAccuracyRequired": true,
-    "recapRequiredForConceptVideos": true
+    "recapRequiredForConceptVideos": true,
+    "misconceptionsPlanRequired": true,
+    "practiceMomentsRequired": true,
+    "successCriteriaRequired": true,
+    "everySceneMustServePrimaryObjective": true
   },
   "production": {
     "promptQualityVersion": 2,
@@ -95,5 +99,18 @@
     "askUserBetweenBatches": false,
     "imageGenerationAttemptsPerScene": 1,
     "automaticAlternatesForbidden": true
+  },
+  "engineFile": "config/learning-engine.json",
+  "pedagogy": {
+    "ageBandRequired": true,
+    "learningModeRequired": true,
+    "exactlyOnePrimaryLearningObjective": true,
+    "successCriteriaRequired": true,
+    "sceneRolesFromLearningEngine": true,
+    "activeRecallRequired": true,
+    "practiceRevealRequired": true,
+    "applicationRequiredWhenModeSupportsIt": true,
+    "recapRequired": true,
+    "redundantLearningChannelsRequired": true
   }
 }

@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 1,
+  "engineName": "KidMotion Learning Engine",
+  "status": "ACTIVE",
+  "principle": "Choose age band, one primary learning objective and the teaching mechanism before writing narration or image prompts.",
+  "ageBands": {
+    "3-4": {
+      "id": "PRESCHOOL",
+      "label": "Preschool 3-4",
+      "defaultRuntimeMinutes": "2-4",
+      "maxNewIdeasPerVideo": 3,
+      "narrationStyle": "very short concrete sentences; repeat key words; one idea at a time",
+      "interactionStyle": "name, point, repeat, choose between simple options",
+      "visualStyle": "large simple subjects, very low clutter, strong shape and color contrast",
+      "recapMinimum": 1,
+      "practiceMinimum": 1
+    },
+    "5-8": {
+      "id": "YOUNG",
+      "label": "Young learners 5-8",
+      "defaultRuntimeMinutes": "3-7",
+      "maxNewIdeasPerVideo": 5,
+      "narrationStyle": "short clear explanations with examples and causal language",
+      "interactionStyle": "predict, choose, answer, then reveal",
+      "visualStyle": "clear explanatory scenes, simple diagrams, comparisons and real-world examples",
+      "recapMinimum": 2,
+      "practiceMinimum": 1
+    },
+    "9-12": {
+      "id": "OLDER",
+      "label": "Older kids 9-12",
+      "defaultRuntimeMinutes": "4-9",
+      "maxNewIdeasPerVideo": 7,
+      "narrationStyle": "clear explanatory language with cause-effect, comparisons and precise vocabulary",
+      "interactionStyle": "predict, explain, compare, infer and apply",
+      "visualStyle": "diagrams, maps, timelines, process visuals, comparisons and mini-documentary scenes",
+      "recapMinimum": 3,
+      "practiceMinimum": 1
+    }
+  },
+  "defaultAgeBand": "5-8",
+  "allowedSceneRoles": [
+    "HOOK",
+    "PROMISE",
+    "SETUP",
+    "QUESTION",
+    "CONTEXT",
+    "TEACH",
+    "DISCOVER",
+    "EXAMPLE",
+    "COMPARE",
+    "REPEAT",
+    "CHANT",
+    "PRACTICE",
+    "PAUSE",
+    "REVEAL",
+    "APPLY",
+    "RECAP",
+    "CLOSING_QUESTION"
+  ],
+  "learningModes": {
+    "CONCEPT_STORY": {
+      "label": "Concept Story",
+      "useWhen": "An abstract idea becomes easier when it visibly causes events in a small story.",
+      "defaultRoles": [
+        "HOOK",
+        "SETUP",
+        "TEACH",
+        "EXAMPLE",
+        "DISCOVER",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP"
+      ],
+      "requiredRoles": [
+        "HOOK",
+        "TEACH",
+        "EXAMPLE",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP"
+      ],
+      "recommendedVisuals": [
+        "illustrated story scene",
+        "object transformation",
+        "process visualization",
+        "comparison"
+      ],
+      "characterDefault": "optional"
+    },
+    "QUESTION_EXPLAINER": {
+      "label": "Question Explainer",
+      "useWhen": "The topic starts with a why/how question and needs a clear explanation.",
+      "defaultRoles": [
+        "HOOK",
+        "PROMISE",
+        "TEACH",
+        "EXAMPLE",
+        "TEACH",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP",
+        "CLOSING_QUESTION"
+      ],
+      "requiredRoles": [
+        "HOOK",
+        "TEACH",
+        "EXAMPLE",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP"
+      ],
+      "recommendedVisuals": [
+        "diagram",
+        "cutaway",
+        "real-world example",
+        "process visualization",
+        "comparison"
+      ],
+      "characterDefault": "none"
+    },
+    "SONG_MEMORY": {
+      "label": "Song / Memory",
+      "useWhen": "The main goal is memorizing a stable sequence, names, sounds or vocabulary.",
+      "defaultRoles": [
+        "HOOK",
+        "TEACH",
+        "REPEAT",
+        "EXAMPLE",
+        "CHANT",
+        "PRACTICE",
+        "REVEAL",
+        "REPEAT",
+        "RECAP"
+      ],
+      "requiredRoles": [
+        "HOOK",
+        "TEACH",
+        "REPEAT",
+        "PRACTICE",
+        "REVEAL",
+        "RECAP"
+      ],
+      "recommendedVisuals": [
+        "letter or number composition",
+        "object examples",
+        "rhythmic repeated layout"
+      ],
+      "characterDefault": "optional",
+      "note": "Actual sung vocals are optional. A rhythmic spoken chant is allowed."
+    },
+    "PRACTICE_REVEAL": {
+      "label": "Practice + Reveal",
+      "useWhen": "The child should actively answer several short questions.",
+      "defaultRoles": [
+        "HOOK",
+        "TEACH",
+        "EXAMPLE",
+        "PRACTICE",
+        "REVEAL",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP"
+      ],
+      "requiredRoles": [
+        "HOOK",
+        "TEACH",
+        "PRACTICE",
+        "REVEAL",
+        "RECAP"
+      ],
+      "recommendedVisuals": [
+        "question card",
+        "multiple-choice visual",
+        "counting scene",
+        "matching scene",
+        "answer highlight"
+      ],
+      "characterDefault": "none"
+    },
+    "VISUAL_COMPARE": {
+      "label": "Visual Compare",
+      "useWhen": "Learning depends on seeing similarities, differences, categories or opposites.",
+      "defaultRoles": [
+        "HOOK",
+        "TEACH",
+        "TEACH",
+        "COMPARE",
+        "EXAMPLE",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP"
+      ],
+      "requiredRoles": [
+        "HOOK",
+        "TEACH",
+        "COMPARE",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP"
+      ],
+      "recommendedVisuals": [
+        "side-by-side comparison",
+        "before/after",
+        "category grid",
+        "scale comparison"
+      ],
+      "characterDefault": "none"
+    },
+    "MINI_DOCUMENTARY": {
+      "label": "Mini Documentary",
+      "useWhen": "The topic is science, nature, geography, history, machines or a real-world system.",
+      "defaultRoles": [
+        "HOOK",
+        "QUESTION",
+        "CONTEXT",
+        "TEACH",
+        "EXAMPLE",
+        "TEACH",
+        "PRACTICE",
+        "REVEAL",
+        "APPLY",
+        "RECAP",
+        "CLOSING_QUESTION"
+      ],
+      "requiredRoles": [
+        "HOOK",
+        "CONTEXT",
+        "TEACH",
+        "EXAMPLE",
+        "APPLY",
+        "RECAP"
+      ],
+      "recommendedVisuals": [
+        "map",
+        "timeline",
+        "cutaway",
+        "diagram",
+        "nature scene",
+        "machine scene",
+        "process visualization"
+      ],
+      "characterDefault": "none"
+    }
+  },
+  "sceneFunctionRules": {
+    "HOOK": "Create curiosity before explanation.",
+    "PROMISE": "Tell the child what they will understand or be able to do.",
+    "SETUP": "Introduce the objects/world needed for the concept.",
+    "QUESTION": "State the central why/how question.",
+    "CONTEXT": "Give only the background needed to understand the explanation.",
+    "TEACH": "Introduce one new idea clearly.",
+    "DISCOVER": "Let the concept visibly change or reveal something.",
+    "EXAMPLE": "Show the taught idea in one concrete case.",
+    "COMPARE": "Show similarities or differences directly.",
+    "REPEAT": "Repeat the core item with variation for memory.",
+    "CHANT": "Use rhythm/repetition to support recall.",
+    "PRACTICE": "Ask the child to predict, choose, count, match or answer.",
+    "PAUSE": "Give thinking time without adding a new fact.",
+    "REVEAL": "Show the correct answer and why it is correct.",
+    "APPLY": "Use the idea in a new or real-world situation.",
+    "RECAP": "Compress the core learning into memorable points.",
+    "CLOSING_QUESTION": "End with a simple thought or observation prompt."
+  },
+  "learningChannels": {
+    "minimumForCoreTeachingScenes": 2,
+    "allowed": [
+      "voice",
+      "visual",
+      "text",
+      "motion",
+      "sound-cue"
+    ],
+    "rule": "Important ideas should normally be communicated through at least voice + visual. Add text only when it improves recognition or recall."
+  },
+  "interactionPolicy": {
+    "activeRecallRequired": true,
+    "practiceRevealPairRequired": true,
+    "defaultThinkingPauseSeconds": 3,
+    "minimumThinkingPauseSeconds": 2,
+    "maximumThinkingPauseSeconds": 6,
+    "answerMustNotBeVisibleDuringPractice": true
+  },
+  "objectivePolicy": {
+    "exactlyOnePrimaryObjective": true,
+    "successCriteriaRequired": true,
+    "secondaryObjectivesMax": 2,
+    "rule": "Every scene must contribute to the primary objective or prepare/reinforce it."
+  },
+  "factPolicy": {
+    "factPlanRequired": true,
+    "sourceNoteRequiredForEveryFactualClaim": true,
+    "misconceptionsFieldRequired": true,
+    "unsupportedFactsForbidden": true,
+    "imageMustNotIntroduceUnplannedFacts": true
+  },
+  "characterPolicy": {
+    "default": "none",
+    "allowed": [
+      "none",
+      "occasional",
+      "recurring"
+    ],
+    "justificationRequiredWhenNotNone": true,
+    "rule": "A character is a teaching tool, not a branding requirement."
+  },
+  "qualityGuards": {
+    "fillerBeautyShotsForbidden": true,
+    "decorativeCharacterInsertionForbidden": true,
+    "deceptiveEducationalFramingForbidden": true,
+    "massProducedFactDumpForbidden": true,
+    "everySceneNeedsTeachingJob": true,
+    "twoSecondVisualComprehensionTest": true,
+    "recapRequired": true,
+    "applicationPreferred": true
+  }
+}

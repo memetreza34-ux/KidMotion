@@ -31,3 +31,9 @@ jobs:
 
       - name: Repository contract QA
         run: npm run repo:qa
+
+      - name: Learning system doctor
+        run: npm run learning:system:doctor
+
+      - name: Learning repository QA
+        run: npm run learning:repo:qa

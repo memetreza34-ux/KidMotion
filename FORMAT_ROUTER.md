@@ -57,3 +57,16 @@ This is optional. It must never be used as the default for a learning topic.
 `npm run kidmotion:new -- --format=learn-and-move --topic="..."`
 
 If no format is supplied, generation must stop instead of silently assuming workout.
+
+
+## Learning Engine selection
+
+Pure learning also requires:
+- age band: `3-4 | 5-8 | 9-12`
+- learning mode: `CONCEPT_STORY | QUESTION_EXPLAINER | SONG_MEMORY | PRACTICE_REVEAL | VISUAL_COMPARE | MINI_DOCUMENTARY`
+
+Example:
+
+`npm run kidmotion:new -- --format=learning --topic="Why do volcanoes erupt?" --age-band=5-8 --learning-mode=QUESTION_EXPLAINER`
+
+The assistant should choose the mode from the teaching goal, not from visual style.
