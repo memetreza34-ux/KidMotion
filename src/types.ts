@@ -38,3 +38,23 @@ export type Workout = {
   bgMusic?: string;
   exercises: Exercise[];
 };
+
+
+export type LearningScene = {
+  id: string;
+  image?: string;
+  duration: number;
+  overlayText?: string;
+  overlayPosition?: 'top' | 'center' | 'bottom';
+};
+
+export type LearningVideoData = {
+  id: string;
+  title: string;
+  fps?: number;
+  width?: number;
+  height?: number;
+  voice?: string;
+  bgMusic?: string;
+  scenes: LearningScene[];
+};

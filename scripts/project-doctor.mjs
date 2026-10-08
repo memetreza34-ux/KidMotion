@@ -38,6 +38,11 @@ const expectedScripts={
   'kidmotion:new:workout':'node scripts/new-workout-episode.mjs',
   'kidmotion:new:learning':'node scripts/new-learning-episode.mjs',
   'learning:prompt:qa':'node scripts/learning-prompt-qa.mjs',
+  'learning:activate':'node scripts/activate-learning.mjs',
+  'learning:preflight':'node scripts/learning-preflight.mjs',
+  'learning:assets:approve':'node scripts/approve-learning-assets.mjs',
+  'learning:asset:gate':'node scripts/learning-asset-gate.mjs',
+  'learning:render':'node scripts/render-learning-guarded.mjs',
   'kidmotion:select-cover':'node scripts/select-cover.mjs',
   'kidmotion:activate':'node scripts/activate-episode.mjs'
 };
@@ -109,6 +114,14 @@ if(!guarded.includes("'KidMotionVideo'")) fail('Guarded render must target KidMo
 const visual=JSON.parse(read('config/visual-policy.json')||'{}');
 if(visual.status!=='READY') fail('Visual policy must be READY.');
 if(visual.referenceWorkflow?.soleReferenceForAllLaterScenes!=='Szene 01.png') fail('Visual policy must keep Szene 01 as sole Phase 2 reference.');
+
+const learningRoot=read('src/Root.tsx');
+if(!learningRoot.includes('KidMotionLearning')) fail('Root.tsx must register KidMotionLearning composition.');
+const learningVideoSource=read('src/LearningVideo.tsx');
+if(!learningVideoSource.includes('LearningVideoData')) fail('LearningVideo.tsx must use LearningVideoData.');
+if(learningVideoSource.includes('CircularTimer')) fail('Pure learning renderer must not use workout countdown timer.');
+const learningActivateSource=read('scripts/activate-learning.mjs');
+if(!learningActivateSource.includes('active-learning.ts')) fail('Learning activation must generate active-learning.ts.');
 
 const sourceChecks=[
   ['src/components/ExerciseScene.tsx','CircularTimer'],

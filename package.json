@@ -25,7 +25,12 @@
     "flow:batch": "node scripts/flow-batch.mjs",
     "kidmotion:new:workout": "node scripts/new-workout-episode.mjs",
     "kidmotion:new:learning": "node scripts/new-learning-episode.mjs",
-    "learning:prompt:qa": "node scripts/learning-prompt-qa.mjs"
+    "learning:prompt:qa": "node scripts/learning-prompt-qa.mjs",
+    "learning:activate": "node scripts/activate-learning.mjs",
+    "learning:preflight": "node scripts/learning-preflight.mjs",
+    "learning:assets:approve": "node scripts/approve-learning-assets.mjs",
+    "learning:asset:gate": "node scripts/learning-asset-gate.mjs",
+    "learning:render": "node scripts/render-learning-guarded.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
