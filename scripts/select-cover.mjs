@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, currentContractErrors} from './contract.mjs';
 
@@ -75,6 +76,8 @@ for (const name of candidates) {
   if (name !== winner) fs.rmSync(path.join(paths.imagesDir, name), {force:true});
 }
 
+const selectedCoverSha256 = crypto.createHash('sha256').update(fs.readFileSync(finalPath)).digest('hex');
+
 const selection = {
   schemaVersion: 1,
   episodeFolder,
@@ -84,6 +87,7 @@ const selection = {
   finalFile: 'Szene 01.png',
   selectedAt: new Date().toISOString(),
   rejectedCandidatesDeleted: true,
+  selectedCoverSha256,
   userSelectionRequired: true,
   soleReferenceForLaterScenes: 'Szene 01.png',
   secondaryImageReferencesForbidden: true

@@ -89,6 +89,13 @@ fs.writeFileSync(path.join(paths.techDir,'PHASE2_MISSING_SCENES.json'),JSON.stri
   description:repairAllowed?'Generate only listed genuinely missing scenes in Google Flow, do not regenerate present scenes. Run phase2:finalize again after saving every missing output.':'Do not generate until cover/filename conflicts are resolved.'
 },null,2)+'\n');
 const handoff=path.join(paths.techDir,'PHASE2_HANDOFF.json');
+if(fs.existsSync(paths.statusPath)){
+  const episodeStatus=JSON.parse(fs.readFileSync(paths.statusPath,'utf8'));
+  episodeStatus.imagesReady=status==='COMPLETE';
+  episodeStatus.coverSelected=selection.status==='SELECTED'&&!audit.missing.includes(sceneName(1));
+  episodeStatus.coverSelectionPending=!episodeStatus.coverSelected;
+  fs.writeFileSync(paths.statusPath,JSON.stringify(episodeStatus,null,2)+'\n');
+}
 if(status!=='COMPLETE')fs.rmSync(handoff,{force:true});
 else{
   const doc={
@@ -101,13 +108,6 @@ else{
     note:'Only actual Phase-2 source images. Scene meaning, anatomy and on-image text still require a real visual review.'
   };
   fs.writeFileSync(handoff,JSON.stringify(doc,null,2)+'\n');
-  if(fs.existsSync(paths.statusPath)){
-    const episodeStatus=JSON.parse(fs.readFileSync(paths.statusPath,'utf8'));
-    episodeStatus.imagesReady=true;
-    episodeStatus.coverSelected=true;
-    episodeStatus.coverSelectionPending=false;
-    fs.writeFileSync(paths.statusPath,JSON.stringify(episodeStatus,null,2)+'\n');
-  }
 }
 console.log('PHASE 2 FINAL AUDIT — '+episodeFolder);
 console.log('Cover: '+(selection.status==='SELECTED'?'chosen':'NOT CHOSEN'));
