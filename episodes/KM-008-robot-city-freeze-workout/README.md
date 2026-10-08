@@ -6,8 +6,11 @@ Run npm run prompt:qa -- --episode=KM-008-robot-city-freeze-workout before gener
 Exercises: 1. ANTENNA REACH — Stretch both arms up and stand tall.; 2. T-BAR HOLD — Open your arms wide and hold still.; 3. GEAR SQUAT HOLD — Bend your knees a little and freeze.; 4. SIDE SIGNAL REACH — Lean gently sideways and reach long.; 5. RUNNER FREEZE — Step one foot back and hold your pose.; 6. COMPASS TURN — Turn your shoulders and point ahead.; 7. TABLE BRIDGE — Hands and feet down, lift your hips.; 8. POWER PLANK — Hold a straight line on the floor.; 9. SKY BALANCE — Lift one foot and spread your arms.; 10. SHIELD PRESS — Push both palms forward and stay firm.; 11. STAR FREEZE — Stretch wide like a giant star.; 12. POWER-UP VICTORY — Raise your hands and finish strong..
 The voice script is continuous spoken text; only VOICE_PLAN.json has section timing.
 
-## Verbindliche Phase-2-Abgabe für Workout
 
-1. Nach Coverwahl: `npm run kidmotion:select-cover -- --episode=KM-XXX-slug --candidate=1`. Die zwei übrigen Cover werden direkt gelöscht.
-2. Nach Produktion: `npm run phase2:finalize -- --episode=KM-XXX-slug`. Fehlende Bilder stehen in `99-technik/PHASE2_MISSING_SCENES.json`; Google Flow muss sie in Phase 2 fertigstellen, dann dieselbe Prüfung wiederholen.
-3. Erst bei 28/28 gilt `00-bildprompts/images/` als ein vollständiger Übergabeordner. Danach visuelle QC und `scene:qa`; Phase 3 generiert niemals fehlende Bilder.
+## KM-008: Coverauswahl und Endkontrolle sind Pflicht
+
+**Maßgebliche genaue Anweisung:** [PHASE2_FLOW_RUNBOOK.md](PHASE2_FLOW_RUNBOOK.md)
+
+- Nach deiner Auswahl wird unverzüglich `npm run kidmotion:select-cover -- --episode=KM-008-robot-city-freeze-workout --candidate=<1|2|3>` ausgeführt und die zwei abgelehnten Cover gelöscht. Die ausgewählte `Szene 01.png` ist die einzige Bildreferenz.
+- Nach dem letzten 5er-Block `npm run phase2:finalize -- --episode=KM-008-robot-city-freeze-workout` ausführen. Fehlende Bilder anhand `99-technik/PHASE2_MISSING_SCENES.json` **noch in Google Flow (Phase 2)** generieren und Endkontrolle wiederholen.
+- Erst wenn `PHASE2_HANDOFF.json` existiert und **alle 28 realen Bilder** richtig benannt im gemeinsamen Ordner `00-bildprompts/images/` liegen: `npm run scene:qa -- --episode=KM-008-robot-city-freeze-workout` und echte visuelle Freigabe. Phase 3 darf keine Bilder generieren.

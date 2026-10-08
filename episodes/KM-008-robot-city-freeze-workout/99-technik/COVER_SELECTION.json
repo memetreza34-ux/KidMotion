@@ -8,5 +8,13 @@
   "finalFile": null,
   "userSelectionRequired": true,
   "soleReferenceForLaterScenes": "Szene 01.png",
-  "secondaryImageReferencesForbidden": true
+  "secondaryImageReferencesForbidden": true,
+  "afterUserChoice": {
+    "action": "Immediately run the selection command with the actual candidate number.",
+    "commandTemplate": "npm run kidmotion:select-cover -- --episode=KM-008-robot-city-freeze-workout --candidate=<1|2|3>",
+    "selectedFile": "Szene 01.png",
+    "deleteOtherTwo": true,
+    "protectSelectedImageHash": true,
+    "neverAskUserToSelectAgainAfterSuccessfulChoice": true
+  }
 }

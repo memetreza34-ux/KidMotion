@@ -157,6 +157,26 @@ if (fs.existsSync(episodeRoot)) {
     const planPath = path.join(base, '99-technik', 'IMAGE_PLAN.json');
     const plan = readJson(planPath);
     const images = Array.isArray(plan.images) ? plan.images : [];
+    // Episodes that explicitly opt into the post-generation handoff protocol
+    // must keep the exact cover command, repair queue and finalization instructions
+    // synchronized between their metadata, IMAGE_PLAN, and Flow agent prompt.
+    if(data.imageBatchPolicy?.finalAuditRequired===true){
+      const expectedSelect='npm run kidmotion:select-cover -- --episode='+entry.name+' --candidate=<1|2|3>';
+      const expectedFinalize='npm run phase2:finalize -- --episode='+entry.name;
+      const imageRules=plan.generationRules||{};
+      if(data.coverPolicy?.selectionCommandTemplate!==expectedSelect || imageRules.coverSelectionCommandTemplate!==expectedSelect) fail(entry.name+': selected cover cleanup command not anchored to this episode.');
+      if(data.coverPolicy?.deleteRejectedCandidatesImmediately!==true || imageRules.deleteRejectedCoversImmediately!==true) fail(entry.name+': nonselected cover cleanup must happen immediately.');
+      if(data.imageBatchPolicy?.finalAuditCommand!==expectedFinalize || imageRules.finalAuditCommand!==expectedFinalize) fail(entry.name+': end-of-Phase-2 scene audit not anchored to this episode.');
+      if(data.imageBatchPolicy?.exactFinalSceneCount!==28 || imageRules.finalSceneCountRequired!==28) fail(entry.name+': final handoff must require 28 scenes.');
+      if(data.imageBatchPolicy?.repairMissingInPhase2GoogleFlow!==true || imageRules.phase2MayGenerateGenuinelyMissingScenesOnce!==true) fail(entry.name+': missing-scene production in Phase 2 is not enabled.');
+      if(data.imageBatchPolicy?.regenerateExistingScenesForbidden!==true || imageRules.mayRegenerateAlreadyPresentScenes!==false) fail(entry.name+': existing images must never be regenerated.');
+      if(imageRules.repairMustUseOnlySelectedCoverReference!==true || imageRules.repairMustUseOriginalPerScenePrompt!==true) fail(entry.name+': repairs must reuse the original plan and selected cover.');
+      if(data.imageBatchPolicy?.requiredHandoffFile!=='99-technik/PHASE2_HANDOFF.json' || imageRules.requiredHandoffFile!=='99-technik/PHASE2_HANDOFF.json') fail(entry.name+': handoff manifest is missing from contract.');
+      const runbook=read(path.join(base,'PHASE2_FLOW_RUNBOOK.md'));
+      if(!runbook.includes(expectedFinalize) || !runbook.includes('PHASE2_MISSING_SCENES.json') || !runbook.includes('--candidate=2')) fail(entry.name+': dedicated Phase 2 flow runbook missing handoff/repair/cover steps.');
+      const flowPlan=read(path.join(base,'00-bildprompts','google-flow-prompt.txt'));
+      if(!flowPlan.includes(expectedFinalize) || !flowPlan.includes('PHASE2_MISSING_SCENES.json') || !flowPlan.includes('PHASE2_FLOW_RUNBOOK.md')) fail(entry.name+': actual Flow prompt file must instruct the agent to audit and repair.');
+    }
     if (images.length !== contract.sceneContract.sceneCount) fail(`${entry.name}: IMAGE_PLAN must contain ${contract.sceneContract.sceneCount} items.`);
     if (plan.generationRules?.soleReference !== contract.generationContract.soleImageReference) fail(`${entry.name}: IMAGE_PLAN soleReference mismatch.`);
     if (plan.generationRules?.secondaryImageReferencesForbidden !== true) fail(`${entry.name}: IMAGE_PLAN must forbid secondary references.`);

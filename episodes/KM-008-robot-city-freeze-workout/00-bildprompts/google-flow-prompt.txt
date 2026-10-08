@@ -1,6 +1,12 @@
 KIDMOTION — KM-008 ROBOT CITY WORKOUT | SHORT FLOW PROMPTS
-Three cover candidates → user chooses one → selected Szene 01.png ONLY as later reference.
-After selection use flow:batch: 02-06,07-11,12-16,17-21,22-26,27-28. Strict serial order and silent batch QC; no intermediate user questions.
+PHASE 2 RUNBOOK (binding for this episode): PHASE2_FLOW_RUNBOOK.md
+1. Generate exactly Cover-Kandidat-01.png, Cover-Kandidat-02.png, Cover-Kandidat-03.png. STOP for user's single choice (1, 2, or 3).
+2. Upon choice IMMEDIATELY run: npm run kidmotion:select-cover -- --episode=KM-008-robot-city-freeze-workout --candidate=<1|2|3>. Replace <1|2|3> with chosen number; winner => Szene 01.png; delete both rejected cover files. Never just record the choice in chat.
+3. Only after selection: use Szene 01.png as the ONE visual reference. Run npm run flow:batch -- --episode=KM-008-robot-city-freeze-workout for serial blocks 02–06 / 07–11 / 12–16 / 17–21 / 22–26 / 27–28. QC each complete block silently, proceed without user confirmation.
+4. After Szene 28 ALWAYS run: npm run phase2:finalize -- --episode=KM-008-robot-city-freeze-workout. Check all Szene 01.png through Szene 28.png, canonical names, exact duplicates, unknown images and wrong files.
+5. When status NEEDS_FLOW_GENERATION: read 99-technik/PHASE2_MISSING_SCENES.json; generate ONLY the missing scenes with the queue's exact original per-scene Google Flow prompt and selected Szene 01.png reference. Keep existing pictures untouched. Save each to its exact name; rerun phase2:finalize until COMPLETE. Do not generate when status BLOCKED—resolve name/identity conflicts first.
+6. Only hand off after COMPLETE + 99-technik/PHASE2_HANDOFF.json + all 28 real PNGs together in 00-bildprompts/images/. Run npm run scene:qa -- --episode=KM-008-robot-city-freeze-workout, visually review real images, approve. Antigravity in Phase 3 NEVER creates any images.
+IMAGE PROMPTS BELOW — pass each FINAL GOOGLE FLOW PROMPT block separately, not this orchestration header.
 
 COVER CANDIDATE 01 — Cover-Kandidat-01.png
 FINAL GOOGLE FLOW PROMPT:

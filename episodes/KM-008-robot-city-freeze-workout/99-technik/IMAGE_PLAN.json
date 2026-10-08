@@ -75,7 +75,21 @@
     "controllerCommand": "npm run flow:batch -- --episode=KM-008-robot-city-freeze-workout",
     "hardBatchBoundaries": true,
     "batchMustBeCompleteBeforeNext": true,
-    "silentVisualQcAfterEachBatch": true
+    "silentVisualQcAfterEachBatch": true,
+    "coverSelectionCommandTemplate": "npm run kidmotion:select-cover -- --episode=KM-008-robot-city-freeze-workout --candidate=<1|2|3>",
+    "deleteRejectedCoversImmediately": true,
+    "refuseCoverOverwrite": true,
+    "finalAuditRequired": true,
+    "finalAuditCommand": "npm run phase2:finalize -- --episode=KM-008-robot-city-freeze-workout",
+    "requiredHandoffFile": "99-technik/PHASE2_HANDOFF.json",
+    "missingImageRecoveryQueue": "99-technik/PHASE2_MISSING_SCENES.json",
+    "phase2MayGenerateGenuinelyMissingScenesOnce": true,
+    "mayRegenerateAlreadyPresentScenes": false,
+    "repairMustUseOriginalPerScenePrompt": true,
+    "repairMustUseOnlySelectedCoverReference": true,
+    "finalSceneCountRequired": 28,
+    "finalImageDirectoryFlat": true,
+    "noHandoffBeforeAll28Correct": true
   },
   "images": [
     {
