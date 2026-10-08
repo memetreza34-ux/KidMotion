@@ -52,7 +52,10 @@ const queue=missing.filter(name=>name!==sceneName(1)).map(name=>{
     action:'Generate missing scene in Google Flow in Phase 2, exactly once. Save this real output to the exact target filename. No placeholder, clone, image shift or substitution.'
   };
 });
+const coverUnchanged=(!selection.selectedCoverSha256 || !fs.existsSync(path.join(paths.imagesDir,sceneName(1))) ||
+  audit.present.find(x=>x.name===sceneName(1))?.sha256===selection.selectedCoverSha256);
 const errors=[
+  ...(coverUnchanged?[]:['SELECTED COVER CONTENT CHANGED: cannot replace or mutate the selected source image.']),
   ...audit.conflicts.map(c=>'CONFLICT: '+c.scene+': '+(c.sources||[]).join(', ')+' '+(c.reason||'')),
   ...audit.unexpected.map(x=>'UNRECOGNIZED IMAGE: '+x+' (resolve the real scene identity before generating replacements)'),
   ...audit.invalidPng.map(x=>'INVALID PNG CONTENT: '+x),
