@@ -77,3 +77,9 @@ Core learning sequence:
 `HOOK → TEACH → EXAMPLE → PRACTICE → REVEAL → APPLY → RECAP`
 
 The exact sequence changes by learning mode. See `LEARNING_ENGINE.md`.
+
+## Verbindliche Phase-2-Abgabe für Workout
+
+1. Nach Coverwahl: `npm run kidmotion:select-cover -- --episode=KM-XXX-slug --candidate=1`. Die zwei übrigen Cover werden direkt gelöscht.
+2. Nach Produktion: `npm run phase2:finalize -- --episode=KM-XXX-slug`. Fehlende Bilder stehen in `99-technik/PHASE2_MISSING_SCENES.json`; Google Flow muss sie in Phase 2 fertigstellen, dann dieselbe Prüfung wiederholen.
+3. Erst bei 28/28 gilt `00-bildprompts/images/` als ein vollständiger Übergabeordner. Danach visuelle QC und `scene:qa`; Phase 3 generiert niemals fehlende Bilder.

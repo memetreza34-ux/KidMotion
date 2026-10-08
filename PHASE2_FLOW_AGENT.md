@@ -27,7 +27,11 @@ Cover 02 → prüfen → speichern
 Cover 03 → prüfen → speichern  
 **STOP.**
 
-Nutzer wählt 1/2/3. Erst danach wird der Gewinner `Szene 01.png`.
+Nutzer wählt 1/2/3. **Sofort nach der Entscheidung** den Befehl ausführen:
+
+`npm run kidmotion:select-cover -- --episode=KM-XXX-slug --candidate=1` (1 durch 2/3 ersetzen).
+
+Erst danach wird der Gewinner `Szene 01.png`. Die beiden abgelehnten Cover werden **direkt gelöscht**, nicht erst am Ende. Niemals die Wahl nur in den Chat schreiben, ohne den Befehl auszuführen. Ein wiederholter Aufruf darf das gewählte Cover nicht überschreiben.
 
 Die drei Cover müssen dieselbe Klickidee vertreten, aber **deutlich verschiedene Kompositionen** haben.
 
@@ -134,10 +138,27 @@ Gut:
 - explizite Negativregeln
 - konkrete Abnahmekriterien
 
-## 8. Abschluss
+## 8. Verbindlicher Abschluss — Phase 2 Final Audit
 
-Nach Szene 28:
+**Nach dem letzten 5er-Block IMMER ausführen (und bei verstreuten Dateien ebenfalls):**
 
+`npm run phase2:finalize -- --episode=KM-XXX-slug`
+
+Dieser Befehl:
+1. kontrolliert die Auswahl von Cover 1/2/3 und löscht verbleibende abgelehnte Cover
+2. korrigiert eindeutige falsch geschriebene Szenendateinamen (z. B. Scene_02.png → Szene 02.png); niemals Bildinhalte verändern
+3. zählt alle `Szene 01.png` bis `Szene 28.png`, meldet unbekannte Bilder, Konflikte, defekte Dateien und exakte Duplikate
+4. schreibt `99-technik/PHASE2_MISSING_SCENES.json` für jede **wirklich fehlende** Szene mit Original-Flow-Prompt
+5. wenn etwas fehlt und keine Namenskonflikte bestehen: **ohne neue Rückfrage jede fehlende Szene genau EINMAL in Google Flow erzeugen**, mit ausgewählter `Szene 01.png` als einziger Bildreferenz, und exakt als `Szene NN.png` speichern
+6. danach `phase2:finalize` erneut ausführen; bei erneuten Lücken wiederholen, aber **niemals existierende Szenen regenerieren oder ersetzen**
+7. nur bei `COMPLETE`: alle 28 originalen PNGs stehen **gemeinsam und flach** in `00-bildprompts/images/`; `PHASE2_HANDOFF.json` enthält alle Dateinamen und Hashes
+
+**Wichtig:** `phase2:finalize` erzeugt selbst keine Bilder. Der mit Google Flow verbundene Phase-2-Agent muss die aufgelisteten fehlenden Bilder tatsächlich generieren. Nicht behaupten, dass etwas erzeugt wurde, wenn nur die Prompt-Liste vorliegt.
+
+Unbekannte/mehrdeutige Dateien dürfen nicht geraten oder mit falschen Szenennummern versehen werden. Dann BLOCK bis geklärt.
+
+Erst danach:
 `npm run scene:qa -- --episode=KM-XXX-slug`
 
-Danach reale visuelle Endprüfung und Übergabe an Phase 3.
+Anschließend alle **realen Bilder visuell prüfen** (Pose, Beschriftung, Motiv) und freigeben. Antigravity Phase 3 darf weiter **niemals** neue Bilder erzeugen.
+

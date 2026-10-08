@@ -23,6 +23,9 @@ jobs:
       - name: Script syntax
         run: npm run scripts:check
 
+      - name: Phase 2 handoff tests
+        run: npm run phase2:test
+
       - name: Typecheck
         run: npm run typecheck
 

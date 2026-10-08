@@ -27,6 +27,8 @@ const expectedScripts={
   'repo:qa':'node scripts/repo-qa.mjs',
   'prompt:qa':'node scripts/prompt-plan-qa.mjs',
   'flow:batch':'node scripts/flow-batch.mjs',
+  'phase2:finalize':'node scripts/phase2-finalize.mjs',
+  'phase2:test':'node --test scripts/phase2-finalize.test.mjs',
   'scene:qa':'node scripts/scene-integrity-qa.mjs',
   'assets:approve':'node scripts/approve-assets.mjs',
   'phase3:ingest':'node scripts/phase3-ingest.mjs',
@@ -68,6 +70,15 @@ const flowAgent=read('PHASE2_FLOW_AGENT.md');
 for(const token of ['flow:batch','5er-Schritte','VIEWER TAKEAWAY:','SHOT / COMPOSITION:','2-Sekunden-Test']) {
   if(!flowAgent.includes(token)) fail('PHASE2_FLOW_AGENT.md missing '+token);
 }
+const phase2Finalize=read('scripts/phase2-finalize.mjs');
+for(const token of ['PHASE2_FINAL_AUDIT.json','PHASE2_MISSING_SCENES.json','PHASE2_HANDOFF.json','auditImages','repairAllowed']){
+  if(!phase2Finalize.includes(token)) fail('phase2:finalize is missing '+token);
+}
+const phase2Library=read('scripts/phase2-finalize-lib.mjs');
+for(const token of ['removedRejectedCovers','unexpected','invalidPng','exactDuplicates','conflicts']){
+  if(!phase2Library.includes(token)) fail('Phase 2 final audit is missing '+token);
+}
+
 const flowBatchScript=read('scripts/flow-batch.mjs');
 for(const token of ['FLOW_BATCH_STATE.json','OUT_OF_ORDER_BLOCKED','CURRENT HARD 5-SCENE STEP','laterBatchOutputsFound']) {
   if(!flowBatchScript.includes(token)) fail('flow-batch.mjs missing '+token);

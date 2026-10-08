@@ -67,7 +67,7 @@ if(coverSelected){
 
   if(current===-1){
     state.status='ALL_SCENES_COMPLETE';
-    state.instruction='All configured scene batches are complete. Run scene:qa and visual review.';
+    state.instruction='All planned scene files appear present. Run npm run phase2:finalize -- --episode='+episodeFolder+' to verify 28 canonical filenames, clean up rejected covers, detect duplicates and assemble one final image folder. Then run scene:qa and visual review.';
   }else{
     const scenes=batches[current].map(Number);
     const later=batches.slice(current+1).flat().map(Number).filter(exists);
@@ -80,7 +80,7 @@ if(coverSelected){
     state.missing=scenes.filter((n)=>!exists(n));
     state.laterBatchOutputsFound=later;
     if(later.length){
-      state.instruction='BLOCK: later-batch scene files exist before the current 5-scene block is complete. Do not advance or shift filenames.';
+      state.instruction='BLOCK: later scenes exist while an earlier batch is incomplete. Do not advance or shift filenames. At the production END, run phase2:finalize to audit ALL 28 names; if the safe missing-scene queue is produced, generate ONLY those absent scenes in Google Flow before retrying. Phase 3 never generates images.';
     }else{
       const range=String(scenes[0]).padStart(2,'0')+'–'+String(scenes[scenes.length-1]).padStart(2,'0');
       state.instruction='CURRENT HARD 5-SCENE STEP: Szene '+range+'. Generate ONLY these scenes, strictly serially. Finish/save the full block, perform silent QC on all files in the block, then rerun flow:batch and immediately continue. Do not ask the user between blocks.';

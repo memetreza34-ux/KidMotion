@@ -36,7 +36,8 @@
     "selectionFile": "99-technik/COVER_SELECTION.json",
     "finalFile": "Szene 01.png",
     "deleteRejectedCandidatesAfterSelection": true,
-    "selectedCoverBecomesSoleReference": true
+    "selectedCoverBecomesSoleReference": true,
+    "deleteRejectedCandidatesImmediatelyAfterSelection": true
   },
   "batchGenerationPolicy": {
     "enabled": true,
@@ -135,7 +136,12 @@
     "poseDiversityRequired": true,
     "missingOutputIsHardError": true,
     "duplicateOutputIsHardError": true,
-    "shiftLaterFilenamesAfterMissingSceneForbidden": true
+    "shiftLaterFilenamesAfterMissingSceneForbidden": true,
+    "phase2FinalAuditRequired": true,
+    "phase2FinalAuditCommand": "npm run phase2:finalize -- --episode=<episode-folder>",
+    "missingOutputRepairPhase": "PHASE2_GOOGLE_FLOW_ONLY",
+    "finalHandoffFolder": "00-bildprompts/images",
+    "finalHandoffSceneCount": 28
   },
   "workoutTiming": {
     "introSeconds": 8,

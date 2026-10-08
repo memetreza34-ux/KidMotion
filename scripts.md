@@ -12,6 +12,7 @@ npm run kidmotion:new -- --format=learn-and-move --topic="..."
 
 - `npm run prompt:qa -- --episode=...`
 - `npm run flow:batch -- --episode=...`
+- `npm run phase2:finalize -- --episode=...` (ein Ordner, 28/28, fehlende Flow-Prompts)
 - `npm run scene:qa -- --episode=...`
 - `npm run assets:approve -- --episode=...`
 - `npm run kidmotion:activate -- --episode=...`
