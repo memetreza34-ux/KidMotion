@@ -12,6 +12,11 @@ const topic = getArg('topic');
 const requestedId = getArg('id');
 const requestedDate = getArg('date', new Date().toISOString().slice(0, 10));
 const character = getArg('character', 'boy').toLowerCase() === 'girl' ? 'girl' : 'boy';
+const contentFormat = getArg('content-format', 'workout').toLowerCase();
+if (!['workout','learn-and-move'].includes(contentFormat)) {
+  console.error('Workout generator accepts content-format workout or learn-and-move only.');
+  process.exit(1);
+}
 if (!topic) {
   console.error('Missing --topic="..."');
   process.exit(1);
@@ -74,6 +79,9 @@ const data = {
   structureVersion:contract.structureVersion,
   productionContractVersion:contract.contractVersion,
   contractFile:'config/v3-contract.json',
+  contentFormat,
+  formatContractFile:contentFormat === 'learn-and-move' ? 'config/formats/learn-and-move.json' : 'config/formats/workout.json',
+  learningObjective:contentFormat === 'learn-and-move' ? placeholder('LEARNING OBJECTIVE') : undefined,
   id:episodeId,
   date:requestedDate,
   day:new Date(`${requestedDate}T12:00:00Z`).toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'}),
