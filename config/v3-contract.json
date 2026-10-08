@@ -1,6 +1,6 @@
 {
   "contractVersion": 1,
-  "name": "KidMotion Production Contract",
+  "name": "KidMotion WORKOUT Production Contract",
   "structureVersion": 3,
   "pipelineVersion": 3,
   "language": "en",
@@ -11,7 +11,9 @@
     "config/visual-policy.json",
     "config/v3-contract.json",
     "config/prompt-quality.json",
-    "PHASE2_FLOW_AGENT.md"
+    "PHASE2_FLOW_AGENT.md",
+    "config/channel.json",
+    "FORMAT_ROUTER.md"
   ],
   "requiredEpisodeFiles": [
     "00-bildprompts/google-flow-prompt.txt",
@@ -306,5 +308,7 @@
       ],
       "gateMeaning": "phase3:gate validates already reviewed and SHA-256-approved assets; it is never the first command for a raw ZIP/audio handoff"
     }
-  }
+  },
+  "format": "workout",
+  "scope": "This contract applies only to contentFormat=workout and the current learn-and-move runtime. It is NOT the channel-wide learning contract."
 }

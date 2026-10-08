@@ -1,0 +1,99 @@
+{
+  "contractVersion": 1,
+  "format": "learning",
+  "name": "KidMotion Pure Learning Format",
+  "status": "ACTIVE",
+  "language": "en",
+  "goal": "Teach one clear age-appropriate topic through narration and purpose-built visuals.",
+  "structure": {
+    "coverOutsideVideo": true,
+    "coverCandidateCount": 3,
+    "sceneCount": "flexible",
+    "recommendedVideoSceneCount": "6-24",
+    "sceneDurationSeconds": "flexible",
+    "runtimeSeconds": "flexible",
+    "fixedWorkoutStructureForbidden": true,
+    "exercisesRequired": false,
+    "getReadyRequired": false,
+    "timerRequired": false,
+    "safetyCardRequired": false,
+    "letsBeginCardRequired": false
+  },
+  "characterPolicy": {
+    "recurringCharacterRequired": false,
+    "visibleChildRequired": false,
+    "humanRequired": false,
+    "defaultCharacterMode": "none",
+    "allowedCharacterModes": [
+      "none",
+      "occasional",
+      "recurring"
+    ],
+    "rule": "Choose people/characters only when they improve comprehension or storytelling."
+  },
+  "visualPolicy": {
+    "oneVisualPurposePerScene": true,
+    "twoSecondComprehensionTest": true,
+    "sceneSpecificCompositionRequired": true,
+    "visualVarietyRequired": true,
+    "coverIsStyleReferenceOnlyIfHelpful": true,
+    "coverAsSoleImageReferenceForbidden": true,
+    "allowedVisualForms": [
+      "object-focused educational illustration",
+      "diagram",
+      "map",
+      "number or letter composition",
+      "animal or nature scene",
+      "vehicle or machine scene",
+      "environment cutaway",
+      "comparison scene",
+      "timeline",
+      "simple process visualization",
+      "fictional character scene when useful"
+    ],
+    "fillerBeautyShotsForbidden": true,
+    "randomCharacterInsertionForbidden": true,
+    "accidentalTextForbidden": true
+  },
+  "narrationPolicy": {
+    "narrationMayRunWholeVideo": true,
+    "openingOnlyVoiceForbidden": true,
+    "voiceScriptFormat": "plain-continuous-text-only",
+    "voiceScriptTimecodesForbidden": true,
+    "timingMetadataLocation": "99-technik/VOICE_PLAN.json",
+    "sceneNarrationMappingRequired": true,
+    "factualNarrationMustMatchLearningPlan": true
+  },
+  "textPolicy": {
+    "defaultOwner": "planned-per-scene",
+    "remotionEducationalTextAllowed": true,
+    "flowBakedTextAllowed": true,
+    "mixedModeAllowed": true,
+    "rule": "Choose the owner that produces the clearest and most reliable teaching visual; never force all learning text into generated images."
+  },
+  "remotionPolicy": {
+    "countdownTimerRequired": false,
+    "countdownTimerDefault": false,
+    "educationalTextAllowed": true,
+    "simpleHighlightAnimationAllowed": true,
+    "simpleArrowOrLabelAnimationAllowed": true,
+    "progressBarAllowedWhenPedagogicallyUseful": true,
+    "kenBurnsAllowedWhenSubtleAndUseful": true
+  },
+  "accuracyPolicy": {
+    "learningObjectiveRequired": true,
+    "targetAgeOrLevelRequired": true,
+    "factsPlanRequired": true,
+    "unsupportedFactualClaimsForbidden": true,
+    "spellingAndNumberAccuracyRequired": true,
+    "recapRequiredForConceptVideos": true
+  },
+  "production": {
+    "promptQualityVersion": 2,
+    "hardImageBatchSize": 5,
+    "silentQcAfterBatch": true,
+    "askUserBetweenBatches": false,
+    "imageGenerationAttemptsPerScene": 1,
+    "automaticAlternatesForbidden": true
+  }
+}

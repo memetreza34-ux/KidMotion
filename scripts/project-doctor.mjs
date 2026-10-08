@@ -11,6 +11,15 @@ const read=(rel)=>{
   return fs.existsSync(file)?fs.readFileSync(file,'utf8'):'';
 };
 
+const channel=JSON.parse(read('config/channel.json')||'{}');
+if(channel.projectType!=='general-kids-channel') fail('config/channel.json must declare general-kids-channel.');
+if(channel.subjectPolicy?.childOrMascotRequired!==false) fail('Channel must not globally require a child or mascot.');
+for(const format of ['workout','learning','learn-and-move']) if(channel.formats?.[format]?.status!=='ACTIVE') fail('Channel format must be ACTIVE: '+format);
+const learningContract=JSON.parse(read('config/formats/learning.json')||'{}');
+if(learningContract.format!=='learning') fail('Missing pure learning format contract.');
+if(learningContract.characterPolicy?.visibleChildRequired!==false || learningContract.structure?.timerRequired!==false || learningContract.structure?.getReadyRequired!==false) fail('Learning format must not inherit workout/child/timer requirements.');
+if(!read('FORMAT_ROUTER.md').includes('LEARNING')) fail('FORMAT_ROUTER.md missing LEARNING route.');
+
 const pkg=JSON.parse(read('package.json')||'{}');
 const expectedScripts={
   'scripts:check':'node scripts/syntax-check.mjs',
@@ -26,6 +35,9 @@ const expectedScripts={
   'render':'node scripts/render-guarded.mjs',
   'render:safe':'node scripts/render-guarded.mjs',
   'kidmotion:new':'node scripts/new-episode.mjs',
+  'kidmotion:new:workout':'node scripts/new-workout-episode.mjs',
+  'kidmotion:new:learning':'node scripts/new-learning-episode.mjs',
+  'learning:prompt:qa':'node scripts/learning-prompt-qa.mjs',
   'kidmotion:select-cover':'node scripts/select-cover.mjs',
   'kidmotion:activate':'node scripts/activate-episode.mjs'
 };

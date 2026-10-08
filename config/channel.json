@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "projectType": "general-kids-channel",
+  "channelName": "KidMotion",
+  "audience": "children and families",
+  "language": "en",
+  "mission": "Create high-quality child-friendly videos that can teach, explain, entertain or encourage movement.",
+  "importantRule": "The channel is NOT workout-only. Choose the video format before planning.",
+  "formats": {
+    "workout": {
+      "status": "ACTIVE",
+      "contractFile": "config/v3-contract.json",
+      "description": "Movement/workout videos with exercise timing, GET READY transitions and countdown timer."
+    },
+    "learning": {
+      "status": "ACTIVE",
+      "contractFile": "config/formats/learning.json",
+      "description": "Pure educational videos. No movement, child, mascot, timer or GET READY requirement."
+    },
+    "learn-and-move": {
+      "status": "ACTIVE",
+      "contractFile": "config/formats/learn-and-move.json",
+      "description": "Optional hybrid format combining a real learning goal with movement."
+    }
+  },
+  "subjectPolicy": {
+    "childOrMascotRequired": false,
+    "allowedPrimaryVisualSubjects": [
+      "objects",
+      "letters",
+      "numbers",
+      "animals",
+      "plants",
+      "vehicles",
+      "maps",
+      "planets",
+      "simple diagrams",
+      "illustrated scenes",
+      "environments",
+      "food",
+      "tools",
+      "shapes",
+      "fictional characters",
+      "children when genuinely useful"
+    ],
+    "defaultForLearning": "Use the visual subject that teaches the concept best. Do not insert a child or mascot merely for consistency."
+  }
+}

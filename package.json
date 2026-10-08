@@ -22,7 +22,10 @@
     "phase3:ingest": "node scripts/phase3-ingest.mjs",
     "phase3:prepare": "node scripts/phase3-prepare.mjs",
     "scripts:check": "node scripts/syntax-check.mjs",
-    "flow:batch": "node scripts/flow-batch.mjs"
+    "flow:batch": "node scripts/flow-batch.mjs",
+    "kidmotion:new:workout": "node scripts/new-workout-episode.mjs",
+    "kidmotion:new:learning": "node scripts/new-learning-episode.mjs",
+    "learning:prompt:qa": "node scripts/learning-prompt-qa.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

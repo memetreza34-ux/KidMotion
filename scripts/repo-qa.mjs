@@ -32,6 +32,13 @@ if (contract.phaseContract?.phase3?.imagePixelModificationForbidden !== true) fa
 
 const promptQuality=readJson(path.join(root,'config','prompt-quality.json'));
 if(Number(promptQuality.version)!==Number(contract.promptContract?.currentPromptSpecVersion)) fail('Prompt Quality version mismatch.');
+const channel=readJson(path.join(root,'config','channel.json'));
+if(channel.projectType!=='general-kids-channel') fail('Channel config must declare general-kids-channel.');
+if(channel.subjectPolicy?.childOrMascotRequired!==false) fail('Channel config must not require a child/mascot globally.');
+const learningContract=readJson(path.join(root,'config','formats','learning.json'));
+if(learningContract.characterPolicy?.visibleChildRequired!==false) fail('Learning format must not require visible children.');
+if(learningContract.structure?.timerRequired!==false || learningContract.structure?.getReadyRequired!==false) fail('Learning format must not require workout timer/GET READY.');
+
 const pipeline = readJson(path.join(root, 'config', 'pipeline.json'));
 if (Number(pipeline.pipelineVersion) !== Number(contract.pipelineVersion)) fail('pipelineVersion does not match production contract.');
 if (Number(pipeline.productionContractVersion) !== Number(contract.contractVersion)) fail('config/pipeline.json productionContractVersion does not match contract.');
@@ -102,6 +109,15 @@ if (fs.existsSync(episodeRoot)) {
       continue;
     }
 
+    const contentFormat=String(data.contentFormat||'workout');
+    if(contentFormat==='learning'){
+      if(data.timerRequired!==false) fail(`${entry.name}: pure learning must not require a timer.`);
+      if(data.getReadyRequired!==false) fail(`${entry.name}: pure learning must not require GET READY.`);
+      if(data.childOrMascotRequired!==false) fail(`${entry.name}: pure learning must not require a child/mascot.`);
+      if((data.scenes||[]).some((s)=>s.type==='exercise'||s.type==='get-ready')) fail(`${entry.name}: pure learning contains workout scene types.`);
+      if(!fs.existsSync(path.join(base,'99-technik','LEARNING_PLAN.json'))) fail(`${entry.name}: missing LEARNING_PLAN.json.`);
+      continue;
+    }
     for (const error of currentContractErrors(data, contract)) fail(`${entry.name}: ${error}`);
     const antiPath = path.join(base,'ANTIGRAVITY.md');
     const anti = read(antiPath);

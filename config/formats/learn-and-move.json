@@ -1,0 +1,13 @@
+{
+  "contractVersion": 1,
+  "format": "learn-and-move",
+  "name": "KidMotion Learn + Move Format",
+  "status": "ACTIVE",
+  "description": "Hybrid format. Use only when movement genuinely reinforces the learning objective.",
+  "learningGoalRequired": true,
+  "movementGoalRequired": true,
+  "rule": "Do not convert every learning topic into exercise. Pure learning should use the learning format.",
+  "currentRuntimeBase": "workout-v3",
+  "characterRequiredByCurrentRuntime": true,
+  "futureDirection": "May receive its own flexible runtime later; until then it uses the workout scene engine with an explicit learning objective."
+}
