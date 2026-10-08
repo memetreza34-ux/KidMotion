@@ -109,7 +109,11 @@
     ],
     "soleReferenceEveryBatch": "Szene 01.png",
     "secondaryImageReferencesForbidden": true,
-    "generateEachSceneExactlyOnce": true
+    "generateEachSceneExactlyOnce": true,
+    "controllerCommand": "npm run flow:batch -- --episode=KM-007-count-and-move-numbers-1-12",
+    "hardBatchBoundaries": true,
+    "batchMustBeCompleteBeforeNext": true,
+    "silentVisualQcAfterEachBatch": true
   },
   "introDuration": 8,
   "introTitle": "COUNT & MOVE",
@@ -569,5 +573,6 @@
       "character": "boy"
     }
   ],
-  "runtimeSeconds": 313
+  "runtimeSeconds": 313,
+  "promptSpecVersion": 2
 }
