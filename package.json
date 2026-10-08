@@ -34,7 +34,8 @@
     "learning:system:doctor": "node scripts/learning-system-doctor.mjs",
     "learning:repo:qa": "node scripts/learning-repo-qa.mjs",
     "phase2:finalize": "node scripts/phase2-finalize.mjs",
-    "phase2:test": "node --test scripts/phase2-finalize.test.mjs"
+    "phase2:test": "node --test scripts/phase2-finalize.test.mjs",
+    "workout:human:test": "node --test scripts/workout-character-policy.test.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

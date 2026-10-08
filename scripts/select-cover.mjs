@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, currentContractErrors} from './contract.mjs';
+import {humanOnlyWorkout,coverHumanReviewErrors} from './workout-character-policy.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -43,6 +44,15 @@ const finalPath = path.join(paths.imagesDir, 'Szene 01.png');
 const selectionAlready = fs.existsSync(paths.coverSelectionPath)
   ? JSON.parse(fs.readFileSync(paths.coverSelectionPath, 'utf8')) : {};
 
+if (humanOnlyWorkout(data) && selectionAlready.status !== 'SELECTED'){
+  const reviewFile=path.join(paths.techDir,'COVER_HUMAN_REVIEW.json');
+  const errors=coverHumanReviewErrors(paths.imagesDir,reviewFile);
+  if(errors.length){
+    console.error('COVER SELECTION BLOCKED: three actual HUMAN cover images must pass visual review first.');
+    errors.forEach((error,i)=>console.error(String(i+1)+'. '+error));
+    process.exit(1);
+  }
+}
 if (selectionAlready.status === 'SELECTED') {
   if (Number(selectionAlready.selectedCandidate) !== candidateNumber) {
     console.error('COVER SELECTION BLOCKED: an existing selection differs. No cover will be overwritten.');

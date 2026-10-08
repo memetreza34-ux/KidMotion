@@ -26,6 +26,9 @@ jobs:
       - name: Phase 2 handoff tests
         run: npm run phase2:test
 
+      - name: Workout human-character tests
+        run: npm run workout:human:test
+
       - name: Typecheck
         run: npm run typecheck
 

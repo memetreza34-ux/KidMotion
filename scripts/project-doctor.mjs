@@ -61,6 +61,14 @@ if(p3.userManualUnzipRequired!==false || p3.userManualAudioConversionRequired!==
 if(p3.rawHandoffEntryPoint!=='phase3:prepare') fail('Raw handoff entry point must be phase3:prepare.');
 if(p3.ambiguousSceneMappingBehavior!=='BLOCK_WITH_REPORT') fail('Ambiguous scene mapping must block with a report.');
 
+const humanWorkout=JSON.parse(read('config/workout-character-policy.json')||'{}');
+if(humanWorkout.species!=='human') fail('Workout main character must be human.');
+const selector=read('scripts/select-cover.mjs');
+if(!selector.includes('coverHumanReviewErrors')) fail('Cover selection must verify inspected human covers.');
+const humanQa=read('scripts/prompt-plan-qa.mjs');
+if(!humanQa.includes('humanPromptErrors')) fail('Prompt QA must enforce positive human character descriptions.');
+const workoutGenerator=read('scripts/new-workout-episode.mjs');
+if(!workoutGenerator.includes('COVER_HUMAN_REVIEW.json')||!workoutGenerator.includes('HUMAN ${character}')) fail('New workout generator must plan human covers and scenes.');
 const promptQuality=JSON.parse(read('config/prompt-quality.json')||'{}');
 if(Number(promptQuality.version)!==Number(contract.promptContract?.currentPromptSpecVersion)) fail('Prompt Quality version mismatch.');
 for(const label of ['VIEWER TAKEAWAY:','SHOT / COMPOSITION:','NEGATIVE / STABILITY:','QUALITY CHECK:']) {

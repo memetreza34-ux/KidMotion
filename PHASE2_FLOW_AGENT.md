@@ -18,7 +18,13 @@ Ausführen:
 
 Kein Cover erzeugen, solange der Check nicht besteht.
 
-## 2. Cover
+## 2. HUMAN-ONLY CHARACTERS FOR WORKOUT
+
+For `workout` and `learn-and-move` built with the workout engine, **every cover and scene must feature one unmistakeably HUMAN animated boy or girl**, fully clothed. No robot, fox, animal, anthropomorphic robot, alien or object mascot, even in Robot City. Theme/architecture may be robotic, but the athlete is human. Positive `CHARACTER` wording MUST state `HUMAN boy` or `HUMAN girl`; a negative "no robots" is insufficient.
+
+Before showing three covers: visually inspect the REAL generated images. Reject and replace any robot/animal cover. For approved human covers, fill `99-technik/COVER_HUMAN_REVIEW.json` using actual image inspection and SHA256 values. Cover selection is blocked until all three human covers are verified; do not fabricate visual review. Pure `learning` format is exempt.
+
+## 3. Cover
 
 Genau drei Cover-Kandidaten, streng nacheinander:
 

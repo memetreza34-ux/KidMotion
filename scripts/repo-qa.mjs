@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {humanOnlyWorkout} from './workout-character-policy.mjs';
 import {loadContract, expectedSceneSpecs, sceneFile, hasPlanningPlaceholder, currentContractErrors, validateVoicePlanObject} from './contract.mjs';
 
 const root = process.cwd();
@@ -120,6 +121,13 @@ if (fs.existsSync(episodeRoot)) {
       continue;
     }
     for (const error of currentContractErrors(data, contract)) fail(`${entry.name}: ${error}`);
+    if(humanOnlyWorkout(data)){
+      const reviewFile=path.join(base,'99-technik','COVER_HUMAN_REVIEW.json');
+      if(!fs.existsSync(reviewFile)) fail(entry.name+': human-only cover review file missing.');
+      if(data.coverPolicy?.humanCoverReviewRequired!==true) fail(entry.name+': human cover selection guard missing.');
+      const record=readJson(reviewFile);
+      if((record.candidates||[]).length!==3) fail(entry.name+': human visual review needs all three candidate records.');
+    }
     const antiPath = path.join(base,'ANTIGRAVITY.md');
     const anti = read(antiPath);
     if (!anti.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail(`${entry.name}: ANTIGRAVITY.md must declare Phase 3 image generation forbidden.`);
