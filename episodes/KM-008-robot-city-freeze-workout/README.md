@@ -1,0 +1,7 @@
+# KM-008 Robot City Freeze Workout
+Format WORKOUT only, NOT learning. English. 5:13 / 313s in 16:9 1920×1080. Twelve 20-second safe static poses, eleven 5-second GET READY images, 14s opening and 4s outro.
+The planned original mascot is fully clothed and alone in the frame; twelve visually distinct Robot City zones.
+Status: cover-selection-pending, planning complete. No image/audio assets or final video actually exist yet.
+Run npm run prompt:qa -- --episode=KM-008-robot-city-freeze-workout before generating in Google Flow. Make three covers then STOP for user choice; after that ONLY selected Szene 01.png reference. Use flow:batch in hard 5-scene serial blocks and silent QC, no further user questions.
+Exercises: 1. ANTENNA REACH — Stretch both arms up and stand tall.; 2. T-BAR HOLD — Open your arms wide and hold still.; 3. GEAR SQUAT HOLD — Bend your knees a little and freeze.; 4. SIDE SIGNAL REACH — Lean gently sideways and reach long.; 5. RUNNER FREEZE — Step one foot back and hold your pose.; 6. COMPASS TURN — Turn your shoulders and point ahead.; 7. TABLE BRIDGE — Hands and feet down, lift your hips.; 8. POWER PLANK — Hold a straight line on the floor.; 9. SKY BALANCE — Lift one foot and spread your arms.; 10. SHIELD PRESS — Push both palms forward and stay firm.; 11. STAR FREEZE — Stretch wide like a giant star.; 12. POWER-UP VICTORY — Raise your hands and finish strong..
+The voice script is continuous spoken text; only VOICE_PLAN.json has section timing.

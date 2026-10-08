@@ -1,0 +1,531 @@
+{
+  "schemaVersion": 3,
+  "structureVersion": 3,
+  "productionContractVersion": 1,
+  "contractFile": "config/v3-contract.json",
+  "id": "KM-008",
+  "slug": "robot-city-freeze-workout",
+  "date": "2026-10-08",
+  "day": "Thursday",
+  "theme": "robot-city",
+  "topic": "5 minute robot city freeze workout for kids",
+  "contentType": "workout",
+  "status": "cover-selection-pending",
+  "visualPolicyFile": "config/visual-policy.json",
+  "visualStyleId": "kidmotion-premium-3d-v3-flow-text",
+  "imagePlanFile": "99-technik/IMAGE_PLAN.json",
+  "flowPromptFile": "00-bildprompts/google-flow-prompt.txt",
+  "voiceScriptFile": "01-voice-script/voice-script.txt",
+  "voicePlanFile": "99-technik/VOICE_PLAN.json",
+  "coverSelectionFile": "99-technik/COVER_SELECTION.json",
+  "publicAssetRoot": "public/episodes/2026-10-08/KM-008-robot-city-freeze-workout",
+  "format": "youtube-longform",
+  "aspectRatio": "16:9",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "mainCharacter": "girl",
+  "singleCharacterWholeEpisode": true,
+  "allowCharacterSwitch": false,
+  "allowSecondVisibleCharacter": false,
+  "allVideoSectionsUseCharacterImage": true,
+  "staticPoseOnly": true,
+  "singleFrameClarityRequired": true,
+  "silhouetteTestRequired": true,
+  "poseDiversityRequired": true,
+  "characterReference": "selected KM-008 Szene 01 cover reference ONLY",
+  "soleImageReference": "Szene 01.png",
+  "secondaryImageReferencesForbidden": true,
+  "eachNonCoverSceneGeneratedExactlyOnce": true,
+  "maximumGenerationAttemptsPerNonCoverScene": 1,
+  "regenerationForbidden": true,
+  "outfitLockedAfterCoverSelection": true,
+  "worldIdentityLockedAfterCoverSelection": true,
+  "worldZoneVariationAllowed": true,
+  "imageGenerationRevisionRequired": "KM008-R1",
+  "coverPolicy": {
+    "generateCandidatesFirst": 3,
+    "candidateFiles": [
+      "Cover-Kandidat-01.png",
+      "Cover-Kandidat-02.png",
+      "Cover-Kandidat-03.png"
+    ],
+    "waitForExplicitUserSelection": true,
+    "winnerFinalFile": "Szene 01.png",
+    "selectedCoverIsSoleReference": true,
+    "noLaterSceneGenerationBeforeSelection": true,
+    "deleteRejectedCandidatesAfterSelection": true
+  },
+  "imageBatchPolicy": {
+    "enabled": true,
+    "batchSize": 5,
+    "showBatchToUser": false,
+    "waitForExplicitUserContinue": false,
+    "autoContinueToNextBatch": true,
+    "deliverCompletedFolderAtEnd": true,
+    "batches": [
+      [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      [
+        27,
+        28
+      ]
+    ],
+    "soleReferenceEveryBatch": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true,
+    "generateEachSceneExactlyOnce": true,
+    "controllerCommand": "npm run flow:batch -- --episode=KM-008-robot-city-freeze-workout",
+    "hardBatchBoundaries": true,
+    "batchMustBeCompleteBeforeNext": true,
+    "silentVisualQcAfterEachBatch": true
+  },
+  "introDuration": 8,
+  "introTitle": "ROBOT CITY WORKOUT",
+  "introSubtitle": "12 FREEZE MOVES",
+  "introBadge": "KIDMOTION",
+  "introExtraInfo": [
+    "5 MIN ADVENTURE"
+  ],
+  "introVoiceText": "Welcome to Robot City! Twelve fun freeze moves are waiting. Copy each pose, stay steady, and enjoy the adventure. Make some space, move at your own pace, and stop if anything hurts. Power on! Let's begin!",
+  "voiceScriptFormat": "plain continuous text only",
+  "safetyDuration": 4,
+  "letsBeginDuration": 2,
+  "outroDuration": 4,
+  "exerciseDuration": 20,
+  "getReadyDuration": 5,
+  "openingDuration": 14,
+  "voicePolicy": {
+    "openingSequenceVoiceOnly": true,
+    "voiceStartsAtIntro": true,
+    "voiceMayContinueAcrossSafety": true,
+    "voiceMayContinueAcrossLetsBegin": true,
+    "voiceMustEndBeforeFirstExercise": true,
+    "exerciseVoice": false,
+    "restVoice": false,
+    "outroVoice": false,
+    "subtitles": false,
+    "voiceCaptions": false,
+    "openingVoiceTargetSeconds": "13.65-14.00",
+    "voiceFile": "Voice 01.mp3",
+    "openingVoiceSections": [
+      {
+        "scene": "02",
+        "label": "INTRO",
+        "startSeconds": 0,
+        "endSeconds": 8,
+        "text": "Welcome to Robot City! Twelve fun freeze moves are waiting. Copy each pose, stay steady, and enjoy the adventure."
+      },
+      {
+        "scene": "03",
+        "label": "SAFETY",
+        "startSeconds": 8,
+        "endSeconds": 12,
+        "text": "Make some space, move at your own pace, and stop if anything hurts."
+      },
+      {
+        "scene": "04",
+        "label": "LETS_BEGIN",
+        "startSeconds": 12,
+        "endSeconds": 14,
+        "text": "Power on! Let's begin!"
+      }
+    ]
+  },
+  "audioPolicy": {
+    "backgroundMusicRequiredForFinal": true,
+    "backgroundMusicFile": "bg-music.mp3",
+    "backgroundMusicLoop": true,
+    "backgroundMusicLowDuringOpening": true,
+    "backgroundMusicContinuesThroughWorkout": true,
+    "noSpokenVoiceAfterOpening": true,
+    "musicBriefFile": "02-audio/MUSIC_BRIEF.md"
+  },
+  "transitionPolicy": {
+    "blankFramesForbidden": true,
+    "blackFlashesForbidden": true,
+    "whiteFlashesForbidden": true,
+    "fullSceneFadeFromZeroForbidden": true,
+    "hardCutWithVisibleImageFromFirstFrame": true
+  },
+  "visibleTextPolicy": {
+    "googleFlowOwnsAllNonTimerVisibleText": true,
+    "remotionTimerOnly": true,
+    "progressBarForbidden": true,
+    "restLabelForbidden": true
+  },
+  "exerciseVisualPolicy": {
+    "exerciseNameSource": "GoogleFlowImage",
+    "exerciseInstructionSource": "GoogleFlowImage",
+    "instructionBubbleSource": "GoogleFlowImage",
+    "exerciseNamePosition": "bottom-left",
+    "instructionPosition": "top-right",
+    "exerciseUiStyleSource": "prompt-defined layout only",
+    "sameUiStyleRequiredAcrossAllExercises": true,
+    "timerSafeZoneTopLeftPixels": 230,
+    "remotionExerciseNameForbidden": true,
+    "remotionExerciseInstructionForbidden": true,
+    "googleFlowTimerForbidden": true,
+    "remotionProgressBarForbidden": true,
+    "remotionKenBurnsOnExerciseForbidden": true
+  },
+  "restVisualPolicy": {
+    "blankScreenForbidden": true,
+    "dedicatedGetReadyImageRequired": true,
+    "reuseNextExerciseImage": false,
+    "characterMustRemainVisible": true,
+    "remotionTimerOnly": true,
+    "googleFlowOwnsGetReadyText": true,
+    "remotionRestTextForbidden": true,
+    "remotionNextPoseNameForbidden": true,
+    "remotionKenBurnsOnRestForbidden": true
+  },
+  "nonExerciseImagePolicy": {
+    "introGeneratedTextAllowed": true,
+    "safetyGeneratedTextAllowed": true,
+    "letsBeginGeneratedTextAllowed": true,
+    "outroGeneratedTextAllowed": true,
+    "googleFlowOwnsAllVisibleText": true,
+    "remotionTextOverlaysForbidden": true
+  },
+  "scenes": [
+    {
+      "scene": "01",
+      "type": "cover",
+      "image": "Szene 01.png",
+      "duration": 0,
+      "character": "girl",
+      "inVideo": false
+    },
+    {
+      "scene": "02",
+      "type": "intro",
+      "image": "Szene 02.png",
+      "voice": "Voice 01.mp3",
+      "duration": 8,
+      "character": "girl"
+    },
+    {
+      "scene": "03",
+      "type": "safety",
+      "image": "Szene 03.png",
+      "duration": 4,
+      "character": "girl"
+    },
+    {
+      "scene": "04",
+      "type": "lets-begin",
+      "image": "Szene 04.png",
+      "duration": 2,
+      "character": "girl"
+    },
+    {
+      "scene": "05",
+      "type": "exercise",
+      "title": "ANTENNA REACH",
+      "instruction": "Stretch both arms up and stand tall.",
+      "poseDescription": "feet apart and both arms reaching vertically overhead, hands open, heels planted",
+      "worldZone": "launch plaza with a huge antenna arch",
+      "image": "Szene 05.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "06",
+      "type": "get-ready",
+      "image": "Szene 06.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "05",
+      "nextExerciseTitle": "T-BAR HOLD",
+      "generatedText": "GET READY / NEXT: T-BAR HOLD",
+      "worldZone": "signal bridge with two smooth arch spans"
+    },
+    {
+      "scene": "07",
+      "type": "exercise",
+      "title": "T-BAR HOLD",
+      "instruction": "Open your arms wide and hold still.",
+      "poseDescription": "feet hip-width, arms extended horizontally into one long T, no raised foot",
+      "worldZone": "signal bridge with two smooth arch spans",
+      "image": "Szene 07.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "08",
+      "type": "get-ready",
+      "image": "Szene 08.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "07",
+      "nextExerciseTitle": "GEAR SQUAT HOLD",
+      "generatedText": "GET READY / NEXT: GEAR SQUAT HOLD",
+      "worldZone": "gear garden with one static round cog sculpture"
+    },
+    {
+      "scene": "09",
+      "type": "exercise",
+      "title": "GEAR SQUAT HOLD",
+      "instruction": "Bend your knees a little and freeze.",
+      "poseDescription": "safe shallow squat, feet apart, knees aligned, heels planted, arms forward",
+      "worldZone": "gear garden with one static round cog sculpture",
+      "image": "Szene 09.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "10",
+      "type": "get-ready",
+      "image": "Szene 10.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "09",
+      "nextExerciseTitle": "SIDE SIGNAL REACH",
+      "generatedText": "GET READY / NEXT: SIDE SIGNAL REACH",
+      "worldZone": "solar promenade below a fan-shaped roof"
+    },
+    {
+      "scene": "11",
+      "type": "exercise",
+      "title": "SIDE SIGNAL REACH",
+      "instruction": "Lean gently sideways and reach long.",
+      "poseDescription": "both feet flat, left arm arched overhead to right, small gentle side bend",
+      "worldZone": "solar promenade below a fan-shaped roof",
+      "image": "Szene 11.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "12",
+      "type": "get-ready",
+      "image": "Szene 12.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "11",
+      "nextExerciseTitle": "RUNNER FREEZE",
+      "generatedText": "GET READY / NEXT: RUNNER FREEZE",
+      "worldZone": "circuit runway with a distant inactive round gate"
+    },
+    {
+      "scene": "13",
+      "type": "exercise",
+      "title": "RUNNER FREEZE",
+      "instruction": "Step one foot back and hold your pose.",
+      "poseDescription": "split stance with one foot forward and one back, both feet planted, elbows bent",
+      "worldZone": "circuit runway with a distant inactive round gate",
+      "image": "Szene 13.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "14",
+      "type": "get-ready",
+      "image": "Szene 14.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "13",
+      "nextExerciseTitle": "COMPASS TURN",
+      "generatedText": "GET READY / NEXT: COMPASS TURN",
+      "worldZone": "navigation hub with one large compass-circle floor inlay without letters"
+    },
+    {
+      "scene": "15",
+      "type": "exercise",
+      "title": "COMPASS TURN",
+      "instruction": "Turn your shoulders and point ahead.",
+      "poseDescription": "gentle right torso turn, hips forward, right arm pointing forwards and left elbow comfortably bent",
+      "worldZone": "navigation hub with one large compass-circle floor inlay without letters",
+      "image": "Szene 15.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "16",
+      "type": "get-ready",
+      "image": "Szene 16.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "15",
+      "nextExerciseTitle": "TABLE BRIDGE",
+      "generatedText": "GET READY / NEXT: TABLE BRIDGE",
+      "worldZone": "quiet maintenance patio with clean grid floor and a low architectural arch"
+    },
+    {
+      "scene": "17",
+      "type": "exercise",
+      "title": "TABLE BRIDGE",
+      "instruction": "Hands and feet down, lift your hips.",
+      "poseDescription": "reverse tabletop, bent knees, both feet flat, palms on ground behind hips, hips raised comfortably",
+      "worldZone": "quiet maintenance patio with clean grid floor and a low architectural arch",
+      "image": "Szene 17.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "18",
+      "type": "get-ready",
+      "image": "Szene 18.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "17",
+      "nextExerciseTitle": "POWER PLANK",
+      "generatedText": "GET READY / NEXT: POWER PLANK",
+      "worldZone": "training tunnel with one nonfunctional rounded portal"
+    },
+    {
+      "scene": "19",
+      "type": "exercise",
+      "title": "POWER PLANK",
+      "instruction": "Hold a straight line on the floor.",
+      "poseDescription": "straight-arm high plank with hands below shoulders, toes grounded, spine level, head aligned",
+      "worldZone": "training tunnel with one nonfunctional rounded portal",
+      "image": "Szene 19.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "20",
+      "type": "get-ready",
+      "image": "Szene 20.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "19",
+      "nextExerciseTitle": "SKY BALANCE",
+      "generatedText": "GET READY / NEXT: SKY BALANCE",
+      "worldZone": "safe observation deck with distant skyline and clear sky"
+    },
+    {
+      "scene": "21",
+      "type": "exercise",
+      "title": "SKY BALANCE",
+      "instruction": "Lift one foot and spread your arms.",
+      "poseDescription": "stand on left foot, gently lift right foot behind, arms open, torso stable and upright",
+      "worldZone": "safe observation deck with distant skyline and clear sky",
+      "image": "Szene 21.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "22",
+      "type": "get-ready",
+      "image": "Szene 22.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "21",
+      "nextExerciseTitle": "SHIELD PRESS",
+      "generatedText": "GET READY / NEXT: SHIELD PRESS",
+      "worldZone": "shield courtyard with a single curved translucent building panel"
+    },
+    {
+      "scene": "23",
+      "type": "exercise",
+      "title": "SHIELD PRESS",
+      "instruction": "Push both palms forward and stay firm.",
+      "poseDescription": "safe standing split stance with two open palms pressing forwards, elbows gently bent",
+      "worldZone": "shield courtyard with a single curved translucent building panel",
+      "image": "Szene 23.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "24",
+      "type": "get-ready",
+      "image": "Szene 24.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "23",
+      "nextExerciseTitle": "STAR FREEZE",
+      "generatedText": "GET READY / NEXT: STAR FREEZE",
+      "worldZone": "star courtyard with one giant five-point inlay on the ground"
+    },
+    {
+      "scene": "25",
+      "type": "exercise",
+      "title": "STAR FREEZE",
+      "instruction": "Stretch wide like a giant star.",
+      "poseDescription": "feet wide, arms diagonally raised to form an X, hands and shoes all visible",
+      "worldZone": "star courtyard with one giant five-point inlay on the ground",
+      "image": "Szene 25.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "26",
+      "type": "get-ready",
+      "image": "Szene 26.png",
+      "duration": 5,
+      "character": "girl",
+      "afterExerciseScene": "25",
+      "nextExerciseTitle": "POWER-UP VICTORY",
+      "generatedText": "GET READY / NEXT: POWER-UP VICTORY",
+      "worldZone": "final roof garden with a broad finish arch and warm futuristic skyline"
+    },
+    {
+      "scene": "27",
+      "type": "exercise",
+      "title": "POWER-UP VICTORY",
+      "instruction": "Raise your hands and finish strong.",
+      "poseDescription": "stable upright stance with hands raised apart into broad V, comfortably bent elbows",
+      "worldZone": "final roof garden with a broad finish arch and warm futuristic skyline",
+      "image": "Szene 27.png",
+      "duration": 20,
+      "character": "girl",
+      "ballCount": 0
+    },
+    {
+      "scene": "28",
+      "type": "outro",
+      "image": "Szene 28.png",
+      "duration": 4,
+      "character": "girl"
+    }
+  ],
+  "runtimeSeconds": 313,
+  "promptSpecVersion": 2,
+  "contentFormat": "workout",
+  "formatContractFile": "config/formats/workout.json"
+}

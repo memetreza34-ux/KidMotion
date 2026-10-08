@@ -1,0 +1,2 @@
+# KM-008 Music Brief
+Obtain an original or commercially licensed upbeat kids fitness instrumental at 120–130 BPM. Friendly pop-electro beats, rounded drum sounds and playful subtle electronic clicks. No spoken vocals, copyrighted videogame melodies, aggressive industrial effects, dark cinematic music or nursery baby music. Lower in first 14 seconds under intro voice, more energetic during exercise, seamless loop if useful. No music asset is supplied yet.

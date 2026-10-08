@@ -1,0 +1,865 @@
+{
+  "schemaVersion": 3,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-008-robot-city-freeze-workout",
+  "revision": "KM008-R1",
+  "visualStyleId": "kidmotion-premium-3d-v3-flow-text",
+  "generationRules": {
+    "coverCandidateCount": 3,
+    "coverCandidateFiles": [
+      "Cover-Kandidat-01.png",
+      "Cover-Kandidat-02.png",
+      "Cover-Kandidat-03.png"
+    ],
+    "coverSelectionFile": "99-technik/COVER_SELECTION.json",
+    "stopAfterCoverCandidatesUntilExplicitUserSelection": true,
+    "selectedCoverFinalFile": "Szene 01.png",
+    "selectedCoverBecomesSoleReference": true,
+    "batchSizeAfterCover": 5,
+    "autoContinueToNextBatch": true,
+    "generationBatches": [
+      [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      [
+        27,
+        28
+      ]
+    ],
+    "generateEachNonCoverSceneExactlyOnce": true,
+    "maximumGenerationAttemptsPerNonCoverScene": 1,
+    "regenerationForbidden": true,
+    "automaticAlternatesForbidden": true,
+    "soleReference": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true,
+    "finalDirectory": "00-bildprompts/images",
+    "allFinalScenesInOneFolder": true,
+    "sceneFilePattern": "Szene NN.png",
+    "firstFinalScene": 1,
+    "lastFinalScene": 28,
+    "dedicatedGetReadyScenes": true,
+    "getReadySceneCount": 11,
+    "allNonTimerVisibleTextOwner": "google-flow",
+    "controllerCommand": "npm run flow:batch -- --episode=KM-008-robot-city-freeze-workout",
+    "hardBatchBoundaries": true,
+    "batchMustBeCompleteBeforeNext": true,
+    "silentVisualQcAfterEachBatch": true
+  },
+  "images": [
+    {
+      "sceneNumber": 1,
+      "imageFile": "Szene 01.png",
+      "sceneRole": "cover",
+      "visualPurpose": "Three distinctive covers show robot-city sport workout.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "three distinct premium CGI mobile thumbnails",
+      "characterReference": "three-cover candidate stage",
+      "uiReference": null,
+      "generationAttemptsAllowed": 3,
+      "propCount": 0,
+      "generatedText": "5 MIN ROBOT CITY / 12 FUN FREEZE MOVES",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "CLICK IDEA:\nOne original mascot invites viewers into a fun Robot City sport adventure. Make the image unmistakably a kids fitness workout thumbnail at mobile scale rather than a numbers or alphabet lesson.\n\nSHOT / COMPOSITION:\nLow wide frontal camera, friendly mascot right-center with arms comfortably open, one huge rounded antenna arch left, title in open upper-left sky.. Distinct visual hierarchy, large full mascot, premium 16:9 landscape depth, clean readable headline. Candidate 1 has its own strong composition unlike the other two.\n\nCHARACTER:\nExactly one original fictional fully clothed cartoon mascot, wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers, with simplified expressive animated features and safe natural anatomy. No photography or licensed characters.\n\nWORLD:\ncentral launch plaza with smooth teal activity track. An inviting Robot City with large clear geometric designs; no crowd, no second mascot, no background robots or decorative tiny icons.\n\nTEXT:\nExact bold title \"5 MIN ROBOT CITY\". Exact smaller subtitle \"12 FUN FREEZE MOVES\". White high-contrast sans-serif with subtle dark navy background if needed, no other words, logos or lettering.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Warm bright morning side light, matte surfaces, appealing color separation and no generic glossy image-generator look.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No dangerous actions, clutter, bad limbs, cropped shoes, fake subtitles, blurry text or excessive detail.\n\nQUALITY CHECK:\nCheck all text exactly, one fully clothed fictional character, readable body pose, compelling mobile thumbnail, no accidental type or image noise. Compose a visibly new viewpoint for this cover candidate.\n\nOUTPUT:\nStatic 16:9 cover file Cover-Kandidat-01.png.\n\n--- COVER VARIANT ---\n\nCLICK IDEA:\nTwelve fun exercise poses are waiting inside a distinctive futuristic obstacle-free activity playground. Make the image unmistakably a kids fitness workout thumbnail at mobile scale rather than a numbers or alphabet lesson.\n\nSHOT / COMPOSITION:\nWide three-quarter slightly elevated shot, mascot left foreground in safe V pose and one large circular signal gateway on right, curved track leads to skyline, title on upper left.. Distinct visual hierarchy, large full mascot, premium 16:9 landscape depth, clean readable headline. Candidate 2 has its own strong composition unlike the other two.\n\nCHARACTER:\nExactly one original fictional fully clothed cartoon mascot, wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers, with simplified expressive animated features and safe natural anatomy. No photography or licensed characters.\n\nWORLD:\nsafe outdoor training deck with rounded architecture and open rubbery floor. An inviting Robot City with large clear geometric designs; no crowd, no second mascot, no background robots or decorative tiny icons.\n\nTEXT:\nExact bold title \"5 MIN ROBOT CITY\". Exact smaller subtitle \"12 FUN FREEZE MOVES\". White high-contrast sans-serif with subtle dark navy background if needed, no other words, logos or lettering.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Clean warm midday sun, matte surfaces, appealing color separation and no generic glossy image-generator look.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No dangerous actions, clutter, bad limbs, cropped shoes, fake subtitles, blurry text or excessive detail.\n\nQUALITY CHECK:\nCheck all text exactly, one fully clothed fictional character, readable body pose, compelling mobile thumbnail, no accidental type or image noise. Compose a visibly new viewpoint for this cover candidate.\n\nOUTPUT:\nStatic 16:9 cover file Cover-Kandidat-02.png.\n\n--- COVER VARIANT ---\n\nCLICK IDEA:\nA joyful five-minute freeze challenge led by an original animated mascot. Make the image unmistakably a kids fitness workout thumbnail at mobile scale rather than a numbers or alphabet lesson.\n\nSHOT / COMPOSITION:\nMedium-wide cinematic ground-level shot, full mascot left foreground in one-arm-up ready stance, clean architectural star floor sculpture on right, upper-right title space.. Distinct visual hierarchy, large full mascot, premium 16:9 landscape depth, clean readable headline. Candidate 3 has its own strong composition unlike the other two.\n\nCHARACTER:\nExactly one original fictional fully clothed cartoon mascot, wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers, with simplified expressive animated features and safe natural anatomy. No photography or licensed characters.\n\nWORLD:\nsunset rooftop training garden with a simple curved bridge. An inviting Robot City with large clear geometric designs; no crowd, no second mascot, no background robots or decorative tiny icons.\n\nTEXT:\nExact bold title \"5 MIN ROBOT CITY\". Exact smaller subtitle \"12 FUN FREEZE MOVES\". White high-contrast sans-serif with subtle dark navy background if needed, no other words, logos or lettering.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft sunset rim light, matte surfaces, appealing color separation and no generic glossy image-generator look.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No dangerous actions, clutter, bad limbs, cropped shoes, fake subtitles, blurry text or excessive detail.\n\nQUALITY CHECK:\nCheck all text exactly, one fully clothed fictional character, readable body pose, compelling mobile thumbnail, no accidental type or image noise. Compose a visibly new viewpoint for this cover candidate.\n\nOUTPUT:\nStatic 16:9 cover file Cover-Kandidat-03.png."
+    },
+    {
+      "sceneNumber": 2,
+      "imageFile": "Szene 02.png",
+      "sceneRole": "intro",
+      "visualPurpose": "Simple intro start, safety or ending card.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "premium static stage card with one character",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "Large exact intro text \"KIDMOTION\", \"ROBOT CITY WORKOUT\", \"12 FREEZE MOVES\". No other text, no timer.",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe Robot City workout is beginning with twelve freeze challenges. The INTRO/SAFETY/OUTRO is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nWide establishing eye-level activity plaza, mascot on right third, clean left side for title.. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Standing upright, friendly open hands, both feet planted.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nRobot City central launch plaza with one tall matte antenna arch. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nLarge exact intro text \"KIDMOTION\", \"ROBOT CITY WORKOUT\", \"12 FREEZE MOVES\". No other text, no timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact INTRO/SAFETY/OUTRO function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 02.png."
+    },
+    {
+      "sceneNumber": 3,
+      "imageFile": "Szene 03.png",
+      "sceneRole": "safety",
+      "visualPurpose": "Simple safety start, safety or ending card.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "premium static stage card with one character",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "Exact large safety text \"SAFETY FIRST\", \"Make some space.\", \"Stop if anything hurts.\". No other text, no timer.",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nChild sees a simple safety reminder before moving. The INTRO/SAFETY/OUTRO is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nFrontal wide quiet court, mascot left third, clear single right panel.. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Calm neutral standing pose with both arms lowered.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nclean empty workout court with one distant soft arch. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nExact large safety text \"SAFETY FIRST\", \"Make some space.\", \"Stop if anything hurts.\". No other text, no timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact INTRO/SAFETY/OUTRO function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 03.png."
+    },
+    {
+      "sceneNumber": 4,
+      "imageFile": "Szene 04.png",
+      "sceneRole": "lets-begin",
+      "visualPurpose": "Simple lets-begin start, safety or ending card.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "premium static stage card with one character",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "Exact two-line text \"POWER ON!\" and \"LET'S BEGIN!\". No other text, no timer.",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe workout starts now. The INTRO/SAFETY/OUTRO is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nLow eye-level launch-platform wide view, mascot right center, bold text on left.. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Safe energized stationary ready pose with elbows bent, feet flat.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\ntraining launch circle with a smooth inert power ring. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nExact two-line text \"POWER ON!\" and \"LET'S BEGIN!\". No other text, no timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact INTRO/SAFETY/OUTRO function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 04.png."
+    },
+    {
+      "sceneNumber": 5,
+      "imageFile": "Szene 05.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary ANTENNA REACH pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "frontal waist-height wide shot, mascot center-right and tall landmark left",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ANTENNA REACH",
+        "instruction": "Stretch both arms up and stand tall."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static ANTENNA REACH workout pose: feet apart and both arms reaching vertically overhead, hands open, heels planted. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nfrontal waist-height wide shot, mascot center-right and tall landmark left; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. feet apart and both arms reaching vertically overhead, hands open, heels planted. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nlaunch plaza with a huge antenna arch. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"ANTENNA REACH\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Stretch both arms up and stand tall.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 05.png."
+    },
+    {
+      "sceneNumber": 6,
+      "imageFile": "Szene 06.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for T-BAR HOLD.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: T-BAR HOLD",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for T-BAR HOLD but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nsignal bridge with two smooth arch spans. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: T-BAR HOLD\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 06.png."
+    },
+    {
+      "sceneNumber": 7,
+      "imageFile": "Szene 07.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary T-BAR HOLD pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "symmetrical frontal wide shot with space around fingertips",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "T-BAR HOLD",
+        "instruction": "Open your arms wide and hold still."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static T-BAR HOLD workout pose: feet hip-width, arms extended horizontally into one long T, no raised foot. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nsymmetrical frontal wide shot with space around fingertips; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. feet hip-width, arms extended horizontally into one long T, no raised foot. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nsignal bridge with two smooth arch spans. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"T-BAR HOLD\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Open your arms wide and hold still.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 07.png."
+    },
+    {
+      "sceneNumber": 8,
+      "imageFile": "Szene 08.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for GEAR SQUAT HOLD.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: GEAR SQUAT HOLD",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for GEAR SQUAT HOLD but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\ngear garden with one static round cog sculpture. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: GEAR SQUAT HOLD\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 08.png."
+    },
+    {
+      "sceneNumber": 9,
+      "imageFile": "Szene 09.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary GEAR SQUAT HOLD pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "mild elevated left three-quarter full-body shot, knees clearly bent",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "GEAR SQUAT HOLD",
+        "instruction": "Bend your knees a little and freeze."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static GEAR SQUAT HOLD workout pose: safe shallow squat, feet apart, knees aligned, heels planted, arms forward. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nmild elevated left three-quarter full-body shot, knees clearly bent; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. safe shallow squat, feet apart, knees aligned, heels planted, arms forward. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\ngear garden with one static round cog sculpture. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"GEAR SQUAT HOLD\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Bend your knees a little and freeze.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 09.png."
+    },
+    {
+      "sceneNumber": 10,
+      "imageFile": "Szene 10.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for SIDE SIGNAL REACH.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: SIDE SIGNAL REACH",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for SIDE SIGNAL REACH but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nsolar promenade below a fan-shaped roof. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: SIDE SIGNAL REACH\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 10.png."
+    },
+    {
+      "sceneNumber": 11,
+      "imageFile": "Szene 11.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary SIDE SIGNAL REACH pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "eye-level three-quarter left view with curved open arm silhouette",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "SIDE SIGNAL REACH",
+        "instruction": "Lean gently sideways and reach long."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static SIDE SIGNAL REACH workout pose: both feet flat, left arm arched overhead to right, small gentle side bend. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\neye-level three-quarter left view with curved open arm silhouette; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. both feet flat, left arm arched overhead to right, small gentle side bend. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nsolar promenade below a fan-shaped roof. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"SIDE SIGNAL REACH\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Lean gently sideways and reach long.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 11.png."
+    },
+    {
+      "sceneNumber": 12,
+      "imageFile": "Szene 12.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for RUNNER FREEZE.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: RUNNER FREEZE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for RUNNER FREEZE but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\ncircuit runway with a distant inactive round gate. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: RUNNER FREEZE\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 12.png."
+    },
+    {
+      "sceneNumber": 13,
+      "imageFile": "Szene 13.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary RUNNER FREEZE pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "low front-left oblique shot showing long leg separation",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "RUNNER FREEZE",
+        "instruction": "Step one foot back and hold your pose."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static RUNNER FREEZE workout pose: split stance with one foot forward and one back, both feet planted, elbows bent. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nlow front-left oblique shot showing long leg separation; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. split stance with one foot forward and one back, both feet planted, elbows bent. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\ncircuit runway with a distant inactive round gate. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"RUNNER FREEZE\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Step one foot back and hold your pose.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 13.png."
+    },
+    {
+      "sceneNumber": 14,
+      "imageFile": "Szene 14.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for COMPASS TURN.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: COMPASS TURN",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for COMPASS TURN but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nnavigation hub with one large compass-circle floor inlay without letters. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: COMPASS TURN\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 14.png."
+    },
+    {
+      "sceneNumber": 15,
+      "imageFile": "Szene 15.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary COMPASS TURN pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "slightly elevated right-side view to show gentle torso turn",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "COMPASS TURN",
+        "instruction": "Turn your shoulders and point ahead."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static COMPASS TURN workout pose: gentle right torso turn, hips forward, right arm pointing forwards and left elbow comfortably bent. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nslightly elevated right-side view to show gentle torso turn; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. gentle right torso turn, hips forward, right arm pointing forwards and left elbow comfortably bent. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nnavigation hub with one large compass-circle floor inlay without letters. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"COMPASS TURN\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Turn your shoulders and point ahead.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 15.png."
+    },
+    {
+      "sceneNumber": 16,
+      "imageFile": "Szene 16.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for TABLE BRIDGE.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: TABLE BRIDGE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for TABLE BRIDGE but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nquiet maintenance patio with clean grid floor and a low architectural arch. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: TABLE BRIDGE\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 16.png."
+    },
+    {
+      "sceneNumber": 17,
+      "imageFile": "Szene 17.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary TABLE BRIDGE pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "low floor-height side profile showing all four support points",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "TABLE BRIDGE",
+        "instruction": "Hands and feet down, lift your hips."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static TABLE BRIDGE workout pose: reverse tabletop, bent knees, both feet flat, palms on ground behind hips, hips raised comfortably. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nlow floor-height side profile showing all four support points; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. reverse tabletop, bent knees, both feet flat, palms on ground behind hips, hips raised comfortably. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nquiet maintenance patio with clean grid floor and a low architectural arch. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"TABLE BRIDGE\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Hands and feet down, lift your hips.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 17.png."
+    },
+    {
+      "sceneNumber": 18,
+      "imageFile": "Szene 18.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for POWER PLANK.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: POWER PLANK",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for POWER PLANK but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\ntraining tunnel with one nonfunctional rounded portal. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: POWER PLANK\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 18.png."
+    },
+    {
+      "sceneNumber": 19,
+      "imageFile": "Szene 19.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary POWER PLANK pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "floor-level side view with straight body and limbs fully visible",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "POWER PLANK",
+        "instruction": "Hold a straight line on the floor."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static POWER PLANK workout pose: straight-arm high plank with hands below shoulders, toes grounded, spine level, head aligned. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nfloor-level side view with straight body and limbs fully visible; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. straight-arm high plank with hands below shoulders, toes grounded, spine level, head aligned. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\ntraining tunnel with one nonfunctional rounded portal. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"POWER PLANK\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Hold a straight line on the floor.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 19.png."
+    },
+    {
+      "sceneNumber": 20,
+      "imageFile": "Szene 20.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for SKY BALANCE.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: SKY BALANCE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for SKY BALANCE but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nsafe observation deck with distant skyline and clear sky. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: SKY BALANCE\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 20.png."
+    },
+    {
+      "sceneNumber": 21,
+      "imageFile": "Szene 21.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary SKY BALANCE pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "front three-quarter eye-level shot with separate lifted foot silhouette",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "SKY BALANCE",
+        "instruction": "Lift one foot and spread your arms."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static SKY BALANCE workout pose: stand on left foot, gently lift right foot behind, arms open, torso stable and upright. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nfront three-quarter eye-level shot with separate lifted foot silhouette; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. stand on left foot, gently lift right foot behind, arms open, torso stable and upright. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nsafe observation deck with distant skyline and clear sky. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"SKY BALANCE\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Lift one foot and spread your arms.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 21.png."
+    },
+    {
+      "sceneNumber": 22,
+      "imageFile": "Szene 22.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for SHIELD PRESS.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: SHIELD PRESS",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for SHIELD PRESS but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nshield courtyard with a single curved translucent building panel. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: SHIELD PRESS\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 22.png."
+    },
+    {
+      "sceneNumber": 23,
+      "imageFile": "Szene 23.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary SHIELD PRESS pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "mild low-angle front-right shot with palms clearly readable",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "SHIELD PRESS",
+        "instruction": "Push both palms forward and stay firm."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static SHIELD PRESS workout pose: safe standing split stance with two open palms pressing forwards, elbows gently bent. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nmild low-angle front-right shot with palms clearly readable; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. safe standing split stance with two open palms pressing forwards, elbows gently bent. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nshield courtyard with a single curved translucent building panel. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"SHIELD PRESS\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Push both palms forward and stay firm.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 23.png."
+    },
+    {
+      "sceneNumber": 24,
+      "imageFile": "Szene 24.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for STAR FREEZE.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: STAR FREEZE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for STAR FREEZE but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nstar courtyard with one giant five-point inlay on the ground. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: STAR FREEZE\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 24.png."
+    },
+    {
+      "sceneNumber": 25,
+      "imageFile": "Szene 25.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary STAR FREEZE pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "dead-on centered wide hero shot with uncluttered space around four limbs",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "STAR FREEZE",
+        "instruction": "Stretch wide like a giant star."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static STAR FREEZE workout pose: feet wide, arms diagonally raised to form an X, hands and shoes all visible. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\ndead-on centered wide hero shot with uncluttered space around four limbs; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. feet wide, arms diagonally raised to form an X, hands and shoes all visible. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nstar courtyard with one giant five-point inlay on the ground. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"STAR FREEZE\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Stretch wide like a giant star.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 25.png."
+    },
+    {
+      "sceneNumber": 26,
+      "imageFile": "Szene 26.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Neutral prepare phase for POWER-UP VICTORY.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "neutral mascot at left and locked panel at right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: POWER-UP VICTORY",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nThe child prepares for POWER-UP VICTORY but does NOT see its exercise pose yet. The GET READY is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nCalm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Stand upright neutral with feet together on safe flat ground and relaxed arms at sides. Never show the upcoming exercise pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nfinal roof garden with a broad finish arch and warm futuristic skyline. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nGET READY UI: dark semi-transparent navy rounded rectangle on RIGHT HALF, bold large uppercase white exact words \"GET READY\" and smaller bright-cyan exact words \"NEXT: POWER-UP VICTORY\". Same box, font and padding for all transitions. top-left 230x230 timer safe zone must remain clear. No generated countdown, no other text. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact GET READY function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 26.png."
+    },
+    {
+      "sceneNumber": 27,
+      "imageFile": "Szene 27.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly show safe stationary POWER-UP VICTORY pose.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "low front-right wide victory shot with clear sky between the V arms",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "POWER-UP VICTORY",
+        "instruction": "Raise your hands and finish strong."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nShow a safe clearly readable static POWER-UP VICTORY workout pose: stable upright stance with hands raised apart into broad V, comfortably bent elbows. The EXERCISE is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nlow front-right wide victory shot with clear sky between the V arms; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. stable upright stance with hands raised apart into broad V, comfortably bent elbows. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nfinal roof garden with a broad finish arch and warm futuristic skyline. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nEXERCISE UI: bottom-left bold uppercase white sans-serif title \"POWER-UP VICTORY\" in a dark semi-transparent navy rounded rectangle. top-right dark navy instruction \"Raise your hands and finish strong.\" inside a light cream rounded rectangle. Same sizes, typography, padding and positions on every exercise scene. No gray badge, gold plaque or thought bubble. Top-left 230x230 pixel countdown timer safe zone completely EMPTY of text, arms and main objects, no generated timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact EXERCISE function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 27.png."
+    },
+    {
+      "sceneNumber": 28,
+      "imageFile": "Szene 28.png",
+      "sceneRole": "outro",
+      "visualPurpose": "Simple outro start, safety or ending card.",
+      "topicAnchor": "5 minute robot city freeze workout for kids",
+      "visualForm": "premium static stage card with one character",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "Exact large conclusion text \"GREAT JOB!\" and \"WORKOUT COMPLETE\". No other text, no timer.",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "same one fully clothed original mascot",
+        "correct scene role and printed text",
+        "clear safe pose and full hands/feet",
+        "consistent exercise/get-ready UI",
+        "no timer baked in source image",
+        "clear top-left timer reserve for workout scenes",
+        "no extra characters or numbers-learning graphics",
+        "distinct camera and silhouette"
+      ],
+      "prompt": "VIEWER TAKEAWAY:\nCelebrate finishing all the freeze moves. The INTRO/SAFETY/OUTRO is instantly legible to a child in two seconds and has exactly one central visual idea. This is a real freeze workout, not a learning or counting exercise.\n\nREFERENCE USE:\nUse selected Szene 01.png as the ONLY image reference for mascot identity, clothing, color palette, and Robot City design. Do not copy the cover pose, camera, text layout or composition. No other image reference permitted.\n\nSHOT / COMPOSITION:\nWide low-angle rooftop garden finish shot, mascot right and empty left for text.. Strong full-body view with all hands/feet visible in a single still. Intentional focal subject, one large environmental landmark and clean 16:9 layout. Do not copy the chosen cover angle; each adjacent movement has a different silhouette and composition.\n\nCHARACTER / POSE:\nExactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers and white athletic trainers. Standing safe finish celebration with one relaxed raised fist, different from final V pose.. Same recognizable face, clothing and animated world identity as selected Szene 01. Safe static stable anatomy, realistic support and separate visible arms and legs.\n\nWORLD / ENVIRONMENT:\nRobot City warm sunset skyline behind a single finish arch. Same friendly Robot City architecture and original CGI palette, but not a repetitive pasted-on background. One designed midground focal feature and a calm distant skyline, with no additional characters.\n\nTEXT / UI:\nExact large conclusion text \"GREAT JOB!\" and \"WORKOUT COMPLETE\". No other text, no timer. Google Flow owns all visible text besides the later countdown timer. Exact spelling only, clean typesetting, consistent panels, no additional labels or subtitles.\n\nLIGHT / MATERIALS:\nOriginal family-friendly stylized 3D children's adventure animation, one clearly fictional fully clothed KidMotion mascot, high-quality matte painted objects, soft cinematic lighting, cohesive teal/coral/lime Robot City palette, crisp shapes with real foreground/midground/background depth, not glossy generic stock CGI. Soft directional warm daylight with cool fill, tactile matte materials, no harsh light effects. Enough separation between costume and background to understand the pose at small size.\n\nNEGATIVE / STABILITY:\nNo extra people, no second mascot, no anthropomorphic robots, no animals, no brand names, no legible random signs, no logos, no watermark, no generated countdown, no progress bar, no distorted limbs, no cropped feet or hands, no unrealistic floating feet, no photorealism, no AI-plastic gloss. No motion effects, no distracting tiny type, no bad anatomy, no extra props, no color-mismatched outfit, no copy of previous scene imagery.\n\nQUALITY CHECK:\n2-second child test, exact INTRO/SAFETY/OUTRO function and wording, clear support feet/hands, comfortable posture, no accidental text, no duplicate background characters, no copied neighboring pose, correct stable costume and timer clearance. One result per scene: never silently regenerate or substitute another frame.\n\nOUTPUT:\nExactly one premium 16:9 static 1920x1080-composed image, final filename Szene 28.png."
+    }
+  ],
+  "promptSpecVersion": 2
+}

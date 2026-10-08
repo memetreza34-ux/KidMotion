@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 3,
+  "productionContractVersion": 1,
+  "status": "cover-selection-pending",
+  "promptPlanReady": true,
+  "coverSelectionPending": true,
+  "coverSelected": false,
+  "imagesReady": false,
+  "audioReady": false,
+  "assetsApproved": false,
+  "renderReady": false
+}

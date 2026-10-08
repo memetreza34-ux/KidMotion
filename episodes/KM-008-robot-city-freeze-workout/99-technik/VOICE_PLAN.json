@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-008-robot-city-freeze-workout",
+  "voiceFile": "Voice 01.mp3",
+  "targetDurationSeconds": {
+    "min": 13.65,
+    "target": 13.9,
+    "max": 14.05
+  },
+  "startsAtSeconds": 0,
+  "mustEndBeforeSeconds": 14.05,
+  "noSpokenVoiceAfterSeconds": 14,
+  "sections": [
+    {
+      "scene": "02",
+      "label": "INTRO",
+      "startSeconds": 0,
+      "endSeconds": 8,
+      "text": "Welcome to Robot City! Twelve fun freeze moves are waiting. Copy each pose, stay steady, and enjoy the adventure."
+    },
+    {
+      "scene": "03",
+      "label": "SAFETY",
+      "startSeconds": 8,
+      "endSeconds": 12,
+      "text": "Make some space, move at your own pace, and stop if anything hurts."
+    },
+    {
+      "scene": "04",
+      "label": "LETS_BEGIN",
+      "startSeconds": 12,
+      "endSeconds": 14,
+      "text": "Power on! Let's begin!"
+    }
+  ],
+  "exactTtsCopy": "Welcome to Robot City! Twelve fun freeze moves are waiting. Copy each pose, stay steady, and enjoy the adventure. Make some space, move at your own pace, and stop if anything hurts. Power on! Let's begin!",
+  "note": "The opening 0-14s boundaries are desired TTS timing; verify actual voice duration before MP4 assembly."
+}

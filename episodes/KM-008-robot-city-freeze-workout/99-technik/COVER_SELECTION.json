@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-008-robot-city-freeze-workout",
+  "status": "AWAITING_USER_SELECTION",
+  "selectedCandidate": null,
+  "selectedCandidateOriginalFile": null,
+  "finalFile": null,
+  "userSelectionRequired": true,
+  "soleReferenceForLaterScenes": "Szene 01.png",
+  "secondaryImageReferencesForbidden": true
+}
