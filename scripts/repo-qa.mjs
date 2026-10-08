@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {spawnSync} from 'node:child_process';
 import {loadContract, expectedSceneSpecs, sceneFile, hasPlanningPlaceholder, currentContractErrors, validateVoicePlanObject} from './contract.mjs';
 
 const root = process.cwd();
@@ -184,6 +185,10 @@ if (fs.existsSync(episodeRoot)) {
       if (promptCount !== contract.promptContract.finalGoogleFlowPromptBlocks) fail(`${entry.name}: expected ${contract.promptContract.finalGoogleFlowPromptBlocks} FINAL GOOGLE FLOW PROMPT blocks, found ${promptCount}.`);
       for (let n = 2; n <= contract.sceneContract.sceneCount; n += 1) {
         if (!prompt.includes(`SZENE ${String(n).padStart(2,'0')}`)) fail(`${entry.name}: missing prompt section for Szene ${String(n).padStart(2,'0')}.`);
+      }
+      if(String(data.compactPromptPolicy||'')==='v2-short'){
+        const check=spawnSync(process.execPath,['scripts/prompt-plan-qa.mjs','--episode='+entry.name],{cwd:root,encoding:'utf8'});
+        if(check.status!==0) fail(entry.name+': full prompt:qa failed: '+String(check.stderr||check.stdout||'').trim());
       }
       if(String(data.compactPromptPolicy||'')==='v2-short'){
         for(let n=2;n<=contract.sceneContract.sceneCount;n++){
