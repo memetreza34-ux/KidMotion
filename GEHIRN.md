@@ -19,7 +19,7 @@ Für Phase 3 gilt:
 - kein Ersetzen/Improvisieren
 - keine Fallback-Bilder
 - fehlendes/geändertes Bild = Phase 3 blockieren
-- bei einem Roh-Handoff zuerst `npm run phase3:ingest -- --episode=<episode-folder>`
+- bei einem Roh-Handoff zuerst `npm run phase3:prepare -- --episode=<episode-folder>`
 - ZIP entpacken und technische Datei-Normalisierung sind erlaubt
 - Audio aus vorhandenen MP4/M4A/WAV/AAC-Dateien nach MP3 konvertieren ist erlaubt
 - Bildpixel/Bildinhalt dürfen nicht verändert werden
@@ -293,7 +293,7 @@ Erst danach `npm run assets:approve -- --episode=...`.
 Approval sperrt Assets per SHA-256.
 
 ## 13. PHASE 3 — Antigravity Assembly/Render
-Roh-Handoff zuerst über `npm run phase3:ingest -- --episode=<episode-folder>`.
+Roh-Handoff zuerst über `npm run phase3:prepare -- --episode=<episode-folder>`.
 
 Finaler Render danach nur über `npm run render:safe`.
 
