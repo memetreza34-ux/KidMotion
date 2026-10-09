@@ -11,7 +11,7 @@ const folder=arg('episode'),source=arg('source'),scene=arg('scene'),cover=arg('c
 const fail=msg=>{console.error('FLOW SAVE BLOCKED: '+msg);process.exit(1);};
 if(!folder||!source||Boolean(scene)===Boolean(cover))fail('Pass --episode, --source and exactly one of --scene=N or --cover=N.');
 if(path.extname(source).toLowerCase()!=='.png')fail('Source must be an actual downloaded PNG. Convert a real image to PNG during Phase 2 if necessary, without inventing image content.');
-if(!/^[1-3]$/.test(cover)&&!(!cover&&/^(?:[2-9]|1\d|2[0-8])$/.test(scene)))fail('Cover ID must be 1-3; scene ID must be 2-28.');
+if(!/^(?:0?[1-3])$/.test(cover)&&!(!cover&&/^(?:0?[2-9]|1\d|2[0-8])$/.test(scene)))fail('Cover ID must be 1-3 / 01-03; scene ID must be 2-28 / 02-28.');
 const paths=resolveEpisodePaths(process.cwd(),folder);
 if(paths.structure==='missing')fail('Episode not found.');
 const episode=readEpisodeData(paths);
