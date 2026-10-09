@@ -13,7 +13,11 @@
       "noRobotOrAnimalMascot": false,
       "actualImageInspected": false,
       "sha256": null,
-      "status": "PENDING"
+      "status": "PENDING",
+      "warmChildFriendly": false,
+      "clearConcreteEnvironment": false,
+      "notDisturbing": false,
+      "notSterile": false
     },
     {
       "candidate": 2,
@@ -23,7 +27,11 @@
       "noRobotOrAnimalMascot": false,
       "actualImageInspected": false,
       "sha256": null,
-      "status": "PENDING"
+      "status": "PENDING",
+      "warmChildFriendly": false,
+      "clearConcreteEnvironment": false,
+      "notDisturbing": false,
+      "notSterile": false
     },
     {
       "candidate": 3,
@@ -33,7 +41,12 @@
       "noRobotOrAnimalMascot": false,
       "actualImageInspected": false,
       "sha256": null,
-      "status": "PENDING"
+      "status": "PENDING",
+      "warmChildFriendly": false,
+      "clearConcreteEnvironment": false,
+      "notDisturbing": false,
+      "notSterile": false
     }
-  ]
+  ],
+  "visualPolicy": "warm-playful-v1"
 }

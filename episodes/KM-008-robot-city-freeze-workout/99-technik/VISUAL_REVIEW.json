@@ -16,7 +16,10 @@
   "noMissingOrDuplicateSceneContent": false,
   "eachSceneMatchesItsPromptRole": false,
   "openingVisualTimingMatchesVoice": false,
-  "notes": "Screenshot shows robot/fox covers; these do not qualify. Review actual regenerated human images only.",
+  "notes": "Human reviewer must inspect actual images for warmth, friendly animated girl, readable exercise pose, inviting concrete play space, no sterile/abstract/eerie frames. Still awaiting actual images; all review flags false.",
   "humanCharacterConfirmedEveryScene": false,
-  "noNonHumanMascotInWorkoutScenes": false
+  "noNonHumanMascotInWorkoutScenes": false,
+  "allWorkoutImagesWarmAndInviting": false,
+  "allWorkoutImagesConcreteAndChildReadable": false,
+  "noSterileOrDisturbingWorkoutVisuals": false
 }

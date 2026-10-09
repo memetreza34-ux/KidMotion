@@ -50,5 +50,21 @@
   "maximumScenePromptCharacters": 1500,
   "compactPolicy": "v2-short",
   "compactPolicyAppliesWhen": "episode.compactPromptPolicy === 'v2-short'",
-  "notes": "Keep all v2 headings, exact labels, the reference and unique shot; phrase each section in 1 sentence. Old episodes remain backward compatible."
+  "notes": "Keep all v2 headings, exact labels, the reference and unique shot; phrase each section in 1 sentence. Old episodes remain backward compatible.",
+  "kidFriendlyWarmth": {
+    "episodeFlag": "warm-playful-v1",
+    "requiredPromptSection": "WARMTH / MOOD:",
+    "coverReviewFields": [
+      "warmChildFriendly",
+      "clearConcreteEnvironment",
+      "notDisturbing",
+      "notSterile"
+    ],
+    "sceneReviewFields": [
+      "allWorkoutImagesWarmAndInviting",
+      "allWorkoutImagesConcreteAndChildReadable",
+      "noSterileOrDisturbingWorkoutVisuals"
+    ],
+    "visualReviewIsHumanNotAutomated": true
+  }
 }

@@ -134,7 +134,8 @@
     "rejectUnknownOrConflictingFiles": true,
     "noPhase3ImageGeneration": true,
     "requiredHandoffFile": "99-technik/PHASE2_HANDOFF.json",
-    "agentInstructionFile": "PHASE2_FLOW_RUNBOOK.md"
+    "agentInstructionFile": "PHASE2_FLOW_RUNBOOK.md",
+    "visualWarmthReviewRequired": true
   },
   "introDuration": 8,
   "introTitle": "ROBOT CITY WORKOUT",
@@ -592,5 +593,6 @@
     "coverHumanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
   },
   "sceneNumberingPolicy": "explicit-v1",
-  "visualComplexityPolicy": "grounded-simple-workout"
+  "visualComplexityPolicy": "grounded-simple-workout",
+  "kidFriendlyVisualPolicy": "warm-playful-v1"
 }

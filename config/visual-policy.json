@@ -1,5 +1,5 @@
 {
-  "visualPolicyVersion": 12,
+  "visualPolicyVersion": 13,
   "status": "READY",
   "styleId": "kidmotion-premium-3d-v3-flow-text",
   "description": "Zentrale KidMotion Bildwelt. Erst drei Flow-kompatible Cover, dann eine Nutzerwahl. Das gewaehlte Cover wird Szene 01 und danach die EINZIGE Bildreferenz fuer alle weiteren Szenen. Szene 02-28 werden jeweils genau einmal und streng nacheinander erzeugt. Die internen 5er-Bloecke laufen nach der Coverwahl automatisch bis zum fertigen Bilderordner durch. Google Flow erzeugt alle sichtbaren Texte; Remotion zeichnet nur den Countdown-Timer.",
@@ -13,6 +13,7 @@
     "rule": "This UI contract must be written explicitly into every relevant Google Flow prompt. It is text-only guidance and NEVER authorizes a second image reference."
   },
   "rules": [
+    "Workout must feel warm, lovingly directed, playful and age-appropriate: a welcoming HUMAN face with natural expression, cheerful color, sunny soft light and ONE small meaningful game detail. Never sterile, empty, abstract, disturbing or repetitive.",
     "Workout pictures must be visually simple: clear human pose in believable safe training space; no giant robot props, surreal buildings, wild sci-fi clutter or unrelated gimmicks.",
     "Every workout image and cover must show exactly one obviously HUMAN, fully clothed stylized boy or girl, NEVER a robot or animal mascot, even in Robot City.",
     "16:9 landscape, premium stylized 3D family-friendly animation look",
@@ -91,7 +92,8 @@
     "reusing the next 20-second exercise image during the 5-second transition",
     "more than two neighboring exercises with near-identical squat/lunge/balance silhouettes",
     "robots, foxes, animals or anthropomorphic objects as workout demonstrators",
-    "overly crazy fantasy workout sets, oversized props, chaotic architecture"
+    "overly crazy fantasy workout sets, oversized props, chaotic architecture",
+    "eerie human expressions, empty sterile CGI sports sets, arbitrary surreal details, emotionally cold or uncanny images"
   ],
   "referenceWorkflow": {
     "coverCandidatesFirst": true,
@@ -129,5 +131,14 @@
     "giantPropsForbidden": true,
     "chaoticSurrealScenesForbidden": true,
     "themeMayNotObscurePerson": true
+  },
+  "kidFriendlyWarmthPolicy": {
+    "id": "warm-playful-v1",
+    "scope": "workout and learn-and-move",
+    "core": "Cheerful human athlete with inviting warm expression, soft sunlight, pleasant rich colors and one playful purposeful detail",
+    "never": "creepy, cold, sterile, abstract, artificial showroom, meaningless oversized prop or chaotic fantasy",
+    "realImageVisualReviewRequired": true,
+    "onePrimaryExerciseAction": true,
+    "defaultAgeStyling": "family-friendly high-quality 3D; neither babyish nor intimidating"
   }
 }

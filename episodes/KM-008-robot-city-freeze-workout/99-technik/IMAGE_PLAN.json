@@ -98,7 +98,9 @@
     "sceneIdsMustMatchFileNames": true,
     "sceneNumbersAreNotVisibleText": true,
     "useDownloadSaveCommand": true,
-    "saveCommandTemplate": "npm run flow:save -- --episode=KM-008-robot-city-freeze-workout --scene=<NN> --source=<real-downloaded-png>"
+    "saveCommandTemplate": "npm run flow:save -- --episode=KM-008-robot-city-freeze-workout --scene=<NN> --source=<real-downloaded-png>",
+    "kidFriendlyVisualPolicy": "warm-playful-v1",
+    "visualWarmthReviewRequired": true
   },
   "images": [
     {
@@ -123,9 +125,10 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "every cover: one unmistakably human animated girl, never robot or animal"
+        "every cover: one unmistakably human animated girl, never robot or animal",
+        "Genuinely warm smiling human girl and inviting realistic sports park; no eerie or abstract content"
       ],
-      "prompt": "COVER_ID: 01 | OUTPUT_FILE: Cover-Kandidat-01.png | ID is file metadata ONLY.\nCLICK IDEA: One original mascot invites viewers into a fun Robot City sport adventure. Make the image unmistakably a kids fitness workout\nSHOT / COMPOSITION: Low wide frontal camera, friendly mascot right-center with arms comfortably open, one modest teal sports arch on the left, title in open upper-left sky. Distinct visual hierarchy\nCHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete, visible human face, hair, hands and legs; teal/coral jacket, navy joggers, white trainers.\nWORLD: central launch plaza with smooth teal activity track. An inviting Robot City with large clear\nTEXT: Exact \"5 MIN ROBOT CITY\" and \"12 FUN FREEZE MOVES\"; bold white text, mobile-readable.\nLIGHT / MATERIALS: Matte teal/coral Robot City CGI; soft cinematic lighting.\nNEGATIVE / STABILITY: No extra people, brands, random text, distorted limbs or photo look. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Clear mascot and click-worthy fitness premise; unique layout. Confirm visibly human girl, never robot/animal.\nOUTPUT: Cover-Kandidat-01.png\n\n--- COVER VARIANT ---\n\nCOVER_ID: 02 | OUTPUT_FILE: Cover-Kandidat-02.png | ID is file metadata ONLY.\nCLICK IDEA: Twelve fun exercise poses are waiting inside a simple safe open-air sports playground. Make the image\nSHOT / COMPOSITION: Wide three-quarter slightly elevated shot, mascot left foreground in safe V pose and one small curved park arch on the right, curved track leads to skyline, title on upper\nCHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete, visible human face, hair, hands and legs; teal/coral jacket, navy joggers, white trainers.\nWORLD: safe outdoor training deck with rounded architecture and open rubbery floor. An inviting Robot\nTEXT: Exact \"5 MIN ROBOT CITY\" and \"12 FUN FREEZE MOVES\"; bold white text, mobile-readable.\nLIGHT / MATERIALS: Matte teal/coral Robot City CGI; soft cinematic lighting.\nNEGATIVE / STABILITY: No extra people, brands, random text, distorted limbs or photo look. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Clear mascot and click-worthy fitness premise; unique layout. Confirm visibly human girl, never robot/animal.\nOUTPUT: Cover-Kandidat-02.png\n\n--- COVER VARIANT ---\n\nCOVER_ID: 03 | OUTPUT_FILE: Cover-Kandidat-03.png | ID is file metadata ONLY.\nCLICK IDEA: A joyful five-minute freeze challenge led by an original animated mascot. Make the image unmistakably a kids fitness workout\nSHOT / COMPOSITION: Medium-wide cinematic ground-level shot, full mascot left foreground in one-arm-up ready stance, simple painted star on the floor on right, upper-right title space\nCHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete, visible human face, hair, hands and legs; teal/coral jacket, navy joggers, white trainers.\nWORLD: sunset rooftop training garden with a simple curved bridge. An inviting Robot City with large\nTEXT: Exact \"5 MIN ROBOT CITY\" and \"12 FUN FREEZE MOVES\"; bold white text, mobile-readable.\nLIGHT / MATERIALS: Matte teal/coral Robot City CGI; soft cinematic lighting.\nNEGATIVE / STABILITY: No extra people, brands, random text, distorted limbs or photo look. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Clear mascot and click-worthy fitness premise; unique layout. Confirm visibly human girl, never robot/animal.\nOUTPUT: Cover-Kandidat-03.png",
+      "prompt": "COVER_ID: 01 | OUTPUT_FILE: Cover-Kandidat-01.png | ID is file metadata ONLY.\nCLICK IDEA: Warm, joyful human-led kids freeze workout in a colorful realistic play park.\nSHOT / COMPOSITION: Low eye-level wide shot, smiling girl right-center, small teal sports arch left, big title above-left.\nCHARACTER: One original fictional fully clothed 3D HUMAN girl athlete, human face and hands, teal/coral jacket, navy joggers, white shoes.\nWORLD: sunny community sports park, painted peach starting stripe and low rounded teal buildings; gentle Robot City design, not abstract.\nWARMTH / MOOD: Natural welcoming smile and kind eyes; happy sunny light and one playful curved floor mark.\nTEXT: Exact \"5 MIN ROBOT CITY\" and \"12 FUN FREEZE MOVES\", large readable white.\nLIGHT / MATERIALS: Warm sunlit matte 3D, tactile and colorful.\nNEGATIVE / STABILITY: No robot, fox, animal or anthropomorphic character, other people, clutter, scary or uncanny faces, random text.\nQUALITY CHECK: Distinct friendly child-focused cover, correct text and whole human girl; no cold abstract scene.\nOUTPUT: Cover-Kandidat-01.png\n\n--- COVER VARIANT ---\n\nCOVER_ID: 02 | OUTPUT_FILE: Cover-Kandidat-02.png | ID is file metadata ONLY.\nCLICK IDEA: Friendly five-minute activity challenge, clearly human and approachable.\nSHOT / COMPOSITION: Eye-level three-quarter wide shot; girl left in easy safe V, tiny painted path on right, big text upper-right.\nCHARACTER: One original fictional fully clothed 3D HUMAN girl athlete, human face and hands, teal/coral jacket, navy joggers, white shoes.\nWORLD: open-air activity court with pleasant pastel sports floor and one distant planter; gentle Robot City design, not abstract.\nWARMTH / MOOD: Proud playful grin, gentle sunlight and warm peach/teal details; no sci-fi spectacle.\nTEXT: Exact \"5 MIN ROBOT CITY\" and \"12 FUN FREEZE MOVES\", large readable white.\nLIGHT / MATERIALS: Warm sunlit matte 3D, tactile and colorful.\nNEGATIVE / STABILITY: No robot, fox, animal or anthropomorphic character, other people, clutter, scary or uncanny faces, random text.\nQUALITY CHECK: Distinct friendly child-focused cover, correct text and whole human girl; no cold abstract scene.\nOUTPUT: Cover-Kandidat-02.png\n\n--- COVER VARIANT ---\n\nCOVER_ID: 03 | OUTPUT_FILE: Cover-Kandidat-03.png | ID is file metadata ONLY.\nCLICK IDEA: Inviting child-friendly freeze moves with a joyful human guide.\nSHOT / COMPOSITION: Simple low wide view, girl left waving, tiny floor star on right and title with clean sky space.\nCHARACTER: One original fictional fully clothed 3D HUMAN girl athlete, human face and hands, teal/coral jacket, navy joggers, white shoes.\nWORLD: cozy sunny terrace training garden, soft low benches and a clear safe floor; gentle Robot City design, not abstract.\nWARMTH / MOOD: Bright friendly eyes, honest happy smile and golden afternoon warmth; welcoming, not sterile.\nTEXT: Exact \"5 MIN ROBOT CITY\" and \"12 FUN FREEZE MOVES\", large readable white.\nLIGHT / MATERIALS: Warm sunlit matte 3D, tactile and colorful.\nNEGATIVE / STABILITY: No robot, fox, animal or anthropomorphic character, other people, clutter, scary or uncanny faces, random text.\nQUALITY CHECK: Distinct friendly child-focused cover, correct text and whole human girl; no cold abstract scene.\nOUTPUT: Cover-Kandidat-03.png",
       "characterSpecies": "human"
     },
     {
@@ -150,12 +153,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 02 | OUTPUT_FILE: Szene 02.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Simple intro start, safety or ending card.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Wide establishing eye-level activity plaza, mascot on right third, clean left side for title..\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Exactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers.\nWORLD / ENVIRONMENT: open-air training court with low matte teal buildings; teal/coral Robot City.\nTEXT / UI: Exact \"KIDMOTION\" / \"ROBOT CITY WORKOUT\" / \"12 FREEZE MOVES\"; large readable type.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: One mascot; no extra figures, random text, logos or anatomy errors. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 02.png",
+      "prompt": "SCENE_ID: 02 | OUTPUT_FILE: Szene 02.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: A welcoming kids workout starts here.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Wide establishing eye-level activity plaza, mascot on right third, clean left side for title.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. friendly open-arm welcome, both feet planted.\nWORLD / ENVIRONMENT: sunny community activity court, pastel teal facade and small warm starting stripe; subtle rounded Robot City accents.\nWARMTH / MOOD: Inviting smile, friendly eyes and warm playful daylight; exciting but not loud.\nTEXT / UI: Exact \"KIDMOTION\" / \"ROBOT CITY WORKOUT\" / \"12 FREEZE MOVES\"; large readable type.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 02.png",
       "characterSpecies": "human",
       "flowSceneId": "02",
-      "downloadedFileMustBeSavedAs": "Szene 02.png"
+      "downloadedFileMustBeSavedAs": "Szene 02.png",
+      "visualMood": "welcoming-child-friendly"
     },
     {
       "sceneNumber": 3,
@@ -179,12 +184,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 03 | OUTPUT_FILE: Szene 03.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Simple safety start, safety or ending card.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Frontal wide quiet court, mascot left third, clear single right panel..\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Exactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers.\nWORLD / ENVIRONMENT: clean empty workout court with one distant soft arch; teal/coral Robot City.\nTEXT / UI: Exact \"SAFETY FIRST\" / \"Make some space.\" / \"Stop if anything hurts.\"; readable.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: One mascot; no extra figures, random text, logos or anatomy errors. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 03.png",
+      "prompt": "SCENE_ID: 03 | OUTPUT_FILE: Szene 03.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Friendly movement safety reminder.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Frontal wide quiet court, mascot left third, clear single right panel.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. calm upright safe stance, both feet flat.\nWORLD / ENVIRONMENT: warm daylight sports court with one rounded planter far in background; subtle rounded Robot City accents.\nWARMTH / MOOD: Kind reassuring expression, peach and teal accents; safe and comforting.\nTEXT / UI: Exact \"SAFETY FIRST\" / \"Make some space.\" / \"Stop if anything hurts.\"; readable.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 03.png",
       "characterSpecies": "human",
       "flowSceneId": "03",
-      "downloadedFileMustBeSavedAs": "Szene 03.png"
+      "downloadedFileMustBeSavedAs": "Szene 03.png",
+      "visualMood": "welcoming-child-friendly"
     },
     {
       "sceneNumber": 4,
@@ -208,12 +215,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 04 | OUTPUT_FILE: Szene 04.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Simple lets-begin start, safety or ending card.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Low eye-level launch-platform wide view, mascot right center, bold text on left..\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Exactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers.\nWORLD / ENVIRONMENT: outdoor sports court with a painted start circle; teal/coral Robot City.\nTEXT / UI: Exact \"POWER ON!\" / \"LET'S BEGIN!\"; large readable type.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: One mascot; no extra figures, random text, logos or anatomy errors. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 04.png",
+      "prompt": "SCENE_ID: 04 | OUTPUT_FILE: Szene 04.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Exciting safe start to the workout.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Low eye-level launch-platform wide view, mascot right center, bold text on left.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. confident ready stance, both feet flat.\nWORLD / ENVIRONMENT: sunny sports court with a friendly painted start circle; subtle rounded Robot City accents.\nWARMTH / MOOD: Happy expectant grin and sunny colors; energetic yet gentle.\nTEXT / UI: Exact \"POWER ON!\" / \"LET'S BEGIN!\"; large readable type.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 04.png",
       "characterSpecies": "human",
       "flowSceneId": "04",
-      "downloadedFileMustBeSavedAs": "Szene 04.png"
+      "downloadedFileMustBeSavedAs": "Szene 04.png",
+      "visualMood": "welcoming-child-friendly"
     },
     {
       "sceneNumber": 5,
@@ -242,12 +251,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 05 | OUTPUT_FILE: Szene 05.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the ANTENNA REACH as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: frontal waist-height wide shot, mascot center-right and tall landmark left; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. feet apart and both arms reaching vertically overhead, hands open, heels planted.\nWORLD / ENVIRONMENT: outdoor exercise plaza with one small teal sports arch; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"ANTENNA REACH\" on dark semi-transparent navy rounded rectangle; top-right \"Stretch both arms up and stand tall.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 05.png",
+      "prompt": "SCENE_ID: 05 | OUTPUT_FILE: Szene 05.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show ANTENNA REACH as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: frontal waist-height wide shot, mascot center-right and tall landmark left; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. feet apart and both arms reaching vertically overhead, hands open, heels planted.\nWORLD / ENVIRONMENT: sunny exercise plaza with a small teal arch and peach floor stripe; subtle rounded Robot City accents.\nWARMTH / MOOD: Joyful confident smile; sunny peach/teal palette and a tiny painted floor stripe make the pose inviting.\nTEXT / UI: bottom-left WHITE uppercase \"ANTENNA REACH\" on dark semi-transparent navy rounded rectangle; top-right \"Stretch both arms up and stand tall.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 05.png",
       "characterSpecies": "human",
       "flowSceneId": "05",
-      "downloadedFileMustBeSavedAs": "Szene 05.png"
+      "downloadedFileMustBeSavedAs": "Szene 05.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 6,
@@ -273,12 +284,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 06 | OUTPUT_FILE: Szene 06.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for T-BAR HOLD; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: signal bridge with two smooth arch spans; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: T-BAR HOLD\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 06.png",
+      "prompt": "SCENE_ID: 06 | OUTPUT_FILE: Szene 06.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for T-BAR HOLD without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: bright open sports court with one painted blue line; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: T-BAR HOLD\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 06.png",
       "characterSpecies": "human",
       "flowSceneId": "06",
-      "downloadedFileMustBeSavedAs": "Szene 06.png"
+      "downloadedFileMustBeSavedAs": "Szene 06.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 7,
@@ -307,12 +320,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 07 | OUTPUT_FILE: Szene 07.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the T-BAR HOLD as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: symmetrical frontal wide shot with space around fingertips; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. feet hip-width, arms extended horizontally into one long T, no raised foot.\nWORLD / ENVIRONMENT: signal bridge with two smooth arch spans; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"T-BAR HOLD\" on dark semi-transparent navy rounded rectangle; top-right \"Open your arms wide and hold still.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 07.png",
+      "prompt": "SCENE_ID: 07 | OUTPUT_FILE: Szene 07.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show T-BAR HOLD as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: symmetrical frontal wide shot with space around fingertips; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. feet hip-width, arms extended horizontally into one long T, no raised foot.\nWORLD / ENVIRONMENT: bright open sports court with one painted blue line; subtle rounded Robot City accents.\nWARMTH / MOOD: Proud curious expression, soft sunshine and a small colorful floor curve; child sees an easy pose.\nTEXT / UI: bottom-left WHITE uppercase \"T-BAR HOLD\" on dark semi-transparent navy rounded rectangle; top-right \"Open your arms wide and hold still.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 07.png",
       "characterSpecies": "human",
       "flowSceneId": "07",
-      "downloadedFileMustBeSavedAs": "Szene 07.png"
+      "downloadedFileMustBeSavedAs": "Szene 07.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 8,
@@ -338,12 +353,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 08 | OUTPUT_FILE: Szene 08.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for GEAR SQUAT HOLD; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: quiet outdoor workout garden with simple floor markings; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: GEAR SQUAT HOLD\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 08.png",
+      "prompt": "SCENE_ID: 08 | OUTPUT_FILE: Szene 08.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for GEAR SQUAT HOLD without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: safe park training corner with a small orange circle on floor; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: GEAR SQUAT HOLD\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 08.png",
       "characterSpecies": "human",
       "flowSceneId": "08",
-      "downloadedFileMustBeSavedAs": "Szene 08.png"
+      "downloadedFileMustBeSavedAs": "Szene 08.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 9,
@@ -372,12 +389,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 09 | OUTPUT_FILE: Szene 09.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the GEAR SQUAT HOLD as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: mild elevated left three-quarter full-body shot, knees clearly bent; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. safe shallow squat, feet apart, knees aligned, heels planted, arms forward.\nWORLD / ENVIRONMENT: quiet outdoor workout garden with simple floor markings; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"GEAR SQUAT HOLD\" on dark semi-transparent navy rounded rectangle; top-right \"Bend your knees a little and freeze.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 09.png",
+      "prompt": "SCENE_ID: 09 | OUTPUT_FILE: Szene 09.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show GEAR SQUAT HOLD as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: mild elevated left three-quarter full-body shot, knees clearly bent; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. safe shallow squat, feet apart, knees aligned, heels planted, arms forward.\nWORLD / ENVIRONMENT: safe park training corner with a small orange circle on floor; subtle rounded Robot City accents.\nWARMTH / MOOD: Playful determined grin, warm light, one small floor circle; exercise stays easy to copy.\nTEXT / UI: bottom-left WHITE uppercase \"GEAR SQUAT HOLD\" on dark semi-transparent navy rounded rectangle; top-right \"Bend your knees a little and freeze.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 09.png",
       "characterSpecies": "human",
       "flowSceneId": "09",
-      "downloadedFileMustBeSavedAs": "Szene 09.png"
+      "downloadedFileMustBeSavedAs": "Szene 09.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 10,
@@ -403,12 +422,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 10 | OUTPUT_FILE: Szene 10.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for SIDE SIGNAL REACH; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: safe shaded park walkway with a plain shelter; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: SIDE SIGNAL REACH\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 10.png",
+      "prompt": "SCENE_ID: 10 | OUTPUT_FILE: Szene 10.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for SIDE SIGNAL REACH without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: sunny flat park walkway with a simple colorful curved floor line; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: SIDE SIGNAL REACH\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 10.png",
       "characterSpecies": "human",
       "flowSceneId": "10",
-      "downloadedFileMustBeSavedAs": "Szene 10.png"
+      "downloadedFileMustBeSavedAs": "Szene 10.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 11,
@@ -437,12 +458,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 11 | OUTPUT_FILE: Szene 11.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the SIDE SIGNAL REACH as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level three-quarter left view with curved open arm silhouette; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. both feet flat, left arm arched overhead to right, small gentle side bend.\nWORLD / ENVIRONMENT: safe shaded park walkway with a plain shelter; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"SIDE SIGNAL REACH\" on dark semi-transparent navy rounded rectangle; top-right \"Lean gently sideways and reach long.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 11.png",
+      "prompt": "SCENE_ID: 11 | OUTPUT_FILE: Szene 11.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show SIDE SIGNAL REACH as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level three-quarter left view with curved open arm silhouette; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. both feet flat, left arm arched overhead to right, small gentle side bend.\nWORLD / ENVIRONMENT: sunny flat park walkway with a simple colorful curved floor line; subtle rounded Robot City accents.\nWARMTH / MOOD: Friendly eyes, gentle smile and warm colors; a cheerful floor wave echoes the stretch.\nTEXT / UI: bottom-left WHITE uppercase \"SIDE SIGNAL REACH\" on dark semi-transparent navy rounded rectangle; top-right \"Lean gently sideways and reach long.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 11.png",
       "characterSpecies": "human",
       "flowSceneId": "11",
-      "downloadedFileMustBeSavedAs": "Szene 11.png"
+      "downloadedFileMustBeSavedAs": "Szene 11.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 12,
@@ -468,12 +491,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 12 | OUTPUT_FILE: Szene 12.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for RUNNER FREEZE; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: wide flat running track with a simple lane marking; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: RUNNER FREEZE\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 12.png",
+      "prompt": "SCENE_ID: 12 | OUTPUT_FILE: Szene 12.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for RUNNER FREEZE without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: soft outdoor running track with one coral lane stripe; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: RUNNER FREEZE\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 12.png",
       "characterSpecies": "human",
       "flowSceneId": "12",
-      "downloadedFileMustBeSavedAs": "Szene 12.png"
+      "downloadedFileMustBeSavedAs": "Szene 12.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 13,
@@ -502,12 +527,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 13 | OUTPUT_FILE: Szene 13.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the RUNNER FREEZE as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low front-left oblique shot showing long leg separation; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. split stance with one foot forward and one back, both feet planted, elbows bent.\nWORLD / ENVIRONMENT: wide flat running track with a simple lane marking; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"RUNNER FREEZE\" on dark semi-transparent navy rounded rectangle; top-right \"Step one foot back and hold your pose.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 13.png",
+      "prompt": "SCENE_ID: 13 | OUTPUT_FILE: Szene 13.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show RUNNER FREEZE as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low front-left oblique shot showing long leg separation; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. split stance with one foot forward and one back, both feet planted, elbows bent.\nWORLD / ENVIRONMENT: soft outdoor running track with one coral lane stripe; subtle rounded Robot City accents.\nWARMTH / MOOD: Bright confident grin, soft sun and one simple lane stripe; no intimidating sports venue.\nTEXT / UI: bottom-left WHITE uppercase \"RUNNER FREEZE\" on dark semi-transparent navy rounded rectangle; top-right \"Step one foot back and hold your pose.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 13.png",
       "characterSpecies": "human",
       "flowSceneId": "13",
-      "downloadedFileMustBeSavedAs": "Szene 13.png"
+      "downloadedFileMustBeSavedAs": "Szene 13.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 14,
@@ -533,12 +560,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 14 | OUTPUT_FILE: Szene 14.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for COMPASS TURN; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: open sports courtyard with a simple circle floor marking; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: COMPASS TURN\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 14.png",
+      "prompt": "SCENE_ID: 14 | OUTPUT_FILE: Szene 14.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for COMPASS TURN without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: open sports courtyard with a small round floor marking; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: COMPASS TURN\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 14.png",
       "characterSpecies": "human",
       "flowSceneId": "14",
-      "downloadedFileMustBeSavedAs": "Szene 14.png"
+      "downloadedFileMustBeSavedAs": "Szene 14.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 15,
@@ -567,12 +596,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 15 | OUTPUT_FILE: Szene 15.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the COMPASS TURN as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: slightly elevated right-side view to show gentle torso turn; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. gentle right torso turn, hips forward, right arm pointing forwards and left elbow comfortably bent.\nWORLD / ENVIRONMENT: open sports courtyard with a simple circle floor marking; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"COMPASS TURN\" on dark semi-transparent navy rounded rectangle; top-right \"Turn your shoulders and point ahead.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 15.png",
+      "prompt": "SCENE_ID: 15 | OUTPUT_FILE: Szene 15.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show COMPASS TURN as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: slightly elevated right-side view to show gentle torso turn; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. gentle right torso turn, hips forward, right arm pointing forwards and left elbow comfortably bent.\nWORLD / ENVIRONMENT: open sports courtyard with a small round floor marking; subtle rounded Robot City accents.\nWARMTH / MOOD: Curious small smile, gentle sunlight and one playful compass circle on safe floor.\nTEXT / UI: bottom-left WHITE uppercase \"COMPASS TURN\" on dark semi-transparent navy rounded rectangle; top-right \"Turn your shoulders and point ahead.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 15.png",
       "characterSpecies": "human",
       "flowSceneId": "15",
-      "downloadedFileMustBeSavedAs": "Szene 15.png"
+      "downloadedFileMustBeSavedAs": "Szene 15.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 16,
@@ -598,12 +629,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 16 | OUTPUT_FILE: Szene 16.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for TABLE BRIDGE; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: quiet training patio with simple square floor tiles; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: TABLE BRIDGE\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 16.png",
+      "prompt": "SCENE_ID: 16 | OUTPUT_FILE: Szene 16.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for TABLE BRIDGE without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: friendly shaded training patio with padded floor and a distant low planter; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: TABLE BRIDGE\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 16.png",
       "characterSpecies": "human",
       "flowSceneId": "16",
-      "downloadedFileMustBeSavedAs": "Szene 16.png"
+      "downloadedFileMustBeSavedAs": "Szene 16.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 17,
@@ -632,12 +665,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 17 | OUTPUT_FILE: Szene 17.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the TABLE BRIDGE as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low floor-height side profile showing all four support points; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. reverse tabletop, bent knees, both feet flat, palms on ground behind hips, hips raised comfortably.\nWORLD / ENVIRONMENT: quiet training patio with simple square floor tiles; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"TABLE BRIDGE\" on dark semi-transparent navy rounded rectangle; top-right \"Hands and feet down, lift your hips.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 17.png",
+      "prompt": "SCENE_ID: 17 | OUTPUT_FILE: Szene 17.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show TABLE BRIDGE as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low floor-height side profile showing all four support points; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. reverse tabletop, bent knees, both feet flat, palms on ground behind hips, hips raised comfortably.\nWORLD / ENVIRONMENT: friendly shaded training patio with padded floor and a distant low planter; subtle rounded Robot City accents.\nWARMTH / MOOD: Happy focused face, warm pastel light and a small rounded planter far behind the pose.\nTEXT / UI: bottom-left WHITE uppercase \"TABLE BRIDGE\" on dark semi-transparent navy rounded rectangle; top-right \"Hands and feet down, lift your hips.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 17.png",
       "characterSpecies": "human",
       "flowSceneId": "17",
-      "downloadedFileMustBeSavedAs": "Szene 17.png"
+      "downloadedFileMustBeSavedAs": "Szene 17.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 18,
@@ -663,12 +698,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 18 | OUTPUT_FILE: Szene 18.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for POWER PLANK; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: open covered workout deck with a plain wall; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: POWER PLANK\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 18.png",
+      "prompt": "SCENE_ID: 18 | OUTPUT_FILE: Szene 18.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for POWER PLANK without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: soft clean sports mat on an open-air deck with bright sky; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: POWER PLANK\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 18.png",
       "characterSpecies": "human",
       "flowSceneId": "18",
-      "downloadedFileMustBeSavedAs": "Szene 18.png"
+      "downloadedFileMustBeSavedAs": "Szene 18.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 19,
@@ -697,12 +734,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 19 | OUTPUT_FILE: Szene 19.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the POWER PLANK as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: floor-level side view with straight body and limbs fully visible; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. straight-arm high plank with hands below shoulders, toes grounded, spine level, head aligned.\nWORLD / ENVIRONMENT: open covered workout deck with a plain wall; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"POWER PLANK\" on dark semi-transparent navy rounded rectangle; top-right \"Hold a straight line on the floor.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 19.png",
+      "prompt": "SCENE_ID: 19 | OUTPUT_FILE: Szene 19.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show POWER PLANK as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: floor-level side view with straight body and limbs fully visible; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. straight-arm high plank with hands below shoulders, toes grounded, spine level, head aligned.\nWORLD / ENVIRONMENT: soft clean sports mat on an open-air deck with bright sky; subtle rounded Robot City accents.\nWARMTH / MOOD: Approachable determined eyes, sunny soft mat and subtle peach floor accents.\nTEXT / UI: bottom-left WHITE uppercase \"POWER PLANK\" on dark semi-transparent navy rounded rectangle; top-right \"Hold a straight line on the floor.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 19.png",
       "characterSpecies": "human",
       "flowSceneId": "19",
-      "downloadedFileMustBeSavedAs": "Szene 19.png"
+      "downloadedFileMustBeSavedAs": "Szene 19.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 20,
@@ -728,12 +767,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 20 | OUTPUT_FILE: Szene 20.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for SKY BALANCE; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: safe observation deck with distant skyline and clear sky; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: SKY BALANCE\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 20.png",
+      "prompt": "SCENE_ID: 20 | OUTPUT_FILE: Szene 20.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for SKY BALANCE without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: safe sunny terrace with one low pastel bench far behind; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: SKY BALANCE\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 20.png",
       "characterSpecies": "human",
       "flowSceneId": "20",
-      "downloadedFileMustBeSavedAs": "Szene 20.png"
+      "downloadedFileMustBeSavedAs": "Szene 20.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 21,
@@ -762,12 +803,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 21 | OUTPUT_FILE: Szene 21.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the SKY BALANCE as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: front three-quarter eye-level shot with separate lifted foot silhouette; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. stand on left foot, gently lift right foot behind, arms open, torso stable and upright.\nWORLD / ENVIRONMENT: safe observation deck with distant skyline and clear sky; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"SKY BALANCE\" on dark semi-transparent navy rounded rectangle; top-right \"Lift one foot and spread your arms.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 21.png",
+      "prompt": "SCENE_ID: 21 | OUTPUT_FILE: Szene 21.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show SKY BALANCE as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: front three-quarter eye-level shot with separate lifted foot silhouette; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. stand on left foot, gently lift right foot behind, arms open, torso stable and upright.\nWORLD / ENVIRONMENT: safe sunny terrace with one low pastel bench far behind; subtle rounded Robot City accents.\nWARMTH / MOOD: Gently excited smile, warm sky and one small colorful bench far behind.\nTEXT / UI: bottom-left WHITE uppercase \"SKY BALANCE\" on dark semi-transparent navy rounded rectangle; top-right \"Lift one foot and spread your arms.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 21.png",
       "characterSpecies": "human",
       "flowSceneId": "21",
-      "downloadedFileMustBeSavedAs": "Szene 21.png"
+      "downloadedFileMustBeSavedAs": "Szene 21.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 22,
@@ -793,12 +836,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 22 | OUTPUT_FILE: Szene 22.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for SHIELD PRESS; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: sunny outdoor workout courtyard with one simple wall; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: SHIELD PRESS\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 22.png",
+      "prompt": "SCENE_ID: 22 | OUTPUT_FILE: Szene 22.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for SHIELD PRESS without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: friendly paved exercise courtyard with a simple peach floor marking; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: SHIELD PRESS\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 22.png",
       "characterSpecies": "human",
       "flowSceneId": "22",
-      "downloadedFileMustBeSavedAs": "Szene 22.png"
+      "downloadedFileMustBeSavedAs": "Szene 22.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 23,
@@ -827,12 +872,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 23 | OUTPUT_FILE: Szene 23.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the SHIELD PRESS as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: mild low-angle front-right shot with palms clearly readable; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. safe standing split stance with two open palms pressing forwards, elbows gently bent.\nWORLD / ENVIRONMENT: sunny outdoor workout courtyard with one simple wall; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"SHIELD PRESS\" on dark semi-transparent navy rounded rectangle; top-right \"Push both palms forward and stay firm.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 23.png",
+      "prompt": "SCENE_ID: 23 | OUTPUT_FILE: Szene 23.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show SHIELD PRESS as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: mild low-angle front-right shot with palms clearly readable; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. safe standing split stance with two open palms pressing forwards, elbows gently bent.\nWORLD / ENVIRONMENT: friendly paved exercise courtyard with a simple peach floor marking; subtle rounded Robot City accents.\nWARMTH / MOOD: Friendly steady smile, soft sunny colors and a small painted floor boundary.\nTEXT / UI: bottom-left WHITE uppercase \"SHIELD PRESS\" on dark semi-transparent navy rounded rectangle; top-right \"Push both palms forward and stay firm.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 23.png",
       "characterSpecies": "human",
       "flowSceneId": "23",
-      "downloadedFileMustBeSavedAs": "Szene 23.png"
+      "downloadedFileMustBeSavedAs": "Szene 23.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 24,
@@ -858,12 +905,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 24 | OUTPUT_FILE: Szene 24.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for STAR FREEZE; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: quiet training square with one small painted star; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: STAR FREEZE\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 24.png",
+      "prompt": "SCENE_ID: 24 | OUTPUT_FILE: Szene 24.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for STAR FREEZE without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: sunlit park exercise square with one small painted star; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: STAR FREEZE\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 24.png",
       "characterSpecies": "human",
       "flowSceneId": "24",
-      "downloadedFileMustBeSavedAs": "Szene 24.png"
+      "downloadedFileMustBeSavedAs": "Szene 24.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 25,
@@ -892,12 +941,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 25 | OUTPUT_FILE: Szene 25.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the STAR FREEZE as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: dead-on centered wide hero shot with uncluttered space around four limbs; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. feet wide, arms diagonally raised to form an X, hands and shoes all visible.\nWORLD / ENVIRONMENT: quiet training square with one small painted star; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"STAR FREEZE\" on dark semi-transparent navy rounded rectangle; top-right \"Stretch wide like a giant star.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 25.png",
+      "prompt": "SCENE_ID: 25 | OUTPUT_FILE: Szene 25.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show STAR FREEZE as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: dead-on centered wide hero shot with uncluttered space around four limbs; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. feet wide, arms diagonally raised to form an X, hands and shoes all visible.\nWORLD / ENVIRONMENT: sunlit park exercise square with one small painted star; subtle rounded Robot City accents.\nWARMTH / MOOD: Delighted grin, warm light and a painted star beneath the wide pose.\nTEXT / UI: bottom-left WHITE uppercase \"STAR FREEZE\" on dark semi-transparent navy rounded rectangle; top-right \"Stretch wide like a giant star.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 25.png",
       "characterSpecies": "human",
       "flowSceneId": "25",
-      "downloadedFileMustBeSavedAs": "Szene 25.png"
+      "downloadedFileMustBeSavedAs": "Szene 25.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 26,
@@ -923,12 +974,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 26 | OUTPUT_FILE: Szene 26.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for POWER-UP VICTORY; do not reveal next pose.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.\nWORLD / ENVIRONMENT: sunny rooftop exercise terrace with a calm city skyline; teal/coral Robot City.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: POWER-UP VICTORY\".\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 26.png",
+      "prompt": "SCENE_ID: 26 | OUTPUT_FILE: Szene 26.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Prepare for POWER-UP VICTORY without doing it.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. neutral feet-flat ready stance, hands down, no next pose.\nWORLD / ENVIRONMENT: bright outdoor finish terrace with a painted coral finish stripe; subtle rounded Robot City accents.\nWARMTH / MOOD: Encouraging interested smile, sunny peach/teal hues and one subtle floor mark; warm anticipation.\nTEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE \"GET READY\", bright-cyan \"NEXT: POWER-UP VICTORY\".\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 26.png",
       "characterSpecies": "human",
       "flowSceneId": "26",
-      "downloadedFileMustBeSavedAs": "Szene 26.png"
+      "downloadedFileMustBeSavedAs": "Szene 26.png",
+      "visualMood": "friendly-anticipation"
     },
     {
       "sceneNumber": 27,
@@ -957,12 +1010,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 27 | OUTPUT_FILE: Szene 27.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show the POWER-UP VICTORY as a clear, safe stationary hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low front-right wide victory shot with clear sky between the V arms; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. stable upright stance with hands raised apart into broad V, comfortably bent elbows.\nWORLD / ENVIRONMENT: sunny rooftop exercise terrace with a calm city skyline; teal/coral Robot City.\nTEXT / UI: bottom-left WHITE uppercase \"POWER-UP VICTORY\" on dark semi-transparent navy rounded rectangle; top-right \"Raise your hands and finish strong.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 27.png",
+      "prompt": "SCENE_ID: 27 | OUTPUT_FILE: Szene 27.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show POWER-UP VICTORY as a simple safe hold.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low front-right wide victory shot with clear sky between the V arms; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. stable upright stance with hands raised apart into broad V, comfortably bent elbows.\nWORLD / ENVIRONMENT: bright outdoor finish terrace with a painted coral finish stripe; subtle rounded Robot City accents.\nWARMTH / MOOD: Joyful victory smile, golden daylight and a modest playful finish stripe.\nTEXT / UI: bottom-left WHITE uppercase \"POWER-UP VICTORY\" on dark semi-transparent navy rounded rectangle; top-right \"Raise your hands and finish strong.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: Top-left 230x230 timer area clear. No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 27.png",
       "characterSpecies": "human",
       "flowSceneId": "27",
-      "downloadedFileMustBeSavedAs": "Szene 27.png"
+      "downloadedFileMustBeSavedAs": "Szene 27.png",
+      "visualMood": "warm-playful-sport"
     },
     {
       "sceneNumber": 28,
@@ -986,12 +1041,14 @@
         "clear top-left timer reserve for workout scenes",
         "no extra characters or numbers-learning graphics",
         "distinct camera and silhouette",
-        "one visibly human girl; never a robot, fox or animal character"
+        "one visibly human girl; never a robot, fox or animal character",
+        "Warm friendly human expression, concrete sunny setting and one small relevant playful detail; no sterile or uncanny image"
       ],
-      "prompt": "SCENE_ID: 28 | OUTPUT_FILE: Szene 28.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Simple outro start, safety or ending card.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Wide low-angle rooftop garden finish shot, mascot right and empty left for text..\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Exactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers.\nWORLD / ENVIRONMENT: warm urban park at sunset with a modest exercise sign; teal/coral Robot City.\nTEXT / UI: Exact \"GREAT JOB!\" / \"WORKOUT COMPLETE\"; large readable type.\nLIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.\nNEGATIVE / STABILITY: One mascot; no extra figures, random text, logos or anatomy errors. No robot, fox, animal or anthropomorphic character.\nQUALITY CHECK: Exact labels, readable pose and unique shot; no missing hands/feet. Confirm visibly human girl, never robot/animal.\nOUTPUT: 16:9, Szene 28.png",
+      "prompt": "SCENE_ID: 28 | OUTPUT_FILE: Szene 28.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Cheerful finish to all twelve moves.\nREFERENCE USE: selected Szene 01.png as the ONLY image reference for human identity/outfit/style; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: Wide low-angle rooftop garden finish shot, mascot right and empty left for text.\nCHARACTER / POSE: One fully clothed 3D HUMAN girl athlete with human face and hands. standing finish with one hand raised, not the last exercise pose.\nWORLD / ENVIRONMENT: welcoming garden exercise terrace with small colorful finish stripe; subtle rounded Robot City accents.\nWARMTH / MOOD: Proud heartfelt smile in golden sunshine; a satisfying friendly finish.\nTEXT / UI: Exact \"GREAT JOB!\" / \"WORKOUT COMPLETE\"; large readable type.\nLIGHT / MATERIALS: Soft warm sunshine, clean colorful matte CGI.\nNEGATIVE / STABILITY: No robot, fox, animal or anthropomorphic character, clutter, extra people, bad limbs, eerie or cold abstract CGI, generated timer.\nQUALITY CHECK: Exact text, friendly human face, readable full-body pose, clear safe layout; no sterile images.\nOUTPUT: 16:9, Szene 28.png",
       "characterSpecies": "human",
       "flowSceneId": "28",
-      "downloadedFileMustBeSavedAs": "Szene 28.png"
+      "downloadedFileMustBeSavedAs": "Szene 28.png",
+      "visualMood": "welcoming-child-friendly"
     }
   ],
   "promptSpecVersion": 2,
