@@ -29,3 +29,8 @@ After choosing a human cover, it stays the sole human identity reference for sce
 Jeder Bildprompt enthält `SCENE_ID: NN` und `OUTPUT_FILE: Szene NN.png` als Dateimetadaten. Nach tatsächlichem Download wird das Bild mit `npm run flow:save -- --episode=KM-008-robot-city-freeze-workout --scene=NN --source="/Pfad/Flow-Download.png"` unter genau diesem Namen im Bildordner gespeichert. Die Szenennummer wird **nicht ins Bild gedruckt**. Vorhandene Dateien dürfen nicht überschrieben oder als Ersatz für andere Szenen kopiert werden.
 
 Bildgestaltung bewusst einfach: **menschliches Mädchen, klare Sporthaltung, ruhige Trainingsfläche**; Robot City ist nur ein dezenter Stil, keine riesigen Zahnräder, Sci-Fi-Tore oder chaotische Figuren.
+
+
+## Warme, kindgerechte Bildwelt
+
+Alle KM-008-Cover und -Szenen enthalten **WARMTH / MOOD**. Eindeutig menschliches Mädchen, natürliche freundliche Mimik, warme Sonne, schöne lebendige Farben und ein kleines passendes Spiel-Detail, aber keine abstrakten, sterilen oder beängstigenden Szenen. Echte Cover- und Szenenbilder müssen **visuell** geprüft werden, bevor die Auswahl beziehungsweise das Rendering freigegeben wird.

@@ -106,6 +106,10 @@ for(let c=1;c<=3;c+=1){
     const actual=block.split('FINAL GOOGLE FLOW PROMPT:')[1]?.trim()||'';
     if(!actual.startsWith(`COVER_ID: 0${c} | OUTPUT_FILE: Cover-Kandidat-0${c}.png | ID is file metadata ONLY.`)) fail(`${marker}: missing explicit cover ID and filename.`);
   }
+  if(data.kidFriendlyVisualPolicy==='warm-playful-v1'){
+    const actual=block.split('FINAL GOOGLE FLOW PROMPT:')[1]||'';
+    if(!/WARMTH \/ MOOD:/i.test(actual)||!/(smile|grin|friendly|warm)/i.test(actual)) fail(`${marker}: warm child-friendly cover direction missing.`);
+  }
   if(humanOnlyWorkout(data)) for(const error of humanPromptErrors(block.split('FINAL GOOGLE FLOW PROMPT:')[1]||'',{cover:true})) fail(`${marker}: ${error}`);
   if(!/fictional/i.test(block) || !/fully clothed/i.test(block)) fail(`${marker} must explicitly describe a fictional, fully clothed stylized character.`);
   if(/\bage\s*[:=]?\s*\d{1,2}\b/i.test(block) || /skin tone|skin color|body measurements|body type|photorealistic child|young boy|young girl/i.test(block)) fail(`${marker} contains disallowed detailed minor/photorealistic cover wording.`);
@@ -125,6 +129,11 @@ for(let n=2;n<=28;n+=1){
     const actual=block.split('FINAL GOOGLE FLOW PROMPT:')[1]?.trim()||'';
     if(!actual.startsWith(`SCENE_ID: ${id} | OUTPUT_FILE: Szene ${id}.png | ID is file metadata ONLY; do not draw scene numbers.`)) fail(`${marker}: missing explicit scene ID and filename.`);
     if(images[n-1]?.flowSceneId!==id || images[n-1]?.downloadedFileMustBeSavedAs!==`Szene ${id}.png`) fail(`${marker}: image plan does not match numbered output.`);
+  }
+  if(data.kidFriendlyVisualPolicy==='warm-playful-v1'){
+    const actual=block.split('FINAL GOOGLE FLOW PROMPT:')[1]||'';
+    if(!/WARMTH \/ MOOD:/i.test(actual)||!/(smile|grin|friendly|warm)/i.test(actual)) fail(`${marker}: warm kid-friendly scene direction missing.`);
+    if(!/(abstract|sterile|uncanny|eerie|cold)/i.test(actual)) fail(`${marker}: must explicitly reject sterile/abstract imagery.`);
   }
   if(humanOnlyWorkout(data)) for(const error of humanPromptErrors(block.split('FINAL GOOGLE FLOW PROMPT:')[1]||'')) fail(`${marker}: ${error}`);
   if(!block.includes('ONLY image reference')) fail(`${marker} must explicitly use Szene 01 as the ONLY image reference.`);

@@ -24,6 +24,12 @@ For `workout` and `learn-and-move` built with the workout engine, **every cover 
 
 Before showing three covers: visually inspect the REAL generated images. Reject and replace any robot/animal cover. For approved human covers, fill `99-technik/COVER_HUMAN_REVIEW.json` using actual image inspection and SHA256 values. Cover selection is blocked until all three human covers are verified; do not fabricate visual review. Pure `learning` format is exempt.
 
+## Child-friendly visuals (warm-playful-v1)
+
+Workout is for children: ONE clearly human athlete with an inviting expressive face, friendly warm sunshine, cheerful balanced colors and ONE small movement-related playful detail in a real safe training setting. Simple means clear, not emotionally flat: never frightening, creepy, abstract, sterile, empty showroom CGI or a wild science-fiction mess. GET READY figures should still feel present and encouraging.
+
+Every final Flow prompt needs an intentional `WARMTH / MOOD:` section. **Before cover selection**, each REAL cover must pass human review **and** warmth/safe-readable-world review in `COVER_HUMAN_REVIEW.json` with genuine inspected source hashes. **Before final approval**, review all actual scene images and confirm warmth, concrete kid-friendly environments and no unsettling/sterile frames in `VISUAL_REVIEW.json`. Do not mark checks true from prompts alone.
+
 ## 3. Cover
 
 Genau drei Cover-Kandidaten, streng nacheinander:

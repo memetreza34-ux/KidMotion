@@ -72,6 +72,11 @@ const requiredReviewFlags = [
   'noAnatomyErrors',
   'noCroppingOfImportantLimbs',
 ];
+if(data.kidFriendlyVisualPolicy==='warm-playful-v1'){
+  requiredReviewFlags.push('allWorkoutImagesWarmAndInviting');
+  requiredReviewFlags.push('allWorkoutImagesConcreteAndChildReadable');
+  requiredReviewFlags.push('noSterileOrDisturbingWorkoutVisuals');
+}
 if(humanOnlyWorkout(data)){
   requiredReviewFlags.push('humanCharacterConfirmedEveryScene');
   requiredReviewFlags.push('noNonHumanMascotInWorkoutScenes');

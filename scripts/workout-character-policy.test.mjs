@@ -44,3 +44,23 @@ test('cover selection review requires all actual inspected files with matching S
     assert.ok(coverHumanReviewErrors(dir,review).some(x=>x.includes('differs')));
   }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+
+test('kid-friendly cover review rejects cold or abstract candidates until visually approved',()=>{
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'km-warm-cover-'));
+  try{
+    const candidates=[];
+    for(let n=1;n<=3;n++){
+      const name='Cover-Kandidat-0'+n+'.png';
+      const content=Buffer.from('real-review-test-'+n);
+      fs.writeFileSync(path.join(dir,name),content);
+      candidates.push({candidate:n,file:name,humanVisible:true,fullyClothed:true,noRobotOrAnimalMascot:true,actualImageInspected:true,sha256:crypto.createHash('sha256').update(content).digest('hex'),status:'APPROVED',warmChildFriendly:true,clearConcreteEnvironment:true,notDisturbing:true,notSterile:true});
+    }
+    const review=path.join(dir,'review.json');
+    fs.writeFileSync(review,JSON.stringify({status:'APPROVED',candidates}));
+    assert.deepEqual(coverHumanReviewErrors(dir,review,{requireKidFriendlyWarmth:true}),[]);
+    candidates[0].notSterile=false;
+    fs.writeFileSync(review,JSON.stringify({status:'APPROVED',candidates}));
+    assert.ok(coverHumanReviewErrors(dir,review,{requireKidFriendlyWarmth:true}).some(x=>x.includes('warm child-friendly')));
+    assert.deepEqual(coverHumanReviewErrors(dir,review),[]);
+  }finally{fs.rmSync(dir,{recursive:true,force:true});}
+});

@@ -71,3 +71,8 @@ npm run flow:save -- --episode=KM-008-robot-city-freeze-workout --scene=5 --sour
 ```
 
 Jede Szene sofort korrekt speichern, nicht erst am Ende. Ruhige, glaubwürdige Trainingsumgebung statt ungewöhnlicher überladener Robot-City-Kulissen. Abschlussprüfung `phase2:finalize` bleibt Pflicht.
+
+
+## Unbedingt echte Kinderfreundlichkeit kontrollieren
+
+Bei jedem Bild: Ist die menschliche Figur freundlich, echt lebendig und einladend, die Kulisse verständlich und warm statt abstrakt, kalt oder beängstigend? 1 passende kleine spielerische Bodendeko reicht. Nach Erzeugung alle tatsächlichen Cover und Szenenbilder begutachten. Das neue Feld `WARMTH / MOOD` im Prompt ist nur eine Vorgabe; es ersetzt keine Bildprüfung. Cover-Human-Review hat die Felder `warmChildFriendly`, `clearConcreteEnvironment`, `notDisturbing`, `notSterile`; finale `VISUAL_REVIEW` hat die drei Wärme-/Klarheitsflags. Niemals ohne echte Inspektion abhaken.

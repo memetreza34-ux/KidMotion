@@ -83,6 +83,7 @@ const data = {
   compactPromptPolicy:'v2-short',
   sceneNumberingPolicy:'explicit-v1',
   visualComplexityPolicy:'grounded-simple-workout',
+  kidFriendlyVisualPolicy:'warm-playful-v1',
   formatContractFile:contentFormat === 'learn-and-move' ? 'config/formats/learn-and-move.json' : 'config/formats/workout.json',
   learningObjective:contentFormat === 'learn-and-move' ? placeholder('LEARNING OBJECTIVE') : undefined,
   id:episodeId,
@@ -118,7 +119,7 @@ const data = {
 
 const imagePlan = {
   schemaVersion:3,productionContractVersion:contract.contractVersion,promptSpecVersion:contract.promptContract.currentPromptSpecVersion,episodeFolder,revision,visualStyleId:visual.styleId,
-  generationRules:{sceneNumberingPolicy:'explicit-v1',sceneIdsMustMatchFileNames:true,sceneNumbersAreNotVisibleText:true,useDownloadSaveCommand:true,saveCommandTemplate:`npm run flow:save -- --episode=${episodeFolder} --scene=<NN> --source=<real-downloaded-png>`,characterSpecies:'human',nonHumanMascotsForbidden:true,coverHumanReviewRequiredBeforeSelection:true,coverHumanReviewFile:'99-technik/COVER_HUMAN_REVIEW.json',coverCandidateCount:3,coverCandidateFiles:contract.coverContract.candidateFiles,coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesSoleReference:true,batchSizeAfterCover:5,autoContinueToNextBatch:true,generationBatches:pipeline.batchGenerationPolicy.batches,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,automaticAlternatesForbidden:true,soleReference:'Szene 01.png',secondaryImageReferencesForbidden:true,finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
+  generationRules:{kidFriendlyVisualPolicy:'warm-playful-v1',visualWarmthReviewRequired:true,sceneNumberingPolicy:'explicit-v1',sceneIdsMustMatchFileNames:true,sceneNumbersAreNotVisibleText:true,useDownloadSaveCommand:true,saveCommandTemplate:`npm run flow:save -- --episode=${episodeFolder} --scene=<NN> --source=<real-downloaded-png>`,characterSpecies:'human',nonHumanMascotsForbidden:true,coverHumanReviewRequiredBeforeSelection:true,coverHumanReviewFile:'99-technik/COVER_HUMAN_REVIEW.json',coverCandidateCount:3,coverCandidateFiles:contract.coverContract.candidateFiles,coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesSoleReference:true,batchSizeAfterCover:5,autoContinueToNextBatch:true,generationBatches:pipeline.batchGenerationPolicy.batches,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,automaticAlternatesForbidden:true,soleReference:'Szene 01.png',secondaryImageReferencesForbidden:true,finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
   images:scenes.map((scene,index)=>({sceneNumber:index+1,imageFile:scene.image,flowSceneId:index===0?null:padScene(index+1),downloadedFileMustBeSavedAs:scene.image,sceneRole:scene.type,visualPurpose:placeholder(`SZENE ${scene.scene} VISUAL PURPOSE`),topicAnchor:topic,visualForm:placeholder(`SZENE ${scene.scene} VISUAL FORM`),characterReference:scene.type==='cover'?'three-cover candidate stage':'selected Szene 01.png ONLY',uiReference:null,generationAttemptsAllowed:scene.type==='cover'?3:1,propCount:0,generatedText:placeholder(`SZENE ${scene.scene} GENERATED TEXT`),safeZones:['exercise','get-ready'].includes(scene.type)?['top-left 230x230 countdown timer zone clear']:[],acceptanceCriteria:['one clearly HUMAN animated boy or girl, not a robot or animal','same selected character identity and outfit','correct scene role','natural anatomy','no extra people','16:9 composition','no generated countdown timer or progress bar'],prompt:placeholder(`SZENE ${scene.scene} FINAL GOOGLE FLOW PROMPT`)}))
 };
 
@@ -134,6 +135,9 @@ One original fictional fully clothed stylized 3D HUMAN ${character} athlete with
 
 WORLD:
 ${placeholder(`COVER 0${n} WORLD`)}
+
+WARMTH / MOOD:
+Warm genuine smile, happy sunny colors and one small meaningful playful detail. ${placeholder(`COVER 0${n} UNIQUE FRIENDLY FEEL`)}
 
 TEXT:
 ${placeholder(`COVER 0${n} TEXT`)}
@@ -165,6 +169,9 @@ One fully clothed stylized animated HUMAN ${character} athlete. ${placeholder(`S
 WORLD / ENVIRONMENT:
 ${placeholder(`SZENE ${padScene(n)} WORLD ENVIRONMENT`)}
 
+WARMTH / MOOD:
+Friendly natural expression, warm sunlight, one playful relevant accent; never sterile or abstract. ${placeholder(`SZENE ${padScene(n)} UNIQUE KID-FRIENDLY FEEL`)}
+
 TEXT / UI:
 ${placeholder(`SZENE ${padScene(n)} TEXT UI`)}
 
@@ -180,7 +187,7 @@ ${placeholder(`SZENE ${padScene(n)} QUALITY CHECK`)}
 OUTPUT:
 16:9 landscape, ${sceneFile(n)}`;
 
-let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nPROMPT SPEC: v${contract.promptContract.currentPromptSpecVersion}\nSHORT PROMPTS: one concrete sentence per section; max 1500 characters per scene. No repeated style essays or crazy fantasy scenery; simple safe workout settings. Scene IDs are metadata only.\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\nSAVE EACH DOWNLOADED IMAGE: npm run flow:save -- --episode=${episodeFolder} --scene=<NN> --source=<real-download.png> (for cover use --cover=<1|2|3>). AFTER COVER SELECTION: run npm run flow:batch -- --episode=${episodeFolder} before every 5-scene production step.\n\n`;
+let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nPROMPT SPEC: v${contract.promptContract.currentPromptSpecVersion}\nSHORT PROMPTS: max 1500 chars per scene; human warmth, friendly playful realism and natural expression are mandatory. No sterile or abstract sports frames. No repeated style essays or crazy fantasy scenery; simple safe workout settings. Scene IDs are metadata only.\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\nSAVE EACH DOWNLOADED IMAGE: npm run flow:save -- --episode=${episodeFolder} --scene=<NN> --source=<real-download.png> (for cover use --cover=<1|2|3>). AFTER COVER SELECTION: run npm run flow:batch -- --episode=${episodeFolder} before every 5-scene production step.\n\n`;
 for (let n=1;n<=3;n+=1) prompt += `COVER CANDIDATE 0${n} — Cover-Kandidat-0${n}.png\nFINAL GOOGLE FLOW PROMPT:\n${coverPromptScaffold(n)}\n\n`;
 for (let n=2;n<=28;n+=1) prompt += `SZENE ${padScene(n)} — ${sceneFile(n)}\nFINAL GOOGLE FLOW PROMPT:\n${scenePromptScaffold(n)}\n\n`;
 
@@ -190,9 +197,9 @@ const voiceScript=`${placeholder('EXACT CONTINUOUS TTS COPY')}\n`;
 write('99-technik/episode.json',JSON.stringify(data,null,2)+'\n');
 write('99-technik/IMAGE_PLAN.json',JSON.stringify(imagePlan,null,2)+'\n');
 write('99-technik/RENDER_PLAN.json',JSON.stringify({schemaVersion:3,productionContractVersion:contract.contractVersion,episodeFolder,runtimeSeconds:313,coverOutsideVideo:true,coverSelectionRequiredBeforeLaterScenes:true,soleVisualReference:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,sceneCount:28,exerciseCount:12,getReadyCount:11,exerciseSeconds:20,getReadySeconds:5,imageGenerationBatchSize:5,waitForUserBetweenImageBatches:false,autoContinueImageBatches:true,deliverCompletedImageFolderAtEnd:true,staticExerciseImages:true,staticGetReadyImages:true,backgroundMusic:true,remotionOverlay:'countdown-timer-only',progressBar:false,allNonTimerVisibleTextOwner:'google-flow',restUsesDedicatedGetReadyImage:true,restReusesNextExerciseImage:false},null,2)+'\n');
-write('99-technik/COVER_HUMAN_REVIEW.json',JSON.stringify({schemaVersion:1,episodeFolder,status:'PENDING_REAL_IMAGE_REVIEW',reviewedAt:null,note:'After generating actual PNGs, visually verify each human candidate and compute real SHA256. Never approve from prompt alone.',candidates:[1,2,3].map(n=>({candidate:n,file:'Cover-Kandidat-0'+n+'.png',humanVisible:false,fullyClothed:false,noRobotOrAnimalMascot:false,actualImageInspected:false,sha256:null,status:'PENDING'}))},null,2)+'\n');
+write('99-technik/COVER_HUMAN_REVIEW.json',JSON.stringify({schemaVersion:1,episodeFolder,status:'PENDING_REAL_IMAGE_REVIEW',reviewedAt:null,note:'After generating actual PNGs, visually verify each human candidate and compute real SHA256. Never approve from prompt alone.',candidates:[1,2,3].map(n=>({candidate:n,file:'Cover-Kandidat-0'+n+'.png',humanVisible:false,fullyClothed:false,noRobotOrAnimalMascot:false,warmChildFriendly:false,clearConcreteEnvironment:false,notDisturbing:false,notSterile:false,actualImageInspected:false,sha256:null,status:'PENDING'}))},null,2)+'\n');
 write('99-technik/COVER_SELECTION.json',JSON.stringify({schemaVersion:1,productionContractVersion:contract.contractVersion,episodeFolder,status:'AWAITING_USER_SELECTION',selectedCandidate:null,selectedCandidateOriginalFile:null,finalFile:null,userSelectionRequired:true,soleReferenceForLaterScenes:'Szene 01.png',secondaryImageReferencesForbidden:true},null,2)+'\n');
-write('99-technik/VISUAL_REVIEW.json',JSON.stringify({episodeFolder,revision,sameCharacterEveryScene:false,humanCharacterConfirmedEveryScene:false,noNonHumanMascotInWorkoutScenes:false,allExercisePosesClearFromOneStill:false,poseVarietyStrong:false,allGetReadyImagesClearAndNotConfusableWithExercise:false,allExerciseTextReadableAndConsistent:false,allExerciseSafeZonesClear:false,propBallCountsCorrect:false,allNonTimerTextGeneratedAndReadable:false,noExtraPeople:false,noAnatomyErrors:false,noCroppingOfImportantLimbs:false,sceneOrderMatchesPlan:false,noMissingOrDuplicateSceneContent:false,eachSceneMatchesItsPromptRole:false,openingVisualTimingMatchesVoice:false,notes:'Set true only after inspecting real final images and rendered MP4.'},null,2)+'\n');
+write('99-technik/VISUAL_REVIEW.json',JSON.stringify({episodeFolder,revision,sameCharacterEveryScene:false,allWorkoutImagesWarmAndInviting:false,allWorkoutImagesConcreteAndChildReadable:false,noSterileOrDisturbingWorkoutVisuals:false,humanCharacterConfirmedEveryScene:false,noNonHumanMascotInWorkoutScenes:false,allExercisePosesClearFromOneStill:false,poseVarietyStrong:false,allGetReadyImagesClearAndNotConfusableWithExercise:false,allExerciseTextReadableAndConsistent:false,allExerciseSafeZonesClear:false,propBallCountsCorrect:false,allNonTimerTextGeneratedAndReadable:false,noExtraPeople:false,noAnatomyErrors:false,noCroppingOfImportantLimbs:false,sceneOrderMatchesPlan:false,noMissingOrDuplicateSceneContent:false,eachSceneMatchesItsPromptRole:false,openingVisualTimingMatchesVoice:false,notes:'Set true only after inspecting real final images and rendered MP4.'},null,2)+'\n');
 write('99-technik/VOICE_PLAN.json',JSON.stringify(voicePlan,null,2)+'\n');
 write('99-technik/GENERATION-REVISION.txt',revision+'\n');
 write('99-technik/status.json',JSON.stringify({schemaVersion:3,productionContractVersion:contract.contractVersion,status:'planning-required',promptPlanReady:false,coverSelectionPending:true,coverSelected:false,imagesReady:false,audioReady:false,assetsApproved:false,renderReady:false},null,2)+'\n');

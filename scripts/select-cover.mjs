@@ -46,7 +46,7 @@ const selectionAlready = fs.existsSync(paths.coverSelectionPath)
 
 if (humanOnlyWorkout(data) && selectionAlready.status !== 'SELECTED'){
   const reviewFile=path.join(paths.techDir,'COVER_HUMAN_REVIEW.json');
-  const errors=coverHumanReviewErrors(paths.imagesDir,reviewFile);
+  const errors=coverHumanReviewErrors(paths.imagesDir,reviewFile,{requireKidFriendlyWarmth:data.kidFriendlyVisualPolicy==='warm-playful-v1'});
   if(errors.length){
     console.error('COVER SELECTION BLOCKED: three actual HUMAN cover images must pass visual review first.');
     errors.forEach((error,i)=>console.error(String(i+1)+'. '+error));

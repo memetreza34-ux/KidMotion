@@ -23,7 +23,7 @@ export const humanPromptErrors=(prompt,{cover=false}={})=>{
   return errors;
 };
 
-export const coverHumanReviewErrors=(imagesDir,reviewFile)=>{
+export const coverHumanReviewErrors=(imagesDir,reviewFile,{requireKidFriendlyWarmth=false}={})=>{
   if(!fs.existsSync(reviewFile))return ['COVER_HUMAN_REVIEW.json missing'];
   const review=JSON.parse(fs.readFileSync(reviewFile,'utf8'));
   const errors=[];
@@ -38,6 +38,7 @@ export const coverHumanReviewErrors=(imagesDir,reviewFile)=>{
       errors.push(name+': visual inspection not approved');continue;
     }
     const hash=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    if(requireKidFriendlyWarmth && (!item.warmChildFriendly||!item.clearConcreteEnvironment||!item.notDisturbing||!item.notSterile)) errors.push(name+': warm child-friendly image review incomplete');
     if(item.sha256!==hash)errors.push(name+': cover image differs from reviewed hash');
   }
   return errors;
