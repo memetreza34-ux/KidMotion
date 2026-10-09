@@ -27,6 +27,8 @@ const expectedScripts={
   'repo:qa':'node scripts/repo-qa.mjs',
   'prompt:qa':'node scripts/prompt-plan-qa.mjs',
   'flow:batch':'node scripts/flow-batch.mjs',
+  'flow:save':'node scripts/save-flow-image.mjs',
+  'flow:save:test':'node --test scripts/flow-save-lib.test.mjs',
   'phase2:finalize':'node scripts/phase2-finalize.mjs',
   'phase2:test':'node --test scripts/phase2-finalize.test.mjs',
   'scene:qa':'node scripts/scene-integrity-qa.mjs',
