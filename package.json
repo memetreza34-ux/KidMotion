@@ -39,7 +39,8 @@
     "flow:save": "node scripts/save-flow-image.mjs",
     "flow:save:test": "node --test scripts/flow-save-lib.test.mjs",
     "images:permission": "node scripts/image-generation-permission.mjs",
-    "images:permission:test": "node --test scripts/image-generation-permission.test.mjs"
+    "images:permission:test": "node --test scripts/image-generation-permission.test.mjs",
+    "art:direction:test": "node --test scripts/art-direction-qa.test.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

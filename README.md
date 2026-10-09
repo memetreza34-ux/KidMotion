@@ -1,5 +1,7 @@
 # KidMotion
 
+**Neue kinderfreundliche Bildregie:** [ART_DIRECTION.md](ART_DIRECTION.md). Storyworld-v1 verlangt konkrete liebevoll gestaltete Spielwelten und echte SHA256-gebundene visuelle Freigabe aller neuen Workout-Bilder statt bloßer Prompt-Wörter wie „warm“.
+
 KidMotion ist ein **allgemeiner Kinderkanal**, kein reiner Sportkanal.
 
 ## Videoformate

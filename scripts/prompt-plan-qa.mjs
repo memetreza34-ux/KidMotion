@@ -3,6 +3,7 @@ import path from 'node:path';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, expectedSceneSpecs, sceneFile, hasPlanningPlaceholder, currentContractErrors, validateVoicePlanObject} from './contract.mjs';
 import {humanOnlyWorkout,humanPromptErrors} from './workout-character-policy.mjs';
+import {validateArtDirectionPrompts} from './art-direction-qa.mjs';
 
 const root = process.cwd();
 const contract = loadContract(root);
@@ -170,6 +171,7 @@ if(promptSpecVersion>=2){
   }
 }
 
+for(const error of validateArtDirectionPrompts({episode:data,plan,prompt})) fail('ART DIRECTION: '+error);
 for(const error of validateVoicePlanObject(voicePlan,contract)) fail(error);
 const normalizedVoiceScript=voiceScript.trim();
 const expectedVoiceText=String(voicePlan?.exactTtsCopy||'').trim();

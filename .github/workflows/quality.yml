@@ -29,6 +29,9 @@ jobs:
       - name: Workout human-character tests
         run: npm run workout:human:test
 
+      - name: Art-direction tests
+        run: npm run art:direction:test
+
       - name: Flow save and numbering tests
         run: npm run flow:save:test
 

@@ -5,6 +5,7 @@ import {spawnSync} from 'node:child_process';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, currentContractErrors} from './contract.mjs';
 import {humanOnlyWorkout} from './workout-character-policy.mjs';
+import {validateArtDirectionReview} from './art-direction-qa.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -92,6 +93,7 @@ for (const key of requiredReviewFlags) if (review[key] !== true) fail(`Visual re
 
 const scenes = Array.isArray(data.scenes) ? data.scenes : [];
 const requiredImages = [...new Set(scenes.map((scene) => scene.image).filter(Boolean))];
+for(const error of validateArtDirectionReview({episode:data,episodeFolder,revision,imagesDir:paths.imagesDir,reviewFile:path.join(paths.techDir,'ART_DIRECTION_REVIEW.json'),requiredImages})) fail('ART DIRECTION: '+error);
 
 if (paths.isV2) {
   const plan = JSON.parse(fs.readFileSync(paths.imagePlanPath, 'utf8'));
