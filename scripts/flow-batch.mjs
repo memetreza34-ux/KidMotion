@@ -88,6 +88,27 @@ if(coverSelected){
   }
 }
 
+const numberedTasks=[];
+if(data.sceneNumberingPolicy==='explicit-v1' && state.status==='BATCH_ACTIVE'){
+  const planFile=paths.imagePlanPath;
+  if(!fs.existsSync(planFile))throw Error('FLOW BATCH: IMAGE_PLAN.json missing for numbered scene batch.');
+  const plan=JSON.parse(fs.readFileSync(planFile,'utf8'));
+  for(const n of state.missing){
+    const id=String(n).padStart(2,'0');
+    const item=plan.images?.[n-1];
+    const file='Szene '+id+'.png';
+    if(!item||item.imageFile!==file||item.flowSceneId!==id||!String(item.prompt||'').startsWith('SCENE_ID: '+id+' | OUTPUT_FILE: '+file)){
+      throw Error('FLOW BATCH: prompt ID/filename mismatch for '+file+'. Never guess the correct image.');
+    }
+    numberedTasks.push({
+      sceneId:id,outputFile:file,imagePrompt:item.prompt,
+      saveCommand:'npm run flow:save -- --episode='+episodeFolder+' --scene='+n+' --source="<actual-downloaded-PNG-path>"',
+      note:'Use ONLY Szene 01.png reference, generate this scene one time, save actual PNG under this number immediately. Do not show SCENE_ID in image.'
+    });
+  }
+}
+state.numberedTasks=numberedTasks;
+
 fs.mkdirSync(paths.techDir,{recursive:true});
 fs.writeFileSync(path.join(paths.techDir,'FLOW_BATCH_STATE.json'),JSON.stringify(state,null,2)+'\n','utf8');
 
@@ -97,6 +118,7 @@ if(state.batchNumber) console.log('Batch: '+state.batchNumber+'/'+batches.length
 if(state.files.length) console.log('Allowed files: '+state.files.join(', '));
 if(state.present.length) console.log('Already present in current block: '+state.present.map(sceneFile).join(', '));
 if(state.missing.length) console.log('Still required in current block: '+state.missing.map(sceneFile).join(', '));
+if(state.numberedTasks?.length) console.log('Numbered Flow tasks with exact source prompts and save commands written to 99-technik/FLOW_BATCH_STATE.json.');
 if(state.laterBatchOutputsFound.length) console.log('OUT-OF-ORDER FILES: '+state.laterBatchOutputsFound.map(sceneFile).join(', '));
 console.log(state.instruction);
 
