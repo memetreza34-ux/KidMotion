@@ -22,7 +22,7 @@ const npm=process.platform==='win32'?'npm.cmd':'npm';
 const run=(label,cmdArgs)=>{
   console.log('\n=== '+label+' ===');
   const r=spawnSync(npm,cmdArgs,{stdio:'inherit'});
-  return Number(r.status||0);
+  return r.error?1:(Number.isInteger(r.status)?r.status:1);
 };
 
 const ingestStatus=run('RAW HANDOFF INGEST',['run','phase3:ingest','--','--episode='+episodeFolder]);
@@ -43,7 +43,7 @@ if(ingest.technicalHandoffReady!==true){
   if(ingest.voiceReady!==true) console.error('Missing/unresolved opening voice.');
   if(data.audioPolicy?.backgroundMusicRequiredForFinal===true && ingest.backgroundMusicReady!==true) console.error('Missing/unresolved background music.');
   for(const e of ingest.errors||[]) console.error('- '+e);
-  console.error('Antigravity must report the missing/ambiguous Phase 2 input. It must NOT generate replacement images.');
+  console.error('Default: no image generation. If the user explicitly orders Antigravity to make specific missing images, first leave Phase 3, obtain the scoped images:permission grant, generate ONLY those scenes in Phase 2, and save via flow:save --antigravity=1. Then rerun phase3:prepare. Never fabricate assets.');
   process.exit(1);
 }
 

@@ -56,7 +56,9 @@ for(const [name,command] of Object.entries(expectedScripts)){
 if(pkg.scripts?.['render:short']) fail('render:short is forbidden.');
 
 const p3=contract.phaseContract?.phase3||{};
-if(p3.antigravityMayGenerateImages!==false) fail('Contract must forbid Antigravity image generation.');
+if(p3.antigravityMayGenerateImages!==false) fail('Phase 3 montage must forbid image generation.');
+if(p3.userAuthorizedRepairException?.enabledOnlyByExplicitUserInstruction!==true||p3.userAuthorizedRepairException?.realizationPhase!=='PHASE_2_ONLY') fail('Optional image repair must require exact user approval and occur only in Phase 2.');
+if(pkg.scripts?.['images:permission']!=='node scripts/image-generation-permission.mjs') fail('Missing scoped explicit-user image permission command.');
 if(p3.imagePixelModificationForbidden!==true) fail('Contract must forbid image pixel modification during Phase 3 ingest.');
 if(p3.assetIngestAllowed!==true || p3.archiveExtractionAllowed!==true || p3.audioTranscodeAllowed!==true) fail('Contract must allow technical raw-handoff ingest.');
 if(p3.userManualUnzipRequired!==false || p3.userManualAudioConversionRequired!==false) fail('Contract must not require user-manual ZIP/audio normalization.');
@@ -103,7 +105,7 @@ if(pipeline.phaseWorkflow?.phase3ImagePixelModificationForbidden!==true) fail('P
 if(pipeline.batchGenerationPolicy?.hardBatchBoundaries!==true || pipeline.batchGenerationPolicy?.batchMustBeCompleteBeforeNext!==true) fail('Pipeline must enforce hard 5-scene batch boundaries.');
 
 const anti=read('ANTIGRAVITY.md');
-for(const token of ['ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true','phase3:prepare','assets:approve','phase3:gate','render:safe']){
+for(const token of ['ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN_BY_DEFAULT=true','ANTIGRAVITY_PHASE3_IMAGE_GENERATION_FORBIDDEN=true','images:permission','phase3:prepare','assets:approve','phase3:gate','render:safe']){
   if(!anti.includes(token)) fail('ANTIGRAVITY.md missing: '+token);
 }
 const order=['npm run phase3:prepare','npm run assets:approve','npm run phase3:gate','npm run render:safe'].map((t)=>anti.indexOf(t));
@@ -172,4 +174,4 @@ if(failures.length){
   process.exit(1);
 }
 console.log('PROJECT DOCTOR PASSED');
-console.log('Protected: raw ZIP/audio handoff, no image generation, deterministic mapping, real visual review, approval-before-gate, timer-only Remotion.');
+console.log('Protected: default-deny image generation, scoped user-approved Phase 2 repairs, immediate rename, immutable Phase 3 inputs and real review.');

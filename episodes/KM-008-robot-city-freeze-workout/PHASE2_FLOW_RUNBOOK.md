@@ -76,3 +76,10 @@ Jede Szene sofort korrekt speichern, nicht erst am Ende. Ruhige, glaubwürdige T
 ## Unbedingt echte Kinderfreundlichkeit kontrollieren
 
 Bei jedem Bild: Ist die menschliche Figur freundlich, echt lebendig und einladend, die Kulisse verständlich und warm statt abstrakt, kalt oder beängstigend? 1 passende kleine spielerische Bodendeko reicht. Nach Erzeugung alle tatsächlichen Cover und Szenenbilder begutachten. Das neue Feld `WARMTH / MOOD` im Prompt ist nur eine Vorgabe; es ersetzt keine Bildprüfung. Cover-Human-Review hat die Felder `warmChildFriendly`, `clearConcreteEnvironment`, `notDisturbing`, `notSterile`; finale `VISUAL_REVIEW` hat die drei Wärme-/Klarheitsflags. Niemals ohne echte Inspektion abhaken.
+
+
+## Direkte Umbenennung & Genehmigungsgrenze
+
+Google Flow erzeugt nicht automatisch den korrekten Dateinamen. Der Agent muss jeden heruntergeladenen PNG **unmittelbar nach der Bildgenerierung physisch verschieben und umbenennen**: `flow:save --scene=NN --source=/.../download.png`. Ohne erfolgreichen Speicherschritt **KEINE nächste Bildgenerierung**. `flow:save` verschiebt den Download (statt nur eine benannte Kopie zu erstellen); Zielnummern werden nicht überschrieben.
+
+**Antigravity darf fehlende Bilder nur bei ausdrücklicher neuer Nutzeranweisung erzeugen.** Die bereits bekannte Fehlstellenliste ist KEINE Freigabe. Mit ausdrücklicher Freigabe: spezifische Szenen per `images:permission` erlauben, Phase-2-Produktion mit unverändertem Szenen-Prompt, `flow:save --antigravity=1`, danach `phase2:finalize`. Keine Bilderstellung in der Phase-3-Montage. Siehe `ANTIGRAVITY.md`.

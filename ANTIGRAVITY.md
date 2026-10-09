@@ -1,46 +1,36 @@
-# ANTIGRAVITY — PHASE 3 HANDOFF + ASSEMBLY
+# ANTIGRAVITY — ASSEMBLY, WITH EXPLICIT USER-APPROVED IMAGE REPAIR
 
-ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true
+ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN_BY_DEFAULT=true
+ANTIGRAVITY_PHASE3_IMAGE_GENERATION_FORBIDDEN=true
 
-## Wenn der Nutzer sagt „alles ist im Ordner“
+**Default:** Antigravity may NOT generate images. The statement "you may create images only if I tell you" is a policy, **not permission to create any image now**. A missing image, a prompt in the repository, a failed check or an earlier general plan does NOT authorize generation.
 
-Antigravity startet **nicht** mit phase3:gate und schickt den Nutzer nicht zum manuellen Entpacken/Konvertieren zurück.
+**Exception only when the user specifically instructs Antigravity to generate named missing scene(s):**
+1. Verify the real user message. Never invent consent. Identify exact missing scene IDs. Do not create images without that instruction.
+2. Before entering or resuming Phase 3, act temporarily as the **Phase 2 Google Flow producer**. Confirm a selected cover and that the target images are genuinely absent, not ambiguous or already approved.
+3. Record the exact real user instruction and ONLY authorized missing scene IDs, e.g.:
+   `npm run images:permission -- --episode=KM-XXX-slug --grant=26,28 --user-instruction="(literal user's explicit authorization)"`
+   This command records consent; it does **not** independently prove user consent, create PNGs or access Google Flow.
+4. Before each permitted generation: `npm run images:permission -- --episode=KM-XXX-slug --check=26`.
+5. Generate only that missing scene in Google Flow using its **original exact IMAGE_PLAN prompt** and the already selected `Szene 01.png` as sole image reference. Immediately download and **move/rename** the real PNG, BEFORE making another image:
+   `npm run flow:save -- --episode=KM-XXX-slug --scene=26 --source="/path/to/actual-download.png" --antigravity=1`
+   The save command checks that the scene is permitted and consumes that one-time permission. It must not overwrite or duplicate images.
+6. Repeat strictly for other specifically authorized missing scene IDs, then `npm run phase2:finalize -- --episode=KM-XXX-slug`. Do not generate other scenes, covers or alternates. If tools needed for Google Flow are unavailable, report that limitation; NEVER claim generation occurred.
+7. Return to the **unchanged Phase 3** technical and visual handoff:
+   - `npm run phase3:prepare -- --episode=KM-XXX-slug`
+   - inspect REAL images and honestly complete VISUAL_REVIEW.json
+   - `npm run assets:approve -- --episode=KM-XXX-slug`
+   - `npm run kidmotion:activate -- --episode=KM-XXX-slug`
+   - `npm run phase3:gate -- --episode=KM-XXX-slug`
+   - `npm run render:safe`
 
-Erster Befehl:
+## Normal handoff when all images are provided
 
-npm run phase3:prepare -- --episode=KM-XXX-slug
+Start with `npm run phase3:prepare -- --episode=KM-XXX-slug`. It ingests real ZIP/assets and unambiguous audio, performs scene QA and detects missing files. Do not require the user to manually unzip or transcode supported files. Do not make up missing media.
 
-phase3:prepare übernimmt den technischen Handoff:
-- ZIPs im Episodenordner finden und nur relevante Assets sicher entpacken
-- eindeutig nummerierte PNG-Szenen in den finalen Bilderordner einsortieren
-- Szene 01 als bereits gewähltes finales Cover erkennen und COVER_SELECTION.json rekonstruieren/normalisieren
-- vorhandene Audio-/Videocontainer wie MP4, M4A, WAV, AAC oder MP3 erkennen
-- eine eindeutige kurze Voice-Quelle (z. B. Kids.mp4) per ffmpeg zu Voice 01.mp3 extrahieren
-- eine eindeutige Musikquelle zu bg-music.mp3 normalisieren
-- Scene Integrity QA ausführen
-- niemals eine uneindeutige Szenenreihenfolge raten
-
-Danach führt Antigravity **selbst** die reale visuelle Prüfung der importierten Szene-01-bis-28-Bilder durch und setzt VISUAL_REVIEW.json nur anhand dieser echten Prüfung.
-
-Dann:
-1. npm run assets:approve -- --episode=KM-XXX-slug
-2. npm run kidmotion:activate -- --episode=KM-XXX-slug
-3. npm run phase3:gate -- --episode=KM-XXX-slug
-4. npm run render:safe
-
-## Verboten
-
-Antigravity darf in Phase 3 niemals:
-- Google Flow oder einen Bildgenerator aufrufen
-- Bilder generieren/regenerieren
-- Bildpixel oder Bildinhalt verändern
-- fehlende Bilder erfinden
-- bei mehrdeutigen Dateinamen die Reihenfolge raten
-- eine fehlende Datei durch irgendeine andere Szene ersetzen
-- VISUAL_REVIEW ohne echte Sichtprüfung fälschen
-
-## Wichtig
-
-phase3:gate ist **nicht** der Roh-Handoff-Einstieg. Es prüft erst die bereits importierten, visuell geprüften und SHA-256-approved Assets.
-
-Fehlt nach phase3:prepare wirklich ein Phase-2-Asset oder ist die Zuordnung mehrdeutig, meldet Antigravity exakt diese Datei. Es fordert aber nicht pauschal manuelles Entpacken, Umbenennen oder MP4→MP3-Konvertieren vom Nutzer an, wenn der technische Import das selbst sicher erledigen kann.
+## Hard prohibitions
+- Never generate any images without a **new, explicit user request** for those images.
+- Never generate/edit/replace image pixels during Phase 3 montage, ingest or after SHA-256 asset approval.
+- Never auto-generate missing images simply because QA found them; report exact missing filenames unless authorized.
+- Never change selected cover, guess scene identities, reuse another scene, bypass real visual review, fabricate music/voice or falsify file presence.
+- After each actual generation, **save/move the download as the exact filename immediately** (`Szene NN.png`); do not defer renaming to the end.

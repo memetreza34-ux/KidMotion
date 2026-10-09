@@ -250,7 +250,7 @@
       "mustCreateSha256Approval": true
     },
     "phase3": {
-      "name": "antigravity-assembly-only",
+      "name": "antigravity-assembly-with-explicit-phase2-repair-opt-in",
       "owner": "Antigravity",
       "antigravityMayGenerateImages": false,
       "antigravityMayRegenerateImages": false,
@@ -280,7 +280,8 @@
         "add permitted Remotion timer",
         "use approved voice/music",
         "render video",
-        "run postrender QA"
+        "run postrender QA",
+        "ONLY with explicit per-scene user authorization: Antigravity may temporarily work in Phase 2 to generate genuinely missing, unapproved images before returning to the normal Phase 3 assembly gate"
       ],
       "assetIngestAllowed": true,
       "archiveExtractionAllowed": true,
@@ -308,7 +309,20 @@
         "phase3:gate",
         "render:safe"
       ],
-      "gateMeaning": "phase3:gate validates already reviewed and SHA-256-approved assets; it is never the first command for a raw ZIP/audio handoff"
+      "gateMeaning": "phase3:gate validates already reviewed and SHA-256-approved assets; it is never the first command for a raw ZIP/audio handoff",
+      "userAuthorizedRepairException": {
+        "default": "DENIED",
+        "enabledOnlyByExplicitUserInstruction": true,
+        "exactMissingSceneScopeRequired": true,
+        "permissionCommand": "npm run images:permission -- --episode=<episode-folder> --grant=<scene-ids> --user-instruction=<exact-user-instruction>",
+        "guardCommand": "npm run images:permission -- --episode=<episode-folder> --check=<scene>",
+        "realizationPhase": "PHASE_2_ONLY",
+        "realImageMustBeSavedImmediately": true,
+        "saveCommand": "npm run flow:save -- --episode=<episode-folder> --scene=<scene> --source=<real-downloaded-png> --antigravity=1",
+        "existingImagesCannotBeReplaced": true,
+        "selectedCoverCannotBeRegenerated": true,
+        "phase3MontageImageGenerationForbidden": true
+      }
     }
   },
   "format": "workout",

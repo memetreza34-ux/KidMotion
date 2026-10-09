@@ -32,6 +32,9 @@ jobs:
       - name: Flow save and numbering tests
         run: npm run flow:save:test
 
+      - name: Scoped image permission tests
+        run: npm run images:permission:test
+
       - name: Typecheck
         run: npm run typecheck
 

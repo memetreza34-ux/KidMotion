@@ -7,12 +7,13 @@ import {storeImage,pngInfo} from './flow-save-lib.mjs';
 
 const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL0nAAAAABJRU5ErkJggg==','base64');
 const sandbox=fn=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'km-save-'));try{return fn(dir);}finally{fs.rmSync(dir,{recursive:true,force:true});}};
-test('stores real downloaded PNG under exact scene ID, without touching download',()=>sandbox(dir=>{
+test('moves the downloaded PNG immediately under its scene name',()=>sandbox(dir=>{
   const images=path.join(dir,'images'),source=path.join(dir,'Flow generated.png'),dest=path.join(images,'Szene 05.png');
   fs.writeFileSync(source,png);
   const r=storeImage({source,destination:dest,imagesDir:images});
   assert.equal(r.file,'Szene 05.png');
-  assert.equal(fs.existsSync(source),true);
+  assert.equal(r.moved,true);
+  assert.equal(fs.existsSync(source),false);
   assert.equal(fs.readFileSync(dest).equals(png),true);
 }));
 test('refuses overwriting a numbered image',()=>sandbox(dir=>{

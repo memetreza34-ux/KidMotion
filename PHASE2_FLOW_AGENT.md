@@ -80,7 +80,7 @@ Damit bedeutet „5er-Schritte“ wirklich:
 
 Jeder Flow-Prompt beginnt mit SCENE_ID: NN bzw. COVER_ID und OUTPUT_FILE. Diese Kennung ist **nur Dateimetadatum**, keine sichtbare Aufschrift im Bild. Google Flow vergibt Downloadnamen nicht verlässlich.
 
-Nach JEDEM realen Download (vor der nächsten Szene) die tatsächliche PNG speichern:
+Nach JEDEM realen Download (vor der nächsten Szene) die tatsächliche PNG **sofort verschieben und umbenennen** (kein spätes Batch-Umbenennen, keine zusätzliche namenlose Kopie):
 
 `npm run flow:save -- --episode=KM-XXX-slug --scene=5 --source="/Pfad/download.png"`
 
@@ -186,3 +186,8 @@ Erst danach:
 
 Anschließend alle **realen Bilder visuell prüfen** (Pose, Beschriftung, Motiv) und freigeben. Antigravity Phase 3 darf weiter **niemals** neue Bilder erzeugen.
 
+
+
+## Antigravity als Bildproduzent: nur auf ausdrücklichen Auftrag
+
+Bildgenerierung durch Antigravity ist standardmäßig verboten, selbst wenn `phase3:prepare` fehlende Bilder meldet. Nur wenn der Nutzer ausdrücklich bestimmte fehlende Szenen zur Generierung freigibt, darf Antigravity ausnahmsweise die Google-Flow-Produktion als **Phase 2 Reparatur vor dem erneuten Phase-3-Handoff** übernehmen. Zuvor `images:permission --grant` mit dem tatsächlichen Nutzerwortlaut, vor jeder Szene `--check`, nach jeder Generierung sofort `flow:save --antigravity=1` (verbraucht die Freigabe). Siehe `ANTIGRAVITY.md`. Keine automatische Generierung aus der Fehlstellenliste ohne Freigabe.

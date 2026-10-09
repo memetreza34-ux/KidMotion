@@ -4,10 +4,11 @@ import crypto from 'node:crypto';
 import {resolveEpisodePaths,readEpisodeData} from './episode-paths.mjs';
 import {loadContract,currentContractErrors} from './contract.mjs';
 import {storeImage} from './flow-save-lib.mjs';
+import {permissionPath,approvalErrors,recordCompletion} from './image-generation-permission-lib.mjs';
 
 const args=process.argv.slice(2);
 const arg=k=>args.find(x=>x.startsWith('--'+k+'='))?.slice(k.length+3)||'';
-const folder=arg('episode'),source=arg('source'),scene=arg('scene'),cover=arg('cover'),repair=arg('repair')==='1';
+const folder=arg('episode'),source=arg('source'),scene=arg('scene'),cover=arg('cover'),repair=arg('repair')==='1',antigravity=arg('antigravity')==='1';
 const fail=msg=>{console.error('FLOW SAVE BLOCKED: '+msg);process.exit(1);};
 if(!folder||!source||Boolean(scene)===Boolean(cover))fail('Pass --episode, --source and exactly one of --scene=N or --cover=N.');
 if(path.extname(source).toLowerCase()!=='.png')fail('Source must be an actual downloaded PNG. Convert a real image to PNG during Phase 2 if necessary, without inventing image content.');
@@ -23,6 +24,15 @@ const dest=path.join(imageDir,cover?'Cover-Kandidat-'+id+'.png':'Szene '+id+'.pn
 const selection=fs.existsSync(paths.coverSelectionPath)?JSON.parse(fs.readFileSync(paths.coverSelectionPath,'utf8')):{};
 const plan=JSON.parse(fs.readFileSync(paths.imagePlanPath,'utf8'));
 
+let antigravityPermission=null;
+if(antigravity){
+  if(cover)fail('Antigravity repair permission does not allow creating/replacing covers.');
+  const permissionFile=permissionPath(paths);
+  if(!fs.existsSync(permissionFile))fail('No explicit user image-generation permission.');
+  antigravityPermission=JSON.parse(fs.readFileSync(permissionFile,'utf8'));
+  const denial=approvalErrors({permission:antigravityPermission,episodeFolder:folder,scene:n,alreadyExists:fs.existsSync(dest),approvalLocked:fs.existsSync(paths.approvalPath)});
+  if(denial.length)fail(denial.join(' '));
+}
 if(cover){
   if(repair)fail('Repair only applies to numbered scenes, never the selected cover.');
   if(selection.status==='SELECTED'||fs.existsSync(path.join(imageDir,'Szene 01.png')))fail('Cover already selected. Do not replace the chosen identity.');
@@ -46,7 +56,13 @@ if(cover){
 }
 try{
   const result=storeImage({source,destination:dest,imagesDir:imageDir});
-  console.log('FLOW IMAGE SAVED: '+result.file+' ('+result.width+'x'+result.height+')');
+  console.log('FLOW IMAGE MOVED/RENAMED IMMEDIATELY: '+result.file+' ('+result.width+'x'+result.height+')');
   console.log('SHA256: '+result.sha256);
-  console.log('Scene identity still needs human visual inspection. Filename comes from explicit --scene/--cover, not from Google Flow metadata.');
+  if(antigravity){
+    const permissionFile=permissionPath(paths);
+    const completed=recordCompletion(antigravityPermission,n,dest);
+    fs.writeFileSync(permissionFile,JSON.stringify(completed,null,2)+'\n');
+    console.log('Explicit permission consumed for '+result.file+'; remaining scenes are unchanged.');
+  }
+  console.log('Original downloaded file was moved, not left behind. Scene identity still needs human visual inspection. Filename comes from explicit --scene/--cover, not from Google Flow metadata.');
 }catch(e){fail(e.message);}

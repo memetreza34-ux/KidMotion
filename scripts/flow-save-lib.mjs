@@ -25,7 +25,18 @@ export const storeImage=({source,destination,imagesDir})=>{
     }
   }
   fs.mkdirSync(imagesDir,{recursive:true});
-  fs.copyFileSync(sourcePath,dest,fs.constants.COPYFILE_EXCL);
-  if(sha256(dest)!==hash){fs.rmSync(dest,{force:true});throw Error('Saved image differs from source.');}
-  return {...info,file:path.basename(dest),sha256:hash};
+  // Atomic rename on one filesystem; verified move across devices.
+  // Successful save always consumes the downloaded source, never leaves it unnamed.
+  let method='rename';
+  try{
+    fs.renameSync(sourcePath,dest);
+  }catch(e){
+    if(e.code!=='EXDEV')throw e;
+    method='cross-device-move';
+    fs.copyFileSync(sourcePath,dest,fs.constants.COPYFILE_EXCL);
+    if(sha256(dest)!==hash){fs.rmSync(dest,{force:true});throw Error('Saved copy does not match source.');}
+    fs.rmSync(sourcePath);
+  }
+  if(sha256(dest)!==hash)throw Error('Saved image differs from downloaded source.');
+  return {...info,file:path.basename(dest),sha256:hash,moved:true,method};
 };

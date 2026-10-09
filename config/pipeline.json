@@ -233,12 +233,25 @@
     "phase3AgentHandlesTechnicalNormalization": true,
     "phase3UserManualUnzipRequired": false,
     "phase3UserManualAudioConversionRequired": false,
-    "phase3AmbiguousSceneMappingBehavior": "BLOCK_WITH_REPORT"
+    "phase3AmbiguousSceneMappingBehavior": "BLOCK_WITH_REPORT",
+    "antigravityImagePermission": {
+      "default": "DENY",
+      "scope": "only expressly user-approved missing scenes",
+      "permissionFile": "99-technik/ANTIGRAVITY_IMAGE_PERMISSION.json",
+      "phase": "PHASE2_RECOVERY_BEFORE_PHASE3_PREPARE",
+      "mustUseImmediateFlowSave": true,
+      "phase3MontageStillReadOnly": true
+    }
   },
   "promptQuality": {
     "version": 2,
     "file": "config/prompt-quality.json",
     "requiredForNewEpisodes": true
   },
-  "workoutCharacterPolicyFile": "config/workout-character-policy.json"
+  "workoutCharacterPolicyFile": "config/workout-character-policy.json",
+  "imagePolicy": {
+    "renameImmediatelyAfterGeneration": true,
+    "renameMode": "MOVE_DOWNLOADED_SOURCE_TO_CANONICAL_FILENAME",
+    "renameCommand": "npm run flow:save -- --episode=<episode-folder> --scene=<scene> --source=<downloaded-png>"
+  }
 }

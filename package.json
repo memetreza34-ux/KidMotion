@@ -37,7 +37,9 @@
     "phase2:test": "node --test scripts/phase2-finalize.test.mjs",
     "workout:human:test": "node --test scripts/workout-character-policy.test.mjs",
     "flow:save": "node scripts/save-flow-image.mjs",
-    "flow:save:test": "node --test scripts/flow-save-lib.test.mjs"
+    "flow:save:test": "node --test scripts/flow-save-lib.test.mjs",
+    "images:permission": "node scripts/image-generation-permission.mjs",
+    "images:permission:test": "node --test scripts/image-generation-permission.test.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
