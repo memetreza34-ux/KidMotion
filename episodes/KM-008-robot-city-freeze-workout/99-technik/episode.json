@@ -590,5 +590,7 @@
     "oneHumanOnly": true,
     "coverHumanReviewRequired": true,
     "coverHumanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
-  }
+  },
+  "sceneNumberingPolicy": "explicit-v1",
+  "visualComplexityPolicy": "grounded-simple-workout"
 }

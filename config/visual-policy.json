@@ -1,5 +1,5 @@
 {
-  "visualPolicyVersion": 11,
+  "visualPolicyVersion": 12,
   "status": "READY",
   "styleId": "kidmotion-premium-3d-v3-flow-text",
   "description": "Zentrale KidMotion Bildwelt. Erst drei Flow-kompatible Cover, dann eine Nutzerwahl. Das gewaehlte Cover wird Szene 01 und danach die EINZIGE Bildreferenz fuer alle weiteren Szenen. Szene 02-28 werden jeweils genau einmal und streng nacheinander erzeugt. Die internen 5er-Bloecke laufen nach der Coverwahl automatisch bis zum fertigen Bilderordner durch. Google Flow erzeugt alle sichtbaren Texte; Remotion zeichnet nur den Countdown-Timer.",
@@ -13,6 +13,7 @@
     "rule": "This UI contract must be written explicitly into every relevant Google Flow prompt. It is text-only guidance and NEVER authorizes a second image reference."
   },
   "rules": [
+    "Workout pictures must be visually simple: clear human pose in believable safe training space; no giant robot props, surreal buildings, wild sci-fi clutter or unrelated gimmicks.",
     "Every workout image and cover must show exactly one obviously HUMAN, fully clothed stylized boy or girl, NEVER a robot or animal mascot, even in Robot City.",
     "16:9 landscape, premium stylized 3D family-friendly animation look",
     "exactly one recurring original KidMotion mascot character per episode",
@@ -89,7 +90,8 @@
     "motion-dependent exercise poses",
     "reusing the next 20-second exercise image during the 5-second transition",
     "more than two neighboring exercises with near-identical squat/lunge/balance silhouettes",
-    "robots, foxes, animals or anthropomorphic objects as workout demonstrators"
+    "robots, foxes, animals or anthropomorphic objects as workout demonstrators",
+    "overly crazy fantasy workout sets, oversized props, chaotic architecture"
   ],
   "referenceWorkflow": {
     "coverCandidatesFirst": true,
@@ -119,5 +121,13 @@
       "learn-and-move"
     ],
     "pureLearningExempt": true
+  },
+  "visualComplexityPolicy": {
+    "priority": "clear real exercise pose",
+    "workoutBackgrounds": "simple gym, safe playground, park or plausible themed training court",
+    "maxDominantLandmarks": 1,
+    "giantPropsForbidden": true,
+    "chaoticSurrealScenesForbidden": true,
+    "themeMayNotObscurePerson": true
   }
 }

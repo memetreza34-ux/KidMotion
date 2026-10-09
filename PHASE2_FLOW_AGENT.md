@@ -70,7 +70,19 @@ Innerhalb des Blocks:
 Damit bedeutet „5er-Schritte“ wirklich:
 **5 geplante Szenen vollständig produzieren → Block gemeinsam prüfen → automatisch nächste 5.**
 
-## 4. Stille QC nach jedem Block
+## 4. Dateinummerierung nach jeder Bildgenerierung
+
+Jeder Flow-Prompt beginnt mit SCENE_ID: NN bzw. COVER_ID und OUTPUT_FILE. Diese Kennung ist **nur Dateimetadatum**, keine sichtbare Aufschrift im Bild. Google Flow vergibt Downloadnamen nicht verlässlich.
+
+Nach JEDEM realen Download (vor der nächsten Szene) die tatsächliche PNG speichern:
+
+`npm run flow:save -- --episode=KM-XXX-slug --scene=5 --source="/Pfad/download.png"`
+
+Für Cover stattdessen `--cover=1` / `--cover=2` / `--cover=3`. Der Speicherschritt prüft die echte PNG-Datei, ordnet sie der Szenennummer zu und verhindert Überschreiben, Kopien als Ersatz und Nummernverschiebungen.
+
+**Ruhige Bildwelt:** eine eindeutige menschliche Sportfigur, eine einfache plausible Trainingsfläche, maximale Lesbarkeit der Pose. Kein überladenes futuristisches Chaos, keine übergroßen Sci-Fi-Objekte.
+
+## 5. Stille QC nach jedem Block
 
 Prüfe ohne Nutzerunterbrechung:
 - richtige Szene und richtige Rolle

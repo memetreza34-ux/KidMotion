@@ -81,6 +81,8 @@ const data = {
   contractFile:'config/v3-contract.json',
   contentFormat,
   compactPromptPolicy:'v2-short',
+  sceneNumberingPolicy:'explicit-v1',
+  visualComplexityPolicy:'grounded-simple-workout',
   formatContractFile:contentFormat === 'learn-and-move' ? 'config/formats/learn-and-move.json' : 'config/formats/workout.json',
   learningObjective:contentFormat === 'learn-and-move' ? placeholder('LEARNING OBJECTIVE') : undefined,
   id:episodeId,
@@ -116,12 +118,12 @@ const data = {
 
 const imagePlan = {
   schemaVersion:3,productionContractVersion:contract.contractVersion,promptSpecVersion:contract.promptContract.currentPromptSpecVersion,episodeFolder,revision,visualStyleId:visual.styleId,
-  generationRules:{characterSpecies:'human',nonHumanMascotsForbidden:true,coverHumanReviewRequiredBeforeSelection:true,coverHumanReviewFile:'99-technik/COVER_HUMAN_REVIEW.json',coverCandidateCount:3,coverCandidateFiles:contract.coverContract.candidateFiles,coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesSoleReference:true,batchSizeAfterCover:5,autoContinueToNextBatch:true,generationBatches:pipeline.batchGenerationPolicy.batches,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,automaticAlternatesForbidden:true,soleReference:'Szene 01.png',secondaryImageReferencesForbidden:true,finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
+  generationRules:{sceneNumberingPolicy:'explicit-v1',sceneIdsMustMatchFileNames:true,sceneNumbersAreNotVisibleText:true,useDownloadSaveCommand:true,characterSpecies:'human',nonHumanMascotsForbidden:true,coverHumanReviewRequiredBeforeSelection:true,coverHumanReviewFile:'99-technik/COVER_HUMAN_REVIEW.json',coverCandidateCount:3,coverCandidateFiles:contract.coverContract.candidateFiles,coverSelectionFile:'99-technik/COVER_SELECTION.json',stopAfterCoverCandidatesUntilExplicitUserSelection:true,selectedCoverFinalFile:'Szene 01.png',selectedCoverBecomesSoleReference:true,batchSizeAfterCover:5,autoContinueToNextBatch:true,generationBatches:pipeline.batchGenerationPolicy.batches,generateEachNonCoverSceneExactlyOnce:true,maximumGenerationAttemptsPerNonCoverScene:1,regenerationForbidden:true,automaticAlternatesForbidden:true,soleReference:'Szene 01.png',secondaryImageReferencesForbidden:true,finalDirectory:'00-bildprompts/images',allFinalScenesInOneFolder:true,sceneFilePattern:'Szene NN.png',firstFinalScene:1,lastFinalScene:28,dedicatedGetReadyScenes:true,getReadySceneCount:11,allNonTimerVisibleTextOwner:'google-flow'},
   images:scenes.map((scene,index)=>({sceneNumber:index+1,imageFile:scene.image,sceneRole:scene.type,visualPurpose:placeholder(`SZENE ${scene.scene} VISUAL PURPOSE`),topicAnchor:topic,visualForm:placeholder(`SZENE ${scene.scene} VISUAL FORM`),characterReference:scene.type==='cover'?'three-cover candidate stage':'selected Szene 01.png ONLY',uiReference:null,generationAttemptsAllowed:scene.type==='cover'?3:1,propCount:0,generatedText:placeholder(`SZENE ${scene.scene} GENERATED TEXT`),safeZones:['exercise','get-ready'].includes(scene.type)?['top-left 230x230 countdown timer zone clear']:[],acceptanceCriteria:['one clearly HUMAN animated boy or girl, not a robot or animal','same selected character identity and outfit','correct scene role','natural anatomy','no extra people','16:9 composition','no generated countdown timer or progress bar'],prompt:placeholder(`SZENE ${scene.scene} FINAL GOOGLE FLOW PROMPT`)}))
 };
 
 // Short scene-specific sentences only. Global style lives in config/visual-policy.json.
-const coverPromptScaffold=(n)=>`CLICK IDEA:
+const coverPromptScaffold=(n)=>`COVER_ID: 0${n} | OUTPUT_FILE: Cover-Kandidat-0${n}.png | ID is file metadata ONLY.\nCLICK IDEA:
 ${placeholder(`COVER 0${n} CLICK IDEA`)}
 
 SHOT / COMPOSITION:
@@ -148,7 +150,7 @@ ${placeholder(`COVER 0${n} QUALITY CHECK`)}
 OUTPUT:
 16:9 landscape, Cover-Kandidat-0${n}.png`;
 
-const scenePromptScaffold=(n)=>`VIEWER TAKEAWAY:
+const scenePromptScaffold=(n)=>`SCENE_ID: ${padScene(n)} | OUTPUT_FILE: ${sceneFile(n)} | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY:
 ${placeholder(`SZENE ${padScene(n)} VIEWER TAKEAWAY`)}
 
 REFERENCE USE:
@@ -178,7 +180,7 @@ ${placeholder(`SZENE ${padScene(n)} QUALITY CHECK`)}
 OUTPUT:
 16:9 landscape, ${sceneFile(n)}`;
 
-let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nPROMPT SPEC: v${contract.promptContract.currentPromptSpecVersion}\nSHORT PROMPTS: one concrete sentence per section; max 1500 characters per scene. No repeated style essays.\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\nAFTER COVER SELECTION: run npm run flow:batch -- --episode=${episodeFolder} before every 5-scene production step.\n\n`;
+let prompt = `KIDMOTION GOOGLE FLOW MASTER — ${episodeId} — ${topic}\n\nPROMPT SPEC: v${contract.promptContract.currentPromptSpecVersion}\nSHORT PROMPTS: one concrete sentence per section; max 1500 characters per scene. No repeated style essays or crazy fantasy scenery; simple safe workout settings. Scene IDs are metadata only.\nSTATUS: PLANNING REQUIRED. DO NOT OPEN GOOGLE FLOW UNTIL npm run prompt:qa -- --episode=${episodeFolder} PASSES.\nSAVE EACH DOWNLOADED IMAGE: npm run flow:save -- --episode=${episodeFolder} --scene=<NN> --source=<real-download.png> (for cover use --cover=<1|2|3>). AFTER COVER SELECTION: run npm run flow:batch -- --episode=${episodeFolder} before every 5-scene production step.\n\n`;
 for (let n=1;n<=3;n+=1) prompt += `COVER CANDIDATE 0${n} — Cover-Kandidat-0${n}.png\nFINAL GOOGLE FLOW PROMPT:\n${coverPromptScaffold(n)}\n\n`;
 for (let n=2;n<=28;n+=1) prompt += `SZENE ${padScene(n)} — ${sceneFile(n)}\nFINAL GOOGLE FLOW PROMPT:\n${scenePromptScaffold(n)}\n\n`;
 

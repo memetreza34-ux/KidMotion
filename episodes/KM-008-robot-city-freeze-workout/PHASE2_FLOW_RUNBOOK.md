@@ -59,3 +59,15 @@ The KM-008 mascot MUST be one fully clothed stylized 3D **HUMAN girl athlete**, 
 All three previously generated Google Flow covers shown in the screenshot are INVALID. Generate three new covers with the corrected prompts, inspect all actual PNGs, then set the three human-review records in `99-technik/COVER_HUMAN_REVIEW.json` with REAL SHA256 values. `kidmotion:select-cover` will block until human review passes. This is a real visual check, not something that can be assumed from the prompt.
 
 After choosing a human cover, it stays the sole human identity reference for scenes 02–28. Pure learning format is NOT affected.
+
+
+## Exakte Dateinamen für KM-008
+
+Die Bildprompts enthalten `COVER_ID` beziehungsweise `SCENE_ID` plus `OUTPUT_FILE`. Die Nummer gehört **nur in den Dateinamen**, nicht sichtbar ins Bild. Google Flow benennt Dateien nicht automatisch nach den Promptvorgaben. Nach jedem echten PNG-Download:
+
+```bash
+npm run flow:save -- --episode=KM-008-robot-city-freeze-workout --cover=1 --source="/Pfad/Download.png"
+npm run flow:save -- --episode=KM-008-robot-city-freeze-workout --scene=5 --source="/Pfad/Download.png"
+```
+
+Jede Szene sofort korrekt speichern, nicht erst am Ende. Ruhige, glaubwürdige Trainingsumgebung statt ungewöhnlicher überladener Robot-City-Kulissen. Abschlussprüfung `phase2:finalize` bleibt Pflicht.
