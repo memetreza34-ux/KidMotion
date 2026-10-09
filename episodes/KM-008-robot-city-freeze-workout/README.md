@@ -34,3 +34,8 @@ Bildgestaltung bewusst einfach: **menschliches Mädchen, klare Sporthaltung, ruh
 ## Warme, kindgerechte Bildwelt
 
 Alle KM-008-Cover und -Szenen enthalten **WARMTH / MOOD**. Eindeutig menschliches Mädchen, natürliche freundliche Mimik, warme Sonne, schöne lebendige Farben und ein kleines passendes Spiel-Detail, aber keine abstrakten, sterilen oder beängstigenden Szenen. Echte Cover- und Szenenbilder müssen **visuell** geprüft werden, bevor die Auswahl beziehungsweise das Rendering freigegeben wird.
+
+
+## Feedback zur sichtbaren Google-Flow-Bildwelt (2026-10-09)
+
+Siehe [ART_DIRECTION_FEEDBACK.md](ART_DIRECTION_FEEDBACK.md). In Szene 25–27 sind der sich wiederholende leere Pastell-Sportplatz, unerklärliche Turm-Kulissen und eine zu große dunkle GET-READY-Tafel auffällig. Die im Google-Flow-Screenshot sichtbaren Medien sind nicht automatisch als Dateien im GitHub-Repository gesichert. Bestehende Bilder nicht ungefragt neu erzeugen.

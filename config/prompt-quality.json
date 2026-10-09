@@ -66,5 +66,16 @@
       "noSterileOrDisturbingWorkoutVisuals"
     ],
     "visualReviewIsHumanNotAutomated": true
+  },
+  "storyworldV1": {
+    "episodeFlag": "storyworld-v1",
+    "coverExtraHeading": "PLAY DETAIL / STORY BEAT:",
+    "sceneExtraHeading": "PLAY DETAIL / STORY BEAT:",
+    "requireConcreteLocation": true,
+    "requirePhysicalDetail": true,
+    "requireActionSpecificMood": true,
+    "requireActualShaBoundVisualReview": true,
+    "reviewFile": "99-technik/ART_DIRECTION_REVIEW.json",
+    "existingEpisodesBackwardsCompatible": true
   }
 }

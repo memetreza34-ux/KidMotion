@@ -30,6 +30,10 @@ Workout is for children: ONE clearly human athlete with an inviting expressive f
 
 Every final Flow prompt needs an intentional `WARMTH / MOOD:` section. **Before cover selection**, each REAL cover must pass human review **and** warmth/safe-readable-world review in `COVER_HUMAN_REVIEW.json` with genuine inspected source hashes. **Before final approval**, review all actual scene images and confirm warmth, concrete kid-friendly environments and no unsettling/sterile frames in `VISUAL_REVIEW.json`. Do not mark checks true from prompts alone.
 
+## Neue Bildregie — storyworld-v1
+
+Für neue Workout-/Learn-and-Move-Episoden gilt `ART_DIRECTION.md`, sofern die Episode `artDirectionPolicy: storyworld-v1` trägt. „Warm, friendly, playful“ als Prompt-Wörter reichen nicht mehr. Jede Szene braucht ein konkretes menschlich dimensioniertes kinderfreundliches Setting, eine greifbare bildrelevante Spiel-/Story-Aktion und eine andere passende Mimik. Keine wiederkehrenden leeren Pastellplätze, unsinnigen Zylindertürme, hochgebauten Sci-Fi-Städte oder riesigen dunklen Schilder. Neuer Pflichtabschnitt für die Prompt-QA: `PLAY DETAIL / STORY BEAT:`. Nach tatsächlicher Bildproduktion muss jede einzelne PNG in `99-technik/ART_DIRECTION_REVIEW.json` mit echter Bildprüfung und SHA256 freigegeben werden. Ohne diese Prüfung ist Asset-Approval gesperrt. Bestehende Episoden und Bilder nicht automatisch verändern oder regenerieren.
+
 ## 3. Cover
 
 Genau drei Cover-Kandidaten, streng nacheinander:
