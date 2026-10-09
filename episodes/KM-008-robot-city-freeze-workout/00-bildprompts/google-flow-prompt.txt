@@ -14,7 +14,7 @@ COVER CANDIDATE 01 — Cover-Kandidat-01.png
 FINAL GOOGLE FLOW PROMPT:
 COVER_ID: 01 | OUTPUT_FILE: Cover-Kandidat-01.png | ID is file metadata ONLY.
 CLICK IDEA: One original mascot invites viewers into a fun Robot City sport adventure. Make the image unmistakably a kids fitness workout
-SHOT / COMPOSITION: Low wide frontal camera, friendly mascot right-center with arms comfortably open, one huge rounded antenna arch left, title in open upper-left sky. Distinct visual hierarchy
+SHOT / COMPOSITION: Low wide frontal camera, friendly mascot right-center with arms comfortably open, one modest teal sports arch on the left, title in open upper-left sky. Distinct visual hierarchy
 CHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete, visible human face, hair, hands and legs; teal/coral jacket, navy joggers, white trainers.
 WORLD: central launch plaza with smooth teal activity track. An inviting Robot City with large clear
 TEXT: Exact "5 MIN ROBOT CITY" and "12 FUN FREEZE MOVES"; bold white text, mobile-readable.
@@ -26,8 +26,8 @@ OUTPUT: Cover-Kandidat-01.png
 COVER CANDIDATE 02 — Cover-Kandidat-02.png
 FINAL GOOGLE FLOW PROMPT:
 COVER_ID: 02 | OUTPUT_FILE: Cover-Kandidat-02.png | ID is file metadata ONLY.
-CLICK IDEA: Twelve fun exercise poses are waiting inside a distinctive futuristic obstacle-free activity playground. Make the image
-SHOT / COMPOSITION: Wide three-quarter slightly elevated shot, mascot left foreground in safe V pose and one large circular signal gateway on right, curved track leads to skyline, title on upper
+CLICK IDEA: Twelve fun exercise poses are waiting inside a simple safe open-air sports playground. Make the image
+SHOT / COMPOSITION: Wide three-quarter slightly elevated shot, mascot left foreground in safe V pose and one small curved park arch on the right, curved track leads to skyline, title on upper
 CHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete, visible human face, hair, hands and legs; teal/coral jacket, navy joggers, white trainers.
 WORLD: safe outdoor training deck with rounded architecture and open rubbery floor. An inviting Robot
 TEXT: Exact "5 MIN ROBOT CITY" and "12 FUN FREEZE MOVES"; bold white text, mobile-readable.
@@ -40,7 +40,7 @@ COVER CANDIDATE 03 — Cover-Kandidat-03.png
 FINAL GOOGLE FLOW PROMPT:
 COVER_ID: 03 | OUTPUT_FILE: Cover-Kandidat-03.png | ID is file metadata ONLY.
 CLICK IDEA: A joyful five-minute freeze challenge led by an original animated mascot. Make the image unmistakably a kids fitness workout
-SHOT / COMPOSITION: Medium-wide cinematic ground-level shot, full mascot left foreground in one-arm-up ready stance, clean architectural star floor sculpture on right, upper-right title space
+SHOT / COMPOSITION: Medium-wide cinematic ground-level shot, full mascot left foreground in one-arm-up ready stance, simple painted star on the floor on right, upper-right title space
 CHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete, visible human face, hair, hands and legs; teal/coral jacket, navy joggers, white trainers.
 WORLD: sunset rooftop training garden with a simple curved bridge. An inviting Robot City with large
 TEXT: Exact "5 MIN ROBOT CITY" and "12 FUN FREEZE MOVES"; bold white text, mobile-readable.
@@ -56,7 +56,7 @@ VIEWER TAKEAWAY: Simple intro start, safety or ending card.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Wide establishing eye-level activity plaza, mascot on right third, clean left side for title..
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Exactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers.
-WORLD / ENVIRONMENT: Robot City central launch plaza with one tall matte antenna arch; teal/coral Robot City.
+WORLD / ENVIRONMENT: open-air training court with low matte teal buildings; teal/coral Robot City.
 TEXT / UI: Exact "KIDMOTION" / "ROBOT CITY WORKOUT" / "12 FREEZE MOVES"; large readable type.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: One mascot; no extra figures, random text, logos or anatomy errors. No robot, fox, animal or anthropomorphic character.
@@ -84,7 +84,7 @@ VIEWER TAKEAWAY: Simple lets-begin start, safety or ending card.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Low eye-level launch-platform wide view, mascot right center, bold text on left..
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Exactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers.
-WORLD / ENVIRONMENT: training launch circle with a smooth inert power ring; teal/coral Robot City.
+WORLD / ENVIRONMENT: outdoor sports court with a painted start circle; teal/coral Robot City.
 TEXT / UI: Exact "POWER ON!" / "LET'S BEGIN!"; large readable type.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: One mascot; no extra figures, random text, logos or anatomy errors. No robot, fox, animal or anthropomorphic character.
@@ -98,7 +98,7 @@ VIEWER TAKEAWAY: Show the ANTENNA REACH as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: frontal waist-height wide shot, mascot center-right and tall landmark left; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. feet apart and both arms reaching vertically overhead, hands open, heels planted.
-WORLD / ENVIRONMENT: launch plaza with a huge antenna arch; teal/coral Robot City.
+WORLD / ENVIRONMENT: outdoor exercise plaza with one small teal sports arch; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "ANTENNA REACH" on dark semi-transparent navy rounded rectangle; top-right "Stretch both arms up and stand tall." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -140,7 +140,7 @@ VIEWER TAKEAWAY: Prepare for GEAR SQUAT HOLD; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: gear garden with one static round cog sculpture; teal/coral Robot City.
+WORLD / ENVIRONMENT: quiet outdoor workout garden with simple floor markings; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: GEAR SQUAT HOLD".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -154,7 +154,7 @@ VIEWER TAKEAWAY: Show the GEAR SQUAT HOLD as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: mild elevated left three-quarter full-body shot, knees clearly bent; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. safe shallow squat, feet apart, knees aligned, heels planted, arms forward.
-WORLD / ENVIRONMENT: gear garden with one static round cog sculpture; teal/coral Robot City.
+WORLD / ENVIRONMENT: quiet outdoor workout garden with simple floor markings; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "GEAR SQUAT HOLD" on dark semi-transparent navy rounded rectangle; top-right "Bend your knees a little and freeze." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -168,7 +168,7 @@ VIEWER TAKEAWAY: Prepare for SIDE SIGNAL REACH; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: solar promenade below a fan-shaped roof; teal/coral Robot City.
+WORLD / ENVIRONMENT: safe shaded park walkway with a plain shelter; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: SIDE SIGNAL REACH".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -182,7 +182,7 @@ VIEWER TAKEAWAY: Show the SIDE SIGNAL REACH as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: eye-level three-quarter left view with curved open arm silhouette; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. both feet flat, left arm arched overhead to right, small gentle side bend.
-WORLD / ENVIRONMENT: solar promenade below a fan-shaped roof; teal/coral Robot City.
+WORLD / ENVIRONMENT: safe shaded park walkway with a plain shelter; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "SIDE SIGNAL REACH" on dark semi-transparent navy rounded rectangle; top-right "Lean gently sideways and reach long." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -196,7 +196,7 @@ VIEWER TAKEAWAY: Prepare for RUNNER FREEZE; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: circuit runway with a distant inactive round gate; teal/coral Robot City.
+WORLD / ENVIRONMENT: wide flat running track with a simple lane marking; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: RUNNER FREEZE".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -210,7 +210,7 @@ VIEWER TAKEAWAY: Show the RUNNER FREEZE as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: low front-left oblique shot showing long leg separation; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. split stance with one foot forward and one back, both feet planted, elbows bent.
-WORLD / ENVIRONMENT: circuit runway with a distant inactive round gate; teal/coral Robot City.
+WORLD / ENVIRONMENT: wide flat running track with a simple lane marking; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "RUNNER FREEZE" on dark semi-transparent navy rounded rectangle; top-right "Step one foot back and hold your pose." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -224,7 +224,7 @@ VIEWER TAKEAWAY: Prepare for COMPASS TURN; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: navigation hub with one large compass-circle floor inlay without letters; teal/coral Robot City.
+WORLD / ENVIRONMENT: open sports courtyard with a simple circle floor marking; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: COMPASS TURN".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -238,7 +238,7 @@ VIEWER TAKEAWAY: Show the COMPASS TURN as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: slightly elevated right-side view to show gentle torso turn; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. gentle right torso turn, hips forward, right arm pointing forwards and left elbow comfortably bent.
-WORLD / ENVIRONMENT: navigation hub with one large compass-circle floor inlay without letters; teal/coral Robot City.
+WORLD / ENVIRONMENT: open sports courtyard with a simple circle floor marking; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "COMPASS TURN" on dark semi-transparent navy rounded rectangle; top-right "Turn your shoulders and point ahead." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -252,7 +252,7 @@ VIEWER TAKEAWAY: Prepare for TABLE BRIDGE; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: quiet maintenance patio with clean grid floor and a low architectural arch; teal/coral Robot City.
+WORLD / ENVIRONMENT: quiet training patio with simple square floor tiles; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: TABLE BRIDGE".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -266,7 +266,7 @@ VIEWER TAKEAWAY: Show the TABLE BRIDGE as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: low floor-height side profile showing all four support points; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. reverse tabletop, bent knees, both feet flat, palms on ground behind hips, hips raised comfortably.
-WORLD / ENVIRONMENT: quiet maintenance patio with clean grid floor and a low architectural arch; teal/coral Robot City.
+WORLD / ENVIRONMENT: quiet training patio with simple square floor tiles; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "TABLE BRIDGE" on dark semi-transparent navy rounded rectangle; top-right "Hands and feet down, lift your hips." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -280,7 +280,7 @@ VIEWER TAKEAWAY: Prepare for POWER PLANK; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: training tunnel with one nonfunctional rounded portal; teal/coral Robot City.
+WORLD / ENVIRONMENT: open covered workout deck with a plain wall; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: POWER PLANK".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -294,7 +294,7 @@ VIEWER TAKEAWAY: Show the POWER PLANK as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: floor-level side view with straight body and limbs fully visible; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. straight-arm high plank with hands below shoulders, toes grounded, spine level, head aligned.
-WORLD / ENVIRONMENT: training tunnel with one nonfunctional rounded portal; teal/coral Robot City.
+WORLD / ENVIRONMENT: open covered workout deck with a plain wall; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "POWER PLANK" on dark semi-transparent navy rounded rectangle; top-right "Hold a straight line on the floor." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -336,7 +336,7 @@ VIEWER TAKEAWAY: Prepare for SHIELD PRESS; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm slightly elevated three-quarter shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: shield courtyard with a single curved translucent building panel; teal/coral Robot City.
+WORLD / ENVIRONMENT: sunny outdoor workout courtyard with one simple wall; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: SHIELD PRESS".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -350,7 +350,7 @@ VIEWER TAKEAWAY: Show the SHIELD PRESS as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: mild low-angle front-right shot with palms clearly readable; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. safe standing split stance with two open palms pressing forwards, elbows gently bent.
-WORLD / ENVIRONMENT: shield courtyard with a single curved translucent building panel; teal/coral Robot City.
+WORLD / ENVIRONMENT: sunny outdoor workout courtyard with one simple wall; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "SHIELD PRESS" on dark semi-transparent navy rounded rectangle; top-right "Push both palms forward and stay firm." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -364,7 +364,7 @@ VIEWER TAKEAWAY: Prepare for STAR FREEZE; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm low eye-level shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: star courtyard with one giant five-point inlay on the ground; teal/coral Robot City.
+WORLD / ENVIRONMENT: quiet training square with one small painted star; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: STAR FREEZE".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -378,7 +378,7 @@ VIEWER TAKEAWAY: Show the STAR FREEZE as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: dead-on centered wide hero shot with uncluttered space around four limbs; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. feet wide, arms diagonally raised to form an X, hands and shoes all visible.
-WORLD / ENVIRONMENT: star courtyard with one giant five-point inlay on the ground; teal/coral Robot City.
+WORLD / ENVIRONMENT: quiet training square with one small painted star; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "STAR FREEZE" on dark semi-transparent navy rounded rectangle; top-right "Stretch wide like a giant star." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -392,7 +392,7 @@ VIEWER TAKEAWAY: Prepare for POWER-UP VICTORY; do not reveal next pose.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Calm frontal wide shot, neutral full-body mascot left third and ample free space for the panel on right.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Neutral upright: both feet flat, arms relaxed at sides; do NOT show next pose.
-WORLD / ENVIRONMENT: final roof garden with a broad finish arch and warm futuristic skyline; teal/coral Robot City.
+WORLD / ENVIRONMENT: sunny rooftop exercise terrace with a calm city skyline; teal/coral Robot City.
 TEXT / UI: right-half dark semi-transparent navy rounded panel, WHITE "GET READY", bright-cyan "NEXT: POWER-UP VICTORY".
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -406,7 +406,7 @@ VIEWER TAKEAWAY: Show the POWER-UP VICTORY as a clear, safe stationary hold.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: low front-right wide victory shot with clear sky between the V arms; protect bottom-left and top-right UI areas and the top-left 230x230 safe zone.
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. stable upright stance with hands raised apart into broad V, comfortably bent elbows.
-WORLD / ENVIRONMENT: final roof garden with a broad finish arch and warm futuristic skyline; teal/coral Robot City.
+WORLD / ENVIRONMENT: sunny rooftop exercise terrace with a calm city skyline; teal/coral Robot City.
 TEXT / UI: bottom-left WHITE uppercase "POWER-UP VICTORY" on dark semi-transparent navy rounded rectangle; top-right "Raise your hands and finish strong." in dark navy on light cream rounded rectangle.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: Top-left 230x230 timer area clear. One mascot, no extra people/text, anatomy errors, cropped limbs or generated timer. No robot, fox, animal or anthropomorphic character.
@@ -420,7 +420,7 @@ VIEWER TAKEAWAY: Simple outro start, safety or ending card.
 REFERENCE USE: selected Szene 01.png as the ONLY image reference for mascot/outfit/style; do not copy the cover pose, camera or composition.
 SHOT / COMPOSITION: Wide low-angle rooftop garden finish shot, mascot right and empty left for text..
 CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands and legs. Exactly one original fictional fully clothed stylized athletic mascot wearing teal sporty jacket with coral orange panels and lime accents, dark navy joggers.
-WORLD / ENVIRONMENT: Robot City warm sunset skyline behind a single finish arch; teal/coral Robot City.
+WORLD / ENVIRONMENT: warm urban park at sunset with a modest exercise sign; teal/coral Robot City.
 TEXT / UI: Exact "GREAT JOB!" / "WORKOUT COMPLETE"; large readable type.
 LIGHT / MATERIALS: Soft directional light, matte animated 3D with clear depth.
 NEGATIVE / STABILITY: One mascot; no extra figures, random text, logos or anatomy errors. No robot, fox, animal or anthropomorphic character.

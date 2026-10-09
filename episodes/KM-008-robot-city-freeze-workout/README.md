@@ -22,3 +22,10 @@ The KM-008 mascot MUST be one fully clothed stylized 3D **HUMAN girl athlete**, 
 All three previously generated Google Flow covers shown in the screenshot are INVALID. Generate three new covers with the corrected prompts, inspect all actual PNGs, then set the three human-review records in `99-technik/COVER_HUMAN_REVIEW.json` with REAL SHA256 values. `kidmotion:select-cover` will block until human review passes. This is a real visual check, not something that can be assumed from the prompt.
 
 After choosing a human cover, it stays the sole human identity reference for scenes 02–28. Pure learning format is NOT affected.
+
+
+## Szenennummern und einfachere Bilder
+
+Jeder Bildprompt enthält `SCENE_ID: NN` und `OUTPUT_FILE: Szene NN.png` als Dateimetadaten. Nach tatsächlichem Download wird das Bild mit `npm run flow:save -- --episode=KM-008-robot-city-freeze-workout --scene=NN --source="/Pfad/Flow-Download.png"` unter genau diesem Namen im Bildordner gespeichert. Die Szenennummer wird **nicht ins Bild gedruckt**. Vorhandene Dateien dürfen nicht überschrieben oder als Ersatz für andere Szenen kopiert werden.
+
+Bildgestaltung bewusst einfach: **menschliches Mädchen, klare Sporthaltung, ruhige Trainingsfläche**; Robot City ist nur ein dezenter Stil, keine riesigen Zahnräder, Sci-Fi-Tore oder chaotische Figuren.
