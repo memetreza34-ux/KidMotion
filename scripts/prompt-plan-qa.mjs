@@ -33,7 +33,7 @@ for (const error of currentContractErrors(data,contract)) fail(error);
 
 for (const rel of contract.requiredEpisodeFiles) {
   const abs=path.join(paths.episodeRoot,rel);
-  if (!fs.existsSync(abs)) fail(`Missing ${rel}.`);
+  if (!fs.existsSync(abs) && !fs.existsSync(path.join(paths.techDir,rel))) fail(`Missing ${rel}.`);
 }
 const plan=fs.existsSync(paths.imagePlanPath)?JSON.parse(fs.readFileSync(paths.imagePlanPath,'utf8')):{};
 const prompt=fs.existsSync(paths.promptPath)?fs.readFileSync(paths.promptPath,'utf8'):'';
@@ -172,6 +172,14 @@ if(promptSpecVersion>=2){
   }
 }
 
+if(data.introVisualPolicy==='greeting-only-v1'){
+  const openingStart=prompt.indexOf('SZENE 02');
+  const openingEnd=prompt.indexOf('SZENE 03',openingStart+1);
+  const opening=openingStart>=0?prompt.slice(openingStart,openingEnd>openingStart?openingEnd:prompt.length):'';
+  const imagePrompt=opening.split('FINAL GOOGLE FLOW PROMPT:')[1]||'';
+  if(!/\bHELLO\b/i.test(imagePrompt)) fail('Szene 02 must be a small HELLO greeting.');
+  if(/12 FREEZE MOVES|large episode title|giant intro title|title card/i.test(imagePrompt)) fail('Szene 02 must not repeat cover/title imagery.');
+}
 for(const error of validateArtDirectionPrompts({episode:data,plan,prompt})) fail('ART DIRECTION: '+error);
 for(const error of validateVoicePlanObject(voicePlan,contract)) fail(error);
 const normalizedVoiceScript=voiceScript.trim();

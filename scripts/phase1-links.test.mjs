@@ -31,7 +31,7 @@ test('after QA handoff writes both links, a readable Markdown start page and fin
  assert.deepEqual(manifest.links,result.links);
  const source=fs.readFileSync(path.join(folder,'01-voice-script','voice-script.txt'));
  assert.equal(manifest.files.voiceOverScript.sha256,crypto.createHash('sha256').update(source).digest('hex'));
- const output=fs.readFileSync(path.join(folder,'PHASE1_START_HIER.md'),'utf8');
+ const output=fs.readFileSync(path.join(folder,'99-technik','PHASE1_START_HIER.md'),'utf8');
  assert.ok(output.includes('[Google-Flow-Prompt öffnen]('));
  assert.ok(output.includes('[Voice-over-Skript öffnen]('));
  const lines=[];
@@ -47,5 +47,5 @@ test('no link handoff for unfinished placeholders',t=>{
  const {root,folder}=createTemp(t);
  fs.writeFileSync(path.join(folder,'01-voice-script','voice-script.txt'),'__PLAN_REQUIRED__ narration');
  assert.throws(()=>publishPhase1Handoff({root,episodeFolder:name,format:'workout'}),/placeholders/);
- assert.equal(fs.existsSync(path.join(folder,'PHASE1_START_HIER.md')),false);
+ assert.equal(fs.existsSync(path.join(folder,'99-technik','PHASE1_START_HIER.md')),false);
 });

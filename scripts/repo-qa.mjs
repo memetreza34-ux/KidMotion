@@ -128,7 +128,7 @@ if (fs.existsSync(episodeRoot)) {
       const record=readJson(reviewFile);
       if((record.candidates||[]).length!==3) fail(entry.name+': human visual review needs all three candidate records.');
     }
-    const antiPath = path.join(base,'ANTIGRAVITY.md');
+    const antiPath = fs.existsSync(path.join(base,'99-technik','ANTIGRAVITY.md')) ? path.join(base,'99-technik','ANTIGRAVITY.md') : path.join(base,'ANTIGRAVITY.md');
     const anti = read(antiPath);
     if (!anti.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail(`${entry.name}: ANTIGRAVITY.md must declare Phase 3 image generation forbidden.`);
     if (!anti.includes('phase3:prepare')) fail(`${entry.name}: ANTIGRAVITY.md must require phase3:prepare for raw handoff.`);
@@ -137,7 +137,7 @@ if (fs.existsSync(episodeRoot)) {
     if (episodeAntiOrder.some((i)=>i<0) || !(episodeAntiOrder[0]<episodeAntiOrder[1] && episodeAntiOrder[1]<episodeAntiOrder[2] && episodeAntiOrder[2]<episodeAntiOrder[3])) fail(`${entry.name}: ANTIGRAVITY.md Phase 3 order is wrong.`);
     if (/then generate 3 covers|continue Szene 02.?28 serially using ONLY Szene 01\.png/i.test(anti)) fail(`${entry.name}: ANTIGRAVITY.md still assigns image generation to Antigravity.`);
     for (const rel of contract.requiredEpisodeFiles) {
-      if (!fs.existsSync(path.join(base, rel))) fail(`${entry.name}: missing ${rel}`);
+      if (!fs.existsSync(path.join(base,rel)) && !fs.existsSync(path.join(base,'99-technik',rel))) fail(`${entry.name}: missing ${rel}`);
     }
     if (!/^\d{4}-\d{2}-\d{2}$/.test(String(data.date || ''))) fail(`${entry.name}: date must be YYYY-MM-DD.`);
     if (!String(data.topic || '').trim()) fail(`${entry.name}: topic is required.`);
@@ -180,7 +180,7 @@ if (fs.existsSync(episodeRoot)) {
       if(data.imageBatchPolicy?.regenerateExistingScenesForbidden!==true || imageRules.mayRegenerateAlreadyPresentScenes!==false) fail(entry.name+': existing images must never be regenerated.');
       if(imageRules.repairMustUseOnlySelectedCoverReference!==true || imageRules.repairMustUseOriginalPerScenePrompt!==true) fail(entry.name+': repairs must reuse the original plan and selected cover.');
       if(data.imageBatchPolicy?.requiredHandoffFile!=='99-technik/PHASE2_HANDOFF.json' || imageRules.requiredHandoffFile!=='99-technik/PHASE2_HANDOFF.json') fail(entry.name+': handoff manifest is missing from contract.');
-      const runbook=read(path.join(base,'PHASE2_FLOW_RUNBOOK.md'));
+      const runbook=read(fs.existsSync(path.join(base,'99-technik','PHASE2_FLOW_RUNBOOK.md')) ? path.join(base,'99-technik','PHASE2_FLOW_RUNBOOK.md') : path.join(base,'PHASE2_FLOW_RUNBOOK.md'));
       if(!runbook.includes(expectedFinalize) || !runbook.includes('PHASE2_MISSING_SCENES.json') || !runbook.includes('--candidate=2')) fail(entry.name+': dedicated Phase 2 flow runbook missing handoff/repair/cover steps.');
       const flowPlan=read(path.join(base,'00-bildprompts','google-flow-prompt.txt'));
       if(!flowPlan.includes(expectedFinalize) || !flowPlan.includes('PHASE2_MISSING_SCENES.json') || !flowPlan.includes('PHASE2_FLOW_RUNBOOK.md')) fail(entry.name+': actual Flow prompt file must instruct the agent to audit and repair.');

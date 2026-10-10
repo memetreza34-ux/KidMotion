@@ -105,7 +105,7 @@ const data = {
   imageGenerationRevisionRequired:revision,
   coverPolicy:{humanCoverReviewRequired:true,humanReviewFile:'99-technik/COVER_HUMAN_REVIEW.json',generateCandidatesFirst:3,candidateFiles:contract.coverContract.candidateFiles,waitForExplicitUserSelection:true,winnerFinalFile:'Szene 01.png',selectedCoverIsSoleReference:true,noLaterSceneGenerationBeforeSelection:true,deleteRejectedCandidatesAfterSelection:true},
   imageBatchPolicy:{enabled:true,batchSize:5,showBatchToUser:false,waitForExplicitUserContinue:false,autoContinueToNextBatch:true,deliverCompletedFolderAtEnd:true,batches:pipeline.batchGenerationPolicy.batches,soleReferenceEveryBatch:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachSceneExactlyOnce:true},
-  introDuration:8,introTitle:placeholder('INTRO TITLE'),introSubtitle:placeholder('INTRO SUBTITLE'),introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
+  introVisualPolicy:'greeting-only-v1',coverInVideo:false,introDuration:8,introTitle:placeholder('INTRO TITLE'),introSubtitle:placeholder('INTRO SUBTITLE'),introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
   introVoiceText:placeholder('EXACT CONTINUOUS TTS COPY'),voiceScriptFormat:'plain continuous text only',
   safetyDuration:4,letsBeginDuration:2,outroDuration:4,exerciseDuration:20,getReadyDuration:5,openingDuration:14,
   voicePolicy:{openingSequenceVoiceOnly:true,voiceStartsAtIntro:true,voiceMayContinueAcrossSafety:true,voiceMayContinueAcrossLetsBegin:true,voiceMustEndBeforeFirstExercise:true,exerciseVoice:false,restVoice:false,outroVoice:false,subtitles:false,voiceCaptions:false,openingVoiceTargetSeconds:'13.65-14.00',voiceFile:'Voice 01.mp3'},
@@ -180,7 +180,7 @@ WARMTH / MOOD:
 Friendly natural expression, warm sunlight, one playful relevant accent; never sterile or abstract. ${placeholder(`SZENE ${padScene(n)} UNIQUE KID-FRIENDLY FEEL`)}
 
 TEXT / UI:
-${placeholder(`SZENE ${padScene(n)} TEXT UI`)}
+${n===2?'Only a small friendly HELLO! greeting; NO cover-style title screen, episode name or large promotional text.':placeholder(`SZENE ${padScene(n)} TEXT UI`)}
 
 LIGHT / MATERIALS:
 ${placeholder(`SZENE ${padScene(n)} LIGHT MATERIALS`)}
@@ -208,6 +208,7 @@ write('99-technik/COVER_HUMAN_REVIEW.json',JSON.stringify({schemaVersion:1,episo
 write('99-technik/COVER_SELECTION.json',JSON.stringify({schemaVersion:1,productionContractVersion:contract.contractVersion,episodeFolder,status:'AWAITING_USER_SELECTION',selectedCandidate:null,selectedCandidateOriginalFile:null,finalFile:null,userSelectionRequired:true,soleReferenceForLaterScenes:'Szene 01.png',secondaryImageReferencesForbidden:true},null,2)+'\n');
 write('99-technik/VISUAL_REVIEW.json',JSON.stringify({episodeFolder,revision,sameCharacterEveryScene:false,allWorkoutImagesWarmAndInviting:false,allWorkoutImagesConcreteAndChildReadable:false,noSterileOrDisturbingWorkoutVisuals:false,humanCharacterConfirmedEveryScene:false,noNonHumanMascotInWorkoutScenes:false,allExercisePosesClearFromOneStill:false,poseVarietyStrong:false,allGetReadyImagesClearAndNotConfusableWithExercise:false,allExerciseTextReadableAndConsistent:false,allExerciseSafeZonesClear:false,propBallCountsCorrect:false,allNonTimerTextGeneratedAndReadable:false,noExtraPeople:false,noAnatomyErrors:false,noCroppingOfImportantLimbs:false,sceneOrderMatchesPlan:false,noMissingOrDuplicateSceneContent:false,eachSceneMatchesItsPromptRole:false,openingVisualTimingMatchesVoice:false,notes:'Set true only after inspecting real final images and rendered MP4.'},null,2)+'\n');
 write('99-technik/ART_DIRECTION_REVIEW.json',JSON.stringify({schemaVersion:1,artDirectionPolicy:'storyworld-v1',episodeFolder,revision,status:'PENDING_REAL_IMAGE_REVIEW',instructions:'Review each real final PNG, record actual SHA256 and specific observable notes. Never approve from a prompt.',scenes:scenes.map(s=>({scene:s.scene,file:s.image,imageSha256:null,actuallyInspected:false,engagingCharacterExpression:false,groundedHumanScaleEnvironment:false,purposefulVisiblePlayDetail:false,cohesiveStoryWorld:false,clearCompositionAndPose:false,noGenericAICGIOrOddArchitecture:false,notes:''}))},null,2)+'\n');
+write('99-technik/PHASE2_FLOW_RUNBOOK.md','# Phase 2 — '+episodeFolder+'\\nCreate three real cover candidates, inspect them and wait for the user choice. Cover is thumbnail-only and never in the MP4. Szene 02 must be a HELLO greeting, not a giant cover/title card. After cover selection, generate scenes 02–28 in ordered five-image batches, review and approve real assets.\\n');
 write('99-technik/VOICE_PLAN.json',JSON.stringify(voicePlan,null,2)+'\n');
 write('99-technik/GENERATION-REVISION.txt',revision+'\n');
 write('99-technik/status.json',JSON.stringify({schemaVersion:3,productionContractVersion:contract.contractVersion,status:'planning-required',promptPlanReady:false,coverSelectionPending:true,coverSelected:false,imagesReady:false,audioReady:false,assetsApproved:false,renderReady:false},null,2)+'\n');
@@ -216,8 +217,8 @@ write('01-voice-script/voice-script.txt',voiceScript);
 write('02-audio/README.md','Final runtime needs Voice 01.mp3 + bg-music.mp3. A Phase 2 handoff may also provide voice/music in MP4/M4A/WAV/AAC; phase3:prepare must normalize unambiguous audio automatically. No spoken voice after 14s.\n');
 write('02-audio/MUSIC_BRIEF.md','# Music brief\n\nUpbeat playful kids-fitness electro-pop instrumental, 120–130 BPM, no vocals, no dark/aggressive mood, no nursery-song feel. Commercial YouTube license required. Lower under opening voice, more energetic after 14s.\n');
 write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n__PLAN_REQUIRED__ TITLE\n\n## Description / Caption\n__PLAN_REQUIRED__ DESCRIPTION\n');
-write('README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Each final Flow prompt must be brief, specific and use the compact v2-short length limits. Then run prompt:qa. After cover selection use flow:batch before every hard 5-scene production step.\n`);
-write('ANTIGRAVITY.md',`# ANTIGRAVITY — PHASE 3 ONLY
+write('99-technik/README.md',`# ${episodeId} — ${topic}\n\nStatus: planning-required. Complete episode.json, IMAGE_PLAN.json, VOICE_PLAN.json, voice-script.txt, google-flow-prompt.txt and upload metadata. Each final Flow prompt must be brief, specific and use the compact v2-short length limits. Then run prompt:qa. After cover selection use flow:batch before every hard 5-scene production step.\n`);
+write('99-technik/ANTIGRAVITY.md',`# ANTIGRAVITY — PHASE 3 ONLY
 
 ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true
 

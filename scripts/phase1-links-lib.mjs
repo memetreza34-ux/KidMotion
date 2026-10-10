@@ -61,7 +61,7 @@ export function publishPhase1Handoff({root=process.cwd(),episodeFolder,format}) 
     '**Wichtig:** Auf anderen Geräten sind die Links erst nach dem Commit und Push der Episodendateien erreichbar.',
     'Sind die Dateien später geändert worden, Phase-1-QA nochmals ausführen und die aktualisierte Übergabe committen.',''
   ].join('\n');
-  fs.writeFileSync(path.join(folder,'PHASE1_START_HIER.md'),markdown,'utf8');
+  fs.writeFileSync(path.join(folder,'99-technik','PHASE1_START_HIER.md'),markdown,'utf8');
   return summary;
 }
 
@@ -70,7 +70,7 @@ export function printPhase1Links(summary,log=console.log) {
   log('=== PHASE 1 FERTIG — Direktlinks für Tablet / Handy ===');
   log('[Google-Flow-Prompt öffnen]('+summary.links.googleFlowPrompt+')');
   log('[Voice-over-Skript öffnen]('+summary.links.voiceOverScript+')');
-  log('Datei: episodes/'+summary.episodeFolder+'/PHASE1_START_HIER.md');
+  log('Datei: episodes/'+summary.episodeFolder+'/99-technik/PHASE1_START_HIER.md');
   log('HINWEIS: Erst nach Git Commit + Push funktionieren die Links auch unterwegs.');
   log('Google Flow importiert die Prompts nicht automatisch; den Text dort einfügen.');
 }
