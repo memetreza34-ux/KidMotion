@@ -29,6 +29,9 @@ jobs:
       - name: Workout human-character tests
         run: npm run workout:human:test
 
+      - name: Copy-ready export and subtitle tests
+        run: npm run export:test
+
       - name: Phase 1 tablet handoff links tests
         run: npm run phase1:links:test
 

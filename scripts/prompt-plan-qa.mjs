@@ -5,6 +5,7 @@ import {loadContract, expectedSceneSpecs, sceneFile, hasPlanningPlaceholder, cur
 import {humanOnlyWorkout,humanPromptErrors} from './workout-character-policy.mjs';
 import {validateArtDirectionPrompts} from './art-direction-qa.mjs';
 import {publishPhase1Handoff,printPhase1Links} from './phase1-links-lib.mjs';
+import {generateExportFiles} from './export-content-lib.mjs';
 
 const root = process.cwd();
 const contract = loadContract(root);
@@ -192,8 +193,10 @@ if(failures.length){
   failures.forEach((m,i)=>console.error(`${i+1}. ${m}`));
   process.exit(1);
 }
+const exportContent=generateExportFiles({root,episodeFolder});
 const phase1Handoff=publishPhase1Handoff({root,episodeFolder,format:data.contentFormat||'workout'});
 console.log(`PROMPT PLAN QA PASSED — ${episodeFolder}`);
 console.log('Validated central contract, hard 5-scene planning, Prompt Quality v2, scene order, 30 direct Flow prompts, cover safety wording, locked UI prompts, sole reference, one-generation policy, plain-text voice script and timed VOICE_PLAN.');
 
 printPhase1Links(phase1Handoff);
+console.log('EXPORT COPY TEXTS: '+exportContent.files.join(', '));

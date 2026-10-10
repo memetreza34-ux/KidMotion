@@ -63,6 +63,12 @@ Nach erfolgreicher `prompt:qa` (Workout / Learn-and-Move) oder `learning:prompt:
 
 Bei jedem erfolgreichen Phase-1-Abschluss müssen Assistenten beide Links **zusätzlich direkt in der Chat-Antwort** anzeigen. Für einen erneuten geprüften Handoff: `npm run phase1:links -- --episode=KM-XXX-name`. Es gibt **keine Freigabe bei fehlgeschlagener QA**; es wird niemals ein Scaffold als fertig verkauft. Die Quellen müssen **committet und auf GitHub gepusht** sein, damit die Links auf einem Tablet funktionieren (bei privaten Repositories mit GitHub-Login). Die Links öffnen die Texte zur manuellen Übernahme, keine automatische Google-Flow-Generierung.
 
+## Fertiger Workout-Export
+
+Nach erfolgreicher Phase-1-Planprüfung erstellt `prompt:qa` automatisch kopierfertige YouTube-Dateien in `03-export`: `YOUTUBE_KOPIEREN.txt`, `YOUTUBE_TITLE.txt`, `YOUTUBE_DESCRIPTION.txt` (genau fünf Hashtags), `VOICE_TIMESTAMPS.txt`, `SUBTITLES.srt` und `VIDEO_TIMELINE.txt`. Zeitstempel der SRT basieren auf den geplanten Sprach-Szenenfenstern, müssen vor Upload mit der **echten** TTS-Audioaufnahme abgeglichen werden. Für einen erneuten Text-Export `npm run export:content -- --episode=KM-XXX-slug`.
+
+Erst nach erfolgreichem Render, echtem Visual Review und Asset Approval erzeugt `npm run export:pack` zusätzlich `FINAL_VIDEO.mp4` und ein **separates** `COVER.png`. Szene 01 (Cover) ist niemals Videoframe. Szene 02 ist bei neuen Workouts eine kleine Begrüßung HELLO!, Szene 03 Safety First, Szene 04 kurzes Startsignal, dann beginnen die Übungen. Interne Episodenhinweise (`README.md`, `ANTIGRAVITY.md`, `PHASE1_START_HIER.md`, `PHASE2_FLOW_RUNBOOK.md`) werden unter `99-technik` gehalten. Bestehende lokale MP4s werden nicht rückwirkend verändert.
+
 ## Reines Learning rendern
 
 ```bash
