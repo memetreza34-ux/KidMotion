@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-009-star-trail-adventure-workout",
+  "status": "AWAITING_USER_SELECTION",
+  "selectedCandidate": null,
+  "finalFile": null,
+  "userSelectionRequired": true,
+  "soleReferenceForLaterScenes": "Szene 01.png",
+  "secondaryImageReferencesForbidden": true,
+  "humanOnlyPolicy": true,
+  "humanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
+}

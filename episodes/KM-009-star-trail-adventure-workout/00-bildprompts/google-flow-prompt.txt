@@ -1,0 +1,482 @@
+KIDMOTION GOOGLE FLOW MASTER — KM-009 — 5 minute Star Trail Adventure freeze workout for kids
+
+Three distinct cover candidates first; STOP for explicit user selection. Human-girl athlete in a recognizable child-size park, handmade star-trail details, safe stationary holds.
+
+Chosen Szene 01.png will be sole image reference for scenes 02–28. Never copy earlier numbered scenes, regenerate or invent missing PNGs.
+
+COVER CANDIDATE 01 — Cover-Kandidat-01.png
+FINAL GOOGLE FLOW PROMPT:
+COVER_ID: 01 | OUTPUT_FILE: Cover-Kandidat-01.png | ID is file metadata ONLY.
+CLICK IDEA: Fun 5-minute children's park movement mission with twelve star stops.
+SHOT / COMPOSITION: wide low frontal full-body view, girl center-right, clean title area left.
+CHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands; one arm welcoming, both shoes flat.
+WORLD: sunny playground park entrance with benches, leafy trees and level activity path.
+PLAY DETAIL / STORY BEAT: painted blue star footprints curve toward a small yellow finish flag by grass.
+WARMTH / MOOD: Eager curious smile with warm light on natural leaves.
+TEXT: Large exact "STAR TRAIL ADVENTURE" / "12 FUN FREEZE MOVES"; strong legibility, no extra text.
+LIGHT / MATERIALS: Natural sunshine, matte rubber, grass and painted wood.
+NEGATIVE / STABILITY: No robot, fox or animal characters, extra people, odd CGI, fake letters.
+QUALITY CHECK: One human athlete, full body, visible star-trail idea, readable title.
+OUTPUT: 16:9 landscape, Cover-Kandidat-01.png
+
+COVER CANDIDATE 02 — Cover-Kandidat-02.png
+FINAL GOOGLE FLOW PROMPT:
+COVER_ID: 02 | OUTPUT_FILE: Cover-Kandidat-02.png | ID is file metadata ONLY.
+CLICK IDEA: Fun 5-minute children's park movement mission with twelve star stops.
+SHOT / COMPOSITION: elevated three-quarter full-body shot, girl lower-left, title upper-right.
+CHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands; one arm pointing toward painted path, feet flat.
+WORLD: sunny playground garden park with flowerbeds, hedges and blue rubber path.
+PLAY DETAIL / STORY BEAT: hand-painted stars curve around a purple trail marker flag near her feet.
+WARMTH / MOOD: Joyful determined grin with rich green and coral details.
+TEXT: Large exact "STAR TRAIL ADVENTURE" / "5 MIN QUEST"; strong legibility, no extra text.
+LIGHT / MATERIALS: Natural sunshine, matte rubber, grass and painted wood.
+NEGATIVE / STABILITY: No robot, fox or animal characters, extra people, odd CGI, fake letters.
+QUALITY CHECK: One human athlete, full body, visible star-trail idea, readable title.
+OUTPUT: 16:9 landscape, Cover-Kandidat-02.png
+
+COVER CANDIDATE 03 — Cover-Kandidat-03.png
+FINAL GOOGLE FLOW PROMPT:
+COVER_ID: 03 | OUTPUT_FILE: Cover-Kandidat-03.png | ID is file metadata ONLY.
+CLICK IDEA: Fun 5-minute children's park movement mission with twelve star stops.
+SHOT / COMPOSITION: eye-level wide full-body view framed by low painted garden gate, girl left.
+CHARACTER: One original fictional fully clothed stylized 3D HUMAN girl athlete with human face, hair, hands; hands comfortably at hips, both shoes visible.
+WORLD: warm neighborhood playground park with shrubs, planters and safe path.
+PLAY DETAIL / STORY BEAT: two large painted golden stars mark the trail beginning by a small blue flag.
+WARMTH / MOOD: Friendly proud smile, fresh morning sunshine through natural trees.
+TEXT: Large exact "STAR TRAIL ADVENTURE" / "LET'S MOVE!"; strong legibility, no extra text.
+LIGHT / MATERIALS: Natural sunshine, matte rubber, grass and painted wood.
+NEGATIVE / STABILITY: No robot, fox or animal characters, extra people, odd CGI, fake letters.
+QUALITY CHECK: One human athlete, full body, visible star-trail idea, readable title.
+OUTPUT: 16:9 landscape, Cover-Kandidat-03.png
+
+SZENE 02 — Szene 02.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 02 | OUTPUT_FILE: Szene 02.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Welcome the viewer to the Star Trail park.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: wide eye-level full-body girl right, title space left.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; one arm welcoming the viewer, shoes flat.
+WORLD / ENVIRONMENT: sunny neighborhood park playground entrance with leafy trees and low benches.
+PLAY DETAIL / STORY BEAT: hand-painted star footprints lead from a small starting sign toward the path.
+WARMTH / MOOD: Excited friendly smile at the adventure opening.
+TEXT / UI: Exact large legible text "KIDMOTION" / "STAR TRAIL ADVENTURE" / "12 FREEZE MOVES"; no extra text.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 02.png
+
+SZENE 03 — Szene 03.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 03 | OUTPUT_FILE: Szene 03.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Teach basic safe movement space.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: full-body girl on left with right-side safety text space.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; calm comfortable stance, both feet flat, open hands.
+WORLD / ENVIRONMENT: shady community park playground corner with clear floor and low bench.
+PLAY DETAIL / STORY BEAT: painted chalk circle provides a safe exercise area around both shoes.
+WARMTH / MOOD: Gentle reassuring smile and warm welcoming eyes.
+TEXT / UI: Exact large legible text "SAFETY FIRST" / "Make some space." / "Stop if anything hurts."; no extra text.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 03.png
+
+SZENE 04 — Szene 04.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 04 | OUTPUT_FILE: Szene 04.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Signal the beginning of the star trail.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: slightly low frontal full-body frame, clean side for title.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; gentle ready stance, relaxed arms and feet flat.
+WORLD / ENVIRONMENT: bright leafy park playground lane beside low flower planters.
+PLAY DETAIL / STORY BEAT: two painted blue arrows point along the flat rubber path to the first star.
+WARMTH / MOOD: Cheerful excited grin while anticipating the first activity.
+TEXT / UI: Exact large legible text "LET'S BEGIN!" / "FOLLOW THE STARS"; no extra text.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 04.png
+
+SZENE 05 — Szene 05.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 05 | OUTPUT_FILE: Szene 05.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe SKY POINTER hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: low eye-level frontal full-body view, clear space around reaching arm.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; right arm straight up, left arm by side, feet planted.
+WORLD / ENVIRONMENT: sunny neighborhood park playground entrance with low wood benches and leafy trees.
+PLAY DETAIL / STORY BEAT: painted yellow arrows lead from a blue star footprint to a tiny trail flag.
+WARMTH / MOOD: Eager confident smile on finding the first star.
+TEXT / UI: bottom-left WHITE uppercase "SKY POINTER" on dark semi-transparent navy rounded rectangle; top-right "Reach one arm high and stand tall." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 05.png
+
+SZENE 06 — Szene 06.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 06 | OUTPUT_FILE: Szene 06.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for OPEN WINGS, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: shady park playground path with trees, low fence and safe rubber surface.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the OPEN WINGS station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: OPEN WINGS".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 06.png
+
+SZENE 07 — Szene 07.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 07 | OUTPUT_FILE: Szene 07.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe OPEN WINGS hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: slightly high straight-on full-body view, wide arms fully visible.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; arms spread horizontally, feet flat and hips steady.
+WORLD / ENVIRONMENT: shady park playground path with trees, low fence and safe rubber surface.
+PLAY DETAIL / STORY BEAT: two hand-painted feather shapes on the floor point toward the second chalk star.
+WARMTH / MOOD: Joyful welcoming grin while following the path.
+TEXT / UI: bottom-left WHITE uppercase "OPEN WINGS" on dark semi-transparent navy rounded rectangle; top-right "Stretch both arms wide like wings." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 07.png
+
+SZENE 08 — Szene 08.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 08 | OUTPUT_FILE: Szene 08.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for LITTLE SQUAT, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: sunny garden park activity court with low hedges, painted wood border and rubber mat.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the LITTLE SQUAT station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: LITTLE SQUAT".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 08.png
+
+SZENE 09 — Szene 09.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 09 | OUTPUT_FILE: Szene 09.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe LITTLE SQUAT hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: three-quarter front-left full-body view showing aligned knees.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; shallow knee bend, feet flat, upright chest, arms forward.
+WORLD / ENVIRONMENT: sunny garden park activity court with low hedges, painted wood border and rubber mat.
+PLAY DETAIL / STORY BEAT: three painted stepping dots circle a small red flag at the station.
+WARMTH / MOOD: Focused friendly smile during the steady shallow squat.
+TEXT / UI: bottom-left WHITE uppercase "LITTLE SQUAT" on dark semi-transparent navy rounded rectangle; top-right "Bend your knees a little and freeze." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 09.png
+
+SZENE 10 — Szene 10.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 10 | OUTPUT_FILE: Szene 10.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for RAINBOW LEAN, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: flower-filled playground garden with low rainbow-painted wood arch and flat activity floor.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the RAINBOW LEAN station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: RAINBOW LEAN".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 10.png
+
+SZENE 11 — Szene 11.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 11 | OUTPUT_FILE: Szene 11.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe RAINBOW LEAN hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: front-left wide full-body frame, raised arm clear of the head.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; both feet flat, slight left lean, right arm curved overhead.
+WORLD / ENVIRONMENT: flower-filled playground garden with low rainbow-painted wood arch and flat activity floor.
+PLAY DETAIL / STORY BEAT: painted rainbow stripe on the floor echoes the gentle arm curve.
+WARMTH / MOOD: Curious playful grin with natural calm sunlight.
+TEXT / UI: bottom-left WHITE uppercase "RAINBOW LEAN" on dark semi-transparent navy rounded rectangle; top-right "Lean gently sideways and reach long." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 11.png
+
+SZENE 12 — Szene 12.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 12 | OUTPUT_FILE: Szene 12.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for EXPLORER STEP, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: leafy park trail clearing with small wooden sign, grass and smooth rubber lane.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the EXPLORER STEP station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: EXPLORER STEP".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 12.png
+
+SZENE 13 — Szene 13.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 13 | OUTPUT_FILE: Szene 13.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe EXPLORER STEP hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: ground-level diagonal full-body view clearly showing two feet.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; left shoe forward, back foot planted, knees soft, tall torso.
+WORLD / ENVIRONMENT: leafy park trail clearing with small wooden sign, grass and smooth rubber lane.
+PLAY DETAIL / STORY BEAT: two chalk footprints lead forward toward a little yellow marker flag.
+WARMTH / MOOD: Brave determined smile as she reaches the next star.
+TEXT / UI: bottom-left WHITE uppercase "EXPLORER STEP" on dark semi-transparent navy rounded rectangle; top-right "Step one foot forward and hold." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 13.png
+
+SZENE 14 — Szene 14.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 14 | OUTPUT_FILE: Szene 14.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for TREE BALANCE, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: tree-lined garden park with low bench and green nonslip activity mat.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the TREE BALANCE station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: TREE BALANCE".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 14.png
+
+SZENE 15 — Szene 15.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 15 | OUTPUT_FILE: Szene 15.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe TREE BALANCE hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm frontal wide full-body frame, toe lift clearly visible.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; left foot planted, right toe barely lifted, arms wide; toe-down option.
+WORLD / ENVIRONMENT: tree-lined garden park with low bench and green nonslip activity mat.
+PLAY DETAIL / STORY BEAT: hand-painted leaf circle on the ground surrounds the balancing foot.
+WARMTH / MOOD: Concentrated warm grin during this careful balance.
+TEXT / UI: bottom-left WHITE uppercase "TREE BALANCE" on dark semi-transparent navy rounded rectangle; top-right "Lift one foot slightly and spread your arms." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 15.png
+
+SZENE 16 — Szene 16.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 16 | OUTPUT_FILE: Szene 16.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for GIANT STAR, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: bright playground park lawn court with low planter boxes and safe blue floor.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the GIANT STAR station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: GIANT STAR".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 16.png
+
+SZENE 17 — Szene 17.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 17 | OUTPUT_FILE: Szene 17.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe GIANT STAR hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: symmetric eye-level wide shot with entire X silhouette.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; feet comfortably apart, arms diagonally up in X, knees soft.
+WORLD / ENVIRONMENT: bright playground park lawn court with low planter boxes and safe blue floor.
+PLAY DETAIL / STORY BEAT: bold painted five-point star beneath both planted shoes.
+WARMTH / MOOD: Proud delighted smile after making a giant star.
+TEXT / UI: bottom-left WHITE uppercase "GIANT STAR" on dark semi-transparent navy rounded rectangle; top-right "Stretch your arms and legs into a star." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 17.png
+
+SZENE 18 — Szene 18.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 18 | OUTPUT_FILE: Szene 18.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for SUPER SHIELD, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: community garden playground beside a short fence, shrubs and red rubber mat.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the SUPER SHIELD station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: SUPER SHIELD".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 18.png
+
+SZENE 19 — Szene 19.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 19 | OUTPUT_FILE: Szene 19.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe SUPER SHIELD hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: three-quarter right full-body view keeping palms separated.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; two open hands forward at chest height, elbows soft, feet flat.
+WORLD / ENVIRONMENT: community garden playground beside a short fence, shrubs and red rubber mat.
+PLAY DETAIL / STORY BEAT: a small painted shield target in front of her feet marks the pose.
+WARMTH / MOOD: Playful confident grin as she sends out her imaginary shield.
+TEXT / UI: bottom-left WHITE uppercase "SUPER SHIELD" on dark semi-transparent navy rounded rectangle; top-right "Push both palms forward and hold." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 19.png
+
+SZENE 20 — Szene 20.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 20 | OUTPUT_FILE: Szene 20.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for LOOKOUT TURN, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: shaded garden park walkway with low flower pots and safe yellow floor.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the LOOKOUT TURN station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: LOOKOUT TURN".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 20.png
+
+SZENE 21 — Szene 21.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 21 | OUTPUT_FILE: Szene 21.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe LOOKOUT TURN hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: back-left three-quarter full-body view showing turned shoulders.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; both shoes forward, hips stable, shoulders slightly left, hands on waist.
+WORLD / ENVIRONMENT: shaded garden park walkway with low flower pots and safe yellow floor.
+PLAY DETAIL / STORY BEAT: chalk curved arrow points along the path to a tiny purple star.
+WARMTH / MOOD: Curious focused smile while spotting the next clue.
+TEXT / UI: bottom-left WHITE uppercase "LOOKOUT TURN" on dark semi-transparent navy rounded rectangle; top-right "Turn your shoulders gently and look sideways." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 21.png
+
+SZENE 22 — Szene 22.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 22 | OUTPUT_FILE: Szene 22.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for TIPTOE BALANCE, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: sunny playground park pad with short wood fence and two low benches.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the TIPTOE BALANCE station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: TIPTOE BALANCE".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 22.png
+
+SZENE 23 — Szene 23.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 23 | OUTPUT_FILE: Szene 23.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe TIPTOE BALANCE hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: low three-quarter full-body view showing the small heel lift.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; heels barely lifted, upright body, arms wide; heels-down option.
+WORLD / ENVIRONMENT: sunny playground park pad with short wood fence and two low benches.
+PLAY DETAIL / STORY BEAT: three painted stepping circles under the toes lead to a little pennant flag.
+WARMTH / MOOD: Careful delighted grin as she holds steady.
+TEXT / UI: bottom-left WHITE uppercase "TIPTOE BALANCE" on dark semi-transparent navy rounded rectangle; top-right "Lift your heels a little and balance." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 23.png
+
+SZENE 24 — Szene 24.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 24 | OUTPUT_FILE: Szene 24.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for SIDE STEP FREEZE, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: green park play court near flowerbeds, bushes and blue rubber lane.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the SIDE STEP FREEZE station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: SIDE STEP FREEZE".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 24.png
+
+SZENE 25 — Szene 25.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 25 | OUTPUT_FILE: Szene 25.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe SIDE STEP FREEZE hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: diagonal full-body frame keeping both feet and arms distinct.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; one foot stepped sideways, knees gently bent, arms out for balance.
+WORLD / ENVIRONMENT: green park play court near flowerbeds, bushes and blue rubber lane.
+PLAY DETAIL / STORY BEAT: white chalk footprints travel sideways to a round coral star on the floor.
+WARMTH / MOOD: Encouraging cheerful smile as the side step completes.
+TEXT / UI: bottom-left WHITE uppercase "SIDE STEP FREEZE" on dark semi-transparent navy rounded rectangle; top-right "Step one foot to the side and hold." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 25.png
+
+SZENE 26 — Szene 26.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 26 | OUTPUT_FILE: Szene 26.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Prepare safely for FINISH-LINE V, without doing the next move.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm eye-level wide full-body girl on left, text card on right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; upright feet-flat neutral rest stance, relaxed arms, not the next pose.
+WORLD / ENVIRONMENT: sunny neighborhood park finish lawn with hand-painted wooden banner and trees.
+PLAY DETAIL / STORY BEAT: painted blue star and tiny chalk footprints beside the floor hint at the FINISH-LINE V station.
+WARMTH / MOOD: Gentle encouraging friendly smile and curious eyes in warm natural daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded panel, max one third width, WHITE "GET READY" and bright-cyan "NEXT: FINISH-LINE V".
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 26.png
+
+SZENE 27 — Szene 27.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 27 | OUTPUT_FILE: Szene 27.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show the safe FINISH-LINE V hold.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: low frontal full-body victory view, hands and finish stripe visible.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; two feet firmly planted, both arms high and apart in a wide V.
+WORLD / ENVIRONMENT: sunny neighborhood park finish lawn with hand-painted wooden banner and trees.
+PLAY DETAIL / STORY BEAT: yellow painted finish stripe meets the last blue star and a tiny red flag.
+WARMTH / MOOD: Proud joyful victory smile after completing the twelve stops.
+TEXT / UI: bottom-left WHITE uppercase "FINISH-LINE V" on dark semi-transparent navy rounded rectangle; top-right "Raise both arms in a V and stand proud." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 27.png
+
+SZENE 28 — Szene 28.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 28 | OUTPUT_FILE: Szene 28.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Celebrate the completed park trail.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN girl identity/outfit/style; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: wide full-body girl right, clear left side for final text.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN girl athlete with human face and hands; small friendly wave at shoulder level, both feet flat.
+WORLD / ENVIRONMENT: sunny neighborhood garden park finish lawn with green trees and low flowers.
+PLAY DETAIL / STORY BEAT: the final row of hand-painted chalk stars ends beside a little yellow flag.
+WARMTH / MOOD: Proud heartfelt warm smile after the completed trail.
+TEXT / UI: Exact large legible text "GREAT JOB!" / "TRAIL COMPLETE!"; no extra text.
+LIGHT / MATERIALS: Warm daylight, tactile wood, green leaves, matte nonslip floor.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, abstract scenery, odd buildings, bad hands, baked timer or fake text.
+QUALITY CHECK: Correct visible full-body pose, exact text, coherent playful park; no sterile images.
+OUTPUT: 16:9 landscape, Szene 28.png

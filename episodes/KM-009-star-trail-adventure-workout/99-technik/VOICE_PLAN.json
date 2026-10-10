@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-009-star-trail-adventure-workout",
+  "voiceFile": "Voice 01.mp3",
+  "targetDurationSeconds": {
+    "min": 13.65,
+    "target": 13.9,
+    "max": 14.05
+  },
+  "startsAtSeconds": 0,
+  "mustEndBeforeSeconds": 14.05,
+  "noSpokenVoiceAfterSeconds": 14,
+  "sections": [
+    {
+      "scene": "02",
+      "label": "INTRO",
+      "startSeconds": 0,
+      "endSeconds": 8,
+      "text": "Welcome to Star Trail Adventure! Twelve fun freeze moves lead us through the park. Follow the painted stars and copy each pose."
+    },
+    {
+      "scene": "03",
+      "label": "SAFETY",
+      "startSeconds": 8,
+      "endSeconds": 12,
+      "text": "Find some space, move gently, and stop if anything hurts."
+    },
+    {
+      "scene": "04",
+      "label": "LETS_BEGIN",
+      "startSeconds": 12,
+      "endSeconds": 14,
+      "text": "Ready? Follow the stars!"
+    }
+  ],
+  "exactTtsCopy": "Welcome to Star Trail Adventure! Twelve fun freeze moves lead us through the park. Follow the painted stars and copy each pose. Find some space, move gently, and stop if anything hurts. Ready? Follow the stars!",
+  "note": "Verify actual 14-second opening voice duration after TTS. No speech during exercise."
+}
