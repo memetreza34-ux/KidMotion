@@ -29,6 +29,9 @@ jobs:
       - name: Workout human-character tests
         run: npm run workout:human:test
 
+      - name: Flow missing-output recovery and immediate-save verification
+        run: npm run flow:verify:test
+
       - name: Copy-ready export and subtitle tests
         run: npm run export:test
 

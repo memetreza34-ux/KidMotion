@@ -5,6 +5,7 @@ import {resolveEpisodePaths,readEpisodeData} from './episode-paths.mjs';
 import {loadContract,currentContractErrors} from './contract.mjs';
 import {storeImage} from './flow-save-lib.mjs';
 import {permissionPath,approvalErrors,recordCompletion} from './image-generation-permission-lib.mjs';
+import {inspectFlowInventory} from './flow-continuity-lib.mjs';
 
 const args=process.argv.slice(2);
 const arg=k=>args.find(x=>x.startsWith('--'+k+'='))?.slice(k.length+3)||'';
@@ -46,10 +47,15 @@ if(cover){
   if(expected?.imageFile!=='Szene '+id+'.png')fail('Scene number does not match IMAGE_PLAN.');
   if(episode.sceneNumberingPolicy==='explicit-v1' && (!expected.prompt?.startsWith('SCENE_ID: '+id+' | OUTPUT_FILE: Szene '+id+'.png')||expected.flowSceneId!==id))fail('Prompt ID and IMAGE_PLAN do not match.');
   if(repair){
-    const queue=path.join(paths.techDir,'PHASE2_MISSING_SCENES.json');
-    if(!fs.existsSync(queue))fail('No approved missing-scene audit queue. Run phase2:finalize first.');
-    const data=JSON.parse(fs.readFileSync(queue,'utf8'));
-    if(data.status!=='NEEDS_FLOW_GENERATION'||data.repairAllowed!==true||!data.missingScenes?.some(x=>x.targetFile==='Szene '+id+'.png'))fail('Scene not in authorized missing-scene queue.');
+    const finalQueue=path.join(paths.techDir,'PHASE2_MISSING_SCENES.json');
+    const activeQueue=path.join(paths.techDir,'FLOW_RETRY_MISSING.json');
+    const final=fs.existsSync(finalQueue)?JSON.parse(fs.readFileSync(finalQueue,'utf8')):null;
+    const active=fs.existsSync(activeQueue)?JSON.parse(fs.readFileSync(activeQueue,'utf8')):null;
+    const exact='Szene '+id+'.png';
+    const authorizedFinal=final?.status==='NEEDS_FLOW_GENERATION'&&final?.repairAllowed===true&&final?.missingScenes?.some(x=>x.targetFile===exact&&x.prompt===plan.images[n-1]?.prompt);
+    const authorizedActive=active?.status==='MISSING_IMAGES'&&active?.tasks?.some(x=>x.outputFile===exact&&x.imagePrompt===plan.images[n-1]?.prompt);
+    if(!authorizedFinal&&!authorizedActive)fail('This scene is not in a current exact missing-file queue. Run npm run flow:verify or phase2:finalize before --repair=1.');
+    if(fs.existsSync(dest))fail('Never regenerate an existing scene.');
   }else{
     for(let i=2;i<n;i++)if(!fs.existsSync(path.join(imageDir,'Szene '+String(i).padStart(2,'0')+'.png')))fail('Earlier scene '+i+' missing. Do not shift image numbering. Use Phase 2 repair if a previous attempt failed.');
   }
@@ -64,5 +70,14 @@ try{
     fs.writeFileSync(permissionFile,JSON.stringify(completed,null,2)+'\n');
     console.log('Explicit permission consumed for '+result.file+'; remaining scenes are unchanged.');
   }
+  // A successful move is immediately confirmed in the persistent manifest.
+  // Flow can fail to return pictures: NEVER mark the scene completed from the prompt alone.
+  const inventory=inspectFlowInventory({imagesDir:imageDir,selection:fs.existsSync(paths.coverSelectionPath)?JSON.parse(fs.readFileSync(paths.coverSelectionPath,'utf8')):{},plan,approved:fs.existsSync(paths.approvalPath)});
+  inventory.episodeFolder=folder;
+  fs.mkdirSync(paths.techDir,{recursive:true});
+  fs.writeFileSync(path.join(paths.techDir,'FLOW_CONTINUITY_STATE.json'),JSON.stringify(inventory,null,2)+'\n');
+  fs.appendFileSync(path.join(paths.techDir,'FLOW_SAVE_LOG.jsonl'),JSON.stringify({time:new Date().toISOString(),file:result.file,sha256:result.sha256,width:result.width,height:result.height,sourceWasMoved:true})+'\n');
+  console.log('IMMEDIATE VERIFIED INVENTORY: '+inventory.present+'/28 valid unique scene PNG files.');
+  console.log('Missing file IDs are never silently skipped: '+(inventory.missing.join(', ')||'none')+'.');
   console.log('Original downloaded file was moved, not left behind. Scene identity still needs human visual inspection. Filename comes from explicit --scene/--cover, not from Google Flow metadata.');
 }catch(e){fail(e.message);}

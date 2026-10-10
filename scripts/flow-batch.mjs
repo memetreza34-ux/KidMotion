@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, currentContractErrors, sceneFile} from './contract.mjs';
+import {inspectFlowInventory} from './flow-continuity-lib.mjs';
 
 const root=process.cwd();
 const args=process.argv.slice(2);
@@ -32,7 +33,16 @@ if(!Array.isArray(batches)||!batches.length){
   process.exit(1);
 }
 
-const exists=(n)=>fs.existsSync(path.join(paths.imagesDir,sceneFile(n)));
+// Do not count a file merely because its name exists: validate real PNG bytes, hash and scene identity.
+const selectedDoc=fs.existsSync(paths.coverSelectionPath)?JSON.parse(fs.readFileSync(paths.coverSelectionPath,'utf8')):{};
+const imagePlan=JSON.parse(fs.readFileSync(paths.imagePlanPath,'utf8'));
+const inventory=inspectFlowInventory({imagesDir:paths.imagesDir,selection:selectedDoc,plan:imagePlan,approved:fs.existsSync(paths.approvalPath)});
+const exists=(n)=>inventory.records[n-1]?.status==='PRESENT_VALID';
+if(inventory.status==='BLOCKED'){
+  console.error('FLOW BATCH BLOCKED: actual PNG, duplicate, cover or naming error. Run npm run flow:verify -- --episode='+episodeFolder);
+  inventory.errors.forEach(x=>console.error(x));
+  process.exit(1);
+}
 const coverReady=exists(1);
 let selection={};
 if(fs.existsSync(paths.coverSelectionPath)){
@@ -71,7 +81,7 @@ if(coverSelected){
   }else{
     const scenes=batches[current].map(Number);
     const later=batches.slice(current+1).flat().map(Number).filter(exists);
-    state.status=later.length?'OUT_OF_ORDER_BLOCKED':'BATCH_ACTIVE';
+    state.status=later.length?'RECOVER_MISSING_FIRST':'BATCH_ACTIVE';
     state.batchIndex=current;
     state.batchNumber=current+1;
     state.scenes=scenes;
@@ -80,7 +90,7 @@ if(coverSelected){
     state.missing=scenes.filter((n)=>!exists(n));
     state.laterBatchOutputsFound=later;
     if(later.length){
-      state.instruction='BLOCK: later scenes exist while an earlier batch is incomplete. Do not advance or shift filenames. At the production END, run phase2:finalize to audit ALL 28 names; if the safe missing-scene queue is produced, generate ONLY those absent scenes in Google Flow before retrying. Phase 3 never generates images.';
+      state.instruction='REPAIR FIRST: later scenes exist, but an earlier image is missing. Preserve all saved filenames. Rerun the exact missing prompt in Flow (only if no real PNG exists), save immediately with flow:save --repair=1, run flow:verify, and then repeat flow:batch. Do not advance the batch or shift scene numbers.';
     }else{
       const range=String(scenes[0]).padStart(2,'0')+'–'+String(scenes[scenes.length-1]).padStart(2,'0');
       state.instruction='CURRENT HARD 5-SCENE STEP: Szene '+range+'. Generate ONLY these scenes, strictly serially. Finish/save the full block, perform silent QC on all files in the block, then rerun flow:batch and immediately continue. Do not ask the user between blocks.';
@@ -89,10 +99,10 @@ if(coverSelected){
 }
 
 const numberedTasks=[];
-if(data.sceneNumberingPolicy==='explicit-v1' && state.status==='BATCH_ACTIVE'){
+if(data.sceneNumberingPolicy==='explicit-v1' && ['BATCH_ACTIVE','RECOVER_MISSING_FIRST'].includes(state.status)){
   const planFile=paths.imagePlanPath;
   if(!fs.existsSync(planFile))throw Error('FLOW BATCH: IMAGE_PLAN.json missing for numbered scene batch.');
-  const plan=JSON.parse(fs.readFileSync(planFile,'utf8'));
+  const plan=imagePlan;
   for(const n of state.missing){
     const id=String(n).padStart(2,'0');
     const item=plan.images?.[n-1];
@@ -103,7 +113,7 @@ if(data.sceneNumberingPolicy==='explicit-v1' && state.status==='BATCH_ACTIVE'){
     numberedTasks.push({
       sceneId:id,outputFile:file,imagePrompt:item.prompt,
       saveCommand:'npm run flow:save -- --episode='+episodeFolder+' --scene='+n+' --source="<actual-downloaded-PNG-path>"',
-      note:'Use ONLY Szene 01.png reference, generate this scene one time, save actual PNG under this number immediately. Do not show SCENE_ID in image.'
+      note:'Use ONLY Szene 01.png reference; produce a real output for this absent file, save and verify immediately, retry empty Flow responses but NEVER overwrite existing source. Do not show SCENE_ID in image.'
     });
   }
 }
@@ -122,4 +132,4 @@ if(state.numberedTasks?.length) console.log('Numbered Flow tasks with exact sour
 if(state.laterBatchOutputsFound.length) console.log('OUT-OF-ORDER FILES: '+state.laterBatchOutputsFound.map(sceneFile).join(', '));
 console.log(state.instruction);
 
-if(state.status==='OUT_OF_ORDER_BLOCKED') process.exit(1);
+if(state.status==='RECOVER_MISSING_FIRST') console.log('RECOVERY REQUIRED NOW: save missing earlier canonical files with --repair=1, then resume without renumbering.');

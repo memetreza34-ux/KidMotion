@@ -100,3 +100,7 @@ The exact sequence changes by learning mode. See `LEARNING_ENGINE.md`.
 1. Nach Coverwahl: `npm run kidmotion:select-cover -- --episode=KM-XXX-slug --candidate=1`. Die zwei übrigen Cover werden direkt gelöscht.
 2. Nach Produktion: `npm run phase2:finalize -- --episode=KM-XXX-slug`. Fehlende Bilder stehen in `99-technik/PHASE2_MISSING_SCENES.json`; Google Flow muss sie in Phase 2 fertigstellen, dann dieselbe Prüfung wiederholen.
 3. Erst bei 28/28 gilt `00-bildprompts/images/` als ein vollständiger Übergabeordner. Danach visuelle QC und `scene:qa`; Phase 3 generiert niemals fehlende Bilder.
+
+## Robustheit gegen fehlende Google-Flow-Bilder
+
+Mit `npm run flow:verify -- --episode=KM-XXX-slug` wird nach jedem echten Download geprüft, welche der 28 Dateien vorhanden, gültig, doppelt, beschädigt oder fehlend sind. `99-technik/FLOW_RETRY_MISSING.json` enthält für fehlende Nummern den vollständigen ORIGINAL-Bildprompt und den sofortigen Umbenennungsbefehl. Der Flow-Agent darf **nur nicht vorhandene** Bilder erneut anfordern; gespeicherte Dateien dürfen niemals überschrieben werden. `flow:batch` bietet Wiederherstellung der früheren Lücken, selbst wenn spätere Dateien schon vorhanden sind. Die tatsächliche Flow-Erstellung geschieht durch den mit Google Flow verbundenen Agenten, nicht durch `flow:verify` selbst.

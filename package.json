@@ -45,7 +45,9 @@
     "phase1:links:test": "node --test scripts/phase1-links.test.mjs",
     "export:content": "node scripts/export-content.mjs",
     "export:pack": "node scripts/export-content.mjs --pack",
-    "export:test": "node --test scripts/export-content.test.mjs"
+    "export:test": "node --test scripts/export-content.test.mjs",
+    "flow:verify": "node scripts/flow-continuity.mjs",
+    "flow:verify:test": "node --test scripts/flow-continuity.test.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

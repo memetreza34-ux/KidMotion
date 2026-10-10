@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {inspectFlowInventory} from './flow-continuity-lib.mjs';
 const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL0nAAAAABJRU5ErkJggg==','base64');
+const otherPng=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9WlH+H0AAAAASUVORK5CYII=','base64');
 const plan={images:Array.from({length:28},(_,i)=>{
  const n=i+1,id=String(n).padStart(2,'0'),file='Szene '+id+'.png';
  return {imageFile:file,flowSceneId:id,prompt:'SCENE_ID: '+id+' | OUTPUT_FILE: '+file+' | ID is file metadata ONLY'};
@@ -16,16 +17,16 @@ const fixture=fn=>{
  finally{fs.rmSync(dir,{recursive:true,force:true});}
 };
 test('missing image emits exact scene number, prompt and rename command',()=>fixture(({dir,save})=>{
- save(1);save(2);
+ save(1);save(2,otherPng);
  const r=inspectFlowInventory({imagesDir:dir,selection:cover,plan});
  assert.equal(r.status,'MISSING_IMAGES');
  assert.ok(r.missing.includes(3));
  assert.equal(r.missingTasks[0].scene,3);
  assert.match(r.missingTasks[0].saveCommand,/--scene=3/);
- assert.equal(r.records[1].status,'DUPLICATE'); // Identical pixels cannot be different scenes.
+ assert.equal(r.records[1].status,'PRESENT_VALID');
 }));
 test('absent file is a retry candidate, existing files are not',()=>fixture(({dir,save})=>{
- save(1);save(2,Buffer.concat([png,Buffer.from('unique scene 2')]));
+ save(1);save(2,otherPng);
  const r=inspectFlowInventory({imagesDir:dir,selection:cover,plan});
  assert.ok(r.missingTasks.some(t=>t.scene===3));
  assert.ok(!r.missingTasks.some(t=>t.scene===2));

@@ -36,3 +36,19 @@ The entire episode follows a hand-painted star trail through recognizable child-
 
 ## Intro update
 Szene 01 stays thumbnail ONLY. Szene 02 must have only small friendly HELLO instead of a big episode title. Szene 03 shows Safety First and 04 a brief start cue before the first exercise. The existing local MP4 is not changed by editing these plans. Replace the already generated scene 02 only after an authorized Phase-2 revision and review.
+
+
+## ZWINGEND — Google Flow überprüft JEDE Ausgabe; fehlende Bilder sofort nachholen
+
+Das Problem aus KM-009: Flow produziert manchmal zu einem eingereichten Prompt keine echte herunterladbare Bilddatei. **Ein ausgefüllter Prompt, eine Textmeldung oder ein begonnenes Flow-Rendering zählen niemals als fertiges Bild.** Nach JEDEM Versuch:
+
+1. Nur das Bild für die **aktuelle, aus IMAGE_PLAN bestimmte SCENE_ID** in Google Flow erzeugen. Das ausgewählte Cover (`Szene 01.png`) ist die einzige Bildreferenz.
+2. **Prüfen, dass das echte fertige Bild sichtbar ist und eine herunterladbare PNG-Datei existiert.** Wenn Flow nur lädt, abbricht oder keinen Download liefert: Das aktuelle Ziel bleibt MISSING. Mit dem exakt gleichen Originalprompt nur diese *fehlende* Szene erneut versuchen. Nicht aus einem generierten Text den Erfolg ableiten.
+3. Echten Download **direkt vor der nächsten Bildgenerierung** ausführen und **sofort umbenennen/verschieben** über `npm run flow:save -- --episode=<episode-folder> --scene=N --source="<real-downloaded-image.png>"` (bei nachträglicher Korrektur einer älteren Lücke `--repair=1`). Nie alle anonymen Downloads am Ende sortieren. Cover: `--cover=1/2/3`.
+4. **Nach dem Speichern** `npm run flow:verify -- --episode=<episode-folder>` ausführen. Die exakten fehlenden Aufgaben, Originalprompts und Umbenennungsbefehle stehen in `99-technik/FLOW_RETRY_MISSING.json`. Auch `flow:save` schreibt ein direktes Bestätigungsprotokoll `FLOW_SAVE_LOG.jsonl`.
+5. **Vor JEDEM 5er-Block** `npm run flow:batch -- --episode=<episode-folder>` ausführen. Sind ältere Bilder noch nicht vorhanden, erhält der Agent `RECOVER_MISSING_FIRST`; erst die alten Lücken reparieren, vorhandene spätere Dateien **nicht** verschieben/löschen, dann neu prüfen und weiter.
+6. **Am Ende** `npm run phase2:finalize -- --episode=<episode-folder>`. Falls MISSING, die fehlenden Originalprompts in Flow erzeugen, exakt ablegen, erneut zählen. Nur `COMPLETE` + tatsächlicher realer 28-Bilder-Handoff erlaubt Übergang zur visuellen Prüfung und Phase 3.
+
+**Wiederholungen:** Eine fehlgeschlagene Flow-Anfrage ohne gespeichertes Bild darf erneut versucht werden, bis ein echter Download korrekt gespeichert ist. Bei drei aufeinanderfolgenden technischen Fehlschlägen für dieselbe Szene (Flow-Limit/Netzwerk/Blocker) STOP mit genauer Fehlermeldung und unverändertem `FLOW_RETRY_MISSING.json`; keine unbegrenzten bezahlten Versuche oder fingierte Dateien. Nutzer muss nur bei Coverwahl oder echten anhaltenden Blockern entscheiden. Eine vorhandene/approved Szene niemals erneut erzeugen oder überschreiben. Bereits gespeicherte Ergebnisse bleiben unverändert. Bei beschädigten, doppelt belegten oder unzuordenbaren Dateien STOP: nicht raten, sondern Konflikt berichten.
+
+**Wichtig:** Die Node-Skripte selbst können Google Flow nicht bedienen. Die beschriebenen Schritte muss der tatsächliche mit Google Flow verbundene Phase-2-Agent durchführen. Nur so ist die Prüfung + Nachgenerierung möglich.
