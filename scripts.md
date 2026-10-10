@@ -30,6 +30,13 @@ npm run kidmotion:new -- --format=learn-and-move --topic="..."
 
 Pure Learning hat keinen Countdown-Timer, keine GET-READY-Pflicht und keinen Character-Zwang.
 
+## Phase 1 — Direktlinks fürs Handy / Tablet
+
+- Nach erfolgreicher `prompt:qa` oder `learning:prompt:qa` automatisch `PHASE1_START_HIER.md` + `99-technik/PHASE1_HANDOFF.json` pro Episode erzeugen.
+- `npm run phase1:links -- --episode=KM-XXX-slug` — QA zuerst ausführen und erst bei PASS die zwei Links ausgeben.
+- `npm run phase1:links:test` — Tests für sichere Links und fertige Skripte.
+- Im Chat immer direkt **[Google-Flow-Prompt öffnen]** und **[Voice-over-Skript öffnen]** als anklickbare Links zeigen, nicht nur Repo-Pfade nennen. Vor Nutzung auf anderen Geräten Dateien pushen.
+
 ## Global
 
 - `npm run scripts:check`

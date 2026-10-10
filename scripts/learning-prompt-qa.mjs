@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {resolveEpisodePaths,readEpisodeData} from './episode-paths.mjs';
 import {loadLearningEngine,normalizeAgeBand,normalizeLearningMode,requiredRolesForMode} from './learning-engine.mjs';
+import {publishPhase1Handoff,printPhase1Links} from './phase1-links-lib.mjs';
 
 const root=process.cwd();
 const args=process.argv.slice(2);
@@ -137,7 +138,10 @@ if(failures.length){
   process.exit(1);
 }
 
+const phase1Handoff=publishPhase1Handoff({root,episodeFolder,format:'learning'});
 console.log('LEARNING PROMPT QA PASSED — '+episodeFolder);
 console.log('Age band: '+ageBand);
 console.log('Learning mode: '+learningMode);
 console.log('Validated objective, facts, misconceptions, scene roles, practice/reveal, application, recap, narration and visual teaching plan.');
+
+printPhase1Links(phase1Handoff);

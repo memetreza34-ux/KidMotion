@@ -54,6 +54,15 @@ Ohne `--format` wird abgebrochen. Dadurch wird ein Lernvideo nie versehentlich z
 
 Siehe: `FORMAT_ROUTER.md`.
 
+## Phase 1 fertig — Direktlinks fürs Tablet
+
+Nach erfolgreicher `prompt:qa` (Workout / Learn-and-Move) oder `learning:prompt:qa` (Learning) erstellt KidMotion **automatisch** `episodes/KM-XXX-name/PHASE1_START_HIER.md` und `99-technik/PHASE1_HANDOFF.json` und gibt die zwei anklickbaren GitHub-Dateilinks in der Konsole aus:
+
+- **Google-Flow-Prompt öffnen** — vollständiger `00-bildprompts/google-flow-prompt.txt`
+- **Voice-over-Skript öffnen** — reiner Sprechertext `01-voice-script/voice-script.txt`
+
+Bei jedem erfolgreichen Phase-1-Abschluss müssen Assistenten beide Links **zusätzlich direkt in der Chat-Antwort** anzeigen. Für einen erneuten geprüften Handoff: `npm run phase1:links -- --episode=KM-XXX-name`. Es gibt **keine Freigabe bei fehlgeschlagener QA**; es wird niemals ein Scaffold als fertig verkauft. Die Quellen müssen **committet und auf GitHub gepusht** sein, damit die Links auf einem Tablet funktionieren (bei privaten Repositories mit GitHub-Login). Die Links öffnen die Texte zur manuellen Übernahme, keine automatische Google-Flow-Generierung.
+
 ## Reines Learning rendern
 
 ```bash
