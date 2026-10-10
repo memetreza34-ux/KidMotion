@@ -112,7 +112,7 @@ if(data.sceneNumberingPolicy==='explicit-v1' && ['BATCH_ACTIVE','RECOVER_MISSING
     }
     numberedTasks.push({
       sceneId:id,outputFile:file,imagePrompt:item.prompt,
-      saveCommand:'npm run flow:save -- --episode='+episodeFolder+' --scene='+n+' --source="<actual-downloaded-PNG-path>"',
+      saveCommand:'npm run flow:save -- --episode='+episodeFolder+' --scene='+n+(state.status==='RECOVER_MISSING_FIRST'?' --repair=1':'')+' --source="<actual-downloaded-PNG-path>"',
       note:'Use ONLY Szene 01.png reference; produce a real output for this absent file, save and verify immediately, retry empty Flow responses but NEVER overwrite existing source. Do not show SCENE_ID in image.'
     });
   }

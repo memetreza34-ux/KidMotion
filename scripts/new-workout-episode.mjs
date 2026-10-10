@@ -208,7 +208,22 @@ write('99-technik/COVER_HUMAN_REVIEW.json',JSON.stringify({schemaVersion:1,episo
 write('99-technik/COVER_SELECTION.json',JSON.stringify({schemaVersion:1,productionContractVersion:contract.contractVersion,episodeFolder,status:'AWAITING_USER_SELECTION',selectedCandidate:null,selectedCandidateOriginalFile:null,finalFile:null,userSelectionRequired:true,soleReferenceForLaterScenes:'Szene 01.png',secondaryImageReferencesForbidden:true},null,2)+'\n');
 write('99-technik/VISUAL_REVIEW.json',JSON.stringify({episodeFolder,revision,sameCharacterEveryScene:false,allWorkoutImagesWarmAndInviting:false,allWorkoutImagesConcreteAndChildReadable:false,noSterileOrDisturbingWorkoutVisuals:false,humanCharacterConfirmedEveryScene:false,noNonHumanMascotInWorkoutScenes:false,allExercisePosesClearFromOneStill:false,poseVarietyStrong:false,allGetReadyImagesClearAndNotConfusableWithExercise:false,allExerciseTextReadableAndConsistent:false,allExerciseSafeZonesClear:false,propBallCountsCorrect:false,allNonTimerTextGeneratedAndReadable:false,noExtraPeople:false,noAnatomyErrors:false,noCroppingOfImportantLimbs:false,sceneOrderMatchesPlan:false,noMissingOrDuplicateSceneContent:false,eachSceneMatchesItsPromptRole:false,openingVisualTimingMatchesVoice:false,notes:'Set true only after inspecting real final images and rendered MP4.'},null,2)+'\n');
 write('99-technik/ART_DIRECTION_REVIEW.json',JSON.stringify({schemaVersion:1,artDirectionPolicy:'storyworld-v1',episodeFolder,revision,status:'PENDING_REAL_IMAGE_REVIEW',instructions:'Review each real final PNG, record actual SHA256 and specific observable notes. Never approve from a prompt.',scenes:scenes.map(s=>({scene:s.scene,file:s.image,imageSha256:null,actuallyInspected:false,engagingCharacterExpression:false,groundedHumanScaleEnvironment:false,purposefulVisiblePlayDetail:false,cohesiveStoryWorld:false,clearCompositionAndPose:false,noGenericAICGIOrOddArchitecture:false,notes:''}))},null,2)+'\n');
-write('99-technik/PHASE2_FLOW_RUNBOOK.md','# Phase 2 — '+episodeFolder+'\\nCreate three real cover candidates, inspect them and wait for the user choice. Cover is thumbnail-only and never in the MP4. Szene 02 must be a HELLO greeting, not a giant cover/title card. After cover selection, generate scenes 02–28 in ordered five-image batches, review and approve real assets.\\n');
+write('99-technik/PHASE2_FLOW_RUNBOOK.md',[
+  '# PHASE 2 — '+episodeFolder,
+  '',
+  'Use Google Flow to generate real files. Cover (Szene 01) is THUMBNAIL ONLY; Szene 02 is a small HELLO greeting and not a duplicate cover.',
+  'Create and inspect 3 real covers first. Wait for explicit user selection, then run:',
+  'npm run kidmotion:select-cover -- --episode='+episodeFolder+' --candidate=<1|2|3>',
+  'Example for candidate 2: npm run kidmotion:select-cover -- --episode='+episodeFolder+' --candidate=2',
+  '',
+  'Run npm run flow:batch -- --episode='+episodeFolder+' for each strict 5-scene block.',
+  'After EACH real Flow image, immediately rename/move with npm run flow:save -- --episode='+episodeFolder+' --scene=N --source=<real-downloaded-png>.',
+  'Then run npm run flow:verify -- --episode='+episodeFolder+' to check each actual file. The active missing queue is 99-technik/FLOW_RETRY_MISSING.json.',
+  'If Flow returned NO real image, retry only that missing scene with the original prompt. For an earlier missing scene use flow:save --repair=1. NEVER overwrite an existing scene, invent an image or shift numbers.',
+  'After the last batch run npm run phase2:finalize -- --episode='+episodeFolder+'. Repair only genuinely missing images in 99-technik/PHASE2_MISSING_SCENES.json and audit again.',
+  'Only 28 actual valid PNG images, PHASE2_HANDOFF.json and honest visual QA enable approval and Phase 3.',
+  'If Flow fails 3 times on one scene, stop with an exact blocker and keep the missing queue. Do not claim finished pictures.',
+].join('\n')+'\n');
 write('99-technik/VOICE_PLAN.json',JSON.stringify(voicePlan,null,2)+'\n');
 write('99-technik/GENERATION-REVISION.txt',revision+'\n');
 write('99-technik/status.json',JSON.stringify({schemaVersion:3,productionContractVersion:contract.contractVersion,status:'planning-required',promptPlanReady:false,coverSelectionPending:true,coverSelected:false,imagesReady:false,audioReady:false,assetsApproved:false,renderReady:false},null,2)+'\n');
