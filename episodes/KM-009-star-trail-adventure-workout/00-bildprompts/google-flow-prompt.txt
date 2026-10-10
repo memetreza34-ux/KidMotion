@@ -4,6 +4,11 @@ Three distinct cover candidates first; STOP for explicit user selection. Human-g
 
 Chosen Szene 01.png will be sole image reference for scenes 02–28. Never copy earlier numbered scenes, regenerate or invent missing PNGs.
 
+PHASE 2 DELIVERY — READ PHASE2_FLOW_RUNBOOK.md for mandatory 5-scene batch steps and actual-image checks.
+AFTER 3 REAL COVER PNGs: show them, wait for user choice; immediately select with npm run kidmotion:select-cover -- --episode=KM-009-star-trail-adventure-workout --candidate=<1|2|3>. Example choice #2: npm run kidmotion:select-cover -- --episode=KM-009-star-trail-adventure-workout --candidate=2.
+AFTER COVERS: run npm run flow:batch -- --episode=KM-009-star-trail-adventure-workout to get the allowed 5-image batch. Generate strictly in order, save actual files, silently inspect each completed block. Selected Szene 01.png remains the only image reference.
+AFTER LAST SCENE: npm run phase2:finalize -- --episode=KM-009-star-trail-adventure-workout. If status NEEDS_FLOW_GENERATION, read 99-technik/PHASE2_MISSING_SCENES.json and produce only truly MISSING scenes using their exact original image prompts and user-approved allowed Flow workflow; never regenerate or overwrite images already present. Run audit again until 28 real canonical PNGs and PHASE2_HANDOFF.json exist; then genuine visual inspection and asset approval. Phase 3 remains image-generation forbidden.
+
 COVER CANDIDATE 01 — Cover-Kandidat-01.png
 FINAL GOOGLE FLOW PROMPT:
 COVER_ID: 01 | OUTPUT_FILE: Cover-Kandidat-01.png | ID is file metadata ONLY.
