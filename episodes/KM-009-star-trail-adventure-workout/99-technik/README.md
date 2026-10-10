@@ -7,3 +7,6 @@ Tablet links are in [PHASE1_START_HIER.md](PHASE1_START_HIER.md).
 
 ## Layout update
 The internal README, ANTIGRAVITY, Phase-1 start guide and Phase-2 runbook live here in 99-technik. Public deliverables belong in 03-export. A cover is a separate image, never a frame of the video. Existing videos on the user computer are not edited by GitHub metadata.
+
+## Export and intro policy
+Cover is a separate thumbnail (Szene 01.png is excluded from the video), not the first video frame. Scene 02 now has a small HELLO greeting, Scene 03 a Safety First reminder, Scene 04 a brief start cue, then exercises. Local rendered PNG/MP4/MP3 assets are NOT modified by these text edits. A new approved scene 02, corresponding TTS and rerender are needed before video visuals match this plan.

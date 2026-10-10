@@ -33,3 +33,6 @@ Only when 28 actual PNG files exist, check `99-technik/PHASE2_HANDOFF.json` and 
 ## Visual direction
 
 The entire episode follows a hand-painted star trail through recognizable child-safe park areas. Clear facial expressions and genuinely meaningful prop details, not generic pastel sci-fi buildings, identical plazas, uncanny AI poses or giant dark panels. GET READY panel stays compact and does not cover the girl. Keep safe readable poses.
+
+## Intro update
+Szene 01 stays thumbnail ONLY. Szene 02 must have only small friendly HELLO instead of a big episode title. Szene 03 shows Safety First and 04 a brief start cue before the first exercise. The existing local MP4 is not changed by editing these plans. Replace the already generated scene 02 only after an authorized Phase-2 revision and review.

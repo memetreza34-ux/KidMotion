@@ -17,7 +17,7 @@
       "label": "INTRO",
       "startSeconds": 0,
       "endSeconds": 8,
-      "text": "Welcome to Star Trail Adventure! Twelve fun freeze moves lead us through the park. Follow the painted stars and copy each pose."
+      "text": "Hello! Welcome to Star Trail Adventure. Follow the painted stars and copy twelve fun freeze poses in the park."
     },
     {
       "scene": "03",
@@ -34,6 +34,6 @@
       "text": "Ready? Follow the stars!"
     }
   ],
-  "exactTtsCopy": "Welcome to Star Trail Adventure! Twelve fun freeze moves lead us through the park. Follow the painted stars and copy each pose. Find some space, move gently, and stop if anything hurts. Ready? Follow the stars!",
-  "note": "Verify actual 14-second opening voice duration after TTS. No speech during exercise."
+  "exactTtsCopy": "Hello! Welcome to Star Trail Adventure. Follow the painted stars and copy twelve fun freeze poses in the park. Find some space, move gently, and stop if anything hurts. Ready? Follow the stars!",
+  "note": "Timing windows based on planned scene slots; align SRT against actual spoken TTS before uploading."
 }

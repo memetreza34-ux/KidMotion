@@ -62,7 +62,8 @@
     "mustKeepSelectedCoverSha256": true,
     "cannotStartScene02BeforeSelection": true,
     "humanCoverReviewRequired": true,
-    "humanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json"
+    "humanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json",
+    "thumbnailOnly": true
   },
   "imageBatchPolicy": {
     "enabled": true,
@@ -144,7 +145,7 @@
   "introExtraInfo": [
     "5 MIN PARK QUEST"
   ],
-  "introVoiceText": "Welcome to Star Trail Adventure! Twelve fun freeze moves lead us through the park. Follow the painted stars and copy each pose. Find some space, move gently, and stop if anything hurts. Ready? Follow the stars!",
+  "introVoiceText": "Hello! Welcome to Star Trail Adventure. Follow the painted stars and copy twelve fun freeze poses in the park. Find some space, move gently, and stop if anything hurts. Ready? Follow the stars!",
   "voiceScriptFormat": "plain continuous text only",
   "safetyDuration": 4,
   "letsBeginDuration": 2,
@@ -171,7 +172,7 @@
         "label": "INTRO",
         "startSeconds": 0,
         "endSeconds": 8,
-        "text": "Welcome to Star Trail Adventure! Twelve fun freeze moves lead us through the park. Follow the painted stars and copy each pose."
+        "text": "Hello! Welcome to Star Trail Adventure. Follow the painted stars and copy twelve fun freeze poses in the park."
       },
       {
         "scene": "03",
@@ -262,7 +263,9 @@
       "voice": "Voice 01.mp3",
       "duration": 8,
       "character": "girl",
-      "characterSpecies": "human"
+      "characterSpecies": "human",
+      "generatedText": "HELLO!",
+      "visualPurpose": "Small HELLO greeting on natural park scene; no title card."
     },
     {
       "scene": "03",
@@ -595,5 +598,7 @@
   "sceneNumberingPolicy": "explicit-v1",
   "visualComplexityPolicy": "grounded-simple-workout",
   "kidFriendlyVisualPolicy": "warm-playful-v1",
-  "artDirectionPolicy": "storyworld-v1"
+  "artDirectionPolicy": "storyworld-v1",
+  "introVisualPolicy": "greeting-only-v1",
+  "coverInVideo": false
 }
