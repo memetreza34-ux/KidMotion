@@ -19,6 +19,23 @@ export function phase1Links(episodeFolder) {
   };
 }
 
+// This is the exact two-link answer the assistant must place visibly in CHAT when Phase 1 is done.
+// The CLI writes/prepares it; it cannot autonomously send a ChatGPT message.
+export function phase1ChatReply(episodeFolder) {
+  const urls=phase1Links(episodeFolder);
+  return [
+    '## Phase 1 abgeschlossen — '+episodeFolder,
+    '',
+    'Alle Google-Flow-Bildprompts (inklusive Cover und jeder Szene):',
+    '[Google-Flow-Prompts öffnen]('+urls.prompt+')',
+    '',
+    'Vollständiger Sprechertext:',
+    '[Voice-over-Skript öffnen]('+urls.script+')',
+    '',
+    'Du kannst beide Dateien direkt auf deinem Tablet öffnen und den Text kopieren.'
+  ].join('\\n').replaceAll('\\n','\n');
+}
+
 const sha256 = (content) => crypto.createHash('sha256').update(content).digest('hex');
 
 export function publishPhase1Handoff({root=process.cwd(),episodeFolder,format}) {
@@ -40,6 +57,7 @@ export function publishPhase1Handoff({root=process.cwd(),episodeFolder,format}) 
     gitRepository:GITHUB_REPO,
     branch:GITHUB_BRANCH,
     links:{googleFlowPrompt:urls.prompt,voiceOverScript:urls.script,openGoogleFlow:urls.flow},
+    chatReplyMarkdown:phase1ChatReply(episodeFolder),
     files:{
       googleFlowPrompt:{path:'00-bildprompts/google-flow-prompt.txt',sha256:sha256(prompt)},
       voiceOverScript:{path:'01-voice-script/voice-script.txt',sha256:sha256(script)}
@@ -62,6 +80,7 @@ export function publishPhase1Handoff({root=process.cwd(),episodeFolder,format}) 
     'Sind die Dateien später geändert worden, Phase-1-QA nochmals ausführen und die aktualisierte Übergabe committen.',''
   ].join('\n');
   fs.writeFileSync(path.join(folder,'99-technik','PHASE1_START_HIER.md'),markdown,'utf8');
+  fs.writeFileSync(path.join(tech,'PHASE1_CHAT_ANTWORT.md'),phase1ChatReply(episodeFolder)+'\n','utf8');
   return summary;
 }
 
@@ -71,6 +90,9 @@ export function printPhase1Links(summary,log=console.log) {
   log('[Google-Flow-Prompt öffnen]('+summary.links.googleFlowPrompt+')');
   log('[Voice-over-Skript öffnen]('+summary.links.voiceOverScript+')');
   log('Datei: episodes/'+summary.episodeFolder+'/99-technik/PHASE1_START_HIER.md');
+  log('=== EXAKTER TEXT FÜR DIE CHAT-ANTWORT (beide separaten Links) ===');
+  log(summary.chatReplyMarkdown || phase1ChatReply(summary.episodeFolder));
+  log('CHAT-PFLICHT: Sende BEIDE Links direkt in der Chat-Antwort, nicht nur im Repository.');
   log('HINWEIS: Erst nach Git Commit + Push funktionieren die Links auch unterwegs.');
   log('Google Flow importiert die Prompts nicht automatisch; den Text dort einfügen.');
 }
