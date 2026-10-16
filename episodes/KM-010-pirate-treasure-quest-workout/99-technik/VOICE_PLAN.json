@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-010-pirate-treasure-quest-workout",
+  "voiceFile": "Voice 01.mp3",
+  "targetDurationSeconds": {
+    "min": 13.65,
+    "target": 13.9,
+    "max": 14.05
+  },
+  "startsAtSeconds": 0,
+  "mustEndBeforeSeconds": 14.05,
+  "noSpokenVoiceAfterSeconds": 14,
+  "sections": [
+    {
+      "scene": "02",
+      "label": "INTRO",
+      "startSeconds": 0,
+      "endSeconds": 8,
+      "text": "Hello! Welcome to Treasure Island. Follow the map and try twelve fun freeze moves!"
+    },
+    {
+      "scene": "03",
+      "label": "SAFETY",
+      "startSeconds": 8,
+      "endSeconds": 12,
+      "text": "Make space, move gently, and stop if it hurts."
+    },
+    {
+      "scene": "04",
+      "label": "LETS_BEGIN",
+      "startSeconds": 12,
+      "endSeconds": 14,
+      "text": "Ready? Let's go!"
+    }
+  ],
+  "exactTtsCopy": "Hello! Welcome to Treasure Island. Follow the map and try twelve fun freeze moves! Make space, move gently, and stop if it hurts. Ready? Let's go!",
+  "note": "Planned voice scene timings; genuine 13.65–14.05 second audio has not been generated or measured."
+}

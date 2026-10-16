@@ -1,0 +1,11 @@
+1
+00:00:00,000 --> 00:00:08,000
+Hello! Welcome to Treasure Island. Follow the map and try twelve fun freeze moves!
+
+2
+00:00:08,000 --> 00:00:12,000
+Make space, move gently, and stop if it hurts.
+
+3
+00:00:12,000 --> 00:00:14,000
+Ready? Let's go!

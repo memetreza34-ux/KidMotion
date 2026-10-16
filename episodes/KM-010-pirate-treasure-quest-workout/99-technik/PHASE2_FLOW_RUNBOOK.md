@@ -1,0 +1,11 @@
+# KM-010 — Flow production + verification
+
+PHASE 2: Create three actual cover PNGs, inspect them, then STOP for the user's explicit cover choice 1/2/3. Command: npm run kidmotion:select-cover -- --episode=KM-010-pirate-treasure-quest-workout --candidate=<1|2|3>. Cover remains separate and outside the video; scene 02 is a small HELLO greeting.
+For scenes 02-28 use selected Szene 01.png ONLY for identity. Before each 5-scene batch run npm run flow:batch -- --episode=KM-010-pirate-treasure-quest-workout. After EACH actual Flow download save and rename immediately via npm run flow:save -- --episode=KM-010-pirate-treasure-quest-workout --scene=<N> --source=<real-file.png>. Then run npm run flow:verify -- --episode=KM-010-pirate-treasure-quest-workout. If a scene is missing retry only its original prompt; never overwrite existing scenes. After three technical failures STOP.
+Run npm run phase2:finalize -- --episode=KM-010-pirate-treasure-quest-workout at end. If PHASE2_MISSING_SCENES.json lists missing PNGs, repair only missing originals and rerun audit until 28/28 authentic files. Read 99-technik/PHASE2_FLOW_RUNBOOK.md.
+
+Generate all real files under 00-bildprompts/images only. Before cover selection show 3 real candidates, get explicit user choice. Selected image is the only reference for the remaining pictures. For candidate 2: npm run kidmotion:select-cover -- --episode=KM-010-pirate-treasure-quest-workout --candidate=2.
+
+Batches: 02–06, 07–11, 12–16, 17–21, 22–26, 27–28. One real PNG per scene, immediately rename on save. After each image: `npm run flow:verify -- --episode=KM-010-pirate-treasure-quest-workout` and look at `FLOW_RETRY_MISSING.json`. NEVER assume text response means an image exists. If a previous missing scene appears in queue, use `flow:save --repair=1` with its ORIGINAL prompt and do not touch existing images.
+
+Final audit: `npm run phase2:finalize -- --episode=KM-010-pirate-treasure-quest-workout` and check `PHASE2_MISSING_SCENES.json`. Only a true 28/28 image set plus `PHASE2_HANDOFF.json` may go to approved visual review, asset hash locking and Phase 3. No fake success, generated fallback, duplicate image or renumbering. After 3 Flow failures stop and report.

@@ -1,0 +1,1033 @@
+{
+  "schemaVersion": 3,
+  "productionContractVersion": 1,
+  "episodeFolder": "KM-010-pirate-treasure-quest-workout",
+  "revision": "KM010-R1",
+  "visualStyleId": "kidmotion-premium-3d-v3-flow-text",
+  "generationRules": {
+    "coverCandidateCount": 3,
+    "coverCandidateFiles": [
+      "Cover-Kandidat-01.png",
+      "Cover-Kandidat-02.png",
+      "Cover-Kandidat-03.png"
+    ],
+    "coverSelectionFile": "99-technik/COVER_SELECTION.json",
+    "stopAfterCoverCandidatesUntilExplicitUserSelection": true,
+    "selectedCoverFinalFile": "Szene 01.png",
+    "selectedCoverBecomesSoleReference": true,
+    "batchSizeAfterCover": 5,
+    "autoContinueToNextBatch": true,
+    "generationBatches": [
+      [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      [
+        27,
+        28
+      ]
+    ],
+    "generateEachNonCoverSceneExactlyOnce": true,
+    "maximumGenerationAttemptsPerNonCoverScene": 1,
+    "regenerationForbidden": true,
+    "automaticAlternatesForbidden": true,
+    "soleReference": "Szene 01.png",
+    "secondaryImageReferencesForbidden": true,
+    "finalDirectory": "00-bildprompts/images",
+    "allFinalScenesInOneFolder": true,
+    "sceneFilePattern": "Szene NN.png",
+    "firstFinalScene": 1,
+    "lastFinalScene": 28,
+    "dedicatedGetReadyScenes": true,
+    "getReadySceneCount": 11,
+    "allNonTimerVisibleTextOwner": "google-flow",
+    "controllerCommand": "npm run flow:batch -- --episode=KM-010-pirate-treasure-quest-workout",
+    "hardBatchBoundaries": true,
+    "batchMustBeCompleteBeforeNext": true,
+    "silentVisualQcAfterEachBatch": true,
+    "coverSelectionCommandTemplate": "npm run kidmotion:select-cover -- --episode=KM-010-pirate-treasure-quest-workout --candidate=<1|2|3>",
+    "deleteRejectedCoversImmediately": true,
+    "refuseCoverOverwrite": true,
+    "finalAuditRequired": true,
+    "finalAuditCommand": "npm run phase2:finalize -- --episode=KM-010-pirate-treasure-quest-workout",
+    "requiredHandoffFile": "99-technik/PHASE2_HANDOFF.json",
+    "missingImageRecoveryQueue": "99-technik/PHASE2_MISSING_SCENES.json",
+    "phase2MayGenerateGenuinelyMissingScenesOnce": true,
+    "mayRegenerateAlreadyPresentScenes": false,
+    "repairMustUseOriginalPerScenePrompt": true,
+    "repairMustUseOnlySelectedCoverReference": true,
+    "finalSceneCountRequired": 28,
+    "finalImageDirectoryFlat": true,
+    "noHandoffBeforeAll28Correct": true,
+    "characterSpecies": "human",
+    "nonHumanMascotsForbidden": true,
+    "coverHumanReviewRequiredBeforeSelection": true,
+    "coverHumanReviewFile": "99-technik/COVER_HUMAN_REVIEW.json",
+    "sceneNumberingPolicy": "explicit-v1",
+    "sceneIdsMustMatchFileNames": true,
+    "sceneNumbersAreNotVisibleText": true,
+    "useDownloadSaveCommand": true,
+    "saveCommandTemplate": "npm run flow:save -- --episode=KM-010-pirate-treasure-quest-workout --scene=<NN> --source=<real-downloaded-png>",
+    "kidFriendlyVisualPolicy": "warm-playful-v1",
+    "visualWarmthReviewRequired": true,
+    "artDirectionPolicy": "storyworld-v1"
+  },
+  "images": [
+    {
+      "sceneNumber": 1,
+      "imageFile": "Szene 01.png",
+      "sceneRole": "cover",
+      "visualPurpose": "Clearly show a fun playable treasure quest.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "three distinct cover viewpoints",
+      "characterReference": "three cover candidates",
+      "uiReference": null,
+      "generationAttemptsAllowed": 3,
+      "propCount": 0,
+      "generatedText": "TREASURE ISLAND QUEST / 12 FUN FREEZE MOVES",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "COVER_ID: 01 | OUTPUT_FILE: Cover-Kandidat-01.png | ID is file metadata ONLY.\nCLICK IDEA: A fun treasure-map playground freeze workout for kids.\nSHOT / COMPOSITION: wide low full-body boy on right, clear title left.\nCHARACTER: One original fictional fully clothed stylized 3D HUMAN boy athlete, natural human face/hands, coral shirt, teal shorts, trainers; one hand pointing toward the first compass.\nWORLD: sunny nautical playground park with toy wooden ship and palms with painted rubber ground and real greenery.\nPLAY DETAIL / STORY BEAT: hand-painted compass path winds toward a little treasure chest so the hunt is immediately understood.\nWARMTH / MOOD: Excited curious smile in warm natural sunlight and friendly expressive eyes.\nTEXT: Exact bold \"TREASURE ISLAND QUEST\" / \"12 FUN FREEZE MOVES\"; readable at phone size.\nLIGHT / MATERIALS: Warm daylight, matte rubber, colored wood, soft plants.\nNEGATIVE / STABILITY: No robot, fox or animal characters, weapons, scary CGI or wrong letters.\nQUALITY CHECK: Full-body fictional human, grounded treasure detail, attractive legible cover.\nOUTPUT: 16:9 landscape, Cover-Kandidat-01.png",
+      "characterSpecies": "human",
+      "flowSceneId": null,
+      "downloadedFileMustBeSavedAs": "Szene 01.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 2,
+      "imageFile": "Szene 02.png",
+      "sceneRole": "intro",
+      "visualPurpose": "Greet the child naturally inside the mission.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "eye-level full-body boy right, open greeting space left",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "only small friendly \"HELLO!\" by the boy, no huge headline",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 02 | OUTPUT_FILE: Szene 02.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Greet the child naturally inside the mission.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level full-body boy right, open greeting space left.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; relaxed one-hand wave, both feet flat.\nWORLD / ENVIRONMENT: sunny pirate-themed playground park with wooden toy boat; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: painted dotted treasure path begins beside his shoes.\nWARMTH / MOOD: Welcoming warm smile with playful excited eyes in warm daylight.\nTEXT / UI: only small friendly \"HELLO!\" by the boy, no huge headline\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 02.png",
+      "characterSpecies": "human",
+      "flowSceneId": "02",
+      "downloadedFileMustBeSavedAs": "Szene 02.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 3,
+      "imageFile": "Szene 03.png",
+      "sceneRole": "safety",
+      "visualPurpose": "Show enough space for safe movement.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "calm full-body left, readable text area right",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "\"SAFETY FIRST\" / \"Make room.\" / \"Stop if it hurts.\"",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 03 | OUTPUT_FILE: Szene 03.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show enough space for safe movement.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: calm full-body left, readable text area right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; flat shoes apart, open relaxed hands.\nWORLD / ENVIRONMENT: sunny park safety court with short benches and nonslip floor; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: chalk circle marks a clear safe arm-span around his shoes.\nWARMTH / MOOD: Gentle reassuring smile and relaxed eyes in warm daylight.\nTEXT / UI: \"SAFETY FIRST\" / \"Make room.\" / \"Stop if it hurts.\"\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 03.png",
+      "characterSpecies": "human",
+      "flowSceneId": "03",
+      "downloadedFileMustBeSavedAs": "Szene 03.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 4,
+      "imageFile": "Szene 04.png",
+      "sceneRole": "lets-begin",
+      "visualPurpose": "Point to the first treasure map station.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "eye-level full-body three-quarter shot with map path",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "\"LET'S GO!\" / \"FOLLOW THE MAP!\"",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 04 | OUTPUT_FILE: Szene 04.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Point to the first treasure map station.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level full-body three-quarter shot with map path.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet-flat ready stance, hands at sides.\nWORLD / ENVIRONMENT: bright community playground park path near wooden ship; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: two painted blue arrows lead toward compass floor marker.\nWARMTH / MOOD: Eager cheerful grin before the first movement in warm daylight.\nTEXT / UI: \"LET'S GO!\" / \"FOLLOW THE MAP!\"\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 04.png",
+      "characterSpecies": "human",
+      "flowSceneId": "04",
+      "downloadedFileMustBeSavedAs": "Szene 04.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 5,
+      "imageFile": "Szene 05.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate COMPASS REACH safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "low front full-body shot with reaching hand clear",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "COMPASS REACH",
+        "instruction": "Point one arm high and stand tall."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 05 | OUTPUT_FILE: Szene 05.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy COMPASS REACH posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low front full-body shot with reaching hand clear.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; flat feet, right arm up diagonally, left arm relaxed.\nWORLD / ENVIRONMENT: sunny pirate-themed playground park entrance with rubber floor and ship prop; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: hand-painted gold compass arrow points ahead from his shoes.\nWARMTH / MOOD: Eager confident smile at the first treasure clue in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"COMPASS REACH\" on dark semi-transparent navy rounded rectangle; top-right \"Point one arm high and stand tall.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 05.png",
+      "characterSpecies": "human",
+      "flowSceneId": "05",
+      "downloadedFileMustBeSavedAs": "Szene 05.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 6,
+      "imageFile": "Szene 06.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview SAIL WINGS without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: SAIL WINGS",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 06 | OUTPUT_FILE: Szene 06.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview SAIL WINGS without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level full-body left, small NEXT plaque right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: safe wooden toy-ship playground deck with matte blue rubber court; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted gold arrow points toward the next SAIL WINGS station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: SAIL WINGS\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 06.png",
+      "characterSpecies": "human",
+      "flowSceneId": "06",
+      "downloadedFileMustBeSavedAs": "Szene 06.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 7,
+      "imageFile": "Szene 07.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate SAIL WINGS safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "wide frontal full-body shot, complete arm span",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "SAIL WINGS",
+        "instruction": "Stretch both arms wide like sails."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 07 | OUTPUT_FILE: Szene 07.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy SAIL WINGS posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: wide frontal full-body shot, complete arm span.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet planted, arms stretched gently sideways, shoulders relaxed.\nWORLD / ENVIRONMENT: safe wooden toy-ship playground deck with matte blue rubber court; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: two painted blue sail triangles align with extended fingertips.\nWARMTH / MOOD: Joyful welcoming grin with shoulders relaxed in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"SAIL WINGS\" on dark semi-transparent navy rounded rectangle; top-right \"Stretch both arms wide like sails.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 07.png",
+      "characterSpecies": "human",
+      "flowSceneId": "07",
+      "downloadedFileMustBeSavedAs": "Szene 07.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 8,
+      "imageFile": "Szene 08.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview CAPTAIN SQUAT without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: CAPTAIN SQUAT",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 08 | OUTPUT_FILE: Szene 08.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview CAPTAIN SQUAT without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: high three-quarter full-body, compact right plaque.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: sunny park activity court beside a child-height wooden wheel; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted chalk footprint pair points toward the next CAPTAIN SQUAT station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: CAPTAIN SQUAT\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 08.png",
+      "characterSpecies": "human",
+      "flowSceneId": "08",
+      "downloadedFileMustBeSavedAs": "Szene 08.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 9,
+      "imageFile": "Szene 09.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate CAPTAIN SQUAT safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "front-left three-quarter body frame with knees visible",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "CAPTAIN SQUAT",
+        "instruction": "Bend your knees a little and hold."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 09 | OUTPUT_FILE: Szene 09.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy CAPTAIN SQUAT posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: front-left three-quarter body frame with knees visible.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; shallow squat, feet flat, chest upright, arms ahead.\nWORLD / ENVIRONMENT: sunny park activity court beside a child-height wooden wheel; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: three gold painted anchor dots mark the stable feet.\nWARMTH / MOOD: Focused friendly smile as he steadies the ship in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"CAPTAIN SQUAT\" on dark semi-transparent navy rounded rectangle; top-right \"Bend your knees a little and hold.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 09.png",
+      "characterSpecies": "human",
+      "flowSceneId": "09",
+      "downloadedFileMustBeSavedAs": "Szene 09.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 10,
+      "imageFile": "Szene 10.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview MAP SIDE STRETCH without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: MAP SIDE STRETCH",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 10 | OUTPUT_FILE: Szene 10.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview MAP SIDE STRETCH without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: side-front full-body with NEXT plaque right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: leafy playground palm garden near painted treasure map wall; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted blue compass marker points toward the next MAP SIDE STRETCH station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: MAP SIDE STRETCH\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 10.png",
+      "characterSpecies": "human",
+      "flowSceneId": "10",
+      "downloadedFileMustBeSavedAs": "Szene 10.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 11,
+      "imageFile": "Szene 11.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate MAP SIDE STRETCH safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "wide side-front full-body shot with headroom",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "MAP SIDE STRETCH",
+        "instruction": "Lean a little and reach over."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 11 | OUTPUT_FILE: Szene 11.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy MAP SIDE STRETCH posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: wide side-front full-body shot with headroom.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet flat, lean slightly right, left arm overhead, no twist.\nWORLD / ENVIRONMENT: leafy playground palm garden near painted treasure map wall; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: chalk dotted trail curves beside his stretching arm.\nWARMTH / MOOD: Curious playful grin while following the map line in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"MAP SIDE STRETCH\" on dark semi-transparent navy rounded rectangle; top-right \"Lean a little and reach over.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 11.png",
+      "characterSpecies": "human",
+      "flowSceneId": "11",
+      "downloadedFileMustBeSavedAs": "Szene 11.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 12,
+      "imageFile": "Szene 12.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview ISLAND STEP without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: ISLAND STEP",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 12 | OUTPUT_FILE: Szene 12.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview ISLAND STEP without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: wide full-body left, clean right text.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: sunny park playground island path edged by low ferns; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted red trail flag points toward the next ISLAND STEP station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: ISLAND STEP\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 12.png",
+      "characterSpecies": "human",
+      "flowSceneId": "12",
+      "downloadedFileMustBeSavedAs": "Szene 12.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 13,
+      "imageFile": "Szene 13.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate ISLAND STEP safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "low diagonal full-body angle separating both shoes",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ISLAND STEP",
+        "instruction": "Step one foot forward and freeze."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 13 | OUTPUT_FILE: Szene 13.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy ISLAND STEP posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low diagonal full-body angle separating both shoes.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; left foot a short step forward, both heels down, tall back.\nWORLD / ENVIRONMENT: sunny park playground island path edged by low ferns; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: two large painted footprints lead to a yellow flag.\nWARMTH / MOOD: Brave confident smile as he finds the next trail in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"ISLAND STEP\" on dark semi-transparent navy rounded rectangle; top-right \"Step one foot forward and freeze.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 13.png",
+      "characterSpecies": "human",
+      "flowSceneId": "13",
+      "downloadedFileMustBeSavedAs": "Szene 13.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 14,
+      "imageFile": "Szene 14.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview PALM BALANCE without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: PALM BALANCE",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 14 | OUTPUT_FILE: Szene 14.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview PALM BALANCE without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level full-body left, small NEXT plaque right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: shaded palm garden park balance mat beside low bench; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted gold arrow points toward the next PALM BALANCE station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: PALM BALANCE\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 14.png",
+      "characterSpecies": "human",
+      "flowSceneId": "14",
+      "downloadedFileMustBeSavedAs": "Szene 14.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 15,
+      "imageFile": "Szene 15.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate PALM BALANCE safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "eye-level three-quarter full-body showing the lifted toe",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "PALM BALANCE",
+        "instruction": "Lift one foot just a little."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 15 | OUTPUT_FILE: Szene 15.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy PALM BALANCE posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level three-quarter full-body showing the lifted toe.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; left foot planted, right toe slightly raised, arms out; toe-down option.\nWORLD / ENVIRONMENT: shaded palm garden park balance mat beside low bench; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: green painted leaf circle highlights the grounded foot.\nWARMTH / MOOD: Concentrated warm smile during the tiny balance in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"PALM BALANCE\" on dark semi-transparent navy rounded rectangle; top-right \"Lift one foot just a little.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 15.png",
+      "characterSpecies": "human",
+      "flowSceneId": "15",
+      "downloadedFileMustBeSavedAs": "Szene 15.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 16,
+      "imageFile": "Szene 16.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview ANCHOR PUSH without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: ANCHOR PUSH",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 16 | OUTPUT_FILE: Szene 16.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview ANCHOR PUSH without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: high three-quarter full-body, compact right plaque.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: pirate ship playground court next to short wooden railing; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted chalk footprint pair points toward the next ANCHOR PUSH station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: ANCHOR PUSH\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 16.png",
+      "characterSpecies": "human",
+      "flowSceneId": "16",
+      "downloadedFileMustBeSavedAs": "Szene 16.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 17,
+      "imageFile": "Szene 17.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate ANCHOR PUSH safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "right three-quarter full-body shot, open hands separate",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "ANCHOR PUSH",
+        "instruction": "Push your palms forward and hold."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 17 | OUTPUT_FILE: Szene 17.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy ANCHOR PUSH posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: right three-quarter full-body shot, open hands separate.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; upright feet-flat stance, two palms forward at chest level.\nWORLD / ENVIRONMENT: pirate ship playground court next to short wooden railing; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: bright gold chalk anchor under the outstretched palms.\nWARMTH / MOOD: Playful determined grin while stopping an imaginary ship in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"ANCHOR PUSH\" on dark semi-transparent navy rounded rectangle; top-right \"Push your palms forward and hold.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 17.png",
+      "characterSpecies": "human",
+      "flowSceneId": "17",
+      "downloadedFileMustBeSavedAs": "Szene 17.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 18,
+      "imageFile": "Szene 18.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview SPYGLASS TURN without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: SPYGLASS TURN",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 18 | OUTPUT_FILE: Szene 18.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview SPYGLASS TURN without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: side-front full-body with NEXT plaque right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: sunny park lookout garden with colorful flags and shrubs; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted blue compass marker points toward the next SPYGLASS TURN station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: SPYGLASS TURN\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 18.png",
+      "characterSpecies": "human",
+      "flowSceneId": "18",
+      "downloadedFileMustBeSavedAs": "Szene 18.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 19,
+      "imageFile": "Szene 19.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate SPYGLASS TURN safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "rear-left full-body frame showing mild shoulder rotation",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "SPYGLASS TURN",
+        "instruction": "Turn your shoulders and look sideways."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 19 | OUTPUT_FILE: Szene 19.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy SPYGLASS TURN posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: rear-left full-body frame showing mild shoulder rotation.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet pointing forward, hips still, slight shoulder turn left.\nWORLD / ENVIRONMENT: sunny park lookout garden with colorful flags and shrubs; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: curved yellow painted arrow points toward a map target.\nWARMTH / MOOD: Curious focused smile after spotting a new marker in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"SPYGLASS TURN\" on dark semi-transparent navy rounded rectangle; top-right \"Turn your shoulders and look sideways.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 19.png",
+      "characterSpecies": "human",
+      "flowSceneId": "19",
+      "downloadedFileMustBeSavedAs": "Szene 19.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 20,
+      "imageFile": "Szene 20.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview TREASURE STAR without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: TREASURE STAR",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 20 | OUTPUT_FILE: Szene 20.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview TREASURE STAR without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: wide full-body left, clean right text.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: safe playground treasure fort court near mural treasure boxes; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted red trail flag points toward the next TREASURE STAR station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: TREASURE STAR\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 20.png",
+      "characterSpecies": "human",
+      "flowSceneId": "20",
+      "downloadedFileMustBeSavedAs": "Szene 20.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 21,
+      "imageFile": "Szene 21.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate TREASURE STAR safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "symmetric frontal full-body view with entire X shape",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "TREASURE STAR",
+        "instruction": "Open arms and legs like a star."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 21 | OUTPUT_FILE: Szene 21.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy TREASURE STAR posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: symmetric frontal full-body view with entire X shape.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet wide but comfortable, knees soft, arms diagonal into X.\nWORLD / ENVIRONMENT: safe playground treasure fort court near mural treasure boxes; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: large five-point chalk gold star touches both shoes.\nWARMTH / MOOD: Proud delighted grin completing the big star in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"TREASURE STAR\" on dark semi-transparent navy rounded rectangle; top-right \"Open arms and legs like a star.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 21.png",
+      "characterSpecies": "human",
+      "flowSceneId": "21",
+      "downloadedFileMustBeSavedAs": "Szene 21.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 22,
+      "imageFile": "Szene 22.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview LOOKOUT TIPTOES without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: LOOKOUT TIPTOES",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 22 | OUTPUT_FILE: Szene 22.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview LOOKOUT TIPTOES without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: eye-level full-body left, small NEXT plaque right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: bright palm-tree park lookout with nonslip activity mat; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted gold arrow points toward the next LOOKOUT TIPTOES station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: LOOKOUT TIPTOES\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 22.png",
+      "characterSpecies": "human",
+      "flowSceneId": "22",
+      "downloadedFileMustBeSavedAs": "Szene 22.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 23,
+      "imageFile": "Szene 23.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate LOOKOUT TIPTOES safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "low front full-body camera showing slight heel lift",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "LOOKOUT TIPTOES",
+        "instruction": "Raise your heels slightly and hold."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 23 | OUTPUT_FILE: Szene 23.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy LOOKOUT TIPTOES posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low front full-body camera showing slight heel lift.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; heels barely raised, arms wide; heels-down option.\nWORLD / ENVIRONMENT: bright palm-tree park lookout with nonslip activity mat; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: three gold stepping circles sit beneath the toes.\nWARMTH / MOOD: Careful cheerful smile during a gentle toe balance in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"LOOKOUT TIPTOES\" on dark semi-transparent navy rounded rectangle; top-right \"Raise your heels slightly and hold.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 23.png",
+      "characterSpecies": "human",
+      "flowSceneId": "23",
+      "downloadedFileMustBeSavedAs": "Szene 23.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 24,
+      "imageFile": "Szene 24.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview CRAB SIDE STEP without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: CRAB SIDE STEP",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 24 | OUTPUT_FILE: Szene 24.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview CRAB SIDE STEP without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: high three-quarter full-body, compact right plaque.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: open pirate-playground garden court with flower planters; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted chalk footprint pair points toward the next CRAB SIDE STEP station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: CRAB SIDE STEP\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 24.png",
+      "characterSpecies": "human",
+      "flowSceneId": "24",
+      "downloadedFileMustBeSavedAs": "Szene 24.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 25,
+      "imageFile": "Szene 25.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate CRAB SIDE STEP safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "high angled full-body view showing both shoes",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "CRAB SIDE STEP",
+        "instruction": "Step sideways and stay steady."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 25 | OUTPUT_FILE: Szene 25.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy CRAB SIDE STEP posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: high angled full-body view showing both shoes.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; one small step right, knees soft, arms open for balance.\nWORLD / ENVIRONMENT: open pirate-playground garden court with flower planters; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: white sideways painted footprints lead to a red X.\nWARMTH / MOOD: Encouraging excited grin as the treasure mark appears in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"CRAB SIDE STEP\" on dark semi-transparent navy rounded rectangle; top-right \"Step sideways and stay steady.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 25.png",
+      "characterSpecies": "human",
+      "flowSceneId": "25",
+      "downloadedFileMustBeSavedAs": "Szene 25.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 26,
+      "imageFile": "Szene 26.png",
+      "sceneRole": "get-ready",
+      "visualPurpose": "Preview VICTORY FLAG without the next pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "compact NEXT sign and calm full-body boy",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "GET READY / NEXT: VICTORY FLAG",
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 26 | OUTPUT_FILE: Szene 26.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Preview VICTORY FLAG without doing the pose.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: side-front full-body with NEXT plaque right.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.\nWORLD / ENVIRONMENT: sunny park treasure-finish lawn beside painted wood chest; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: a painted blue compass marker points toward the next VICTORY FLAG station.\nWARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.\nTEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE \"GET READY\" and bright-cyan \"NEXT: VICTORY FLAG\".\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 26.png",
+      "characterSpecies": "human",
+      "flowSceneId": "26",
+      "downloadedFileMustBeSavedAs": "Szene 26.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 27,
+      "imageFile": "Szene 27.png",
+      "sceneRole": "exercise",
+      "visualPurpose": "Clearly demonstrate VICTORY FLAG safe freeze pose.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "low frontal wide full-body frame with raised V",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": {
+        "title": "VICTORY FLAG",
+        "instruction": "Make a big V with your arms."
+      },
+      "safeZones": [
+        "top-left 230x230 countdown timer zone clear"
+      ],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 27 | OUTPUT_FILE: Szene 27.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Show safe easy-to-copy VICTORY FLAG posture.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: low frontal wide full-body frame with raised V.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet planted, upright body, arms high in wide V, no jump.\nWORLD / ENVIRONMENT: sunny park treasure-finish lawn beside painted wood chest; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: final painted yellow stripe meets a small finish flag.\nWARMTH / MOOD: Proud joyful victory smile beside the found treasure in warm daylight.\nTEXT / UI: bottom-left WHITE uppercase \"VICTORY FLAG\" on dark semi-transparent navy rounded rectangle; top-right \"Make a big V with your arms.\" in dark navy on light cream rounded rectangle.\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 27.png",
+      "characterSpecies": "human",
+      "flowSceneId": "27",
+      "downloadedFileMustBeSavedAs": "Szene 27.png",
+      "visualMood": "believable-child-friendly-park"
+    },
+    {
+      "sceneNumber": 28,
+      "imageFile": "Szene 28.png",
+      "sceneRole": "outro",
+      "visualPurpose": "Celebrate treasure hunt complete.",
+      "topicAnchor": "5 Minute Pirate Treasure Quest Freeze Workout for Kids",
+      "visualForm": "wide front full-body shot, boy right, short text left",
+      "characterReference": "selected Szene 01.png ONLY",
+      "uiReference": null,
+      "generationAttemptsAllowed": 1,
+      "propCount": 0,
+      "generatedText": "\"GREAT JOB!\" / \"TREASURE FOUND!\"",
+      "safeZones": [],
+      "acceptanceCriteria": [
+        "one HUMAN fully clothed boy, consistent selected cover identity/outfit",
+        "safe full-body freeze pose",
+        "scene-specific painted treasure clue",
+        "recognizable warm child-scale playground",
+        "correct readable text on phone",
+        "top-left timer-safe zone clear where needed",
+        "no extra character or bizarre CGI",
+        "16:9 landscape",
+        "no fake baked timer"
+      ],
+      "prompt": "SCENE_ID: 28 | OUTPUT_FILE: Szene 28.png | ID is file metadata ONLY; do not draw scene numbers.\nVIEWER TAKEAWAY: Celebrate treasure hunt complete.\nREFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.\nSHOT / COMPOSITION: wide front full-body shot, boy right, short text left.\nCHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; friendly shoulder-height wave, feet flat.\nWORLD / ENVIRONMENT: sunny playground park finish garden with low green bushes; level nonslip play surface.\nPLAY DETAIL / STORY BEAT: closed painted treasure chest and last yellow trail flag.\nWARMTH / MOOD: Proud delighted smile after all twelve easy moves in warm daylight.\nTEXT / UI: \"GREAT JOB!\" / \"TREASURE FOUND!\"\nLIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.\nNEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.\nQUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.\nOUTPUT: 16:9 landscape, Szene 28.png",
+      "characterSpecies": "human",
+      "flowSceneId": "28",
+      "downloadedFileMustBeSavedAs": "Szene 28.png",
+      "visualMood": "believable-child-friendly-park"
+    }
+  ],
+  "promptSpecVersion": 2,
+  "compactPromptPolicy": "v2-short",
+  "topic": "5 Minute Pirate Treasure Quest Freeze Workout for Kids"
+}

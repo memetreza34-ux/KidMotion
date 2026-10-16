@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 3,
+  "productionContractVersion": 1,
+  "status": "phase1-text-ready-npm-qa-pending",
+  "promptPlanReady": true,
+  "coverSelectionPending": true,
+  "coverSelected": false,
+  "imagesReady": false,
+  "audioReady": false,
+  "assetsApproved": false,
+  "renderReady": false,
+  "notes": "Structural check completed; local npm prompt QA and all real image/audio/movie production still pending."
+}

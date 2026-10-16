@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "policyId": "playvilo-continuous-improvement-v1",
+  "ruleFingerprint": "5287214a8cd3e8fd3827db2100647758e260737a6f8c518254529c97bf339ac9",
+  "episodeFolder": "KM-010-pirate-treasure-quest-workout",
+  "format": "workout",
+  "items": [
+    {
+      "id": "KID-001",
+      "status": "APPLIED",
+      "sourceFile": "00-bildprompts/google-flow-prompt.txt",
+      "evidence": "hand-painted gold compass arrow points ahead from his shoes",
+      "whyItWorks": "One specific compass clue demonstrates movement purpose in a recognizable playground, and other poses each receive different visible markers."
+    },
+    {
+      "id": "KID-002",
+      "status": "APPLIED",
+      "sourceFile": "00-bildprompts/google-flow-prompt.txt",
+      "evidence": "only small friendly \"HELLO!\" by the boy, no huge headline",
+      "whyItWorks": "Scene two is a direct welcoming shot instead of repeating the promotional cover, and the cover remains outside the film."
+    },
+    {
+      "id": "KID-003",
+      "status": "APPLIED",
+      "sourceFile": "99-technik/PHASE2_FLOW_RUNBOOK.md",
+      "evidence": "After each image: `npm run flow:verify -- --episode=KM-010-pirate-treasure-quest-workout` and look at `FLOW_RETRY_MISSING.json`.",
+      "whyItWorks": "A newly generated image must be saved and verified as real before advancing; missing files are isolated rather than relabeled."
+    }
+  ],
+  "reviewFollowups": [
+    {
+      "id": "KM-009-star-trail-adventure-workout/ACTION-01",
+      "kind": "required",
+      "fromEpisode": "KM-009-star-trail-adventure-workout",
+      "status": "APPLIED",
+      "sourceFile": "00-bildprompts/google-flow-prompt.txt",
+      "evidence": "two painted blue sail triangles align with extended fingertips",
+      "whyItWorks": "A separate safe toy-ship setting and arm-linked sail markers make the second pose specific and visually distinct."
+    },
+    {
+      "id": "KM-009-star-trail-adventure-workout/ACTION-02",
+      "kind": "required",
+      "fromEpisode": "KM-009-star-trail-adventure-workout",
+      "status": "APPLIED",
+      "sourceFile": "99-technik/PHASE2_FLOW_RUNBOOK.md",
+      "evidence": "NEVER assume text response means an image exists.",
+      "whyItWorks": "This instruction requires confirmation of a real download instead of silently marking a missing generation as completed."
+    },
+    {
+      "id": "KM-009-star-trail-adventure-workout/ACTION-03",
+      "kind": "experiment",
+      "fromEpisode": "KM-009-star-trail-adventure-workout",
+      "status": "DEFERRED_WITH_REASON",
+      "sourceFile": "",
+      "evidence": "",
+      "whyItWorks": "",
+      "deferReason": "The current v3 static-image workout engine has no verified pose-entry animation, child-motion safety, narration synchronization or motion-aware render QA. Test a separate engine revision first."
+    }
+  ],
+  "note": "Every APPLIED passage is included in actual Flow prompt or dedicated production runbook."
+}

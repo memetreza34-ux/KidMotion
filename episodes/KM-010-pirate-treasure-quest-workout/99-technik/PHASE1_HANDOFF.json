@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "phase": "PHASE1",
+  "status": "PLANNED_PENDING_NPM_QA",
+  "episodeFolder": "KM-010-pirate-treasure-quest-workout",
+  "format": "workout",
+  "gitRepository": "memetreza34-ux/KidMotion",
+  "branch": "main",
+  "links": {
+    "googleFlowPrompt": "https://github.com/memetreza34-ux/KidMotion/blob/main/episodes/KM-010-pirate-treasure-quest-workout/00-bildprompts/google-flow-prompt.txt",
+    "voiceOverScript": "https://github.com/memetreza34-ux/KidMotion/blob/main/episodes/KM-010-pirate-treasure-quest-workout/01-voice-script/voice-script.txt",
+    "openGoogleFlow": "https://flow.google.com/"
+  },
+  "chatReplyMarkdown": "## Phase 1 – KM-010 Pirate Treasure Quest\n\n[Google-Flow-Prompts öffnen](https://github.com/memetreza34-ux/KidMotion/blob/main/episodes/KM-010-pirate-treasure-quest-workout/00-bildprompts/google-flow-prompt.txt)\n\n[Voice-over-Skript öffnen](https://github.com/memetreza34-ux/KidMotion/blob/main/episodes/KM-010-pirate-treasure-quest-workout/01-voice-script/voice-script.txt)\n\nAlle Cover- und Szenenprompts sowie der komplette englische Sprechertext sind auf GitHub. Die formale npm-QA muss noch in einer Node-Umgebung laufen.\n",
+  "important": "Text and files are committed. No real images and no formal Node npm QA success yet."
+}

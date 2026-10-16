@@ -1,0 +1,484 @@
+PLAYVILO GOOGLE FLOW MASTER — KM-010 — KM-010-pirate-treasure-quest-workout
+
+Creative direction: human boy in a warm grounded pirate-themed community playground; no real water or scary pirate props. Show 12 safe stationary exercises with map clues, diverse compositions and expressions. Scene 01 is thumbnail ONLY, never a video opening.
+
+PHASE 2: Create three actual cover PNGs, inspect them, then STOP for the user's explicit cover choice 1/2/3. Command: npm run kidmotion:select-cover -- --episode=KM-010-pirate-treasure-quest-workout --candidate=<1|2|3>. Cover remains separate and outside the video; scene 02 is a small HELLO greeting.
+For scenes 02-28 use selected Szene 01.png ONLY for identity. Before each 5-scene batch run npm run flow:batch -- --episode=KM-010-pirate-treasure-quest-workout. After EACH actual Flow download save and rename immediately via npm run flow:save -- --episode=KM-010-pirate-treasure-quest-workout --scene=<N> --source=<real-file.png>. Then run npm run flow:verify -- --episode=KM-010-pirate-treasure-quest-workout. If a scene is missing retry only its original prompt; never overwrite existing scenes. After three technical failures STOP.
+Run npm run phase2:finalize -- --episode=KM-010-pirate-treasure-quest-workout at end. If PHASE2_MISSING_SCENES.json lists missing PNGs, repair only missing originals and rerun audit until 28/28 authentic files. Read 99-technik/PHASE2_FLOW_RUNBOOK.md.
+
+COVER CANDIDATE 01 — Cover-Kandidat-01.png
+FINAL GOOGLE FLOW PROMPT:
+COVER_ID: 01 | OUTPUT_FILE: Cover-Kandidat-01.png | ID is file metadata ONLY.
+CLICK IDEA: A fun treasure-map playground freeze workout for kids.
+SHOT / COMPOSITION: wide low full-body boy on right, clear title left.
+CHARACTER: One original fictional fully clothed stylized 3D HUMAN boy athlete, natural human face/hands, coral shirt, teal shorts, trainers; one hand pointing toward the first compass.
+WORLD: sunny nautical playground park with toy wooden ship and palms with painted rubber ground and real greenery.
+PLAY DETAIL / STORY BEAT: hand-painted compass path winds toward a little treasure chest so the hunt is immediately understood.
+WARMTH / MOOD: Excited curious smile in warm natural sunlight and friendly expressive eyes.
+TEXT: Exact bold "TREASURE ISLAND QUEST" / "12 FUN FREEZE MOVES"; readable at phone size.
+LIGHT / MATERIALS: Warm daylight, matte rubber, colored wood, soft plants.
+NEGATIVE / STABILITY: No robot, fox or animal characters, weapons, scary CGI or wrong letters.
+QUALITY CHECK: Full-body fictional human, grounded treasure detail, attractive legible cover.
+OUTPUT: 16:9 landscape, Cover-Kandidat-01.png
+
+COVER CANDIDATE 02 — Cover-Kandidat-02.png
+FINAL GOOGLE FLOW PROMPT:
+COVER_ID: 02 | OUTPUT_FILE: Cover-Kandidat-02.png | ID is file metadata ONLY.
+CLICK IDEA: A fun treasure-map playground freeze workout for kids.
+SHOT / COMPOSITION: three-quarter full-body boy left, clear title upper right.
+CHARACTER: One original fictional fully clothed stylized 3D HUMAN boy athlete, natural human face/hands, coral shirt, teal shorts, trainers; hands at waist and feet comfortably flat.
+WORLD: child-size palm garden park with safe teal activity floor with painted rubber ground and real greenery.
+PLAY DETAIL / STORY BEAT: three painted footprint markers lead to a red X beside a flag so the hunt is immediately understood.
+WARMTH / MOOD: Friendly confident grin in rich sunny garden light and friendly expressive eyes.
+TEXT: Exact bold "TREASURE ISLAND QUEST" / "12 FUN FREEZE MOVES"; readable at phone size.
+LIGHT / MATERIALS: Warm daylight, matte rubber, colored wood, soft plants.
+NEGATIVE / STABILITY: No robot, fox or animal characters, weapons, scary CGI or wrong letters.
+QUALITY CHECK: Full-body fictional human, grounded treasure detail, attractive legible cover.
+OUTPUT: 16:9 landscape, Cover-Kandidat-02.png
+
+COVER CANDIDATE 03 — Cover-Kandidat-03.png
+FINAL GOOGLE FLOW PROMPT:
+COVER_ID: 03 | OUTPUT_FILE: Cover-Kandidat-03.png | ID is file metadata ONLY.
+CLICK IDEA: A fun treasure-map playground freeze workout for kids.
+SHOT / COMPOSITION: slightly elevated full-body boy right, open title space left.
+CHARACTER: One original fictional fully clothed stylized 3D HUMAN boy athlete, natural human face/hands, coral shirt, teal shorts, trainers; one open arm inviting children to join.
+WORLD: sunny treasure-fort playground court with wooden garden gate with painted rubber ground and real greenery.
+PLAY DETAIL / STORY BEAT: painted dotted map arrows lead toward a gold finish flag so the hunt is immediately understood.
+WARMTH / MOOD: Playful welcoming smile under clear bright sky and friendly expressive eyes.
+TEXT: Exact bold "TREASURE ISLAND QUEST" / "12 FUN FREEZE MOVES"; readable at phone size.
+LIGHT / MATERIALS: Warm daylight, matte rubber, colored wood, soft plants.
+NEGATIVE / STABILITY: No robot, fox or animal characters, weapons, scary CGI or wrong letters.
+QUALITY CHECK: Full-body fictional human, grounded treasure detail, attractive legible cover.
+OUTPUT: 16:9 landscape, Cover-Kandidat-03.png
+
+SZENE 02 — Szene 02.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 02 | OUTPUT_FILE: Szene 02.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Greet the child naturally inside the mission.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: eye-level full-body boy right, open greeting space left.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; relaxed one-hand wave, both feet flat.
+WORLD / ENVIRONMENT: sunny pirate-themed playground park with wooden toy boat; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: painted dotted treasure path begins beside his shoes.
+WARMTH / MOOD: Welcoming warm smile with playful excited eyes in warm daylight.
+TEXT / UI: only small friendly "HELLO!" by the boy, no huge headline
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 02.png
+
+SZENE 03 — Szene 03.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 03 | OUTPUT_FILE: Szene 03.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show enough space for safe movement.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: calm full-body left, readable text area right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; flat shoes apart, open relaxed hands.
+WORLD / ENVIRONMENT: sunny park safety court with short benches and nonslip floor; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: chalk circle marks a clear safe arm-span around his shoes.
+WARMTH / MOOD: Gentle reassuring smile and relaxed eyes in warm daylight.
+TEXT / UI: "SAFETY FIRST" / "Make room." / "Stop if it hurts."
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 03.png
+
+SZENE 04 — Szene 04.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 04 | OUTPUT_FILE: Szene 04.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Point to the first treasure map station.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: eye-level full-body three-quarter shot with map path.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet-flat ready stance, hands at sides.
+WORLD / ENVIRONMENT: bright community playground park path near wooden ship; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: two painted blue arrows lead toward compass floor marker.
+WARMTH / MOOD: Eager cheerful grin before the first movement in warm daylight.
+TEXT / UI: "LET'S GO!" / "FOLLOW THE MAP!"
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 04.png
+
+SZENE 05 — Szene 05.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 05 | OUTPUT_FILE: Szene 05.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy COMPASS REACH posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: low front full-body shot with reaching hand clear.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; flat feet, right arm up diagonally, left arm relaxed.
+WORLD / ENVIRONMENT: sunny pirate-themed playground park entrance with rubber floor and ship prop; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: hand-painted gold compass arrow points ahead from his shoes.
+WARMTH / MOOD: Eager confident smile at the first treasure clue in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "COMPASS REACH" on dark semi-transparent navy rounded rectangle; top-right "Point one arm high and stand tall." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 05.png
+
+SZENE 06 — Szene 06.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 06 | OUTPUT_FILE: Szene 06.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview SAIL WINGS without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: eye-level full-body left, small NEXT plaque right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: safe wooden toy-ship playground deck with matte blue rubber court; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted gold arrow points toward the next SAIL WINGS station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: SAIL WINGS".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 06.png
+
+SZENE 07 — Szene 07.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 07 | OUTPUT_FILE: Szene 07.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy SAIL WINGS posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: wide frontal full-body shot, complete arm span.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet planted, arms stretched gently sideways, shoulders relaxed.
+WORLD / ENVIRONMENT: safe wooden toy-ship playground deck with matte blue rubber court; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: two painted blue sail triangles align with extended fingertips.
+WARMTH / MOOD: Joyful welcoming grin with shoulders relaxed in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "SAIL WINGS" on dark semi-transparent navy rounded rectangle; top-right "Stretch both arms wide like sails." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 07.png
+
+SZENE 08 — Szene 08.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 08 | OUTPUT_FILE: Szene 08.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview CAPTAIN SQUAT without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: high three-quarter full-body, compact right plaque.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: sunny park activity court beside a child-height wooden wheel; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted chalk footprint pair points toward the next CAPTAIN SQUAT station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: CAPTAIN SQUAT".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 08.png
+
+SZENE 09 — Szene 09.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 09 | OUTPUT_FILE: Szene 09.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy CAPTAIN SQUAT posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: front-left three-quarter body frame with knees visible.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; shallow squat, feet flat, chest upright, arms ahead.
+WORLD / ENVIRONMENT: sunny park activity court beside a child-height wooden wheel; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: three gold painted anchor dots mark the stable feet.
+WARMTH / MOOD: Focused friendly smile as he steadies the ship in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "CAPTAIN SQUAT" on dark semi-transparent navy rounded rectangle; top-right "Bend your knees a little and hold." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 09.png
+
+SZENE 10 — Szene 10.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 10 | OUTPUT_FILE: Szene 10.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview MAP SIDE STRETCH without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: side-front full-body with NEXT plaque right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: leafy playground palm garden near painted treasure map wall; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted blue compass marker points toward the next MAP SIDE STRETCH station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: MAP SIDE STRETCH".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 10.png
+
+SZENE 11 — Szene 11.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 11 | OUTPUT_FILE: Szene 11.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy MAP SIDE STRETCH posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: wide side-front full-body shot with headroom.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet flat, lean slightly right, left arm overhead, no twist.
+WORLD / ENVIRONMENT: leafy playground palm garden near painted treasure map wall; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: chalk dotted trail curves beside his stretching arm.
+WARMTH / MOOD: Curious playful grin while following the map line in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "MAP SIDE STRETCH" on dark semi-transparent navy rounded rectangle; top-right "Lean a little and reach over." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 11.png
+
+SZENE 12 — Szene 12.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 12 | OUTPUT_FILE: Szene 12.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview ISLAND STEP without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: wide full-body left, clean right text.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: sunny park playground island path edged by low ferns; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted red trail flag points toward the next ISLAND STEP station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: ISLAND STEP".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 12.png
+
+SZENE 13 — Szene 13.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 13 | OUTPUT_FILE: Szene 13.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy ISLAND STEP posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: low diagonal full-body angle separating both shoes.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; left foot a short step forward, both heels down, tall back.
+WORLD / ENVIRONMENT: sunny park playground island path edged by low ferns; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: two large painted footprints lead to a yellow flag.
+WARMTH / MOOD: Brave confident smile as he finds the next trail in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "ISLAND STEP" on dark semi-transparent navy rounded rectangle; top-right "Step one foot forward and freeze." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 13.png
+
+SZENE 14 — Szene 14.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 14 | OUTPUT_FILE: Szene 14.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview PALM BALANCE without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: eye-level full-body left, small NEXT plaque right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: shaded palm garden park balance mat beside low bench; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted gold arrow points toward the next PALM BALANCE station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: PALM BALANCE".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 14.png
+
+SZENE 15 — Szene 15.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 15 | OUTPUT_FILE: Szene 15.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy PALM BALANCE posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: eye-level three-quarter full-body showing the lifted toe.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; left foot planted, right toe slightly raised, arms out; toe-down option.
+WORLD / ENVIRONMENT: shaded palm garden park balance mat beside low bench; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: green painted leaf circle highlights the grounded foot.
+WARMTH / MOOD: Concentrated warm smile during the tiny balance in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "PALM BALANCE" on dark semi-transparent navy rounded rectangle; top-right "Lift one foot just a little." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 15.png
+
+SZENE 16 — Szene 16.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 16 | OUTPUT_FILE: Szene 16.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview ANCHOR PUSH without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: high three-quarter full-body, compact right plaque.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: pirate ship playground court next to short wooden railing; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted chalk footprint pair points toward the next ANCHOR PUSH station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: ANCHOR PUSH".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 16.png
+
+SZENE 17 — Szene 17.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 17 | OUTPUT_FILE: Szene 17.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy ANCHOR PUSH posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: right three-quarter full-body shot, open hands separate.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; upright feet-flat stance, two palms forward at chest level.
+WORLD / ENVIRONMENT: pirate ship playground court next to short wooden railing; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: bright gold chalk anchor under the outstretched palms.
+WARMTH / MOOD: Playful determined grin while stopping an imaginary ship in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "ANCHOR PUSH" on dark semi-transparent navy rounded rectangle; top-right "Push your palms forward and hold." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 17.png
+
+SZENE 18 — Szene 18.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 18 | OUTPUT_FILE: Szene 18.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview SPYGLASS TURN without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: side-front full-body with NEXT plaque right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: sunny park lookout garden with colorful flags and shrubs; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted blue compass marker points toward the next SPYGLASS TURN station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: SPYGLASS TURN".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 18.png
+
+SZENE 19 — Szene 19.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 19 | OUTPUT_FILE: Szene 19.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy SPYGLASS TURN posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: rear-left full-body frame showing mild shoulder rotation.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet pointing forward, hips still, slight shoulder turn left.
+WORLD / ENVIRONMENT: sunny park lookout garden with colorful flags and shrubs; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: curved yellow painted arrow points toward a map target.
+WARMTH / MOOD: Curious focused smile after spotting a new marker in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "SPYGLASS TURN" on dark semi-transparent navy rounded rectangle; top-right "Turn your shoulders and look sideways." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 19.png
+
+SZENE 20 — Szene 20.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 20 | OUTPUT_FILE: Szene 20.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview TREASURE STAR without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: wide full-body left, clean right text.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: safe playground treasure fort court near mural treasure boxes; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted red trail flag points toward the next TREASURE STAR station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: TREASURE STAR".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 20.png
+
+SZENE 21 — Szene 21.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 21 | OUTPUT_FILE: Szene 21.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy TREASURE STAR posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: symmetric frontal full-body view with entire X shape.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet wide but comfortable, knees soft, arms diagonal into X.
+WORLD / ENVIRONMENT: safe playground treasure fort court near mural treasure boxes; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: large five-point chalk gold star touches both shoes.
+WARMTH / MOOD: Proud delighted grin completing the big star in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "TREASURE STAR" on dark semi-transparent navy rounded rectangle; top-right "Open arms and legs like a star." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 21.png
+
+SZENE 22 — Szene 22.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 22 | OUTPUT_FILE: Szene 22.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview LOOKOUT TIPTOES without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: eye-level full-body left, small NEXT plaque right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: bright palm-tree park lookout with nonslip activity mat; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted gold arrow points toward the next LOOKOUT TIPTOES station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: LOOKOUT TIPTOES".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 22.png
+
+SZENE 23 — Szene 23.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 23 | OUTPUT_FILE: Szene 23.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy LOOKOUT TIPTOES posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: low front full-body camera showing slight heel lift.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; heels barely raised, arms wide; heels-down option.
+WORLD / ENVIRONMENT: bright palm-tree park lookout with nonslip activity mat; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: three gold stepping circles sit beneath the toes.
+WARMTH / MOOD: Careful cheerful smile during a gentle toe balance in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "LOOKOUT TIPTOES" on dark semi-transparent navy rounded rectangle; top-right "Raise your heels slightly and hold." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 23.png
+
+SZENE 24 — Szene 24.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 24 | OUTPUT_FILE: Szene 24.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview CRAB SIDE STEP without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: high three-quarter full-body, compact right plaque.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: open pirate-playground garden court with flower planters; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted chalk footprint pair points toward the next CRAB SIDE STEP station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: CRAB SIDE STEP".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 24.png
+
+SZENE 25 — Szene 25.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 25 | OUTPUT_FILE: Szene 25.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy CRAB SIDE STEP posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: high angled full-body view showing both shoes.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; one small step right, knees soft, arms open for balance.
+WORLD / ENVIRONMENT: open pirate-playground garden court with flower planters; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: white sideways painted footprints lead to a red X.
+WARMTH / MOOD: Encouraging excited grin as the treasure mark appears in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "CRAB SIDE STEP" on dark semi-transparent navy rounded rectangle; top-right "Step sideways and stay steady." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 25.png
+
+SZENE 26 — Szene 26.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 26 | OUTPUT_FILE: Szene 26.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Preview VICTORY FLAG without doing the pose.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: side-front full-body with NEXT plaque right.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; neutral flat-footed stance, relaxed arms, no next pose.
+WORLD / ENVIRONMENT: sunny park treasure-finish lawn beside painted wood chest; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: a painted blue compass marker points toward the next VICTORY FLAG station.
+WARMTH / MOOD: Friendly encouraging smile and curious attentive eyes in warm daylight.
+TEXT / UI: compact right-half dark semi-transparent navy rounded rectangle, under one-third width; WHITE "GET READY" and bright-cyan "NEXT: VICTORY FLAG".
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 26.png
+
+SZENE 27 — Szene 27.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 27 | OUTPUT_FILE: Szene 27.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Show safe easy-to-copy VICTORY FLAG posture.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: low frontal wide full-body frame with raised V.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; feet planted, upright body, arms high in wide V, no jump.
+WORLD / ENVIRONMENT: sunny park treasure-finish lawn beside painted wood chest; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: final painted yellow stripe meets a small finish flag.
+WARMTH / MOOD: Proud joyful victory smile beside the found treasure in warm daylight.
+TEXT / UI: bottom-left WHITE uppercase "VICTORY FLAG" on dark semi-transparent navy rounded rectangle; top-right "Make a big V with your arms." in dark navy on light cream rounded rectangle.
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer. Top-left 230x230 timer safe zone clear.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 27.png
+
+SZENE 28 — Szene 28.png
+FINAL GOOGLE FLOW PROMPT:
+SCENE_ID: 28 | OUTPUT_FILE: Szene 28.png | ID is file metadata ONLY; do not draw scene numbers.
+VIEWER TAKEAWAY: Celebrate treasure hunt complete.
+REFERENCE USE: Selected Szene 01.png is the ONLY image reference for HUMAN boy identity and outfit; do not copy the cover pose, camera or composition.
+SHOT / COMPOSITION: wide front full-body shot, boy right, short text left.
+CHARACTER / POSE: One fully clothed stylized 3D HUMAN boy athlete; friendly shoulder-height wave, feet flat.
+WORLD / ENVIRONMENT: sunny playground park finish garden with low green bushes; level nonslip play surface.
+PLAY DETAIL / STORY BEAT: closed painted treasure chest and last yellow trail flag.
+WARMTH / MOOD: Proud delighted smile after all twelve easy moves in warm daylight.
+TEXT / UI: "GREAT JOB!" / "TREASURE FOUND!"
+LIGHT / MATERIALS: Natural sun, tactile wood, soft plants, matte rubber.
+NEGATIVE / STABILITY: No robot, fox or animal character, extra people, sterile or cold CGI, strange towers, water hazards, weapons, bad limbs, fake lettering or timer.
+QUALITY CHECK: Full safe silhouette, readable exact text, purposeful clue, 16:9.
+OUTPUT: 16:9 landscape, Szene 28.png

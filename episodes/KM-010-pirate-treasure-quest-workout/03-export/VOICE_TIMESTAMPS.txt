@@ -1,0 +1,5 @@
+PLANNED VOICE WINDOWS, verify actual TTS file
+00:00 - 00:08 | Hello! Welcome to Treasure Island. Follow the map and try twelve fun freeze moves!
+00:08 - 00:12 | Make space, move gently, and stop if it hurts.
+00:12 - 00:14 | Ready? Let's go!
+00:14 - 05:13 | no spoken voice, only music and poses
