@@ -9,3 +9,7 @@ The new-episode generator writes `99-technik/IMPROVEMENT_BRIEF.md` with all curr
 Keep experimental proposals distinct from shipped engine improvements: never change workout runtime, child-safe movement, scene count, Flow image restrictions or voice/audio timing without coordinated tests and explicit approved revision. Documentation alone does not constitute proof that the next MP4 improved.
 
 External source: [YouTube key moments for audience retention](https://support.google.com/youtube/answer/9314415) — use intro retention, flat/dip/spike segments when available; [YouTube video analytics](https://support.google.com/youtube/answer/12942217); [Made for Kids](https://support.google.com/youtube/answer/9632097).
+
+## Feedback fließt automatisch in die nächste Episode
+
+Die neueste echte abgeschlossene Review **desselben Formats** liefert ihre `nextActions` automatisch in den nächsten `IMPROVEMENT_BRIEF.md` und als `reviewFollowups` in der Nachweistabelle. Eine Korrektur muss durch ein reales Passage-Zitat aus Script/Prompt/Plan und eine konkrete Erklärung belegt werden. Ein Experiment darf ausdrücklich mit mindestens 45 Zeichen Begründung verschoben werden (z. B. wenn die Standbild-Engine noch keine sicheren Bewegungsklipps unterstützt). Eine verpflichtende Korrektur darf nicht einfach als erledigt oder vertagt markiert werden. Die alten generellen Regeln werden zusätzlich geprüft. Die nächste fertige MP4 muss anschließend zeigen, ob die Korrektur tatsächlich funktioniert hat.

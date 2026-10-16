@@ -42,3 +42,22 @@ test('a real rendered video creates a pending human review that blocks the next 
  assert.throws(()=>requireReviewsBeforeNewEpisode(x.root),/POST-VIDEO LEARNING BLOCKED/);
  assert.ok(pendingReviewErrors(x.root).length>0);
 });
+
+
+test('review lessons are automatically carried into the next matching format and cannot be ignored',t=>{
+ const x=fixture(t);
+ const prev='KM-998-previous-test';
+ fs.mkdirSync(path.join(x.root,'episodes',prev,'99-technik'),{recursive:true});
+ fs.writeFileSync(path.join(x.root,'episodes',prev,'99-technik','episode.json'),JSON.stringify({contentFormat:'workout'}));
+ fs.mkdirSync(path.join(x.root,'quality','reviews'),{recursive:true});
+ fs.writeFileSync(path.join(x.root,'quality','reviews',prev+'.json'),JSON.stringify({
+  schemaVersion:1,episodeFolder:prev,status:'REVIEWED',nextActions:[
+   {kind:'required',formats:['workout'],action:'Make the scene-specific visual learning cue clearly related to the exercise.'}
+  ]
+ }));
+ const manifest=createImprovementBrief({...x,format:'workout'});
+ assert.equal(manifest.reviewFollowups.length,1);
+ assert.equal(manifest.reviewFollowups[0].status,'PENDING');
+ const errors=validateImprovementApplication({...x,format:'workout',episode:{qualityLearningPolicy:policyKey}});
+ assert.ok(errors.some(e=>e.includes('KM-998-previous-test/ACTION')));
+});

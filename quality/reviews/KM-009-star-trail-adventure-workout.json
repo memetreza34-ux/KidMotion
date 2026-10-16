@@ -28,9 +28,30 @@
     }
   ],
   "nextActions": [
-    "Keep unique readable child-scale storyworld scenery and action-specific poses in next prompts.",
-    "Validate actual Flow PNG output after each scene and retry only missing scene files.",
-    "Test animation of entry into poses only after the motion engine and safety gates are revised."
+    {
+      "kind": "required",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "action": "Keep unique readable child-scale storyworld scenery and action-specific poses in every image prompt."
+    },
+    {
+      "kind": "required",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "action": "Validate actual Flow PNG output after each scene and retry only missing scene files."
+    },
+    {
+      "kind": "experiment",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "action": "Test animation of entry into poses only after the motion engine and safety gates are revised."
+    }
   ],
   "analytics": {
     "status": "UNAVAILABLE",

@@ -28,6 +28,7 @@ export function validateOneReview(review,{root,episodeFolder}){
   if(!Number.isFinite(o.atSeconds)||o.atSeconds<0||String(o.finding||'').trim().length<25||String(o.change||'').trim().length<25)errors.push('each observation requires real timestamp, finding and concrete improvement');
  }
  if(!Array.isArray(review.nextActions)||review.nextActions.length===0)errors.push('at least one measurable improvement or experiment required');
+ for(const x of review.nextActions||[])if(!x||typeof x!=='object'||!['required','experiment'].includes(x.kind)||!Array.isArray(x.formats)||!x.formats.length||String(x.action||'').trim().length<30)errors.push('Each next action needs kind, affected formats and specific text');
  if(review.reviewMethod==='historic-video-analysis'){
   const expected='episodes/KM-009-star-trail-adventure-workout/99-technik/VIDEO_REVIEW_2026-10-10.md';
   if(episodeFolder!=='KM-009-star-trail-adventure-workout'||review.evidenceFile!==expected||!fs.existsSync(path.join(root,expected)))errors.push('historic exemption only for documented KM-009 video');
@@ -61,9 +62,34 @@ export function requireReviewsBeforeNewEpisode(root){
  const failures=pendingReviewErrors(root);
  if(failures.length)throw Error('POST-VIDEO LEARNING BLOCKED. Finish these genuine reviews BEFORE planning another episode:\n'+failures.join('\n'));
 }
+
+function latestReviewedActions(root,format,episodeFolder){
+ const dir=path.join(root,'quality','reviews');
+ if(!fs.existsSync(dir))return [];
+ const reviews=fs.readdirSync(dir).filter(x=>/^KM-\d{3}-[a-z0-9-]+\.json$/.test(x)).sort((a,b)=>{
+  const numeric=s=>Number(s.slice(3,6));
+  return numeric(b)-numeric(a)||b.localeCompare(a);
+ });
+ const ownNumber=Number(episodeFolder.slice(3,6));
+ for(const name of reviews){
+  const prior=name.slice(0,-5);
+  if(Number(prior.slice(3,6))>=ownNumber)continue; // no future-episode feedback in older draft
+  const previousEpisodeFile=path.join(root,'episodes',prior,'99-technik','episode.json');
+  if(!fs.existsSync(previousEpisodeFile))continue;
+  const previousEpisode=readJson(previousEpisodeFile);
+  if(previousEpisode.contentFormat!==format)continue; // do not turn a learning lesson into a workout by mistake
+  const review=readJson(path.join(dir,name));
+  if(review.status!=='REVIEWED')continue;
+  return (review.nextActions||[]).filter(x=>x&&typeof x==='object'&&x.formats?.includes(format)).map((x,i)=>({
+   id:prior+'/ACTION-'+String(i+1).padStart(2,'0'),action:x.action,kind:x.kind,fromEpisode:prior
+  }));
+ }
+ return [];
+}
+
 export function createImprovementBrief({root,episodeFolder,format}){
  if(!validFolder(episodeFolder))throw Error('Invalid episode folder');
- const policy=loadImprovementPolicy(root),rules=active(policy,format);
+ const policy=loadImprovementPolicy(root),rules=active(policy,format),followups=latestReviewedActions(root,format,episodeFolder);
  if(!rules.length)throw Error('Improvement policy has no active rules for '+format);
  const dir=path.join(root,'episodes',episodeFolder,'99-technik');
  fs.mkdirSync(dir,{recursive:true});
@@ -76,6 +102,9 @@ export function createImprovementBrief({root,episodeFolder,format}){
   'Evidence must be grounded in source files, not generic promises. Actual visual results are verified AFTER Google Flow generation, not from prompt wording.',
   '',
   ...rules.flatMap(r=>['## '+r.id+' — '+r.title,'Priority '+r.priority+' | evidence file: '+r.evidenceFile,r.requirement,'']),
+  '## Actual next-episode actions from the latest reviewed video',
+  ...(followups.length?followups.map(x=>'- '+x.id+' ('+x.kind+'): '+x.action):['No prior reviewed video of this format yet.']),
+  'For every action, provide real source evidence or, ONLY for explicitly labeled experiments, a precise documented reason for deferral.',
   '## Experiments — do not secretly change engine',
   ...(policy.candidateExperiments||[]).map(x=>'- '+x.id+': '+x.title+' — '+x.note),
   '',
@@ -87,8 +116,10 @@ export function createImprovementBrief({root,episodeFolder,format}){
  const target=path.join(dir,'IMPROVEMENT_APPLICATION.json');
  const previous=fs.existsSync(target)?readJson(target):null;
  const previousItems=new Map((previous?.items||[]).map(x=>[x.id,x]));
+ const previousFollowups=new Map((previous?.reviewFollowups||[]).map(x=>[x.id,x]));
  const application={schemaVersion:1,policyId:policy.policyId,ruleFingerprint:fingerprint(policy,format),episodeFolder,format,
   items:rules.map(r=>previousItems.get(r.id)||{id:r.id,status:'PENDING',sourceFile:r.evidenceFile,evidence:'',whyItWorks:''}),
+  reviewFollowups:followups.map(x=>previousFollowups.get(x.id)||{...x,status:'PENDING',sourceFile:'',evidence:'',whyItWorks:'',deferReason:''}),
   note:'Never set APPLIED without actually checking the complete script and full Flow scene plan.'
  };
  fs.writeFileSync(target,JSON.stringify(application,null,2)+'\n');
@@ -115,6 +146,21 @@ export function validateImprovementApplication({root,episodeFolder,format,episod
   if(!content.includes(r.requiredPhrase))failures.push(r.id+' required scene/production pattern absent');
   if(String(item.evidence||'').trim().length<25||!content.includes(String(item.evidence||'').trim()))failures.push(r.id+' quote exact meaningful source passage (25+ chars)');
   if(String(item.whyItWorks||'').trim().length<30)failures.push(r.id+' explain specifically how the previous failure is avoided');
+ }
+ const expectedFollowups=latestReviewedActions(root,format,episodeFolder);
+ const followupRows=Array.isArray(application.reviewFollowups)?application.reviewFollowups:[];
+ if(followupRows.length!==expectedFollowups.length||new Set(followupRows.map(x=>x.id)).size!==expectedFollowups.length)failures.push('Missing updated follow-ups from the latest real reviewed video; run quality:brief');
+ for(const wanted of expectedFollowups){
+   const item=followupRows.find(x=>x.id===wanted.id);
+   if(!item){failures.push('Missing follow-up '+wanted.id);continue;}
+   if(item.status==='DEFERRED_WITH_REASON'&&wanted.kind==='experiment'&&String(item.deferReason||'').trim().length>=45)continue;
+   if(item.status!=='APPLIED'){failures.push(wanted.id+' must be applied or the experiment explicitly deferred with detailed reason');continue;}
+   if(!validSource(item.sourceFile)){failures.push(wanted.id+' needs a real supported source file');continue;}
+   const pathToSource=path.join(root,'episodes',episodeFolder,item.sourceFile);
+   if(!fs.existsSync(pathToSource)){failures.push(wanted.id+' evidence source missing');continue;}
+   const sourceText=fs.readFileSync(pathToSource,'utf8');
+   if(String(item.evidence||'').trim().length<25||!sourceText.includes(String(item.evidence||'').trim()))failures.push(wanted.id+' must quote an exact meaningful passage in the real source');
+   if(String(item.whyItWorks||'').trim().length<30)failures.push(wanted.id+' needs concrete explanation of correction');
  }
  return failures;
 }
