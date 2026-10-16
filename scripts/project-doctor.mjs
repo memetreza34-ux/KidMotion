@@ -18,7 +18,7 @@ for(const format of ['workout','learning','learn-and-move']) if(channel.formats?
 const learningContract=JSON.parse(read('config/formats/learning.json')||'{}');
 if(learningContract.format!=='learning') fail('Missing pure learning format contract.');
 if(learningContract.characterPolicy?.visibleChildRequired!==false || learningContract.structure?.timerRequired!==false || learningContract.structure?.getReadyRequired!==false) fail('Learning format must not inherit workout/child/timer requirements.');
-if(!read('FORMAT_ROUTER.md').includes('LEARNING')) fail('FORMAT_ROUTER.md missing LEARNING route.');
+if(!read('docs/FORMAT_ROUTER.md').includes('LEARNING')) fail('FORMAT_ROUTER.md missing LEARNING route.');
 
 const pkg=JSON.parse(read('package.json')||'{}');
 const expectedScripts={
@@ -78,7 +78,7 @@ if(Number(promptQuality.version)!==Number(contract.promptContract?.currentPrompt
 for(const label of ['VIEWER TAKEAWAY:','SHOT / COMPOSITION:','NEGATIVE / STABILITY:','QUALITY CHECK:']) {
   if(!(promptQuality.sceneRequiredSections||[]).includes(label)) fail('Prompt Quality v2 missing required scene section '+label);
 }
-const flowAgent=read('PHASE2_FLOW_AGENT.md');
+const flowAgent=read('docs/PHASE2_FLOW_AGENT.md');
 for(const token of ['flow:batch','5er-Schritte','VIEWER TAKEAWAY:','SHOT / COMPOSITION:','2-Sekunden-Test']) {
   if(!flowAgent.includes(token)) fail('PHASE2_FLOW_AGENT.md missing '+token);
 }
@@ -104,7 +104,7 @@ if(pipeline.phaseWorkflow?.phase3AgentHandlesTechnicalNormalization!==true) fail
 if(pipeline.phaseWorkflow?.phase3ImagePixelModificationForbidden!==true) fail('Pipeline must forbid image pixel modification.');
 if(pipeline.batchGenerationPolicy?.hardBatchBoundaries!==true || pipeline.batchGenerationPolicy?.batchMustBeCompleteBeforeNext!==true) fail('Pipeline must enforce hard 5-scene batch boundaries.');
 
-const anti=read('ANTIGRAVITY.md');
+const anti=read('docs/ANTIGRAVITY.md');
 for(const token of ['ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN_BY_DEFAULT=true','ANTIGRAVITY_PHASE3_IMAGE_GENERATION_FORBIDDEN=true','images:permission','phase3:prepare','assets:approve','phase3:gate','render:safe']){
   if(!anti.includes(token)) fail('ANTIGRAVITY.md missing: '+token);
 }

@@ -6,14 +6,14 @@
   "language": "en",
   "status": "ACTIVE",
   "requiredRootFiles": [
-    "GEHIRN.md",
+    "docs/GEHIRN.md",
     "config/pipeline.json",
     "config/visual-policy.json",
     "config/v3-contract.json",
     "config/prompt-quality.json",
-    "PHASE2_FLOW_AGENT.md",
+    "docs/PHASE2_FLOW_AGENT.md",
     "config/channel.json",
-    "FORMAT_ROUTER.md"
+    "docs/FORMAT_ROUTER.md"
   ],
   "requiredEpisodeFiles": [
     "00-bildprompts/google-flow-prompt.txt",

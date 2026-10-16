@@ -1,6 +1,6 @@
 # KidMotion
 
-**Neue kinderfreundliche Bildregie:** [ART_DIRECTION.md](ART_DIRECTION.md). Storyworld-v1 verlangt konkrete liebevoll gestaltete Spielwelten und echte SHA256-gebundene visuelle Freigabe aller neuen Workout-Bilder statt bloßer Prompt-Wörter wie „warm“.
+**Neue kinderfreundliche Bildregie:** [ART_DIRECTION.md](docs/ART_DIRECTION.md). Storyworld-v1 verlangt konkrete liebevoll gestaltete Spielwelten und echte SHA256-gebundene visuelle Freigabe aller neuen Workout-Bilder statt bloßer Prompt-Wörter wie „warm“.
 
 KidMotion ist ein **allgemeiner Kinderkanal**, kein reiner Sportkanal.
 
@@ -52,7 +52,7 @@ npm run kidmotion:new -- --format=learn-and-move --topic="..."
 
 Ohne `--format` wird abgebrochen. Dadurch wird ein Lernvideo nie versehentlich zum Workout.
 
-Siehe: `FORMAT_ROUTER.md`.
+Siehe: `docs/FORMAT_ROUTER.md`.
 
 ## Phase 1 fertig — Direktlinks fürs Tablet
 
@@ -93,7 +93,7 @@ Planning order:
 Core learning sequence:
 `HOOK → TEACH → EXAMPLE → PRACTICE → REVEAL → APPLY → RECAP`
 
-The exact sequence changes by learning mode. See `LEARNING_ENGINE.md`.
+The exact sequence changes by learning mode. See `docs/LEARNING_ENGINE.md`.
 
 ## Verbindliche Phase-2-Abgabe für Workout
 
@@ -114,3 +114,9 @@ Neue Workouts und Lernvideos erhalten automatisch `99-technik/IMPROVEMENT_BRIEF.
 ## Verpflichtende Tablet-Direktlinks nach jeder Phase 1
 
 Sobald die Phase-1-QA für Workout, Lernvideo oder Learn-and-Move **bestanden** ist und der Commit auf GitHub liegt, müssen in der **Chat-Antwort** immer zwei direkte GitHub-Links erscheinen: einer zum vollständigen `00-bildprompts/google-flow-prompt.txt` (alle Cover- und Szenenprompts) und einer zum kompletten `01-voice-script/voice-script.txt`. `99-technik/PHASE1_CHAT_ANTWORT.md` und `99-technik/PHASE1_HANDOFF.json.chatReplyMarkdown` stellen die exakt passenden zwei Links bereit, damit sie ohne Umwege aufs Tablet kommen. Erst nach bestandenem Test und GitHub-Push dürfen die Links als verfügbar bezeichnet werden. Nur Dateien/CLI-Ausgabe ohne die zwei Links in der **sichtbaren Chat-Antwort** erfüllen diese Regel nicht.
+
+## Aufgeräumte Projektstruktur
+
+Die Videoepisoden sind im Ordner [`episodes/`](episodes/) zu finden. Übergeordnete Anleitungen und historische Projektregeln befinden sich jetzt gesammelt in [`docs/`](docs/README.md) statt als zahlreiche `.md`-Dateien im Hauptverzeichnis. `scripts/`, `src/`, `config/`, `public/`, `characters/` und `quality/` sind funktionsnotwendige Projektordner und bleiben deshalb unangetastet.
+
+Die lokale Laufzeitdatei `episodes/ACTIVE_EPISODE.json` bleibt für alte und neue Skripte am erwarteten Ort. Auf einem Mac kannst du sie mit `npm run project:tidy` im Finder unsichtbar machen, damit unter `episodes/` nur die Episodenordner auffallen. Es werden dabei keine Episoden oder Projektdateien gelöscht.

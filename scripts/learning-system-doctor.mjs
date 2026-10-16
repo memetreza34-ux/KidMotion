@@ -49,11 +49,11 @@ for(const token of ['PRACTICE','REVEAL','transferApplication','sourceNote','char
   if(!qa.includes(token)) fail('Learning prompt QA missing '+token+'.');
 }
 
-const agent=read('PHASE2_LEARNING_AGENT.md');
+const agent=read('docs/PHASE2_LEARNING_AGENT.md');
 for(const token of ['Age-band behavior','PRACTICE','REVEAL','Character rule','TEACHING JOB']){
   if(!agent.includes(token)) fail('PHASE2_LEARNING_AGENT.md missing '+token+'.');
 }
-if(!read('LEARNING_ENGINE.md').includes('ONE PRIMARY LEARNING OBJECTIVE')) fail('LEARNING_ENGINE.md is incomplete.');
+if(!read('docs/LEARNING_ENGINE.md').includes('ONE PRIMARY LEARNING OBJECTIVE')) fail('LEARNING_ENGINE.md is incomplete.');
 
 const renderer=read('src/LearningVideo.tsx');
 if(renderer.includes('CircularTimer')) fail('Learning renderer must not use workout timer.');

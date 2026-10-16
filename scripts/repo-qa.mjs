@@ -55,7 +55,7 @@ if (pipeline.phaseWorkflow?.phase3RawHandoffEntryPoint !== 'npm run phase3:prepa
 if (pipeline.phaseWorkflow?.phase3AgentHandlesTechnicalNormalization !== true) fail('Pipeline must make the agent handle technical normalization.');
 if (pipeline.phaseWorkflow?.phase3UsesOnlyApprovedPhase2Images !== true) fail('Pipeline Phase 3 must use only approved Phase 2 images.');
 
-const rootDocs = ['README.md','START-HIER.md','PROJECT_BRAIN.md','ANTIGRAVITY.md','scripts.md'];
+const rootDocs = ['README.md','docs/START-HIER.md','docs/PROJECT_BRAIN.md','docs/ANTIGRAVITY.md','docs/scripts.md'];
 const forbiddenDocPatterns = [
   /Bild 00/i,
   /Bild 01.*Referenz/i,
@@ -65,7 +65,7 @@ const forbiddenDocPatterns = [
   /Rest verwendet das nächste Exercise-Bild/i,
   /Exercise UI Reference/i,
 ];
-const antiRoot = read(path.join(root,'ANTIGRAVITY.md'));
+const antiRoot = read(path.join(root,'docs','ANTIGRAVITY.md'));
 if (!antiRoot.includes('ANTIGRAVITY_IMAGE_GENERATION_FORBIDDEN=true')) fail('Root ANTIGRAVITY.md must declare the Phase 3 image-generation ban.');
 if (!antiRoot.includes('phase3:prepare')) fail('Root ANTIGRAVITY.md must require phase3:prepare for raw handoff.');
 if (!antiRoot.includes('phase3:gate')) fail('Root ANTIGRAVITY.md must require phase3:gate after approval.');
@@ -80,7 +80,7 @@ for (const doc of rootDocs) {
   }
 }
 
-const phase2FlowAgent=read(path.join(root,'PHASE2_FLOW_AGENT.md'));
+const phase2FlowAgent=read(path.join(root,'docs','PHASE2_FLOW_AGENT.md'));
 for(const token of ['flow:batch','5er-Schritte','VIEWER TAKEAWAY:','2-Sekunden-Test']) if(!phase2FlowAgent.includes(token)) fail(`PHASE2_FLOW_AGENT.md missing ${token}.`);
 
 const scriptsDir = path.join(root, 'scripts');
