@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {hideActivePointerOnMac} from './finder-layout-lib.mjs';
 import path from 'node:path';
 import {resolveEpisodePaths,readEpisodeData} from './episode-paths.mjs';
 
@@ -88,6 +89,9 @@ fs.writeFileSync(
   },null,2)+'\n',
   'utf8'
 );
+
+const finderCleanup=hideActivePointerOnMac(root);
+if(finderCleanup.status==='FAILED')console.warn('Finder cleanup warning: '+finderCleanup.error);
 
 console.log('Activated learning episode: '+episodeFolder);
 console.log('Video scenes: '+scenes.length);

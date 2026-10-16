@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {hideActivePointerOnMac} from './finder-layout-lib.mjs';
 import path from 'node:path';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, currentContractErrors} from './contract.mjs';
@@ -135,6 +136,9 @@ fs.writeFileSync(
   `${JSON.stringify({episodeFolder,structure:paths.structure,structureVersion,date:episodeDate,topic:data.topic || data.theme || '',publicAssetRoot:`public/episodes/${episodeDate}/${publicEpisodeFolder}`,dataPath:path.relative(root, paths.dataPath)}, null, 2)}\n`,
   'utf8',
 );
+
+const finderCleanup=hideActivePointerOnMac(root);
+if(finderCleanup.status==='FAILED')console.warn('Finder cleanup warning: '+finderCleanup.error);
 
 console.log(`Activated episode: ${episodeFolder} (${paths.structure}, v${structureVersion})`);
 console.log(`Date: ${episodeDate}`);
