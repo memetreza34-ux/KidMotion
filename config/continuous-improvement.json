@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "policyId": "playvilo-continuous-improvement-v1",
+  "priority": "HIGHEST",
+  "appliesTo": "all new video formats",
+  "evidencePolicy": "Never mark a review complete before personally inspecting the real rendered video. Scripts can detect technical faults, but cannot judge storytelling or visual quality alone.",
+  "reviewCategories": [
+    "script",
+    "visuals",
+    "prompt-to-scene-match",
+    "movement-or-learning",
+    "editing-pacing",
+    "voice-audio",
+    "text-captions",
+    "thumbnail-export",
+    "child-safety"
+  ],
+  "metricsPolicy": "Track YouTube Studio first-30s retention, per-video dips/spikes, average percentage viewed and click-through when available. Compare only similar formats and durations. Mark unavailable data as unavailable; never invent results.",
+  "ruleVersion": 1,
+  "activeRules": [
+    {
+      "id": "KID-001",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "priority": "P0",
+      "title": "Purposeful grounded visual world",
+      "requirement": "Every scene is a believable child-scale place, its visual elements illustrate that exact movement. Vary visual zone/pose/mood rather than repeating empty CGI courts.",
+      "evidenceFile": "00-bildprompts/google-flow-prompt.txt",
+      "requiredPhrase": "PLAY DETAIL / STORY BEAT:"
+    },
+    {
+      "id": "KID-002",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "priority": "P0",
+      "title": "Thumbnail never replaces the greeting",
+      "requirement": "The cover stays outside the MP4; scene 02 greets the viewer naturally with HELLO, then concise safety and start.",
+      "evidenceFile": "00-bildprompts/google-flow-prompt.txt",
+      "requiredPhrase": "HELLO"
+    },
+    {
+      "id": "KID-003",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "priority": "P0",
+      "title": "Real Flow output checked immediately",
+      "requirement": "For every requested image check actual PNG, save with exact number, verify missing scenes, retry ONLY missing real outputs and do not overwrite or relabel existing scenes.",
+      "evidenceFile": "99-technik/PHASE2_FLOW_RUNBOOK.md",
+      "requiredPhrase": "flow:verify"
+    },
+    {
+      "id": "KID-004",
+      "formats": [
+        "learning"
+      ],
+      "priority": "P0",
+      "title": "Each scene performs a teaching job",
+      "requirement": "Each image prompt must show how the child understands the learning point, with correct annotations or diagram when useful. Never add a mascot or decoration instead of explaining.",
+      "evidenceFile": "00-bildprompts/google-flow-prompt.txt",
+      "requiredPhrase": "TEACHING JOB:"
+    },
+    {
+      "id": "KID-005",
+      "formats": [
+        "learning"
+      ],
+      "priority": "P0",
+      "title": "Practice, reveal and scientific accuracy",
+      "requirement": "Verify learning facts and explanations, include an age-appropriate practice question and explanation of the answer.",
+      "evidenceFile": "99-technik/LEARNING_PLAN.json",
+      "requiredPhrase": "practiceMoments"
+    }
+  ],
+  "candidateExperiments": [
+    {
+      "id": "EXP-001",
+      "title": "Brief guided pose entry vs static 20-second holds",
+      "note": "Requires tested animation/audio/render contract; do not synthesize movement from a still or silently change production timing."
+    },
+    {
+      "id": "EXP-002",
+      "title": "Compact render-side GET READY overlays vs Flow typography",
+      "note": "Needs coordinated image, prompt, overlay and postrender checks; evaluate phone readability."
+    },
+    {
+      "id": "EXP-003",
+      "title": "Small age-safe instruction prompts throughout movement sections",
+      "note": "Requires recorded voice and verified audio-aligned captions; do not invent spoken lines in SRT."
+    }
+  ],
+  "sources": [
+    "https://support.google.com/youtube/answer/9314415",
+    "https://support.google.com/youtube/answer/12942217",
+    "https://support.google.com/youtube/answer/9632097"
+  ]
+}

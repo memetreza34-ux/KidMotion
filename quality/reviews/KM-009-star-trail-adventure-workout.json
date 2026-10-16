@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "episodeFolder": "KM-009-star-trail-adventure-workout",
+  "status": "REVIEWED",
+  "reviewMethod": "historic-video-analysis",
+  "evidenceFile": "episodes/KM-009-star-trail-adventure-workout/99-technik/VIDEO_REVIEW_2026-10-10.md",
+  "notes": "Evidence-based historical review of user-shared MP4; no claim that final MP4 lives in GitHub. YouTube analytics unavailable.",
+  "observations": [
+    {
+      "atSeconds": 0,
+      "finding": "The first eight seconds repeat large marketing cover artwork rather than a natural hello inside the video.",
+      "change": "Make the cover thumbnail-only and use a friendly greeting in the first video scene."
+    },
+    {
+      "atSeconds": 34,
+      "finding": "Exercise holds are static for twenty seconds and do not demonstrate how to move into the exercise.",
+      "change": "Experiment with approved pose-entry keyframes or short demonstrated motion after updating render and safety checks."
+    },
+    {
+      "atSeconds": 64,
+      "finding": "The large dark GET READY layout sometimes dominates and reduces the visual importance of the athlete.",
+      "change": "Use compact mobile-readable labels with less intrusive backgrounds and verify result from real rendered image."
+    },
+    {
+      "atSeconds": 164,
+      "finding": "Similar golden-hour playground backdrops recur, reducing the feeling of visiting distinct park zones.",
+      "change": "Plan clearly distinct child-sized zones and purposeful visible elements for every next workout frame."
+    }
+  ],
+  "nextActions": [
+    "Keep unique readable child-scale storyworld scenery and action-specific poses in next prompts.",
+    "Validate actual Flow PNG output after each scene and retry only missing scene files.",
+    "Test animation of entry into poses only after the motion engine and safety gates are revised."
+  ],
+  "analytics": {
+    "status": "UNAVAILABLE",
+    "intro30sRetention": null,
+    "averagePercentageViewed": null,
+    "majorDips": []
+  }
+}

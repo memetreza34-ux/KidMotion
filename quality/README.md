@@ -1,0 +1,11 @@
+# Playvilo / KidMotion — Mandatory learning loop
+
+After each **actual rendered** video, use `npm run quality:review:init -- --episode=KM-XXX --video=out/kidmotion.mp4` to create an honest PENDING review. Fill the generated `quality/reviews/KM-XXX.json` **only after watching the actual MP4**, checking the script, Flow PNGs, child-safe movements and teaching, captions/audio, on-screen legibility, story rhythm and thumbnail/export. Record timestamped strengths, faults, specific fixes and suggested next-video experiments. Record actual YouTube Studio metrics later if available — never fabricate CTR, retention or engagement.
+
+`npm run quality:gate` blocks the next episode if ANY pending post-video review exists. Both episode generators will check this. A completed review must include truthful observations, concrete next actions, a valid video SHA256 for newly produced MP4s and eight human-review flags. Existing KM-009 historical review uses its previously documented video evidence; it does not pretend the MP4 exists in GitHub.
+
+The new-episode generator writes `99-technik/IMPROVEMENT_BRIEF.md` with all currently active format-specific lessons and `99-technik/IMPROVEMENT_APPLICATION.json` with all entries PENDING. Before Phase-1 approval, inspect actual source and change each entry to APPLIED, quote a real meaningful excerpt from the prescribed scene prompt/production file, and explain precisely how it fixes the earlier weakness. The QA checks the source quote and all current rule IDs; do NOT fake its evidence. Each changed policy fingerprint requires another brief update.
+
+Keep experimental proposals distinct from shipped engine improvements: never change workout runtime, child-safe movement, scene count, Flow image restrictions or voice/audio timing without coordinated tests and explicit approved revision. Documentation alone does not constitute proof that the next MP4 improved.
+
+External source: [YouTube key moments for audience retention](https://support.google.com/youtube/answer/9314415) — use intro retention, flat/dip/spike segments when available; [YouTube video analytics](https://support.google.com/youtube/answer/12942217); [Made for Kids](https://support.google.com/youtube/answer/9632097).
