@@ -29,6 +29,9 @@ jobs:
       - name: Workout human-character tests
         run: npm run workout:human:test
 
+      - name: Continuous improvement regression tests
+        run: npm run quality:test
+
       - name: Flow missing-output recovery and immediate-save verification
         run: npm run flow:verify:test
 

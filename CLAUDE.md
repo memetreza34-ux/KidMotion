@@ -6,3 +6,7 @@ Critical user experience requirement: after **every passed Phase 1** for **every
 
 ## Mandatory Flow verification
 Follow PHASE2_FLOW_AGENT.md. ALWAYS check actual real files after each Flow request, save and rename immediately, run `flow:verify` and retry genuinely absent scenes only. After 3 technical failures stop with an explicit error, preserve queue. Never promise automatic picture creation from the local checker, never regenerate existing images, never claim all 28 exist until `phase2:finalize` reports COMPLETE.
+
+## Highest priority — empirical learning
+
+For each real video: create PENDING review via `npm run quality:review:init -- --episode=<folder> --video=<actual MP4>`, watch the full video and review real assets, then document findings, timestamped observations and precise next actions. `npm run quality:gate` blocks new episodes while any review is pending. Do NOT mark a report complete automatically or infer quality from prompts. Every new phase 1 must pass the `IMPROVEMENT_APPLICATION.json` real source-evidence checks. Update `config/continuous-improvement.json` with confirmed lessons, implement and test fixes in scripts and visual prompts, track analytics when truly accessible, and evaluate whether the next real video improved. Reference `quality/README.md` and YouTube Studio first-30-second retention and replay/drop-off locations.

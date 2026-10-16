@@ -104,3 +104,9 @@ The exact sequence changes by learning mode. See `LEARNING_ENGINE.md`.
 ## Robustheit gegen fehlende Google-Flow-Bilder
 
 Mit `npm run flow:verify -- --episode=KM-XXX-slug` wird nach jedem echten Download geprüft, welche der 28 Dateien vorhanden, gültig, doppelt, beschädigt oder fehlend sind. `99-technik/FLOW_RETRY_MISSING.json` enthält für fehlende Nummern den vollständigen ORIGINAL-Bildprompt und den sofortigen Umbenennungsbefehl. Der Flow-Agent darf **nur nicht vorhandene** Bilder erneut anfordern; gespeicherte Dateien dürfen niemals überschrieben werden. `flow:batch` bietet Wiederherstellung der früheren Lücken, selbst wenn spätere Dateien schon vorhanden sind. Die tatsächliche Flow-Erstellung geschieht durch den mit Google Flow verbundenen Agenten, nicht durch `flow:verify` selbst.
+
+## Oberste Priorität: Jede fertige Episode verbessert die nächste
+
+`quality/README.md` dokumentiert die neue verbindliche Verbesserungsschleife. Nach einem erfolgreichen Render erzeugt die Pipeline einen **noch nicht freigegebenen** Eintrag in `quality/reviews/`. Nach dem tatsächlichen Ansehen der vollständigen MP4 werden zeitgestempelte Fehler, Stärken, Ursachen, getestete Änderungen und Experimente eingetragen. Ein nicht abgeschlossener Bericht sperrt neue Episoden über `npm run quality:gate`. Technische Checks ersetzen keine visuelle Videoanalyse.
+
+Neue Workouts und Lernvideos erhalten automatisch `99-technik/IMPROVEMENT_BRIEF.md` sowie `IMPROVEMENT_APPLICATION.json`. Die Phase-1-Prüfung verlangt für jede geltende Regel eine **belegte** Korrektur im Skript/Bildprompt/Plan, inklusive exaktem Originalzitat. Nach Regeländerungen: `npm run quality:brief -- --episode=KM-XXX-slug`. Zuschauerbindung (erste 30 s, Einbrüche, Spitzen) und Videoleistung werden nur eingetragen, wenn echte YouTube-Studio-Daten vorliegen. Kein Versprechen einer automatisch perfekten Produktion.

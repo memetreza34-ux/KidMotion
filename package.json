@@ -47,7 +47,12 @@
     "export:pack": "node scripts/export-content.mjs --pack",
     "export:test": "node --test scripts/export-content.test.mjs",
     "flow:verify": "node scripts/flow-continuity.mjs",
-    "flow:verify:test": "node --test scripts/flow-continuity.test.mjs"
+    "flow:verify:test": "node --test scripts/flow-continuity.test.mjs",
+    "quality:gate": "node scripts/quality-improvement.mjs --action=gate",
+    "quality:brief": "node scripts/quality-improvement.mjs --action=brief",
+    "quality:review:init": "node scripts/quality-improvement.mjs --action=review-init",
+    "quality:review:check": "node scripts/quality-improvement.mjs --action=review-check",
+    "quality:test": "node --test scripts/continuous-improvement.test.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
