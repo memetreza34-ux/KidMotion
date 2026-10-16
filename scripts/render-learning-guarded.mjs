@@ -20,4 +20,5 @@ run('LEARNING PREFLIGHT',npm,['run','learning:preflight']);
 run('LEARNING ASSET GATE',npm,['run','learning:asset:gate']);
 run('REMOTION LEARNING RENDER',npx,['remotion','render','src/index.ts','KidMotionLearning','out/kidmotion-learning.mp4','--crf','28','--preset','faster']);
 
+run('CREATE PENDING HUMAN POST-VIDEO REVIEW',npm,['run','quality:review:init','--','--video=out/kidmotion-learning.mp4']);
 console.log('\nLEARNING RENDER COMPLETE');

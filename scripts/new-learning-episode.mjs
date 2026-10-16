@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {loadLearningEngine,normalizeAgeBand,normalizeLearningMode,defaultRolesForMode,expandRoles} from './learning-engine.mjs';
+import {requireReviewsBeforeNewEpisode,createImprovementBrief,policyKey} from './continuous-improvement-lib.mjs';
 
 const args=process.argv.slice(2);
 const getArg=(name,fallback='')=>{
@@ -12,6 +13,7 @@ const topic=getArg('topic');
 const requestedId=getArg('id');
 const requestedDate=getArg('date',new Date().toISOString().slice(0,10));
 const root=process.cwd();
+requireReviewsBeforeNewEpisode(root);
 const engine=loadLearningEngine(root);
 const ageBand=normalizeAgeBand(getArg('age-band',engine.defaultAgeBand),engine);
 const learningMode=normalizeLearningMode(getArg('learning-mode'),engine);
@@ -110,6 +112,7 @@ const episode={
   schemaVersion:2,
   structureVersion:2,
   contentFormat:'learning',
+  qualityLearningPolicy:policyKey,
   formatContractFile:'config/formats/learning.json',
   learningEngineFile:'config/learning-engine.json',
   learningEngineVersion:engine.schemaVersion,
@@ -329,6 +332,7 @@ write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n'+p
 write('99-technik/README.md','# '+episodeId+' — '+topic+'\n\nFormat: PURE LEARNING\nAge band: '+ageBand+'\nLearning mode: '+learningMode+'\n\nNo workout, timer, GET READY or mandatory child/mascot.\n');
 write('99-technik/ANTIGRAVITY.md','# ANTIGRAVITY — LEARNING ASSEMBLY\n\nDo not generate images in Phase 3. Use only approved learning assets and narration. Preserve the planned HOOK/TEACH/PRACTICE/REVEAL/APPLY/RECAP learning sequence. No workout timer or GET READY rules.\n');
 
+createImprovementBrief({root,episodeFolder,format:'learning'});
 console.log('Created pure learning draft: '+episodeFolder);
 console.log('Age band: '+ageBand);
 console.log('Learning mode: '+learningMode);

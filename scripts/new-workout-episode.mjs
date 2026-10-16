@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {loadContract, expectedSceneSpecs, sceneFile, padScene} from './contract.mjs';
+import {requireReviewsBeforeNewEpisode,createImprovementBrief,policyKey} from './continuous-improvement-lib.mjs';
 
 const args = process.argv.slice(2);
 const getArg = (name, fallback = '') => {
@@ -27,6 +28,7 @@ if (!/^\d{4}-\d{2}-\d{2}$/.test(requestedDate)) {
 }
 
 const root = process.cwd();
+requireReviewsBeforeNewEpisode(root);
 const contract = loadContract(root);
 const pipeline = JSON.parse(fs.readFileSync(path.join(root,'config','pipeline.json'),'utf8'));
 const visual = JSON.parse(fs.readFileSync(path.join(root,'config','visual-policy.json'),'utf8'));
@@ -80,6 +82,7 @@ const data = {
   productionContractVersion:contract.contractVersion,
   contractFile:'config/v3-contract.json',
   contentFormat,
+  qualityLearningPolicy:policyKey,
   compactPromptPolicy:'v2-short',
   sceneNumberingPolicy:'explicit-v1',
   visualComplexityPolicy:'grounded-simple-workout',
@@ -267,5 +270,6 @@ The user must not be sent back to manually unzip, rename deterministic files, or
 Allowed Phase 3 work: technical ingest, real visual review, approval, assembly, approved audio, permitted Remotion timer, render and postrender QA.
 `);
 
+createImprovementBrief({root,episodeFolder,format:contentFormat});
 console.log(`Created KidMotion contract-v${contract.contractVersion} draft: ${episodeFolder}`);
 console.log('Status: planning-required. Flow is blocked until prompt:qa passes.');

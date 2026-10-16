@@ -6,6 +6,7 @@ import {humanOnlyWorkout,humanPromptErrors} from './workout-character-policy.mjs
 import {validateArtDirectionPrompts} from './art-direction-qa.mjs';
 import {publishPhase1Handoff,printPhase1Links} from './phase1-links-lib.mjs';
 import {generateExportFiles} from './export-content-lib.mjs';
+import {validateImprovementApplication} from './continuous-improvement-lib.mjs';
 
 const root = process.cwd();
 const contract = loadContract(root);
@@ -187,6 +188,8 @@ const normalizedVoiceScript=voiceScript.trim();
 const expectedVoiceText=String(voicePlan?.exactTtsCopy||'').trim();
 if(normalizedVoiceScript!==expectedVoiceText) fail('voice-script.txt must contain ONLY the exact continuous spoken text from VOICE_PLAN.json exactTtsCopy.');
 if(/^\s*#|\b00:\d{2}\b|Timing map|Exact TTS copy|##|Voice Script|Rules:/i.test(voiceScript)) fail('voice-script.txt must not contain headings, timecodes, labels or instructions.');
+
+for(const error of validateImprovementApplication({root,episodeFolder,format:data.contentFormat||'workout',episode:data})) fail('CONTINUOUS IMPROVEMENT: '+error);
 
 if(failures.length){
   console.error(`PROMPT PLAN QA FAILED — ${episodeFolder}`);

@@ -3,6 +3,7 @@ import path from 'node:path';
 import {resolveEpisodePaths,readEpisodeData} from './episode-paths.mjs';
 import {loadLearningEngine,normalizeAgeBand,normalizeLearningMode,requiredRolesForMode} from './learning-engine.mjs';
 import {publishPhase1Handoff,printPhase1Links} from './phase1-links-lib.mjs';
+import {validateImprovementApplication} from './continuous-improvement-lib.mjs';
 
 const root=process.cwd();
 const args=process.argv.slice(2);
@@ -131,6 +132,8 @@ for(const label of ['SCENE ROLE:','VIEWER TAKEAWAY:','TEACHING JOB:','SHOT / COM
   if(!prompt.includes(label)) fail('Learning prompts missing section '+label);
 }
 if(/GET READY|countdown timer|12 exercises/i.test(prompt)) fail('Learning prompt file contains workout-only concepts.');
+
+for(const error of validateImprovementApplication({root,episodeFolder,format:'learning',episode:data})) fail('CONTINUOUS IMPROVEMENT: '+error);
 
 if(failures.length){
   console.error('LEARNING PROMPT QA FAILED');
