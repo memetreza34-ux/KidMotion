@@ -70,13 +70,17 @@ export function validateArtDirectionReview({episode,episodeFolder,revision,image
  const records=Array.isArray(review.scenes)?review.scenes:[];
  if(records.length!==requiredImages.length)errors.push('Art review must contain exactly '+requiredImages.length+' scene image records.');
  const flags=['actuallyInspected','engagingCharacterExpression','groundedHumanScaleEnvironment','purposefulVisiblePlayDetail','cohesiveStoryWorld','clearCompositionAndPose','noGenericAICGIOrOddArchitecture'];
+ const still=episode.stillImageQualityPolicy==='still-workout-v2';
+ const types=new Map((episode.scenes||[]).map(s=>[s.image,s.type]));
  const expected=new Set(requiredImages);
  for(const file of requiredImages){
   const candidates=records.filter(x=>x.file===file);
   if(candidates.length!==1){errors.push(file+': expected exactly one art-review record.');continue;}
   const r=candidates[0];
-  for(const flag of flags)if(r[flag]!==true)errors.push(file+': art-review criterion not passed: '+flag);
-  if(String(r.notes||'').trim().length<20)errors.push(file+': add specific notes about what is visible in the real image.');
+  const role=types.get(file);
+  const extra=still&&role==='exercise'?['poseMatchesWrittenInstruction','realImageComparedAgainstPoseDescription','safeFeetAndHandsClearlyVisible','unambiguousAtPhoneSize','exerciseTextLegibleOnPhone']:still&&role==='get-ready'?['compactUniformGetReadyPanel','nextMoveNameCorrect','readableOnPhone']:[];
+  for(const flag of [...flags,...extra])if(r[flag]!==true)errors.push(file+': real PNG review criterion not passed: '+flag);
+  if(String(r.notes||'').trim().length<(extra.length?35:20))errors.push(file+': add specific notes about real pose, hand/feet positions and text legibility in the inspected image.');
   const full=path.join(imagesDir,file);
   if(!fs.existsSync(full)){errors.push(file+': PNG missing, cannot inspect or bind review.');continue;}
   const sha=crypto.createHash('sha256').update(fs.readFileSync(full)).digest('hex');

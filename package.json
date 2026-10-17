@@ -55,7 +55,8 @@
     "quality:test": "node --test scripts/continuous-improvement.test.mjs",
     "project:tidy": "node scripts/tidy-project.mjs",
     "intro:greeting:test": "node --test scripts/intro-greeting.test.mjs",
-    "workout:audio:test": "node --test scripts/workout-audio.test.mjs"
+    "workout:audio:test": "node --test scripts/workout-audio.test.mjs",
+    "workout:stills:test": "node --test scripts/workout-still-quality.test.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

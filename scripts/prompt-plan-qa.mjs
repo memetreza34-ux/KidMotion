@@ -7,6 +7,7 @@ import {validateArtDirectionPrompts} from './art-direction-qa.mjs';
 import {publishPhase1Handoff,printPhase1Links} from './phase1-links-lib.mjs';
 import {generateExportFiles} from './export-content-lib.mjs';
 import {validateImprovementApplication} from './continuous-improvement-lib.mjs';
+import {validateStillWorkoutPlan} from './workout-still-quality.mjs';
 import {checkFrameZeroGreetingPlan} from './intro-greeting-policy.mjs';
 
 const root = process.cwd();
@@ -190,6 +191,7 @@ if(data.introVisualPolicy==='greeting-overlay-frame-zero-v1'){
   for(const error of checkFrameZeroGreetingPlan({episode:data,scenePrompt:scene02})) fail('FRAME ZERO GREETING: '+error);
 }
 for(const error of validateArtDirectionPrompts({episode:data,plan,prompt})) fail('ART DIRECTION: '+error);
+for(const error of validateStillWorkoutPlan({episode:data,plan})) fail('STILL PHOTO WORKOUT: '+error);
 for(const error of validateVoicePlanObject(voicePlan,contract)) fail(error);
 const normalizedVoiceScript=voiceScript.trim();
 const expectedVoiceText=String(voicePlan?.exactTtsCopy||'').trim();
