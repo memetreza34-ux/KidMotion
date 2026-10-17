@@ -29,3 +29,7 @@ Generate the exact shareable answer from `summary.chatReplyMarkdown` or `99-tech
 
 ## Document location after housekeeping
 Project guidance outside the root entry files lives in `docs/`: `docs/START-HIER.md`, `docs/GEHIRN.md`, `docs/FORMAT_ROUTER.md`, `docs/ART_DIRECTION.md`, `docs/PHASE2_FLOW_AGENT.md`, `docs/PHASE2_LEARNING_AGENT.md`, `docs/ANTIGRAVITY.md`, and `docs/LEARNING_ENGINE.md`. Keep `AGENTS.md`, `CLAUDE.md`, `README.md` at repository root. Do not move `src/`, `scripts/`, `config/`, `episodes/` or runtime assets to cosmetically hide them. The local `episodes/ACTIVE_EPISODE.json` pointer remains compatible; the optional `project:tidy` command only hides it in macOS Finder.
+
+## Mandatory uncluttered 03-export layout for every future episode
+
+Do not recreate separate title, description, caption or timing files in `03-export`. The only public `.txt` file is `YOUTUBE_UPLOAD.txt` (one full title plus one description with EXACTLY FIVE distinct hashtags). Approved `FINAL_VIDEO.mp4` and `COVER.png` remain the other two outputs. All `UPLOAD_METADATA.md`, `SUBTITLES.srt`, `VOICE_TIMESTAMPS.txt` and `VIDEO_TIMELINE.txt` live in `99-technik`, for optional use, but not in 03-export. The `export:content` and `export:pack` generators enforce this, including re-runs, and preserve media. This applies equally to workout, learning, and learn-and-move, without changing the required two Phase 1 chat links.

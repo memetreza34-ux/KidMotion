@@ -14,3 +14,7 @@ For each real video: create PENDING review via `npm run quality:review:init -- -
 ## Absolutely required Phase-1 tablet handoff in chat
 
 After EVERY successful Phase-1 QA (workout, learning, learn-and-move), push the finished sources and reply with **two separate directly clickable episode-specific GitHub URLs** in your **user-visible chat reply**: (1) the entire `google-flow-prompt.txt` (all covers and scenes); (2) the complete `voice-script.txt`. Read `99-technik/PHASE1_CHAT_ANTWORT.md` or `PHASE1_HANDOFF.json.chatReplyMarkdown`; both are automatically generated, and paste the real actual URLs. No placeholders, screenshots, indirect repo links, or console-only output. If not pushed/QA-passed, state the blocker. A GitHub hyperlink opens content for manual copy, it doesn't fill Google Flow automatically.
+
+## Compact YouTube export
+
+After each episode, `03-export` must have ONLY `YOUTUBE_UPLOAD.txt` with title, complete description and five hashtags, plus separate real `FINAL_VIDEO.mp4` and `COVER.png` once rendered. Move SRT, voice timestamps, video timeline, and `UPLOAD_METADATA.md` to `99-technik`. Never reintroduce duplicate `YOUTUBE_TITLE.txt`, `YOUTUBE_DESCRIPTION.txt` or `YOUTUBE_KOPIEREN.txt`; the export generator is responsible for this. Retain the two direct Phase 1 source links in chat.

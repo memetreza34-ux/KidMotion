@@ -120,3 +120,9 @@ Sobald die Phase-1-QA für Workout, Lernvideo oder Learn-and-Move **bestanden** 
 Die Videoepisoden sind im Ordner [`episodes/`](episodes/) zu finden. Übergeordnete Anleitungen und historische Projektregeln befinden sich jetzt gesammelt in [`docs/`](docs/README.md) statt als zahlreiche `.md`-Dateien im Hauptverzeichnis. `scripts/`, `src/`, `config/`, `public/`, `characters/` und `quality/` sind funktionsnotwendige Projektordner und bleiben deshalb unangetastet.
 
 Die lokale Laufzeitdatei `episodes/ACTIVE_EPISODE.json` bleibt für alte und neue Skripte am erwarteten Ort. Auf einem Mac kannst du sie mit `npm run project:tidy` im Finder unsichtbar machen, damit unter `episodes/` nur die Episodenordner auffallen. Es werden dabei keine Episoden oder Projektdateien gelöscht.
+
+## Nur eine Textdatei im Export
+
+Nach erfolgreicher Phase 1 oder nach dem Render enthält `03-export` **nur eine YouTube-Textdatei**: `YOUTUBE_UPLOAD.txt` mit dem kopierfertigen Titel und einer vollständigen Beschreibung samt genau fünf unterschiedlichen Hashtags. Zusammen mit dem echten Film `FINAL_VIDEO.mp4` und dem separaten `COVER.png` ist das der gesamte Veröffentlichungsordner.
+
+Die technischen Quelldaten `UPLOAD_METADATA.md`, die echten oder geplanten Untertitel `SUBTITLES.srt` und `VOICE_TIMESTAMPS.txt` sowie `VIDEO_TIMELINE.txt` liegen unter `99-technik` und bleiben erhalten. `npm run export:content -- --episode=KM-XXX-name` wandelt ältere Exporttexte automatisch um, entfernt nur die bekannten redundanten Textdateien, nie Videos oder Cover. Gilt künftig für Workout **und** reine Lernvideos.
