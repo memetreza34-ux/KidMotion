@@ -35,6 +35,9 @@ jobs:
       - name: Flow missing-output recovery and immediate-save verification
         run: npm run flow:verify:test
 
+      - name: Immediate first-frame greeting regression test
+        run: npm run intro:greeting:test
+
       - name: Copy-ready export and subtitle tests
         run: npm run export:test
 

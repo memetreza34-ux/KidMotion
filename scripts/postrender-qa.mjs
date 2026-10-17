@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
+import {hasFrameZeroGreetingPolicy} from './intro-greeting-policy.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -31,6 +32,7 @@ if (paths.structure === 'missing') {
 const data = readEpisodeData(paths);
 const scenes = Array.isArray(data.scenes) ? data.scenes : [];
 const renderedScenes = scenes.filter((scene) => scene.type !== 'cover');
+const greetingFromFirstFrame = hasFrameZeroGreetingPolicy(data);
 
 const runText = (cmd, cmdArgs) => spawnSync(cmd, cmdArgs, {encoding: 'utf8'});
 const durationProbe = runText('ffprobe', [
@@ -84,6 +86,9 @@ if (blackSegments.length) fail(`Detected black flash/segment(s): ${blackSegments
 
 const W = 160;
 const H = 90;
+// Cropped region of the first-scene 8%-from-left, vertically centered HELLO! badge.
+// These bounds are intentionally larger than the badge to tolerate font rendering.
+const INTRO_GREETING_RECT = {left: 9, right: 73, top: 31, bottom: 60};
 const TIMER_MASK_X = 24;
 const TIMER_MASK_Y = 24;
 
@@ -114,6 +119,32 @@ const maskTimer = (buf) => {
   return copy;
 };
 
+const maskGreeting = (buf) => {
+  if (!buf) return null;
+  const copy = Buffer.from(buf);
+  for (let y = INTRO_GREETING_RECT.top; y < INTRO_GREETING_RECT.bottom; y += 1)
+    for (let x = INTRO_GREETING_RECT.left; x < INTRO_GREETING_RECT.right; x += 1)
+      copy[y * W + x] = 0;
+  return copy;
+};
+
+const greetingDifference = (rendered, background) => {
+  if (!rendered || !background || rendered.length !== background.length) return null;
+  let sum = 0, count = 0;
+  for (let y = INTRO_GREETING_RECT.top; y < INTRO_GREETING_RECT.bottom; y += 1) {
+    for (let x = INTRO_GREETING_RECT.left; x < INTRO_GREETING_RECT.right; x += 1) {
+      sum += Math.abs(rendered[y * W + x] - background[y * W + x]);
+      count += 1;
+    }
+  }
+  return count ? sum / count : null;
+};
+
+const maskForScene = (buf, scene) => {
+  const base = maskTimer(buf);
+  return greetingFromFirstFrame && scene?.type === 'intro' ? maskGreeting(base) : base;
+};
+
 const meanAbsDiff = (a, b) => {
   if (!a || !b || a.length !== b.length) return null;
   let total = 0;
@@ -128,7 +159,22 @@ for (const scene of renderedScenes) {
     fail(`Missing source image for rendered scene: ${scene.image}`);
     continue;
   }
-  sourceFrames.set(scene.image, maskTimer(sampleGrayImage(sourcePath)));
+  sourceFrames.set(scene.image, maskForScene(sampleGrayImage(sourcePath), scene));
+}
+
+// FIRST FRAME GREETING: verify pixels of first frame differ from the text-free
+// Google Flow scene 02 background in the documented text badge region.
+if (greetingFromFirstFrame) {
+  const intro = renderedScenes[0];
+  if (!intro || intro.type !== 'intro') fail('FIRST FRAME GREETING: scene 02 must be the first rendered scene.');
+  else {
+    const background = sampleGrayImage(path.join(paths.imagesDir, intro.image));
+    const firstFrame = sampleGrayVideo(0);
+    const difference = greetingDifference(firstFrame, background);
+    if (difference === null) fail('FIRST FRAME GREETING: cannot inspect actual frame 0 and original Flow background.');
+    else if (difference < 10) fail('FIRST FRAME GREETING: HELLO! overlay appears absent at 00:00; actual first frame matches text-free background.');
+    else console.log('FIRST FRAME GREETING verified at 00:00 (visible text-region pixel difference '+difference.toFixed(1)+').');
+  }
 }
 
 const timeline = [];
@@ -142,7 +188,7 @@ for (const scene of renderedScenes) {
 // Verify that every planned source image is actually visible in its intended time slot.
 const SOURCE_MATCH_MAX_DIFF = 8.0;
 for (const item of timeline) {
-  const rendered = maskTimer(sampleGrayVideo(item.center));
+  const rendered = maskForScene(sampleGrayVideo(item.center), item.scene);
   const source = sourceFrames.get(item.scene.image);
   const diff = meanAbsDiff(rendered, source);
   if (diff === null) fail(`Could not compare rendered ${item.scene.image} at ${item.center.toFixed(2)}s.`);
@@ -156,8 +202,8 @@ for (let i = 0; i < timeline.length - 1; i += 1) {
   const current = timeline[i];
   const next = timeline[i + 1];
   const boundary = current.end;
-  const pre = maskTimer(sampleGrayVideo(Math.max(current.start + 0.05, boundary - 0.08)));
-  const post = maskTimer(sampleGrayVideo(Math.min(next.end - 0.05, boundary + 0.08)));
+  const pre = maskForScene(sampleGrayVideo(Math.max(current.start + 0.05, boundary - 0.08)),current.scene);
+  const post = maskForScene(sampleGrayVideo(Math.min(next.end - 0.05, boundary + 0.08)),next.scene);
   const preDiff = meanAbsDiff(pre, sourceFrames.get(current.scene.image));
   const postDiff = meanAbsDiff(post, sourceFrames.get(next.scene.image));
   if (preDiff === null || preDiff > SOURCE_MATCH_MAX_DIFF) fail(`Scene before ${boundary.toFixed(2)}s is wrong or changes too early: expected ${current.scene.image}.`);
@@ -165,7 +211,7 @@ for (let i = 0; i < timeline.length - 1; i += 1) {
 }
 
 // Catch repeated rendered scenes even if files were renamed or re-encoded.
-const renderedCenters = timeline.map((item) => ({scene: item.scene.image, buf: maskTimer(sampleGrayVideo(item.center))}));
+const renderedCenters = timeline.map((item) => ({scene: item.scene.image, buf: maskForScene(sampleGrayVideo(item.center),item.scene)}));
 for (let i = 0; i < renderedCenters.length; i += 1) {
   for (let j = i + 1; j < renderedCenters.length; j += 1) {
     const diff = meanAbsDiff(renderedCenters[i].buf, renderedCenters[j].buf);
@@ -181,4 +227,4 @@ if (failures.length) {
 
 console.log(`POSTRENDER QA PASSED — ${episodeFolder}`);
 if (Number.isFinite(actualDuration)) console.log(`Duration: ${actualDuration.toFixed(3)}s`);
-console.log('Checked: runtime, resolution/FPS, ongoing audio, black flashes, exact scene-to-source mapping, cut timing on both sides and rendered duplicate scenes.');
+console.log('Checked: runtime, resolution/FPS, ongoing audio, black flashes, exact scene-to-source mapping, cut timing on both sides, rendered duplicate scenes and mandatory frame-zero HELLO greeting when enabled.');
