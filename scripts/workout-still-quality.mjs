@@ -16,7 +16,7 @@ export function validateStillWorkoutPlan({episode,plan}){
   const n=scene.scene;
   if(!text(title)||words(title)>5)errors.push(n+': title too long or missing (maximum five words).');
   if(!text(instruction)||words(instruction)>12)errors.push(n+': instruction too long or missing (maximum twelve words).');
-  if(text(poseDescription).length<28||!/\b(feet|foot|heel|toe|leg|knee|arm|hand|shoulder|hip|elbow)\b/i.test(text(poseDescription)))errors.push(n+': poseDescription needs specific safe limb placement, not a story gesture.');
+  if(text(poseDescription).length<28||!/\b(feet|foot|heels?|toes?|legs?|knees?|arms?|hands?|shoulders?|hips?|elbows?)\b/i.test(text(poseDescription)))errors.push(n+': poseDescription needs specific safe limb placement, not a story gesture.');
   if(text(worldZone).length<25||text(storyBeat).length<30)errors.push(n+': worldZone and storyBeat must be concrete, distinct and child-scale.');
   if(text(poseDescription)&&!prompt.includes(text(poseDescription)))errors.push(n+': Flow prompt missing exact poseDescription.');
   if(text(storyBeat)&&!prompt.includes(text(storyBeat)))errors.push(n+': Flow prompt missing exact storyBeat.');
@@ -28,7 +28,7 @@ export function validateStillWorkoutPlan({episode,plan}){
   }else if(scene.storyCheckpoint!==undefined&&scene.storyCheckpoint!==null)errors.push(n+': checkpoint may only follow moves 3, 6, 9 or 12.');
   const action=norm(text(title)+' '+text(instruction)),pose=norm(poseDescription);
   if(/\b(turn|twist|spyglass)\b/.test(action)&&(!/\bshoulder/.test(pose)||!/\b(feet|foot|hips|hip)\b/.test(pose)))errors.push(n+': shoulder-turn must show turn with anchored feet or hips.');
-  if(/\b(tiptoe|heel|toes)\b/.test(action)&&!/\b(heel|heels)\b/.test(pose))errors.push(n+': tiptoe must clearly specify heel lift.');
+  if(/\b(tiptoes?|heels?|toes?)\b/.test(action)&&!/\b(heel|heels)\b/.test(pose))errors.push(n+': tiptoe must clearly specify heel lift.');
   if(/\b(side step|sideways|crab step)\b/.test(action)&&!/\b(step|stepping)\b/.test(pose))errors.push(n+': side step must show actual sideways movement, not a squat.');
  }
  if(zones.size<6)errors.push('At least six distinct activity zones are required inside one coherent storyworld.');
