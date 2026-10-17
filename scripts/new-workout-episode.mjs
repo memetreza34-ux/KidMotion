@@ -227,6 +227,7 @@ write('99-technik/PHASE2_FLOW_RUNBOOK.md',[
   'After the last batch run npm run phase2:finalize -- --episode='+episodeFolder+'. Repair only genuinely missing images in 99-technik/PHASE2_MISSING_SCENES.json and audit again.',
   'Only 28 actual valid PNG images, PHASE2_HANDOFF.json and honest visual QA enable approval and Phase 3.',
   'If Flow fails 3 times on one scene, stop with an exact blocker and keep the missing queue. Do not claim finished pictures.',
+  'Still-image workout v2: check exact real pose vs written text, short phone-sized UI, six distinct grounded play zones, visible checkpoints at moves 3/6/9/12, compact identical NEXT panels. Before approval record SHA-bound five pose and three ready quality flags in ART_DIRECTION_REVIEW. No AI video.',
 ].join('\n')+'\n');
 write('99-technik/VOICE_PLAN.json',JSON.stringify(voicePlan,null,2)+'\n');
 write('99-technik/GENERATION-REVISION.txt',revision+'\n');

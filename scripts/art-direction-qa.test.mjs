@@ -45,3 +45,28 @@ test('actual scene inspection must match image SHA and truthfully pass every dim
   assert.ok(validateArtDirectionReview(args).some(x=>x.includes('purposefulVisiblePlayDetail')));
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+
+test('new still workouts block an anatomically wrong pose or inconsistent real GET READY card',()=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'km-realpose-'));
+ try{
+  const files=['Szene 05.png','Szene 06.png'];
+  files.forEach((n,i)=>fs.writeFileSync(path.join(dir,n),'fictional sample png bytes '+i));
+  const sha=n=>crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,n))).digest('hex');
+  const base=n=>({file:n,imageSha256:sha(n),actuallyInspected:true,engagingCharacterExpression:true,groundedHumanScaleEnvironment:true,purposefulVisiblePlayDetail:true,cohesiveStoryWorld:true,clearCompositionAndPose:true,noGenericAICGIOrOddArchitecture:true,notes:'The actual photograph displays correct safe hands, feet and leg position at mobile resolution.'});
+  const exercise=base(files[0]),ready=base(files[1]);
+  Object.assign(exercise,{poseMatchesWrittenInstruction:false,realImageComparedAgainstPoseDescription:true,safeFeetAndHandsClearlyVisible:true,unambiguousAtPhoneSize:true,exerciseTextLegibleOnPhone:true});
+  Object.assign(ready,{compactUniformGetReadyPanel:false,nextMoveNameCorrect:true,readableOnPhone:true});
+  const review={artDirectionPolicy:'storyworld-v1',episodeFolder:'test',revision:'R1',scenes:[exercise,ready]};
+  const reviewFile=path.join(dir,'review.json');
+  const args={episode:{artDirectionPolicy:'storyworld-v1',stillImageQualityPolicy:'still-workout-v2',scenes:[{image:files[0],type:'exercise'},{image:files[1],type:'get-ready'}]},episodeFolder:'test',revision:'R1',imagesDir:dir,reviewFile,requiredImages:files};
+  fs.writeFileSync(reviewFile,JSON.stringify(review));
+  const fails=validateArtDirectionReview(args);
+  assert.ok(fails.some(x=>x.includes('poseMatchesWrittenInstruction')));
+  assert.ok(fails.some(x=>x.includes('compactUniformGetReadyPanel')));
+  exercise.poseMatchesWrittenInstruction=true;ready.compactUniformGetReadyPanel=true;
+  fs.writeFileSync(reviewFile,JSON.stringify(review));
+  assert.deepEqual(validateArtDirectionReview(args),[]);
+  fs.writeFileSync(path.join(dir,files[0]),'modified png');
+  assert.ok(validateArtDirectionReview(args).some(x=>x.includes('SHA256')));
+ }finally{fs.rmSync(dir,{recursive:true,force:true})}
+});

@@ -130,3 +130,8 @@ Die technischen Quelldaten `UPLOAD_METADATA.md`, die echten oder geplanten Unter
 ## Direkt Text im ersten Videoframe
 
 Neue Workouts beginnen im **ersten sichtbaren Videoframe (00:00)** mit einer gut lesbaren **HELLO!**-Begrüßung in der Szene 02. Diese Aufschrift wird ausschließlich von Remotion eingeblendet, nicht mehr vom Google-Flow-Bildgenerator. Das Flow-Bild bleibt im Hintergrund und enthält an dieser Stelle keine zweite Schrift. Szene 01 ist weiterhin nur das separate YouTube-Cover und erscheint nicht im Video. Die neue Regel gilt für neu erzeugte Episoden; ältere fertige MP4-Dateien werden nicht nachträglich verändert.
+
+## Qualität nach KM-010: ausschließlich Standbilder
+Neue Workouts erhalten eine genaue Pose-gegen-Anweisung-Prüfung am **echten** Google-Flow-PNG (mit SHA-256 im Bildprüfprotokoll). Die zwölf Szenen müssen verständliche kindgerechte Bewegungen zeigen, kurze lesbare Texte verwenden und sich über mindestens sechs Bereiche einer zusammenhängenden Spielwelt erstrecken. Nach Übungen 3, 6, 9, 12 müssen kleine sichtbare Belohnungen/Etappenziele erscheinen. Alle elf GET-READY-Bilder erhalten den gleichen kompakten Stil. Unpassende Bilder werden nicht ungeprüft freigegeben.
+
+Der Videorenderer verwendet kräftigere Musik während der Übungen und blendet sie zum Ende aus. Er prüft die wirklichen MP4-Tonwerte und nutzt CRF 18 statt 28 für schärfere Schriftkanten. Ein erfolgreicher echter Render bleibt erforderlich. **Keine KI-Videogenerierung oder animierten Bewegungsclips.**
