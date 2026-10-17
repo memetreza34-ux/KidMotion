@@ -336,5 +336,20 @@
   },
   "format": "workout",
   "scope": "This contract applies only to contentFormat=workout and the current learn-and-move runtime. It is NOT the channel-wide learning contract.",
-  "workoutCharacterPolicyFile": "config/workout-character-policy.json"
+  "workoutCharacterPolicyFile": "config/workout-character-policy.json",
+  "workoutStillImageQualityPolicy": {
+    "name": "still-workout-v2",
+    "noVideoGeneration": true,
+    "audio": {
+      "openingMusicVolume": 0.1,
+      "workoutMusicVolume": 0.95,
+      "minimumExerciseMeanDbfs": -35,
+      "maxMeanIntroGapDb": 16,
+      "finalMusicFadeSeconds": 2
+    },
+    "render": {
+      "crf": 18,
+      "preset": "medium"
+    }
+  }
 }

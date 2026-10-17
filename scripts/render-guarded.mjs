@@ -19,7 +19,7 @@ run('PROMPT / VOICE PLAN QA', npm, ['run','prompt:qa']);
 run('PREFLIGHT', npm, ['run','preflight']);
 run('SCENE INTEGRITY QA', npm, ['run','scene:qa']);
 run('PHASE 3 INPUT GATE', npm, ['run','phase3:gate']);
-run('REMOTION RENDER', npx, ['remotion','render','src/index.ts','KidMotionVideo','out/kidmotion.mp4','--crf','28','--preset','faster']);
+run('REMOTION RENDER', npx, ['remotion','render','src/index.ts','KidMotionVideo','out/kidmotion.mp4','--crf','18','--preset','medium']);
 run('POSTRENDER QA', npm, ['run','postrender:qa']);
 run('EXPORT PACK - VIDEO + COVER + ONE YOUTUBE TXT (SRT IN 99-TECHNIK)', npm, ['run','export:pack']);
 run('CREATE PENDING HUMAN POST-VIDEO REVIEW', npm, ['run','quality:review:init','--','--video=out/kidmotion.mp4']);

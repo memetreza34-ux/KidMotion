@@ -38,6 +38,9 @@ jobs:
       - name: Immediate first-frame greeting regression test
         run: npm run intro:greeting:test
 
+      - name: Workout audio and quality tests
+        run: npm run workout:audio:test
+
       - name: Copy-ready export and subtitle tests
         run: npm run export:test
 

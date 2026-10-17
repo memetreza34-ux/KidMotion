@@ -44,16 +44,16 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
             const afterOpening = interpolate(
               f,
               [openingFrames, openingFrames + Math.round(fps * 0.8)],
-              [0.07, 0.22],
+              [workout.openingMusicVolume ?? 0.10, workout.workoutMusicVolume ?? 0.95],
               {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
             );
             const outroFade = interpolate(
               f,
               [Math.max(0, totalFrames - Math.round(fps * 2)), totalFrames - 1],
-              [1, 0.45],
+              [1, 0],
               {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
             );
-            const base = f < openingFrames ? 0.07 : afterOpening;
+            const base = f < openingFrames ? (workout.openingMusicVolume ?? 0.10) : afterOpening;
             return base * outroFade;
           }}
         />

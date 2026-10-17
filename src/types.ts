@@ -37,6 +37,8 @@ export type Workout = {
   letsBeginImage?: string;
   outroImage?: string;
   bgMusic?: string;
+  openingMusicVolume?: number;
+  workoutMusicVolume?: number;
   exercises: Exercise[];
 };
 

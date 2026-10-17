@@ -70,10 +70,28 @@ const getMeanVolume = (start, duration = 2) => {
   return match ? Number.parseFloat(match[1]) : null;
 };
 if (data.audioPolicy?.backgroundMusicRequiredForFinal === true) {
+  const samples=[];
   for (const time of [20, Math.floor(expectedDuration / 2), Math.max(20, expectedDuration - 12)]) {
-    const mean = getMeanVolume(time, 2);
-    if (mean === null) fail(`Could not measure audio around ${time}s.`);
-    else if (mean <= -60) fail(`Audio is effectively silent around ${time}s (${mean.toFixed(1)} dB).`);
+    const mean=getMeanVolume(time,2);
+    if(mean===null)fail('Cannot sample music near '+time+' seconds.');
+    else{
+      samples.push(mean);
+      if(mean<=-60)fail('Effectively silent music at '+time+' seconds ('+mean+' dBFS).');
+    }
+  }
+  if(data.stillImageQualityPolicy==='still-workout-v2'&&samples.length===3){
+    const music=samples.reduce((a,b)=>a+b,0)/3;
+    const intro=getMeanVolume(0,Math.min(8,expectedDuration));
+    if(music<Number(data.audioPolicy.minExerciseMeanDbfs??-35))
+      fail('MUSIC MIX: exercise music too quiet ('+music.toFixed(1)+' dBFS).');
+    if(intro===null)fail('MUSIC MIX: cannot sample opening narration.');
+    else if(intro-music>Number(data.audioPolicy.maxIntroVsExerciseMeanGapDb??16))
+      fail('MUSIC MIX: introductory audio exceeds music by '+(intro-music).toFixed(1)+' dB.');
+    const tail=getMeanVolume(Math.max(0,expectedDuration-0.25),0.23);
+    const earlier=getMeanVolume(Math.max(0,expectedDuration-3.2),0.7);
+    if(tail===null||earlier===null)fail('MUSIC MIX: cannot measure end fade.');
+    else if(tail>earlier-3)fail('MUSIC MIX: final fade not audible (less than 3 dB reduction).');
+    console.log('Measured real MP4: intro '+intro?.toFixed(1)+' dBFS; workout music '+music.toFixed(1)+' dBFS.');
   }
 }
 
