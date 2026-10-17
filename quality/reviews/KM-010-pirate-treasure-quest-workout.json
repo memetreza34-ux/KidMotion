@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "episodeFolder": "KM-010-pirate-treasure-quest-workout",
+  "status": "PENDING_REAL_VIDEO_REVIEW",
+  "reviewMethod": "actual-mp4",
+  "videoSha256": "e8a3afa6b244b23867f4478d7f9b8b7725876c65178370f30cea40757915b8de",
+  "source": "Uploaded FINAL_VIDEO(20261017-050138).mp4; byte-identical SHA256 to FINAL_VIDEO(20261017-034542).mp4",
+  "reviewer": null,
+  "reviewedAt": null,
+  "videoPath": null,
+  "watchedWholeVideo": false,
+  "scriptChecked": false,
+  "visualsChecked": true,
+  "audioChecked": true,
+  "timingChecked": true,
+  "childSafetyChecked": false,
+  "captionsChecked": true,
+  "exportChecked": true,
+  "notes": "Preliminary whole-timeline frame sampling and actual ffprobe/FFmpeg sound analysis. NOT a completed full human signoff. Do not set REVIEWED without full individual visual/audio/child-safety check and concrete tested fixes. Screenshot in question shows another channel but no second different video is attached.",
+  "observedRuntimeSeconds": 313,
+  "technical": {
+    "video": "H.264,1920x1080,30fps",
+    "videoAverageBitrateKbps": 292,
+    "audio": "AAC stereo 48kHz",
+    "meanIntroDbfs": -21,
+    "meanExerciseDbfs": -44,
+    "averageIntroToWorkoutDifferenceDb": 23
+  },
+  "observations": [
+    {
+      "atSeconds": 0,
+      "finding": "The movie properly starts with an in-world HELLO scene rather than repeating the promotional cover.",
+      "change": "Keep cover-only scene 01 and in-world greeting scene 02 as a proven retained improvement."
+    },
+    {
+      "atSeconds": 14,
+      "finding": "Once narration ends at second 14, the music falls to roughly minus forty-four dBFS average, making the rest of the workout extremely quiet.",
+      "change": "Change the music ducking and gain for the exercise section and listen on both phone speakers and headphones, verify against actual rendered MP4."
+    },
+    {
+      "atSeconds": 194,
+      "finding": "SPYGLASS TURN says to turn shoulders but the boy also raises a hand to his eye, making shoulder movement less clear.",
+      "change": "Reject images when the pose mainly acts out a story prop instead of demonstrating the exact safe physical instruction."
+    },
+    {
+      "atSeconds": 244,
+      "finding": "LOOKOUT TIPTOES barely shows heel elevation, so viewers may not know which body movement to perform.",
+      "change": "Require a visually identifiable controlled tiny heel gap while preserving a safe steady pose and floor contact options."
+    },
+    {
+      "atSeconds": 269,
+      "finding": "CRAB SIDE STEP looks more like a shallow wide squat than a distinct sideways step, despite the on-screen instruction.",
+      "change": "Make a QA pose comparison between scene image and exact script instruction mandatory; regenerate only before approval when really necessary and authorized."
+    },
+    {
+      "atSeconds": 299,
+      "finding": "The child remains still through each twenty-second exercise and sees no actual demonstration of getting into the target hold.",
+      "change": "Design and test a safe short pose-entry motion proof of concept in a future revision rather than pretending the current still-image engine can animate."
+    }
+  ],
+  "nextActions": [
+    {
+      "kind": "required",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "action": "Set exercise-background-music gain after the introductory voice to an audible tested mix; check true segment loudness and the actual MP4 end fade."
+    },
+    {
+      "kind": "required",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "action": "Check that every photographed pose makes the exact safe exercise action immediately obvious, especially shoulder-turn, tiptoe, and side-step movements."
+    },
+    {
+      "kind": "required",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "action": "Keep consistent warm playground storyworld and the HELLO-first video opening, while introducing a more meaningful treasure-quest sense of progress."
+    },
+    {
+      "kind": "experiment",
+      "formats": [
+        "workout",
+        "learn-and-move"
+      ],
+      "action": "Prototype short safety-tested pose-entry animation clips before each twenty-second hold; requires a separately validated engine change."
+    }
+  ],
+  "analytics": {
+    "status": "UNAVAILABLE",
+    "intro30sRetention": null,
+    "averagePercentageViewed": null,
+    "majorDips": []
+  },
+  "requiredBeforeFinalApproval": "Watch entire actual MP4 with sound, verify child movements, completion of whole scene sequence and accurate captions, then sign off. Do not claim REVIEWED from frame samples and loudness alone."
+}
