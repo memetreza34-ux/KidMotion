@@ -207,7 +207,7 @@ if (fs.existsSync(episodeRoot)) {
     const completePlanning = String(data.status || '') !== 'planning-required';
     if (completePlanning) {
       const prompt = read(path.join(base, '00-bildprompts', 'google-flow-prompt.txt'));
-      const combined = JSON.stringify(data) + JSON.stringify(plan) + prompt + voiceScript + JSON.stringify(voicePlan) + read(path.join(base,'03-export','UPLOAD_METADATA.md'));
+      const combined = JSON.stringify(data) + JSON.stringify(plan) + prompt + voiceScript + JSON.stringify(voicePlan) + read(fs.existsSync(path.join(base,'99-technik','UPLOAD_METADATA.md'))?path.join(base,'99-technik','UPLOAD_METADATA.md'):path.join(base,'03-export','UPLOAD_METADATA.md'));
       if (hasPlanningPlaceholder(combined)) fail(`${entry.name}: production-ready planning still contains placeholders.`);
       const promptCount = (prompt.match(/FINAL GOOGLE FLOW PROMPT:/g) || []).length;
       if (promptCount !== contract.promptContract.finalGoogleFlowPromptBlocks) fail(`${entry.name}: expected ${contract.promptContract.finalGoogleFlowPromptBlocks} FINAL GOOGLE FLOW PROMPT blocks, found ${promptCount}.`);

@@ -328,7 +328,7 @@ write('99-technik/status.json',JSON.stringify({schemaVersion:2,contentFormat:'le
 write('00-bildprompts/google-flow-prompt.txt',prompt);
 write('01-voice-script/voice-script.txt',exactNarration+'\n');
 write('02-audio/MUSIC_BRIEF.md','# Music brief\n\nOptional light child-friendly instrumental under narration. No vocals unless the selected learning mode intentionally uses a song/chant. Narration must stay clearly intelligible.\n');
-write('03-export/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n'+placeholder('YOUTUBE TITLE')+'\n\n## Description\n'+placeholder('YOUTUBE DESCRIPTION')+'\n');
+write('99-technik/UPLOAD_METADATA.md','# Upload Metadata\n\n## YouTube Title\n'+placeholder('YOUTUBE TITLE')+'\n\n## Description\n'+placeholder('YOUTUBE DESCRIPTION')+'\n');
 write('99-technik/README.md','# '+episodeId+' — '+topic+'\n\nFormat: PURE LEARNING\nAge band: '+ageBand+'\nLearning mode: '+learningMode+'\n\nNo workout, timer, GET READY or mandatory child/mascot.\n');
 write('99-technik/ANTIGRAVITY.md','# ANTIGRAVITY — LEARNING ASSEMBLY\n\nDo not generate images in Phase 3. Use only approved learning assets and narration. Preserve the planned HOOK/TEACH/PRACTICE/REVEAL/APPLY/RECAP learning sequence. No workout timer or GET READY rules.\n');
 

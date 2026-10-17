@@ -5,26 +5,46 @@ import os from 'node:os';
 import path from 'node:path';
 import {clock,metadataFields,generateExportFiles,descriptionWithFiveHashtags} from './export-content-lib.mjs';
 
-test('time formatting and five tag limit',()=>{
- assert.equal(clock(313),'05:13');
- assert.equal(clock(8,true),'00:00:08,000');
+test('formats times and exactly five unique tags',()=>{
+ assert.equal(clock(313),'05:13');assert.equal(clock(8,true),'00:00:08,000');
  assert.equal((descriptionWithFiveHashtags('Hello #A #B #C #D #E #F').match(/#[A-Za-z0-9_]+/g)||[]).length,5);
- assert.equal(metadataFields('## YouTube Title\nABC\n## Description\nMove along!\n').title,'ABC');
+ assert.equal(metadataFields('## YouTube Title\nABC\n## Description\nEasy!\n').title,'ABC');
 });
-test('copies two YouTube fields and emits three voice SRT cues and timeline without cover',t=>{
+test('only YouTube upload text stays beside final video, while internal cues move',t=>{
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'km-export-'));
  t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
- const b=path.join(root,'episodes','KM-999-export-test');
+ const b=path.join(root,'episodes','KM-999-test-workout');
  for(const sub of ['99-technik','01-voice-script','03-export'])fs.mkdirSync(path.join(b,sub),{recursive:true});
- const scenes=[{type:'cover',scene:'01',duration:0,inVideo:false},{type:'intro',scene:'02',duration:8},{type:'safety',scene:'03',duration:4},{type:'lets-begin',scene:'04',duration:2},{type:'exercise',scene:'05',title:'STAR POSE',duration:20}];
+ const scenes=[{type:'cover',inVideo:false},{type:'intro',scene:'02',duration:8},{type:'safety',scene:'03',duration:4},{type:'lets-begin',scene:'04',duration:2},{type:'exercise',scene:'05',title:'STAR',duration:20}];
  fs.writeFileSync(path.join(b,'99-technik','episode.json'),JSON.stringify({contentFormat:'workout',introVisualPolicy:'greeting-only-v1',scenes}));
- const sections=[{startSeconds:0,endSeconds:8,text:'Hello world!'},{startSeconds:8,endSeconds:12,text:'Be safe.'},{startSeconds:12,endSeconds:14,text:'Start now.'}];
- const text=sections.map(s=>s.text).join(' ');
+ const sections=[{startSeconds:0,endSeconds:8,text:'Hello world.'},{startSeconds:8,endSeconds:12,text:'Stay safe.'},{startSeconds:12,endSeconds:14,text:'Start now.'}];
+ const text=sections.map(x=>x.text).join(' ');
  fs.writeFileSync(path.join(b,'99-technik','VOICE_PLAN.json'),JSON.stringify({exactTtsCopy:text,sections}));
  fs.writeFileSync(path.join(b,'01-voice-script','voice-script.txt'),text);
- fs.writeFileSync(path.join(b,'03-export','UPLOAD_METADATA.md'),'## YouTube Title\nAwesome Workout\n## Description\nHave fun moving! #A #B #C #D #E #F\n');
- const result=generateExportFiles({root,episodeFolder:'KM-999-export-test'});
- assert.equal(result.totalSeconds,34);assert.equal(result.hashtags,5);assert.equal(result.cues,3);
- assert.match(fs.readFileSync(path.join(b,'03-export','SUBTITLES.srt'),'utf8'),/00:00:08,000 --> 00:00:12,000/);
- assert.match(fs.readFileSync(path.join(b,'03-export','VIDEO_TIMELINE.txt'),'utf8'),/00:14 - 00:34/);
+ fs.writeFileSync(path.join(b,'03-export','UPLOAD_METADATA.md'),'## YouTube Title\nWorkout\n## Description\nFun movement! #A #B #C #D #E #F\n');
+ fs.writeFileSync(path.join(b,'03-export','YOUTUBE_TITLE.txt'),'OLD');
+ fs.writeFileSync(path.join(b,'03-export','FINAL_VIDEO.mp4'),'VIDEO MUST REMAIN');
+ const output=generateExportFiles({root,episodeFolder:'KM-999-test-workout'});
+ assert.deepEqual(output.files,['YOUTUBE_UPLOAD.txt']);assert.equal(output.totalSeconds,34);
+ assert.deepEqual(fs.readdirSync(path.join(b,'03-export')).sort(),['FINAL_VIDEO.mp4','YOUTUBE_UPLOAD.txt']);
+ const copy=fs.readFileSync(path.join(b,'03-export','YOUTUBE_UPLOAD.txt'),'utf8');
+ assert.match(copy,/TITLE:\nWorkout\n\nDESCRIPTION:/);
+ assert.equal((copy.match(/#[A-Za-z0-9_]+/g)||[]).length,5);
+ assert.match(fs.readFileSync(path.join(b,'99-technik','SUBTITLES.srt'),'utf8'),/00:00:08,000 --> 00:00:12,000/);
+ assert.ok(fs.existsSync(path.join(b,'99-technik','UPLOAD_METADATA.md')));
+ assert.ok(fs.existsSync(path.join(b,'99-technik','VIDEO_TIMELINE.txt')));
+ generateExportFiles({root,episodeFolder:'KM-999-test-workout'});
+ assert.deepEqual(fs.readdirSync(path.join(b,'03-export')).sort(),['FINAL_VIDEO.mp4','YOUTUBE_UPLOAD.txt']);
+});
+test('learning format also creates just one public text file',t=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'km-learning-export-'));
+ t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ const b=path.join(root,'episodes','KM-998-learning');
+ for(const sub of ['99-technik','03-export'])fs.mkdirSync(path.join(b,sub),{recursive:true});
+ fs.writeFileSync(path.join(b,'99-technik','episode.json'),JSON.stringify({contentFormat:'learning',scenes:[]}));
+ fs.writeFileSync(path.join(b,'99-technik','UPLOAD_METADATA.md'),'## YouTube Title\nA Kids Lesson\n## Description\nLearn happily!\n');
+ const output=generateExportFiles({root,episodeFolder:'KM-998-learning'});
+ assert.deepEqual(output.files,['YOUTUBE_UPLOAD.txt']);
+ assert.deepEqual(fs.readdirSync(path.join(b,'03-export')),['YOUTUBE_UPLOAD.txt']);
+ assert.equal((fs.readFileSync(path.join(b,'03-export','YOUTUBE_UPLOAD.txt'),'utf8').match(/#[A-Za-z0-9_]+/g)||[]).length,5);
 });

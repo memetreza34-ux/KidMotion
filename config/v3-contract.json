@@ -19,7 +19,7 @@
     "00-bildprompts/google-flow-prompt.txt",
     "01-voice-script/voice-script.txt",
     "02-audio/MUSIC_BRIEF.md",
-    "03-export/UPLOAD_METADATA.md",
+    "99-technik/UPLOAD_METADATA.md",
     "99-technik/episode.json",
     "99-technik/IMAGE_PLAN.json",
     "99-technik/RENDER_PLAN.json",

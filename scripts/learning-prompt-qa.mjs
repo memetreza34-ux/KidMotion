@@ -4,6 +4,7 @@ import {resolveEpisodePaths,readEpisodeData} from './episode-paths.mjs';
 import {loadLearningEngine,normalizeAgeBand,normalizeLearningMode,requiredRolesForMode} from './learning-engine.mjs';
 import {publishPhase1Handoff,printPhase1Links} from './phase1-links-lib.mjs';
 import {validateImprovementApplication} from './continuous-improvement-lib.mjs';
+import {generateExportFiles} from './export-content-lib.mjs';
 
 const root=process.cwd();
 const args=process.argv.slice(2);
@@ -26,7 +27,7 @@ if(data.contentFormat!=='learning') fail('Episode is not contentFormat=learning.
 
 const required=[
   '99-technik/LEARNING_PLAN.json','99-technik/IMAGE_PLAN.json','99-technik/VOICE_PLAN.json',
-  '00-bildprompts/google-flow-prompt.txt','01-voice-script/voice-script.txt','03-export/UPLOAD_METADATA.md'
+  '00-bildprompts/google-flow-prompt.txt','01-voice-script/voice-script.txt','99-technik/UPLOAD_METADATA.md'
 ];
 for(const rel of required) if(!fs.existsSync(path.join(paths.episodeRoot,rel))) fail('Missing '+rel);
 
@@ -35,7 +36,7 @@ const images=JSON.parse(read('99-technik/IMAGE_PLAN.json')||'{}');
 const voice=JSON.parse(read('99-technik/VOICE_PLAN.json')||'{}');
 const prompt=read('00-bildprompts/google-flow-prompt.txt');
 const voiceScript=read('01-voice-script/voice-script.txt').trim();
-const combined=JSON.stringify(data)+JSON.stringify(learning)+JSON.stringify(images)+JSON.stringify(voice)+prompt+read('03-export/UPLOAD_METADATA.md');
+const combined=JSON.stringify(data)+JSON.stringify(learning)+JSON.stringify(images)+JSON.stringify(voice)+prompt+read('99-technik/UPLOAD_METADATA.md');
 
 const ageBand=normalizeAgeBand(data.ageBand||learning.ageBand,engine);
 const learningMode=normalizeLearningMode(data.learningMode||learning.learningMode,engine);
@@ -141,6 +142,7 @@ if(failures.length){
   process.exit(1);
 }
 
+const publicUpload=generateExportFiles({root,episodeFolder});
 const phase1Handoff=publishPhase1Handoff({root,episodeFolder,format:'learning'});
 console.log('LEARNING PROMPT QA PASSED — '+episodeFolder);
 console.log('Age band: '+ageBand);
@@ -148,3 +150,4 @@ console.log('Learning mode: '+learningMode);
 console.log('Validated objective, facts, misconceptions, scene roles, practice/reveal, application, recap, narration and visual teaching plan.');
 
 printPhase1Links(phase1Handoff);
+console.log('ONE PUBLIC YOUTUBE TEXT: '+publicUpload.files.join(', '));
