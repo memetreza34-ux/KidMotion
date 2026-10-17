@@ -6,6 +6,7 @@ import {resolveEpisodePaths, readEpisodeData} from './episode-paths.mjs';
 import {loadContract, currentContractErrors} from './contract.mjs';
 import {humanOnlyWorkout} from './workout-character-policy.mjs';
 import {validateArtDirectionReview} from './art-direction-qa.mjs';
+import {validateStillWorkoutPlan} from './workout-still-quality.mjs';
 
 const root = process.cwd();
 const args = process.argv.slice(2);
@@ -97,6 +98,7 @@ for(const error of validateArtDirectionReview({episode:data,episodeFolder,revisi
 
 if (paths.isV2) {
   const plan = JSON.parse(fs.readFileSync(paths.imagePlanPath, 'utf8'));
+  for(const error of validateStillWorkoutPlan({episode:data,plan})) fail('STILL PHOTO WORKOUT: '+error);
   const planImages = Array.isArray(plan.images) ? plan.images : [];
   if (plan.revision !== revision) fail('IMAGE_PLAN.json revision does not match generation revision.');
   if (planImages.length !== requiredImages.length) fail(`IMAGE_PLAN.json must contain ${requiredImages.length} images, found ${planImages.length}.`);
