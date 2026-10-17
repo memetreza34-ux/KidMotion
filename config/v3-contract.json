@@ -163,7 +163,16 @@
     "structuredScenePromptsRequired": true,
     "twoSecondViewerTakeawayRequired": true,
     "sceneSpecificCompositionRequired": true,
-    "coverMayGuideIdentityAndWorldButMustNotForceLaterComposition": true
+    "coverMayGuideIdentityAndWorldButMustNotForceLaterComposition": true,
+    "introGreetingException": {
+      "policy": "greeting-overlay-frame-zero-v1",
+      "owner": "remotion",
+      "text": "HELLO!",
+      "firstFrame": 0,
+      "scene": 2,
+      "flowMustNotBakeGreeting": true,
+      "otherSceneTextRemainsGoogleFlow": true
+    }
   },
   "voiceContract": {
     "voiceFile": "Voice 01.mp3",

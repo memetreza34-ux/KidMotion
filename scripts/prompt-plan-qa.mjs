@@ -7,6 +7,7 @@ import {validateArtDirectionPrompts} from './art-direction-qa.mjs';
 import {publishPhase1Handoff,printPhase1Links} from './phase1-links-lib.mjs';
 import {generateExportFiles} from './export-content-lib.mjs';
 import {validateImprovementApplication} from './continuous-improvement-lib.mjs';
+import {checkFrameZeroGreetingPlan} from './intro-greeting-policy.mjs';
 
 const root = process.cwd();
 const contract = loadContract(root);
@@ -181,6 +182,12 @@ if(data.introVisualPolicy==='greeting-only-v1'){
   const imagePrompt=opening.split('FINAL GOOGLE FLOW PROMPT:')[1]||'';
   if(!/\bHELLO\b/i.test(imagePrompt)) fail('Szene 02 must be a small HELLO greeting.');
   if(/12 FREEZE MOVES|large episode title|giant intro title|title card/i.test(imagePrompt)) fail('Szene 02 must not repeat cover/title imagery.');
+}
+if(data.introVisualPolicy==='greeting-overlay-frame-zero-v1'){
+  const from=prompt.indexOf('SZENE 02');
+  const to=prompt.indexOf('SZENE 03',from+1);
+  const scene02=from>=0?(prompt.slice(from,to>from?to:prompt.length).split('FINAL GOOGLE FLOW PROMPT:')[1]||''):'';
+  for(const error of checkFrameZeroGreetingPlan({episode:data,scenePrompt:scene02})) fail('FRAME ZERO GREETING: '+error);
 }
 for(const error of validateArtDirectionPrompts({episode:data,plan,prompt})) fail('ART DIRECTION: '+error);
 for(const error of validateVoicePlanObject(voicePlan,contract)) fail(error);

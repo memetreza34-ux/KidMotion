@@ -108,7 +108,7 @@ const data = {
   imageGenerationRevisionRequired:revision,
   coverPolicy:{humanCoverReviewRequired:true,humanReviewFile:'99-technik/COVER_HUMAN_REVIEW.json',generateCandidatesFirst:3,candidateFiles:contract.coverContract.candidateFiles,waitForExplicitUserSelection:true,winnerFinalFile:'Szene 01.png',selectedCoverIsSoleReference:true,noLaterSceneGenerationBeforeSelection:true,deleteRejectedCandidatesAfterSelection:true},
   imageBatchPolicy:{enabled:true,batchSize:5,showBatchToUser:false,waitForExplicitUserContinue:false,autoContinueToNextBatch:true,deliverCompletedFolderAtEnd:true,batches:pipeline.batchGenerationPolicy.batches,soleReferenceEveryBatch:'Szene 01.png',secondaryImageReferencesForbidden:true,generateEachSceneExactlyOnce:true},
-  introVisualPolicy:'greeting-only-v1',coverInVideo:false,introDuration:8,introTitle:placeholder('INTRO TITLE'),introSubtitle:placeholder('INTRO SUBTITLE'),introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
+  introVisualPolicy:'greeting-overlay-frame-zero-v1',introOverlayText:'HELLO!',coverInVideo:false,introDuration:8,introTitle:placeholder('INTRO TITLE'),introSubtitle:placeholder('INTRO SUBTITLE'),introBadge:'KIDMOTION',introExtraInfo:['FOLLOW ALONG'],
   introVoiceText:placeholder('EXACT CONTINUOUS TTS COPY'),voiceScriptFormat:'plain continuous text only',
   safetyDuration:4,letsBeginDuration:2,outroDuration:4,exerciseDuration:20,getReadyDuration:5,openingDuration:14,
   voicePolicy:{openingSequenceVoiceOnly:true,voiceStartsAtIntro:true,voiceMayContinueAcrossSafety:true,voiceMayContinueAcrossLetsBegin:true,voiceMustEndBeforeFirstExercise:true,exerciseVoice:false,restVoice:false,outroVoice:false,subtitles:false,voiceCaptions:false,openingVoiceTargetSeconds:'13.65-14.00',voiceFile:'Voice 01.mp3'},
@@ -117,7 +117,7 @@ const data = {
   visibleTextPolicy:{googleFlowOwnsAllNonTimerVisibleText:true,remotionTimerOnly:true,progressBarForbidden:true,restLabelForbidden:true},
   exerciseVisualPolicy:{exerciseNameSource:'GoogleFlowImage',exerciseInstructionSource:'GoogleFlowImage',instructionBubbleSource:'GoogleFlowImage',exerciseNamePosition:'bottom-left',instructionPosition:'top-right',exerciseUiStyleSource:'prompt-defined layout only',sameUiStyleRequiredAcrossAllExercises:true,timerSafeZoneTopLeftPixels:230,remotionExerciseNameForbidden:true,remotionExerciseInstructionForbidden:true,googleFlowTimerForbidden:true,remotionProgressBarForbidden:true,remotionKenBurnsOnExerciseForbidden:true},
   restVisualPolicy:{blankScreenForbidden:true,dedicatedGetReadyImageRequired:true,reuseNextExerciseImage:false,characterMustRemainVisible:true,remotionTimerOnly:true,googleFlowOwnsGetReadyText:true,remotionRestTextForbidden:true,remotionNextPoseNameForbidden:true,remotionKenBurnsOnRestForbidden:true},
-  nonExerciseImagePolicy:{introGeneratedTextAllowed:true,safetyGeneratedTextAllowed:true,letsBeginGeneratedTextAllowed:true,outroGeneratedTextAllowed:true,googleFlowOwnsAllVisibleText:true,remotionTextOverlaysForbidden:true},
+  nonExerciseImagePolicy:{introGeneratedTextAllowed:true,safetyGeneratedTextAllowed:true,letsBeginGeneratedTextAllowed:true,outroGeneratedTextAllowed:true,googleFlowOwnsAllVisibleText:true,remotionTextOverlaysForbidden:true,remotionIntroGreetingException:true,introGoogleFlowTextForbidden:true},
   scenes,runtimeSeconds:contract.sceneContract.runtimeSeconds
 };
 
@@ -183,7 +183,7 @@ WARMTH / MOOD:
 Friendly natural expression, warm sunlight, one playful relevant accent; never sterile or abstract. ${placeholder(`SZENE ${padScene(n)} UNIQUE KID-FRIENDLY FEEL`)}
 
 TEXT / UI:
-${n===2?'Only a small friendly HELLO! greeting; NO cover-style title screen, episode name or large promotional text.':placeholder(`SZENE ${padScene(n)} TEXT UI`)}
+${n===2?'NO BAKED TEXT in this Google Flow image. Keep the LEFT side clean and quiet: Remotion adds the sole large readable HELLO! badge starting at FRAME ZERO (00:00). No letters, titles, logos, subtitles or second greeting in this PNG.':placeholder(`SZENE ${padScene(n)} TEXT UI`)}
 
 LIGHT / MATERIALS:
 ${placeholder(`SZENE ${padScene(n)} LIGHT MATERIALS`)}

@@ -126,3 +126,7 @@ Die lokale Laufzeitdatei `episodes/ACTIVE_EPISODE.json` bleibt für alte und neu
 Nach erfolgreicher Phase 1 oder nach dem Render enthält `03-export` **nur eine YouTube-Textdatei**: `YOUTUBE_UPLOAD.txt` mit dem kopierfertigen Titel und einer vollständigen Beschreibung samt genau fünf unterschiedlichen Hashtags. Zusammen mit dem echten Film `FINAL_VIDEO.mp4` und dem separaten `COVER.png` ist das der gesamte Veröffentlichungsordner.
 
 Die technischen Quelldaten `UPLOAD_METADATA.md`, die echten oder geplanten Untertitel `SUBTITLES.srt` und `VOICE_TIMESTAMPS.txt` sowie `VIDEO_TIMELINE.txt` liegen unter `99-technik` und bleiben erhalten. `npm run export:content -- --episode=KM-XXX-name` wandelt ältere Exporttexte automatisch um, entfernt nur die bekannten redundanten Textdateien, nie Videos oder Cover. Gilt künftig für Workout **und** reine Lernvideos.
+
+## Direkt Text im ersten Videoframe
+
+Neue Workouts beginnen im **ersten sichtbaren Videoframe (00:00)** mit einer gut lesbaren **HELLO!**-Begrüßung in der Szene 02. Diese Aufschrift wird ausschließlich von Remotion eingeblendet, nicht mehr vom Google-Flow-Bildgenerator. Das Flow-Bild bleibt im Hintergrund und enthält an dieser Stelle keine zweite Schrift. Szene 01 ist weiterhin nur das separate YouTube-Cover und erscheint nicht im Video. Die neue Regel gilt für neu erzeugte Episoden; ältere fertige MP4-Dateien werden nicht nachträglich verändert.

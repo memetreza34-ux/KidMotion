@@ -72,6 +72,7 @@ export const WorkoutVideo: React.FC<{workout: Workout}> = ({workout}) => {
             title={workout.introTitle ?? workout.title}
             subtitle={workout.introSubtitle ?? workout.subtitle}
             badge={workout.introBadge ?? 'KIDMOTION'}
+            greetingText={workout.introGreetingText}
           />
         </Sequence>
       ) : null}

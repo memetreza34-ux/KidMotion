@@ -18,3 +18,6 @@ After EVERY successful Phase-1 QA (workout, learning, learn-and-move), push the 
 ## Compact YouTube export
 
 After each episode, `03-export` must have ONLY `YOUTUBE_UPLOAD.txt` with title, complete description and five hashtags, plus separate real `FINAL_VIDEO.mp4` and `COVER.png` once rendered. Move SRT, voice timestamps, video timeline, and `UPLOAD_METADATA.md` to `99-technik`. Never reintroduce duplicate `YOUTUBE_TITLE.txt`, `YOUTUBE_DESCRIPTION.txt` or `YOUTUBE_KOPIEREN.txt`; the export generator is responsible for this. Retain the two direct Phase 1 source links in chat.
+
+## Mandatory immediate intro text
+After the cover selection, the first video scene (Szene 02) must provide a clean LEFT area and NO BAKED TEXT. Remotion overlays the sole HELLO! immediately from first frame. Keep scene 01 as a separate thumbnail. Use `introVisualPolicy=greeting-overlay-frame-zero-v1` and the `introOverlayText=HELLO!` field for every newly generated workout. The intro Remotion overlay must appear from video frame zero, not after an empty scene. Do not add an episode-title/cover card or duplicate the HELLO inside Flow-generated picture. Existing episodes keep the previous policy until intentionally revised.

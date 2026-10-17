@@ -53,7 +53,8 @@
     "quality:review:init": "node scripts/quality-improvement.mjs --action=review-init",
     "quality:review:check": "node scripts/quality-improvement.mjs --action=review-check",
     "quality:test": "node --test scripts/continuous-improvement.test.mjs",
-    "project:tidy": "node scripts/tidy-project.mjs"
+    "project:tidy": "node scripts/tidy-project.mjs",
+    "intro:greeting:test": "node --test scripts/intro-greeting.test.mjs"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

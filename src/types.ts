@@ -30,6 +30,7 @@ export type Workout = {
   introTitle?: string;
   introSubtitle?: string;
   introBadge?: string;
+  introGreetingText?: string;
   introCues?: IntroCue[];
   introVoice?: string;
   safetyImage?: string;
